@@ -6,7 +6,7 @@ description: 'A debugger designed for analyzing, fuzzing and reversing'
 
 ## What is it?
 
-HyperDbg is an open-source, user-mode, and kernel-mode debugger with a focus on using hardware technologies to provide new features to the debuggers’ world.
+HyperDbg debugger is an open-source, user-mode, and kernel-mode debugger with a focus on using hardware technologies to provide new features to the debuggers’ world.
 
 ![](.gitbook/assets/artboard-2.png)
 
