@@ -32,8 +32,19 @@ typedef struct _DEBUGGER_EVENT {
   BOOLEAN Enabled;
   UINT32 CoreId; // determines the core index to apply this event to, if it's
                  // 0xffffffff means that we have to apply it to all cores
-  LIST_ENTRY ActionsListHead;   // Each entry is in DEBUGGER_EVENT_ACTION struct
-  UINT32 CountOfActions;        // The total count of actions
+
+  UINT32
+      ProcessId; // determines the pid to apply this event to, if it's
+                 // 0xffffffff means that we have to apply it to all processes
+
+  LIST_ENTRY ActionsListHead; // Each entry is in DEBUGGER_EVENT_ACTION struct
+  UINT32 CountOfActions;      // The total count of actions
+
+  UINT64 OptionalParam1; // Optional parameter to be used differently by events
+  UINT64 OptionalParam2; // Optional parameter to be used differently by events
+  UINT64 OptionalParam3; // Optional parameter to be used differently by events
+  UINT64 OptionalParam4; // Optional parameter to be used differently by events
+
   UINT32 ConditionsBufferSize;  // if null, means uncoditional
   PVOID ConditionBufferAddress; // Address of the condition buffer (most of the
                                 // time at the end of this buffer)
@@ -49,11 +60,17 @@ typedef struct _DEBUGGER_EVENT {
 
 `Enabled`, shows whether the current event is enabled or not. You can enable or disable an event using `Enabled`. When you disable an event, all the actions are disabled.
 
-`CoreId`, shows the target core, each core has it's own table of events and if you specify a core number for this field then the event will only be executed into the specific core.
+`CoreId`, shows the target core, if you specify a core number for this field then the event will only be executed into the specific core.
 
 If you specify `DEBUGGER_EVENT_APPLY_TO_ALL_CORES = 0xffffffff` then the event will be executed in all cores.
 
+`ProcessId`, shows the target process, if you specify a core number for this field then the event will only be executed into the specific process.
+
+If you specify `DEBUGGER_EVENT_APPLY_TO_ALL_PROCESSES= 0xffffffff` then the event will be executed in all processes.
+
 `ActionsListHead` hold a linked list of all the actions for this event and `CountOfActions` is the count of actions available in the `ActionsListHead`.
+
+`OptionalParam1`, `OptionalParam2`, `OptionalParam3`, `OptionalParam4` are optional parameters that are event specific, for example for a hidden hook r/w `OptionalParam1` specifies the start physical address of page which is hooked and `OptionalParam2` specifies the end of hooked physical address, it is because EPT Violations happen for entire page not for a range. Other events have their special Optional Parameters too.
 
 `ConditionBufferAddress`, holds the address of a buffer which will be executed to check the condition, the size of this buffer is available in `ConditionsBufferSize` . If the `ConditionsBufferSize` is null then it means that the event is unconditional.
 
@@ -65,7 +82,7 @@ Here's its prototype,
 
 ```c
 PDEBUGGER_EVENT
-DebuggerCreateEvent(BOOLEAN Enabled, UINT32 CoreId, DEBUGGER_EVENT_TYPE_ENUM EventType, UINT64 Tag, UINT32 ConditionsBufferSize, PVOID ConditionBuffer);
+DebuggerCreateEvent(BOOLEAN Enabled, UINT32 CoreId, UINT32 ProcessId, DEBUGGER_EVENT_TYPE_ENUM EventType, UINT64 Tag, UINT32 ConditionsBufferSize, PVOID ConditionBuffer);
 ```
 
 For example we create a new event for a **`HIDDEN_HOOK_READ`** and as the condition buffer is null then it's unconditional.
@@ -78,6 +95,7 @@ For example we create a new event for a **`HIDDEN_HOOK_READ`** and as the condit
 PDEBUGGER_EVENT Event1 = DebuggerCreateEvent(
         TRUE,
         DEBUGGER_EVENT_APPLY_TO_ALL_CORES,
+        DEBUGGER_EVENT_APPLY_TO_ALL_PROCESSES,
         HIDDEN_HOOK_READ,
         0x85858585,
         0,
@@ -125,7 +143,6 @@ PDEBUGGER_CORE_EVENTS g_Events;
 `DEBUGGER_CORE_EVENTS` contains linked-list for each event for example, `Events` contain the following lists in the first release.
 
 ```c
-// Each core has one of the structure in g_GuestState
 typedef struct _DEBUGGER_CORE_EVENTS
 {
     LIST_ENTRY HiddenHookReadEventsHead;          // HIDDEN_HOOK_READ  [WARNING : MAKE SURE TO INITIALIZE LIST HEAD]
