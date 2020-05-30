@@ -119,16 +119,51 @@ Please note that **DebuggerAddActionToEvent** should not be called in vmx-root m
 
 #### How to send buffers back to usermode?
 
-If you didn't request a safe buffer then your assembly will be called in the following form.
+If you didn't request a safe buffer or even request a safe buffer then your assembly will be called in the following form.
 
 ```c
-typedef PVOID DebuggerRunCustomCodeFunc(VOID);
+typedef PVOID
+DebuggerRunCustomCodeFunc(PVOID PreAllocatedBufferAddress, PGUEST_REGS Regs, PVOID Context);
 ```
 
-If you request a safe non-paged pool buffer then your assembly will be called in the following form and as we're calling it with **fastcall** calling convention the you can expect buffer address in `RCX`. 
+If you request a safe non-paged pool buffer then your assembly will be called in the following form and as we're calling it with **fastcall** calling convention the you can expect buffer address in `RCX`.
 
 ```c
-typedef PVOID DebuggerRunCustomCodeWithPreAllocatedBufferFunc(PVOID PreAllocatedBufferAddress);
+ReturnBufferToUsermodeAddress = Func(Action->RequestedBuffer.RequstBufferAddress, Regs, Context);
+```
+
+Otherwise, `RCX` is null \(in the case, you didn't need a safe buffer\).
+
+```c
+Func(NULL, Regs, Context);
+```
+
+In the above calls, `RDX` is the structure of guest's general purpose registers, you can modify them directly and these registers will apply to the guest when it wants to continue its normal execution.
+
+`R8` \(Context\) is an optional parameter that describes the state and it's different for each event, you have to check each event's documentation to see what it is in that event.
+
+The following structures shows the state of registers in `Regs` parameter. You can modify or read the general purpose registers based on this structure as a pointer to this structure is available in `RDX`.
+
+```c
+typedef struct _GUEST_REGS
+{
+    ULONG64 rax; // 0x00
+    ULONG64 rcx;
+    ULONG64 rdx; // 0x10
+    ULONG64 rbx;
+    ULONG64 rsp; // 0x20 
+    ULONG64 rbp;
+    ULONG64 rsi; // 0x30
+    ULONG64 rdi;
+    ULONG64 r8; // 0x40
+    ULONG64 r9;
+    ULONG64 r10; // 0x50
+    ULONG64 r11;
+    ULONG64 r12; // 0x60
+    ULONG64 r13;
+    ULONG64 r14; // 0x70
+    ULONG64 r15;
+} GUEST_REGS, *PGUEST_REGS;
 ```
 
 If and only if you request a buffer then you can return with the buffer address \(return with `RAX = Buffer address`\), HyperDbg checks for the address in `RAX`, if it's a valid address then it send it to the user mode otherwise it will be ignored.
