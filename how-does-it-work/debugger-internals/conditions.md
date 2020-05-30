@@ -109,6 +109,6 @@ typedef struct _GUEST_REGS
 ```
 
 {% hint style="success" %}
-You can read other registers \(non-general purpose registers\) directly and modify them, we're not changing them or use them in debugger and hypervisor routines so reading and changing them will directly apply to the guests registers and will apply on the normal execution.
+You can read other registers \(non-general purpose registers\) directly and modify them, we're not changing them or use them in debugger and hypervisor routines so reading and changing them will directly apply to the guests registers and will apply on the normal execution \(except XMMs\).
 {% endhint %}
 
