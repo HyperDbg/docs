@@ -166,6 +166,10 @@ typedef struct _GUEST_REGS
 } GUEST_REGS, *PGUEST_REGS;
 ```
 
+{% hint style="success" %}
+You can directly read and modify them, we're not changing them or use them in debugger and hypervisor routines so reading and changing them will directly apply to the guests registers and will apply on the normal execution.
+{% endhint %}
+
 If and only if you request a buffer then you can return with the buffer address \(return with `RAX = Buffer address`\), HyperDbg checks for the address in `RAX`, if it's a valid address then it send it to the user mode otherwise it will be ignored.
 
 You can also specify other buffers \(not the buffer that was safely passed to you function.\), HyperDbg will also send this buffer to the user mode with the size that you specified in request buffer.

@@ -60,6 +60,7 @@ Look at the following example,
     PDEBUGGER_EVENT Event1 = DebuggerCreateEvent(
         TRUE,
         DEBUGGER_EVENT_APPLY_TO_ALL_CORES,
+        DEBUGGER_EVENT_APPLY_TO_ALL_PROCESSES,
         HIDDEN_HOOK_READ,
         0x85858585,
         sizeof(CondtionBuffer),
@@ -70,5 +71,44 @@ In the above example `CondtionBuffer` is the pointer to the buffer that holds th
 
 {% hint style="info" %}
 Each event can only have one condition.
+{% endhint %}
+
+The condition buffer function is called in the following form:
+
+```c
+typedef UINT64
+DebuggerCheckForCondition(PGUEST_REGS Regs, PVOID Context);
+```
+
+The above function is called where `Regs` is in `RCX` and `Context` is in `RDX`.
+
+`Regs` is the registers of the guest, you can directly modify them and it will be applied to the guest in the normal execution and you can also read these registers in this structure and the `Context` is event specific, check each event's documentation to see what is in the `Context`.
+
+The `Regs` or `RCX` is a pointer to the following structure.
+
+```c
+typedef struct _GUEST_REGS
+{
+    ULONG64 rax; // 0x00
+    ULONG64 rcx;
+    ULONG64 rdx; // 0x10
+    ULONG64 rbx;
+    ULONG64 rsp; // 0x20 
+    ULONG64 rbp;
+    ULONG64 rsi; // 0x30
+    ULONG64 rdi;
+    ULONG64 r8; // 0x40
+    ULONG64 r9;
+    ULONG64 r10; // 0x50
+    ULONG64 r11;
+    ULONG64 r12; // 0x60
+    ULONG64 r13;
+    ULONG64 r14; // 0x70
+    ULONG64 r15;
+} GUEST_REGS, *PGUEST_REGS;
+```
+
+{% hint style="success" %}
+You can read other registers \(non-general purpose registers\) directly and modify them, we're not changing them or use them in debugger and hypervisor routines so reading and changing them will directly apply to the guests registers and will apply on the normal execution.
 {% endhint %}
 
