@@ -18,3 +18,7 @@ Here's a HyperDbg cat without text.
 
 ![HyperDbg 3](../.gitbook/assets/hyperdbg.png)
 
+Here's a HyperDbg Sticker :
+
+![HyperDbg&apos;s First Release Sticker](../.gitbook/assets/hyperdbg-cat.circle.png)
+
