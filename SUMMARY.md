@@ -60,7 +60,7 @@
 
 ## How does it work?
 
-* [Features Design](how-does-it-work/features-design.md)
+* [Features](how-does-it-work/features.md)
 * [Debugger Internals](how-does-it-work/debugger-internals/README.md)
   * [Events](how-does-it-work/debugger-internals/events.md)
   * [Conditions](how-does-it-work/debugger-internals/conditions.md)
