@@ -15,11 +15,6 @@
   * [How to create a condition?](using-hyperdbg/prerequisites/how-to-create-a-condition.md)
   * [How to create an action?](using-hyperdbg/prerequisites/how-to-create-an-action.md)
 * [Examples](using-hyperdbg/examples.md)
-* [Features](using-hyperdbg/features/README.md)
-  * [Hidden Hooks](using-hyperdbg/features/hidden-hooks/README.md)
-    * [Execution Hook](using-hyperdbg/features/hidden-hooks/execution-hook.md)
-    * [R/W Hook](using-hyperdbg/features/hidden-hooks/r-w-hook.md)
-  * [Syscall Hook](using-hyperdbg/features/syscall-hook.md)
 
 ## Tips & Tricks
 
@@ -58,13 +53,13 @@
 * [Doxygen Style](style-guide/doxygen-style.md)
 * [Logo & Artworks](style-guide/logo.md)
 
-## How does it work?
+## Design
 
-* [Features](how-does-it-work/features.md)
-* [Debugger Internals](how-does-it-work/debugger-internals/README.md)
-  * [Events](how-does-it-work/debugger-internals/events.md)
-  * [Conditions](how-does-it-work/debugger-internals/conditions.md)
-  * [Actions](how-does-it-work/debugger-internals/actions.md)
+* [Features](design/features.md)
+* [Debugger Internals](design/debugger-internals/README.md)
+  * [Events](design/debugger-internals/events.md)
+  * [Conditions](design/debugger-internals/conditions.md)
+  * [Actions](design/debugger-internals/actions.md)
 
 ## Links
 
