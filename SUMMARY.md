@@ -64,7 +64,7 @@
 ## Links
 
 * [Twitter](https://twitter.com/HyperDbg)
-* [Releases](https://github.com/SinaKarvandi/HyperDbg/releases)
+* [Releases](https://github.com/HyperDbg/HyperDbg/releases)
 * [Doxygen](https://doxygen.hyperdbg.com/)
 * [Contribution](https://github.com/HyperDbg/HyperDbg/blob/master/CONTRIBUTING.md)
 * [Blog](https://rayanfam.com/)
