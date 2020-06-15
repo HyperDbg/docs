@@ -8,6 +8,7 @@
 * [Attach to HyperDbg](getting-started/attach-to-hyperdbg/README.md)
   * [Attach to remote machine](getting-started/attach-to-hyperdbg/attach-to-remote-machine.md)
   * [Attach to local machine](getting-started/attach-to-hyperdbg/attach-to-local-machine.md)
+* [Quick Start](getting-started/quick-start.md)
 
 ## Using HyperDbg
 
@@ -15,11 +16,6 @@
   * [How to create a condition?](using-hyperdbg/prerequisites/how-to-create-a-condition.md)
   * [How to create an action?](using-hyperdbg/prerequisites/how-to-create-an-action.md)
 * [Examples](using-hyperdbg/examples.md)
-
-## Tips & Tricks
-
-* [Considerations](tips-and-tricks/considerations/README.md)
-  * [The "unsafe" behavior](tips-and-tricks/considerations/the-unsafe-behavior.md)
 
 ## Commands
 
@@ -45,6 +41,11 @@
   * [!hiddenhook \(hidden hook with EPT\)](commands/extension-commands/hiddenhook.md)
   * [!monitor \(monitor read/write to a page\)](commands/extension-commands/monitor.md)
   * [!syscallhook \(hook system-calls\)](commands/extension-commands/syscallhook.md)
+
+## Tips & Tricks
+
+* [Considerations](tips-and-tricks/considerations/README.md)
+  * [The "unsafe" behavior](tips-and-tricks/considerations/the-unsafe-behavior.md)
 
 ## Style Guide
 
