@@ -22,3 +22,5 @@ Here's a HyperDbg Sticker :
 
 ![HyperDbg&apos;s First Release Sticker](../.gitbook/assets/hyperdbg-cat.circle.png)
 
+![HyperDbg&apos;s First Release Paint](../.gitbook/assets/hyperdbg-cat.jpg)
+
