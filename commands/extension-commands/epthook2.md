@@ -30,60 +30,6 @@ This implementation of hidden hook won't cause vm-exit when it triggers, it's li
 
           Regular event parameters used in HyperDbg events.
 
-{% hint style="danger" %}
-Process ID doesn't make sense in physical memory. If you specify **pid** then it ignored.
-{% endhint %}
-
-### Examples
-
-The following command is used when we want to disassemble the content of memory at **`1000`** with length of `0x50`bytes.
-
-```diff
-HyperDbg >!u 1000 l 50
-00000000`00001000 0B 00                               or eax, dword ptr ds:[rax]
-00000000`00001002 00 00                               add byte ptr ds:[rax], al
-00000000`00001004 00 00                               add byte ptr ds:[rax], al
-00000000`00001006 00 00                               add byte ptr ds:[rax], al
-00000000`00001008 00 00                               add byte ptr ds:[rax], al
-00000000`0000100a 86 80 D3 10 02 00                   xchg byte ptr ds:[rax+0x210D3], al
-00000000`00001010 00 06                               add byte ptr ds:[rsi], al
-00000000`00001012 01 01                               add dword ptr ds:[rcx], eax
-00000000`00001014 00 00                               add byte ptr ds:[rax], al
-00000000`00001016 00 00                               add byte ptr ds:[rax], al
-00000000`00001018 03 01                               add eax, dword ptr ds:[rcx]
-00000000`0000101a 00 00                               add byte ptr ds:[rax], al
-00000000`0000101c 00 00                               add byte ptr ds:[rax], al
-00000000`0000101e 00 00                               add byte ptr ds:[rax], al
-00000000`00001020 00 10                               add byte ptr ds:[rax], dl
-00000000`00001022 FA                                  cli
-00000000`00001023 39 00                               cmp dword ptr ds:[rax], eax
-00000000`00001025 F8                                  clc
-```
-
-The following example shows the assembly content of memory at `1000`.
-
-```diff
-HyperDbg >!u 1000
-00000000`00001000 0B 00                               or eax, dword ptr ds:[rax]
-00000000`00001002 00 00                               add byte ptr ds:[rax], al
-00000000`00001004 00 00                               add byte ptr ds:[rax], al
-00000000`00001006 00 00                               add byte ptr ds:[rax], al
-00000000`00001008 00 00                               add byte ptr ds:[rax], al
-00000000`0000100a 86 80 D3 10 02 00                   xchg byte ptr ds:[rax+0x210D3], al
-00000000`00001010 00 06                               add byte ptr ds:[rsi], al
-00000000`00001012 01 01                               add dword ptr ds:[rcx], eax
-00000000`00001014 00 00                               add byte ptr ds:[rax], al
-00000000`00001016 00 00                               add byte ptr ds:[rax], al
-00000000`00001018 03 01                               add eax, dword ptr ds:[rcx]
-00000000`0000101a 00 00                               add byte ptr ds:[rax], al
-00000000`0000101c 00 00                               add byte ptr ds:[rax], al
-00000000`0000101e 00 00                               add byte ptr ds:[rax], al
-00000000`00001020 00 10                               add byte ptr ds:[rax], dl
-00000000`00001022 FA                                  cli
-00000000`00001023 39 00                               cmp dword ptr ds:[rax], eax
-00000000`00001025 F8                                  clc
-```
-
 ### IOCTL
 
 This function works by calling **DeviceIoControl** with `IOCTL = IOCTL_DEBUGGER_READ_MEMORY` , you have to send it in the following structure.
@@ -145,7 +91,9 @@ HyperDbg uses [Zydis](https://zydis.re/) as its core disassembler.
 
 ### Requirements
 
-None
+Post-Nehalem Processor \(EPT\)
+
+Processor with Execute-only Pages Support
 
 ### Related
 
