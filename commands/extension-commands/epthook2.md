@@ -28,7 +28,13 @@ This implementation of hidden hook won't cause vm-exit when it triggers, it's li
 
 \[event options\]
 
-          Regular event parameters used in HyperDbg events.
+          Regular event parameters used in HyperDbg events. \(For more information read [this ](https://docs.hyperdbg.com/using-hyperdbg/prerequisites)topic\)
+
+### Break to Debugger
+
+### Log the State
+
+### Run Custom Code
 
 ### IOCTL
 
