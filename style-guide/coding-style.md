@@ -33,3 +33,9 @@ Please put the comment in this style.
 
 All global variables should start with `g_` for example `g_GuestState`.
 
+### File Names
+
+For drivers, file names start with a capital case character.
+
+For user-mode codes, file names start with lower case characters. 
+
