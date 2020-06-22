@@ -1,5 +1,5 @@
 ---
-description: Description of '!hiddenhook' command in HyperDbg.
+description: Description of '!epthook2' command in HyperDbg.
 ---
 
 # !epthook2 \(hidden hook with EPT - Detours\)

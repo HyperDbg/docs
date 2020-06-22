@@ -41,6 +41,7 @@
   * [!epthook2 \(hidden hook with EPT - Detours\)](commands/extension-commands/epthook2.md)
   * [!monitor \(monitor read/write to a page\)](commands/extension-commands/monitor.md)
   * [!syscall \(hook system-calls\)](commands/extension-commands/syscall.md)
+  * [!sysret \(hook sysret instruction execution\)](commands/extension-commands/sysret-hook-sysret-instruction-execution.md)
 
 ## Tips & Tricks
 
