@@ -72,6 +72,7 @@
   * [Events](design/debugger-internals/events.md)
   * [Conditions](design/debugger-internals/conditions.md)
   * [Actions](design/debugger-internals/actions.md)
+  * [IOCTL Requests for Events](design/debugger-internals/ioctl-requests-for-events.md)
 
 ## Links
 
