@@ -12,7 +12,7 @@ For structures and enum names you should write them all in capital characters an
 
 ### Clang Format
 
-We use [this ](https://github.com/SinaKarvandi/HyperDbg/blob/master/hyperdbg/hprdbghv/.clang-format)clang format for writing codes in our C driver.
+We use [this ](https://github.com/HyperDbg/HyperDbg/blob/master/hyperdbg/hprdbghv/.clang-format)clang format for writing codes in our C driver.
 
 Please make sure to format the code using clang format's visual studio extension or clang command-line tools.
 
