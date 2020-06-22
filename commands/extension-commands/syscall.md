@@ -2,5 +2,5 @@
 description: Description of '!syscallhook' command in HyperDbg.
 ---
 
-# !syscallhook \(hook system-calls\)
+# !syscall \(hook system-calls\)
 

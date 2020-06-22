@@ -2,7 +2,7 @@
 description: Description of '!hiddenhook' command in HyperDbg.
 ---
 
-# !hiddenhook \(hidden hook with EPT\)
+# !epthook2 \(hidden hook with EPT - Detours\)
 
 This is a command
 
