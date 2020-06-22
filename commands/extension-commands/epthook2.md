@@ -32,7 +32,7 @@ This implementation of hidden hook won't cause vm-exit when it triggers, it's li
 
 ### IOCTL
 
-This command uses the same method to [send IOCTL for regular events](https://docs.hyperdbg.com/design/debugger-internals/ioctl-requests-for-events). Use `HIDDEN_HOOK_EXEC_DETOURS` as **EventType**.
+This command uses the same method to [send IOCTL for regular events](https://docs.hyperdbg.com/design/debugger-internals/ioctl-requests-for-events). Use `HIDDEN_HOOK_EXEC_DETOURS` as **EventType**, ****and send the address of where you want to hook in `OptionalParam1`in **DEBUGGER\_GENERAL\_EVENT\_DETAIL**.
 
 ### **Remarks**
 
