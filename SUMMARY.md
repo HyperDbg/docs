@@ -46,12 +46,12 @@
   * [!msrread \(hook RDMSR instruction execution\)](commands/extension-commands/msrread.md)
   * [!msrwrite \(hook WRMSR instruction execution\)](commands/extension-commands/msrwrite.md)
   * [!tsc \(hook RDTSC/RDTSCP instruction execution\)](commands/extension-commands/tsc.md)
-  * [!pmc \(hook RDPMC instruction execution\)](commands/extension-commands/pmc-hook-rdpmc-instruction-execution.md)
-  * [!exception \(hook first 32 entries of IDT\)](commands/extension-commands/exception-hook-first-32-entries-of-idt.md)
-  * [!interrupt \(hook external device interrupts\)](commands/extension-commands/interrupt-hook-external-device-interrupts.md)
-  * [!dr \(hook access to debug registers\)](commands/extension-commands/dr-hook-access-to-debug-registers.md)
-  * [!ioin \(hook IN instruction execution\)](commands/extension-commands/ioin-hook-in-instruction-execution.md)
-  * [!ioout \(hook OUT instruction execution\)](commands/extension-commands/ioout-hook-out-instruction-execution.md)
+  * [!pmc \(hook RDPMC instruction execution\)](commands/extension-commands/pmc.md)
+  * [!exception \(hook first 32 entries of IDT\)](commands/extension-commands/exception.md)
+  * [!interrupt \(hook external device interrupts\)](commands/extension-commands/interrupt.md)
+  * [!dr \(hook access to debug registers\)](commands/extension-commands/dr.md)
+  * [!ioin \(hook IN instruction execution\)](commands/extension-commands/ioin.md)
+  * [!ioout \(hook OUT instruction execution\)](commands/extension-commands/ioout.md)
 
 ## Tips & Tricks
 
