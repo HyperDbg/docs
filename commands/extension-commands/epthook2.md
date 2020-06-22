@@ -79,15 +79,9 @@ typedef enum _DEBUGGER_SHOW_MEMORY_STYLE { DEBUGGER_SHOW_COMMAND_DISASSEMBLE, DE
 
 ### **Remarks**
 
-* If you don't specify the length, the default length for HyperDbg is 0x40 Bytes.
+This command is much faster than **!epthook**, but it has the following limitations:
 
-{% hint style="warning" %}
-Please note that you should specify space between 'l' and the length, for HyperDbg for example 'l10' is invalid but 'l 10' is valid. \(It's opposes to windbg\).
-{% endhint %}
-
-{% hint style="success" %}
-HyperDbg uses [Zydis](https://zydis.re/) as its core disassembler.
-{% endhint %}
+* gg
 
 ### Requirements
 
@@ -96,4 +90,6 @@ Post-Nehalem Processor \(EPT\)
 Processor with Execute-only Pages Support
 
 ### Related
+
+None
 
