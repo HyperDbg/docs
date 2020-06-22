@@ -43,6 +43,10 @@
   * [!syscall \(hook system-calls\)](commands/extension-commands/syscall.md)
   * [!sysret \(hook SYSRET instruction execution\)](commands/extension-commands/sysret.md)
   * [!cpuid \(hook CPUID instruction execution\)](commands/extension-commands/cpuid.md)
+  * [!msrread \(hook RDMSR instruction execution\)](commands/extension-commands/msrread.md)
+  * [!msrwrite \(hook WRMSR instruction execution\)](commands/extension-commands/msrwrite.md)
+  * [!tsc \(hook RDTSC/RDTSCP instruction execution\)](commands/extension-commands/tsc.md)
+  * [!pmc \(hook RDPMC instruction execution\)](commands/extension-commands/pmc-hook-rdpmc-instruction-execution.md)
 
 ## Tips & Tricks
 
