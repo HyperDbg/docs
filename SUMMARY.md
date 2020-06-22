@@ -47,6 +47,7 @@
   * [!msrwrite \(hook WRMSR instruction execution\)](commands/extension-commands/msrwrite.md)
   * [!tsc \(hook RDTSC/RDTSCP instruction execution\)](commands/extension-commands/tsc.md)
   * [!pmc \(hook RDPMC instruction execution\)](commands/extension-commands/pmc-hook-rdpmc-instruction-execution.md)
+  * [!exception \(hook first 32 entries of IDT\)](commands/extension-commands/exception-hook-first-32-entries-of-idt.md)
 
 ## Tips & Tricks
 
