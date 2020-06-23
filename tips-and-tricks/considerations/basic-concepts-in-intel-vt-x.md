@@ -31,7 +31,11 @@ The VMCS consists of six logical groups:
 *  VM-entry control fields: Fields that control VM entries.
 *  VM-exit information fields: Read-only fields to receive information on VM exits describing the cause and the nature of the VM exit.
 
-I found a great work which illustrates the VMCS, The PDF version is also available [here](https://rayanfam.com/wp-content/uploads/sites/2/2018/08/VMCS.pdf). ![VMCS](https://rayanfam.com/wp-content/uploads/sites/2/2018/08/VMCS-page-001-1.jpeg)![VMCS](https://rayanfam.com/wp-content/uploads/sites/2/2018/08/VMCS-page-002-1.jpg)
+I found a great work which illustrates the VMCS, The PDF version is also available [here](https://rayanfam.com/wp-content/uploads/sites/2/2018/08/VMCS.pdf). 
+
+![VMCS Layout](../../.gitbook/assets/vmcs-page-001-1.jpeg)
+
+![VMCS Layout](../../.gitbook/assets/vmcs-page-002-1.jpg)
 
 Don’t worry about the fields, I’ll explain most of them clearly in the later parts, just remember VMCS Structure varies between different version of a processor.
 
@@ -57,7 +61,7 @@ VMX introduces the following new instructions.
 
 #### **Life Cycle of VMM Software**
 
-![VM Cycle](https://rayanfam.com/wp-content/uploads/sites/2/2018/08/vmm-life-cycle.png)
+![VM Cycle](../../.gitbook/assets/vmm-life-cycle.png)
 
 * The following items summarize the life cycle of a VMM and its guest software as well as the interactions between them:
   * Software enters VMX operation by executing a VMXON instruction.
