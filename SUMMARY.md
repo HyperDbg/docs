@@ -70,7 +70,8 @@
 
 ## Design
 
-* [Features](design/features.md)
+* [Features](design/features/README.md)
+  * [!monitor Design](design/features/monitor-design.md)
 * [Debugger Internals](design/debugger-internals/README.md)
   * [Events](design/debugger-internals/events.md)
   * [Conditions](design/debugger-internals/conditions.md)
