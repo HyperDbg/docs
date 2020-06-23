@@ -12,7 +12,7 @@ It’s because it’s so tricky to manage codes in vmx root-mode and as HyperDbg
 
 It is because in vmx-root mode interrupts are masked \(disabled\), or transfer buffer from vmx root-mode to vmx non-root mode needs extra effort, and we should be cautious and avoid executing some APIs to be safe.
 
-HyperDbg provides you  a way of safely accessing a non-paged pool in user, kernel, and vmx-root and it sends the buffer to the user mode and HyperDbg itself in a safe manner. 
+HyperDbg provides you a way of safely accessing a non-paged pool in user, kernel, and vmx-root and it sends the buffer to the user mode and HyperDbg itself in a safe manner. 
 
 ### Things we should never do
 
