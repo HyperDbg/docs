@@ -36,6 +36,12 @@ This implementation of hidden hook won't cause vm-exit when it triggers, it's li
 
 ### Run Custom Code
 
+{% hint style="warning" %}
+Your custom code will be executed in vmx non-root. Take a look at this topic for more information. 
+{% endhint %}
+
+
+
 ### IOCTL
 
 This command uses the same method to [send IOCTL for regular events](https://docs.hyperdbg.com/design/debugger-internals/ioctl-requests-for-events). 
