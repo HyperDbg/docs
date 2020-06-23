@@ -57,6 +57,7 @@
 ## Tips & Tricks
 
 * [Considerations](tips-and-tricks/considerations/README.md)
+  * [Basic Concepts in Intel VT-x](tips-and-tricks/considerations/basic-concepts-in-intel-vt-x.md)
   * [VMX root-mode vs VMX non-root mode](tips-and-tricks/considerations/vmx-root-mode-vs-vmx-non-root-mode.md)
   * [The "unsafe" behavior](tips-and-tricks/considerations/the-unsafe-behavior.md)
 
