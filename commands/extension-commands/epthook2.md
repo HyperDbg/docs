@@ -2,7 +2,7 @@
 description: Description of '!epthook2' command in HyperDbg.
 ---
 
-# !epthook2 \(hidden hook with EPT - Detours\)
+# !epthook2 \(hidden hook with EPT - detours\)
 
 ### Command
 
@@ -59,5 +59,5 @@ Processor with Execute-only Pages Support
 
 ### Related
 
-None
+[!epthook \(hidden hook with EPT - stealth breakpoints\)](https://docs.hyperdbg.com/commands/extension-commands/epthook)
 
