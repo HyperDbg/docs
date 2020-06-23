@@ -37,7 +37,7 @@ This implementation of hidden hook won't cause vm-exit when it triggers, it's li
 ### Run Custom Code
 
 {% hint style="warning" %}
-Your custom code will be executed in vmx non-root. Take a look at this topic for more information. 
+Your custom code will be executed in vmx non-root. Take a look at [this topic](https://docs.hyperdbg.com/tips-and-tricks/considerations/vmx-root-mode-vs-vmx-non-root-mode) for more information. 
 {% endhint %}
 
 {% hint style="danger" %}
