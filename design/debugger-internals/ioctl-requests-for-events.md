@@ -87,6 +87,16 @@ If you want to use the debugger features, you should connect the `CommandsEventL
 
 **OptionalParamX** is different in the case of each command, for example in **!epthook2** you should send the address of where you want to hook to the kernel as **OptionalParam1**, you have to check each command's manual to see what are its specific **OptionalParam**\(s\).
 
+**Tag** is an ID that you can use it later in action. 
+
+**IsEnabled** has a user-mode usage to trace whether the event is enabled or not.
+
+**CommandStringBuffer** is the string of the command you can ignore it.
+
+If your event contains a condition buffer \(`ConditionBufferSize != 0`\), you can use set the size if `ConditionBufferSize` and append the buffer to the end of the above structure and when you send the buffer to the kernel, you should send the `sizeof(DEBUGGER_GENERAL_EVENT_DETAIL)+ ConditionBufferSize (if any)`.
+
+Finally, you can send it to the kernel by using the following function.
+
 ```c
 /**
  * @brief Register the event to the kernel
@@ -96,7 +106,18 @@ SendEventToKernel(PDEBUGGER_GENERAL_EVENT_DETAIL Event,
                   UINT32 EventBufferLength);
 ```
 
- 
+ If you want to send it directly using IOCTL, you can use the following IOCTL :
+
+```c
+#define IOCTL_DEBUGGER_REGISTER_EVENT                                          \
+  CTL_CODE(FILE_DEVICE_UNKNOWN, 0x806, METHOD_BUFFERED, FILE_ANY_ACCESS)
+```
+
+After sending the above event to the kernel, now you should chain an action or multiple actions to the event.
+
+You should fill the following structure to send a "**Break to Debugger**", "**Log the States**" and "**Run Custom Code**" t the kernel, for example, you can append the buffer of custom code after this structure and send them together to the kernel.
+
+Also, **EventTag** is the unique ID that we sent previously in the event. 
 
 ```c
 //
@@ -114,6 +135,8 @@ typedef struct _DEBUGGER_GENERAL_ACTION {
 } DEBUGGER_GENERAL_ACTION, *PDEBUGGER_GENERAL_ACTION;
 ```
 
+You can send the action to the kernel using the following function. Make sure to send the `sizeof(DEBUGGER_GENERAL_ACTION)+ Size of Custom code (if any)` to the following function.
+
 ```c
 /**
  * @brief Register the action to the event
@@ -123,10 +146,7 @@ RegisterActionToEvent(PDEBUGGER_GENERAL_ACTION Action,
                       UINT32 ActionsBufferLength);
 ```
 
-```c
-#define IOCTL_DEBUGGER_REGISTER_EVENT                                          \
-  CTL_CODE(FILE_DEVICE_UNKNOWN, 0x806, METHOD_BUFFERED, FILE_ANY_ACCESS)
-```
+If you want to register the action to the event directly using `DeviceIoControl`, you can use the following IOCTL.
 
 ```c
 #define IOCTL_DEBUGGER_ADD_ACTION_TO_EVENT                                     \
