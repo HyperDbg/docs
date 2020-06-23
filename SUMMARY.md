@@ -57,8 +57,8 @@
 ## Tips & Tricks
 
 * [Considerations](tips-and-tricks/considerations/README.md)
-  * [The "unsafe" behavior](tips-and-tricks/considerations/the-unsafe-behavior.md)
   * [VMX root-mode vs VMX non-root mode](tips-and-tricks/considerations/vmx-root-mode-vs-vmx-non-root-mode.md)
+  * [The "unsafe" behavior](tips-and-tricks/considerations/the-unsafe-behavior.md)
 
 ## Style Guide
 
