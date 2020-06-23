@@ -2,7 +2,7 @@
 description: Design of !monitor command
 ---
 
-# !monitor Design
+# Design of !monitor
 
 The implementation of monitor command is derived from our [Hypervisor From Scratch \(Part 8\)](https://rayanfam.com/topics/hypervisor-from-scratch-part-8/). 
 

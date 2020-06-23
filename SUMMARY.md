@@ -71,7 +71,7 @@
 ## Design
 
 * [Features](design/features/README.md)
-  * [!monitor Design](design/features/monitor-design.md)
+  * [Design of !monitor](design/features/design-of-monitor.md)
 * [Debugger Internals](design/debugger-internals/README.md)
   * [Events](design/debugger-internals/events.md)
   * [Conditions](design/debugger-internals/conditions.md)
