@@ -38,6 +38,7 @@
   * [!pte \(display page-level address and entries\)](commands/extension-commands/pte.md)
   * [!db, !dc, !dd, !dq \(read physical memory\)](commands/extension-commands/d.md)
   * [!u \(disassemble physical address\)](commands/extension-commands/u.md)
+  * [!epthook \(hidden hook with EPT - stealth breakpoints\)](commands/extension-commands/epthook.md)
   * [!epthook2 \(hidden hook with EPT - Detours\)](commands/extension-commands/epthook2.md)
   * [!monitor \(monitor read/write to a page\)](commands/extension-commands/monitor.md)
   * [!syscall \(hook system-calls\)](commands/extension-commands/syscall.md)
