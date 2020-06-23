@@ -71,8 +71,8 @@
 ## Design
 
 * [Features](design/features/README.md)
-  * [Design of !monitor](design/features/design-of-monitor.md)
   * [Design of !epthook2](design/features/design-of-epthook2.md)
+  * [Design of !monitor](design/features/design-of-monitor.md)
 * [Debugger Internals](design/debugger-internals/README.md)
   * [Events](design/debugger-internals/events.md)
   * [Conditions](design/debugger-internals/conditions.md)
