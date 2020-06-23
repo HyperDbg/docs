@@ -41,7 +41,7 @@ Your custom code will be executed in vmx non-root. Take a look at [this topic](h
 {% endhint %}
 
 {% hint style="danger" %}
-You should avoid doing, what considered "[unsafe](https://docs.hyperdbg.com/tips-and-tricks/considerations/the-unsafe-behavior)" behavior in vmx-root.
+You should avoid doing, what considered ["unsafe" behavior](https://docs.hyperdbg.com/tips-and-tricks/considerations/the-unsafe-behavior) in vmx-root.
 {% endhint %}
 
 ### IOCTL
