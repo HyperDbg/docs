@@ -18,7 +18,7 @@ There are some keywords that will be frequently used in the rest of these series
 
 **Extended Page Table \(EPT\)**: A modern mechanism which uses a second layer for converting the guest physical address to host physical address.
 
-**VM exits**: Transitions from VMX non-root operation to VMX root operation.
+**VM-exits**: Transitions from VMX non-root operation to VMX root operation.
 
 **Virtual machine control structure \(VMCS\)**: is a data structure in memory that exists exactly once per VM \(or more precisely one per each VCPU \[Virtual CPU\]\), while it is managed by the VMM. With every change of the execution context between different VMs, the VMCS is restored for the current VM, defining the state of the VM’s virtual processor and VMM control Guest software using VMCS.
 
