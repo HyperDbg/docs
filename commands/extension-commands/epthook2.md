@@ -30,6 +30,14 @@ This implementation of hidden hook won't cause vm-exit when it triggers, it's li
 
           Regular event parameters used in HyperDbg events. \(For more information read [this ](https://docs.hyperdbg.com/using-hyperdbg/prerequisites)topic\)
 
+### Design
+
+Take a look at "[Design of !epthook2](https://docs.hyperdbg.com/design/features/design-of-epthook2)" to see how does it work.
+
+### Context
+
+As the context \(`r8` register\) to the event trigger, we send the **physical** address of where put the hidden hook's breakpoint.
+
 ### Break to Debugger 
 
 ### Log the State
@@ -44,17 +52,11 @@ Your custom code will be executed in vmx non-root. Take a look at [this topic](h
 
 #### Unconditional
 
-
-
 ### IOCTL
 
 This command uses the same method to [send IOCTL for regular events](https://docs.hyperdbg.com/design/debugger-internals/ioctl-requests-for-events). 
 
 Use `HIDDEN_HOOK_EXEC_DETOURS` as **EventType**, ****and send the address of where you want to hook in `OptionalParam1`in **DEBUGGER\_GENERAL\_EVENT\_DETAIL**.
-
-### Design
-
-Take a look at "[Design of !epthook2](https://docs.hyperdbg.com/design/features/design-of-epthook2)" to see how does it work.
 
 ### **Remarks**
 
