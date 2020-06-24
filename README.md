@@ -2,7 +2,7 @@
 description: 'A debugger designed for analyzing, fuzzing and reversing'
 ---
 
-# HyperDbg Debugger
+# HyperDbg
 
 ## What is it?
 

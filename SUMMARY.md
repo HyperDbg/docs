@@ -1,6 +1,6 @@
 # Table of contents
 
-* [HyperDbg Debugger](README.md)
+* [HyperDbg](README.md)
 
 ## Getting Started
 
