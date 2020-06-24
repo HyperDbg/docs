@@ -34,6 +34,8 @@ This implementation of hidden hook won't cause vm-exit when it triggers, it's li
 
 As the **Context** \(**`r8`** in custom code and **`rdx`** in condition code register\) to the event trigger, we send the **physical** address of where put the hidden hook's breakpoint.
 
+Read "[How to create a condition?](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition)" and "[How to create an action?](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action)" for more information.
+
 ### Break to Debugger 
 
 ### Log the State
