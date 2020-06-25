@@ -78,6 +78,7 @@
   * [Conditions](design/debugger-internals/conditions.md)
   * [Actions](design/debugger-internals/actions.md)
   * [IOCTL Requests for Events](design/debugger-internals/ioctl-requests-for-events.md)
+  * [VMX root-mode Compatible Message Tracing](design/debugger-internals/vmx-root-mode-compatible-message-tracing.md)
 
 ## Links
 
