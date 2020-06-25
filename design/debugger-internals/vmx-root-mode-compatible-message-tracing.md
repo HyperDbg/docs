@@ -4,7 +4,7 @@ description: >-
   debugger
 ---
 
-# VMX root-mode Compatible Message Tracing
+# VMX Root-mode Compatible Message Tracing
 
 The message tracing is derived from our [Hypervisor From Scratch 8](https://rayanfam.com/topics/hypervisor-from-scratch-part-8/) :
 
