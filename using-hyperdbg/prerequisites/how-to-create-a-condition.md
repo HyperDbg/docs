@@ -16,13 +16,13 @@ For example, let's imagine we want to create a condition for a command like "**!
 
 When you execute the command like :
 
-```text
+```c
 !epthook fffff801deadbeef 
 ```
 
 then it is unconditional but when you execute a command like this :
 
-```text
+```c
 !epthook fffff801deadbeef condition { 90 90 90 90 }
 ```
 
@@ -32,7 +32,7 @@ then it is a conditional command.
 Note that you can use all of the events in the same way \(instead of **!epthook**\), for example, you can use **!syscall, !sysret, !epthook2, !ioin** and etc.
 {% endhint %}
 
-### Examples
+### Example 1
 
 Imagine we want to check for the name of the process and only and only if the name contains the "svchost.exe" then trigger the event's action\(s\).
 
@@ -56,5 +56,42 @@ The offsets of EPROCESS and other structures might change in the different versi
 
 Now we should assemble the above code into its hex representation in the assembly. For example, you can use an [online assembler](http://defuse.ca/online-x86-assembler.htm). 
 
-Keep in mind that if you return with rax=0 then it means false and if your return anything other than zero \(for example rax=1\) then it means true.
+Keep in mind that if you return with `rax=0` or `null` then it means **false** and if your return anything other than zero \(for example `rax=1`\) then it means **true**.
+
+If you return true then all the actions of that event will be executed and if you return **false**, then HyperDbg ignores the actions of that event.
+
+The final result of the assembler is :
+
+```c
+0:  65 48 8b 04 25 88 01    mov    rax,QWORD PTR gs:0x188
+7:  00 00
+9:  48 8b 80 b8 00 00 00    mov    rax,QWORD PTR [rax+0xb8]
+10: 48 8b 80 50 04 00 00    mov    rax,QWORD PTR [rax+0x450]
+17: 48 b9 73 76 63 68 6f    movabs rcx,0x2e74736f68637673
+1e: 73 74 2e
+21: 48 39 c8                cmp    rax,rcx
+24: 74 05                   je     2b <ReturnTrue>
+26: 48 31 c0                xor    rax,rax
+29: eb 07                   jmp    32 <Return>
+000000000000002b <ReturnTrue>:
+2b: 48 c7 c0 01 00 00 00    mov    rax,0x1
+0000000000000032 <Return>:
+32: c3                      ret
+```
+
+Now you can call the command with the following arguments :
+
+```c
+!epthook fffff801deadbeef condition {65488B042588010000488B80B8000000488B805004000048B9737663686F73742E4839C874054831C0EB0748C7C001000000C3}
+```
+
+or
+
+```c
+!syscall condition {65488B042588010000488B80B8000000488B805004000048B9737663686F73742E4839C874054831C0EB0748C7C001000000C3}
+```
+
+We automatically add a `0xc3` or `ret` opcode to the end of the condition assembly and in the case if you forget to return the control of the processor back to the HyperDbg, then there is no problem. Make sure to not jump to another address without returning back to the HyperDbg, otherwise it causes a crash on your system.
+
+
 
