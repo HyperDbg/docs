@@ -95,7 +95,53 @@ We automatically add a `0xc3` or `ret` opcode to the end of the condition assemb
 
 ### Example 2
 
-Sometimes we need
+Sometimes we need to read the registers and decide based on them, for example, let's imagine we want to hook `ExAllocatePoolWithTag` and if the size of the requested buffer is `xx` then perform the actions.
+
+This function is defined is like this :
+
+```cpp
+PVOID ExAllocatePoolWithTag(
+  POOL_TYPE                                      PoolType,
+  SIZE_T                                         NumberOfBytes,
+  ULONG                                          Tag
+);
+```
+
+It's obvious that based on x64 fastcall calling convention in Windows, `PoolType` is on `rcx`, `NumberOfBytes` is on `rdx` and `Tag` is on `r8`. We need to check for `rdx`.
+
+Note that `rdx` is not the same as the `rdx` that you receive in the function, instead we pass a structure that contains all the general-purpose register, you can read them or even modify them and if you modify them then the operating system will continue with new values in these registers.
+
+For general-purpose registers, we pass a pointer to the following structure as the first argument on `rcx`. 
+
+```cpp
+typedef struct _GUEST_REGS
+{
+    ULONG64 rax; // 0x00
+    ULONG64 rcx; // 0x08
+    ULONG64 rdx; // 0x10
+    ULONG64 rbx; // 0x18
+    ULONG64 rsp; // 0x20 
+    ULONG64 rbp; // 0x28
+    ULONG64 rsi; // 0x30
+    ULONG64 rdi; // 0x38
+    ULONG64 r8;  // 0x40
+    ULONG64 r9;  // 0x48
+    ULONG64 r10; // 0x50
+    ULONG64 r11; // 0x58
+    ULONG64 r12; // 0x60
+    ULONG64 r13; // 0x68
+    ULONG64 r14; // 0x70
+    ULONG64 r15; // 0x78
+} GUEST_REGS, *PGUEST_REGS;
+```
+
+{% hint style="info" %}
+If you want to change or examine other registers like XMM registers, floating-point registers, or other registers, you can change and examine them directly.
+{% endhint %}
+
+In the following example, we want to check `NumberOfBytes (rdx)` with `0x1000` and if the requested size is **0x1000** then the actions should be performed.
+
+On
 
 
 
