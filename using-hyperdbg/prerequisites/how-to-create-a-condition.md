@@ -10,9 +10,23 @@ An unconditional event is an event that all its actions will be executed without
 
 This document is a brief of how to create a conditional event.
 
-Each command in HyperDbg that we call it an "event", follows a same structure described [here](https://docs.hyperdbg.com/design/debugger-internals/events).
+Each command in HyperDbg that we call it an "event", follows the same structure described [here](https://docs.hyperdbg.com/design/debugger-internals/events). At the time you execute a command, you can add a `condition { xx xx xx xx }` where `xx` is the assembly \(hex\) of what you want to be executed in the case of that event.
 
+For example, let's imagine we want to create a condition for a command like "**!epthook**".
 
+When you execute the command like :
+
+```text
+!epthook fffff801deadbeef 
+```
+
+then it is unconditional but when you execute a command like this :
+
+```text
+!epthook fffff801deadbeef condition { 90 90 90 90 }
+```
+
+then it is a conditional command.
 
 
 
