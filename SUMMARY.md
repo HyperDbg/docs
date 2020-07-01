@@ -60,7 +60,8 @@
   * [Basic Concepts in Intel VT-x](tips-and-tricks/considerations/basic-concepts-in-intel-vt-x.md)
   * [Vmx root-mode vs Vmx non-root mode](tips-and-tricks/considerations/vmx-root-mode-vs-vmx-non-root-mode.md)
   * [The "unsafe" behavior](tips-and-tricks/considerations/the-unsafe-behavior.md)
-* [Nested-Virtualization Environments](tips-and-tricks/nested-virtualization-environments.md)
+* [Nested-Virtualization Environments](tips-and-tricks/nested-virtualization-environments/README.md)
+  * [VMware backdoor I/O ports](tips-and-tricks/nested-virtualization-environments/vmware-backdoor-io-ports.md)
 
 ## Style Guide
 
