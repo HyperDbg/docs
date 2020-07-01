@@ -141,7 +141,24 @@ If you want to change or examine other registers like XMM registers, floating-po
 
 In the following example, we want to check `NumberOfBytes (rdx)` with `0x1000` and if the requested size is **0x1000** then the actions should be performed.
 
-On
+```cpp
+mov rbx , [rcx+0x10]  ; rbx now conains the rdx of the guest [target debuggee]
+cmp rbx, 0x1000       ; ; compare rbx with 0x1000
+je ReturnTrue
+
+xor rax,rax
+jmp Return
+
+ReturnTrue :
+mov rax, 0x1
+
+Return:
+ret
+```
+
+```cpp
+!epthook2 fffff800`4ed6f010 condition {488B59104881FB0010000074054831C0EB0748C7C001000000C3}
+```
 
 
 
