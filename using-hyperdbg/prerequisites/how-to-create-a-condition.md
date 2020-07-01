@@ -28,5 +28,9 @@ then it is unconditional but when you execute a command like this :
 
 then it is a conditional command.
 
+{% hint style="success" %}
+Note that you can use all of the events in the same way \(instead of **!epthook**\), for example, you can use **!syscall, !sysret, !epthook2, !ioin** and etc.
+{% endhint %}
 
+Examples
 
