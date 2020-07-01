@@ -143,7 +143,7 @@ In the following example, we want to check `NumberOfBytes (rdx)` with `0x1000` a
 
 ```cpp
 mov rbx , [rcx+0x10]  ; rbx now conains the rdx of the guest [target debuggee]
-cmp rbx, 0x1000       ; ; compare rbx with 0x1000
+cmp rbx, 0x1000       ; compare rbx with 0x1000
 je ReturnTrue
 
 xor rax,rax
@@ -156,9 +156,11 @@ Return:
 ret
 ```
 
+After using assembler to convert the above code to hex representation of assembly, the final command will be like this : 
+
 ```cpp
 !epthook2 fffff800`4ed6f010 condition {488B59104881FB0010000074054831C0EB0748C7C001000000C3}
 ```
 
-
+One important note is that if you want to create a condition for **!syscall** command which is common, then you should know that syscall calling convention is fastcall \(`rcx`, `rdx`, `r8`, `r9` and stack\), so if your target user-mode application is x64 then you can expect the exact arguments from user-mode to kernel-mode but if your user-mode application is x86 then Windows might change some of the arguments that contain addresses to new addresses. 
 
