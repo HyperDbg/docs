@@ -32,5 +32,29 @@ then it is a conditional command.
 Note that you can use all of the events in the same way \(instead of **!epthook**\), for example, you can use **!syscall, !sysret, !epthook2, !ioin** and etc.
 {% endhint %}
 
-Examples
+### Examples
+
+Imagine we want to check for the name of the process and only and only if the name contains the "svchost.exe" then trigger the event's action\(s\).
+
+We all know that you can search for the name of the process in its `_EPROCESS`.
+
+![](../../.gitbook/assets/imagefilenameoffset.png)
+
+For example, **ImageFileName** in **\_EPROCESS** contains the 15 characters of the process name. It is not where Windows shows the name in Task Manager but checking this value is enough.
+
+Imagine the following assembly code that gets the current `_KTHREAD` from `_KPCR`. From there we can find the address of `_KPROCESS` and this structure is located at the start address of `_EPROCESS`. 
+
+As you can see from the above picture, **ImageFileName** is located at `+0x450` after the `_EPROCESS`.
+
+So our final assembly code is like this : 
+
+![](../../.gitbook/assets/assembly.png)
+
+{% hint style="warning" %}
+The offsets of EPROCESS and other structures might change in the different versions of Windows. 
+{% endhint %}
+
+Now we should assemble the above code into its hex representation in the assembly. For example, you can use an [online assembler](http://defuse.ca/online-x86-assembler.htm). 
+
+Keep in mind that if you return with rax=0 then it means false and if your return anything other than zero \(for example rax=1\) then it means true.
 
