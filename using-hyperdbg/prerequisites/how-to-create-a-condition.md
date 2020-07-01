@@ -93,5 +93,9 @@ or
 
 We automatically add a `0xc3` or `ret` opcode to the end of the condition assembly and in the case if you forget to return the control of the processor back to the HyperDbg, then there is no problem. Make sure to not jump to another address without returning back to the HyperDbg, otherwise it causes a crash on your system.
 
+### Example 2
+
+Sometimes we need
+
 
 
