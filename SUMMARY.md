@@ -63,6 +63,7 @@
 * [Nested-Virtualization Environments](tips-and-tricks/nested-virtualization-environments/README.md)
   * [Run HyperDbg on VMware](tips-and-tricks/nested-virtualization-environments/run-hyperdbg-on-vmware.md)
   * [Run HyperDbg on Hyper-V](tips-and-tricks/nested-virtualization-environments/run-hyperdbg-on-hyper-v.md)
+  * [Supporting VMware/Hyper-V](tips-and-tricks/nested-virtualization-environments/supporting-vmware-hyper-v.md)
   * [VMware backdoor I/O ports](tips-and-tricks/nested-virtualization-environments/vmware-backdoor-io-ports.md)
 
 ## Style Guide
