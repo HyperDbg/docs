@@ -199,3 +199,9 @@ After using assembler to convert the above code to hex representation of assembl
 
 One important note is that if you want to create a condition for **!syscall** command which is common, then you should know that syscall calling convention is fastcall \(`rcx`, `rdx`, `r8`, `r9` and stack\), so if your target user-mode application is x64 then you can expect the exact arguments from user-mode to kernel-mode but if your user-mode application is x86 then Windows might change some of the arguments that contain addresses to new addresses. 
 
+{% hint style="danger" %}
+Accessing random memory in **custom code** and **condition code** in vmx root-mode is considered "[unsafe](https://docs.hyperdbg.com/tips-and-tricks/considerations/the-unsafe-behavior)". You have some limitations on accessing memory on some special events.
+{% endhint %}
+
+
+
