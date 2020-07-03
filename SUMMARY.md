@@ -48,6 +48,7 @@
   * [!msrwrite \(hook WRMSR instruction execution\)](commands/extension-commands/msrwrite.md)
   * [!tsc \(hook RDTSC/RDTSCP instruction execution\)](commands/extension-commands/tsc.md)
   * [!pmc \(hook RDPMC instruction execution\)](commands/extension-commands/pmc.md)
+  * [!vmcall \(hook hypercalls\)](commands/extension-commands/vmcall.md)
   * [!exception \(hook first 32 entries of IDT\)](commands/extension-commands/exception.md)
   * [!interrupt \(hook external device interrupts\)](commands/extension-commands/interrupt.md)
   * [!dr \(hook access to debug registers\)](commands/extension-commands/dr.md)
