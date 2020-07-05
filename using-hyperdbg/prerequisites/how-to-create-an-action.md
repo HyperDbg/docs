@@ -18,6 +18,8 @@ This document is a brief of how to create actions for an event.
 
 Break to the debugger, works exactly like classic debuggers like Windbg.
 
+### Log the states 
+
 ### Run custom codes
 
 **Run custom code** gives you the ability to run your custom assembly codes whenever a special event is triggered; this option is fast and powerful as you can customize the HyperDbg based on your needs.
@@ -71,15 +73,31 @@ The **Context** is a special variable that shows an essential parameter of the e
 **PreAllocatedBufferAddress \(rcx\)** is always _NULL_ in **Run custom code without a safe buffer** and it's used in **Run custom code with a safe buffer**.
 {% endhint %}
 
+As an example, we want to find the_TAG_ \(**ExAllocatePoolWithTag**\) if the tag is a special value then we want to change it to a new value.
+
+As you, ExAllocatePoolWithTag in Windows is defined as:
+
+```c
+PVOID ExAllocatePoolWithTag(
+  POOL_TYPE                                      PoolType,
+  SIZE_T                                         NumberOfBytes,
+  ULONG                                          Tag
+);
+```
+
+Based on the x64 calling convention, the parameters are passed as **rcx**, **rdx**, **r8**, **r9,** and stack and _Tag_ is on **r8**.
+
+As you know, if you want to change a register in the target OS, you have to find the register in _Regs_ and change it from there. Based on `_GUEST_REGS`, **r8** is on **0x40** from the top of this structure.
+
 
 
 #### Run custom code with a safe buffer
 
+{% hint style="danger" %}
+The **PreAllocatedBufferAddress** is just one buffer, you have to know how many cores you have and if there are two or more cores that might use the buffer simultaneously, you have to use a special location \(offset from the top of buffer\) for each core to avoid race conditions and unintented behavior.
+{% endhint %}
+
 The difference between "**Run custom code without a safe buffer**" and "**Run custom code without a safe buffer**" is that you have an extra parameter, called `buffer xx` where `xx` is the hex length of the buffer.
-
-
-
-### Log the states 
 
 
 
