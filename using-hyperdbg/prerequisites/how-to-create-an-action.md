@@ -67,13 +67,9 @@ typedef struct _GUEST_REGS
 
 The **Context** is a special variable that shows an essential parameter of the event. This value is different for each event, you should check the documentation of that command for more information about the `Context`. For example, `Context` for **!syscall** command is the syscall-number or for the **!epthook2** command is the physical address of where the hidden hook triggered. Context is passed to the custom code as the third argument on `r8` . 
 
-### 
-
 {% hint style="warning" %}
 **PreAllocatedBufferAddress \(rcx\)** is always _NULL_ in **Run custom code without a safe buffer** and it's used in **Run custom code with a safe buffer**.
 {% endhint %}
-
-
 
 
 
