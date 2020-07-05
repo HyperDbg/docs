@@ -115,11 +115,25 @@ Imagine, the **ExAllocatePoolWithTag** is located at ``fffff800`4ed6f010``. We c
 
 #### Run custom code with a safe buffer
 
+The difference between "**Run custom code without a safe buffer**" and "**Run custom code without a safe buffer**" is that you have an extra parameter, called `buffer xx` where `xx` is the hex length of the buffer.
+
 {% hint style="danger" %}
-The **PreAllocatedBufferAddress** is just one buffer, you have to know how many cores you have and if there are two or more cores that might use the buffer simultaneously, you have to use a special location \(offset from the top of buffer\) for each core to avoid race conditions and unintented behavior.
+The **PreAllocatedBufferAddress** is just one buffer, you have to know how many cores you have and if there are two or more cores that might use the buffer simultaneously, you have to use a special location \(offset from the top of buffer\) for each core to avoid race conditions and unintended behavior.
 {% endhint %}
 
-The difference between "**Run custom code without a safe buffer**" and "**Run custom code without a safe buffer**" is that you have an extra parameter, called `buffer xx` where `xx` is the hex length of the buffer.
+First of all, if you need to find the index of your process, you can use `_KPRCB` structure which is a part of `_KPRC` and can be found in **gs** register. 
+
+![](../../.gitbook/assets/actionfindprocessorindex.png)
+
+The **Number** in `_KPCRB` shows the processor index, so you can use the following assembly code to find the processor index. 
+
+```c
+mov    rax,QWORD PTR gs:0x1A4 ; Rax now contains the current processor index
+```
+
+Also, note that this method won't work on multi-processor systems because there is also a group field that you can check it on your own. 
+
+Please make sure that you don't use the same location in **PreAllocatedBufferAddress**, if two or more cores might arrive there at the same time.
 
 
 
