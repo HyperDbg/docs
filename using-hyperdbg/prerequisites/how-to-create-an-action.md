@@ -135,11 +135,25 @@ Also, note that this method won't work on multi-processor systems because there 
 
 Please make sure that you don't use the same location in **PreAllocatedBufferAddress**, if two or more cores might arrive there at the same time.
 
+As you know, `_EPROCESS` contains the **ImageFileName** which is a maximum of 15 characters, sure it's not what Windows shows on Task manager but it's suitable for our example.
+
 ![](../../.gitbook/assets/imagefilenameoffset.png)
 
-
+We can find the pointer of `_KPROCESS` in gs register and from there we can find the pointer to `_KPROCESS` which is on top of `_EPROCESS`and after that, we add +0x450 to the `_EPROCESS` which is a buffer address to **ImageFileName**.
 
 ![](../../.gitbook/assets/actioncodeexample3.png)
+
+If we return the address of a buffer in RAX, then HyperDbg checks whether your buffer is a valid address then if it's not valid then HyperDbg simply ignores it but if it is a valid buffer then we send this buffer safely to the user-mode. 
+
+The size of buffer which will be delivered to the user-mode is the same as the buffer you request as a safe buffer into your action.
+
+For example, if you add a `buffer 18` to your command then 18 bytes will be sent to user-mode and also HyperDbg passes a safe non-paged pool to your function. Sure you can choose to deliver the safe buffer itself to the user-mode or you can choose another buffer to the user-mode or you might not want to send anything to user-mode.
+
+{% hint style="info" %}
+Please clear the `rax` if you don't need to send anything in the user-mode if you have a `buffer xx` parameter in your command.
+{% endhint %}
+
+Finally, the code is like this:
 
 ```c
 0:  65 48 8b 04 25 88 01    mov    rax,QWORD PTR gs:0x188
@@ -149,7 +163,11 @@ Please make sure that you don't use the same location in **PreAllocatedBufferAdd
 16: c3                      ret
 ```
 
+The following command shows the custom code buffer with a request to a safe buffer with 18 bytes.
+
 ```c
 !syscall code {65488B042588010000488B80B8000000480550040000C3} buffer 18
 ```
+
+You can also add a `condition {xx xx xx}` to your commands, if you need a conditional command.
 
