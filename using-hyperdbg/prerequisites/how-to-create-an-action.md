@@ -135,5 +135,21 @@ Also, note that this method won't work on multi-processor systems because there 
 
 Please make sure that you don't use the same location in **PreAllocatedBufferAddress**, if two or more cores might arrive there at the same time.
 
+![](../../.gitbook/assets/imagefilenameoffset.png)
 
+
+
+![](../../.gitbook/assets/actioncodeexample3.png)
+
+```c
+0:  65 48 8b 04 25 88 01    mov    rax,QWORD PTR gs:0x188
+7:  00 00
+9:  48 8b 80 b8 00 00 00    mov    rax,QWORD PTR [rax+0xb8]
+10: 48 05 50 04 00 00       add    rax,0x450
+16: c3                      ret
+```
+
+```c
+!syscall code {65488B042588010000488B80B8000000480550040000C3} buffer 18
+```
 
