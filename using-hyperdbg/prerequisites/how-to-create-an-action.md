@@ -18,6 +18,8 @@ This document is a brief of how to create actions for an event.
 
 Break to the debugger, works exactly like classic debuggers like Windbg.
 
+If you simply use a command without any extra parameters then it will be treated like classic debuggers and HyperDbg gives the control of the system to the debugger.
+
 ### Log the states 
 
 ### Run custom codes
@@ -139,18 +141,18 @@ As you know, `_EPROCESS` contains the **ImageFileName** which is a maximum of 15
 
 ![](../../.gitbook/assets/imagefilenameoffset.png)
 
-We can find the pointer of `_KPROCESS` in gs register and from there we can find the pointer to `_KPROCESS` which is on top of `_EPROCESS`and after that, we add +0x450 to the `_EPROCESS` which is a buffer address to **ImageFileName**.
+We can find the pointer of `_KPROCESS` in gs register and from there we can find the pointer to `_KPROCESS` which is on top of `_EPROCESS`and after that, we add `+0x450` to the `_EPROCESS` which is a buffer address to **ImageFileName**.
 
 ![](../../.gitbook/assets/actioncodeexample3.png)
 
-If we return the address of a buffer in RAX, then HyperDbg checks whether your buffer is a valid address then if it's not valid then HyperDbg simply ignores it but if it is a valid buffer then we send this buffer safely to the user-mode. 
+If we return the address of a buffer in **RAX**, then HyperDbg checks whether your buffer is a valid address then if it's not valid then HyperDbg simply ignores it but if it is a valid buffer then it sends this buffer safely to the user-mode. 
 
-The size of buffer which will be delivered to the user-mode is the same as the buffer you request as a safe buffer into your action.
+The size of the buffer which will be delivered to the user-mode is the same as the buffer you request as a safe buffer into your action or in other words, it's the same as `xx` in `buffer xx`.
 
-For example, if you add a `buffer 18` to your command then 18 bytes will be sent to user-mode and also HyperDbg passes a safe non-paged pool to your function. Sure you can choose to deliver the safe buffer itself to the user-mode or you can choose another buffer to the user-mode or you might not want to send anything to user-mode.
+For example, if you add a `buffer 18` to your command then **0x18** bytes will be sent to user-mode and also HyperDbg passes a safe non-paged pool \(size = 0x18\)  to your function. Sure you can choose to deliver the safe buffer itself to the user-mode or you can choose another random buffer to the user-mode or you might not want to send anything to user-mode.
 
 {% hint style="info" %}
-Please clear the `rax` if you don't need to send anything in the user-mode if you have a `buffer xx` parameter in your command.
+Please clear the `rax` if you don't need to send anything in the user-mode if you have a `buffer xx` parameter in your command because **rax=0** is not a valid address so HyperDbg ignores it. 
 {% endhint %}
 
 Finally, the code is like this:
@@ -163,7 +165,7 @@ Finally, the code is like this:
 16: c3                      ret
 ```
 
-The following command shows the custom code buffer with a request to a safe buffer with 18 bytes.
+The following command shows the custom code buffer with a request to a safe buffer with **0x18** bytes.
 
 ```c
 !syscall code {65488B042588010000488B80B8000000480550040000C3} buffer 18
