@@ -91,17 +91,17 @@ As you know, if you want to change a register in the target OS, you have to find
 
 Take a look at the following assembly code, it first checks whether the _Tag_ \(**r8**\) is **HDBG** and if it's **HDBG** then we change it to **HDB2**.
 
-![](../../.gitbook/assets/actioncodeexample1.png)
+![](../../.gitbook/assets/actioncodeexample2.png)
 
 When we convert the above code to assembly then we have the following code :
 
 ```c
-0:  48 8b 59 40             mov    rbx,QWORD PTR [rcx+0x40]
+0:  48 8b 5a 40             mov    rbx,QWORD PTR [rdx+0x40]
 4:  48 81 fb 48 44 42 47    cmp    rbx,0x47424448
 b:  74 02                   je     f <ChangeIt>
 d:  eb 08                   jmp    17 <Return>
 000000000000000f <ChangeIt>:
-f:  48 c7 41 40 48 44 42    mov    QWORD PTR [rcx+0x40],0x32424448
+f:  48 c7 42 40 48 44 42    mov    QWORD PTR [rdx+0x40],0x32424448
 16: 32
 0000000000000017 <Return>:
 17: c3                      ret
@@ -110,7 +110,7 @@ f:  48 c7 41 40 48 44 42    mov    QWORD PTR [rcx+0x40],0x32424448
 Imagine, the **ExAllocatePoolWithTag** is located at ``fffff800`4ed6f010``. We can hook and change the Tag using the following command.
 
 ```c
-!epthook2 fffff800`4ed6f010 code {488B59404881FB484442477402EB0848C7414048444232C3}
+!epthook2 fffff800`4ed6f010 code {488B5A404881FB484442477402EB0848C7424048444232C3}
 ```
 
 #### Run custom code with a safe buffer
