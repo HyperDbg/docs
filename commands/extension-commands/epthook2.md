@@ -10,7 +10,7 @@ description: Description of '!epthook2' command in HyperDbg.
 
 ### Syntax
 
-> !epthook2 \[address\] \[event options\]
+> !epthook2 \[address\] \[pid \(hex value\)\] \[core \(hex value\)\] \[event options\]
 
 ### Description
 
@@ -22,11 +22,19 @@ This implementation of hidden hook won't cause vm-exit when it triggers, it's li
 
 ### Parameters
 
-\[address\]
+**\[address\]**
 
           The **Virtual** address of where we want to put hook
 
-\[event options\]
+**\[pid \(hex value\)\]**
+
+          Optional value to trigger the event in just a specific process. Add `pid xx` to your command thus command will be executed if process id is equal to `xx`. If you don't specify this option then by default you receive events on all processes.
+
+**\[core \(hex value\)\]**
+
+          Optional value to trigger the event in just a specific core. Add `core xx` to your command thus command will be executed if core id is equal to `xx`. If you don't specify this option then by default you receive events on all cores.
+
+**\[event options\]**
 
           Regular event parameters used in HyperDbg events. \(For more information read [this ](https://docs.hyperdbg.com/using-hyperdbg/prerequisites)topic\)
 
