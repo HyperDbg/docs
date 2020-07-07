@@ -36,9 +36,17 @@ As the **Context** \(**`r8`** in custom code and **`rdx`** in condition code reg
 
 Please read  "[How to create a condition?](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition)" if you need a conditional event, a conditional event can be used in all "**Break to Debugger**", "**Log the State**" and "**Run Custom Code**".
 
-### Break to Debugger 
+### Break to Debugger
+
+Imagine we want to put a hook on ``fffff800`4ed6f010``, this will breaks to the debugger when the target address hits and gives the control back to you.
+
+```c
+!epthook2 fffff800`4ed6f010 
+```
 
 ### Log the State
+
+Note Completed Yet !
 
 ### Run Custom Code
 
