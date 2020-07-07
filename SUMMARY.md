@@ -80,6 +80,7 @@
 ## Design
 
 * [Features](design/features/README.md)
+  * [Design of !epthook](design/features/design-of-epthook.md)
   * [Design of !epthook2](design/features/design-of-epthook2.md)
   * [Design of !monitor](design/features/design-of-monitor.md)
 * [Debugger Internals](design/debugger-internals/README.md)

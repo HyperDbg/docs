@@ -24,7 +24,7 @@ This implementation of hidden hook won't cause vm-exit when it triggers, it's li
 
 \[address\]
 
-          The **Virtual** address of where we want to start to disassemble its memory
+          The **Virtual** address of where we want to put hook
 
 \[event options\]
 
@@ -63,7 +63,7 @@ Not Completed Yet !
 Please read  "[How to create an action?](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action)" for getting idea about how to run custom buffer code in **HyperDbg**.
 
 {% hint style="warning" %}
-Your custom code will be executed in vmx non-root. Take a look at [this topic](https://docs.hyperdbg.com/tips-and-tricks/considerations/vmx-root-mode-vs-vmx-non-root-mode) for more information. Running code in vmx-root is considered "[unsafe](https://docs.hyperdbg.com/tips-and-tricks/considerations/the-unsafe-behavior)".
+Your custom code will be executed in vmx non-root. Take a look at [this topic](https://docs.hyperdbg.com/tips-and-tricks/considerations/vmx-root-mode-vs-vmx-non-root-mode) for more information.
 {% endhint %}
 
 #### Run Custom Code \(Unconditional\)
@@ -160,7 +160,7 @@ The final result of the assembler is :
 Now you can call the command with the following arguments \(condition code added to the above example\) :
 
 ```c
-!epthook fffff801deadbeef code {488B5A404881FB484442477402EB0848C7424048444232C3} condition {65488B042588010000488B80B8000000488B805004000048B9737663686F73742E4839C874054831C0EB0748C7C001000000C3}
+!epthook2 fffff801deadbeef code {488B5A404881FB484442477402EB0848C7424048444232C3} condition {65488B042588010000488B80B8000000488B805004000048B9737663686F73742E4839C874054831C0EB0748C7C001000000C3}
 ```
 
 {% hint style="success" %}
