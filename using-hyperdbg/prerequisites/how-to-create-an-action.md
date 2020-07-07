@@ -75,7 +75,7 @@ The **Context** is a special variable that shows an essential parameter of the e
 **PreAllocatedBufferAddress \(rcx\)** is always _NULL_ in **Run custom code without a safe buffer** and it's used in **Run custom code with a safe buffer**.
 {% endhint %}
 
-As an example, we want to find the_TAG_ \(**ExAllocatePoolWithTag**\) if the tag is a special value then we want to change it to a new value.
+As an example, we want to find the _TAG_ \(**ExAllocatePoolWithTag**\) if the tag is a special value then we want to change it to a new value.
 
 As you, ExAllocatePoolWithTag in Windows is defined as:
 
