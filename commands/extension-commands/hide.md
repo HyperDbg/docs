@@ -14,7 +14,7 @@ description: Description of '!hide' command in HyperDbg.
 
 ### Description
 
-Enables the transparent-mode of HyperDbg for anti-debugging and anti-hypervisor methods.
+Enables the transparent-mode of **HyperDbg** for anti-debugging and anti-hypervisor methods.
 
 ### Parameters
 
@@ -48,13 +48,13 @@ typedef struct _DEBUGGER_HIDE_AND_TRANSPARENT_DEBUGGER_MODE {
     *PDEBUGGER_HIDE_AND_TRANSPARENT_DEBUGGER_MODE;
 ```
 
-If the results were successful then kernel sends `DEBUGEER_OPERATION_WAS_SUCCESSFULL` to user-mode and if it was unsuccessful then `DEBUGEER_ERROR_UNABLE_TO_HIDE_OR_UNHIDE_DEBUGGER` which is an indicator or error.
+If the results were successful then kernel sends `DEBUGEER_OPERATION_WAS_SUCCESSFULL` to user-mode and if it was unsuccessful then `DEBUGEER_ERROR_UNABLE_TO_HIDE_OR_UNHIDE_DEBUGGER` which is an indicator of error.
 
 ### **Remarks**
 
 This command will not guarantee to provide 100% transparency.
 
-**HyperDbg** will not protect you from anti-WMware, anti-VirtualBox, etc. methods, instead, it tries to hide itself from anti-debugging and anti-hypervisor methods thus you need to run this command in a physical-machine \(not nested-virtualization environments\).
+**HyperDbg** will not protect you from anti-VMware, anti-VirtualBox, etc. methods, instead, it tries to hide itself from anti-debugging and anti-hypervisor methods thus you need to run this command in a physical-machine \(not in a nested-virtualization environments\).
 
 ### Requirements
 

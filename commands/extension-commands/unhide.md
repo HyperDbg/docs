@@ -14,7 +14,7 @@ description: Description of '!unhide' command in HyperDbg.
 
 ### Description
 
-Disables the transparent-mode of HyperDbg.
+Disables the transparent-mode of **HyperDbg**.
 
 ### Parameters
 
@@ -48,7 +48,7 @@ typedef struct _DEBUGGER_HIDE_AND_TRANSPARENT_DEBUGGER_MODE {
     *PDEBUGGER_HIDE_AND_TRANSPARENT_DEBUGGER_MODE;
 ```
 
-If the results were successful then kernel sends `DEBUGEER_OPERATION_WAS_SUCCESSFULL` to user-mode and if it was unsuccessful then `DEBUGEER_ERROR_UNABLE_TO_HIDE_OR_UNHIDE_DEBUGGER` which is an indicator or error.
+If the results were successful then kernel sends `DEBUGEER_OPERATION_WAS_SUCCESSFULL` to user-mode and if it was unsuccessful then `DEBUGEER_ERROR_UNABLE_TO_HIDE_OR_UNHIDE_DEBUGGER` which is an indicator of error.
 
 ### **Remarks**
 
