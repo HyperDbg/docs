@@ -54,7 +54,9 @@ It is exactly like read/write trigger of Hardware Debug Registers but without an
 
 ### Context
 
-As the **Context** \(**`r8`** in custom code and **`rdx`** in condition code register\) to the event trigger, we send the **physical** address of where put the hidden hook's breakpoint.
+As the **Context** \(**`r8`** in custom code and **`rdx`** in condition code register\) to the event trigger, we send the **physical** address of where triggered this event. 
+
+It's a physical address representation of what you entered as **\[from address\]** and **\[to address\]** so it's not a constant address and might be different in the range you entered \(in a physical address format\). 
 
 ### Debugger
 
@@ -70,15 +72,27 @@ Please read  "[How to create a condition?](https://docs.hyperdbg.com/using-hyper
 
 ### Break to Debugger
 
-Imagine we want to put a hook on ``fffff800`4ed6f010``, this will breaks to the debugger when the target address hits and gives the control back to you.
+Imagine we want to put a monitor writes but not reads on address from ``fffff800`4ed60000`` to ``fffff800`4ed60100`` , this will break to the debugger and gives the control back to you.
 
 ```c
-!epthook fffff800`4ed6f010 
+!monitor w fffff800`4ed60000 fffff800`4ed60100 
+```
+
+If we want reads but not writes.
+
+```c
+!monitor r fffff800`4ed60000 fffff800`4ed60100 
+```
+
+If we want both reads and writes.
+
+```c
+!monitor rw fffff800`4ed60000 fffff800`4ed60100 
 ```
 
 ### Log the States
 
-Not Completed Yet !
+Not Completed Yet!
 
 ### Run Custom Code
 
@@ -90,18 +104,18 @@ Your custom code will be executed in vmx-root mode. Take a look at [this topic](
 
 #### Run Custom Code \(Unconditional\)
 
-Putting a hook on `fffff801deadbeef` and run 3 nops whenever the hook is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes), for more information
+Monitoring reads and writes on address from ``fffff800`4ed60000`` to ``fffff800`4ed60100`` ,  and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes), for more information
 
 ```c
-!epthook fffff801deadbeef code {90 90 90}
+!monitor rw fffff800`4ed60000 fffff800`4ed60100 code {90 90 90}
 ```
 
 #### Run Custom Code \(Conditional\)
 
-Putting a hook on `fffff801deadbeef` and run 3 nops whenever the hook is triggered and also 3 nops condition. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) and [how to create a condition](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition), for more information
+Monitoring reads and writes on address from ``fffff800`4ed60000`` to ``fffff800`4ed60100`` ,  and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes), for more information. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) and [how to create a condition](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition), for more information
 
 ```c
-!epthook fffff801deadbeef code {90 90 90} condition {90 90 90}
+!monitor rw fffff800`4ed60000 fffff800`4ed60100 code {90 90 90} condition {90 90 90}
 ```
 
 {% hint style="success" %}
@@ -112,23 +126,21 @@ Keep in mind, a conditional event can be used in **Break to Debugger** and **Log
 
 This command uses the same method to [send IOCTL for regular events](https://docs.hyperdbg.com/design/debugger-internals/ioctl-requests-for-events). 
 
-Use `HIDDEN_HOOK_EXEC_CC` as **EventType**, ****and send the address of where you want to hook in `OptionalParam1`in **DEBUGGER\_GENERAL\_EVENT\_DETAIL**.
+As **EventType** use  `HIDDEN_HOOK_READ` in the case you want just reads, use `HIDDEN_HOOK_WRITE` in the case you want just writes and use `HIDDEN_HOOK_READ_AND_WRITE` in the case, you want both reads and writes and send the start address \(from address\) of where you want to monitor in `OptionalParam1`and end address \(to address\) of where you want to monitor in `OptionalParam2`address  **DEBUGGER\_GENERAL\_EVENT\_DETAIL**.
 
 ### Design
 
-Take a look at "[Design of !epthook](https://docs.hyperdbg.com/design/features/design-of-epthook)" to see how does it work.
+Take a look at "[Design of !monitor](https://docs.hyperdbg.com/design/features/design-of-monitor)" to see how does it work.
 
 ### **Remarks**
 
-This command is much slower than **!epthook2**, ****because it cause vm-exits but on the other hand, this implementation doesn't have any limitation, for example you can use this command for hooking user-mode while you can't use **!epthook2** on user-mode.
+None
 
 ### Requirements
 
 Post-Nehalem Processor \(EPT\)
 
-Processor with Execute-only Pages Support
-
 ### Related
 
-[!epthook2 \(hidden hook with EPT - detours\)](https://docs.hyperdbg.com/commands/extension-commands/epthook2)
+None
 
