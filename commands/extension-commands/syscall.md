@@ -56,7 +56,7 @@ Please read  "[How to create a condition?](https://docs.hyperdbg.com/using-hyper
 
 ### Break to Debugger
 
-You can use [condition ](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition)if you want to check the syscall parameters, for example, Windows uses an x64 fast-call calling convention on its system-call entry thus you can check whether parameters of syscall `rcx,rdx,r8, etc.` match to your debugging logic or not and have a conditional syscall hooker. 
+You can use [condition ](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition)if you want to check the syscall parameters, for example, Windows uses an x64 fast-call calling convention on its system-call entry thus you can check whether parameters of syscall `rcx,rdx,r8, etc.` match to your debugging logic or not and have a conditional syscall hooker and you can also change the parameters of a syscall.
 
 Imagine we want to break on all system-calls of a process id **0x490**.
 
@@ -106,11 +106,11 @@ Keep in mind, a conditional event can be used in **Break to Debugger** and **Log
 
 This command uses the same method to [send IOCTL for regular events](https://docs.hyperdbg.com/design/debugger-internals/ioctl-requests-for-events). 
 
-As **EventType** use  `SYSCALL_HOOK_EFER_SYSCALL` and send the start syscall-number \(if any\) if you want just a special system-call in `OptionalParam1` in  **DEBUGGER\_GENERAL\_EVENT\_DETAIL**.
+As **EventType** use  `SYSCALL_HOOK_EFER_SYSCALL`and send the start syscall-number \(if any\) if you want just a special system-call in `OptionalParam1` in  **DEBUGGER\_GENERAL\_EVENT\_DETAIL**.
 
 ### Design
 
-Take a look at "[Design of !monitor](https://docs.hyperdbg.com/design/features/design-of-monitor)" to see how does it work.
+Take a look at "[Design of !syscall & !sysret](https://docs.hyperdbg.com/design/features/design-of-syscall-and-sysret)" to see how does it work.
 
 ### **Remarks**
 
@@ -125,4 +125,6 @@ Post-Nehalem Processor \(EPT\)
 ### Related
 
 [Windows X86-64 System Call Table \(XP/2003/Vista/2008/7/2012/8/10\)](https://j00ru.vexillium.org/syscalls/nt/64/)
+
+[!sysret \(hook SYSRET instruction execution\)](https://docs.hyperdbg.com/commands/extension-commands/sysret)
 
