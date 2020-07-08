@@ -17,7 +17,7 @@ description: Description of '!tsc' command in HyperDbg.
 Triggers when the debugging machine executes **RDTSC** or **RDTSCP** instructions in any level of execution \(kernel-mode or user-mode\).
 
 {% hint style="danger" %}
-Using this command makes HyperDbg vulnerable to timing methods to detect the presence of hypervisor, you should not use this command in transparent-mode.
+Using this command makes HyperDbg vulnerable to timing methods to detect the presence of hypervisor, you should not use this command in [transparent-mode](https://docs.hyperdbg.com/tips-and-tricks/considerations/transparent-mode).
 {% endhint %}
 
 ### Parameters
@@ -36,7 +36,7 @@ Using this command makes HyperDbg vulnerable to timing methods to detect the pre
 
 ### Context
 
-As the **Context** \(**`r8`** in custom code and **`rdx`** in condition code register\) to the event trigger, **HyperDbg** sends the `rax`register of the guest or CPUID index, when the guest executed CPUID.  
+As the **Context** \(**`r8`** in custom code and **`rdx`** in condition code register\) to the event trigger, **HyperDbg** sends **FALSE \(0\)** in the case of **RDTSC** and **TRUE \(1\)** in the case of **RDTSCP**.
 
 ### Debugger
 
@@ -52,16 +52,16 @@ Please read  "[How to create a condition?](https://docs.hyperdbg.com/using-hyper
 
 ### Break to Debugger
 
-We want to break and get control over all **CPUID** execution in our system.
+We want to break and get control over all **RDTSC/RDTSCP** execution in our system.
 
 ```c
-!cpuid
+!tsc
 ```
 
-Imagine we want to break on all **CPUID** executions of a process id **0x490**.
+Imagine we want to break on all **RDTSC/RDTSCP** executions of a process id **0x490**.
 
 ```c
-!cpuid pid 490 
+!tsc pid 490 
 ```
 
 ### Log the States
@@ -78,18 +78,18 @@ Your custom code will be executed in vmx-root mode. Take a look at [this topic](
 
 #### Run Custom Code \(Unconditional\)
 
-Monitoring process id **0x490** for **CPUID** instruction execution ****and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes), for more information
+Monitoring process id **0x490** for **RDTSC/RDTSCP** instruction execution ****and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes), for more information
 
 ```c
-!cpuid pid 490 code {90 90 90}
+!tsc pid 490 code {90 90 90}
 ```
 
 #### Run Custom Code \(Conditional\)
 
-Monitoring process id **0x490** for **CPUID** instruction execution and run 3 nops whenever the event condition is triggered and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) and [how to create a condition](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition), for more information
+Monitoring process id **0x490** for **RDTSC/RDTSCP** instruction execution and run 3 nops whenever the event condition is triggered and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) and [how to create a condition](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition), for more information
 
 ```c
-!cpuid pid 490 code {90 90 90} condition {90 90 90}
+!tsc pid 490 code {90 90 90} condition {90 90 90}
 ```
 
 {% hint style="success" %}
@@ -100,11 +100,11 @@ Keep in mind, a conditional event can be used in **Break to Debugger** and **Log
 
 This command uses the same method to [send IOCTL for regular events](https://docs.hyperdbg.com/design/debugger-internals/ioctl-requests-for-events). 
 
-As **EventType** use `CPUID_INSTRUCTION_EXECUTION` in **DEBUGGER\_GENERAL\_EVENT\_DETAIL**.
+As **EventType** use `TSC_INSTRUCTION_EXECUTION` in **DEBUGGER\_GENERAL\_EVENT\_DETAIL**.
 
 ### Design
 
-This command uses CPUID \(**EXIT\_REASON\_CPUID**\) vm-exits \(**10**\) to implement CPUID hooks.
+This command uses **RDTSC** \(**EXIT\_REASON\_RDTSC - 16**\) and **RDTSCP** \(**EXIT\_REASON\_RDTSCP - 51**\) vm-exits to implement **RDTSC/RDTSCP** hooks.
 
 ### **Remarks**
 
@@ -116,5 +116,5 @@ None
 
 ### Related
 
-None
+[!pmc \(hook RDPMC instruction execution\)](https://docs.hyperdbg.com/commands/extension-commands/pmc)
 
