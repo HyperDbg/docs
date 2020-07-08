@@ -10,14 +10,14 @@ description: Description of '!interrupt' command in HyperDbg.
 
 ### Syntax
 
-> !interrupt\[IDT Index \(hex value\)\] \[pid \(hex value\)\] \[core \(hex value\)\] \[event options\]
+> !interrupt \[IDT Index \(hex value\)\] \[pid \(hex value\)\] \[core \(hex value\)\] \[event options\]
 
 ### Description
 
-Triggers when the debugging machine encounters an external interrupt. This command applies to only 32 to 256 entries of IDT \(Interrupt Descriptor Table\), if you need to hook entries between 0 to 32 of IDT then you should use [!exception](https://docs.hyperdbg.com/commands/extension-commands/exception) instead.
+Triggers when the debugging machine encounters an external-interrupt. This command applies to only **32** to **256** entries of IDT \(Interrupt Descriptor Table\), if you need to hook entries between **0** to **32** of IDT then you should use [!exception](https://docs.hyperdbg.com/commands/extension-commands/exception) instead.
 
 {% hint style="info" %}
-When you enable this event, all entries from 32 to 256 cause vm-exit, so this command will trigger on all external interrupts thus make your computer substantially slower. This is not true about [!exception](https://docs.hyperdbg.com/commands/extension-commands/exception) command as it will only trigger on that specific entry.
+When you enable this event, all entries from **32** to **256** will cause vm-exits, so this command will trigger on all external-interrupts thus make your computer substantially slower. This is not true about [!exception](https://docs.hyperdbg.com/commands/extension-commands/exception) command as it will only trigger on that specific entry.
 {% endhint %}
 
 ### Parameters
@@ -56,13 +56,13 @@ Please read  "[How to create a condition?](https://docs.hyperdbg.com/using-hyper
 
 ### Break to Debugger
 
-Imagine we want to break entry **0x25** of external-interrupts.
+Imagine we want to break on entry **0x25** of IDT.
 
 ```c
 !interrupt 0x25
 ```
 
-If we want to break on external-interrupt of entry **0x25** from process id **0x490**.
+If we want to break on external-interrupt \(entry **0x25\)** from process id **0x490**.
 
 ```c
 !interrupt 0x25 pid 490
@@ -104,7 +104,7 @@ Keep in mind, a conditional event can be used in **Break to Debugger** and **Log
 
 This command uses the same method to [send IOCTL for regular events](https://docs.hyperdbg.com/design/debugger-internals/ioctl-requests-for-events). 
 
-As **EventType** use `EXTERNAL_INTERRUPT_OCCURRED` and send the special entry between **0x20** to **0x9f** \(if any\) if you want to monitor just a special exception or interrupt in `OptionalParam1` in  **DEBUGGER\_GENERAL\_EVENT\_DETAIL**.
+As **EventType** use `EXTERNAL_INTERRUPT_OCCURRED` and send the special entry between **0x20** to **0x9f** \(if any\) if you want to monitor just a special external-interrupt in `OptionalParam1` in  **DEBUGGER\_GENERAL\_EVENT\_DETAIL**.
 
 Please look at **Remarks** for more information.
 
@@ -114,7 +114,7 @@ Take a look at "[Design of !exception & !interrupt](https://docs.hyperdbg.com/de
 
 ### **Remarks**
 
-You should avoid monitoring all external-interrupt because it is generally impossible, for example thousands of clock-interrupts will be received and if you want to handle all of them then it makes your system unresponsive. By the way, you can monitor just one external-interrupt and this is ok.
+You should avoid monitoring all external-interrupt because it is generally impossible, for example, thousands of clock-interrupts will be received and if you want to handle all of them then it makes your system unresponsive. By the way, you can monitor just one external-interrupt without problem.
 
 ### Requirements
 
