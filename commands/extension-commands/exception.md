@@ -14,7 +14,7 @@ description: Description of '!exception' command in HyperDbg.
 
 ### Description
 
-Triggers when the debugging machine encounters an exception \(**faults, traps, aborts**\) or NMI or interrupt. This command applies to only the first 32 entry of IDT \(Interrupt Descriptor Table\), if you need to hook entries between 32 to 256 of IDT then you should use [!interrupt](https://docs.hyperdbg.com/commands/extension-commands/interrupt) instead.
+Triggers when the debugging machine encounters an exception \(**faults, traps, aborts**\) or NMI or interrupt. This command applies to only the first 32 entries of IDT \(Interrupt Descriptor Table\), if you need to hook entries between 32 to 256 of IDT then you should use [!interrupt](https://docs.hyperdbg.com/commands/extension-commands/interrupt) instead.
 
 {% hint style="info" %}
 When you enable this event, only your specific entry will be hooked, so this command won't trigger on all exceptions/interrupts thus won't make your computer slow but on the other hand, by using [!interrupt](https://docs.hyperdbg.com/commands/extension-commands/interrupt) command, if you just need one of the entries then all entries between **32** to **256** should be emulated by **HyperDbg** so it's substantially slower.
