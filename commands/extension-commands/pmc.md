@@ -104,7 +104,7 @@ As **EventType** use `PMC_INSTRUCTION_EXECUTION` in **DEBUGGER\_GENERAL\_EVENT\_
 
 ### Design
 
-This command uses RDPMC \(**EXIT\_REASON\_RDPMC- 15**\) vm-exit to implement **RDPMC** hooks.
+This command uses **RDPMC** \(**EXIT\_REASON\_RDPMC- 15**\) vm-exit to implement RDPMC hooks.
 
 ### **Remarks**
 
