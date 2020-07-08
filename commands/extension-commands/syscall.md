@@ -17,18 +17,18 @@ description: Description of '!syscall' command in HyperDbg.
 Triggers when the debugging machine executes a **syscall** instruction or in the other words when Windows tries to run a system-call this event will be triggered.
 
 {% hint style="info" %}
-When you enable this event, all syscall instructions from all processes will be monitored and due to the limitation in hardware you can't expect it to trigger for just one process, but you can configure the debugger to trigger the event for you in the case of a special process by adding `pid xx`to the command.
+When you enable this event, all **syscall** instructions from all processes will be monitored and due to the limitation in hardware you can't expect it to trigger for just one process, but you can configure the debugger to trigger the event for you in the case of a special process by adding `pid xx`to the command.
 {% endhint %}
 
 ### Parameters
 
 **\[syscall-number \(hex value\)\]**
 
-          Trigger in the case of a special system-call \(system-call number\). If you don't specify this parameter then it will be triggered in all system-calls.
+          Trigger in the case of a special system-call \(system-call number\). If you don't specify this parameter then it will be triggered for all system-calls.
 
 **\[pid \(hex value\)\]**
 
-          Optional value to trigger the event in just a specific process. Add `pid xx` to your command thus command will be executed if process id is equal to `xx`. If you don't specify this option then by default you receive events on all processes.
+          Optional value to trigger the event in just a specific process. Add `pid xx` to your command thus command will be executed if the process id is equal to `xx`. If you don't specify this option then by default you receive events on all processes.
 
 **\[core \(hex value\)\]**
 
@@ -56,7 +56,7 @@ Please read  "[How to create a condition?](https://docs.hyperdbg.com/using-hyper
 
 ### Break to Debugger
 
-You can use [condition ](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition)if you want to check the syscall parameters, for example, Windows uses an x64 fast-call calling convention on its system-call entry thus you can check whether parameters of syscall `rcx,rdx,r8, etc.` match to your debugging logic or not and have a conditional syscall hooker and you can also change the parameters of a syscall.
+You can use [condition ](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition)if you want to check the syscall parameters, for example, Windows uses an x64 fast-call calling convention on its system-call entry thus you can check whether parameters of **syscall** `rcx,rdx,r8, etc.` match to your debugging logic or not and have a conditional syscall hooker and also you can also change the parameters of a **syscall**.
 
 Imagine we want to break on all system-calls of a process id **0x490**.
 
@@ -64,7 +64,7 @@ Imagine we want to break on all system-calls of a process id **0x490**.
 !syscall pid 490 
 ```
 
-If we want break on system-call **0x55** in process id **0x490**. Take a look at the [Syscall Tables](https://j00ru.vexillium.org/syscalls/nt/64/).
+If we want to break on system-call **0x55** in process id **0x490**. Take a look at the [Syscall Tables](https://j00ru.vexillium.org/syscalls/nt/64/).
 
 ```c
 !syscall 55 pid 490  
@@ -92,7 +92,7 @@ Monitoring process id **0x490** for syscall-number **0x55** and run 3 nops whene
 
 #### Run Custom Code \(Conditional\)
 
-Monitoring process id **0x490** for syscall-number **0x55** and run 3 nops whenever the event is triggered and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) and [how to create a condition](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition), for more information
+Monitoring process id **0x490** for syscall-number **0x55** and run 3 nops whenever the event condition is triggered and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) and [how to create a condition](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition), for more information
 
 ```c
 !syscall 55 pid 490 code {90 90 90} condition {90 90 90}
