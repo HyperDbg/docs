@@ -104,7 +104,7 @@ As **EventType** use `CPUID_INSTRUCTION_EXECUTION` in **DEBUGGER\_GENERAL\_EVENT
 
 ### Design
 
-None
+This command uses CPUID \(**EXIT\_REASON\_CPUID**\) vm-exits \(**10**\) to implement CPUID hooks.
 
 ### **Remarks**
 
