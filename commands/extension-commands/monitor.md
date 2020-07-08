@@ -17,7 +17,7 @@ description: Description of '!monitor' command in HyperDbg.
 Monitor read or write or read/write to a range of addresses, in the case of any read or write on your range address \(memory\), it will be triggered.
 
 {% hint style="info" %}
-It is exactly like read/write trigger of Hardware Debug Registers but without any limitation in size and count.
+It is exactly like read/write of Hardware Debug Registers but without any limitation in size and count.
 {% endhint %}
 
 ### Parameters
@@ -112,7 +112,7 @@ Monitoring reads and writes on address from ``fffff800`4ed60000`` to ``fffff800`
 
 #### Run Custom Code \(Conditional\)
 
-Monitoring reads and writes on address from ``fffff800`4ed60000`` to ``fffff800`4ed60100`` ,  and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes), for more information. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) and [how to create a condition](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition), for more information
+Monitoring reads and writes on address from ``fffff800`4ed60000`` to ``fffff800`4ed60100`` ,  and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) and [how to create a condition](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition), for more information
 
 ```c
 !monitor rw fffff800`4ed60000 fffff800`4ed60100 code {90 90 90} condition {90 90 90}
@@ -126,7 +126,7 @@ Keep in mind, a conditional event can be used in **Break to Debugger** and **Log
 
 This command uses the same method to [send IOCTL for regular events](https://docs.hyperdbg.com/design/debugger-internals/ioctl-requests-for-events). 
 
-As **EventType** use  `HIDDEN_HOOK_READ` in the case you want just reads, use `HIDDEN_HOOK_WRITE` in the case you want just writes and use `HIDDEN_HOOK_READ_AND_WRITE` in the case, you want both reads and writes and send the start address \(from address\) of where you want to monitor in `OptionalParam1`and end address \(to address\) of where you want to monitor in `OptionalParam2`address  **DEBUGGER\_GENERAL\_EVENT\_DETAIL**.
+As **EventType** use  `HIDDEN_HOOK_READ` in the case you want just reads, use `HIDDEN_HOOK_WRITE` in the case you want just writes and use `HIDDEN_HOOK_READ_AND_WRITE` in the case, you want both reads and writes and send the start address \(**from address**\) of where you want to monitor in `OptionalParam1`and end address \(**to address**\) of where you want to monitor in `OptionalParam2`address  **DEBUGGER\_GENERAL\_EVENT\_DETAIL**.
 
 ### Design
 
