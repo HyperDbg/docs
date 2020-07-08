@@ -68,7 +68,7 @@ If we want to break on **page-faults**.
 !exception 0xe
 ```
 
-If we want to break on **division-by-zero** on core 1 and process id 0x490.
+If we want to break on **division-by-zero** on core **1** and process id **0x490**.
 
 ```c
 !exception 0x0 core 1 pid 490
@@ -110,7 +110,7 @@ Keep in mind, a conditional event can be used in **Break to Debugger** and **Log
 
 This command uses the same method to [send IOCTL for regular events](https://docs.hyperdbg.com/design/debugger-internals/ioctl-requests-for-events). 
 
-As **EventType** use `EXCEPTION_OCCURRED` and send the special entry between 0x0 to 0x1f \(if any\) if you want to monitor just a special exception or interrupt in `OptionalParam1` in  **DEBUGGER\_GENERAL\_EVENT\_DETAIL**.
+As **EventType** use `EXCEPTION_OCCURRED` and send the special entry between **0x0** to **0x1f** \(if any\) if you want to monitor just a special exception or interrupt in `OptionalParam1` in  **DEBUGGER\_GENERAL\_EVENT\_DETAIL**.
 
 ### Design
 
