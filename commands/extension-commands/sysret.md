@@ -14,7 +14,7 @@ description: Description of '!sysret' command in HyperDbg.
 
 ### Description
 
-Triggers when the debugging machine executes a **sysret** instruction or in the other words when Windows tries to return to user-mode from a previous syscall.
+Triggers when the debugging machine executes a **sysret** instruction or in the other words when Windows tries to return to user-mode from a previous **syscall**.
 
 {% hint style="info" %}
 When you enable this event, all **sysret** instructions from all processes will be monitored and due to the limitation in hardware you can't expect it to trigger for just one process, but you can configure the debugger to trigger the event for you in the case of a special process by adding `pid xx`to the command.
@@ -52,7 +52,7 @@ Please read  "[How to create a condition?](https://docs.hyperdbg.com/using-hyper
 
 ### Break to Debugger
 
-You can use [condition ](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition)if you want to check the sysret parameters, for example, you can check the result of a previous syscall which now wants to return to user-mode by executing **sysret** instruction to see if it matches to your debugging logic or not and have a conditional sysret hooker and also you can also change the parameters of a **sysret**.
+You can use [condition ](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition)if you want to check the sysret parameters, for example, you can check the result of a previous **syscall** which now wants to return to user-mode by executing **sysret** instruction to see if it matches to your debugging logic or not and have a conditional sysret hooker and also you can change the parameters of a **sysret**.
 
 Imagine we want to break on all **sysret** executions of a process id **0x490**.
 

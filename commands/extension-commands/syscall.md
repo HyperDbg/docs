@@ -56,7 +56,7 @@ Please read  "[How to create a condition?](https://docs.hyperdbg.com/using-hyper
 
 ### Break to Debugger
 
-You can use [condition ](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition)if you want to check the syscall parameters, for example, Windows uses an x64 fast-call calling convention on its system-call entry thus you can check whether parameters of **syscall** `rcx,rdx,r8, etc.` match to your debugging logic or not and have a conditional syscall hooker and also you can also change the parameters of a **syscall**.
+You can use [condition ](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition)if you want to check the syscall parameters, for example, Windows uses an x64 fast-call calling convention on its system-call entry thus you can check whether parameters of **syscall** `rcx,rdx,r8, etc.` match to your debugging logic or not and have a conditional syscall hooker and also you can change the parameters of a **syscall**.
 
 Imagine we want to break on all system-calls of a process id **0x490**.
 
