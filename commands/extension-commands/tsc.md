@@ -17,7 +17,7 @@ description: Description of '!tsc' command in HyperDbg.
 Triggers when the debugging machine executes **RDTSC** or **RDTSCP** instructions in any level of execution \(kernel-mode or user-mode\).
 
 {% hint style="danger" %}
-Using this command makes HyperDbg vulnerable to timing methods to detect the presence of hypervisor, you should not use this command in [transparent-mode](https://docs.hyperdbg.com/tips-and-tricks/considerations/transparent-mode).
+Using this command makes **HyperDbg** vulnerable to timing methods to detect the presence of hypervisor, you should not use this command in [transparent-mode](https://docs.hyperdbg.com/tips-and-tricks/considerations/transparent-mode).
 {% endhint %}
 
 ### Parameters
