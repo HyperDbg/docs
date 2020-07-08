@@ -40,7 +40,7 @@ This implementation of hidden hook causes vm-exit when it triggers, a faster imp
 
 ### Context
 
-As the **Context** \(**`r8`** in custom code and **`rdx`** in condition code register\) to the event trigger, we send the **physical** address of where put the hidden hook's breakpoint.
+As the **Context** \(**`r8`** in custom code and **`rdx`** in condition code register\) to the event trigger, **HyperDbg** sends the **physical** address of where put the hidden hook's breakpoint.
 
 ### Debugger
 

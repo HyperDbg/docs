@@ -54,7 +54,7 @@ It is exactly like read/write of Hardware Debug Registers but without any limita
 
 ### Context
 
-As the **Context** \(**`r8`** in custom code and **`rdx`** in condition code register\) to the event trigger, we send the **physical** address of where triggered this event. 
+As the **Context** \(**`r8`** in custom code and **`rdx`** in condition code register\) to the event trigger, **HyperDbg** sends the **physical** address of where triggered this event. 
 
 It's a physical address representation of what you entered as **\[from address\]** and **\[to address\]** so it's not a constant address and might be different in the range you entered \(in a physical address format\). 
 

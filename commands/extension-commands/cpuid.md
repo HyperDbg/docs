@@ -14,7 +14,7 @@ description: Description of '!cpuid' command in HyperDbg.
 
 ### Description
 
-Triggers when the debugging machine executes a **CPUID** instruction in any level of execution \(kernel-mode and user-mode\).
+Triggers when the debugging machine executes a **CPUID** instruction in any level of execution \(kernel-mode or user-mode\).
 
 {% hint style="info" %}
 You can check for specific CPUID index with a [condition](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition), also HyperDbg won't change any CPUID results in [transparent-mode](https://docs.hyperdbg.com/commands/extension-commands/hide), also you can change the results of the CPUID by changing guest registers.
@@ -36,7 +36,7 @@ You can check for specific CPUID index with a [condition](https://docs.hyperdbg.
 
 ### Context
 
-As the **Context** \(**`r8`** in custom code and **`rdx`** in condition code register\) to the event trigger, we send the `rax`register of the guest or CPUID index, when the guest executed CPUID.  
+As the **Context** \(**`r8`** in custom code and **`rdx`** in condition code register\) to the event trigger, **HyperDbg** sends the `rax`register of the guest or CPUID index, when the guest executed CPUID.  
 
 ### Debugger
 
@@ -51,6 +51,12 @@ Please read  "[How to create a condition?](https://docs.hyperdbg.com/using-hyper
 {% endhint %}
 
 ### Break to Debugger
+
+We want to break and get control over all **CPUID** execution in our system.
+
+```c
+!cpuid
+```
 
 Imagine we want to break on all **CPUID** executions of a process id **0x490**.
 

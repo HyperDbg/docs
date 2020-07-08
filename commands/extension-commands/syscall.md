@@ -40,7 +40,7 @@ When you enable this event, all **syscall** instructions from all processes will
 
 ### Context
 
-As the **Context** \(**`r8`** in custom code and **`rdx`** in condition code register\) to the event trigger, we send the system-call number which is `rax` register in Windows system-call calling convention.
+As the **Context** \(**`r8`** in custom code and **`rdx`** in condition code register\) to the event trigger, **HyperDbg** sends the system-call number which is `rax` register in Windows system-call calling convention.
 
 ### Debugger
 

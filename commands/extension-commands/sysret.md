@@ -36,7 +36,7 @@ When you enable this event, all **sysret** instructions from all processes will 
 
 ### Context
 
-As the **Context** \(**`r8`** in custom code and **`rdx`** in condition code register\) to the event trigger, we send the `rip` register of where executes the **sysret** instruction, generally, it should be the same in value in Windows \(just one **sysret** instruction is in Windows\).
+As the **Context** \(**`r8`** in custom code and **`rdx`** in condition code register\) to the event trigger, **HyperDbg** sends the `rip` register of where executes the **sysret** instruction, generally, it should be the same in value in Windows \(just one **sysret** instruction is in Windows\).
 
 ### Debugger
 
