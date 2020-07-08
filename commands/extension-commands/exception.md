@@ -114,11 +114,11 @@ As **EventType** use `EXCEPTION_OCCURRED` and send the special entry between 0x0
 
 ### Design
 
-
+Take a look at "[Design of !exception & !interrupt](https://docs.hyperdbg.com/design/features/design-of-exception-and-interrupt)" to see how does it work.
 
 ### **Remarks**
 
-None
+Emulating page-fault \(entry **0xe**\) is treated differently in HyperDbg, take a look at [here ](https://docs.hyperdbg.com/design/features/design-of-exception-and-interrupt)for more information.
 
 ### Requirements
 
