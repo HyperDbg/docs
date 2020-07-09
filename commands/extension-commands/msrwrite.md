@@ -82,7 +82,7 @@ Your custom code will be executed in vmx-root mode. Take a look at [this topic](
 
 #### Run Custom Code \(Unconditional\)
 
-Monitoring execution of **WRMSR** for MSR **0xc0000082** and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes), for more information
+Monitoring execution of **WRMSR** for MSR **0xc0000082** and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes), for more information.
 
 ```c
 !msrwrite 0xc0000082 code {90 90 90}
@@ -90,7 +90,7 @@ Monitoring execution of **WRMSR** for MSR **0xc0000082** and run 3 nops whenever
 
 #### Run Custom Code \(Conditional\)
 
-Monitoring execution of **WRMSR** for MSR **0xc0000082** and run 3 nops whenever the event condition is triggered and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) and [how to create a condition](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition), for more information
+Monitoring execution of **WRMSR** for MSR **0xc0000082** and run 3 nops whenever the event condition is triggered and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) and [how to create a condition](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition), for more information.
 
 ```c
 !msrwrite 0xc0000082 code {90 90 90} condition {90 90 90}
@@ -108,7 +108,7 @@ As **EventType** use  `WRMSR_INSTRUCTION_EXECUTION` and send the special MSR `rc
 
 ### Design
 
-Both **!msrread** and **!msrwrite** use the vm-exits caused by setting bits in the MSR Bitmap field of the hypervisor.
+Both **!msrread** and **!msrwrite** use the vm-exits caused by setting bits in the MSR Bitmap field of the hypervisor VMCS.
 
 For **!msrread** vm-exit with \(**EXIT\_REASON\_MSR\_READ**\) or exit-reason **31** is used. 
 

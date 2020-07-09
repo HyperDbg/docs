@@ -104,7 +104,7 @@ Your custom code will be executed in vmx-root mode. Take a look at [this topic](
 
 #### Run Custom Code \(Unconditional\)
 
-Monitoring reads and writes on address from ``fffff800`4ed60000`` to ``fffff800`4ed60100`` ,  and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes), for more information
+Monitoring reads and writes on address from ``fffff800`4ed60000`` to ``fffff800`4ed60100`` ,  and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes), for more information.
 
 ```c
 !monitor rw fffff800`4ed60000 fffff800`4ed60100 code {90 90 90}
@@ -112,7 +112,7 @@ Monitoring reads and writes on address from ``fffff800`4ed60000`` to ``fffff800`
 
 #### Run Custom Code \(Conditional\)
 
-Monitoring reads and writes on address from ``fffff800`4ed60000`` to ``fffff800`4ed60100`` ,  and run 3 nops whenever the event condition is triggered and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) and [how to create a condition](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition), for more information
+Monitoring reads and writes on address from ``fffff800`4ed60000`` to ``fffff800`4ed60100`` ,  and run 3 nops whenever the event condition is triggered and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) and [how to create a condition](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition), for more information.
 
 ```c
 !monitor rw fffff800`4ed60000 fffff800`4ed60100 code {90 90 90} condition {90 90 90}
