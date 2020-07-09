@@ -22,10 +22,10 @@ In order to build HyperDbg, you need to install the following software.
 
 ### Build & Compile
 
-First, clone the project using git or download it [here](https://github.com/SinaKarvandi/HyperDbg/archive/master.zip).
+First, clone the project using git or download it [here](https://github.com/HyperDbg/HyperDbg/archive/master.zip).
 
 ```
-git clone https://github.com/SinaKarvandi/HyperDbg.git
+git clone --recursive https://github.com/HyperDbg/HyperDbg.git
 ```
 
 Open the visual studio and **build** the solution.
