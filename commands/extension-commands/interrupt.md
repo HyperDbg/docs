@@ -14,17 +14,17 @@ description: Description of '!interrupt' command in HyperDbg.
 
 ### Description
 
-Triggers when the debugging machine encounters an external-interrupt. This command applies to only **32** to **256** entries of IDT \(Interrupt Descriptor Table\), if you need to hook entries between **0** to **32** of IDT then you should use [!exception](https://docs.hyperdbg.com/commands/extension-commands/exception) instead.
+Triggers when the debugging machine encounters an external-interrupt. This command applies to only **32** to **255** entries of IDT \(Interrupt Descriptor Table\), if you need to hook entries between **0** to **31** of IDT then you should use [!exception](https://docs.hyperdbg.com/commands/extension-commands/exception) instead.
 
 {% hint style="info" %}
-When you enable this event, all entries from **32** to **256** will cause vm-exits, so this command will trigger on all external-interrupts thus make your computer substantially slower. This is not true about [!exception](https://docs.hyperdbg.com/commands/extension-commands/exception) command as it will only trigger on that specific entry.
+When you enable this event, all entries from **32** to **255** will cause vm-exits, so this command will trigger on all external-interrupts thus make your computer substantially slower. This is not true about [!exception](https://docs.hyperdbg.com/commands/extension-commands/exception) command as it will only trigger on that specific entry.
 {% endhint %}
 
 ### Parameters
 
 **\[IDT Index \(hex value\)\]**
 
-          Trigger in the case of receiving an external-interrupt. The value should be between **0x20** to **0x9f**. ****If you don't specify this parameter then it will be triggered for all external-interrupts.
+          Trigger in the case of receiving an external-interrupt. The value should be between **0x20** to **0xff**. ****If you don't specify this parameter then it will be triggered for all external-interrupts.
 
 **\[pid \(hex value\)\]**
 
@@ -104,7 +104,7 @@ Keep in mind, a conditional event can be used in **Break to Debugger** and **Log
 
 This command uses the same method to [send IOCTL for regular events](https://docs.hyperdbg.com/design/debugger-internals/ioctl-requests-for-events). 
 
-As **EventType** use `EXTERNAL_INTERRUPT_OCCURRED` and send the special entry between **0x20** to **0x9f** \(if any\) if you want to monitor just a special external-interrupt in `OptionalParam1` in  **DEBUGGER\_GENERAL\_EVENT\_DETAIL**.
+As **EventType** use `EXTERNAL_INTERRUPT_OCCURRED` and send the special entry between **0x20** to **0xff** \(if any\) if you want to monitor just a special external-interrupt in `OptionalParam1` in  **DEBUGGER\_GENERAL\_EVENT\_DETAIL**.
 
 Please look at **Remarks** for more information.
 

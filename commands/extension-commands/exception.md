@@ -14,17 +14,17 @@ description: Description of '!exception' command in HyperDbg.
 
 ### Description
 
-Triggers when the debugging machine encounters an exception \(**faults, traps, aborts**\) or NMI or interrupt. This command applies to only the first 32 entries of IDT \(Interrupt Descriptor Table\), if you need to hook entries between 32 to 256 of IDT then you should use [!interrupt](https://docs.hyperdbg.com/commands/extension-commands/interrupt) instead.
+Triggers when the debugging machine encounters an exception \(**faults, traps, aborts**\) or NMI or interrupt. This command applies to only the first 32 entries of IDT \(Interrupt Descriptor Table\), if you need to hook entries between 32 to 255 of IDT then you should use [!interrupt](https://docs.hyperdbg.com/commands/extension-commands/interrupt) instead.
 
 {% hint style="info" %}
-When you enable this event, only your specific entry will be hooked, so this command won't trigger on all exceptions/interrupts thus won't make your computer slow but on the other hand, by using [!interrupt](https://docs.hyperdbg.com/commands/extension-commands/interrupt) command, if you just need one of the entries then all entries between **32** to **256** should be emulated by **HyperDbg** so it's substantially slower.
+When you enable this event, only your specific entry will be hooked, so this command won't trigger on all exceptions/interrupts thus won't make your computer slow but on the other hand, by using [!interrupt](https://docs.hyperdbg.com/commands/extension-commands/interrupt) command, if you just need one of the entries then all entries between **32** to **255** should be emulated by **HyperDbg** so it's substantially slower.
 {% endhint %}
 
 ### Parameters
 
 **\[IDT Index \(hex value\)\]**
 
-          Trigger in the case of receiving an interrupt or exception. The value should be between **0x0** to **0x1f**. ****If you don't specify this parameter then it will be triggered for all first 32 exceptions/interrupts.
+          Trigger in the case of receiving an interrupt or exception. The value should be between **0x0** to **0x1f** \(starting from zero\). ****If you don't specify this parameter then it will be triggered for all first 32 exceptions/interrupts.
 
 **\[pid \(hex value\)\]**
 
