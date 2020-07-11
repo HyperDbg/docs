@@ -112,6 +112,12 @@ This command is much slower than **!epthook2**, ****because it cause vm-exits bu
 
 Generally, it's better to use physical address but the reason why we don't use the physical address here \(!epthook2 uses physical address\) is that if we want to compare **physical** address then we have to flush TLB \(change Cr3\) to convert **GUEST\_RIP** to the physical address and as **HyperDbg** is designed to stick on System process \(pid = 4\), this cr3 change is unavoidable, on the other hand, this command is designed to work on both user-mode and kernel-mode of random processes and as you know, flushing TLB makes this command even slower, so it's better to deal with virtual address.
 
+{% hint style="danger" %}
+You shouldn't use any of **!monitor**, **!epthook** and **!epthook2** commands in the same page \(4KB\) simultaneously, for example, when you put a hidden hook \(**!epthook2**\) on **0x10000005** you shouldn't use any of **!monitor** or **!epthook** commands on the address starting from **0x10000000** to **0x10000fff**.
+
+ You can use **!epthook** \(just _**!epthook**_ not **!epthook2** and not **!monitor**\) on two or more addresses in the same page \(means that you can use the **!epthook** multiple times for addresses between a single page or putting multiple hidden breakpoints on a single page\). But you can't use **!monitor** or **!epthook2** twice on the same page.
+{% endhint %}
+
 ### Requirements
 
 Post-Nehalem Processor \(EPT\)

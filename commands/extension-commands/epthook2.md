@@ -113,6 +113,12 @@ This command is much faster than **!epthook**, but it has the following limitati
 * It has the limitation of classic detours hooks, we patch **18** bytes for our detours hook so when you put a hook anywhere in your assembly, you have to make sure that there is no relative jump or relative call within **18** bytes after the hook address. Most of the time, the start address of the function is detours-compatible \(doesn't start with relative jumps or relative calls\), especially in x64 fast call functions thus start address of a function is a good point to put these hidden hooks.
 * `r11` is modified in the hook so you need to make sure that the target address doesn't use this register \(at least at that point of the program\). If you need the `r11` compile the HyperDbg with another register \(change the register in `EptHookWriteAbsoluteJump` and `EptHookWriteAbsoluteJump2`in `Ept.c`\).
 
+{% hint style="danger" %}
+You shouldn't use any of **!monitor**, **!epthook** and **!epthook2** commands in the same page \(4KB\) simultaneously, for example, when you put a hidden hook \(**!epthook2**\) on **0x10000005** you shouldn't use any of **!monitor** or **!epthook** commands on the address starting from **0x10000000** to **0x10000fff**.
+
+ You can use **!epthook** \(just _**!epthook**_ not **!epthook2** and not **!monitor**\) on two or more addresses in the same page \(means that you can use the **!epthook** multiple times for addresses between a single page or putting multiple hidden breakpoints on a single page\). But you can't use **!monitor** or **!epthook2** twice on the same page.
+{% endhint %}
+
 ### Requirements
 
 Post-Nehalem Processor \(EPT\)
