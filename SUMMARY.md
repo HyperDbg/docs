@@ -22,6 +22,7 @@
 * [Debugging Commands](commands/debugging-commands/README.md)
   * [load \(load the kernel modules\)](commands/debugging-commands/load.md)
   * [unload \(unload the kernel modules\)](commands/debugging-commands/unload.md)
+  * [test \(test functionalities\)](commands/debugging-commands/test.md)
   * [lm \(view loaded modules\)](commands/debugging-commands/lm.md)
   * [db, dc, dd, dq \(read virtual memory\)](commands/debugging-commands/d.md)
   * [u \(disassemble virtual address\)](commands/debugging-commands/u.md)
