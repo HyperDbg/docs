@@ -25,8 +25,7 @@ Tests the functionalities of HyperDbg in the running system.
 | Test-case Number | Description |
 | :--- | :--- |
 | 0x0 | Performs all the checks. |
-| 0x1 | Test !monitor command |
-|  |  |
+| 0x1 | Test **!monitor** command |
 
 ### Examples
 
