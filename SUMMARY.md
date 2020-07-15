@@ -15,7 +15,8 @@
 * [Prerequisites](using-hyperdbg/prerequisites/README.md)
   * [How to create a condition?](using-hyperdbg/prerequisites/how-to-create-a-condition.md)
   * [How to create an action?](using-hyperdbg/prerequisites/how-to-create-an-action.md)
-* [Examples](using-hyperdbg/examples.md)
+* [Examples](using-hyperdbg/examples/README.md)
+  * [Running HyperDbg Script](using-hyperdbg/examples/running-hyperdbg-script.md)
 
 ## Commands
 
