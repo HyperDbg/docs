@@ -4,11 +4,11 @@ description: Using command-line features
 
 # Running HyperDbg Script
 
-There are two ways to run batch-script like commands in HyperDbg.
+There are two ways to run batch-script like commands in **HyperDbg**.
 
-First, you can save your command in a file and then use [.script](https://docs.hyperdbg.com/commands/meta-commands/.script) command and the second way is passing `--script` argument to the **HyperDbg-cli.exe**.
+First, you can save your command in a file and then use [.script](https://docs.hyperdbg.com/commands/meta-commands/.script) command and the second way is passing `--script` argument to the **hyperdbg-cli.exe**.
 
-For example, let say you save the following files in **`c:\users\sina\desktop\script.txt`.**
+For example, let we saved the following lines in **`c:\users\sina\desktop\script.txt`.**
 
 ```bash
 .connect local
@@ -20,7 +20,7 @@ unload
 exit
 ```
 
-Now, if you run HyperDbg then you can **.script** command like this :
+Now, if you run **HyperDbg** then you can **.script** command like this :
 
 ```bash
 HyperDbg >.script c:\users\sina\desktop\script.txt
