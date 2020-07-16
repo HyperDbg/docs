@@ -35,7 +35,7 @@
   * [.connect \(connect to a session\)](commands/meta-commands/.connect.md)
   * [.disconnect \(disconnect from a session\)](commands/meta-commands/.disconnect.md)
   * [.formats \(show number formats\)](commands/meta-commands/.formats.md)
-  * [.script \(run batch script of HyperDbg commands\)](commands/meta-commands/.script.md)
+  * [.script \(run batch script commands\)](commands/meta-commands/.script.md)
   * [.logopen \(open log file\)](commands/meta-commands/.logopen.md)
   * [.logclose \(close log file\)](commands/meta-commands/.logclose.md)
   * [.cls \(clear the screen\)](commands/meta-commands/.cls.md)
