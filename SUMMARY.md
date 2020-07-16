@@ -36,6 +36,8 @@
   * [.disconnect \(disconnect from a session\)](commands/meta-commands/.disconnect.md)
   * [.formats \(show number formats\)](commands/meta-commands/.formats.md)
   * [.script \(run batch script of HyperDbg commands\)](commands/meta-commands/.script.md)
+  * [.logopen \(open log file\)](commands/meta-commands/.logopen-open-log-file.md)
+  * [.logclose \(close log file\)](commands/meta-commands/.logclose-close-log-file.md)
   * [.cls \(clear the screen\)](commands/meta-commands/.cls.md)
 * [Extension Commands](commands/extension-commands/README.md)
   * [!pte \(display page-level address and entries\)](commands/extension-commands/pte.md)
