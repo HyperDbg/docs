@@ -14,8 +14,7 @@ description: Description of '!va2pa' command in HyperDbg.
 
 ### Description
 
-This command converts the virtual address to the physical address.  
-
+This command converts the VIRTUAL address to the PHYSICAL address.
 
 ### Parameters
 
@@ -36,7 +35,7 @@ HyperDbg >!va2pa fffff800`4ebc9370
 21c9370
 ```
 
-The following command shows the physical address of ``fffff800`4ebc9370``in process layout of process id \(0x4\).
+The following command shows the physical address of ``fffff800`4ebc9370``in the process layout of process id \(0x4\).
 
 ```diff
 HyperDbg >!va2pa fffff800`4ebc9370 pid 0x4
@@ -65,7 +64,7 @@ If you want to convert based on another process memory layout then put its proce
 ### **Remarks**
 
 {% hint style="success" %}
-If the virtual address or process id does not exists then it shows **`0`**.
+If the virtual address or process id does not exist then it shows **`0`**.
 {% endhint %}
 
 ### Requirements
@@ -74,5 +73,5 @@ None
 
 ### Related
 
-None
+[!pa2va \(convert physical address to virtual address\)](https://docs.hyperdbg.com/commands/extension-commands/pa2va)
 
