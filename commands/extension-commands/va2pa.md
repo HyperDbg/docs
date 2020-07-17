@@ -25,67 +25,47 @@ This command converts the virtual address to the physical address.
 
 \[Process Id \(hex value\)\]
 
-          The **process id** of where you want to convert the address based on it \(if you don't specify this parameter then the current process is used\)
+          The **process id** of where you want to convert the address based on it \(if you don't specify this parameter then the current process memory layout is used\)
 
 ### Examples
 
-The following command shows the page-level entries `fffff80040f00c28` .
+The following command shows the physical address of ``fffff800`4ebc9370``.
 
 ```diff
-HyperDbg >!pfffff80040f00c28
-VA fffff80040f00c28
-PML4E (PXE) at ffff83c1e0f07f80 contains 0000000004108063
-PDPT (PPE) at ffff83c1e0ff0008  contains 000000000411c063
-PDE at ffff83c1fe001038 contains 0000000004124063
-PTE at ffff83fc00207800 contains 8900000006470863
+HyperDbg >!va2pa fffff800`4ebc9370
+21c9370
 ```
 
-The following command shows the page-level entries `fffff8003ad6f010`. Note that some entries might have a large **PDE** and no **PTE**.
+The following command shows the physical address of ``fffff800`4ebc9370``in process layout of process id \(0x4\).
 
 ```diff
-HyperDbg >!pte fffff8003ad6f010
-VA fffff8003ad6f010
-PML4E (PXE) at ffff83c1e0f07f80 contains 0000000004108063
-PDPT (PPE) at ffff83c1e0ff0000  contains 0000000004109063
-PDE at ffff83c1fe000eb0 contains 00000000028008e3
-PDE is a large page, so it doesn't have a PTE
+HyperDbg >!va2pa fffff800`4ebc9370 pid 0x4
+21c9370
 ```
 
 ### IOCTL
 
-This function works by calling **DeviceIoControl** with `IOCTL = IOCTL_DEBUGGER_READ_PAGE_TABLE_ENTRIES_DETAILS`, you have to send it in the following structure.
+This function works by calling **DeviceIoControl** with `IOCTL = IOCTL_DEBUGGER_VA2PA_AND_PA2VA_COMMANDS`, you have to send it in the following structure.
 
 ```c
-typedef struct _DEBUGGER_READ_PAGE_TABLE_ENTRIES_DETAILS {
+typedef struct _DEBUGGER_VA2PA_AND_PA2VA_COMMANDS {
 
   UINT64 VirtualAddress;
+  UINT64 PhysicalAddress;
+  UINT32 ProcessId;
+  BOOLEAN IsVirtual2Physical;
 
-  UINT64 Pml4eVirtualAddress;
-  UINT64 Pml4eValue;
-
-  UINT64 PdpteVirtualAddress;
-  UINT64 PdpteValue;
-
-  UINT64 PdeVirtualAddress;
-  UINT64 PdeValue;
-
-  UINT64 PteVirtualAddress;
-  UINT64 PteValue;
-
-} DEBUGGER_READ_PAGE_TABLE_ENTRIES_DETAILS,
-    *PDEBUGGER_READ_PAGE_TABLE_ENTRIES_DETAILS;
+} DEBUGGER_VA2PA_AND_PA2VA_COMMANDS, *PDEBUGGER_VA2PA_AND_PA2VA_COMMANDS;
 ```
 
-You should only fill the VirtualAddress of the above structure, when the IOCTL returns from the kernel, other parts of this structure are filled with valid entry virtual addresses and the entry value itself.
+You should only fill the **VirtualAddress** of the above structure when you want a physical address and fill the above **PhysicalAddress** when you want a virtual address. Also set **IsVirtual2Physical** to **`true`** in the case of virtual-to-physical and set it to **`false`** in the case of physical-to-virtual.
 
-You can map the value to the specific structure of each entry, look at Intel SDM for more information.
-
-Also the structures are available in `MemoryMapper.h`, but they might be outdated.
+If you want to convert based on another process memory layout then put its process id, otherwise, put the current process id on it. **ProcessId** can't be `null`.
 
 ### **Remarks**
 
 {% hint style="success" %}
-If the VirtualAddress and Value of entry for PDE and PTE from the kernel IOCTL is the same, this shows that the entry has a LARGE PDE and doesn't have PTE.
+If the virtual address or process id does not exists then it shows **`0`**.
 {% endhint %}
 
 ### Requirements
