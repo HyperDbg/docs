@@ -16,6 +16,8 @@ description: Description of 'sleep' command in HyperDbg.
 
 Waits for the specified time \(in milliseconds\).
 
+### Parameters
+
 \[time to wait \(milliseconds - hex value\)\]
 
           The time that debugger should wait, in milliseconds.
@@ -26,7 +28,7 @@ None
 
 ### **Remarks**
 
-This command is used in batch script files when we want to gather information for a specific time and then executing [**pause** ](https://docs.hyperdbg.com/commands/debugging-commands/pause)command or [**unload** ](https://docs.hyperdbg.com/commands/debugging-commands/unload)command. 
+This command is used in batch script files when we want to gather information for a specific time and then executing [**pause** ](https://docs.hyperdbg.com/commands/debugging-commands/pause)command or [**unload** ](https://docs.hyperdbg.com/commands/debugging-commands/unload)command stop the debugger.
 
 ### Requirements
 
