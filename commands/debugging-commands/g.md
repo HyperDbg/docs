@@ -26,9 +26,9 @@ None
 
 ### **Remarks**
 
-In remote debugging [pause command](https://docs.hyperdbg.com/commands/debugging-commands/pause) or CTRL+C or CTRL+BREAK causes, the target system to pause completely and the target system goes to a halt state. 
+In remote debugging [pause command](https://docs.hyperdbg.com/commands/debugging-commands/pause) or CTRL+C or CTRL+BREAK causes, the target system to pause completely and the target system halts. 
 
-In local debugging [pause command](https://docs.hyperdbg.com/commands/debugging-commands/pause) or CTRL+C or CTRL+BREAK causes the debugger to stop processing kernel and vmx packets to the debugger \(they won't stop working, just we ignore the messages\). Also, we don't save messages so when you pause the debugger then the logs from the events are simply ignored and you can't process them anymore.
+In local debugging [pause command](https://docs.hyperdbg.com/commands/debugging-commands/pause) or CTRL+C or CTRL+BREAK causes the debugger to stop processing kernel and vmx packets \(they won't stop working, just we ignore the messages\). Also, we don't save messages so when you pause the debugger then the logs from the events are simply ignored and you can't process them in the future.
 
 ### Requirements
 
