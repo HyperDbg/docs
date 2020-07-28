@@ -120,7 +120,7 @@ typedef enum _DEBUGGER_EDIT_MEMORY_BYTE_SIZE {
 
 The above structure is added on top of an array of 64-bit values which is the new content to the memory. 
 
-For example, if you want to change the memory address of  the target to `0x90 0x90` then you should provide an array of `0x0000000000000090` and `0x0000000000000090` and append it at the end of the above structure. The count of these chunks is stored at `CountOf64Chunks` in the above structure and the final buffer that will be send into the kernel has a size of `FinalStructureSize` bytes. 
+For example, if you want to change the memory address of  the target to `0x90 0x90` then you should provide an array of `0x0000000000000090` and `0x0000000000000090` and append it at the end of the above structure. The count of these chunks is stored at `CountOf64Chunks` in the above structure and the final buffer that will be sent into the kernel has a size of `FinalStructureSize` bytes. 
 
 ### **Remarks**
 
@@ -132,5 +132,5 @@ None
 
 ### Related
 
-[!db, !dc, !dd, !dq \(read physical memory\)](https://docs.hyperdbg.com/commands/extension-commands/d)
+[!eb, !ed, !eq \(edit physical memory\)](https://docs.hyperdbg.com/commands/extension-commands/e)
 
