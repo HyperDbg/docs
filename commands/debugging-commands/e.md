@@ -56,7 +56,7 @@ The following example is used when we want to edit the contents of memory at ``f
 HyperDbg >ed fffff800`3ad6f010 245C8948
 ```
 
-The following example is used when we want to edit the contents of memory at ``fffff800`3ad6f010`` from in a Quad-word values \(8 bytes\) format, change it to ``88889898`85858686``  and``92929393`97979898`` \(16 bytes\).
+The following example is used when we want to edit the contents of memory at ``fffff800`3ad6f010`` in Quad-word values \(8 bytes\), change it to ``88889898`85858686``  and``92929393`97979898`` \(16 bytes\).
 
 ```diff
 HyperDbg >dq fffff800`3ad6f010 88889898`85858686 92929393`97979898
@@ -80,7 +80,7 @@ typedef struct _DEBUGGER_EDIT_MEMORY {
 } DEBUGGER_EDIT_MEMORY, *PDEBUGGER_EDIT_MEMORY;
 ```
 
-The Result will be filled by the kernel-mode driver when it returns from the kernel and shows whether the editing was successful or not, the following results can come from the kernel :
+The `Result` will be filled by the kernel-mode driver when it returns from the kernel and shows whether the editing was successful or not, the following results can come from the kernel :
 
 ```c
 #define DEBUGGER_EDIT_MEMORY_STATUS_SUCCESS 0x1
@@ -95,9 +95,9 @@ The Result will be filled by the kernel-mode driver when it returns from the ker
 
  The `Address` is where we want to modify and can be both a **physical** address or a **virtual** address.
 
-`ProcessId` is the process that we want to modify based on its memory layout \(**cr3**\), it can't be null.
+`ProcessId` is the process that we want to modify based on its memory layout \(**cr3**\), it can't be `null` or zerp.
 
-`MemoryType` shows whether the `Address` is a physical address or a virtual address.
+`MemoryType` shows whether the `Address` is a **physical** address or a **virtual** address.
 
 You can see its values in the following enum :
 
@@ -108,7 +108,7 @@ typedef enum _DEBUGGER_EDIT_MEMORY_TYPE {
 } DEBUGGER_EDIT_MEMORY_TYPE;
 ```
 
-ByteSize shows whether we want to modify the target Address in a **byte**, **dword**, or **qword** format. 
+`ByteSize` shows whether we want to modify the target Address in a **byte**, **dword**, or **qword** format. 
 
 ```c
 typedef enum _DEBUGGER_EDIT_MEMORY_BYTE_SIZE {
@@ -120,11 +120,11 @@ typedef enum _DEBUGGER_EDIT_MEMORY_BYTE_SIZE {
 
 The above structure is added on top of an array of 64-bit values which is the new content to the memory. 
 
-For example, if you want to change the memory address of  the target to `0x90 0x90` then you should provide an array of `0x0000000000000090` and `0x0000000000000090` and append it at the end of the above structure. The count of these chunks is stored at `CountOf64Chunks` in the above structure and the final buffer that will be sent into the kernel has a size of `FinalStructureSize` bytes. 
+For example, if you want to change the memory address of  the target to `0x90 0x90` then you should provide an array of `0x0000000000000090` and `0x0000000000000090` and append it to the end of the above structure. The count of these chunks is stored at `CountOf64Chunks` in the above structure and the final buffer that will be sent into the kernel has a size of `FinalStructureSize` bytes. 
 
 ### **Remarks**
 
-* You can change as many bytes as you need in **byte**, **dword**, and **qword** formats, just add new values at the end of the command. 
+* You can change as many bytes as you need in **byte**, **dword**, and **qword** formats, just add new values to the end of the command. 
 
 ### Requirements
 
