@@ -29,6 +29,7 @@
   * [test \(test functionalities\)](commands/debugging-commands/test.md)
   * [lm \(view loaded modules\)](commands/debugging-commands/lm.md)
   * [db, dc, dd, dq \(read virtual memory\)](commands/debugging-commands/d.md)
+  * [eb, ed, eq \(edit virtual memory\)](commands/debugging-commands/e.md)
   * [u \(disassemble virtual address\)](commands/debugging-commands/u.md)
   * [cpu \(check cpu supported technologies\)](commands/debugging-commands/cpu.md)
   * [rdmsr \(read model-specific register\)](commands/debugging-commands/rdmsr.md)
