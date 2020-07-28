@@ -44,7 +44,7 @@ If you don't specify the pid, then the default pid is the current process \(**Hy
 
 ### Examples
 
-The following command is used when we want to edit the content of memory at **``fffff800`3ad6f010``** in a hex byte form and change it to `0x90 0x90 0x90` \(modify **three** bytes\).
+The following command is used when we want to edit the content of memory at **`fffff8`**``00`3ad6f010`` in a hex byte form and change it to `0x90 0x90 0x90` \(modify **three** bytes\).
 
 ```diff
 HyperDbg >eb fffff800`3ad6f010 90 90 90
