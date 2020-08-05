@@ -104,6 +104,8 @@
   * [IOCTL Requests for Events](design/debugger-internals/ioctl-requests-for-events.md)
   * [VMX Root-mode Compatible Message Tracing](design/debugger-internals/vmx-root-mode-compatible-message-tracing.md)
   * [Control over NMIs](design/debugger-internals/control-over-nmis.md)
+* [Script Engine](design/script-engine/README.md)
+  * [Log the State's LL1 Grammer](design/script-engine/log-the-states-ll1-grammer.md)
 
 ## Links
 
