@@ -1,5 +1,5 @@
 ---
-description: 'A debugger designed for analyzing, fuzzing and reversing'
+description: 'A hypervisor-assisted debugger designed for analyzing, fuzzing and reversing'
 ---
 
 # HyperDbg
