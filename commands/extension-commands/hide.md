@@ -30,7 +30,7 @@ This command is case-sensitive for the **`name`** parameter.
 
 **\[pid \| name\]**
 
-          If you want to use process id then you should specify **pid** and if you want to enter the process name then you should specify the **name** as this argument. 
+          If you want to use the process id then you should specify **pid** and if you want to enter the process name then you should specify the **name** as this argument. 
 
 **\[process id \(hex value\) \| name \(string\)\]**
 
@@ -62,15 +62,15 @@ The following structure shows whether enable or disable it.
 
 `IsHide = TRUE` : Enable transparent-mode.
 
-`IsHide = FALSE`: Disable transparent-mode.
-
 `CpuidAverage`, `CpuidStandardDeviation`, `CpuidMedian` can be computed by using the`TransparentModeCheckHypervisorPresence` function.
 
 `RdtscAverage`, `RdtscStandardDeviation`, `RdtscMedian` can be computed by using the `TransparentModeCheckRdtscpVmexit` function.
 
 `TrueIfProcessIdAndFalseIfProcessName` if this field is `TRUE` then you should fill the `ProcId` with the process id that you need to transparent **HyperDbg** for that process.
 
-Otherwise and if you want to use a process name \(not process id\) then you should set the `TrueIfProcessIdAndFalseIfProcessName` to `FALSE` and append the process name \(string\) to the bottom of this structure and put the string size + 1 \(null terminator\) to the `LengthOfProcessName`.
+Otherwise and if you want to use a process name \(not process id\) then you should set the `TrueIfProcessIdAndFalseIfProcessName` to `FALSE` and append the process name \(string\) to the bottom of this structure and put the string size + 1 \(null terminator\) to the `LengthOfProcessName`. 
+
+Then you should send the `sizeof(DEBUGGER_HIDE_AND_TRANSPARENT_DEBUGGER_MODE)+ProcessNameStringSize` as the input size of `DeviceIoControl`.
 
 ```c
 typedef struct _DEBUGGER_HIDE_AND_TRANSPARENT_DEBUGGER_MODE {
@@ -104,7 +104,7 @@ You can send the above structure multiple times if you want to hide multiple pro
 
 This command will not guarantee to provide **100%** transparency, especially in nested-virtualization environments.
 
-**HyperDbg** will protect you from **user-mode** anti-hypervisor methods by making vm-exits transparent but even in a nested-virtualization environment, there are other traces for anti-VMware, anti-VirtualBox, etc. methods and these methods are still problematic, because, **HyperDbg** tries to hide itself from anti-debugging and anti-hypervisor methods thus you need to run this command in a physical-machine \(not in a nested-virtualization environment\); otherwise you should find other traces for virtual machine software. 
+**HyperDbg** will protect you from **user-mode** anti-hypervisor methods by making vm-exits transparent even in a nested-virtualization environment; however, there are other traces for anti-VMware, anti-VirtualBox, etc. methods and these methods are still problematic, because, **HyperDbg** tries to hide itself from anti-debugging and anti-hypervisor methods not VMware, VirtualBox, etc. thus you need to run this command in a physical-machine \(not in a nested-virtualization environment\); otherwise you should find other traces for virtual machine software and solve those traces by yourself \(e.g., hooking anti-VMware APIs and Queries\).
 
 ### Requirements
 
