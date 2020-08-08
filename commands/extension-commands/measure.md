@@ -20,7 +20,7 @@ This command should be run before you '[load](https://docs.hyperdbg.com/commands
 
 ### Parameters
 
-\[default\]
+**\[default\]**
 
           If you specify '**default**' then **HyperDbg** uses the hardcoded measurements from a not-running hypervisor machine; however, it's not recommended, see the **Remarks** for more information.
 
