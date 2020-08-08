@@ -14,7 +14,9 @@ description: Description of '!hide' command in HyperDbg.
 
 ### Description
 
-Enables the transparent-mode of **HyperDbg** for anti-debugging and anti-hypervisor methods. This option works only for the processes that are selected by you and won't be applied to all the processes.
+Enables the transparent-mode of **HyperDbg** for anti-debugging and anti-hypervisor methods. This option only works for the processes that are selected by you and won't be applied to all the processes.
+
+You should run '**!hide**' after running '[!measure](https://docs.hyperdbg.com/commands/extension-commands/measure)' command.
 
 {% hint style="success" %}
 You can use this command multiple times. 
