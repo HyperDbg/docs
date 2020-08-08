@@ -65,6 +65,7 @@
   * [!ioin \(hook IN instruction execution\)](commands/extension-commands/ioin.md)
   * [!ioout \(hook OUT instruction execution\)](commands/extension-commands/ioout.md)
   * [!hide \(enable transparent-mode\)](commands/extension-commands/hide.md)
+  * [!measure \(measuring and providing details for transparent-mode\)](commands/extension-commands/measure.md)
   * [!unhide \(disable transparent-mode\)](commands/extension-commands/unhide.md)
   * [!va2pa \(convert a virtual address to physical address\)](commands/extension-commands/va2pa.md)
   * [!pa2va \(convert physical address to virtual address\)](commands/extension-commands/pa2va.md)
