@@ -32,7 +32,7 @@ This command is case-sensitive for the **`name`** parameter.
 
 **\[process id \(hex value\) \| name \(string\)\]**
 
-          Name or process id of the process that you want make **HyperDbg** transparent for it.
+          Name or process id of the process that you want to make **HyperDbg** transparent for it.
 
 {% hint style="info" %}
 You should append `.exe` to your process names. 
@@ -96,7 +96,7 @@ typedef struct _DEBUGGER_HIDE_AND_TRANSPARENT_DEBUGGER_MODE {
 
 If the results were successful then kernel sends the `DEBUGEER_OPERATION_WAS_SUCCESSFULL` to user-mode as `KernelStatus`  in the above structure and if it was unsuccessful then it sends`DEBUGEER_ERROR_UNABLE_TO_HIDE_OR_UNHIDE_DEBUGGER` which is an indicator of error.
 
-You can send the above structure multiple times if you  want to hide multiple processes.
+You can send the above structure multiple times if you want to hide multiple processes.
 
 ### **Remarks**
 
