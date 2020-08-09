@@ -1,20 +1,30 @@
 ---
-description: Description of 'u' command in HyperDbg.
+description: 'Description of ''u, u2'' command in HyperDbg.'
 ---
 
 # u \(disassemble virtual address\)
 
 ### Command
 
-> u
+> u 
+>
+> u2
 
 ### Syntax
 
 > u \[address\] l \[length \(hex\)\] pid \[process id \(hex\)\]
+>
+> u2 \[address\] l \[length \(hex\)\] pid \[process id \(hex\)\]
+
+\*\*\*\*
+
+{% hint style="info" %}
+**u** disassembles as x64 and **u2** disassembles as x86.
+{% endhint %}
 
 ### Description
 
-Shows the assembly regarding to memory content at the **virtual** address hex form.
+Shows the assembly regarding memory content at the **virtual** address hex form.
 
 ### Parameters
 
@@ -36,7 +46,7 @@ If you don't specify the pid, then the default pid is the current process \(Hype
 
 ### Examples
 
-The following command is used when we want to disassemble the content of memory at **``fffff800`3ad6f010``** with length of `0x50` bytes from the memory layout view of process \(`4` a.k.a. system process\).
+The following command is used when we want to disassemble the content of memory \(x64\) at **``fffff800`3ad6f010``** with length of `0x50` bytes from the memory layout view of process \(`4` a.k.a. system process\).
 
 ```diff
 HyperDbg >u fffff800`3ad6f010 l 50 pid 4
@@ -61,7 +71,7 @@ fffff800`3ad6f059 44 8B C8                            mov r9d, eax
 fffff800`3ad6f05c 89 5C 24 20                         mov dword ptr ss:[rsp+0x20], ebx
 ```
 
-The following example shows the assembly content of memory at ``fffff800`3ad6f010`` from current process memory layout.
+The following example shows the assembly content \(x64\) of memory at ``fffff800`3ad6f010`` from current process memory layout.
 
 ```diff
 HyperDbg >u fffff800`3ad6f010
@@ -124,10 +134,10 @@ void HyperDbgReadMemoryAndDisassemble(DEBUGGER_SHOW_MEMORY_STYLE Style, UINT64 A
 The above function fill the IOCTL structure and shows the memory content, it also is able to disassemble the memory, you can specify one of the following `styles` to show the memory.
 
 ```c
-typedef enum _DEBUGGER_SHOW_MEMORY_STYLE { DEBUGGER_SHOW_COMMAND_DISASSEMBLE, DEBUGGER_SHOW_COMMAND_DB, DEBUGGER_SHOW_COMMAND_DC, DEBUGGER_SHOW_COMMAND_DQ, DEBUGGER_SHOW_COMMAND_DD } DEBUGGER_SHOW_MEMORY_STYLE;
+typedef enum _DEBUGGER_SHOW_MEMORY_STYLE { DEBUGGER_SHOW_COMMAND_DISASSEMBLE64, DEBUGGER_SHOW_COMMAND_DISASSEMBLE32, DEBUGGER_SHOW_COMMAND_DB, DEBUGGER_SHOW_COMMAND_DC, DEBUGGER_SHOW_COMMAND_DQ, DEBUGGER_SHOW_COMMAND_DD } DEBUGGER_SHOW_MEMORY_STYLE;
 ```
 
-**For disassembling use the `DEBUGGER_SHOW_COMMAND_DISASSEMBLE` as the `Style`.**
+**For disassembling use the `DEBUGGER_SHOW_COMMAND_DISASSEMBLE64` as the `Style` for x64 disassembling and for disassembling x86 use the `DEBUGGER_SHOW_COMMAND_DISASSEMBLE32`.**
 
 ### **Remarks**
 

@@ -1,20 +1,28 @@
 ---
-description: Description of '!u' command in HyperDbg.
+description: 'Description of ''!u, !u2'' command in HyperDbg.'
 ---
 
 # !u \(disassemble physical address\)
 
 ### Command
 
-> !u
+> !u 
+>
+> !u2
 
 ### Syntax
 
 > !u \[address\] l \[length \(hex\)\]
+>
+> !u2 \[address\] l \[length \(hex\)\]
+
+{% hint style="info" %}
+**!u** disassembles as x64 and **!u2** disassembles as x86.
+{% endhint %}
 
 ### Description
 
-Shows the assembly regarding to memory content at the **physical** address hex form.
+Shows the assembly regarding memory content at the **physical** address hex form.
 
 ### Parameters
 
@@ -32,7 +40,7 @@ Process ID doesn't make sense in physical memory. If you specify **pid** then it
 
 ### Examples
 
-The following command is used when we want to disassemble the content of memory at **`1000`** with length of `0x50`bytes.
+The following command is used when we want to disassemble the content of memory \(x64\) at **`1000`** with length of `0x50`bytes.
 
 ```diff
 HyperDbg >!u 1000 l 50
@@ -56,7 +64,7 @@ HyperDbg >!u 1000 l 50
 00000000`00001025 F8                                  clc
 ```
 
-The following example shows the assembly content of memory at `1000`.
+The following example shows the assembly content of memory \(x64\) at `1000`.
 
 ```diff
 HyperDbg >!u 1000
@@ -122,10 +130,10 @@ void HyperDbgReadMemoryAndDisassemble(DEBUGGER_SHOW_MEMORY_STYLE Style, UINT64 A
 The above function fill the IOCTL structure and shows the memory content, it also is able to disassemble the memory, you can specify one of the following `styles` to show the memory.
 
 ```c
-typedef enum _DEBUGGER_SHOW_MEMORY_STYLE { DEBUGGER_SHOW_COMMAND_DISASSEMBLE, DEBUGGER_SHOW_COMMAND_DB, DEBUGGER_SHOW_COMMAND_DC, DEBUGGER_SHOW_COMMAND_DQ, DEBUGGER_SHOW_COMMAND_DD } DEBUGGER_SHOW_MEMORY_STYLE;
+typedef enum _DEBUGGER_SHOW_MEMORY_STYLE { DEBUGGER_SHOW_COMMAND_DISASSEMBLE64, DEBUGGER_SHOW_COMMAND_DISASSEMBLE32, DEBUGGER_SHOW_COMMAND_DB, DEBUGGER_SHOW_COMMAND_DC, DEBUGGER_SHOW_COMMAND_DQ, DEBUGGER_SHOW_COMMAND_DD } DEBUGGER_SHOW_MEMORY_STYLE;
 ```
 
-**For disassembling use the `DEBUGGER_SHOW_COMMAND_DISASSEMBLE` as the `Style`.**
+**For disassembling use the `DEBUGGER_SHOW_COMMAND_DISASSEMBLE64` as the `Style` for x64 disassembling and for disassembling x86 use the `DEBUGGER_SHOW_COMMAND_DISASSEMBLE32`.**
 
 ### **Remarks**
 
