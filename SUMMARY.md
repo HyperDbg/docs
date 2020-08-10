@@ -42,6 +42,7 @@
   * [.script \(run batch script commands\)](commands/meta-commands/.script.md)
   * [.logopen \(open log file\)](commands/meta-commands/.logopen.md)
   * [.logclose \(close log file\)](commands/meta-commands/.logclose.md)
+  * [.help \(show the help of commands\)](commands/meta-commands/.help.md)
   * [.cls \(clear the screen\)](commands/meta-commands/.cls.md)
 * [Extension Commands](commands/extension-commands/README.md)
   * [!pte \(display page-level address and entries\)](commands/extension-commands/pte.md)
