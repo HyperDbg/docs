@@ -103,6 +103,7 @@
   * [Events](design/debugger-internals/events.md)
   * [Conditions](design/debugger-internals/conditions.md)
   * [Actions](design/debugger-internals/actions.md)
+  * [Transparent-mode](design/debugger-internals/transparent-mode.md)
   * [IOCTL Requests for Events](design/debugger-internals/ioctl-requests-for-events.md)
   * [VMX Root-mode Compatible Message Tracing](design/debugger-internals/vmx-root-mode-compatible-message-tracing.md)
   * [Control over NMIs](design/debugger-internals/control-over-nmis.md)
