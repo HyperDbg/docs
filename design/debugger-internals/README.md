@@ -52,7 +52,9 @@ You can see the source code for these series on GitHub.
 
 ## HyperDbg Design 
 
-Here's a diagram that shows how HyperDbg works !
+Here's a diagram that shows how HyperDbg works!
 
 ![](../../.gitbook/assets/diagram_hq_v1.png)
+
+
 
