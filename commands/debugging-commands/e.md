@@ -90,7 +90,7 @@ The `Result` will be filled by the kernel-mode driver when it returns from the k
   0xc000000d
 ```
 
- The `Address` is where we want to modify and can be both a **physical** address or a **virtual** address.
+ The `Address` is where we want to modify and it can be both a **physical** address or a **virtual** address.
 
 `ProcessId` is the process that we want to modify based on its memory layout \(**cr3**\), it can't be `null` or zero.
 

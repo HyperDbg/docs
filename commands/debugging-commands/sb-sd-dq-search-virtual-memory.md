@@ -22,7 +22,7 @@ description: Description of 's*' command in HyperDbg.
 
 ### Description
 
-Searching the **virtual** memory for special bytes.
+Searching the **virtual** memory for a special byte\(s\).
 
 ### Parameters
 
@@ -84,7 +84,7 @@ typedef struct _DEBUGGER_SEARCH_MEMORY {
 } DEBUGGER_SEARCH_MEMORY, *PDEBUGGER_SEARCH_MEMORY;
 ```
 
- The `Address` is where we want to stat searching from its memory and can be both a **physical** address or a **virtual** address.
+ The `Address` is where we want to start searching from its memory and it can be both a **physical** address or a **virtual** address.
 
 `ProcessId` is the process that we want to modify based on its memory layout \(**cr3**\), it can't be `null` or zero.
 
@@ -113,9 +113,9 @@ The above structure is added on top of an array of 64-bit values which is the ne
 
 For example, if you want to search in the memory address of  the target for`0x90 0x90` then you should provide an array of `0x0000000000000090` and `0x0000000000000090` and append it to the end of the above structure. The count of these chunks is stored at `CountOf64Chunks` in the above structure and the final buffer that will be sent into the kernel has a size of `FinalStructureSize` bytes. 
 
-Also, you should provide a buffer \(size = `MaximumSearchResults * sizeof(UINT64)`\) as the output buffer so the kernel-mode module will fill this buffer with 64-bit arrays or addresses that match our search results.
+Also, you should provide a buffer \(size = `MaximumSearchResults * sizeof(UINT64)`\) as the output buffer so the kernel-mode module will fill this buffer with a 64-bit array or addresses that match our search results.
 
-You can treat the result buffer as an `UINT64` array and if you encounter a null entry, then it means there is no other result.
+You can read the result buffer as an `UINT64` array and if you encounter a null entry, then it means there is no other result.
 
 ### **Remarks**
 
