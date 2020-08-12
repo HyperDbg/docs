@@ -30,7 +30,7 @@
   * [lm \(view loaded modules\)](commands/debugging-commands/lm.md)
   * [db, dc, dd, dq \(read virtual memory\)](commands/debugging-commands/d.md)
   * [eb, ed, eq \(edit virtual memory\)](commands/debugging-commands/e.md)
-  * [sb, sd, dq \(search virtual memory\)](commands/debugging-commands/sb-sd-dq-search-virtual-memory.md)
+  * [sb, sd, dq \(search virtual memory\)](commands/debugging-commands/s.md)
   * [u, u2 \(disassemble virtual address\)](commands/debugging-commands/u.md)
   * [cpu \(check cpu supported technologies\)](commands/debugging-commands/cpu.md)
   * [rdmsr \(read model-specific register\)](commands/debugging-commands/rdmsr.md)
