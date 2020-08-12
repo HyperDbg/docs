@@ -2,7 +2,7 @@
 description: 'Description of ''u, u2'' command in HyperDbg.'
 ---
 
-# u \(disassemble virtual address\)
+# u, u2 \(disassemble virtual address\)
 
 ### Command
 

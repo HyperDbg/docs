@@ -83,19 +83,16 @@ typedef struct _DEBUGGER_EDIT_MEMORY {
 The `Result` will be filled by the kernel-mode driver when it returns from the kernel and shows whether the editing was successful or not, the following results can come from the kernel :
 
 ```c
-#define DEBUGGER_EDIT_MEMORY_STATUS_SUCCESS 0x1
-
-#define DEBUGGER_EDIT_MEMORY_STATUS_INVALID_PARAMETER 0x80000000
-
-#define DEBUGGER_EDIT_MEMORY_STATUS_INVALID_ADDRESS_BASED_ON_CURRENT_PROCESS   \
-  0x80000001
-#define DEBUGGER_EDIT_MEMORY_STATUS_INVALID_ADDRESS_BASED_ON_OTHER_PROCESS     \
-  0x80000002
+#define DEBUGGER_ERROR_EDIT_MEMORY_STATUS_INVALID_PARAMETER 0xc000000b
+#define DEBUGGER_ERROR_EDIT_MEMORY_STATUS_INVALID_ADDRESS_BASED_ON_CURRENT_PROCESS \
+  0xc000000c
+#define DEBUGGER_ERROR_EDIT_MEMORY_STATUS_INVALID_ADDRESS_BASED_ON_OTHER_PROCESS \
+  0xc000000d
 ```
 
  The `Address` is where we want to modify and can be both a **physical** address or a **virtual** address.
 
-`ProcessId` is the process that we want to modify based on its memory layout \(**cr3**\), it can't be `null` or zerp.
+`ProcessId` is the process that we want to modify based on its memory layout \(**cr3**\), it can't be `null` or zero.
 
 `MemoryType` shows whether the `Address` is a **physical** address or a **virtual** address.
 

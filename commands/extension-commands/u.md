@@ -2,7 +2,7 @@
 description: 'Description of ''!u, !u2'' command in HyperDbg.'
 ---
 
-# !u \(disassemble physical address\)
+# !u, !u2 \(disassemble physical address\)
 
 ### Command
 
