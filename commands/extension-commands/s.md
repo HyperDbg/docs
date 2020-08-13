@@ -1,34 +1,34 @@
 ---
-description: Description of 's*' command in HyperDbg.
+description: Description of '!s*' command in HyperDbg.
 ---
 
-# sb, sd, sq \(search virtual memory\)
+# !sb, !sd, !sq \(search physical memory\)
 
 ### Command
 
-> sb : search virtual memory as Byte values
+> !sb : search physical memory as Byte values
 >
-> sd : search virtual memory as Double-word values \(4 bytes\)
+> !sd : search physical memory as Double-word values \(4 bytes\)
 >
-> sq : search virtual memory as Quad-word values \(8 bytes\)
+> !sq : search physical memory as Quad-word values \(8 bytes\)
 
 ### Syntax
 
-> sb \[search from address \(hex\)\] l \[length \(hex\)\] \[byte pattern \(hex\)\] pid \[process id \(hex\)\]
+> !sb \[search from address \(hex\)\] l \[length \(hex\)\] \[byte pattern \(hex\)\] pid \[process id \(hex\)\]
 >
-> sd \[search from address \(hex\)\] l \[length \(hex\)\] \[byte pattern \(hex\)\] pid \[process id \(hex\)\]
+> !sd \[search from address \(hex\)\] l \[length \(hex\)\] \[byte pattern \(hex\)\] pid \[process id \(hex\)\]
 >
-> sq \[search from address \(hex\)\] l \[length \(hex\)\] \[byte pattern \(hex\)\] pid \[process id \(hex\)\]
+> !sq \[search from address \(hex\)\] l \[length \(hex\)\] \[byte pattern \(hex\)\] pid \[process id \(hex\)\]
 
 ### Description
 
-Searching the **virtual** memory for a special byte\(s\).
+Searching the **physical** memory for a special byte\(s\).
 
 ### Parameters
 
 \[search from address \(hex\)\]
 
-          The **virtual** address of where we want to start searching from its address.
+          The **physical** address of where we want to start searching from its address.
 
 l \[length \(hex\)\]
 
@@ -48,22 +48,22 @@ If you don't specify the **pid**, then the default **pid** is the current proces
 
 ### Examples
 
-The following command is used to search for `4156415748` starting from ``fffff807`7356f010`` to ``fffff807`7356f010+ffff``.
+The following command is used to search for `4156415748` starting from `76f010` to `76f010+ffff`.
 
 ```diff
-HyperDbg >sb fffff807`7356f010 l ffff 41 56 41 57 48 
+HyperDbg >!sb 76f010 l ffff 41 56 41 57 48 
 ```
 
-The following example is used when we want to search for `f0cc8549` from `7FF62C9016AD` to `7FF62C9016AD+fff` in a different process \(process id = `1dd0`\) .
+The following example is used when we want to search for `f0cc8549` from `9016AD` to `9016AD+fff` in a different process \(process id = `1dd0`\).
 
 ```diff
-HyperDbg >sd 7FF62C9016AD pid 1dd0 l fff f0cc8549 
+HyperDbg >!sd 9016AD pid 1dd0 l fff f0cc8549 
 ```
 
-The following example is used when we want to search for ``0f450000`00c0888b`` ``8b410000`0092b1b7`` from ``fffff807`7356f010`` to ``fffff807`7356f010+100``.
+The following example is used when we want to search for ``0f450000`00c0888b`` ``8b410000`0092b1b7`` from `76f010` to `76f010+100`.
 
 ```diff
-HyperDbg >sq fffff807`7356f010 l 100 0f450000`00c0888b 8b410000`0092b1b7
+HyperDbg >!sq 76f010 l 100 0f450000`00c0888b 8b410000`0092b1b7
 ```
 
 ### IOCTL
@@ -120,6 +120,7 @@ You can read the result buffer as an `UINT64` array and if you encounter a null 
 ### **Remarks**
 
 * You can search for as many bytes as you need in **byte**, **dword**, and **qword** formats, just add the multiple byte\(s\) values to the end of the command. 
+* In the current implementation of **physical** memory search, the address should also be available and mapped to the target process's **virtual** address space.
 
 ### Requirements
 
