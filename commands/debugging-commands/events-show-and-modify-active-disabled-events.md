@@ -18,7 +18,7 @@ Shows a list of active/disabled events and commands and also disables and clears
 
 ### Parameters
 
-\[e\|d\|c\] \(optional\)
+**\[e\|d\|c\] \(optional\)**
 
           Type of action can be one of the `e`, `d`, or `c`.
 
@@ -26,14 +26,14 @@ Shows a list of active/disabled events and commands and also disables and clears
 
         **d** : disables the target event
 
-        **c** : enables the target event
+        **c** : clears and removes the target event
 
-core \[event number \(hex value\) \| all\] \(optional\)
+**core \[event number \(hex value\) \| all\] \(optional\)**
 
-          Specifies the target event \(you can see the list of events and their unique numbers by running '**events**' command\), you can specify `all` to apply your action to all active/disabled events.
+          Specifies the target event \(you can see the list of events and their unique event numbers by running '**events**' command\), you can specify `all` to apply your action to all active/disabled events.
 
 {% hint style="success" %}
-If you don't specify any parameters to 'events' command then it shows a list of events and their unique numbers.
+If you don't specify any parameters to '**events**' command then it shows a list of events and their unique event numbers.
 {% endhint %}
 
 ### Examples
@@ -110,7 +110,7 @@ Where `Tag` is the tag of the event that you want to modify, you should leave `K
 Keep in mind, `Tag` is not same as event number, tags start from **0x1000000**; thus, you can add this value to form a `Tag` from event number.
 {% endhint %}
 
-TypeOfAction show what type of action you want the kernel to perform for you \(**enable**, **disable, or clear**\). It can be one of the following values.
+`TypeOfAction` shows what type of action you want the kernel to perform \(**enable**, **disable, or clear**\). It can be one of the following values.
 
 ```c
 typedef enum _DEBUGGER_MODIFY_EVENTS_TYPE {
