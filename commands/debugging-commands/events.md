@@ -107,7 +107,7 @@ typedef struct _DEBUGGER_MODIFY_EVENTS {
 Where `Tag` is the tag of the event that you want to modify, you should leave `KernelStatus` as it will be filled by the kernel and shows whether the request was successful or not.
 
 {% hint style="warning" %}
-Keep in mind, `Tag` is not same as event number, tags start from **0x1000000**; thus, you can add this value to form a `Tag` from event number.
+Keep in mind, `Tag` is not same as event number, tags start from **DebuggerEventTagStartSeed** \(by default **0x1000000**\); thus, you can add this value to form a `Tag` from event number.
 {% endhint %}
 
 `TypeOfAction` shows what type of action you want the kernel to perform \(**enable**, **disable, or clear**\). It can be one of the following values.
