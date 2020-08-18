@@ -28,7 +28,7 @@ Shows a list of active/disabled events and commands and also disables and clears
 
         **c** : clears and removes the target event
 
-**core \[event number \(hex value\) \| all\] \(optional\)**
+**\[event number \(hex value\) \| all\] \(optional\)**
 
           Specifies the target event \(you can see the list of events and their unique event numbers by running '**events**' command\), you can specify `all` to apply your action to all active/disabled events.
 

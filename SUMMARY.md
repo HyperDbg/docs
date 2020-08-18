@@ -36,6 +36,7 @@
   * [cpu \(check cpu supported technologies\)](commands/debugging-commands/cpu.md)
   * [rdmsr \(read model-specific register\)](commands/debugging-commands/rdmsr.md)
   * [wrmsr \(write model-specific register\)](commands/debugging-commands/wrmsr.md)
+  * [settings \(configures different options and preferences\)](commands/debugging-commands/settings-configures-different-options-and-preferences.md)
   * [exit \(exit from the debugger\)](commands/debugging-commands/exit.md)
 * [Meta Commands](commands/meta-commands/README.md)
   * [.connect \(connect to a session\)](commands/meta-commands/.connect.md)
