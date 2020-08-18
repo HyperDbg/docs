@@ -67,10 +67,6 @@ Before building, you can change the following options in **Configuration.h** fil
 Before building, you can change the following options in **Configuration.h** file.
 
 ```c
-
-```
-
-```c
 /* Default buffer size */
 #define MaximumPacketsCapacity 1000 // number of packets
 ```
