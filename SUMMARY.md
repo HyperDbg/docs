@@ -23,7 +23,7 @@
 * [Debugging Commands](commands/debugging-commands/README.md)
   * [load \(load the kernel modules\)](commands/debugging-commands/load.md)
   * [unload \(unload the kernel modules\)](commands/debugging-commands/unload.md)
-  * [events \(show and modify active/disabled events\)](commands/debugging-commands/events-show-and-modify-active-disabled-events.md)
+  * [events \(show and modify active/disabled events\)](commands/debugging-commands/events.md)
   * [g \(continue debugging or processing kernel packets\)](commands/debugging-commands/g.md)
   * [pause \(break to the debugger and pause processing kernel packets\)](commands/debugging-commands/pause.md)
   * [sleep \(wait for specific time in the .script command\)](commands/debugging-commands/sleep.md)
@@ -36,7 +36,7 @@
   * [cpu \(check cpu supported technologies\)](commands/debugging-commands/cpu.md)
   * [rdmsr \(read model-specific register\)](commands/debugging-commands/rdmsr.md)
   * [wrmsr \(write model-specific register\)](commands/debugging-commands/wrmsr.md)
-  * [settings \(configures different options and preferences\)](commands/debugging-commands/settings-configures-different-options-and-preferences.md)
+  * [settings \(configures different options and preferences\)](commands/debugging-commands/settings.md)
   * [exit \(exit from the debugger\)](commands/debugging-commands/exit.md)
 * [Meta Commands](commands/meta-commands/README.md)
   * [.connect \(connect to a session\)](commands/meta-commands/.connect.md)
@@ -87,6 +87,8 @@
   * [Run HyperDbg on Hyper-V](tips-and-tricks/nested-virtualization-environments/run-hyperdbg-on-hyper-v.md)
   * [Supporting VMware/Hyper-V](tips-and-tricks/nested-virtualization-environments/supporting-vmware-hyper-v.md)
   * [VMware backdoor I/O ports](tips-and-tricks/nested-virtualization-environments/vmware-backdoor-io-ports.md)
+* [Misc](tips-and-tricks/misc/README.md)
+  * [Customize Builds](tips-and-tricks/misc/customize-builds.md)
 
 ## Style Guide
 
