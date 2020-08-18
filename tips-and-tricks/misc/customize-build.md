@@ -2,7 +2,7 @@
 description: Description about customizing HyperDbg builds
 ---
 
-# Customize Builds
+# Customize Build
 
 You have different options to build HyperDbg in a way you want.
 
