@@ -34,10 +34,15 @@ Each option has its own different value, for example, some options might be on o
 
 | Options | Values | Default Value |
 | :--- | :--- | :--- |
+| **autoflush** | on \| off | off |
 | **autounpause** | on \| off | on |
 | **syntax** | intel \| att \| masm | intel |
 
-**autounpause** : if you turn your **autounpause** on, then if you press CTRL+C or run '[pause](https://docs.hyperdbg.com/commands/debugging-commands/pause)' command to break to the debugger, every new event will automatically turn off your break and you'll start receiving events and messages from the kernel-mode buffers. However, if you turn it off, then you won't receive kernel buffers and messages when you invoke a new event as the debugger will remain in paused state \(for example, paused because of '[pause](https://docs.hyperdbg.com/commands/debugging-commands/pause)' command or CTRL+C\), in this case, you can resume receiving messages from the kernel-mode buffer by running '[g](https://docs.hyperdbg.com/commands/debugging-commands/g)' command.
+**autoflush :** if you turn **autoflush** on, after each disabling or clearing an event using '[events](https://docs.hyperdbg.com/commands/debugging-commands/events)' command, all the possible pending buffers and messages from **all the commands \(not just the command that you disabled or removed\)** that are stored to be received by the user-mode from the kernel-mode are removed and when you press '[g](https://docs.hyperdbg.com/commands/debugging-commands/g)', you no longer see any results from previous commands; however, some commands might continue generating new messages, and those new messages won't be removed. 
+
+You can also perform the **autoflush** manually by running the 'flush' command.
+
+**autounpause** : if you turn **autounpause** on, then if you press CTRL+C or run '[pause](https://docs.hyperdbg.com/commands/debugging-commands/pause)' command to break to the debugger, every new event will automatically turn off your break and you'll start receiving events and messages from the kernel-mode buffers. However, if you turn it off, then you won't receive kernel buffers and messages when you invoke a new event as the debugger will remain in paused state \(for example, paused because of '[pause](https://docs.hyperdbg.com/commands/debugging-commands/pause)' command or CTRL+C\), in this case, you can resume receiving messages from the kernel-mode buffer by running '[g](https://docs.hyperdbg.com/commands/debugging-commands/g)' command.
 
 **syntax** : specifies the syntax of disassembler for '[!u and !u2](https://docs.hyperdbg.com/commands/extension-commands/u)' commands.
 
