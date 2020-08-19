@@ -44,7 +44,7 @@ None
 
 [g \(continue debugging or processing kernel packets\)](https://docs.hyperdbg.com/commands/debugging-commands/g)
 
-
+[settings \(configures different options and preferences\)](https://docs.hyperdbg.com/commands/debugging-commands/settings)
 
 
 
