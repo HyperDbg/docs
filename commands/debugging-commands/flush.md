@@ -14,7 +14,7 @@ description: Description of 'flush' command in HyperDbg.
 
 ### Description
 
-This command removes all the possible pending buffers and messages from **all the commands \(not just the command that you disabled or removed\)** that are stored to be received by the user-mode from the kernel-mode are removed and when you press '[g](https://docs.hyperdbg.com/commands/debugging-commands/g)', you no longer see any results from previous commands; however, some commands might continue generating new messages, and those new messages won't be removed. 
+This command removes all the possible pending buffers and messages from **all the commands \(not just the command that you disabled or removed\)** that are stored to be received by the user-mode from the kernel-mode and when you press '[g](https://docs.hyperdbg.com/commands/debugging-commands/g)', you no longer see any results from previous commands; however, some commands might continue generating new messages, and those new messages won't be removed. 
 
 ### Parameters
 
@@ -34,11 +34,11 @@ typedef struct _DEBUGGER_FLUSH_LOGGING_BUFFERS {
 } DEBUGGER_FLUSH_LOGGING_BUFFERS, *PDEBUGGER_FLUSH_LOGGING_BUFFERS;
 ```
 
-You don't need to fill anything from the above structure, this structure will be fill by kernel and if the `KernelStatus` was equal to `DEBUGEER_OPERATION_WAS_SUCCESSFULL`, then you can see count of messages that are deleted from vmx-root buffers from `CountOfMessagesThatSetAsReadFromVmxRoot` and vmx non-root buffer from `CountOfMessagesThatSetAsReadFromVmxNonRoot`.
+You don't need to fill anything from the above structure, this structure will be filled by the kernel and if the `KernelStatus` was equal to `DEBUGEER_OPERATION_WAS_SUCCESSFULL`, then you can see count of messages that are deleted from vmx-root buffer from `CountOfMessagesThatSetAsReadFromVmxRoot` and vmx non-root buffer from `CountOfMessagesThatSetAsReadFromVmxNonRoot`.
 
 ### **Remarks**
 
-You can configure **autoflush** mode in [settings](https://docs.hyperdbg.com/commands/debugging-commands/settings), this way, **HyperDbg** removes the pending messages automatically when you disabled or cleared an event.
+You can configure **autoflush** mode in [settings](https://docs.hyperdbg.com/commands/debugging-commands/settings), this way, **HyperDbg** removes the pending messages automatically when you **disabled** or **cleared** an event.
 
 ### Requirements
 

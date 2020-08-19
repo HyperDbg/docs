@@ -38,7 +38,7 @@ Each option has its own different value, for example, some options might be on o
 | **autounpause** | on \| off | on |
 | **syntax** | intel \| att \| masm | intel |
 
-**autoflush :** if you turn **autoflush** on, after each disabling or clearing an event using '[events](https://docs.hyperdbg.com/commands/debugging-commands/events)' command, all the possible pending buffers and messages from **all the commands \(not just the command that you disabled or removed\)** that are stored to be received by the user-mode from the kernel-mode are removed and when you press '[g](https://docs.hyperdbg.com/commands/debugging-commands/g)', you no longer see any results from previous commands; however, some commands might continue generating new messages, and those new messages won't be removed. 
+**autoflush :** if you turn **autoflush** on, after each disabling or clearing an event using '[events](https://docs.hyperdbg.com/commands/debugging-commands/events)' command, all the possible pending buffers and messages from **all the commands \(not just the command that you disabled or removed\)** that are stored to be received by the user-mode from the kernel-mode and when you press '[g](https://docs.hyperdbg.com/commands/debugging-commands/g)', you no longer see any results from previous commands; however, some commands might continue generating new messages, and those new messages won't be removed. 
 
 You can also perform the **autoflush** manually by running the '[flush](https://docs.hyperdbg.com/commands/debugging-commands/flush)' command.
 
