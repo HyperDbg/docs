@@ -102,6 +102,9 @@
 
 * [Features](design/features/README.md)
   * [VMM \(Module\)](design/features/vmm-module/README.md)
+    * [Transparent-mode](design/features/vmm-module/transparent-mode.md)
+    * [Control over NMIs](design/features/vmm-module/control-over-nmis.md)
+    * [VMX root-mode Compatible Message Tracing](design/features/vmm-module/vmx-root-mode-compatible-message-tracing.md)
     * [Design of !exception & !interrupt](design/features/vmm-module/design-of-exception-and-interrupt.md)
     * [Design of !syscall & !sysret](design/features/vmm-module/design-of-syscall-and-sysret.md)
     * [Design of !monitor](design/features/vmm-module/design-of-monitor.md)
@@ -111,10 +114,7 @@
   * [Events](design/debugger-internals/events.md)
   * [Conditions](design/debugger-internals/conditions.md)
   * [Actions](design/debugger-internals/actions.md)
-  * [Transparent-mode](design/debugger-internals/transparent-mode.md)
   * [IOCTL Requests for Events](design/debugger-internals/ioctl-requests-for-events.md)
-  * [VMX root-mode Compatible Message Tracing](design/debugger-internals/vmx-root-mode-compatible-message-tracing.md)
-  * [Control over NMIs](design/debugger-internals/control-over-nmis.md)
 * [Script Engine](design/script-engine/README.md)
   * [Log the State's LL1 Grammer](design/script-engine/log-the-states-ll1-grammer.md)
 
