@@ -10,7 +10,7 @@ description: Description of 'cpu' command in HyperDbg.
 
 ### Syntax
 
-> load
+> load \[module name\]
 
 ### Description
 
@@ -18,7 +18,21 @@ Loads the HyperDbg drivers and kernel modules into the target system.
 
 ### Parameters
 
-None
+\[module name\]
+
+          The name of the module that you want to load
+
+### Modules
+
+| Module Name | Description |
+| :--- | :--- |
+| vmm | Hypervisor-related capabilities |
+
+{% hint style="info" %}
+The debugger functions are implemented on top of 'vmm' module.
+{% endhint %}
+
+**vmm** : this module contains commands related to debugger and all hypervisor-related capabilities. currently, **vmm** is the only module of **HyperDbg**.
 
 ### IOCTL
 
@@ -27,7 +41,7 @@ This command causes to run a `CreateFile` in target system, in `IRP_MJ_CREATE`, 
 If you're using APIs, the following export in **hprdbgctrl** can be used.
 
 ```text
-HPRDBGCTRL_API int HyperdbgLoad();
+HPRDBGCTRL_API int HyperdbgLoadVmm();
 ```
 
 ### **Remarks**
