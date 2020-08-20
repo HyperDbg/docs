@@ -101,6 +101,7 @@
 ## Design
 
 * [Features](design/features/README.md)
+  * [VMM \(Module\)](design/features/vmm-module.md)
   * [Design of !epthook](design/features/design-of-epthook.md)
   * [Design of !epthook2](design/features/design-of-epthook2.md)
   * [Design of !monitor](design/features/design-of-monitor.md)
