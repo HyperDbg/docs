@@ -110,7 +110,7 @@ As **EventType** use  `SYSCALL_HOOK_EFER_SYSCALL`and send the start syscall-numb
 
 ### Design
 
-Take a look at "[Design of !syscall & !sysret](https://docs.hyperdbg.com/design/features/design-of-syscall-and-sysret)" to see how does it work.
+Take a look at "[Design of !syscall & !sysret](https://docs.hyperdbg.com/design/features/vmm-module/design-of-syscall-and-sysret)" to see how does it work.
 
 ### **Remarks**
 
