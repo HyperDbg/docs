@@ -114,7 +114,7 @@ As **EventType** use `EXCEPTION_OCCURRED` and send the special entry between **0
 
 ### Design
 
-Take a look at "[Design of !exception & !interrupt](https://docs.hyperdbg.com/design/features/design-of-exception-and-interrupt)" to see how does it work.
+Take a look at "[Design of !exception & !interrupt](https://docs.hyperdbg.com/design/features/vmm-module/design-of-exception-and-interrupt)" to see how does it work.
 
 ### **Remarks**
 

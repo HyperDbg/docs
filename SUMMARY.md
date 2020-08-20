@@ -102,7 +102,6 @@
 
 * [Features](design/features/README.md)
   * [VMM \(Module\)](design/features/vmm-module/README.md)
-    * [Transparent-mode](design/features/vmm-module/transparent-mode.md)
     * [Control over NMIs](design/features/vmm-module/control-over-nmis.md)
     * [VMX root-mode Compatible Message Tracing](design/features/vmm-module/vmx-root-mode-compatible-message-tracing.md)
     * [Design of !exception & !interrupt](design/features/vmm-module/design-of-exception-and-interrupt.md)
