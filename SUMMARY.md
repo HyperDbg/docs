@@ -101,12 +101,12 @@
 ## Design
 
 * [Features](design/features/README.md)
-  * [VMM \(Module\)](design/features/vmm-module.md)
-  * [Design of !epthook](design/features/design-of-epthook.md)
-  * [Design of !epthook2](design/features/design-of-epthook2.md)
-  * [Design of !monitor](design/features/design-of-monitor.md)
-  * [Design of !syscall & !sysret](design/features/design-of-syscall-and-sysret.md)
-  * [Design of !exception & !interrupt](design/features/design-of-exception-and-interrupt.md)
+  * [VMM \(Module\)](design/features/vmm-module/README.md)
+    * [Design of !exception & !interrupt](design/features/vmm-module/design-of-exception-and-interrupt.md)
+    * [Design of !syscall & !sysret](design/features/vmm-module/design-of-syscall-and-sysret.md)
+    * [Design of !monitor](design/features/vmm-module/design-of-monitor.md)
+    * [Design of !epthook2](design/features/vmm-module/design-of-epthook2.md)
+    * [Design of !epthook](design/features/vmm-module/design-of-epthook.md)
 * [Debugger Internals](design/debugger-internals/README.md)
   * [Events](design/debugger-internals/events.md)
   * [Conditions](design/debugger-internals/conditions.md)
