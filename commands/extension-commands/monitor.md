@@ -130,7 +130,7 @@ As **EventType** use  `HIDDEN_HOOK_READ` in the case you want just reads, use `H
 
 ### Design
 
-Take a look at "[Design of !monitor](https://docs.hyperdbg.com/design/features/design-of-monitor)" to see how does it work.
+Take a look at "[Design of !monitor](https://docs.hyperdbg.com/design/features/vmm-module/design-of-monitor)" to see how does it work.
 
 ### **Remarks**
 

@@ -102,7 +102,7 @@ Use `HIDDEN_HOOK_EXEC_CC` as **EventType**, ****and send the address of where yo
 
 ### Design
 
-Take a look at "[Design of !epthook](https://docs.hyperdbg.com/design/features/design-of-epthook)" to see how does it work.
+Take a look at "[Design of !epthook](https://docs.hyperdbg.com/design/features/vmm-module/design-of-epthook)" to see how does it work.
 
 ### **Remarks**
 

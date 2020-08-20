@@ -102,7 +102,7 @@ Use `HIDDEN_HOOK_EXEC_DETOURS` as **EventType**, ****and send the address of whe
 
 ### Design
 
-Take a look at "[Design of !epthook2](https://docs.hyperdbg.com/design/features/design-of-epthook2)" to see how does it work.
+Take a look at "[Design of !epthook2](https://docs.hyperdbg.com/design/features/vmm-module/design-of-epthook2)" to see how does it work.
 
 ### **Remarks**
 
