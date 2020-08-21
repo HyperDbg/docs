@@ -42,6 +42,7 @@
 * [Meta Commands](commands/meta-commands/README.md)
   * [.connect \(connect to a session\)](commands/meta-commands/.connect.md)
   * [.disconnect \(disconnect from a session\)](commands/meta-commands/.disconnect.md)
+  * [.listen \(listen on a port and wait for the debugger to connect\)](commands/meta-commands/.listen-listen-on-a-port-and-wait-for-the-debugger-to-connect.md)
   * [.formats \(show number formats\)](commands/meta-commands/.formats.md)
   * [.script \(run batch script commands\)](commands/meta-commands/.script.md)
   * [.logopen \(open log file\)](commands/meta-commands/.logopen.md)

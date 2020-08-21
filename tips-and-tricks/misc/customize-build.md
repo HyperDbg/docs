@@ -116,3 +116,12 @@ The following option limits the count of maximum results for [s\*](https://docs.
 #define MaximumSearchResults 0x1000
 ```
 
+The following option changes the **default TCP port** used to **listen** and **connect** to a remote system.
+
+```c
+//////////////////////////////////////////////////
+//			      	Remote Connection               //
+//////////////////////////////////////////////////
+#define DEFAULT_PORT "50000"
+```
+
