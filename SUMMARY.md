@@ -13,10 +13,7 @@
 ## Using HyperDbg
 
 * [Prerequisites](using-hyperdbg/prerequisites/README.md)
-  * [Running Modes](using-hyperdbg/prerequisites/running-modes/README.md)
-    * [Survey Mode](using-hyperdbg/prerequisites/running-modes/survey-mode.md)
-    * [Debugger Mode](using-hyperdbg/prerequisites/running-modes/debugger-mode.md)
-    * [Transparent Mode](using-hyperdbg/prerequisites/running-modes/transparent-mode.md)
+  * [Operation Modes](using-hyperdbg/prerequisites/operation-modes.md)
   * [How to create a condition?](using-hyperdbg/prerequisites/how-to-create-a-condition.md)
   * [How to create an action?](using-hyperdbg/prerequisites/how-to-create-an-action.md)
 * [Examples](using-hyperdbg/examples/README.md)
