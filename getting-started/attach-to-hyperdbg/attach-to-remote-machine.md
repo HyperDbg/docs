@@ -28,12 +28,26 @@ HyperDbg >listen 45000
 listening on 45000 ...
 ```
 
-Now, go to your **debugger \(host\)** system and run the following command.
+Now, go to your **debugger \(host\)** system and run the following command. Make sure to change the IP and Port.
 
 ```text
-HyperDbg >.connect 127.0.0.1 50000
-connected to 127.0.0.1:50000
+HyperDbg >.connect 192.168.1.10 50000
+connected to 192.168.1.10:50000
 ```
+
+After that, you see a connected message with IP address of debgger \(host\) in debuggee \(guest\).
+
+```text
+HyperDbg >listen
+listening on 50000 ...
+connected to : 127.0.0.1:52830
+```
+
+You can see the state of debugger by using '[.status](https://docs.hyperdbg.com/commands/meta-commands/.status)' command.
+
+### Connect to Debuggee \(Debugger Mode\)
+
+For connecting in debugger mode, first connect to the debuggee in survey mode \(explained above\), then perform the following actions.
 
 
 
