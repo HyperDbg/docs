@@ -4,7 +4,7 @@ description: Remote debugging in Survey Mode and Debugger Mode
 
 # Attach to remote machine
 
-If you have access to a remote physical machine or a nested virtualization environment like \(like VMware Workstation, VirtualBox, Hyper-V etc.\) then you can **operate** in both ****[**Survey Mode**](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/running-modes/survey-mode) and [**Debugger Mode**](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/running-modes/debugger-mode).
+If you have access to a remote physical machine or a nested virtualization environment like \(like VMware Workstation, VirtualBox, Hyper-V etc.\) then you can **operate** in both ****[**Survey Mode**](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/operation-modes#survey-mode) and [**Debugger Mode**](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/operation-modes#debugger-mode).
 
 In **Survey Mode**, you can't break the kernel mode and step through the kernel instructions; still, you can step and break user mode applications. This mode, needs a network connection \(TCP\).
 
