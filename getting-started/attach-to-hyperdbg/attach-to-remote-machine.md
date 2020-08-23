@@ -14,21 +14,21 @@ It is because the serial cable is slow, so **HyperDbg** can't transfer a high-ra
 
 ### Connect to Debuggee \(Survey Mode\)
 
-First, make sure you have access to the remote machine by pinging its IP address and check firewall access. After that, run the following command in **debuggee \(guest\)**.
+First, make sure you have access to the remote machine by pinging its IP address and check firewall rules. After that, run the following command in **debuggee \(guest\)**.
 
 ```text
 HyperDbg >listen
 listening on 50000 ...
 ```
 
-The default port for **HyperDbg** is `50000`, but if you want to choose another port, the add an argument as the port to the listen \(e.g. `45000`\).
+The default port for **HyperDbg** is `50000`, but if you want to choose another port, then add an argument as the port to the listen \(e.g. `45000`\).
 
 ```text
 HyperDbg >listen 45000
 listening on 45000 ...
 ```
 
-Now, go to your **debugger \(host\)** system and run the following command. Make sure to change the IP and Port.
+Now, go to your **debugger \(host\)** system and run the following command. Make sure to change the IP address and port.
 
 ```text
 HyperDbg >.connect 192.168.1.10 50000
@@ -47,7 +47,7 @@ You can see the state of the debugger by using '[.status](https://docs.hyperdbg.
 
 ### Connect to Debuggee \(Debugger Mode\)
 
-For connecting in debugger mode, first, connect to the debuggee in survey mode \(explained above\), then perform the following actions.
+For connecting in debugger mode, first, connect to the debuggee in **survey mode** \(explained above\), then perform the following actions.
 
 
 
