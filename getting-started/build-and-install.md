@@ -62,7 +62,7 @@ For more options, please visit [here](https://windowsreport.com/driver-signature
 
 ### Run & Test
 
-Open **hyperdbg-cli.exe**, and visit [Quick Start](https://docs.hyperdbg.com/getting-started/quick-start) for more examples of how to work with **HyperDbg**.
+Open **hyperdbg-cli.exe**, and visit [Quick Start](https://docs.hyperdbg.com/getting-started/quick-start) to start using **HyperDbg**.
 
 
 
