@@ -12,9 +12,9 @@ The first and the basic mode of operation for **local** and **remote debugging**
 
 If you want to use **HyperDbg**, then you should operate at least in **Survey Mode**. In both local debugging and remote debugging, **Survey Mode** should be enabled.
 
-In this mode, you can use all of the **HyperDbg** features, except break to the deubgger and step instructions in **kernel mode**. Still, you can break to debugger and step user mode instruction without any limitation.
+In this mode, you can use all of the **HyperDbg** features, except break to the debugger and step instructions in **kernel mode**. Still, you can break to the debugger and step user mode instruction without any limitation.
 
-Based on **HyperDbg** [actions](https://docs.hyperdbg.com/using-hyperdbg/prerequisites), only **break to the debugger** for **kernel mode** \(not user mode\) is not available in this mode and you can use log the states and run custom codes in both user mode and kernel mode. 
+Based on **HyperDbg** [actions](https://docs.hyperdbg.com/using-hyperdbg/prerequisites), only **break to the debugger** for **kernel mode** \(not user mode\) is not available in this mode, and you can use log the states and run custom codes in both user mode and kernel mode. 
 
 You can use this mode in both **local debugging** and **remote debugging**.
 
@@ -24,7 +24,7 @@ If you want to use **HyperDbg** for breaking the kernel and halt the system in o
 
 It is obvious that you can't use this mode of operation for **local debugging** and you provide a system with a **serial cable** or **virtual serial** device to enable it.
 
-In order to enable this mode, you should also connect from debuggee to debugger by **Survey Mode**, it is because **HyperDbg** transfers its data over **TCP** won't transfer the logs and data over **serial** because it is slow.
+In order to enable this mode, you should also connect from debuggee to debugger by **Survey Mode**; it is because **HyperDbg** transfers its data over **TCP** won't transfer the logs and data over **serial** because it is slow.
 
 ## Transparent Mode
 
