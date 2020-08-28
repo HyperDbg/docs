@@ -1,30 +1,30 @@
 ---
-description: Description of '!epthook' command in HyperDbg.
+description: Description of 'bp' command in HyperDbg.
 ---
 
-# !epthook \(hidden hook with EPT - stealth breakpoints\)
+# bp \(set breakpoint\)
 
 ### Command
 
-> !epthook
+> !bp
 
 ### Syntax
 
-> !epthook \[address\] \[pid \(hex value\)\] \[core \(hex value\)\] \[event options\]
+> !bp \[address\] \[pid \(hex value\)\] \[core \(hex value\)\] \[event options\]
 
 ### Description
 
 Put hidden breakpoint \(0xcc\) on the target function in user-mode and kernel-mode without modifying the content of memory in the case of read/write.
 
 {% hint style="info" %}
-This implementation of hidden hook causes vm-exit when it triggers, a faster implementation of EPT hidden hooks is [!epthook2](https://docs.hyperdbg.com/commands/extension-commands/epthook2) which is without vm-exits, but it has some limitations as described in its manual.
+In **HyperDbg**, 'bp' command is the same as '[!epthook](https://docs.hyperdbg.com/commands/extension-commands/epthook)' command.
 {% endhint %}
 
 ### Parameters
 
 **\[address\]**
 
-          The **Virtual** address of where we want to put hook
+          The **Virtual** address of where we want to put a breakpoint.
 
 **\[pid \(hex value\)\]**
 
@@ -40,7 +40,7 @@ This implementation of hidden hook causes vm-exit when it triggers, a faster imp
 
 ### Context
 
-As the **Context** \(**`r8`** in custom code and **`rdx`** in condition code register\) to the event trigger, **HyperDbg** sends the **virtual** address of where put the hidden hook's breakpoint, oppose to **!epthook2** all checks are based on **virtual** address, not based on **physical** address. See the **Remarks** for more information.
+As the **Context** \(**`r8`** in custom code and **`rdx`** in condition code register\) to the event trigger, **HyperDbg** sends the **virtual** address of where put the hidden breakpoint. See the **Remarks** for more information.
 
 ### Debugger
 
@@ -56,10 +56,10 @@ Please read  "[How to create a condition?](https://docs.hyperdbg.com/using-hyper
 
 ### Break to Debugger
 
-Imagine we want to put a hook on ``fffff800`4ed6f010``, this will breaks to the debugger when the target address hits and gives the control back to you.
+Imagine we want to put a breakpoint on ``fffff800`4ed6f010``, this will breaks to the debugger when the target address hits and gives the control back to you.
 
 ```c
-!epthook fffff800`4ed6f010 
+bp fffff800`4ed6f010 
 ```
 
 ### Log the States
@@ -68,7 +68,7 @@ Not Completed Yet !
 
 ### Run Custom Code
 
-Please read  "[How to create an action?](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action)" for getting idea about how to run custom buffer code in **HyperDbg**.
+Please read  "[How to create an action?](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action)" for getting an idea about how to run custom buffer code in **HyperDbg**.
 
 {% hint style="warning" %}
 Your custom code will be executed in vmx-root mode. Take a look at [this topic](https://docs.hyperdbg.com/tips-and-tricks/considerations/vmx-root-mode-vs-vmx-non-root-mode) for more information. Running code in vmx-root is considered "[unsafe](https://docs.hyperdbg.com/tips-and-tricks/considerations/the-unsafe-behavior)".
@@ -76,18 +76,18 @@ Your custom code will be executed in vmx-root mode. Take a look at [this topic](
 
 #### Run Custom Code \(Unconditional\)
 
-Putting a hook on `fffff801deadbeef` and run 3 nops whenever the hook is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes), for more information.
+Putting a breakpoint on `fffff801deadbeef` and run 3 nops whenever the breakpoint is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes), for more information.
 
 ```c
-!epthook fffff801deadbeef code {90 90 90}
+bp fffff801deadbeef code {90 90 90}
 ```
 
 #### Run Custom Code \(Conditional\)
 
-Putting a hook on `fffff801deadbeef` and run 3 nops whenever the hook is triggered and also 3 nops condition. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) and [how to create a condition](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition), for more information.
+Putting a breakpoint on `fffff801deadbeef` and run 3 nops whenever the breakpoint is triggered and also 3 nops condition. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) and [how to create a condition](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition), for more information.
 
 ```c
-!epthook fffff801deadbeef code {90 90 90} condition {90 90 90}
+bp fffff801deadbeef code {90 90 90} condition {90 90 90}
 ```
 
 {% hint style="success" %}
@@ -106,11 +106,7 @@ Take a look at "[Design of !epthook](https://docs.hyperdbg.com/design/features/v
 
 ### **Remarks**
 
-This command is much slower than **!epthook2**, ****because it cause vm-exits but on the other hand, this implementation doesn't have any limitation, for example you can use this command for hooking user-mode while you can't use **!epthook2** on user-mode.
-
-**Why we don't use a physical address to find this command?** 
-
-Generally, it's better to use physical address but the reason why we don't use the physical address here \(!epthook2 uses physical address\) is that if we want to compare **physical** address then we have to flush TLB \(change Cr3\) to convert **GUEST\_RIP** to the physical address and as **HyperDbg** is designed to stick on System process \(pid = 4\), this cr3 change is unavoidable, on the other hand, this command is designed to work on both user-mode and kernel-mode of random processes and as you know, flushing TLB makes this command even slower, so it's better to deal with virtual address.
+You can disable or clear breakpoints using the '[events](https://docs.hyperdbg.com/commands/debugging-commands/events)' command.
 
 {% hint style="danger" %}
 You shouldn't use any of **!monitor**, **!epthook**, **bp** and **!epthook2** commands in the same page \(4KB\) simultaneously, for example, when you put a hidden hook \(**!epthook2**\) on **0x10000005** you shouldn't use any of **!monitor** or **!epthook** or **bp** commands on the address starting from **0x10000000** to **0x10000fff**.
@@ -125,6 +121,8 @@ Post-Nehalem Processor \(EPT\)
 Processor with Execute-only Pages Support
 
 ### Related
+
+[!epthook \(hidden hook with EPT - stealth breakpoints\)](https://docs.hyperdbg.com/commands/extension-commands/epthook)
 
 [!epthook2 \(hidden hook with EPT - detours\)](https://docs.hyperdbg.com/commands/extension-commands/epthook2)
 
