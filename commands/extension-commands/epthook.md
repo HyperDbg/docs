@@ -106,6 +106,8 @@ Take a look at "[Design of !epthook](https://docs.hyperdbg.com/design/features/v
 
 ### **Remarks**
 
+In **HyperDbg**, '!epthook' and the '[bp](https://docs.hyperdbg.com/commands/debugging-commands/bp)' command are the same.
+
 This command is much slower than **!epthook2**, ****because it cause vm-exits but on the other hand, this implementation doesn't have any limitation, for example you can use this command for hooking user-mode while you can't use **!epthook2** on user-mode.
 
 **Why we don't use a physical address to find this command?** 
@@ -125,6 +127,8 @@ Post-Nehalem Processor \(EPT\)
 Processor with Execute-only Pages Support
 
 ### Related
+
+[bp \(set breakpoint\)](https://docs.hyperdbg.com/commands/debugging-commands/bp)
 
 [!epthook2 \(hidden hook with EPT - detours\)](https://docs.hyperdbg.com/commands/extension-commands/epthook2)
 

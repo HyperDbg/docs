@@ -14,7 +14,7 @@ description: Description of 'bp' command in HyperDbg.
 
 ### Description
 
-Put hidden breakpoint \(0xcc\) on the target function in user-mode and kernel-mode without modifying the content of memory in the case of read/write.
+Put hidden breakpoint \(**0xcc**\) on the target function in user-mode and kernel-mode without modifying the content of memory in the case of read/write.
 
 {% hint style="info" %}
 In **HyperDbg**, 'bp' command is the same as '[!epthook](https://docs.hyperdbg.com/commands/extension-commands/epthook)' command.
@@ -40,7 +40,7 @@ In **HyperDbg**, 'bp' command is the same as '[!epthook](https://docs.hyperdbg.c
 
 ### Context
 
-As the **Context** \(**`r8`** in custom code and **`rdx`** in condition code register\) to the event trigger, **HyperDbg** sends the **virtual** address of where put the hidden breakpoint. See the **Remarks** for more information.
+As the **Context** \(**`r8`** in custom code and **`rdx`** in condition code register\) to the event trigger, **HyperDbg** sends the **virtual** address of where put the hidden breakpoint.
 
 ### Debugger
 
