@@ -6,11 +6,11 @@ description: Description of 'bp' command in HyperDbg.
 
 ### Command
 
-> !bp
+> bp
 
 ### Syntax
 
-> !bp \[address\] \[pid \(hex value\)\] \[core \(hex value\)\] \[event options\]
+> bp \[address\] \[pid \(hex value\)\] \[core \(hex value\)\] \[event options\]
 
 ### Description
 
