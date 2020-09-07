@@ -4,13 +4,13 @@ description: Remote debugging in Survey Mode and Debugger Mode
 
 # Attach to remote machine
 
-If you have access to a remote physical machine or a nested virtualization environment like \(VMware Workstation, VirtualBox, Hyper-V, etc.\) then you can **operate** in both ****[**Survey Mode**](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/operation-modes#survey-mode) and [**Debugger Mode**](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/operation-modes#debugger-mode).
+If you have access to a remote physical machine or a nested virtualization environment like \(VMware Workstation, VirtualBox, Hyper-V, etc.\) then you can **operate** in both ****[**VMI Mode**](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/operation-modes#vmi-mode) and [**Debugger Mode**](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/operation-modes#debugger-mode).
 
-In **Survey Mode**, you can't break the kernel mode and step through the kernel instructions; still, you can step and break user-mode applications. This mode needs a network connection \(TCP\).
+In **VMI Mode**, you can't break the kernel mode and step through the kernel instructions; still, you can step and break user-mode applications. This mode needs a network connection \(TCP\).
 
 In **Debugger Mode**, you can break the kernel mode and step through the kernel instructions. It needs a serial \(cable or virtual device\) to connect to the target machine and a network connection \(TCP\) too.
 
-It is because the serial cable is slow, so **HyperDbg** can't transfer a high-rate of data; thus, if you need to enable **Debugger Mode** then you have to be in **Survey Mode** + have a serial cable or virtual serial device.
+It is because the serial cable is slow, so **HyperDbg** can't transfer a high-rate of data; thus, if you need to enable **Debugger Mode** then you have to be in **VMI Mode** + have a serial cable or virtual serial device.
 
 ### Connect to Debuggee \(Survey Mode\)
 
@@ -47,7 +47,7 @@ You can see the state of the debugger by using '[.status](https://docs.hyperdbg.
 
 ### Connect to Debuggee \(Debugger Mode\)
 
-For connecting in debugger mode, first, connect to the debuggee in **survey mode** \(explained above\), then perform the following actions.
+For connecting in debugger mode, first, connect to the debuggee in **VMI Mode** \(explained above\), then perform the following actions.
 
 
 

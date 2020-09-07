@@ -25,5 +25,5 @@ try to install driver...
 ...
 ```
 
-#### **When you connect to the local debugger, you are operating in** [**Survey Mode**](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/operation-modes#survey-mode)**.**
+#### **When you connect to the local debugger, you are operating in** [**VMI Mode**](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/operation-modes#vmi-mode)**.**
 

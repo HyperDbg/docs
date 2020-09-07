@@ -6,11 +6,11 @@ description: Different Modes of Operation in HyperDbg
 
 In **HyperDbg**, we operate in **three** different operation modes.
 
-The first and the basic mode of operation for **local** and **remote debugging** is **Survey Mode**. The second mode is **Debugger Mode** and the third mode is **Transparent Mode**.
+The first and the basic mode of operation for **local** and **remote debugging** is **VMI Mode**. The second mode is **Debugger Mode** and the third mode is **Transparent Mode**.
 
-## Survey Mode
+## VMI Mode
 
-If you want to use **HyperDbg**, then you should operate at least in **Survey Mode**. In both local debugging and remote debugging, **Survey Mode** should be enabled.
+If you want to use **HyperDbg**, then you should operate at least in **VMI Mode**. In both local debugging and remote debugging, **VMI Mode** should be enabled.
 
 In this mode, you can use all of the **HyperDbg** features, except break to the debugger and step instructions in **kernel-mode**. Still, you can break to the debugger and step user-mode instruction without any limitation.
 
@@ -24,7 +24,7 @@ If you want to use **HyperDbg** for breaking the kernel and halt the system in o
 
 It is obvious that you can't use this mode for **local debugging** and you should provide a system with a **serial cable** or **virtual serial** device to enable it.
 
-In order to enable this mode, you should also connect from debuggee to debugger by **Survey Mode**; it is because **HyperDbg** transfers its data over **TCP** won't transfer the logs and data over **serial** as it is slow.
+In order to enable this mode, you should also connect from debuggee to debugger by **VMI Mode**; it is because **HyperDbg** transfers its data over **TCP** won't transfer the logs and data over **serial** as it is slow.
 
 ## Transparent Mode
 
@@ -34,7 +34,7 @@ If you enable this mode, then **HyperDbg** tries to make itself transparent from
 
 To enable this mode, you should use '[!measure](https://docs.hyperdbg.com/commands/extension-commands/measure)' and '[!hide](https://docs.hyperdbg.com/commands/extension-commands/hide)' commands.
 
-You can use **Transparent Mode** in both **Survey Mode** and **Debugger Mode**.
+You can use **Transparent Mode** in both **VMI Mode** and **Debugger Mode**.
 
 
 
