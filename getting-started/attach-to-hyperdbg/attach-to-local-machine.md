@@ -1,5 +1,5 @@
 ---
-description: Local debugging in Survey Mode
+description: Local debugging in VMI Mode
 ---
 
 # Attach to local machine

@@ -1,5 +1,5 @@
 ---
-description: Remote debugging in Survey Mode and Debugger Mode
+description: Remote debugging in VMI Mode and Debugger Mode
 ---
 
 # Attach to remote machine
@@ -12,7 +12,7 @@ In **Debugger Mode**, you can break the kernel mode and step through the kernel 
 
 It is because the serial cable is slow, so **HyperDbg** can't transfer a high-rate of data; thus, if you need to enable **Debugger Mode** then you have to be in **VMI Mode** + have a serial cable or virtual serial device.
 
-### Connect to Debuggee \(Survey Mode\)
+### Connect to Debuggee \(VMI Mode\)
 
 First, make sure you have access to the remote machine by pinging its IP address and check firewall rules. After that, run the following command in **debuggee \(guest\)**.
 
