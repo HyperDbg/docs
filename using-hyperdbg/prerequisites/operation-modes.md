@@ -10,7 +10,7 @@ The first and the basic mode of operation for **local** and **remote debugging**
 
 ## VMI Mode
 
-If you want to use **HyperDbg**, then you should operate at least in **VMI Mode**. In both local debugging and remote debugging, **VMI Mode** should be enabled.
+If you want to use **HyperDbg**, then you should operate at least in **VMI Mode or Virtual Machine Introspection Mode**. In both local debugging and remote debugging, **VMI Mode** should be enabled.
 
 In this mode, you can use all of the **HyperDbg** features, except break to the debugger and step instructions in **kernel-mode**. Still, you can break to the debugger and step user-mode instruction without any limitation.
 
