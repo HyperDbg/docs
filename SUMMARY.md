@@ -6,7 +6,11 @@
 
 * [Build & Install](getting-started/build-and-install.md)
 * [Attach to HyperDbg](getting-started/attach-to-hyperdbg/README.md)
-  * [Attach to remote machine](getting-started/attach-to-hyperdbg/attach-to-remote-machine.md)
+  * [Attach to remote machine](getting-started/attach-to-hyperdbg/attach-to-remote-machine/README.md)
+    * [Physical Machine](getting-started/attach-to-hyperdbg/attach-to-remote-machine/physical-machine.md)
+    * [VMware Workstation](getting-started/attach-to-hyperdbg/attach-to-remote-machine/vmware-workstation.md)
+    * [Oracle VirtualBox](getting-started/attach-to-hyperdbg/attach-to-remote-machine/oracle-virtualbox.md)
+    * [Microsoft Hyper-V](getting-started/attach-to-hyperdbg/attach-to-remote-machine/microsoft-hyper-v.md)
   * [Attach to local machine](getting-started/attach-to-hyperdbg/attach-to-local-machine.md)
 * [Quick Start](getting-started/quick-start.md)
 
