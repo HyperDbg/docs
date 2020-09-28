@@ -1,8 +1,6 @@
 # Log the State's LL1 Grammer
 
-
-
-LL1 Grammar :
+### LL1 Grammar
 
 ```text
 S -> C;S’
@@ -63,7 +61,7 @@ E9 -> func
 E9 -> $meta
 ```
 
-Examples :
+### Examples
 
 ```text
 test=str(@rcx)
@@ -74,6 +72,8 @@ test1=str(poi($proc+10));mytest=str(poi($proc+10));test3=str(poi($proc+10));
 test=dw(NtCreateFile+10)
 test=dw(NtCreateFile+@rcx+($proc|3+poi(poi(@rax))))
 ```
+
+### Description
 
 `test=str(@rcx)`
 
