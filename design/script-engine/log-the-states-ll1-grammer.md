@@ -93,9 +93,9 @@ One field, called '**test**', which first, **rax** register is added by **0xa0**
 
 `test1=wstr(poi($proc+10));mytest=str(poi($proc+10));`
 
-Three fields, first \('**test1**'\), $proc \(current `_EPROCESS`\) is added with **0x10** then a dereference occurs and the target pointer in the dereferenced location is shown as a wide-char string.
+Three fields, first \('**test1**'\), **$proc** \(current `_EPROCESS`\) is added with **0x10** then a dereference occurs and the target pointer in the dereferenced location is shown as a wide-char string.
 
-Second, \('**mytest**'\), $proc \(current `_EPROCESS`\) is added with **0x10** then a dereference occurs and the target pointer in the dereferenced location is shown as an ASCII string.
+Second, \('**mytest**'\), **$proc** \(current `_EPROCESS`\) is added with **0x10** then a dereference occurs and the target pointer in the dereferenced location is shown as an ASCII string.
 
 `test=dw(NtCreateFile+10)`
 
