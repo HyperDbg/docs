@@ -89,7 +89,7 @@ One field, called '**test**', which is equivalent to **$proc** \(current `_EPROC
 
 `test=poi(@rax+a0)` 
 
-One field, called '**test**', which first, **rax** register is added by **0xa0** constant then a dereference occurs and the target is shown as a quad-word hex.
+One field, called '**test**', which first, **rax** register is added by **0xa0** constant then a dereference occurs and the target is shown as a QWORD hex.
 
 `test1=wstr(poi($proc+10));mytest=str(poi($proc+10));`
 
