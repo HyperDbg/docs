@@ -4,6 +4,8 @@ description: LL1 Grammar of Log the State
 
 # LL1 Grammar
 
+Currently, HyperDbg operates based on the following grammar.
+
 ### LL1 Grammar
 
 ```text
@@ -63,7 +65,7 @@ E9 -> neg ( E0 )
 E9 ->  @reg 
 E9 ->  num  
 E9 ->  func 
-E9 ->  $meta
+E9 ->  $pseudo-reg
 ```
 
 ### The Standard representation of LL1 Grammar
@@ -125,6 +127,8 @@ E9:neg ( E0 @NEGs )
 E9:@PUSH @reg 
 E9:@PUSH num  
 E9:@PUSH func 
-E9:@PUSH $meta
+E9:@PUSH $pseudo-reg
 ```
+
+
 
