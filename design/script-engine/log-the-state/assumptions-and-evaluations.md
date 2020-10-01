@@ -1,5 +1,5 @@
 ---
-description: Description about log the state mechanism
+description: Description about Log the State Mechanism
 ---
 
 # Assumptions & Evaluations
@@ -12,7 +12,39 @@ The evaluation engine is open-source and it is available at the [evaluation](htt
 
 **HyperDbg** uses a MASM-like syntax to evaluate log the state's expressions.
 
-### Pseudo Registers
+### Keywords
+
+The following keywords are valid in **Log the State** mechanism.
+
+| Keyword | Description |
+| :--- | :--- |
+| **poi** | \*\*\*\* |
+| **db** | \*\*\*\* |
+| **dd** | \*\*\*\* |
+| **dw** | \*\*\*\* |
+| **dq** | \*\*\*\* |
+| **dq** | \*\*\*\* |
+| **str** | \*\*\*\* |
+| **wstr** | \*\*\*\* |
+| **sizeof** | \*\*\*\* |
+| **not** | \*\*\*\* |
+| **neg** | \*\*\*\* |
+
+### Operators
+
+The following operators are supported on Log the State mechanism.
+
+| Operator | Description |
+| :--- | :--- |
+| \( \) | Parentheses |
+| \* / % | Arithmetic Operator |
+| + - | Arithmetic Operator |
+| &lt;&lt; &gt;&gt; | Shift Operator |
+| & | Bitwise AND Operator |
+| ^ | EX-OR Operator |
+| \| | Bitwise OR Operator |
+
+### Pseudo-registers
 
 Here are the currently supported pseudo-registers supported by Log the State.
 
@@ -25,8 +57,6 @@ Here are the currently supported pseudo-registers supported by Log the State.
 | **$peb** | The address of the process environment block \(PEB\) of the current process. |
 | **$teb** | The address of the thread environment block \(TEB\) of the current thread. |
 | **$ip** | The instruction pointer register \(rip\). |
-
- 
 
 ### Number Prefixes
 
