@@ -124,7 +124,9 @@
   * [Actions](design/debugger-internals/actions.md)
   * [IOCTL Requests for Events](design/debugger-internals/ioctl-requests-for-events.md)
 * [Script Engine](design/script-engine/README.md)
-  * [Log the State's LL1 Grammer](design/script-engine/log-the-states-ll1-grammer.md)
+  * [Log the State](design/script-engine/log-the-state/README.md)
+    * [LL1 Grammar](design/script-engine/log-the-state/log-the-states-ll1-grammer.md)
+    * [Examples](design/script-engine/log-the-state/examples.md)
 
 ## Links
 
