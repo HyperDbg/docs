@@ -18,17 +18,18 @@ The following keywords are valid in **Log the State** mechanism.
 
 | Keyword | Description |
 | :--- | :--- |
-| **poi** | \*\*\*\* |
-| **db** | \*\*\*\* |
-| **dd** | \*\*\*\* |
-| **dw** | \*\*\*\* |
-| **dq** | \*\*\*\* |
-| **dq** | \*\*\*\* |
-| **str** | \*\*\*\* |
-| **wstr** | \*\*\*\* |
-| **sizeof** | \*\*\*\* |
-| **not** | \*\*\*\* |
-| **neg** | \*\*\*\* |
+| **poi** | Pointer-sized data from the specified address. |
+| **hi** | High 16 bits |
+| **low** | Low 16 bits |
+| **db** | Low 8 bits |
+| **dd** | Low 16 bits |
+| **dw** | Low 32 bits |
+| **dq** | 64 bits |
+| **str** | Read the address as an ANSII string |
+| **wstr** | Read the address as a wide-char string |
+| **sizeof** | Size of the target variable |
+| **not** | Flip each and every bit |
+| **neg** | True/False logic flipping |
 
 ### Operators
 
@@ -37,11 +38,11 @@ The following operators are supported on Log the State mechanism.
 | Operator | Description |
 | :--- | :--- |
 | \( \) | Parentheses |
-| \* / % | Arithmetic Operator |
-| + - | Arithmetic Operator |
-| &lt;&lt; &gt;&gt; | Shift Operator |
+| \* / % | Arithmetic Operators |
+| + - | Arithmetic Operators |
+| &lt;&lt; &gt;&gt; | Shift Operators |
 | & | Bitwise AND Operator |
-| ^ | EX-OR Operator |
+| ^ | Bitwise XOR Operator \(exclusive OR\) |
 | \| | Bitwise OR Operator |
 
 ### Pseudo-registers
