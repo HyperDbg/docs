@@ -42,11 +42,11 @@ You can change `hprdbgctrl.cpp` file's **ReadIrpBasedBuffer\(\)** method to decr
 
 ### Not Use Immediate Messaging
 
-By default, **HyperDbg** accumulates messages in a separate buffer and it won't send them immediately to the user-mode buffers, this accumulation causes more messages to be delivered to the user-mode by one IRP packet so the kernel message will be transferred to the user-mode by a higher speed.
+By default, **HyperDbg** accumulates messages in a separate buffer and it won't send them immediately to the user-mode, this accumulation causes more messages to be delivered to the user-mode by one IRP packet so kernel messages will be transferred to the user-mode by a higher speed.
 
 If you need to see messages immediately after each one message then set this option to `TRUE`. However, it kills the performance as sending buffers to the user-mode involves various and heavy functions.
 
-If you set this option to `FALSE` \(**default**\), then **HyperDbg** accumulates \(**~5** or more\) messages and when the buffer is full then it sends the buffer to the user-mode **CLI** or **GUI**.
+If you set this option to `FALSE` \(**default**\), then **HyperDbg** accumulates \(**~5** or more based on message length and chunk size\) messages and when the buffer is full then it sends the buffer to the user-mode **CLI** or **GUI**.
 
 ```c
 /**
@@ -59,7 +59,7 @@ If you set this option to `FALSE` \(**default**\), then **HyperDbg** accumulates
 
 ### Increase Packet Storage Capacity
 
-This is the most important factor in message tracing, if you increase the following value then more messages will be stored in HyperDbg buffers thus, they won't be replaced until the buffer is full, for example, if set this value to **1000** then if you produce **1000** messages that are not delivered to the user-mode then **HyperDbg** replaces new messages with older messages, and in the case, if you set this value to 2000 then you have more capacity; thus, the buffers will have the capacity to hold twice more messages. 
+This is the most important factor in message tracing, if you increase the following value then more messages will be stored in **HyperDbg** buffers; thus, they won't be replaced until the buffer is full, for example, if set this value to **1000** then if you produce **1000** messages that are not delivered to the user-mode then **HyperDbg** replaces new messages with older messages, and in the case, if you set this value to **2000** then you have more capacity; thus, the buffers will have the capacity to hold twice more messages. 
 
 However, keep in mind that by increasing the following value, **HyperDbg** occupies more non-paged pools \(RAM\) so you need to balance your message capacity with your memory \(RAM\). 
 
@@ -70,7 +70,9 @@ However, keep in mind that by increasing the following value, **HyperDbg** occup
 
 ### Increase Each Chunk's Size
 
-The following option, shows the capacity of each packet in **HyperDbg** message tracing. If you have long messages or buffers, then you can increase this value. If you increased it then **HyperDbg** accumulates more messages and won't send them immediately to the user-mode \(as described in **Not Use Immediate Messaging** above\), this will lead to better performance; however, messages will be delivered by a delay \(for accumulation\). 
+The following option, shows the capacity of each packet in **HyperDbg**'s message tracing. If you have long messages or buffers, then you can increase this value. 
+
+If you increased it then **HyperDbg** accumulates more messages and won't send them immediately to the user-mode \(as described in **Not Use Immediate Messaging** above\), this will lead to better performance; however, messages will be delivered by a delay \(for accumulation\). 
 
 ```c
 #define PacketChunkSize                                                        \
