@@ -10,11 +10,11 @@ In the rest of this document, you will learn the important factors that can decr
 
 ### Use Conditions
 
-
+[Condition code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition) buffers are one of the most important parts of **HyperDbg**. You can use this feature to avoid triggering unnecessary events \(actions\) by creating conditions that filter the results for you in assembly form in both kernel-mode and vmx-root mode.
 
 ### Change Reading Delay 
 
-hprdbgctrl.cpp ReadIrpBasedBuffer\(\) 
+You can change `hprdbgctrl.cpp` file's **ReadIrpBasedBuffer\(\)** method to decrease the delay between reading each message from the kernel. You can change `Sleep(200);` to a lower time \(ms\), so, you can read messages faster.
 
 ```c
 ...
