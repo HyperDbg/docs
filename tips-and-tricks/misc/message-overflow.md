@@ -48,6 +48,8 @@ If you need to see messages immediately after each one message then set this opt
 
 If you set this option to `FALSE` \(**default**\), then **HyperDbg** accumulates \(**~5** or more based on message length and chunk size\) messages and when the buffer is full then it sends the buffer to the user-mode **CLI** or **GUI**.
 
+You can change the following options in **Configuration.h** file.
+
 ```c
 /**
  * @brief Use immediate messaging (means that it sends each message when they
