@@ -98,6 +98,7 @@
   * [Supporting VMware/Hyper-V](tips-and-tricks/nested-virtualization-environments/supporting-vmware-hyper-v.md)
   * [VMware backdoor I/O ports](tips-and-tricks/nested-virtualization-environments/vmware-backdoor-io-ports.md)
 * [Misc](tips-and-tricks/misc/README.md)
+  * [Message Overflow](tips-and-tricks/misc/message-overflow.md)
   * [Customize Build](tips-and-tricks/misc/customize-build.md)
 
 ## Style Guide
