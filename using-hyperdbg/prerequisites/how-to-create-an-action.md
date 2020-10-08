@@ -10,19 +10,19 @@ Each event consists of zero or multiple actions. An event with zero actions is t
 
 There are three types of actions in HyperDbg as described [here](https://docs.hyperdbg.com/using-hyperdbg/prerequisites).
 
-You can have multiple "**run custom codes**", "**log the states**", and "**break to the debugger**".
+You can have multiple "**Custom Codes**", "**Script**", and "**Break**".
 
 This document is a brief of how to create actions for an event.
 
-### Break to the debugger
+### Break
 
 Break to the debugger, works exactly like classic debuggers like Windbg.
 
 If you simply use a command without any extra parameters then it will be treated like classic debuggers and HyperDbg gives the control of the system to the debugger.
 
-### Log the states 
+### Script
 
-### Run custom codes
+### Custom Codes
 
 **Run custom code** gives you the ability to run your custom assembly codes whenever a special event is triggered; this option is fast and powerful as you can customize the HyperDbg based on your needs.
 
