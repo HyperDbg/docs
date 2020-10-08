@@ -70,7 +70,7 @@ If we want to break on system-call **0x55** in process id **0x490**. Take a look
 !syscall 55 pid 490  
 ```
 
-### Log the States
+### Run Script
 
 Not Completed Yet!
 
@@ -99,7 +99,7 @@ Monitoring process id **0x490** for syscall-number **0x55** and run 3 nops whene
 ```
 
 {% hint style="success" %}
-Keep in mind, a conditional event can be used in **Break to Debugger** and **Log the State** too.
+Keep in mind, a conditional event can be used in **Breaking to Debugger** and **Running script** too.
 {% endhint %}
 
 ### IOCTL

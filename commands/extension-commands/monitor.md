@@ -90,7 +90,7 @@ If we want both reads and writes.
 !monitor rw fffff800`4ed60000 fffff800`4ed60100 
 ```
 
-### Log the States
+### Run Script
 
 Not Completed Yet!
 
@@ -119,7 +119,7 @@ Monitoring reads and writes on address from ``fffff800`4ed60000`` to ``fffff800`
 ```
 
 {% hint style="success" %}
-Keep in mind, a conditional event can be used in **Break to Debugger** and **Log the State** too.
+Keep in mind, a conditional event can be used in **Breaking to Debugger** and **Running script** too.
 {% endhint %}
 
 ### IOCTL

@@ -51,10 +51,10 @@ This event supports three debugging mechanisms.
 * Run Custom Code
 
 {% hint style="info" %}
-Please read  "[How to create a condition?](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition)" if you need a conditional event, a conditional event can be used in all "**Break to Debugger**", "**Log the State**" and "**Run Custom Code**".
+Please read  "[How to create a condition?](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition)" if you need a conditional event, a conditional event can be used in all "**Break**", "**Script**" and "**Custom Code**".
 {% endhint %}
 
-### Break to Debugger
+### Break
 
 Imagine we want to put a hook on ``fffff800`4ed6f010``, this will breaks to the debugger when the target address hits and gives the control back to you.
 
@@ -62,11 +62,11 @@ Imagine we want to put a hook on ``fffff800`4ed6f010``, this will breaks to the 
 !epthook2 fffff800`4ed6f010 
 ```
 
-### Log the States
+### Script
 
 Not Completed Yet !
 
-### Run Custom Code
+### Custom Code
 
 Please read  "[How to create an action?](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action)" for getting idea about how to run custom buffer code in **HyperDbg**.
 
@@ -91,7 +91,7 @@ Putting a hook on `fffff801deadbeef` and run 3 nops whenever the hook is trigger
 ```
 
 {% hint style="success" %}
-Keep in mind, a conditional event can be used in **Break to Debugger** and **Log the State** too.
+Keep in mind, a conditional event can be used in **Breaking to Debugger** and **Running script** too.
 {% endhint %}
 
 ### IOCTL

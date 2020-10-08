@@ -14,7 +14,7 @@ The evaluation engine is open-source and it is available at the [evaluation](htt
 
 ### Keywords
 
-The following keywords are valid in **Log the State** mechanism.
+The following keywords are valid in **Script Engine**.
 
 | Keyword | Description |
 | :--- | :--- |

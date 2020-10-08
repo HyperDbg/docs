@@ -97,7 +97,7 @@ Monitoring the occurrence of external-interrupts and run 3 nops whenever the eve
 ```
 
 {% hint style="success" %}
-Keep in mind, a conditional event can be used in **Break to Debugger** and **Log the State** too.
+Keep in mind, a conditional event can be used in **Breaking to Debugger** and **Running script** too.
 {% endhint %}
 
 ### IOCTL

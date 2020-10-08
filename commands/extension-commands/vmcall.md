@@ -64,7 +64,7 @@ Imagine we want to break on all **VMCALL** executions of a process id **0x490** 
 !vmcall pid 490 core 2
 ```
 
-### Log the States
+### Run Script
 
 Not Completed Yet!
 
@@ -93,7 +93,7 @@ Monitoring process id **0x490** for **VMCALL** instruction execution and run 3 n
 ```
 
 {% hint style="success" %}
-Keep in mind, a conditional event can be used in **Break to Debugger** and **Log the State** too.
+Keep in mind, a conditional event can be used in **Breaking to Debugger** and **Running script** too. ****
 {% endhint %}
 
 ### IOCTL
