@@ -97,7 +97,7 @@ Monitoring execution of **RDMSR** for MSR **0xc0000082** and run 3 nops whenever
 ```
 
 {% hint style="success" %}
-Keep in mind, a conditional event can be used in **Breaking to Debugger** and **Running script** too.
+Keep in mind, a conditional event can be used in **Breaking to Debugger** and **Running Script** too.
 {% endhint %}
 
 ### IOCTL

@@ -46,15 +46,15 @@ As the **Context** \(**`r8`** in custom code and **`rdx`** in condition code reg
 
 This event supports three debugging mechanisms.
 
-* Break to Debugger
-* Log the States
-* Run Custom Code
+* Break
+* Script
+* Custom Code
 
 {% hint style="info" %}
-Please read  "[How to create a condition?](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition)" if you need a conditional event, a conditional event can be used in all "**Break to Debugger**", "**Log the State**" and "**Run Custom Code**".
+Please read  "[How to create a condition?](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition)" if you need a conditional event, a conditional event can be used in all "**Break**", "**Script**" and "**Custom Code**".
 {% endhint %}
 
-### Break to Debugger
+### Break
 
 Imagine we want to break on all **WRMSRs**.
 
@@ -68,11 +68,11 @@ If we want to break on MSR **0xc0000082**.
 !msrwrite 0xc0000082  
 ```
 
-### Log the States
+### Script
 
 Not Completed Yet!
 
-### Run Custom Code
+### Custom Code
 
 Please read  "[How to create an action?](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action)" for getting idea about how to run custom buffer code in **HyperDbg**.
 
@@ -97,7 +97,7 @@ Monitoring execution of **WRMSR** for MSR **0xc0000082** and run 3 nops whenever
 ```
 
 {% hint style="success" %}
-Keep in mind, a conditional event can be used in **Breaking to Debugger** and **Running script** too.
+Keep in mind, a conditional event can be used in **Breaking to Debugger** and **Running Script** too.
 {% endhint %}
 
 ### IOCTL

@@ -46,15 +46,15 @@ As the **Context** \(**`r8`** in custom code and **`rdx`** in condition code reg
 
 This event supports three debugging mechanisms.
 
-* Break to Debugger
-* Log the States
-* Run Custom Code
+* Break
+* Script
+* Custom Code
 
 {% hint style="info" %}
-Please read  "[How to create a condition?](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition)" if you need a conditional event, a conditional event can be used in all "**Break to Debugger**", "**Log the State**" and "**Run Custom Code**".
+Please read  "[How to create a condition?](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition)" if you need a conditional event, a conditional event can be used in all "**Break**", "**Script**" and "**Custom Code**".
 {% endhint %}
 
-### Break to Debugger
+### Break
 
 You can use [condition ](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition)if you want to check the syscall parameters, for example, Windows uses an x64 fast-call calling convention on its system-call entry thus you can check whether parameters of **syscall** `rcx,rdx,r8, etc.` match to your debugging logic or not and have a conditional syscall hooker and also you can change the parameters of a **syscall**.
 
@@ -70,11 +70,11 @@ If we want to break on system-call **0x55** in process id **0x490**. Take a look
 !syscall 55 pid 490  
 ```
 
-### Run Script
+### Script
 
 Not Completed Yet!
 
-### Run Custom Code
+### Custom Code
 
 Please read  "[How to create an action?](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action)" for getting idea about how to run custom buffer code in **HyperDbg**.
 
@@ -99,7 +99,7 @@ Monitoring process id **0x490** for syscall-number **0x55** and run 3 nops whene
 ```
 
 {% hint style="success" %}
-Keep in mind, a conditional event can be used in **Breaking to Debugger** and **Running script** too.
+Keep in mind, a conditional event can be used in **Breaking to Debugger** and **Running Script** too.
 {% endhint %}
 
 ### IOCTL

@@ -47,10 +47,10 @@ This event supports three debugging mechanisms.
 * Run Custom Code
 
 {% hint style="info" %}
-Please read  "[How to create a condition?](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition)" if you need a conditional event, a conditional event can be used in all "**Break to Debugger**", "**Log the State**" and "**Run Custom Code**".
+Please read  "[How to create a condition?](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition)" if you need a conditional event, a conditional event can be used in all "**Break**", "**Script**" and "**Custom Code**".
 {% endhint %}
 
-### Break to Debugger
+### Break
 
 We want to break and get control over all hypercalls \(**VMCALLs**\) execution in our system.
 
@@ -64,11 +64,11 @@ Imagine we want to break on all **VMCALL** executions of a process id **0x490** 
 !vmcall pid 490 core 2
 ```
 
-### Run Script
+### Script
 
 Not Completed Yet!
 
-### Run Custom Code
+### Custom Code
 
 Please read  "[How to create an action?](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action)" for getting idea about how to run custom buffer code in **HyperDbg**.
 
@@ -93,7 +93,7 @@ Monitoring process id **0x490** for **VMCALL** instruction execution and run 3 n
 ```
 
 {% hint style="success" %}
-Keep in mind, a conditional event can be used in **Breaking to Debugger** and **Running script** too. ****
+Keep in mind, a conditional event can be used in **Breaking to Debugger** and **Running Script** too. ****
 {% endhint %}
 
 ### IOCTL

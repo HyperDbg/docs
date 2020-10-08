@@ -42,15 +42,15 @@ As the **Context** \(**`r8`** in custom code and **`rdx`** in condition code reg
 
 This event supports three debugging mechanisms.
 
-* Break to Debugger
-* Log the States
-* Run Custom Code
+* Break
+* Script
+* Custom Code
 
 {% hint style="info" %}
-Please read  "[How to create a condition?](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition)" if you need a conditional event, a conditional event can be used in all "**Break to Debugger**", "**Log the State**" and "**Run Custom Code**".
+Please read  "[How to create a condition?](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition)" if you need a conditional event, a conditional event can be used in all "**Break**", "**Script**" and "**Custom Code**".
 {% endhint %}
 
-### Break to Debugger
+### Break
 
 You can use [condition ](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition)if you want to check the sysret parameters, for example, you can check the result of a previous **syscall** which now wants to return to user-mode by executing **sysret** instruction to see if it matches to your debugging logic or not and have a conditional sysret hooker and also you can change the parameters of a **sysret**.
 
@@ -60,11 +60,11 @@ Imagine we want to break on all **sysret** executions of a process id **0x490**.
 !sysret pid 490 
 ```
 
-### Log the States
+### Script
 
 Not Completed Yet!
 
-### Run Custom Code
+### Custom Code
 
 Please read  "[How to create an action?](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action)" for getting idea about how to run custom buffer code in **HyperDbg**.
 
@@ -89,7 +89,7 @@ Monitoring process id **0x490** for **sysret** instruction execution and run 3 n
 ```
 
 {% hint style="success" %}
-Keep in mind, a conditional event can be used in **Breaking to Debugger** and **Running script** too.
+Keep in mind, a conditional event can be used in **Breaking to Debugger** and **Running Script** too.
 {% endhint %}
 
 ### IOCTL

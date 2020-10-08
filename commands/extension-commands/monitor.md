@@ -62,15 +62,15 @@ It's a physical address representation of what you entered as **\[from address\]
 
 This event supports three debugging mechanisms.
 
-* Break to Debugger
-* Log the States
-* Run Custom Code
+* Break
+* Script
+* Custom Code
 
 {% hint style="info" %}
-Please read  "[How to create a condition?](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition)" if you need a conditional event, a conditional event can be used in all "**Break to Debugger**", "**Log the State**" and "**Run Custom Code**".
+Please read  "[How to create a condition?](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition)" if you need a conditional event, a conditional event can be used in all "**Break**", "**Script**" and "**Custom Code**".
 {% endhint %}
 
-### Break to Debugger
+### Break
 
 Imagine we want to put a monitor writes but not reads on address from ``fffff800`4ed60000`` to ``fffff800`4ed60100`` , this will break to the debugger and gives the control back to you.
 
@@ -90,11 +90,11 @@ If we want both reads and writes.
 !monitor rw fffff800`4ed60000 fffff800`4ed60100 
 ```
 
-### Run Script
+### Script
 
 Not Completed Yet!
 
-### Run Custom Code
+### Custom Code
 
 Please read  "[How to create an action?](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action)" for getting idea about how to run custom buffer code in **HyperDbg**.
 
@@ -119,7 +119,7 @@ Monitoring reads and writes on address from ``fffff800`4ed60000`` to ``fffff800`
 ```
 
 {% hint style="success" %}
-Keep in mind, a conditional event can be used in **Breaking to Debugger** and **Running script** too.
+Keep in mind, a conditional event can be used in **Breaking to Debugger** and **Running Script** too.
 {% endhint %}
 
 ### IOCTL
