@@ -19,21 +19,21 @@ Actions can be defined in 3 different types as demonstrated in the following enu
 ```c
 typedef enum _DEBUGGER_EVENT_ACTION_TYPE_ENUM {
   BREAK_TO_DEBUGGER,
-  LOG_THE_STATES,
+  RUN_SCRIPT,
   RUN_CUSTOM_CODE
 
 } DEBUGGER_EVENT_ACTION_TYPE_ENUM;
 ```
 
-1. **Break to Debugger** : Exactly like other classic debuggers, this type of action halts the system and makes the system available for future user commands. This type of action is only available in debugging a remote machine, it is because you cannot halt your current local system.
-2. **Log the Status** : This action type is a special feature that create a log from the registers, memory and special details \(pseudo-registers\) without halting the system and transfers the logs from kernel mode and vmx-root mode, safely to the debugger user mode. You can use this type of action in both debugging a remote machine and debugging a local machine.
-3. **Run Custom Code** : Running a custom code is a special features that will allow you to execute your custom assembly codes in the case of triggering an event. This means that your assembly codes will be executed and the results will be returned safely to the debugger user mode. You can use this type of action in both debugging a remote machine and debugging a local machine.
+1. **Break** : Exactly like other classic debuggers, this type of action halts the system and makes the system available for future user commands. This type of action is only available in debugging a remote machine, it is because you cannot halt your current local system.
+2. **Script** : This action type is a special feature that create a log from the registers, memory and special details \(pseudo-registers\) without halting the system and transfers the logs from kernel mode and vmx-root mode, safely to the debugger user mode and also you can call predefined functions and change the state of the system directly. You can use this type of action in both debugging a remote machine and debugging a local machine.
+3. **Custom Code** : Running a custom code is a special features that will allow you to execute your custom assembly codes in the case of triggering an event. This means that your assembly codes will be executed and the results will be returned safely to the debugger user mode. You can use this type of action in both debugging a remote machine and debugging a local machine.
 
-### Break to Debugger
+### Break
 
-### Log the Status
+### Script
 
-### Run Custom Code
+### Custom Code
 
 Running custom codes, gives you a fast and reliable way to execute your codes in the case of triggering events without breaking the whole system, so it's super fast.
 
@@ -54,7 +54,7 @@ First, you should create a buffer of bytes which performs your task. For example
 ```
 
 {% hint style="warning" %}
-Don't forget to put a **0xc3** or **ret instruction** at the end of you custom code buffer, this way you give the program's execution back to the debugger and HyperDbg can continue normally, otherwise the HyperDbg won't get a chance to get back the execution and will cause a crash.
+Don't forget to put a **0xc3** or **ret instruction** at the end of you custom code buffer, this way you give the program's execution back to the debugger and HyperDbg can continue normally, otherwise, the HyperDbg won't get a chance to get back the execution and will cause a crash.
 {% endhint %}
 
 Now, you should fill the following structure which gives the details of your custom code to the debugger.
