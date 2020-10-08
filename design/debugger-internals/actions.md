@@ -105,7 +105,7 @@ You should set it to `FALSE` in most cases but if you need immediate results the
 
 **InTheCaseOfCustomCode** you should fill it as described above.
 
-**InTheCaseOfRunScript** is used in log state, should be null in custom code.
+**InTheCaseOfRunScript** is used for script engine, should be null in custom code.
 
 The following example shows how to use the `DebuggerAddActionToEvent`.
 
