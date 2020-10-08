@@ -4,13 +4,13 @@ description: Description about Log the State Mechanism
 
 # Assumptions & Evaluations
 
-The following articles describe the **HyperDbg**'s _Log the State_ mechanism.
+The following articles describe the **HyperDbg**'s _Script Engine_.
 
 The evaluation engine is open-source and it is available at the [evaluation](https://github.com/HyperDbg/evaluation) repository.
 
 ### Description
 
-**HyperDbg** uses a MASM-like syntax to evaluate log the state's expressions.
+**HyperDbg** uses a MASM-like syntax to evaluate script expressions.
 
 ### Keywords
 
@@ -33,7 +33,7 @@ The following keywords are valid in **Script Engine**.
 
 ### Operators
 
-The following operators are supported on Log the State mechanism.
+The following operators are supported on the script engine.
 
 | Operator | Description |
 | :--- | :--- |
@@ -47,7 +47,7 @@ The following operators are supported on Log the State mechanism.
 
 ### Pseudo-registers
 
-Here are the currently supported pseudo-registers supported by Log the State.
+Here are the currently supported pseudo-registers supported by the script engine.
 
 | Pseudo-register | Description |
 | :--- | :--- |
