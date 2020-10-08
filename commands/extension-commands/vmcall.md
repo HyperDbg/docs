@@ -42,9 +42,9 @@ As the **Context** \(**`r8`** in custom code and **`rdx`** in condition code reg
 
 This event supports three debugging mechanisms.
 
-* Break to Debugger
-* Log the States
-* Run Custom Code
+* Break
+* Script
+* Custom Code
 
 {% hint style="info" %}
 Please read  "[How to create a condition?](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition)" if you need a conditional event, a conditional event can be used in all "**Break**", "**Script**" and "**Custom Code**".
