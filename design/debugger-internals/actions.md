@@ -88,7 +88,7 @@ Here's the prototype of **DebuggerAddActionToEvent**.
 
 ```c
 BOOLEAN
-DebuggerAddActionToEvent(PDEBUGGER_EVENT Event, DEBUGGER_EVENT_ACTION_TYPE_ENUM ActionType, BOOLEAN SendTheResultsImmediately, PDEBUGGER_EVENT_REQUEST_CUSTOM_CODE InTheCaseOfCustomCode, PDEBUGGER_EVENT_ACTION_LOG_CONFIGURATION InTheCaseOfLogTheStates)
+DebuggerAddActionToEvent(PDEBUGGER_EVENT Event, DEBUGGER_EVENT_ACTION_TYPE_ENUM ActionType, BOOLEAN SendTheResultsImmediately, PDEBUGGER_EVENT_REQUEST_CUSTOM_CODE InTheCaseOfCustomCode, PDEBUGGER_EVENT_ACTION_RUN_SCRIPT_CONFIGURATION InTheCaseOfRunScript)
 ```
 
 **Event** is the event which you want to register this action to it.
@@ -105,7 +105,7 @@ You should set it to `FALSE` in most cases but if you need immediate results the
 
 **InTheCaseOfCustomCode** you should fill it as described above.
 
-**InTheCaseOfLogTheStates** is used in log state, should be null in custom code.
+**InTheCaseOfRunScript** is used in log state, should be null in custom code.
 
 The following example shows how to use the `DebuggerAddActionToEvent`.
 

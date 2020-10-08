@@ -115,7 +115,7 @@ SendEventToKernel(PDEBUGGER_GENERAL_EVENT_DETAIL Event,
 
 After sending the above event to the kernel, now you should chain an action or multiple actions to the event.
 
-You should fill the following structure to send a "**Break to Debugger**", "**Log the States**" and "**Run Custom Code**" t the kernel, for example, you can append the buffer of custom code after this structure and send them together to the kernel.
+You should fill the following structure to send a "**Break**", "**Script**" and "**Custom Code**" t the kernel, for example, you can append the buffer of custom code after this structure and send them together to the kernel.
 
 Also, **EventTag** is the unique ID that we sent previously in the event. 
 
