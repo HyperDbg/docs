@@ -4,13 +4,13 @@ description: Description about Script Engine Mechanism
 
 # Assumptions & Evaluations
 
-The following articles describe the **HyperDbg**'s _Script Engine_.
+The following articles describe **HyperDbg**'s _Script Engine_.
 
 The evaluation engine is open-source and it is available at the [evaluation](https://github.com/HyperDbg/evaluation) repository.
 
 ### Description
 
-**HyperDbg** uses a MASM-like syntax to evaluate script expressions.
+**HyperDbg** uses a MASM-like \(Windbg\) syntax to evaluate script expressions.
 
 ### Keywords
 
