@@ -1,5 +1,5 @@
 ---
-description: Description about Script Engine Mechanism
+description: Description about HyperDbg's Script Engine
 ---
 
 # Assumptions & Evaluations
