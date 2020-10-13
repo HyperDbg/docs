@@ -3,8 +3,8 @@
 * [HyperDbg](README.md)
 * [News, Updates, Changelog](news/README.md)
   * [News & Events](news/news.md)
-  * [Releases](news/versions.md)
   * [Changelog](news/changelog.md)
+  * [Releases](news/versions.md)
 
 ## Getting Started
 
