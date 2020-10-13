@@ -1,10 +1,10 @@
 # Table of contents
 
 * [HyperDbg](README.md)
-* [News, Updates, Changelog](news/README.md)
-  * [News & Events](news/news.md)
-  * [Changelog](news/changelog.md)
-  * [Releases](news/versions.md)
+* [News, Updates, Changelog](event/README.md)
+  * [News & Events](event/news.md)
+  * [Changelog](event/changelog.md)
+  * [Releases](event/versions.md)
 
 ## Getting Started
 
