@@ -4,7 +4,7 @@
 * [News, Updates, Changelog](event/README.md)
   * [News & Events](event/news.md)
   * [Changelog](event/changelog.md)
-  * [Releases](event/versions.md)
+  * [Releases](event/releases.md)
 
 ## Getting Started
 
