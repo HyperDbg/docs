@@ -6,3 +6,7 @@ description: Brief explanation about Event Forwarding Mechanism
 
 Event \(output\).
 
+* File
+* NamedPipe
+* TCP 
+
