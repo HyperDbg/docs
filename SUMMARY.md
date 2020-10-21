@@ -24,6 +24,7 @@
   * [Operation Modes](using-hyperdbg/prerequisites/operation-modes.md)
   * [How to create a condition?](using-hyperdbg/prerequisites/how-to-create-a-condition.md)
   * [How to create an action?](using-hyperdbg/prerequisites/how-to-create-an-action.md)
+  * [Event Forwarding](using-hyperdbg/prerequisites/event-forwarding.md)
 * [Examples](using-hyperdbg/examples/README.md)
   * [Running HyperDbg Script](using-hyperdbg/examples/running-hyperdbg-script.md)
 
