@@ -16,7 +16,7 @@ For ease of use, Windbg uses the same command-style of Windbg, which means there
 
 ‌ Here is a full example of a command with a detailed description of each field, used in documentation.
 
-{% embed url="https://github.com/SinaKarvandi/HyperDbg/blob/master/docs/CommandsDocStyle.pdf" %}
+{% file src="../.gitbook/assets/commandsdocstyle.pdf" caption="Download Command Documentation Style" %}
 
 {% hint style="success" %}
 HyperDbg commands are case-insensitive.
