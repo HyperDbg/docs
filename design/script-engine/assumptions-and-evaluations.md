@@ -58,6 +58,7 @@ Here are the currently supported pseudo-registers supported by the script engine
 | **$peb** | The address of the process environment block \(PEB\) of the current process. |
 | **$teb** | The address of the thread environment block \(TEB\) of the current thread. |
 | **$ip** | The instruction pointer register \(rip\). |
+| **$buffer** | The pre-allocated buffer if the user requests a safe buffer. |
 
 ### Number Prefixes
 
