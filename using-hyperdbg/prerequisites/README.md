@@ -13,7 +13,7 @@ Whenever these events triggered, HyperDbg performs specific actions that are con
 
 #### What are HyperDbg's actions?
 
-HyperDbg has three types of actions. These actions are **Break to Debugger**, **Log the States**, **Run Custom Codes**.
+HyperDbg has three types of actions. These actions are **Break**, **Script**, **Custom Codes**.
 
 **Break** is exactly like classic-debuggers, where all of the cores are paused and won't run any instruction without the debugger's permission. \(This feature is not available in local debugging\).
 
