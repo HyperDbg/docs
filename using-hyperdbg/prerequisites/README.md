@@ -15,13 +15,13 @@ Whenever these events triggered, HyperDbg performs specific actions that are con
 
 HyperDbg has three types of actions. These actions are **Break to Debugger**, **Log the States**, **Run Custom Codes**.
 
-**Break to Debugger** is exactly like classic-debuggers, where all of the cores are paused and won't run any instruction without the debugger's permission. \(This feature is not available in local debugging\).
+**Break** is exactly like classic-debuggers, where all of the cores are paused and won't run any instruction without the debugger's permission. \(This feature is not available in local debugging\).
 
-**Log the States** is a feature that helps you to log the parameters, registers, and memory without breaking into the debugger. You can use it when you want to analyze your target, and it creates the logs in the kernel.
+**Script** is a feature that helps you to view the parameters, registers, and memory without breaking into the debugger and run your custom script. You can use it when you want to analyze your target, and it creates the logs or run codes in the kernel.
 
 It's much faster than exiting to the debugger and continues from there as all of these logging mechanisms are done in the kernel, and you just see the messages in user-mode.
 
-**Run Custom Codes** gives you the ability to run your custom assembly codes whenever a special event is triggered; this option is fast and powerful as you can customize the HyperDbg based on your needs.
+**Custom Codes** gives you the ability to run your custom assembly codes whenever a special event is triggered; this option is fast and powerful as you can customize the HyperDbg based on your needs.
 
 #### What are the conditions?
 
