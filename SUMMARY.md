@@ -131,7 +131,8 @@
   * [IOCTL Requests for Events](design/debugger-internals/ioctl-requests-for-events.md)
 * [Script Engine](design/script-engine/README.md)
   * [Assumptions & Evaluations](design/script-engine/assumptions-and-evaluations.md)
-  * [Examples](design/script-engine/examples.md)
+  * [Examples](design/script-engine/examples/README.md)
+    * [View system state \(registers, memory, variables\)](design/script-engine/examples/view-system-state.md)
   * [LL1 Grammar](design/script-engine/log-the-states-ll1-grammer.md)
 
 ## Links
