@@ -93,7 +93,12 @@
   * [Assumptions & Evaluations](commands/scripting-language/assumptions-and-evaluations.md)
   * [Examples](commands/scripting-language/examples/README.md)
     * [View system state \(registers, memory, variables\)](commands/scripting-language/examples/view-system-state.md)
-  * [Functions](commands/scripting-language/functions.md)
+  * [Functions](commands/scripting-language/functions/README.md)
+    * [Print](commands/scripting-language/functions/print.md)
+    * [Json](commands/scripting-language/functions/json.md)
+    * [Break](commands/scripting-language/functions/break.md)
+    * [EnableEvent](commands/scripting-language/functions/enableevent.md)
+    * [DisableEvent](commands/scripting-language/functions/disableevent.md)
 
 ## Tips & Tricks
 
