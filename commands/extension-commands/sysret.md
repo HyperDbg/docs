@@ -104,7 +104,9 @@ Take a look at "[Design of !syscall & !sysret](https://docs.hyperdbg.com/design/
 
 ### **Remarks**
 
+{% hint style="danger" %}
 This command is not PatchGurad compatible, which means that PatchGuard detects this command and will cause BSOD, thus make sure to turn it off \(by disabling driver signature enforcement or attaching a Windbg debugger to the Windows\) before using this command.
+{% endhint %}
 
 This command makes your computer slower.
 
