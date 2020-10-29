@@ -12,6 +12,10 @@ The evaluation engine is open-source and it is available at the [evaluation](htt
 
 **HyperDbg** uses a MASM-like \(Windbg\) syntax to evaluate script expressions.
 
+{% hint style="success" %}
+**HyperDbg** script engine is case-insensitive.
+{% endhint %}
+
 ### Keywords
 
 The following keywords are valid in **Script Engine**.
