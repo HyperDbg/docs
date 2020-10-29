@@ -30,17 +30,6 @@
 
 ## Commands
 
-* [Meta Commands](commands/meta-commands/README.md)
-  * [.connect \(connect to a session\)](commands/meta-commands/.connect.md)
-  * [.disconnect \(disconnect from a session\)](commands/meta-commands/.disconnect.md)
-  * [.listen \(listen on a port and wait for the debugger to connect\)](commands/meta-commands/.listen.md)
-  * [.status \(show the debugger status\)](commands/meta-commands/.status.md)
-  * [.formats \(show number formats\)](commands/meta-commands/.formats.md)
-  * [.script \(run batch script commands\)](commands/meta-commands/.script.md)
-  * [.logopen \(open log file\)](commands/meta-commands/.logopen.md)
-  * [.logclose \(close log file\)](commands/meta-commands/.logclose.md)
-  * [.help \(show the help of commands\)](commands/meta-commands/.help.md)
-  * [.cls \(clear the screen\)](commands/meta-commands/.cls.md)
 * [Debugging Commands](commands/debugging-commands/README.md)
   * [load \(load the kernel modules\)](commands/debugging-commands/load.md)
   * [unload \(unload the kernel modules\)](commands/debugging-commands/unload.md)
@@ -62,6 +51,17 @@
   * [flush \(remove pending kernel buffers and messages\)](commands/debugging-commands/flush.md)
   * [settings \(configures different options and preferences\)](commands/debugging-commands/settings.md)
   * [exit \(exit from the debugger\)](commands/debugging-commands/exit.md)
+* [Meta Commands](commands/meta-commands/README.md)
+  * [.connect \(connect to a session\)](commands/meta-commands/.connect.md)
+  * [.disconnect \(disconnect from a session\)](commands/meta-commands/.disconnect.md)
+  * [.listen \(listen on a port and wait for the debugger to connect\)](commands/meta-commands/.listen.md)
+  * [.status \(show the debugger status\)](commands/meta-commands/.status.md)
+  * [.formats \(show number formats\)](commands/meta-commands/.formats.md)
+  * [.script \(run batch script commands\)](commands/meta-commands/.script.md)
+  * [.logopen \(open log file\)](commands/meta-commands/.logopen.md)
+  * [.logclose \(close log file\)](commands/meta-commands/.logclose.md)
+  * [.help \(show the help of commands\)](commands/meta-commands/.help.md)
+  * [.cls \(clear the screen\)](commands/meta-commands/.cls.md)
 * [Extension Commands](commands/extension-commands/README.md)
   * [!pte \(display page-level address and entries\)](commands/extension-commands/pte.md)
   * [!db, !dc, !dd, !dq \(read physical memory\)](commands/extension-commands/d.md)
@@ -89,6 +89,11 @@
   * [!measure \(measuring and providing details for transparent-mode\)](commands/extension-commands/measure.md)
   * [!va2pa \(convert a virtual address to physical address\)](commands/extension-commands/va2pa.md)
   * [!pa2va \(convert physical address to virtual address\)](commands/extension-commands/pa2va.md)
+* [Scripting Language](commands/scripting-language/README.md)
+  * [Assumptions & Evaluations](commands/scripting-language/assumptions-and-evaluations.md)
+  * [Examples](commands/scripting-language/examples/README.md)
+    * [View system state \(registers, memory, variables\)](commands/scripting-language/examples/view-system-state.md)
+  * [Functions](commands/scripting-language/functions.md)
 
 ## Tips & Tricks
 
@@ -130,9 +135,6 @@
   * [Actions](design/debugger-internals/actions.md)
   * [IOCTL Requests for Events](design/debugger-internals/ioctl-requests-for-events.md)
 * [Script Engine](design/script-engine/README.md)
-  * [Assumptions & Evaluations](design/script-engine/assumptions-and-evaluations.md)
-  * [Examples](design/script-engine/examples/README.md)
-    * [View system state \(registers, memory, variables\)](design/script-engine/examples/view-system-state.md)
   * [LL1 Grammar](design/script-engine/log-the-states-ll1-grammer.md)
 
 ## Links
