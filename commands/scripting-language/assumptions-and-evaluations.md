@@ -74,11 +74,11 @@ The following functions are supported in **Script Engine**.
 
 | Function | Description |
 | :--- | :--- |
-| **Print** | Print the result of an expression. Read more...  |
-| **Json** | Print the result as a JSON string. Read more... |
-| **Break** | Halt the system and give control to the debugger. Read more... |
-| **EnableEvent** | Enable an event. Read more... |
-| **DisableEvent** | Disable an event. Read more... |
+| **Print** | Print the result of an expression. [Read more... ](https://docs.hyperdbg.com/commands/scripting-language/functions/print) |
+| **Json** | Print the result as a JSON string. [Read more...](https://docs.hyperdbg.com/commands/scripting-language/functions/json) |
+| **Break** | Halt the system and give control to the debugger. [Read more...](https://docs.hyperdbg.com/commands/scripting-language/functions/break) |
+| **EnableEvent** | Enable an event. [Read more...](https://docs.hyperdbg.com/commands/scripting-language/functions/enableevent) |
+| **DisableEvent** | Disable an event. [Read more...](https://docs.hyperdbg.com/commands/scripting-language/functions/disableevent) |
 
 
 
