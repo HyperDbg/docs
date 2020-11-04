@@ -65,20 +65,24 @@ Imagine we want to break on all **WRMSRs**.
 If we want to break on MSR **0xc0000082**.
 
 ```c
-!msrwrite 0xc0000082  
+!msrwrite 0xc0000082
 ```
 
 ### Script
 
 Using the following command you can use HyperDbg's Script Engine. You should replace the string between braces \(`HyperDbg Script Here`\) with your script. You can find script examples [here](https://docs.hyperdbg.com/commands/scripting-language/examples). 
 
-    !msrwrite fffff800`4ed6f010 script { HyperDbg Script Here }
+```
+!msrwrite 0xc0000082 script { HyperDbg Script Here }
+```
 
 **Script \(From File\)**
 
 If you saved your script into a file then you can add `file:` instead of a script and append the file path to it. For example, the following examples show how you can run a script from `file:c:\users\sina\desktop\script.txt`. 
 
-    !msrwrite fffff800`4ed6f010 script {file:c:\users\sina\desktop\script.txt}
+```
+!msrwrite 0xc0000082 script {file:c:\users\sina\desktop\script.txt}
+```
 
 ### Custom Code
 

@@ -72,13 +72,17 @@ If we want to break on external-interrupt \(entry **0x25\)** from process id **0
 
 Using the following command you can use HyperDbg's Script Engine. You should replace the string between braces \(`HyperDbg Script Here`\) with your script. You can find script examples [here](https://docs.hyperdbg.com/commands/scripting-language/examples). 
 
-    !interrupt fffff800`4ed6f010 script { HyperDbg Script Here }
+```
+!interrupt 0x25 script { HyperDbg Script Here }
+```
 
 **Script \(From File\)**
 
 If you saved your script into a file then you can add `file:` instead of a script and append the file path to it. For example, the following examples show how you can run a script from `file:c:\users\sina\desktop\script.txt`. 
 
-    !interrupt fffff800`4ed6f010 script {file:c:\users\sina\desktop\script.txt}
+```
+!interrupt 0x25 script {file:c:\users\sina\desktop\script.txt}
+```
 
 ### Custom Code
 

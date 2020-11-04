@@ -68,13 +68,17 @@ Imagine we want to break on all **RDPMC** executions of a process id **0x490** i
 
 Using the following command you can use HyperDbg's Script Engine. You should replace the string between braces \(`HyperDbg Script Here`\) with your script. You can find script examples [here](https://docs.hyperdbg.com/commands/scripting-language/examples). 
 
-    !pmc fffff800`4ed6f010 script { HyperDbg Script Here }
+```
+!pmc script { HyperDbg Script Here }
+```
 
 **Script \(From File\)**
 
 If you saved your script into a file then you can add `file:` instead of a script and append the file path to it. For example, the following examples show how you can run a script from `file:c:\users\sina\desktop\script.txt`. 
 
-    !pmc fffff800`4ed6f010 script {file:c:\users\sina\desktop\script.txt}
+```
+!pmc script {file:c:\users\sina\desktop\script.txt}
+```
 
 ### Custom Code
 
