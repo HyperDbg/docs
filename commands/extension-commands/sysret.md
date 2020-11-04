@@ -72,8 +72,6 @@ If you saved your script into a file then you can add `file:` instead of a scrip
 
     !sysret fffff800`4ed6f010 script {file:c:\users\sina\desktop\script.txt}
 
-### 
-
 ### Custom Code
 
 Please read  "[How to create an action?](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action)" for getting idea about how to run custom buffer code in **HyperDbg**.
