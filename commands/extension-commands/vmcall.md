@@ -89,7 +89,7 @@ Your custom code will be executed in vmx-root mode. Take a look at [this topic](
 Monitoring process id **0x490** for **VMCALL** instruction execution ****and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes), for more information.
 
 ```c
-!pmc pid 490 code {90 90 90}
+!vmcall pid 490 code {90 90 90}
 ```
 
 #### Run Custom Code \(Conditional\)
@@ -97,7 +97,7 @@ Monitoring process id **0x490** for **VMCALL** instruction execution ****and run
 Monitoring process id **0x490** for **VMCALL** instruction execution and run 3 nops whenever the event condition is triggered and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) and [how to create a condition](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition), for more information.
 
 ```c
-!pmc pid 490 code {90 90 90} condition {90 90 90}
+!vmcall pid 490 code {90 90 90} condition {90 90 90}
 ```
 
 {% hint style="success" %}
