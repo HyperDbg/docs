@@ -24,7 +24,6 @@
   * [Operation Modes](using-hyperdbg/prerequisites/operation-modes.md)
   * [How to create a condition?](using-hyperdbg/prerequisites/how-to-create-a-condition.md)
   * [How to create an action?](using-hyperdbg/prerequisites/how-to-create-an-action.md)
-  * [Event Forwarding](using-hyperdbg/prerequisites/event-forwarding.md)
 * [Examples](using-hyperdbg/examples/README.md)
   * [Running HyperDbg Script](using-hyperdbg/examples/running-hyperdbg-script.md)
 
@@ -113,6 +112,7 @@
   * [Supporting VMware/Hyper-V](tips-and-tricks/nested-virtualization-environments/supporting-vmware-hyper-v.md)
   * [VMware backdoor I/O ports](tips-and-tricks/nested-virtualization-environments/vmware-backdoor-io-ports.md)
 * [Misc](tips-and-tricks/misc/README.md)
+  * [Event Forwarding](tips-and-tricks/misc/event-forwarding.md)
   * [Message Overflow](tips-and-tricks/misc/message-overflow.md)
   * [Customize Build](tips-and-tricks/misc/customize-build.md)
 
