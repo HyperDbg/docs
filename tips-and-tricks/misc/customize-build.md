@@ -75,7 +75,21 @@ If you set this option to `FALSE` \(**default**\), then **HyperDbg** accumulates
  * recieved and do not accumulate them) it works only if you set
  * UseDbgPrintInsteadOfUsermodeMessageTracking to FALSE
  */
-#define UseImmediateMessaging FALSE
+#define UseImmediateMessaging TRUE
+```
+
+The following option shows whether immediate messaging is active for each event or is not active. It means that if you set this option to `TRUE` then it's like to add `imm yes` to each event command and if you set this option to `FALSE` then it's like to add `imm no` to each command.
+
+You can still change a special event's behavior by specifying `imm yes` and `imm no`.
+
+```c
+/**
+ * @brief Use immediate messaging (means that it sends each message when they
+ * recieved and do not accumulate them) its the default value on events,
+ * a user can change this behavior by selecting 'imm yes' or 'imm no' in the
+ * case of events
+ */
+#define UseImmediateMessagingByDefaultOnEvents TRUE
 ```
 
 ### Definitions
