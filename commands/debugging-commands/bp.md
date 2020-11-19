@@ -10,7 +10,7 @@ description: Description of 'bp' command in HyperDbg.
 
 ### Syntax
 
-> bp \[address\] \[pid \(hex value\)\] \[core \(hex value\)\] \[event options\]
+> bp \[address\] \[pid \(hex value\)\] \[core \(hex value\)\] \[imm \(yes\|no\)\] \[event options\]
 
 ### Description
 
@@ -36,7 +36,7 @@ In **HyperDbg**, 'bp' command is the same as '[!epthook](https://docs.hyperdbg.c
 
 **\[imm \(yes\|no\)\]**
 
-          Optional value which `yes` means that the results \(printed texts in scripts\) should be delivered immediately to the debugger and `no` means that the results can be accumulated and deliver a couple of messages as one message when the buffer is full; thus, it is substantially faster but it's not real-time. By default this value is `yes`.
+          Optional value in which `yes` means the results \(printed texts in scripts\) should be delivered immediately to the debugger. `no` means that the results can be accumulated and to be delivered as a couple of messages when the buffer is full; thus, it's substantially faster but it's not real-time. By default, this value is set to  `yes`.
 
 **\[event options\]**
 
