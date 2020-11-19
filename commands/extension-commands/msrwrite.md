@@ -80,6 +80,12 @@ Using the following command you can use HyperDbg's Script Engine. You should rep
 !msrwrite 0xc0000082 script { HyperDbg Script Here }
 ```
 
+The above command when messages don't need to be delivered immediately.
+
+```
+!msrwrite 0xc0000082 script { HyperDbg Script Here } imm no
+```
+
 **Script \(From File\)**
 
 If you saved your script into a file then you can add `file:` instead of a script and append the file path to it. For example, the following examples show how you can run a script from `file:c:\users\sina\desktop\script.txt`. 
