@@ -10,7 +10,7 @@ description: Description of '!exception' command in HyperDbg.
 
 ### Syntax
 
-> !exception \[IDT Index \(hex value\)\] \[pid \(hex value\)\] \[core \(hex value\)\] \[event options\]
+> !exception \[IDT Index \(hex value\)\] \[pid \(hex value\)\] \[core \(hex value\)\] \[imm \(yes\|no\)\] \[event options\]
 
 ### Description
 

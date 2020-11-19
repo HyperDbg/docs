@@ -10,7 +10,7 @@ description: Description of '!sysret' command in HyperDbg.
 
 ### Syntax
 
-> !sysret \[pid \(hex value\)\] \[core \(hex value\)\] \[event options\]
+> !sysret \[pid \(hex value\)\] \[core \(hex value\)\] \[imm \(yes\|no\)\] \[event options\]
 
 ### Description
 

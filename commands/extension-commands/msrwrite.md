@@ -10,7 +10,7 @@ description: Description of '!msrwrite' command in HyperDbg.
 
 ### Syntax
 
-> !msrwrite \[msr \(hex value\)\] \[pid \(hex value\)\] \[core \(hex value\)\] \[event options\]
+> !msrwrite \[msr \(hex value\)\] \[pid \(hex value\)\] \[core \(hex value\)\] \[imm \(yes\|no\)\] \[event options\]
 
 ### Description
 

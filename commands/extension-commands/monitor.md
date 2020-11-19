@@ -10,7 +10,7 @@ description: Description of '!monitor' command in HyperDbg.
 
 ### Syntax
 
-> !monitor \[mode\] \[from address\] \[to address\] \[pid \(hex value\)\] \[core \(hex value\)\] \[event options\]
+> !monitor \[mode\] \[from address\] \[to address\] \[pid \(hex value\)\] \[core \(hex value\)\] \[imm \(yes\|no\)\] \[event options\]
 
 ### Description
 

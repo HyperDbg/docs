@@ -10,7 +10,7 @@ description: Description of '!ioin' command in HyperDbg.
 
 ### Syntax
 
-> !ioin \[port \(hex value\)\] \[pid \(hex value\)\] \[core \(hex value\)\] \[event options\]
+> !ioin \[port \(hex value\)\] \[pid \(hex value\)\] \[core \(hex value\)\] \[imm \(yes\|no\)\] \[event options\]
 
 ### Description
 

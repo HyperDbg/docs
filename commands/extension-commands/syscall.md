@@ -10,7 +10,7 @@ description: Description of '!syscall' command in HyperDbg.
 
 ### Syntax
 
-> !syscall \[syscall-number \(hex value\)\] \[pid \(hex value\)\] \[core \(hex value\)\] \[event options\]
+> !syscall \[syscall-number \(hex value\)\] \[pid \(hex value\)\] \[core \(hex value\)\] \[imm \(yes\|no\)\] \[event options\]
 
 ### Description
 

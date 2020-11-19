@@ -10,7 +10,7 @@ description: Description of '!interrupt' command in HyperDbg.
 
 ### Syntax
 
-> !interrupt \[IDT Index \(hex value\)\] \[pid \(hex value\)\] \[core \(hex value\)\] \[event options\]
+> !interrupt \[IDT Index \(hex value\)\] \[pid \(hex value\)\] \[core \(hex value\)\] \[imm \(yes\|no\)\] \[event options\]
 
 ### Description
 

@@ -10,7 +10,7 @@ description: Description of '!epthook' command in HyperDbg.
 
 ### Syntax
 
-> !epthook \[address\] \[pid \(hex value\)\] \[core \(hex value\)\] \[event options\]
+> !epthook \[address\] \[pid \(hex value\)\] \[core \(hex value\)\] \[imm \(yes\|no\)\] \[event options\]
 
 ### Description
 

@@ -10,7 +10,7 @@ description: Description of '!cpuid' command in HyperDbg.
 
 ### Syntax
 
-> !cpuid \[pid \(hex value\)\] \[core \(hex value\)\] \[event options\]
+> !cpuid \[pid \(hex value\)\] \[core \(hex value\)\] \[imm \(yes\|no\)\] \[event options\]
 
 ### Description
 

@@ -10,7 +10,7 @@ description: Description of '!dr' command in HyperDbg.
 
 ### Syntax
 
-> !dr \[pid \(hex value\)\] \[core \(hex value\)\] \[event options\]
+> !dr \[pid \(hex value\)\] \[core \(hex value\)\] \[imm \(yes\|no\)\] \[event options\]
 
 ### Description
 

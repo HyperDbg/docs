@@ -10,7 +10,7 @@ description: Description of '!pmc' command in HyperDbg.
 
 ### Syntax
 
-> !pmc \[pid \(hex value\)\] \[core \(hex value\)\] \[event options\]
+> !pmc \[pid \(hex value\)\] \[core \(hex value\)\] \[imm \(yes\|no\)\] \[event options\]
 
 ### Description
 

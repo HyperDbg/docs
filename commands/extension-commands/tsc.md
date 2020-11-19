@@ -10,7 +10,7 @@ description: Description of '!tsc' command in HyperDbg.
 
 ### Syntax
 
-> !tsc \[pid \(hex value\)\] \[core \(hex value\)\] \[event options\]
+> !tsc \[pid \(hex value\)\] \[core \(hex value\)\] \[imm \(yes\|no\)\] \[event options\]
 
 ### Description
 
