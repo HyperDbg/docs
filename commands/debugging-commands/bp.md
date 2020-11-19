@@ -34,6 +34,10 @@ In **HyperDbg**, 'bp' command is the same as '[!epthook](https://docs.hyperdbg.c
 
           Optional value to trigger the event in just a specific core. Add `core xx` to your command thus command will be executed if core id is equal to `xx`. If you don't specify this option then by default you receive events on all cores.
 
+**\[imm \(yes\|no\)\]**
+
+          Optional value in which `yes` means that the results \(printed-text in scripts\) should be delivered immediately to the debugger and `no` means that the results can be accumulated and deliver a couple of messages as one message when the buffer is full. By default this value is `yes`.
+
 **\[event options\]**
 
           Regular event parameters used in HyperDbg events. \(For more information read [this ](https://docs.hyperdbg.com/using-hyperdbg/prerequisites)topic\)
