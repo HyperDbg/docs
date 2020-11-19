@@ -36,7 +36,7 @@ In **HyperDbg**, 'bp' command is the same as '[!epthook](https://docs.hyperdbg.c
 
 **\[imm \(yes\|no\)\]**
 
-          Optional value in which `yes` means that the results \(printed-text in scripts\) should be delivered immediately to the debugger and `no` means that the results can be accumulated and deliver a couple of messages as one message when the buffer is full. By default this value is `yes`.
+          Optional value which `yes` means that the results \(printed texts in scripts\) should be delivered immediately to the debugger and `no` means that the results can be accumulated and deliver a couple of messages as one message when the buffer is full; thus, it is substantially faster but it's not real-time. By default this value is `yes`.
 
 **\[event options\]**
 
