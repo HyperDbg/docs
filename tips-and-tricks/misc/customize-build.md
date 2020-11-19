@@ -133,9 +133,18 @@ The following option limits the count of maximum results for [s\*](https://docs.
 The following option changes the **default TCP port** used to **listen** and **connect** to a remote system.
 
 ```c
-//////////////////////////////////////////////////
-//			      	Remote Connection               //
-//////////////////////////////////////////////////
 #define DEFAULT_PORT "50000"
+```
+
+Determines how many sources a debugger can have for a single event.
+
+```c
+#define DebuggerOutputSourceMaximumRemoteSourceForSingleEvent 0x5
+```
+
+The seeds that user-mode codes use as the starter of their output source tag.
+
+```c
+#define DebuggerOutputSourceTagStartSeed 0x1
 ```
 
