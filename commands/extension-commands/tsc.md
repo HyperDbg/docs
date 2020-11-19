@@ -79,7 +79,7 @@ Using the following command you can use HyperDbg's Script Engine. You should rep
 The above command when messages don't need to be delivered immediately.
 
 ```
-!tsc script { HyperDbg Script Here }
+!tsc script { HyperDbg Script Here } imm no
 ```
 
 **Script \(From File\)**
