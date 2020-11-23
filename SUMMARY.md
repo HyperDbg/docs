@@ -48,6 +48,7 @@
   * [rdmsr \(read model-specific register\)](commands/debugging-commands/rdmsr.md)
   * [wrmsr \(write model-specific register\)](commands/debugging-commands/wrmsr.md)
   * [flush \(remove pending kernel buffers and messages\)](commands/debugging-commands/flush.md)
+  * [output \(create output source for event forwarding\)](commands/debugging-commands/output.md)
   * [settings \(configures different options and preferences\)](commands/debugging-commands/settings.md)
   * [exit \(exit from the debugger\)](commands/debugging-commands/exit.md)
 * [Meta Commands](commands/meta-commands/README.md)
