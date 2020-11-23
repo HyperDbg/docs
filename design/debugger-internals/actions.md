@@ -31,11 +31,11 @@ typedef enum _DEBUGGER_EVENT_ACTION_TYPE_ENUM {
 
 ### Break
 
-By default and if you don't specify any parameters like `script { }` or `code { }` then HyperDbg interprets it as a **break**. It means that every time that this event is triggered, then the system or the target process is completely halted and now you have the ability to control the system. It is exactly like other debuggers like Windbg.  
+By default and if you don't specify any parameters like `script { }` or `code { }` then HyperDbg interprets events as a **break**. It means that every time that this event is triggered, then the system or the target process is completely halted and now you have the ability to control the system. It is exactly like other debuggers like Windbg.  
 
 ### Script
 
-Script-engine is a powerful feature of HyperDbg that makes you able to create easy statements to create logs from the system state, change the system state, and call pre-defined functions and event break the system to the debugger.
+Script-engine is a powerful feature of HyperDbg that makes you able to create easy statements to create logs from the system state, change the system state, and call pre-defined functions and even halt the system and give its control to the debugger.
 
 This feature never halts the system and HyperDbg's script engine is vmx-root compatible; however, you should avoid [unsafe behavior](https://docs.hyperdbg.com/tips-and-tricks/considerations/the-unsafe-behavior).
 
@@ -45,7 +45,7 @@ Script-engine is a different project in HyperDbg's solution. There is a file, ca
 
 In order to call the execution engine, you should call `ScriptEngineExecute` function. 
 
-In order to interpret a script, you should call `ScriptEngineParseWrapper` which is a wrapper for `ScriptEngineParse`. This function gives a stack \(memory\) that can be executed in both user-mode and kernel-mode. 
+If you want to interpret a script, you should call `ScriptEngineParseWrapper` which is a wrapper for `ScriptEngineParse`. This function gives a stack \(memory\) that can be executed in both user-mode and kernel-mode. 
 
 By using the following structure, `ScriptBufferSize` and `ScriptBufferPointer` we pass the script buffer to the kernel.
 
@@ -63,7 +63,7 @@ typedef struct _DEBUGGER_GENERAL_ACTION {
 } DEBUGGER_GENERAL_ACTION, *PDEBUGGER_GENERAL_ACTION;
 ```
 
-Read [Scripting Language](https://docs.hyperdbg.com/commands/scripting-language) for more information and example about script-engine and read [here ](https://docs.hyperdbg.com/design/script-engine)for more information about script-engine internals. 
+Read [Scripting Language](https://docs.hyperdbg.com/commands/scripting-language) for more information and examples about script-engine and read [here ](https://docs.hyperdbg.com/design/script-engine)for more information about script-engine's design and internals. 
 
 ### Custom Code
 
