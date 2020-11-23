@@ -6,7 +6,7 @@ description: How to programmatically activate an event using IOCTLs?
 
 In order to send an IOCTL and enable an event programmatically, you should fill the following instruction, this structure is used for tracing works in user mode and sending it to the kernel-mode, keep in mind that this structure is not what we save for events in kernel-mode.
 
-After sending this structure to the kernel, if it's valid then kernel creates a disabled event and is waiting for an action to be received then it activates the event.
+After sending this structure to the kernel, if it's valid then the kernel creates a disabled event and is waiting for an action to be received then it activates the event.
 
 ```c
 //
@@ -87,7 +87,7 @@ If you want to use the debugger features, you should connect the `CommandsEventL
 
 **OptionalParamX** is different in the case of each command, for example in **!epthook2** you should send the address of where you want to hook to the kernel as **OptionalParam1**, you have to check each command's manual to see what are its specific **OptionalParam**\(s\).
 
-**Tag** is an ID that you can use it later in action. 
+**Tag** is an ID that you can use later in action. 
 
 **IsEnabled** has a user-mode usage to trace whether the event is enabled or not.
 

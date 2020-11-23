@@ -65,7 +65,7 @@ typedef struct _GUEST_REGS
 } GUEST_REGS, *PGUEST_REGS;
 ```
 
- The `Context` is a special variable that shows an essential parameter of event. This value is different for each event, you should check the documentation of that command for more information about the `Context`. For example, `Context` for **!syscall** command is the syscall-number or for the **!epthook2** command is the physical address of where the hidden hook triggered. 
+ The `Context` is a special variable that shows an essential parameter of an event. This value is different for each event, you should check the documentation of that command for more information about the `Context`. For example, `Context` for **!syscall** command is the syscall-number or for the **!epthook2** command is the physical address of where the hidden hook triggered. 
 
 ### Example 1
 
@@ -144,7 +144,7 @@ PVOID ExAllocatePoolWithTag(
 
 It's obvious that based on x64 fastcall calling convention in Windows, `PoolType` is on `rcx`, `NumberOfBytes` is on `rdx` and `Tag` is on `r8`. We need to check for `rdx`.
 
-Note that `rdx` is not same as the `rdx` that you receive in the function, instead we pass a structure that contains all the general-purpose register, you can read them or even modify them and if you modify them then the operating system will continue with new values in these registers.
+Note that `rdx` is not the same as the `rdx` that you receive in the function, instead we pass a structure that contains all the general-purpose register, you can read them or even modify them and if you modify them then the operating system will continue with new values in these registers.
 
 For general-purpose registers, we pass a pointer to the following structure as the first argument on `rcx`. 
 
@@ -197,7 +197,7 @@ After using assembler to convert the above code to hex representation of assembl
 !epthook2 fffff800`4ed6f010 condition {488B59104881FB0010000074054831C0EB0748C7C001000000C3}
 ```
 
-One important note is that if you want to create a condition for **!syscall** command which is common, then you should know that syscall calling convention is fastcall \(`rcx`, `rdx`, `r8`, `r9` and stack\), so if your target user-mode application is x64 then you can expect the exact arguments from user-mode to kernel-mode but if your user-mode application is x86 then Windows might change some of the arguments that contain addresses to new addresses. 
+One important note is that if you want to create a condition for **!syscall** command which is common, then you should know that the syscall calling convention is fastcall \(`rcx`, `rdx`, `r8`, `r9` and stack\), so if your target user-mode application is x64 then you can expect the exact arguments from user-mode to kernel-mode but if your user-mode application is x86 then Windows might change some of the arguments that contain addresses to new addresses. 
 
 {% hint style="danger" %}
 Accessing random memory in **custom code** and **condition code** in vmx root-mode is considered "[unsafe](https://docs.hyperdbg.com/tips-and-tricks/considerations/the-unsafe-behavior)". You have some limitations on accessing memory on some special events.

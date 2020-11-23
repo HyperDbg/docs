@@ -34,7 +34,7 @@ Accessing random memory in **custom code** and **condition code** is considered 
 
 Each command in HyperDbg that are tagged as "**event**" in the documentation, follows the same structure described [here](https://docs.hyperdbg.com/design/debugger-internals/events). At the time you execute a command, you can add a `code { xx xx xx xx }` where `xx` is the assembly \(hex\) of what you want to be executed in the case of that event.
 
-Generally, the assembly `code` in the code block will be called in the following form.
+Generally, the assembly `code` in the code, block will be called in the following form.
 
 ```c
 typedef PVOID

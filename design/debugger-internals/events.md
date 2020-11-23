@@ -22,7 +22,7 @@ Now let's dig into the event internals.
 
 ### Event Structures and Design
 
-In the first version of HyperDbg, structures are save into the kernel, like this :
+In the first version of HyperDbg, structures are saved into the kernel, like this :
 
 ```c
 typedef struct _DEBUGGER_EVENT {
@@ -52,9 +52,9 @@ typedef struct _DEBUGGER_EVENT {
 } DEBUGGER_EVENT, *PDEBUGGER_EVENT;
 ```
 
-`Tag` is a unique identity for each event, we want to send results back to the user mode, we use this `tag`. `Tag` is generated in the user mode application and will send to the kernel mode using different IOCTLs.
+`Tag` is a unique identity for each event, we want to send results back to the user mode, we use this `tag`. `Tag` is generated in the user-mode application and will send to the kernel-mode using different IOCTLs.
 
-`EventsOfSameTypeList`, we save the events with the same type in a linked list \(more details later\).
+`EventsOfSameTypeList`, we save the events of the same type in a linked list \(more details later\).
 
 `EventType`, shows the type of the current event.
 
@@ -70,7 +70,7 @@ If you specify `DEBUGGER_EVENT_APPLY_TO_ALL_PROCESSES= 0xffffffff` then the even
 
 `ActionsListHead` hold a linked list of all the actions for this event and `CountOfActions` is the count of actions available in the `ActionsListHead`.
 
-`OptionalParam1`, `OptionalParam2`, `OptionalParam3`, `OptionalParam4` are optional parameters that are event specific, for example for a hidden hook r/w `OptionalParam1` specifies the start physical address of page which is hooked and `OptionalParam2` specifies the end of hooked physical address, it is because EPT Violations happen for entire page not for a range. Other events have their special Optional Parameters too.
+`OptionalParam1`, `OptionalParam2`, `OptionalParam3`, `OptionalParam4` are optional parameters that are event specific, for example for a hidden hook r/w `OptionalParam1` specifies the start physical address of the page which is hooked and `OptionalParam2` specifies the end of hooked physical address, it is because EPT Violations happen for the entire page, not for a range. Other events have their special Optional Parameters too.
 
 `ConditionBufferAddress`, holds the address of a buffer which will be executed to check the condition, the size of this buffer is available in `ConditionsBufferSize` . If the `ConditionsBufferSize` is null then it means that the event is unconditional.
 
@@ -85,7 +85,7 @@ PDEBUGGER_EVENT
 DebuggerCreateEvent(BOOLEAN Enabled, UINT32 CoreId, UINT32 ProcessId, DEBUGGER_EVENT_TYPE_ENUM EventType, UINT64 Tag, UINT32 ConditionsBufferSize, PVOID ConditionBuffer);
 ```
 
-For example we create a new event for a **`HIDDEN_HOOK_READ`** and as the condition buffer is null then it's unconditional.
+For example, we create a new event for a **`HIDDEN_HOOK_READ`** and as the condition buffer is null then it's unconditional.
 
 ```c
 //
@@ -113,7 +113,7 @@ Please note that **DebuggerCreateEvent**, should not be called in vmx-root mode.
 
 ### Registering an event
 
-After creating an event, we should add action\(s\) to the event. `DebuggerAddActionToEvent`is used to add actions to the events \(we describe it in **actions** section\).
+After creating an event, we should add action\(s\) to the event. `DebuggerAddActionToEvent`is used to add actions to the events \(we describe it in the **actions** section\).
 
 Finally, we have to use the following command to register the event.
 
@@ -124,7 +124,7 @@ Finally, we have to use the following command to register the event.
 DebuggerRegisterEvent(Event1);
 ```
 
-After registering an event, you have to initialize the debugging feature, for example for EFER syscall hook you need to configure `MSR_EFER` so the CPU generates the vm-exits and these vm-exits triggers the events.
+After registering an event, you have to initialize the debugging feature, for example for EFER syscall hook you need to configure `MSR_EFER` so the CPU generates the vm-exits and these vm-exits trigger the events.
 
 Also, you don't need to initialize a feature if it's already initialized.
 
@@ -179,11 +179,11 @@ If the `RAX`is a non-zero value \(e.g. `RAX=0x1`\) then all the actions of that 
 
 ### Triggering an event
 
-Triggering an event is a general concept in HyperDbg, event will be triggered in the case of processor vm-exits, interrupts, callbacks, EPT violations and all the other things that indicate an event.
+Triggering an event is a general concept in HyperDbg, event will be triggered in the case of processor vm-exits, interrupts, callbacks, EPT violations, and all the other things that indicate an event.
 
 For example, we will trigger an event for **hidden hooks** and **memory monitor** when an EPT violation occurs.
 
-Triggering event can be performed by calling the following routine.
+Triggering events can be performed by calling the following routine.
 
 ```c
 BOOLEAN
@@ -237,7 +237,7 @@ You can also, specify whether the event is enabled or disabled when you create t
 
 ### Removing an event
 
-You can remove the event using the following function, this function will remove all the events with specified tag in the event list and free all the related pools.
+You can remove the event using the following function, this function will remove all the events with the specified tag in the event list and free all the related pools.
 
 ```c
 BOOLEAN
