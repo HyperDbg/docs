@@ -6,13 +6,13 @@ description: What is actions in HyperDbg & how to use them?
 
 ### What are actions?
 
-Actions define the operation that the debugger should do, in the case of triggering an event. In the other words, events are container of actions.
+Actions define the operation that the debugger should do, in the case of triggering an event. In the other words, events are containers of actions.
 
 Each event can have zero or many actions, in aد unconditional event, all actions are performed one by one with the insertion order and in conditional events, actions are performed only and only if the condition is met.
 
 ### Types of Actions
 
-HyperDbg is not classic debugger, so we can have multiple kind of operations in the case of events.
+HyperDbg is not a classic debugger, so we can have multiple kinds of operations in the case of events.
 
 Actions can be defined in 3 different types as demonstrated in the following enum.
 
@@ -26,8 +26,8 @@ typedef enum _DEBUGGER_EVENT_ACTION_TYPE_ENUM {
 ```
 
 1. **Break** : Exactly like other classic debuggers, this type of action halts the system and makes the system available for future user commands. This type of action is only available in debugging a remote machine, it is because you cannot halt your current local system.
-2. **Script** : This action type is a special feature that create a log from the registers, memory and special details \(pseudo-registers\) without halting the system and transfers the logs from kernel mode and vmx-root mode, safely to the debugger user mode and also you can call predefined functions and change the state of the system directly. You can use this type of action in both debugging a remote machine and debugging a local machine.
-3. **Custom Code** : Running a custom code is a special features that will allow you to execute your custom assembly codes in the case of triggering an event. This means that your assembly codes will be executed and the results will be returned safely to the debugger user mode. You can use this type of action in both debugging a remote machine and debugging a local machine.
+2. **Script** : This action type is a special feature that creates a log from the registers, memory and special details \(pseudo-registers\) without halting the system and transfers the logs from kernel mode and vmx-root mode, safely to the debugger user mode and also you can call predefined functions and change the state of the system directly. You can use this type of action in both debugging a remote machine and debugging a local machine.
+3. **Custom Code** : Running a custom code is a special feature that will allow you to execute your custom assembly codes in the case of triggering an event. This means that your assembly codes will be executed and the results will be returned safely to the debugger user mode. You can use this type of action in both debugging a remote machine and debugging a local machine.
 
 ### Break
 
@@ -35,11 +35,11 @@ typedef enum _DEBUGGER_EVENT_ACTION_TYPE_ENUM {
 
 ### Custom Code
 
-Running custom codes, gives you a fast and reliable way to execute your codes in the case of triggering events without breaking the whole system, so it's super fast.
+Running custom codes gives you a fast and reliable way to execute your codes in the case of triggering events without breaking the whole system, so it's super fast.
 
-This powerful feature can optionally give you a non-paged pool buffer with your specific size and gives the address of the buffer to you assembly code in `RCX`. You can safely use this buffer in you assembly code and if you want, HyperDbg will safely transfer this buffer to user mode for you.
+This powerful feature can optionally give you a non-paged pool buffer with your specific size and gives the address of the buffer to your assembly code in `RCX`. You can safely use this buffer in your assembly code and if you want, HyperDbg will safely transfer this buffer to user mode for you.
 
-First, you should create a buffer of bytes which performs your task. For example the following code is some `nops` that a custom buffer provides to the debugger. You can change it to what ever assembly bytes that you want without any limitation in size.
+First, you should create a buffer of bytes that performs your task. For example, the following code is some `nops` that a custom buffer provides to the debugger. You can change it to whatever assembly bytes that you want without any limitation in size.
 
 ```c
     char CustomCodeBuffer[8];
@@ -68,7 +68,7 @@ typedef struct _DEBUGGER_EVENT_REQUEST_CUSTOM_CODE {
 } DEBUGGER_EVENT_REQUEST_CUSTOM_CODE, *PDEBUGGER_EVENT_REQUEST_CUSTOM_CODE;
 ```
 
-For example the following code shows that we use the `CustomCodeBuffer` as the custom assembly code and also we set the size of the buffer. `OptionalRequestedBufferSize` is used to request a non-paged pool buffer, if this field is zero then it means that you don't need a non-paged buffer but if it's not zero, then HyperDbg will allocate a non-paged pool for you and will pass the address of the buffer each time as the `RCX` to you assembly code.
+For example, the following code shows that we use the `CustomCodeBuffer` as the custom assembly code and also we set the size of the buffer. `OptionalRequestedBufferSize` is used to request a non-paged pool buffer, if this field is zero then it means that you don't need a non-paged buffer but if it's not zero, then HyperDbg will allocate a non-paged pool for you and will pass the address of the buffer each time as the `RCX` to you assembly code.
 
 ```c
     //
@@ -95,11 +95,11 @@ DebuggerAddActionToEvent(PDEBUGGER_EVENT Event, DEBUGGER_EVENT_ACTION_TYPE_ENUM 
 
 **ActionType** is the type of action \(described above\).
 
-**SendTheResultsImmediately** this field shows whether the buffer should be sent immediately to the usermode or not.
+**SendTheResultsImmediately** this field shows whether the buffer should be sent immediately to the user-mode or not.
 
-It is because HyperDbg holds a queue of messages to be delivered to user mode and when the queue has multiple messages \(queue is full\), it sends all of them in an IRP packet to the user mode \(IRP Pending\), this makes the HyperDbg messaging more efficient as we're not going to send each messages separately in one IRP packet. 
+It is because HyperDbg holds a queue of messages to be delivered to user mode and when the queue has multiple messages \(the queue is full\), it sends all of them in an IRP packet to the user mode \(IRP Pending\), this makes the HyperDbg messaging more efficient as we're not going to send each message separately in one IRP packet. 
 
-If you set this field to `TRUE`, the buffer will be delivered to the user mode immediately, and if you set it to `FALSE`, then the buffers will be accumulated and delivered when the queue has multiple messages.
+If you set this field to `TRUE`, the buffer will be delivered to the user -ode immediately, and if you set it to `FALSE`, then the buffers will be accumulated and delivered when the queue has multiple messages.
 
 You should set it to `FALSE` in most cases but if you need immediate results the choose `TRUE` and it makes you computer substantially slower in high rates of data delivery but in low rates `TRUE` makes more scene.
 
@@ -117,7 +117,7 @@ The following example shows how to use the `DebuggerAddActionToEvent`.
 Please note that **DebuggerAddActionToEvent** should not be called in vmx-root mode.
 {% endhint %}
 
-#### How to send buffers back to usermode?
+#### How to send buffers back to user-mode?
 
 If you didn't request a safe buffer or even request a safe buffer then your assembly will be called in the following form.
 
@@ -126,7 +126,7 @@ typedef PVOID
 DebuggerRunCustomCodeFunc(PVOID PreAllocatedBufferAddress, PGUEST_REGS Regs, PVOID Context);
 ```
 
-If you request a safe non-paged pool buffer then your assembly will be called in the following form and as we're calling it with **fastcall** calling convention the you can expect buffer address in `RCX`.
+If you request a safe non-paged pool buffer then your assembly will be called in the following form and as we're calling it with **fastcall** calling convention then you can expect buffer address in `RCX`.
 
 ```c
 ReturnBufferToUsermodeAddress = Func(Action->RequestedBuffer.RequstBufferAddress, Regs, Context);
@@ -138,11 +138,11 @@ Otherwise, `RCX` is null \(in the case, you didn't need a safe buffer\).
 Func(NULL, Regs, Context);
 ```
 
-In the above calls, `RDX` is the structure of guest's general purpose registers, you can modify them directly and these registers will apply to the guest when it wants to continue its normal execution.
+In the above calls, `RDX` is the structure of guest's general-purpose registers, you can modify them directly and these registers will apply to the guest when it wants to continue its normal execution.
 
 `R8` \(Context\) is an optional parameter that describes the state and it's different for each event, you have to check each event's documentation to see what it is in that event.
 
-The following structures shows the state of registers in `Regs` parameter. You can modify or read the general purpose registers based on this structure as a pointer to this structure is available in `RDX`.
+The following structure shows the state of registers in `Regs` parameter. You can modify or read the general-purpose registers based on this structure as a pointer to this structure is available in `RDX`.
 
 ```c
 typedef struct _GUEST_REGS
@@ -169,12 +169,4 @@ typedef struct _GUEST_REGS
 {% hint style="success" %}
 You can read other registers \(non-general purpose registers\) directly and modify them, we're not changing them or use them in debugger and hypervisor routines so reading and changing them will directly apply to the guests registers and will apply on the normal execution \(except XMMs\).
 {% endhint %}
-
-If and only if you request a buffer then you can return with the buffer address \(return with `RAX = Buffer address`\), HyperDbg checks for the address in `RAX`, if it's a valid address then it send it to the user mode otherwise it will be ignored.
-
-You can also specify other buffers \(not the buffer that was safely passed to you function.\), HyperDbg will also send this buffer to the user mode with the size that you specified in request buffer.
-
-For example, you request `0x100` bytes of non-paged pool, and HyperDbg passes this buffer to your function, now your returned a system buffer address in `RAX`, HyperDbg will send `0x100` bytes of System buffer to the user mode.
-
-If you don't want any buffer in user mode then consider clearing the `RAX` before the return of your assembly code.
 
