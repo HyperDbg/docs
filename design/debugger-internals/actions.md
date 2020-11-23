@@ -31,11 +31,45 @@ typedef enum _DEBUGGER_EVENT_ACTION_TYPE_ENUM {
 
 ### Break
 
+By default and if you don't specify any parameters like `script { }` or `code { }` then HyperDbg interprets it as a **break**. It means that every time that this event is triggered, then the system or the target process is completely halted and now you have the ability to control the system. It is exactly like other debuggers like Windbg.  
+
 ### Script
+
+Script-engine is a powerful feature of HyperDbg that makes you able to create easy statements to create logs from the system state, change the system state, and call pre-defined functions and event break the system to the debugger.
+
+This feature never halts the system and HyperDbg's script engine is vmx-root compatible; however, you should avoid [unsafe behavior](https://docs.hyperdbg.com/tips-and-tricks/considerations/the-unsafe-behavior).
+
+When you use `script { }` in your events, then you are using the script-engine.
+
+Script-engine is a different project in HyperDbg's solution. There is a file, called "**ScriptEngineCommon.h**". This file contains the implementation of HyperDbg script execution engine in both user-mode and kernel-mode and it executes the scripts that was previously interpreted in user-mode.
+
+In order to call the execution engine, you should call `ScriptEngineExecute` function. 
+
+In order to interpret a script, you should call `ScriptEngineParseWrapper` which is a wrapper for `ScriptEngineParse`. This function gives a stack \(memory\) that can be executed in both user-mode and kernel-mode. 
+
+By using the following structure, `ScriptBufferSize` and `ScriptBufferPointer` we pass the script buffer to the kernel.
+
+```c
+typedef struct _DEBUGGER_GENERAL_ACTION {
+  UINT64 EventTag;
+  DEBUGGER_EVENT_ACTION_TYPE_ENUM ActionType;
+  BOOLEAN ImmediateMessagePassing;
+  UINT32 PreAllocatedBuffer;
+
+  UINT32 CustomCodeBufferSize;
+  UINT32 ScriptBufferSize;
+  UINT32 ScriptBufferPointer;
+
+} DEBUGGER_GENERAL_ACTION, *PDEBUGGER_GENERAL_ACTION;
+```
+
+Read [Scripting Language](https://docs.hyperdbg.com/commands/scripting-language) for more information and example about script-engine and read [here ](https://docs.hyperdbg.com/design/script-engine)for more information about script-engine internals. 
 
 ### Custom Code
 
 Running custom codes gives you a fast and reliable way to execute your codes in the case of triggering events without breaking the whole system, so it's super fast.
+
+When you use `code { }` in your events, then you are using custom codes.
 
 This powerful feature can optionally give you a non-paged pool buffer with your specific size and gives the address of the buffer to your assembly code in `RCX`. You can safely use this buffer in your assembly code and if you want, HyperDbg will safely transfer this buffer to user mode for you.
 
