@@ -52,13 +52,13 @@ The following command creates an output source which is a `namedpipe` and the re
 HyperDbg> output create MyOutputName3 namedpipe \\.\Pipe\HyperDbgOutput
 ```
 
-You cannot use the above resources until you open them using the following command. This command opens an output source \(named "**MyOutputName1**"\) that was previously created by the output's create parameter.
+You cannot use the above resources until you **open** them using the following command. This command opens an output source \(named "**MyOutputName1**"\) that was previously created by the output's **create** parameter.
 
 ```diff
 HyperDbg> output open MyOutputName1
 ```
 
-When you finished using an output source, you can close it using the following command. Once you close an output source, you can no longer use it, and also you **CANNOT** open it again but once again, you can create a source with the same address but with a different name.
+When you finished using an output source, you can **close** it using the following command. Once you close an output source, you cannot use it anymore, and also you **CANNOT** open it again but once again, you can **create** a new source with the same address but with a different **name**.
 
 ```diff
 HyperDbg> output close MyOutputName1
@@ -78,7 +78,7 @@ For example :
 HyperDbg> !syscall script { print(@rax); } output {MyOutputName1 , MyOutputName2 , MyOutputName3}
 ```
 
-You can specify up to `5` output sources in the default build but if you need more output sources for a single event then you should compile HyperDbg with different configurations as described on [Customize Build](https://docs.hyperdbg.com/tips-and-tricks/misc/customize-build) and change the `DebuggerOutputSourceMaximumRemoteSourceForSingleEvent`.
+You can specify up to `5` output sources in the default build of HyperDbg but if you need more output sources for a single event then you should compile HyperDbg with different configurations as described on [Customize Build](https://docs.hyperdbg.com/tips-and-tricks/misc/customize-build) and change the `DebuggerOutputSourceMaximumRemoteSourceForSingleEvent`.
 
 ### IOCTL
 
@@ -88,7 +88,9 @@ None
 
 You can use this command to forward the results of the scripts from all the [events](https://docs.hyperdbg.com/design/debugger-internals/events).
 
+{% hint style="danger" %}
 You **cannot** use event forwarding in the immediate messaging mode in events \(`imm no`\).
+{% endhint %}
 
 ### Requirements
 
