@@ -44,7 +44,7 @@ The following repository contains some examples of listening on a named pipe as 
 
 {% embed url="https://github.com/HyperDbg/event-forwarding-examples" %}
 
-Assume that we want to 
+Assume that we want to send the results of syscall \(Syscall numbers in rax\) to several sources.
 
 
 
