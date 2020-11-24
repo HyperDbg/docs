@@ -38,13 +38,19 @@ Check the [output ](https://docs.hyperdbg.com/commands/debugging-commands/output
 
 Event forwarding is a one-way mechanism. This means you can just see the logs from the client and you cannot make changes to the logs or send commands to the target client. If you want to control the debugger from a remote system, you can use [.listen](https://docs.hyperdbg.com/commands/meta-commands/.listen) and [.connect](https://docs.hyperdbg.com/commands/meta-commands/.connect) commands.
 
+### Format \(plain-text and JSON\)
+
+Event forwarding is only applied to script, which means that you can use the [Print](https://docs.hyperdbg.com/commands/scripting-language/functions/print) and the [Json](https://docs.hyperdbg.com/commands/scripting-language/functions/json) function to generate results that will be passed to the target output source.
+
 ### Examples
 
 The following repository contains some examples of listening on a named pipe as a server or listening on TCP sockets to use event forwarding.
 
 {% embed url="https://github.com/HyperDbg/event-forwarding-examples" %}
 
-Assume that we want to send the results of syscall \(Syscall numbers in rax\) to several sources.
+Assume that we want to send the results of syscall \(syscall numbers in `rax`\) to several sources. The following video shows how to redirect these events to the **file**, **TCP Socket**, **namedpipe**.
+
+### Demo
 
 
 
