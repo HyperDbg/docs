@@ -40,9 +40,11 @@ Event forwarding is a one-way mechanism. This means you can just see the logs fr
 
 ### Examples
 
-The following repository contains
+The following repository contains some examples of listening on a named pipe as a server or listening on TCP sockets to use event forwarding.
 
+{% embed url="https://github.com/HyperDbg/event-forwarding-examples" %}
 
+Assume that we want to 
 
 
 
