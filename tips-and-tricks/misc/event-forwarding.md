@@ -52,5 +52,9 @@ Assume that we want to send the results of syscall \(syscall numbers in `rax`\) 
 
 ### Demo
 
+Watch the video - How to use event forwarding.
+
+{% embed url="https://www.youtube.com/watch?v=tyapdCEZtic" %}
+
 
 
