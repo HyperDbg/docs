@@ -53,15 +53,31 @@ For connecting in debugger mode, first, you need to provide a serial device.
 
 #### **VMware Workstation**
 
-#### **VMware Player**
+In order to run HyperDbg on a VMware Workstation machine, first, turn off your guest machine then, you need to enable **Nested Virtualization**. Open your virtual machine and click on Edit **virtual machine settings**.
 
-#### **VirtualBox**
+VMware Player doesn't have nested virtualization so it cannot be used for HyperDbg debugging.
 
-#### **Hyper-V**
+![Editing VM Settings](../../.gitbook/assets/vmware-debug1.png)
 
-#### **KVM**
+After that, click on **Virtualize Intel VT-x/EPT or AMD-V/RVI** and **Virtualize IOMMU \(IO memory management unit\)**.
 
-#### Parallels Desktop
+![Enabling Nested-Virtualization](../../.gitbook/assets/vmware-debug2.png)
+
+Next, click on **Add...** then choose **Serial Port** and click on **Finish**.
+
+![Adding a serial device](../../.gitbook/assets/vmware-debug3.png)
+
+Now, click on **Use named pipe:** and add a name for your named pipe. 
+
+You name should start with **`\\.\pipe\`** . For example, choose **`\\.\pipe\HyperDbgDebug`**.
+
+Make sure to enable **Yield CPU on poll**.
+
+![](../../.gitbook/assets/vmware-debug4.png)
+
+**VirtualBox**
+
+#### \*\*\*\*
 
 
 
