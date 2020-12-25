@@ -141,7 +141,8 @@
   * [Conditions](design/debugger-internals/conditions.md)
   * [Actions](design/debugger-internals/actions.md)
   * [IOCTL Requests for Events](design/debugger-internals/ioctl-requests-for-events.md)
-  * [Kernel Debugger](design/debugger-internals/kernel-debugger.md)
+  * [Kernel Debugger](design/debugger-internals/kernel-debugger/README.md)
+    * [Connection](design/debugger-internals/kernel-debugger/connection.md)
 * [Script Engine](design/script-engine/README.md)
   * [LL1 Grammar](design/script-engine/log-the-states-ll1-grammer.md)
 
