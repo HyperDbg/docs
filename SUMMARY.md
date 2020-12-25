@@ -52,6 +52,7 @@
   * [settings \(configures different options and preferences\)](commands/debugging-commands/settings.md)
   * [exit \(exit from the debugger\)](commands/debugging-commands/exit.md)
 * [Meta Commands](commands/meta-commands/README.md)
+  * [.debug \(prepare and connect to debugger\)](commands/meta-commands/.debug-prepare-and-connect-to-debugger.md)
   * [.connect \(connect to a session\)](commands/meta-commands/.connect.md)
   * [.disconnect \(disconnect from a session\)](commands/meta-commands/.disconnect.md)
   * [.listen \(listen on a port and wait for the debugger to connect\)](commands/meta-commands/.listen.md)
