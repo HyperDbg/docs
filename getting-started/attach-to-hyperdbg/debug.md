@@ -8,9 +8,9 @@ If you have access to a remote physical machine or a nested virtualization envir
 
 In **VMI Mode**, you can't break the kernel mode and step through the kernel instructions; still, you can step and break user-mode applications. This mode needs a network connection \(TCP\).
 
-In **Debugger Mode**, you can break the kernel mode and step through the kernel instructions. It needs a serial \(cable or virtual device\) to connect to the target machine and a network connection \(TCP\) too.
+In **Debugger Mode**, you can break the kernel mode and step through the kernel instructions. It needs a serial \(cable or virtual device\) to connect to the target machine.
 
-It is because the serial cable is slow, so **HyperDbg** can't transfer a high-rate of data; thus, if you need to enable **Debugger Mode** then you have to be in **VMI Mode** + have a serial cable or virtual serial device.
+If you don't want to break and step kernel-mode instructions, then use VMI Mode instead. It is because the serial cable is slow, so transferring high-rates of data is substantially slower.
 
 ### Connect to Debuggee \(VMI Mode\)
 
@@ -47,7 +47,25 @@ You can see the state of the debugger by using '[.status](https://docs.hyperdbg.
 
 ### Connect to Debuggee \(Debugger Mode\)
 
-For connecting in debugger mode, first, connect to the debuggee in **VMI Mode** \(explained above\), then perform the following actions.
+For connecting in debugger mode, first, you need to provide a serial device.
+
+#### **Physical Machine**
+
+#### **VMware Workstation**
+
+#### **VMware Player**
+
+#### **VirtualBox**
+
+#### **Hyper-V**
+
+#### **KVM**
+
+#### Parallels Desktop
 
 
+
+
+
+\*\*\*\*
 
