@@ -73,7 +73,7 @@ You name should start with **`\\.\pipe\`** . For example, choose **`\\.\pipe\Hyp
 
 Make sure to enable **Yield CPU on poll**.
 
-![](../../.gitbook/assets/vmware-debug4.png)
+![Change serial device configuration](../../.gitbook/assets/vmware-debug4.png)
 
 **VirtualBox**
 
