@@ -10,7 +10,7 @@ The first and the basic mode of operation for **local** and **remote debugging**
 
 ## VMI Mode
 
-If you want to use **HyperDbg**, then you should operate at least in **VMI Mode or Virtual Machine Introspection Mode**. In both local debugging and remote debugging, **VMI Mode** should be enabled.
+If you want to use **HyperDbg**, then you should operate at least in **VMI Mode** or **Virtual Machine Introspection Mode**. In both local debugging and remote debugging, **VMI Mode** should be enabled.
 
 In this mode, you can use all of the **HyperDbg** features, except break to the debugger and step instructions in **kernel-mode**. Still, you can break to the debugger and step user-mode instruction without any limitation.
 
@@ -24,7 +24,7 @@ If you want to use **HyperDbg** for breaking the kernel and halt the system in o
 
 It is obvious that you can't use this mode for **local debugging** and you should provide a system with a **serial cable** or **virtual serial** device to enable it.
 
-In order to enable this mode, you should also connect from debuggee to debugger by **VMI Mode**; it is because **HyperDbg** transfers its data over **TCP** won't transfer the logs and data over **serial** as it is slow.
+If you are not trying to break and halt the system for stepping and instrumenting instructions, then use **VMI Mode** instead. It is because in **VMI Mode** the connection is over TCP which substantially faster than using a serial device.
 
 ## Transparent Mode
 
