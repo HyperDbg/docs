@@ -12,19 +12,35 @@ In **Debugger Mode**, you can break the kernel mode and step through the kernel 
 
 If you don't want to break and step kernel-mode instructions, then use VMI Mode instead. It is because the serial cable is slow, so transferring high-rates of data is substantially slower.
 
-### Connect to Debuggee \(Debugger Mode\)
+## Connect to Debuggee \(Debugger Mode\)
 
 For connecting in debugger mode, first, you need to provide a serial device.
 
-#### **Physical Machine**
+### **Physical Machine**
 
 In order to connect to a physical machine in debugger mode, you need a physical serial port. After that, connect your target machine \(debuggee\) to another machine.
 
 Debuggee needs to support Intel VMX and Intel EPT, however, the debugger does not need to support any special CPU feature and can be run on any machine, including a machine with an AMD processor.
 
+If you want to have a kernel debug connection, first you should run the following command in a debugger \(host\). As you can see, you can change the `com3`to your COM port that is connected to the debuggee. You can see connected COM ports on the device manager.
 
+```text
+.debug remote serial 115200 com3
+```
 
-#### **VMware Workstation**
+If you want to use a named pipe instead of a COM port, you can execute the following command in the debugger \(Host\).
+
+```text
+.debug remote namedpipe \\\\.\\pipe\\HyperDbgPipe
+```
+
+After you tell the debugger to listen on a COM port or a named pipe, now you can run the following command in the debuggee.
+
+```text
+.debug prepare serial 115200 com2
+```
+
+### **VMware Workstation**
 
 In order to run HyperDbg on a VMware Workstation machine, first, turn off your guest machine then, you need to enable **Nested Virtualization**. Open your virtual machine and click on Edit **virtual machine settings**.
 
@@ -48,7 +64,21 @@ Make sure to enable **Yield CPU on poll**.
 
 ![Change serial device configuration](../../.gitbook/assets/vmware-debug4.png)
 
-### Connect to Debuggee \(VMI Mode\)
+Now it's time to create a kernel debug connection. First of all, run the following command on the host \(debugger\). You should change the named pipe address to whatever name you chose on the previous part.   
+
+```text
+.debug remote namedpipe \\\\.\\pipe\\HyperDbgPipe
+```
+
+After you tell the debugger to listen on a COM port or a named pipe, now you can run the following command in the debuggee \(guest\).
+
+```text
+.debug prepare serial 115200 com2
+```
+
+Most of the times, if the serial port is the only serial device that you add to the virtual machine then the name of the connected port is `com2`. However, you can see the exact name of the COM port on the device manager of the guest.
+
+## Connect to Debuggee \(VMI Mode\)
 
 First, make sure you have access to the remote machine by pinging its IP address and check firewall rules. After that, run the following command in **debuggee \(guest\)**.
 
@@ -80,12 +110,4 @@ connected to : 127.0.0.1:52830
 ```
 
 You can see the state of the debugger by using '[.status](https://docs.hyperdbg.com/commands/meta-commands/.status)' command.
-
-#### \*\*\*\*
-
-
-
-
-
-\*\*\*\*
 
