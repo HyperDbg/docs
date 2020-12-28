@@ -14,6 +14,8 @@ The mechanism to pause the debuggee is also implemented in user-mode. It is beca
 
 Instead of this, we use the interrupt-mode of the serial device in the user-mode. This way, whenever the debugger needs to pause the debuggee, first it sends a request and as it's in interrupt-mode then Windows notifies the user-mode application about the new request from the debugger. 
 
+![Debugger Connection](../../../.gitbook/assets/connection-illustration.png)
+
 If the request is valid then the user-mode application sends an IOCTL to the kernel and from that IOCTL we execute a VMCALL to enter all cores to the vmx-root mode.
 
 In vmx-root mode, we halt all cores, and as the IF flag of RFLAGS is cleared, so no interrupt is allowed and this way we halt all the cores and check for a new command from the debugger in polling mode.
