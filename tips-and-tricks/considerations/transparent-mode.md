@@ -4,7 +4,7 @@ description: Description about HyperDbg Transparent-mode
 
 # Transparent Mode
 
-Transparent-mode is an anti-anti-debugging and anti-anti-hypervisor solution for HyperDbg.
+**Transparent-mode** is an **anti-anti-debugging** and an **anti-anti-hypervisor** solution for HyperDbg.
 
 If you enable this mode, then HyperDbg tries to make itself transparent from anti-debugging and anti-hypervisor methods and also not to reveal the presence of hypervisor on timing and microarchitectural attacks; however, it won't guarantee 100% transparency, but it makes it substantially harder for the anti-debugging methods.
 
@@ -20,7 +20,7 @@ This command should be run before you '[load](https://docs.hyperdbg.com/commands
 HyperDbg >!measure
 ```
 
-If you want to use the hardcoded results and statistics for a not-running hypervisor machine then use can use the following command.
+If you want to use the hardcoded results and statistics for a not-running hypervisor machine then you can use the following command to apply the default measurements.
 
 ```text
 HyperDbg >!measure default
@@ -39,7 +39,7 @@ HyperDbg >!hide name procexp.exe
 ```
 
 {% hint style="info" %}
-Transparent-mode is under active developments, each version, we add new methods to this mode to make sure that HyperDbg is transparent, however, this mode still needs a lot of contributions.
+Transparent-mode is under active development and on each version, we add new methods to this mode to make sure that HyperDbg is transparent, however, this mode still needs a lot of contributions.
 
 If you think, you can add new methods for transparency, don't forget to contribute or ping us on [GitHub](https://github.com/HyperDbg/HyperDbg). 
 {% endhint %}
