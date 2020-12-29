@@ -2,7 +2,7 @@
 description: Description of 'g' command in HyperDbg.
 ---
 
-# g \(continue debugging or processing kernel packets\)
+# g \(continue debuggee or processing kernel packets\)
 
 ### Command
 

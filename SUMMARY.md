@@ -26,7 +26,7 @@
   * [unload \(unload the kernel modules\)](commands/debugging-commands/unload.md)
   * [events \(show and modify active/disabled events\)](commands/debugging-commands/events.md)
   * [bp \(set breakpoint\)](commands/debugging-commands/bp.md)
-  * [g \(continue debugging or processing kernel packets\)](commands/debugging-commands/g.md)
+  * [g \(continue debuggee or processing kernel packets\)](commands/debugging-commands/g.md)
   * [pause \(break to the debugger and pause processing kernel packets\)](commands/debugging-commands/pause.md)
   * [status \(show the debuggee status\)](commands/debugging-commands/status.md)
   * [sleep \(wait for specific time in the .script command\)](commands/debugging-commands/sleep.md)
