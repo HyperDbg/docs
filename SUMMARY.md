@@ -136,7 +136,7 @@
   * [Kernel Debugger](design/debugger-internals/kernel-debugger/README.md)
     * [Connection](design/debugger-internals/kernel-debugger/connection.md)
 * [Script Engine](design/script-engine/README.md)
-  * [LL1 Grammar](design/script-engine/log-the-states-ll1-grammer.md)
+  * [LL1 Grammar](design/script-engine/log-the-states-ll1-grammar.md)
 
 ## Links
 
