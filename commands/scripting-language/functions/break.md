@@ -1,2 +1,32 @@
+---
+description: Description of 'Break' function in HyperDbg Scripts
+---
+
 # Break
+
+### Function
+
+> Break
+
+### Syntax
+
+> Break \( \);
+
+### Parameters
+
+No argument.
+
+### Description
+
+Break and halt the system and give control to the kernel debugger.
+
+### Examples
+
+`break();`
+
+Break and halt the system and give control to the debugger.
+
+### **Remarks**
+
+None
 
