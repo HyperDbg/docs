@@ -4,39 +4,45 @@ description: Description of 'Print' function in HyperDbg Scripts
 
 # Print
 
-{% api-method method="options" host="Print\(Expression\);" path="                                                                                            " %}
-{% api-method-summary %}
-Print
-{% endapi-method-summary %}
+### Function
 
-{% api-method-description %}
-Evaluate and print a MASM expression.
-{% endapi-method-description %}
+> Print
 
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-path-parameters %}
-{% api-method-parameter name="Expression" type="string" required=true %}
-A MASM expression.
-{% endapi-method-parameter %}
-{% endapi-method-path-parameters %}
-{% endapi-method-request %}
+### Syntax
 
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
+> Print\( Expression \);
 
-{% endapi-method-response-example-description %}
+### Parameters
 
-```
+\[Expression\]
 
-```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
+         A [MASM-like expression](https://docs.hyperdbg.com/commands/scripting-language/assumptions-and-evaluations) to evaluate.
+
+### Description
+
+Evaluate and print MASM expression.
 
 ### Examples
+
+`print(str(@rcx));`
+
+Print data as an ASCII string pointed by **rcx** register.
+
+`print(dq(@rcx));`
+
+Print data as an 8-byte hex, pointed by **rcx** register.
+
+`print($proc+@rdx);`
+
+Print value pointed by `$proc+@rdx`  which **$proc** is equivalent to current `_EPROCESS`  added to the **rdx** register.
+
+{% hint style="success" %}
+You can see more examples [here](https://docs.hyperdbg.com/commands/scripting-language/examples/view-system-state).
+{% endhint %}
+
+### **Remarks**
+
+You should consider avoiding ["unsafe" behavior](https://docs.hyperdbg.com/tips-and-tricks/considerations/the-unsafe-behavior) in your expressions.
 
 
 
