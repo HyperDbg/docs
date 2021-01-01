@@ -20,7 +20,7 @@ description: Description of 'Print' function in HyperDbg Scripts
 
 ### Description
 
-Evaluate and print MASM expression.
+Evaluate and print a MASM expression.
 
 ### Examples
 
