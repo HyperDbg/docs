@@ -4,7 +4,7 @@ description: Description of 'Print' function in HyperDbg Scripts
 
 # Print
 
-{% api-method method="options" host="Print\(Expression\);" path="" %}
+{% api-method method="options" host="Print\(Expression\);" path="                                                                                            " %}
 {% api-method-summary %}
 Print
 {% endapi-method-summary %}
