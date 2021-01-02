@@ -6,7 +6,7 @@ description: A brief overview of how to start with HyperDbg
 
 ## Start with HyperDbg
 
-First of all, you should know about different [operation modes](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/operation-modes) in HyperDbg.
+First of all, you should know about different [**Operation Modes**](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/operation-modes) and [**Prerequisites** ](https://docs.hyperdbg.com/using-hyperdbg/prerequisites)in HyperDbg.
 
 * \*\*\*\*[**VMI Mode**](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/operation-modes#vmi-mode)\*\*\*\*
 * \*\*\*\*[**Debugger Mode**](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/operation-modes#debugger-mode)\*\*\*\*
@@ -30,9 +30,29 @@ Finally, you can see many examples provided in the following link to use HyperDb
 
 _Done! You successfully used HyperDbg Debugger._
 
+## List of HyperDbg Commands
+
+* \*\*\*\*[**Debugging Commands**](https://docs.hyperdbg.com/commands/debugging-commands)\*\*\*\*
+* \*\*\*\*[**Meta Commands**](https://docs.hyperdbg.com/commands/meta-commands)
+* \*\*\*\*[**Extension Commands**](https://docs.hyperdbg.com/commands/extension-commands)
+
+## Scripting Language
+
+* \*\*\*\*[**Assumptions & Evaluations \(MASM-Style\)**](https://docs.hyperdbg.com/commands/scripting-language/assumptions-and-evaluations)\*\*\*\*
+* \*\*\*\*[**Script Examples**](https://docs.hyperdbg.com/commands/scripting-language/examples)
+* \*\*\*\*[**List of Script Functions**](https://docs.hyperdbg.com/commands/scripting-language/functions)
+
 ## **More advanced topics...**
 
 If you want to see more advanced topics about HyperDbg.
 
+* \*\*\*\*[**How to create an action?**](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action)\*\*\*\*
+* \*\*\*\*[**How to create a condition?**](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition)\*\*\*\*
+* \*\*\*\*
 
+## Miscellaneous topics...
+
+* \*\*\*\*[**Event Forwarding Mechanism**](https://docs.hyperdbg.com/tips-and-tricks/misc/event-forwarding)\*\*\*\*
+* \*\*\*\*[**Message Overflow**](https://docs.hyperdbg.com/tips-and-tricks/misc/message-overflow)\*\*\*\*
+* \*\*\*\*[**Customize Build**](https://docs.hyperdbg.com/tips-and-tricks/misc/customize-build)\*\*\*\*
 
