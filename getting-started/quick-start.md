@@ -12,7 +12,7 @@ First of all, you should know about different [**Operation Modes**](https://docs
 * \*\*\*\*[**Debugger Mode**](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/operation-modes#debugger-mode)\*\*\*\*
 * \*\*\*\*[**Transparent Mode**](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/operation-modes#transparent-mode)\*\*\*\*
 
-Now, if you want to build HyperDbg then follow the operation in the following links, you can also download compiled binaries instead of building HyperDbg.
+Now, if you want to build HyperDbg then follow the steps in the following links, you can also download compiled binaries instead of building HyperDbg.
 
 * \*\*\*\*[**Build & Install**](https://docs.hyperdbg.com/getting-started/build-and-install)\*\*\*\*
 * \*\*\*\*[**Download Releases**](https://github.com/HyperDbg/HyperDbg/releases)\*\*\*\*
