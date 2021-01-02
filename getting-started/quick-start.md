@@ -17,7 +17,7 @@ Now, if you want to build HyperDbg then follow the steps in the following links,
 * \*\*\*\*[**Build & Install**](https://docs.hyperdbg.com/getting-started/build-and-install)\*\*\*\*
 * \*\*\*\*[**Download Releases**](https://github.com/HyperDbg/HyperDbg/releases)\*\*\*\*
 
-After that, you need to attach to a new instance of HyperDbg.
+After that, you need to attach to an instance of HyperDbg.
 
 * \*\*\*\*[**Local Debugging \(VMI Mode\)**](https://docs.hyperdbg.com/getting-started/attach-to-hyperdbg/attach-to-local-machine)\*\*\*\*
 * \*\*\*\*[**Debug a Physical Machine \(Debugger Mode\)**](https://docs.hyperdbg.com/getting-started/attach-to-hyperdbg/debug#physical-machine)\*\*\*\*
