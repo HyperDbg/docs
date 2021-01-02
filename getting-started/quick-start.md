@@ -28,7 +28,7 @@ Finally, you can see many examples provided in the following link to use HyperDb
 
 {% page-ref page="../using-hyperdbg/examples/" %}
 
-_Done! You successfully used HyperDbg Debugger._
+_**Done!** You successfully used HyperDbg Debugger._
 
 ## List of HyperDbg Commands
 
