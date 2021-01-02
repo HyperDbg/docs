@@ -26,7 +26,9 @@ After that, you need to attach to a new instance of HyperDbg.
 
 Finally, you can see many examples provided in the following link to use HyperDbg.
 
-\*\*\*\*[**List of Examples**](https://docs.hyperdbg.com/using-hyperdbg/examples)\*\*\*\*
+{% page-ref page="../using-hyperdbg/examples/" %}
+
+[**List of Examples**](https://docs.hyperdbg.com/using-hyperdbg/examples)\*\*\*\*
 
 _Done! You successfully used HyperDbg Debugger._
 
