@@ -55,6 +55,7 @@ If you want to see more advanced topics about HyperDbg.
 * \*\*\*\*[**Vmx root-mode vs Vmx non-root mode**](https://docs.hyperdbg.com/tips-and-tricks/considerations/vmx-root-mode-vs-vmx-non-root-mode)
 * \*\*\*\*[**The "unsafe" behavior**](https://docs.hyperdbg.com/tips-and-tricks/considerations/the-unsafe-behavior)
 * \*\*\*\*[**Transparent Mode**](https://docs.hyperdbg.com/tips-and-tricks/considerations/transparent-mode)
+* \*\*\*\*[**VMware backdoor I/O ports**](https://docs.hyperdbg.com/tips-and-tricks/nested-virtualization-environments/vmware-backdoor-io-ports)
 
 ## Miscellaneous topics...
 
