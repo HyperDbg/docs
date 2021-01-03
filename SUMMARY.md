@@ -110,12 +110,13 @@
   * [Message Overflow](tips-and-tricks/misc/message-overflow.md)
   * [Customize Build](tips-and-tricks/misc/customize-build.md)
 
-## Style Guide
+## Contribution
 
-* [Coding Style](style-guide/coding-style.md)
-* [Command Style](style-guide/command-style.md)
-* [Doxygen Style](style-guide/doxygen-style.md)
-* [Logo & Artworks](style-guide/logo.md)
+* [Style Guide](contribution/style-guide/README.md)
+  * [Coding Style](contribution/style-guide/coding-style.md)
+  * [Command Style](contribution/style-guide/command-style.md)
+  * [Doxygen Style](contribution/style-guide/doxygen-style.md)
+* [Logo & Artworks](contribution/logo.md)
 
 ## Design
 

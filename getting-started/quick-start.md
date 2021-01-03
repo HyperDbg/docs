@@ -4,7 +4,7 @@ description: A brief overview of how to start with HyperDbg
 
 # Quick Start
 
-## Start with HyperDbg
+## Starting with HyperDbg
 
 First of all, you should know about different [**Operation Modes**](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/operation-modes) and [**Prerequisites** ](https://docs.hyperdbg.com/using-hyperdbg/prerequisites)in HyperDbg.
 
