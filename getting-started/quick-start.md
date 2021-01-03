@@ -74,5 +74,5 @@ You can also follow the ****[**contribution guide**](https://github.com/HyperDbg
 
 ## **Any other questions**
 
-If you have any other questions then it's probably addressed in the [FAQ](https://docs.hyperdbg.com/getting-started/faq) section. If your question remained unanswered or your problem is unsolved, then you can create an [issue](https://github.com/HyperDbg/HyperDbg/issues). 
+If you have any other questions then it's probably addressed in the ****[**FAQ**](https://docs.hyperdbg.com/getting-started/faq) ****section. If your question remained unanswered or your problem is unsolved, then you can create an [**issue**](https://github.com/HyperDbg/HyperDbg/issues). 
 
