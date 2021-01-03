@@ -12,7 +12,7 @@ First of all, you should know about different [**Operation Modes**](https://docs
 * \*\*\*\*[**Debugger Mode**](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/operation-modes#debugger-mode)\*\*\*\*
 * \*\*\*\*[**Transparent Mode**](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/operation-modes#transparent-mode)\*\*\*\*
 
-Now, if you want to build HyperDbg then follow the steps in the following links, you can also download compiled binaries instead of building HyperDbg.
+If you want to build HyperDbg, follow the steps in the links below; you can also download compiled binaries instead of building HyperDbg.
 
 * \*\*\*\*[**Build & Install**](https://docs.hyperdbg.com/getting-started/build-and-install)\*\*\*\*
 * \*\*\*\*[**Download Releases**](https://github.com/HyperDbg/HyperDbg/releases)\*\*\*\*
@@ -71,4 +71,8 @@ If you want to see more advanced topics about HyperDbg.
 * \*\*\*\*[**Logo & Artworks**](https://docs.hyperdbg.com/style-guide/logo)
 
 You can also follow the ****[**contribution guide**](https://github.com/HyperDbg/HyperDbg/blob/master/CONTRIBUTING.md)**.**
+
+## **Any other questions**
+
+If you have any other questions then it's probably addressed in the [FAQ](https://docs.hyperdbg.com/getting-started/faq) section. If your question remained unanswered or your problem is unsolved, then you can create an [issue](https://github.com/HyperDbg/HyperDbg/issues). 
 
