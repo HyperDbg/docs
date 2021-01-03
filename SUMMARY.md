@@ -4,11 +4,12 @@
 
 ## Getting Started
 
+* [Quick Start](getting-started/quick-start.md)
+* [FAQ](getting-started/faq.md)
 * [Build & Install](getting-started/build-and-install.md)
 * [Attach to HyperDbg](getting-started/attach-to-hyperdbg/README.md)
   * [Attach to a remote machine](getting-started/attach-to-hyperdbg/debug.md)
   * [Attach to local machine](getting-started/attach-to-hyperdbg/attach-to-local-machine.md)
-* [Quick Start](getting-started/quick-start.md)
 
 ## Using HyperDbg
 

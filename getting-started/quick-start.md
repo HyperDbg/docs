@@ -65,9 +65,9 @@ If you want to see more advanced topics about HyperDbg.
 
 ## If you want to participate in HyperDbg
 
-* \*\*\*\*[**Coding Style**](https://docs.hyperdbg.com/style-guide/coding-style)
-* \*\*\*\*[**Command Style**](https://docs.hyperdbg.com/style-guide/command-style)
-* \*\*\*\*[**Doxygen Style**](https://docs.hyperdbg.com/style-guide/doxygen-style)
+* \*\*\*\*[**Coding Style**](https://docs.hyperdbg.com/contribution/style-guide/coding-style)
+* \*\*\*\*[**Command Style**](https://docs.hyperdbg.com/contribution/style-guide/command-style)
+* \*\*\*\*[**Doxygen Style**](https://docs.hyperdbg.com/contribution/style-guide/doxygen-style)
 * \*\*\*\*[**Logo & Artworks**](https://docs.hyperdbg.com/style-guide/logo)
 
 You can also follow the ****[**contribution guide**](https://github.com/HyperDbg/HyperDbg/blob/master/CONTRIBUTING.md)**.**
