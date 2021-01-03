@@ -4,13 +4,35 @@ description: Frequently Asked Questions (FAQ)
 
 # FAQ
 
-## Can I become who I want to be?
+## What is HyperDbg?
 
-That's a tough question but thankfully, our team is on it. Please bear with us while we're investigating.
+HyperDbg is an open-source, hypervisor-assisted [debugger](https://en.wikipedia.org/wiki/Debugger). You can use HyperDbg to debug both user-mode and kernel-mode applications.
 
-## Have you had a chance to answer the previous question?
+## Who uses HyperDbg?
 
-Yes, after a few months we finally found the answer. Sadly, Mike is on vacations right now so I'm afraid we are not able to provide the answer at this point.
+Programmers, Security Researchers, Binary Analyzers. 
+
+## Why do we need HyperDbg?
+
+## What makes HyperDbg different from classic debuggers?
+
+## What's the difference between HyperDbg and Windbg?
+
+## Is it only for a special processor? or can I run it on AMD or ARM processors?
+
+## What generation of Intel Processors supports HyperDbg?
+
+## Can I use it on Linux or macOS?
+
+## Should I have a separate machine to use HyperDbg?
+
+## Can I use it on a nested-virtualization environment \(VMware, VirtualBox, Hyper-V\)?
+
+## Can I contribute to HyperDbg?
+
+## How can I start reading?
+
+## How does it work?
 
 
 
