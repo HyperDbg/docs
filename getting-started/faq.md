@@ -28,23 +28,23 @@ Besides that, HyperDbg is not just a simple debugger, it comes up with modern wa
 
 ## Is it only for a special processor? or can I run it on AMD or ARM processors?
 
-Current version of HyperDbg only supports Intel x64 processors. You cannot run it on an AMD processor or an ARM processors.
+The current version of HyperDbg only supports Intel x64 processors. You cannot run it on an AMD processor or an ARM processor.
 
 ## What generation of Intel Processors supports HyperDbg?
 
-Your processor should support Intel Extended Page Table \(A.K.A. EPT\) which is introduced on Nehalem Microarchitecture but some of the functionalities only works on 4th or later generation of Intel processor. so the previous processors might have undefined behaviors with HyperDbg. For best experience, it's recommended to use an Skylake \(6th gen\) processor or newer processors.
+Your processor should support Intel Extended Page Table \(A.K.A. EPT\) which is introduced on Nehalem Microarchitecture but some of the functionalities only work on the 4th or later generation of Intel processor. so the previous processors might have undefined behaviors with HyperDbg. For the best experience, it's recommended to use a Skylake \(6th gen\) processor or newer processors.
 
 ## Can I use it on Linux or macOS?
 
-No, the current version is only limited to Windows 10; however, one of our top priorities is to port HyperDbg on Linux but currently it's only usable on Windows.
+No, the current version is only limited to Windows 10; however, one of our top priorities is to port HyperDbg on Linux but currently, it's only usable on Windows.
 
 ## Should I have a separate machine to use HyperDbg?
 
-Of course not! The only problem with not having a separate machine is that you should only operate on VMI mode and you can't pause \(halt\) the system with breakpoint or for stepping. You can also use VMware Workstation to debug in debugger mode with all of the features including stepping and pausing the debuggee.
+Of course not! The only problem with not having a separate machine is that you should only operate on [VMI mode](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/operation-modes#vmi-mode) and you can't pause \(halt\) the system with breakpoint or for stepping. You can also use VMware Workstation to debug in [debugger mode](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/operation-modes#debugger-mode) with all of the features including stepping and pausing the debuggee.
 
 ## Can I use it on a nested-virtualization environment \(VMware, VirtualBox, Hyper-V\)?
 
-Current version of HyperDbg is only tested on VMware Workstation \(Not VMware player\) but in the future versions we will support all the virtualization platforms with nested-virtualization. 
+The current versions of HyperDbg are only tested on VMware Workstation \(Not VMware player\) but in the future versions, we will support all the virtualization platforms with nested-virtualization. 
 
 ## How can I start reading about HyperDbg internals? How does it work? Can I contribute to HyperDbg?
 
