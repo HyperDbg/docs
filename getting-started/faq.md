@@ -14,25 +14,27 @@ Programmers, security researchers, malware analyzers, fuzzer programmers.
 
 ## Why do we need HyperDbg?
 
-Because HyperDbg gives you unique abilities to use modern process features which will asisst       you 
+Because HyperDbg gives you unique abilities to use modern processor features which will asisst you in your reverse engineering journey.
+
+You can see a list of these features [here](https://github.com/HyperDbg/HyperDbg#unique-features).
 
 ## What makes HyperDbg different from classic debuggers?
 
-HyperDbg has a unique architecture. The principles of creating HyperDbg are making an OS-independent debugger and leveraging modern processor features to bring new reverse engineering methods.
+HyperDbg has a unique architecture. The principles of creating HyperDbg are making an OS-independent debugger and leveraging modern processor features to bring new reverse engineering methods; thus, the features you see in HyperDbg is not available in other debuggers.
 
 ## What's the difference between HyperDbg and Windbg?
 
-HyperDbg has a completely different architecture. WinDbg operates on ring 0 \(kernel\) while HyperDbg is running on ring -1 \(Hypervisor\); thus, HyperDbg provides unique features that are not available on WinDbg \(OS Level\). 
+HyperDbg has a completely different architecture. Windbg operates on ring 0 \(kernel\) while HyperDbg is running on ring -1 \(hypervisor\); thus, HyperDbg provides unique features that are not available on Windbg \(OS-Level\). 
 
 Besides that, HyperDbg is not just a simple debugger, it comes up with modern ways of reverse engineering by using vt-x and other modern processor facilities to ease the reverse engineering, analyzing, and fuzzing.
 
 ## Is it only for a special processor? or can I run it on AMD or ARM processors?
 
-The current version of HyperDbg only supports Intel x64 processors. You cannot run it on an AMD processor or an ARM processor.
+The current version of HyperDbg only supports Intel x64 processors. You cannot run it on an AMD processor or an ARM processor, but future versions will support other processors.
 
 ## What generation of Intel Processors supports HyperDbg?
 
-Your processor should support Intel Extended Page Table \(A.K.A. EPT\) which is introduced on Nehalem Microarchitecture but some of the functionalities only work on the 4th or later generation of Intel processor. so the previous processors might have undefined behaviors with HyperDbg. For the best experience, it's recommended to use a Skylake \(6th gen\) processor or newer processors.
+Your processor should support Intel Extended Page Table \(A.K.A. EPT\) which is introduced on Nehalem Microarchitecture but some of the functionalities only work on the 4th or later generation of Intel processors; so, the previous processors might have undefined behaviors with some of the functionalities of HyperDbg.  It's recommended to use a **Skylake** \(6th generation\) processor or newer processors.
 
 ## Can I use it on Linux or macOS?
 
@@ -40,7 +42,7 @@ No, the current version is only limited to Windows 10; however, one of our top p
 
 ## Should I have a separate machine to use HyperDbg?
 
-Of course not! The only problem with not having a separate machine is that you should only operate on [VMI mode](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/operation-modes#vmi-mode) and you can't pause \(halt\) the system with breakpoint or for stepping. You can also use VMware Workstation to debug in [debugger mode](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/operation-modes#debugger-mode) with all of the features including stepping and pausing the debuggee.
+Of course not! The only problem with not having a separate machine is that you can only operate on [VMI mode](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/operation-modes#vmi-mode) and you can't pause \(halt\) the system with breakpoint or for stepping. You can also use VMware Workstation to debug in [debugger mode](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/operation-modes#debugger-mode) with all of the features including stepping and pausing the debuggee.
 
 ## Can I use it on a nested-virtualization environment \(VMware, VirtualBox, Hyper-V\)?
 
