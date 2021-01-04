@@ -20,7 +20,7 @@ You can see a list of these features [here](https://github.com/HyperDbg/HyperDbg
 
 ## What makes HyperDbg different from classic debuggers?
 
-HyperDbg has a unique architecture. The principles of creating HyperDbg are making an OS-independent debugger and leveraging modern processor features to bring new reverse engineering methods; thus, the features you see in HyperDbg is not available in other debuggers.
+HyperDbg has a unique architecture. The principles of designing HyperDbg are making an OS-independent debugger and leveraging modern processor features to bring new reverse engineering methods; thus, the features you see in HyperDbg is not available in other debuggers.
 
 ## What's the difference between HyperDbg and Windbg?
 
