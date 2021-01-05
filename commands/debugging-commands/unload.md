@@ -10,7 +10,7 @@ description: Description of 'unload' command in HyperDbg.
 
 ### Syntax
 
-> unload
+> unload \[module name\]
 
 ### Description
 
@@ -18,7 +18,21 @@ Unloads the HyperDbg drivers and kernel modules from the target system.
 
 ### Parameters
 
-None
+\[module name\]
+
+          The name of the module that you want to unload
+
+### Modules
+
+| Module Name | Description |
+| :--- | :--- |
+| vmm | Hypervisor-related capabilities |
+
+{% hint style="info" %}
+The debugger functions are implemented on top of 'vmm' module.
+{% endhint %}
+
+**vmm** : this module contains commands related to debugger and all hypervisor-related capabilities. currently, **vmm** is the only module of **HyperDbg**.
 
 ### IOCTL
 
