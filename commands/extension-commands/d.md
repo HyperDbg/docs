@@ -47,7 +47,7 @@ Process ID doesn't make sense in physical memory. If you specify **pid** then it
 The following command is used when we want to read content of memory at **`1000`** with length of `0x50` in a hex byte format.
 
 ```diff
-HyperDbg >!db 1000 l 50
+HyperDbg> !db 1000 l 50
 #       00000000`00001000  0B 00 00 00 00 00 00 00 00 00 86 80 D3 10 02 00  ................
 #       00000000`00001010  00 06 01 01 00 00 00 00 03 01 00 00 00 00 00 00  ................
 #       00000000`00001020  00 10 FA 39 00 F8 FF FF 00 00 02 00 00 00 00 00  ...9............
@@ -58,7 +58,7 @@ HyperDbg >!db 1000 l 50
 The following example shows the content of memory at `1000` in a Double-word values \(4 bytes\) and ASCII characters format.
 
 ```diff
-HyperDbg >!dc 1000
+HyperDbg> !dc 1000
 #       00000000`00001000  0000000B 00000000 80860000 000210D3  ................
 #       00000000`00001010  01010600 00000000 00000103 00000000  ................
 #       00000000`00001020  39FA1000 FFFFF800 00020000 00000000  ...9............
@@ -72,14 +72,14 @@ HyperDbg >!dc 1000
 The following example shows the content of memory at `1000` in a Double-word values \(4 bytes\) format with the length of `0x10`.
 
 ```diff
-HyperDbg >!dd 1000 l 10
+HyperDbg> !dd 1000 l 10
 #       00000000`00001000  0000000B 00000000 80860000 000210D3
 ```
 
 The following example shows the content of memory at `1000` in a Quad-word values \(8 bytes\) format.
 
 ```diff
-HyperDbg >!dq 1000
+HyperDbg> !dq 1000
 #       00000000`00001000  00000000`0000000B 000210D3`80860000
 #       00000000`00001010  00000000`01010600 00000000`00000103
 #       00000000`00001020  FFFFF800`39FA1000 00000000`00020000

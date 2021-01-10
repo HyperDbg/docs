@@ -29,13 +29,13 @@ This command should be run before you '[load](https://docs.hyperdbg.com/commands
 The following command measures and provides statistics for transparent-mode based on your machine.
 
 ```text
-HyperDbg >!measure
+HyperDbg> !measure
 ```
 
 The following command uses the hardcoded results and statistics for a not-running hypervisor machine.
 
 ```text
-HyperDbg >!measure default
+HyperDbg> !measure default
 ```
 
 ### IOCTL
@@ -47,7 +47,7 @@ None
 If you are running on a nested-virtualization environment, then the result of the measurements will not provide transparency for you, instead, you can use the following command :
 
 ```text
-HyperDbg >!measure default
+HyperDbg> !measure default
 ```
 
 The above command uses hardcoded details from a not-running hypervisor and this way you can provide transparency for vm-exit. However, it does not belongs to your machine so it's highly recommended to let **HyperDbg** measure and provide the details for your own machine.

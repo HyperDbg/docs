@@ -23,7 +23,7 @@ None
 ### Examples
 
 ```text
-HyperDbg >!unhide
+HyperDbg> !unhide
 ```
 
 ### IOCTL

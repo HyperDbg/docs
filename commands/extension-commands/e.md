@@ -47,19 +47,19 @@ If you don't specify the pid, then the default pid is the current process \(**Hy
 The following command is used when we want to edit the content of physical memory at `1000` in a hex byte form and change it to `0x90 0x90 0x90` \(modify **three** bytes\).
 
 ```diff
-HyperDbg >!eb 1000 90 90 90
+HyperDbg> !eb 1000 90 90 90
 ```
 
 The following example is used when we want to edit the contents of physical memory at `1000` in Double-word values \(4 bytes\), change it to `245C8948` .
 
 ```diff
-HyperDbg >!ed 1000  245C8948
+HyperDbg> !ed 1000  245C8948
 ```
 
 The following example is used when we want to edit the contents of physical memory at `1000` in Quad-word values \(8 bytes\), change it to ``88889898`85858686``  and``92929393`97979898`` \(16 bytes\).
 
 ```diff
-HyperDbg >!dq 1000 88889898`85858686 92929393`97979898
+HyperDbg> !dq 1000 88889898`85858686 92929393`97979898
 ```
 
 ### IOCTL

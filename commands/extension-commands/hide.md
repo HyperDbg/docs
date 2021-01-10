@@ -45,13 +45,13 @@ You should append `.exe` to your process names.
 If you want to hide **HyperDbg** for process id  **`2a78`**.
 
 ```text
-HyperDbg >!hide pid 2a78
+HyperDbg> !hide pid 2a78
 ```
 
 If you want to hide **HyperDbg** for all the processes that their process names start with `procexp.exe` .
 
 ```text
-HyperDbg >!hide name procexp.exe
+HyperDbg> !hide name procexp.exe
 ```
 
 ### IOCTL

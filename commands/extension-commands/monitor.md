@@ -79,36 +79,36 @@ Please read  "[How to create a condition?](https://docs.hyperdbg.com/using-hyper
 Imagine we want to put a monitor writes but not reads on address from ``fffff800`4ed60000`` to ``fffff800`4ed60100`` , this will break to the debugger and gives the control back to you.
 
 ```c
-!monitor w fffff800`4ed60000 fffff800`4ed60100 
+HyperDbg> !monitor w fffff800`4ed60000 fffff800`4ed60100 
 ```
 
 If we want reads but not writes.
 
 ```c
-!monitor r fffff800`4ed60000 fffff800`4ed60100 
+HyperDbg> !monitor r fffff800`4ed60000 fffff800`4ed60100 
 ```
 
 If we want both reads and writes.
 
 ```c
-!monitor rw fffff800`4ed60000 fffff800`4ed60100 
+HyperDbg> !monitor rw fffff800`4ed60000 fffff800`4ed60100 
 ```
 
 ### Script
 
 Using the following command you can use HyperDbg's Script Engine. You should replace the string between braces \(`HyperDbg Script Here`\) with your script. You can find script examples [here](https://docs.hyperdbg.com/commands/scripting-language/examples). 
 
-    !monitor w fffff800`4ed60000 fffff800`4ed60100 script { HyperDbg Script Here }
+    HyperDbg> !monitor w fffff800`4ed60000 fffff800`4ed60100 script { HyperDbg Script Here }
 
 The above command when messages don't need to be delivered immediately.
 
-    !monitor w fffff800`4ed60000 fffff800`4ed60100 script { HyperDbg Script Here } imm no
+    HyperDbg> !monitor w fffff800`4ed60000 fffff800`4ed60100 script { HyperDbg Script Here } imm no
 
 **Script \(From File\)**
 
 If you saved your script into a file then you can add `file:` instead of a script and append the file path to it. For example, the following examples show how you can run a script from `file:c:\users\sina\desktop\script.txt`. 
 
-    !monitor w fffff800`4ed60000 fffff800`4ed60100 script {file:c:\users\sina\desktop\script.txt}
+    HyperDbg> !monitor w fffff800`4ed60000 fffff800`4ed60100 script {file:c:\users\sina\desktop\script.txt}
 
 {% hint style="success" %}
 You can use [**event forwarding**](https://docs.hyperdbg.com/tips-and-tricks/misc/event-forwarding) if you want to forward the event monitoring results from this event and other events to an external source e.g. **File**, **NamedPipe**, or **TCP Socket**. This way you can use **HyperDbg** as a monitoring tool and gather the behavior of your target system and use it later or analyze it on other systems.
@@ -127,7 +127,7 @@ Your custom code will be executed in vmx-root mode. Take a look at [this topic](
 Monitoring reads and writes on address from ``fffff800`4ed60000`` to ``fffff800`4ed60100`` ,  and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes), for more information.
 
 ```c
-!monitor rw fffff800`4ed60000 fffff800`4ed60100 code {90 90 90}
+HyperDbg> !monitor rw fffff800`4ed60000 fffff800`4ed60100 code {90 90 90}
 ```
 
 #### Run Custom Code \(Conditional\)
@@ -135,7 +135,7 @@ Monitoring reads and writes on address from ``fffff800`4ed60000`` to ``fffff800`
 Monitoring reads and writes on address from ``fffff800`4ed60000`` to ``fffff800`4ed60100`` ,  and run 3 nops whenever the event condition is triggered and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) and [how to create a condition](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition), for more information.
 
 ```c
-!monitor rw fffff800`4ed60000 fffff800`4ed60100 code {90 90 90} condition {90 90 90}
+HyperDbg> !monitor rw fffff800`4ed60000 fffff800`4ed60100 code {90 90 90} condition {90 90 90}
 ```
 
 {% hint style="success" %}

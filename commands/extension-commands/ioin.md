@@ -63,13 +63,13 @@ Please read  "[How to create a condition?](https://docs.hyperdbg.com/using-hyper
 Imagine we want to break on all accesses \(**IN/IN\*** instructions\) to I/O ports.
 
 ```c
-!ioin
+HyperDbg> !ioin
 ```
 
 If we want to break on I/O port **0x3f8**.
 
 ```c
-!ioin 0x3f8
+HyperDbg> !ioin 0x3f8
 ```
 
 Note that default ports for serial connections are: **0x03f8, 0x02f8, 0x03e8, 0x02e8**.
@@ -79,13 +79,13 @@ Note that default ports for serial connections are: **0x03f8, 0x02f8, 0x03e8, 0x
 Using the following command you can use HyperDbg's Script Engine. You should replace the string between braces \(`HyperDbg Script Here`\) with your script. You can find script examples [here](https://docs.hyperdbg.com/commands/scripting-language/examples). 
 
 ```
-!ioin 0x3f8 script { HyperDbg Script Here }
+HyperDbg> !ioin 0x3f8 script { HyperDbg Script Here }
 ```
 
 The above command when messages don't need to be delivered immediately.
 
 ```
-!ioin 0x3f8 script { HyperDbg Script Here } imm no
+HyperDbg> !ioin 0x3f8 script { HyperDbg Script Here } imm no
 ```
 
 **Script \(From File\)**
@@ -93,7 +93,7 @@ The above command when messages don't need to be delivered immediately.
 If you saved your script into a file then you can add `file:` instead of a script and append the file path to it. For example, the following examples show how you can run a script from `file:c:\users\sina\desktop\script.txt`. 
 
 ```
-!ioin 0x3f8 script {file:c:\users\sina\desktop\script.txt}
+HyperDbg> !ioin 0x3f8 script {file:c:\users\sina\desktop\script.txt}
 ```
 
 {% hint style="success" %}
@@ -113,7 +113,7 @@ Your custom code will be executed in vmx-root mode. Take a look at [this topic](
 Monitoring execution of **IN/IN\*** instructions for I/O port **0x3f8** and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes), for more information.
 
 ```c
-!ioin 0x3f8 code {90 90 90}
+HyperDbg> !ioin 0x3f8 code {90 90 90}
 ```
 
 #### Run Custom Code \(Conditional\)
@@ -121,7 +121,7 @@ Monitoring execution of **IN/IN\*** instructions for I/O port **0x3f8** and run 
 Monitoring execution of **IN/IN\*** instructions for I/O port **0x3f8** and run 3 nops whenever the event condition is triggered and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) and [how to create a condition](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition), for more information.
 
 ```c
-!ioin 0x3f8 code {90 90 90} condition {90 90 90}
+HyperDbg> !ioin 0x3f8 code {90 90 90} condition {90 90 90}
 ```
 
 {% hint style="success" %}

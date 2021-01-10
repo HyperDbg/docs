@@ -43,7 +43,7 @@ Process ID doesn't make sense in physical memory. If you specify **pid** then it
 The following command is used when we want to disassemble the content of memory \(x64\) at **`1000`** with length of `0x50`bytes.
 
 ```diff
-HyperDbg >!u 1000 l 50
+HyperDbg> !u 1000 l 50
 00000000`00001000 0B 00                               or eax, dword ptr ds:[rax]
 00000000`00001002 00 00                               add byte ptr ds:[rax], al
 00000000`00001004 00 00                               add byte ptr ds:[rax], al
@@ -67,7 +67,7 @@ HyperDbg >!u 1000 l 50
 The following example shows the assembly content of memory \(x64\) at `1000`.
 
 ```diff
-HyperDbg >!u 1000
+HyperDbg> !u 1000
 00000000`00001000 0B 00                               or eax, dword ptr ds:[rax]
 00000000`00001002 00 00                               add byte ptr ds:[rax], al
 00000000`00001004 00 00                               add byte ptr ds:[rax], al

@@ -63,13 +63,13 @@ Please read  "[How to create a condition?](https://docs.hyperdbg.com/using-hyper
 Imagine we want to break on all **RDMSRs**.
 
 ```c
-!msrread
+HyperDbg> !msrread
 ```
 
 If we want to break on MSR **0xc0000082**.
 
 ```c
-!msrread 0xc0000082  
+HyperDbg> !msrread 0xc0000082  
 ```
 
 ### Script
@@ -77,13 +77,13 @@ If we want to break on MSR **0xc0000082**.
 Using the following command you can use HyperDbg's Script Engine. You should replace the string between braces \(`HyperDbg Script Here`\) with your script. You can find script examples [here](https://docs.hyperdbg.com/commands/scripting-language/examples). 
 
 ```
-!msrread 0xc0000082 script { HyperDbg Script Here }
+HyperDbg> !msrread 0xc0000082 script { HyperDbg Script Here }
 ```
 
 The above command when messages don't need to be delivered immediately.
 
 ```
-!msrread 0xc0000082 script { HyperDbg Script Here } imm no
+HyperDbg> !msrread 0xc0000082 script { HyperDbg Script Here } imm no
 ```
 
 **Script \(From File\)**
@@ -91,7 +91,7 @@ The above command when messages don't need to be delivered immediately.
 If you saved your script into a file then you can add `file:` instead of a script and append the file path to it. For example, the following examples show how you can run a script from `file:c:\users\sina\desktop\script.txt`. 
 
 ```
-!msrread 0xc0000082 script {file:c:\users\sina\desktop\script.txt}
+HyperDbg> !msrread 0xc0000082 script {file:c:\users\sina\desktop\script.txt}
 ```
 
 {% hint style="success" %}
@@ -111,7 +111,7 @@ Your custom code will be executed in vmx-root mode. Take a look at [this topic](
 Monitoring execution of **RDMSR** for MSR **0xc0000082** and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes), for more information.
 
 ```c
-!msrread 0xc0000082 code {90 90 90}
+HyperDbg> !msrread 0xc0000082 code {90 90 90}
 ```
 
 #### Run Custom Code \(Conditional\)
@@ -119,7 +119,7 @@ Monitoring execution of **RDMSR** for MSR **0xc0000082** and run 3 nops whenever
 Monitoring execution of **RDMSR** for MSR **0xc0000082** and run 3 nops whenever the event condition is triggered and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) and [how to create a condition](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition), for more information.
 
 ```c
-!msrread 0xc0000082 code {90 90 90} condition {90 90 90}
+HyperDbg> !msrread 0xc0000082 code {90 90 90} condition {90 90 90}
 ```
 
 {% hint style="success" %}

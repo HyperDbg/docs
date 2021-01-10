@@ -28,7 +28,7 @@ The **!pte** command displays the **PML4E**, **PDPTE**, **PDE**, **PTE** for the
 The following command shows the page-level entries `fffff80040f00c28` .
 
 ```diff
-HyperDbg >!pte fffff80040f00c28
+HyperDbg> !pte fffff80040f00c28
 VA fffff80040f00c28
 PML4E (PXE) at ffff83c1e0f07f80 contains 0000000004108063
 PDPT (PPE) at ffff83c1e0ff0008  contains 000000000411c063
@@ -39,7 +39,7 @@ PTE at ffff83fc00207800 contains 8900000006470863
 The following command shows the page-level entries `fffff8003ad6f010`. Note that some entries might have a large **PDE** and no **PTE**.
 
 ```diff
-HyperDbg >!pte fffff8003ad6f010
+HyperDbg> !pte fffff8003ad6f010
 VA fffff8003ad6f010
 PML4E (PXE) at ffff83c1e0f07f80 contains 0000000004108063
 PDPT (PPE) at ffff83c1e0ff0000  contains 0000000004109063

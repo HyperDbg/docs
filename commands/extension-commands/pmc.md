@@ -59,13 +59,13 @@ Please read  "[How to create a condition?](https://docs.hyperdbg.com/using-hyper
 We want to break and get control over all **RDPMC** execution in our system.
 
 ```c
-!pmc
+HyperDbg> !pmc
 ```
 
 Imagine we want to break on all **RDPMC** executions of a process id **0x490** in core **2**.
 
 ```c
-!pmc pid 490 core 2
+HyperDbg> !pmc pid 490 core 2
 ```
 
 ### Script
@@ -73,13 +73,13 @@ Imagine we want to break on all **RDPMC** executions of a process id **0x490** i
 Using the following command you can use HyperDbg's Script Engine. You should replace the string between braces \(`HyperDbg Script Here`\) with your script. You can find script examples [here](https://docs.hyperdbg.com/commands/scripting-language/examples). 
 
 ```
-!pmc script { HyperDbg Script Here }
+HyperDbg> !pmc script { HyperDbg Script Here }
 ```
 
 The above command when messages don't need to be delivered immediately.
 
 ```
-!pmc script { HyperDbg Script Here } imm no
+HyperDbg> !pmc script { HyperDbg Script Here } imm no
 ```
 
 **Script \(From File\)**
@@ -87,7 +87,7 @@ The above command when messages don't need to be delivered immediately.
 If you saved your script into a file then you can add `file:` instead of a script and append the file path to it. For example, the following examples show how you can run a script from `file:c:\users\sina\desktop\script.txt`. 
 
 ```
-!pmc script {file:c:\users\sina\desktop\script.txt}
+HyperDbg> !pmc script {file:c:\users\sina\desktop\script.txt}
 ```
 
 {% hint style="success" %}
@@ -107,7 +107,7 @@ Your custom code will be executed in vmx-root mode. Take a look at [this topic](
 Monitoring process id **0x490** for **RDPMC** instruction execution ****and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes), for more information.
 
 ```c
-!pmc pid 490 code {90 90 90}
+HyperDbg> !pmc pid 490 code {90 90 90}
 ```
 
 #### Run Custom Code \(Conditional\)
@@ -115,7 +115,7 @@ Monitoring process id **0x490** for **RDPMC** instruction execution ****and run 
 Monitoring process id **0x490** for **RDPMC** instruction execution and run 3 nops whenever the event condition is triggered and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) and [how to create a condition](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition), for more information.
 
 ```c
-!pmc pid 490 code {90 90 90} condition {90 90 90}
+HyperDbg> !pmc pid 490 code {90 90 90} condition {90 90 90}
 ```
 
 {% hint style="success" %}

@@ -31,14 +31,14 @@ This command converts the PHYSICAL address to the VIRTUAL address.
 The following command shows the physical address of `21c9370`.
 
 ```diff
-HyperDbg >!va2pa 21c9370
+HyperDbg> !va2pa 21c9370
 FFFFF8004EBC9370
 ```
 
 The following command shows the physical address of `21c9370`in the process layout of process id \(0x4\).
 
 ```diff
-HyperDbg >!va2pa 21c9370 pid 0x4
+HyperDbg> !va2pa 21c9370 pid 0x4
 FFFFF8004EBC9370
 ```
 
