@@ -241,7 +241,7 @@ You can remove the event using the following function, this function will remove
 
 ```c
 BOOLEAN
-DebuggerRemoveEvent(UINT64 Tag)
+DebuggerRemoveEvent(UINT64 Tag);
 ```
 
 If you remove an event, you are no longer able to disable or enable it.

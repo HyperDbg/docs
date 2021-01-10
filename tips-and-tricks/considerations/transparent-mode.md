@@ -17,25 +17,25 @@ For enabling this mode, first, you should use the '[!measure](https://docs.hyper
 This command should be run before you '[load](https://docs.hyperdbg.com/commands/debugging-commands/load)' the debugger or before connecting to the debugger and after that, you can use '[!hide](https://docs.hyperdbg.com/commands/extension-commands/hide)' command.
 
 ```text
-HyperDbg >!measure
+HyperDbg> !measure
 ```
 
 If you want to use the hardcoded results and statistics for a not-running hypervisor machine then you can use the following command to apply the default measurements.
 
 ```text
-HyperDbg >!measure default
+HyperDbg> !measure default
 ```
 
 After that, you should use the '[!hide](https://docs.hyperdbg.com/commands/extension-commands/hide)' command, for example, if you want to apply the transparent features to process id `2a78` you can use the following command.
 
 ```text
-HyperDbg >!hide pid 2a78
+HyperDbg> !hide pid 2a78
 ```
 
 If you want to apply to a process name then use the following command.
 
 ```text
-HyperDbg >!hide name procexp.exe
+HyperDbg> !hide name procexp.exe
 ```
 
 {% hint style="info" %}
