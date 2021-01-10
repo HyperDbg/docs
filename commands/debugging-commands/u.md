@@ -49,7 +49,7 @@ If you don't specify the pid, then the default pid is the current process \(Hype
 The following command is used when we want to disassemble the content of memory \(x64\) at **``fffff800`3ad6f010``** with length of `0x50` bytes from the memory layout view of process \(`4` a.k.a. system process\).
 
 ```diff
-HyperDbg >u fffff800`3ad6f010 l 50 pid 4
+HyperDbg> u fffff800`3ad6f010 l 50 pid 4
 fffff800`3ad6f010 48 89 5C 24 08                      mov qword ptr ss:[rsp+0x08], rbx
 fffff800`3ad6f015 48 89 6C 24 10                      mov qword ptr ss:[rsp+0x10], rbp
 fffff800`3ad6f01a 48 89 74 24 18                      mov qword ptr ss:[rsp+0x18], rsi
@@ -74,7 +74,7 @@ fffff800`3ad6f05c 89 5C 24 20                         mov dword ptr ss:[rsp+0x20
 The following example shows the assembly content \(x64\) of memory at ``fffff800`3ad6f010`` from current process memory layout.
 
 ```diff
-HyperDbg >u fffff800`3ad6f010
+HyperDbg> u fffff800`3ad6f010
 fffff800`3ad6f010 48 89 5C 24 08                      mov qword ptr ss:[rsp+0x08], rbx
 fffff800`3ad6f015 48 89 6C 24 10                      mov qword ptr ss:[rsp+0x10], rbp
 fffff800`3ad6f01a 48 89 74 24 18                      mov qword ptr ss:[rsp+0x18], rsi

@@ -25,7 +25,7 @@ None
 The following example shows the status of the **debuggee**.
 
 ```text
-HyperDbg (192.168.1.10:50000) >status
+HyperDbg (192.168.1.10:50000)> status
 local debugging ('vmi mode')
 ```
 

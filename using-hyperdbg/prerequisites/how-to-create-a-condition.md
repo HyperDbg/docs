@@ -17,13 +17,13 @@ For example, let's imagine we want to create a condition for a command like "**!
 When you execute the command like :
 
 ```c
-!epthook fffff801deadbeef 
+HyperDbg> !epthook fffff801deadbeef 
 ```
 
 then it is unconditional but when you execute a command like this :
 
 ```c
-!epthook fffff801deadbeef condition { 90 90 90 90 }
+HyperDbg> !epthook fffff801deadbeef condition { 90 90 90 90 }
 ```
 
 then it is a conditional command.
@@ -117,13 +117,13 @@ The final result of the assembler is :
 Now you can call the command with the following arguments :
 
 ```c
-!epthook fffff801deadbeef condition {65488B042588010000488B80B8000000488B805004000048B9737663686F73742E4839C874054831C0EB0748C7C001000000C3}
+HyperDbg> !epthook fffff801deadbeef condition {65488B042588010000488B80B8000000488B805004000048B9737663686F73742E4839C874054831C0EB0748C7C001000000C3}
 ```
 
 or
 
 ```c
-!syscall condition {65488B042588010000488B80B8000000488B805004000048B9737663686F73742E4839C874054831C0EB0748C7C001000000C3}
+HyperDbg> !syscall condition {65488B042588010000488B80B8000000488B805004000048B9737663686F73742E4839C874054831C0EB0748C7C001000000C3}
 ```
 
 We automatically add a `0xc3` or `ret` opcode to the end of the condition assembly and in the case if you forget to return the control of the processor back to the **HyperDbg**, then there is no problem. Make sure to not jump to another address without returning back to the **HyperDbg**, otherwise it causes a crash on your system.
@@ -194,7 +194,7 @@ ret
 After using assembler to convert the above code to hex representation of assembly, the final command will be like this : 
 
 ```cpp
-!epthook2 fffff800`4ed6f010 condition {488B59104881FB0010000074054831C0EB0748C7C001000000C3}
+HyperDbg> !epthook2 fffff800`4ed6f010 condition {488B59104881FB0010000074054831C0EB0748C7C001000000C3}
 ```
 
 One important note is that if you want to create a condition for **!syscall** command which is common, then you should know that the syscall calling convention is fastcall \(`rcx`, `rdx`, `r8`, `r9` and stack\), so if your target user-mode application is x64 then you can expect the exact arguments from user-mode to kernel-mode but if your user-mode application is x86 then Windows might change some of the arguments that contain addresses to new addresses. 

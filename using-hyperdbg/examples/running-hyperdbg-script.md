@@ -23,7 +23,7 @@ exit
 Now, if you run **HyperDbg** then you can **.script** command like this :
 
 ```bash
-HyperDbg >.script c:\users\sina\desktop\script.txt
+HyperDbg> .script c:\users\sina\desktop\script.txt
 ```
 
 The second case is when you want to directly run your script from the command-line, then you can run the **hyperdbg-cl.exe** like this :

@@ -35,7 +35,7 @@ If you don't specify the 'core' by default it shows the msr for all cores.
 The following command shows the MSR register for `c0000082` using `rdmsr` command.
 
 ```diff
-HyperDbg >rdmsr c0000082
+HyperDbg> rdmsr c0000082
 core : 0x0 - msr[c0000082] = fffff807`73553180
 core : 0x1 - msr[c0000082] = fffff807`73553180
 core : 0x2 - msr[c0000082] = fffff807`73553180
@@ -45,7 +45,7 @@ core : 0x3 - msr[c0000082] = fffff807`73553180
 The following example shows the MSR `c0000082` for core `2`.
 
 ```diff
-HyperDbg >rdmsr c0000082 core 2
+HyperDbg> rdmsr c0000082 core 2
 core : 0x2 - msr[c0000082] = fffff807`73553180
 ```
 

@@ -51,28 +51,28 @@ You can also perform the **autoflush** manually by running the '[flush](https://
 The following command shows the state of **`autounpause`** option.
 
 ```diff
-HyperDbg > settings autounpause
+HyperDbg> settings autounpause
 auto-unpause is enabled
 ```
 
 The following command turns **`autounpause`** on.
 
 ```diff
-HyperDbg >settings autounpause on
+HyperDbg> settings autounpause on
 set auto-unpause to enabled
 ```
 
 The following command turns **`autounpause`** off.
 
 ```text
-HyperDbg >settings autounpause off
+HyperDbg> settings autounpause off
 set auto-unpause to disabled
 ```
 
 The following command shows different **syntax** used in the disassembler, you can choose your favorite **syntax** to show in '[!u and !u2' ](https://docs.hyperdbg.com/commands/extension-commands/u)commands.
 
 ```c
-HyperDbg >settings syntax intel
+HyperDbg> settings syntax intel
 set syntax to intel
 
 
@@ -94,10 +94,10 @@ fffff804`2d16f045 8B F9                               mov edi, ecx
 fffff804`2d16f047 4C 8B 88 C0 00 00 00                mov r9, qword ptr ds:[rax+0xC0]
 
 
-HyperDbg >settings syntax att
+HyperDbg> settings syntax att
 set syntax to at&t
 
-HyperDbg >u fffff804`2d16f010
+HyperDbg> u fffff804`2d16f010
 fffff804`2d16f010 48 89 5C 24 08                      movq %rbx, %ss:0x08(%rsp)
 fffff804`2d16f015 48 89 6C 24 10                      movq %rbp, %ss:0x10(%rsp)
 fffff804`2d16f01a 48 89 74 24 18                      movq %rsi, %ss:0x18(%rsp)
@@ -115,7 +115,7 @@ fffff804`2d16f045 8B F9                               mov %ecx, %edi
 fffff804`2d16f047 4C 8B 88 C0 00 00 00                movq %ds:0xC0(%rax), %r9
 
 
-HyperDbg >settings syntax masm
+HyperDbg> settings syntax masm
 set syntax to masm
 
 HyperDbg >u fffff804`2d16f010

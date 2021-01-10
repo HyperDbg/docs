@@ -13,14 +13,14 @@ Some features like a break to the debugger and step kernel-mode instructions are
 For **local debugging**, you can run `.connect local` the command to connect to the local debugger.
 
 ```text
-HyperDbg >.connect local
+HyperDbg> .connect local
 local debuging current system...
 ```
 
 After that, you can use the '[load](https://docs.hyperdbg.com/commands/debugging-commands/load)' command to load your module \(for instance, **vmm** module\).
 
 ```text
-HyperDbg >load vmm
+HyperDbg> load vmm
 try to install driver...
 ...
 ```

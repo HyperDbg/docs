@@ -29,7 +29,7 @@ Shows the loaded modules' base address, size, name , full path.
 The following command show all the modules in the system.
 
 ```cpp
-HyperDbg >lm
+HyperDbg> lm
 start                   size    name            path
 
 fffff80434200000        11235328        ntoskrnl.exe    \SystemRoot\system32\ntoskrnl.exe
@@ -54,7 +54,7 @@ fffff80437f50000        49152   ntosext.sys     \SystemRoot\System32\drivers\nto
 The following example shows the modules that contain "**nt"** in their path or name.
 
 ```c
-HyperDbg >lm nt
+HyperDbg> lm nt
 start                   size    name            path
 
 fffff80434200000        11235328        ntoskrnl.exe    \SystemRoot\system32\ntoskrnl.exe

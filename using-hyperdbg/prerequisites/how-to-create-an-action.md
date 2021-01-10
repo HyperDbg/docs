@@ -112,7 +112,7 @@ f:  48 c7 42 40 48 44 42    mov    QWORD PTR [rdx+0x40],0x32424448
 Imagine, the **ExAllocatePoolWithTag** is located at ``fffff800`4ed6f010``. We can hook and change the Tag using the following command.
 
 ```c
-!epthook2 fffff800`4ed6f010 code {488B5A404881FB484442477402EB0848C7424048444232C3}
+HyperDbg> !epthook2 fffff800`4ed6f010 code {488B5A404881FB484442477402EB0848C7424048444232C3}
 ```
 
 #### Run custom code with a safe buffer

@@ -51,19 +51,19 @@ If you don't specify the **pid**, then the default **pid** is the current proces
 The following command is used to search for `4156415748` starting from ``fffff807`7356f010`` to ``fffff807`7356f010+ffff``.
 
 ```diff
-HyperDbg >sb fffff807`7356f010 l ffff 41 56 41 57 48 
+HyperDbg> sb fffff807`7356f010 l ffff 41 56 41 57 48 
 ```
 
 The following example is used when we want to search for `f0cc8549` from `7FF62C9016AD` to `7FF62C9016AD+fff` in a different process \(process id = `1dd0`\) .
 
 ```diff
-HyperDbg >sd 7FF62C9016AD pid 1dd0 l fff f0cc8549 
+HyperDbg> sd 7FF62C9016AD pid 1dd0 l fff f0cc8549 
 ```
 
 The following example is used when we want to search for ``0f450000`00c0888b`` ``8b410000`0092b1b7`` from ``fffff807`7356f010`` to ``fffff807`7356f010+100``.
 
 ```diff
-HyperDbg >sq fffff807`7356f010 l 100 0f450000`00c0888b 8b410000`0092b1b7
+HyperDbg> sq fffff807`7356f010 l 100 0f450000`00c0888b 8b410000`0092b1b7
 ```
 
 ### IOCTL

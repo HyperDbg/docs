@@ -51,7 +51,7 @@ If you don't specify the pid, then the default pid is the current process \(Hype
 The following command is used when we want to read the content of memory at **``fffff800`3ad6f010``** with length of `0x50` from the memory layout view of process \(`4` a.k.a. system process\) in a hex byte format.
 
 ```diff
-HyperDbg >db fffff800`3ad6f010 l 50 pid 4
+HyperDbg> db fffff800`3ad6f010 l 50 pid 4
 fffff800`3ad6f010  48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57  H.\$.H.l$.H.t$.W
 fffff800`3ad6f020  41 56 41 57 48 83 EC 30 65 48 8B 04 25 20 00 00  AVAWH..0eH.. ..
 fffff800`3ad6f030  00 33 DB 44 0F B7 3D C5 3F 20 00 41 8B E8 48 8B  .3.D..=.? .A..H.
@@ -62,7 +62,7 @@ fffff800`3ad6f050  B7 B1 92 00 00 00 41 8B C6 44 8B C8 89 5C 24 20  ......A..D..
 The following example shows the content of memory at ``fffff800`3ad6f010`` from current process layout in a Double-word values \(4 bytes\) and ASCII characters format.
 
 ```diff
-HyperDbg >dc fffff800`3ad6f010
+HyperDbg> dc fffff800`3ad6f010
 fffff800`3ad6f010  245C8948 6C894808 89481024 57182474  H.\$.H.l$.H.t$.W
 fffff800`3ad6f020  57415641 30EC8348 048B4865 00002025  AVAWH..0eH.. ..
 fffff800`3ad6f030  44DB3300 C53DB70F 4100203F 8B48E88B  .3.D..=.? .A..H.
@@ -76,14 +76,14 @@ fffff800`3ad6f080  5C8B48C3 8B485024 48602474 4130C483  .H.\$PH.t$`H..0A
 The following example shows the content of memory at ``fffff800`3ad6f010`` from current process layout in a Double-word values \(4 bytes\) format with the length of `0x10`.
 
 ```diff
-HyperDbg >dd fffff800`3ad6f010 l 10
+HyperDbg> dd fffff800`3ad6f010 l 10
 fffff800`3ad6f010  245C8948 6C894808 89481024 57182474
 ```
 
 The following example shows the content of memory at ``fffff800`3ad6f010`` from current process layout in a Quad-word values \(8 bytes\) format.
 
 ```diff
-HyperDbg >dq fffff800`3ad6f010
+HyperDbg> dq fffff800`3ad6f010
 fffff800`3ad6f010  6C894808`245C8948 57182474`89481024
 fffff800`3ad6f020  30EC8348`57415641 00002025`048B4865
 fffff800`3ad6f030  C53DB70F`44DB3300 8B48E88B`4100203F

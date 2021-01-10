@@ -25,7 +25,7 @@ None
 The following examples show a sample of `cpu` results.
 
 ```text
-HyperDbg >cpu
+HyperDbg> cpu
 
 vendor : GenuineIntel
 brand : Intel(R) Core(TM) i7-6820HQ CPU @ 2.70GHz
