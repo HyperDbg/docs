@@ -65,6 +65,8 @@ Here are the currently supported pseudo-registers supported by the script engine
 | **$buffer** | The pre-allocated buffer if the user requests a safe buffer. |
 | **$context** | The context of the triggered event \(It has a different meaning in each event\). |
 
+Some of the above pseudo-registers are not supported either in kernel-mode or user-mode, if you use these registers then it returns `NULL`.
+
 ### Number Prefixes
 
 By default, **HyperDbg** interprets the numbers as hex \(base 16\), if you want to specify other forms of a number you should use MASM prefixes. In all MASM expressions, numeric values are interpreted as numbers in the current radix \(16, 10, or 8\). You can override the default radix by specifying the 0x prefix \(hexadecimal\), the 0n prefix \(decimal\), the 0t prefix \(octal\), or the 0y prefix \(binary\).
