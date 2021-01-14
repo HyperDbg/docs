@@ -28,7 +28,7 @@ None
 
 ### **Remarks**
 
-This command is used in batch script files when we want to gather information for a specific time and then executing [**pause** ](https://docs.hyperdbg.com/commands/debugging-commands/pause)command or [**unload** ](https://docs.hyperdbg.com/commands/debugging-commands/unload)command stop the debugger.
+This command is used in batch script files when we want to gather information for a specific time and then execute the [**pause** ](https://docs.hyperdbg.com/commands/debugging-commands/pause)command or the [**unload** ](https://docs.hyperdbg.com/commands/debugging-commands/unload)command to stop the debugger.
 
 ### Requirements
 
