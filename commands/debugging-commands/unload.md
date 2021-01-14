@@ -29,14 +29,22 @@ Unloads the HyperDbg drivers and kernel modules from the target system.
 | vmm | Hypervisor-related capabilities |
 
 {% hint style="info" %}
-The debugger functions are implemented on top of 'vmm' module.
+The debugger functions are implemented on top of the 'vmm' module.
 {% endhint %}
 
-**vmm** : this module contains commands related to debugger and all hypervisor-related capabilities. currently, **vmm** is the only module of **HyperDbg**.
+**vmm** : this module contains commands related to the debugger and all hypervisor-related capabilities. Currently, **vmm** is the only module of **HyperDbg**.
+
+### Examples
+
+The following example unloads `vmm` module.
+
+```text
+HyperDbg> unload vmm
+```
 
 ### IOCTL
 
-This function first, invokes `IOCTL_TERMINATE_VMX` to turn off the vmx operation and `IOCTL_RETURN_IRP_PENDING_PACKETS_AND_DISALLOW_IOCTL` to complete all the IRP Pending sessions so that we can call `CloseHandle`.
+This function first invokes `IOCTL_TERMINATE_VMX` to turn off the vmx operation and `IOCTL_RETURN_IRP_PENDING_PACKETS_AND_DISALLOW_IOCTL` to complete all the IRP Pending sessions so that we can call `CloseHandle`.
 
 If you're using APIs, the following export in **hprdbgctrl** can be used.
 
