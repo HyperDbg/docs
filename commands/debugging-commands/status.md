@@ -35,9 +35,9 @@ None
 
 ### **Remarks**
 
-In **HyperDbg**, 'status' and '[.status](https://docs.hyperdbg.com/commands/meta-commands/.status)' commands are different if you connected to a remote debugger but if you try to locally debug your system then these commands are the same.
+In **HyperDbg**, 'status' and '[.status](https://docs.hyperdbg.com/commands/meta-commands/.status)' commands are different if you connected to a remote debugger, but if you try to debug your system locally, then these commands are the same.
 
-If you execute '[.status](https://docs.hyperdbg.com/commands/meta-commands/.status)' command, then it shows the status of the current debugger \(the IP address of debuggee\) and if you execute '**status**' command then it will be executed in the debuggee and shows the state of debuggee \(not debugger\).
+If you execute the '[.status](https://docs.hyperdbg.com/commands/meta-commands/.status)' command, it shows the current debugger's status \(the debuggee's IP address\). If you execute the '**status**' command, it will be executed in the debuggee and shows the debuggee's state \(not debugger\).
 
 ### Requirements
 
