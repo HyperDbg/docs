@@ -63,6 +63,7 @@ Here are the currently supported pseudo-registers supported by the script engine
 | **$teb** | The address of the thread environment block \(TEB\) of the current thread. |
 | **$ip** | The instruction pointer register \(rip\). |
 | **$buffer** | The pre-allocated buffer if the user requests a safe buffer. |
+| **$context** | The context of the triggered event \(It has a different meaning in each event\). |
 
 ### Number Prefixes
 
