@@ -14,7 +14,7 @@ description: Description of 'cpu' command in HyperDbg.
 
 ### Description
 
-Shows the current supported technologies on processor based on the details provided by `cpuid` instruction.
+Shows the currently supported technologies on the processor based on the details provided by `cpuid` instruction.
 
 ### Parameters
 
@@ -44,11 +44,11 @@ AVX512ER not supported
 
 ### IOCTL
 
-This function is completely a user mode function, there is not kernel IOCTL for it.
+This function is completely a user-mode function. There is not kernel IOCTL for it.
 
 ### **Remarks**
 
-1. If you didn't attach to any remote sessions then it will show the current systems details.
+1. If you didn't attach to any remote sessions, it would show the current system's details.
 
 ### Requirements
 
