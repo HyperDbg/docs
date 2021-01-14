@@ -14,7 +14,7 @@ description: Description of 'event' command in HyperDbg.
 
 ### Description
 
-Shows a list of active/disabled events and commands and also disables and clears the event\(s\).
+Shows a list of active/disabled events and commands or disables or clears the event\(s\).
 
 ### Parameters
 
@@ -30,10 +30,10 @@ Shows a list of active/disabled events and commands and also disables and clears
 
 **\[event number \(hex value\) \| all\] \(optional\)**
 
-          Specifies the target event \(you can see the list of events and their unique event numbers by running '**events**' command\), you can specify `all` to apply your action to all active/disabled events.
+          Specifies the target event \(you can see the list of events and their unique event numbers by running the '**events**' command\), you can specify `all` to apply your action to all active/disabled events.
 
 {% hint style="success" %}
-If you don't specify any parameters to '**events**' command then it shows a list of events and their unique event numbers.
+If you don't specify any parameters to the '**events**' command, it shows a list of events and their unique event numbers.
 {% endhint %}
 
 ### Examples
@@ -107,7 +107,7 @@ typedef struct _DEBUGGER_MODIFY_EVENTS {
 Where `Tag` is the tag of the event that you want to modify, you should leave `KernelStatus` as it will be filled by the kernel and shows whether the request was successful or not.
 
 {% hint style="warning" %}
-Keep in mind, `Tag` is not same as event number, tags start from **DebuggerEventTagStartSeed** \(by default **0x1000000**\); thus, you can add this value to form a `Tag` from event number.
+Keep in mind, `Tag` is not the same as event number, tags start from **DebuggerEventTagStartSeed** \(by default **0x1000000**\); thus, you can add this value to form a `Tag` from event number.
 {% endhint %}
 
 `TypeOfAction` shows what type of action you want the kernel to perform \(**enable**, **disable, or clear**\). It can be one of the following values.
@@ -126,7 +126,7 @@ If you want to apply the action to all the events/commands, then you should fill
 #define DEBUGGER_MODIFY_EVENTS_APPLY_TO_ALL_TAG 0xffffffffffffffff
 ```
 
-When the request is finished, the kernel fills the user-mode buffer with one of the following values which indicates whether the request was successful or there was an error.
+When the request is finished, the kernel fills the user-mode buffer with one of the following values, which indicates whether the request was successful or there was an error.
 
 In the case of success :
 
