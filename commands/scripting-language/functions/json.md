@@ -28,13 +28,14 @@ Evaluate and print a MASM expression in **JSON** format.
 
 ### Examples
 
-`json("FirstArg", str(@rcx));`
+```text
+JsonStart();
+json("FirstArg", str(@rcx));
+print("Name", dq(@rcx));
+JsonEnd();
+```
 
-Print data as an ASCII string pointed by **rcx** register as a value whose name is `FirstArg`.
-
-`print("Name", dq(@rcx));`
-
-Print data as an 8-byte hex, pointed by **rcx** register as a value whose name is `Name`.
+Print data as an ASCII string pointed by **rcx** register as a value whose name is `FirstArg`and print data as an 8-byte hex, pointed by **rcx** register as a value whose name is `Name`.
 
 ### **Remarks**
 
