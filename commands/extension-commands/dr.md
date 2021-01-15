@@ -93,7 +93,7 @@ HyperDbg> !dr script {file:c:\users\sina\desktop\script.txt}
 ```
 
 {% hint style="success" %}
-You can use [**event forwarding**](https://docs.hyperdbg.com/tips-and-tricks/misc/event-forwarding) if you want to forward the event monitoring results from this event and other events to an external source e.g. **File**, **NamedPipe**, or **TCP Socket**. This way you can use **HyperDbg** as a monitoring tool and gather the behavior of your target system and use it later or analyze it on other systems.
+You can use [**event forwarding**](https://docs.hyperdbg.com/tips-and-tricks/misc/event-forwarding) to forward the event monitoring results from this event and other events to an external source, e.g., **File**, **NamedPipe**, or **TCP Socket**. This way, you can use **HyperDbg** as a monitoring tool and gather your target system's behavior and use it later or analyze it on other systems.
 {% endhint %}
 
 ### Custom Code
