@@ -26,7 +26,7 @@ None
 
 ### IOCTL
 
-It performs an `unload` before exit the debugger, please visit [unload ](https://docs.hyperdbg.com/commands/debugging-commands/unload)for more information.
+Performs an `unload` before exiting the debugger, please visit [unload ](https://docs.hyperdbg.com/commands/debugging-commands/unload)for more information.
 
 ### **Remarks**
 

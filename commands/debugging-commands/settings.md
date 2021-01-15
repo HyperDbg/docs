@@ -27,7 +27,7 @@ This command queries or changes the value of options and preferences.
          Target value to modify the option.
 
 {% hint style="success" %}
-Each option has its own different value, for example, some options might be on or off and some others might be custom numbers or names.
+Each option has its own value; for example, some options might be on or off, and others might be custom numbers or names.
 {% endhint %}
 
 ### Options
@@ -38,11 +38,11 @@ Each option has its own different value, for example, some options might be on o
 | **autounpause** | on \| off | on |
 | **syntax** | intel \| att \| masm | intel |
 
-**autoflush :** if you turn **autoflush** on, after each disabling or clearing an event using '[events](https://docs.hyperdbg.com/commands/debugging-commands/events)' command, all the possible pending buffers and messages from **all the commands \(not just the command that you disabled or removed\)** that are stored to be received by the user-mode from the kernel-mode and when you press '[g](https://docs.hyperdbg.com/commands/debugging-commands/g)', you no longer see any results from previous commands; however, some commands might continue generating new messages, and those new messages won't be removed. 
+**autoflush :** if you turn **autoflush** on, after each disabling or clearing an event using the '[events](https://docs.hyperdbg.com/commands/debugging-commands/events)' command, all the possible pending buffers and messages from **all the commands \(not just the command that you disabled or removed\)** that are stored to be received by the user-mode from the kernel-mode and when you press '[g](https://docs.hyperdbg.com/commands/debugging-commands/g)', you no longer see any results from previous commands; however, some commands might continue generating new messages, and those new messages won't be removed. 
 
 You can also perform the **autoflush** manually by running the '[flush](https://docs.hyperdbg.com/commands/debugging-commands/flush)' command.
 
-**autounpause** : if you turn **autounpause** on, then if you press CTRL+C or run '[pause](https://docs.hyperdbg.com/commands/debugging-commands/pause)' command to break to the debugger, every new event will automatically turn off your break and you'll start receiving events and messages from the kernel-mode buffers. However, if you turn it off, then you won't receive kernel buffers and messages when you invoke a new event as the debugger will remain in paused state \(for example, paused because of '[pause](https://docs.hyperdbg.com/commands/debugging-commands/pause)' command or CTRL+C\), in this case, you can resume receiving messages from the kernel-mode buffer by running '[g](https://docs.hyperdbg.com/commands/debugging-commands/g)' command.
+**autounpause** : if you turn **autounpause** on, then if you press CTRL+C or run the '[pause](https://docs.hyperdbg.com/commands/debugging-commands/pause)' command to break to the debugger, every new event will automatically turn off your break, and you'll start receiving events and messages from the kernel-mode buffers. However, if you turn it off, then you won't receive kernel buffers and messages when you invoke a new event as the debugger will remain in the paused state \(for example, paused because of '[pause](https://docs.hyperdbg.com/commands/debugging-commands/pause)' command or CTRL+C\), in this case, you can resume receiving messages from the kernel-mode buffer by running '[g](https://docs.hyperdbg.com/commands/debugging-commands/g)' command.
 
 **syntax** : specifies the syntax of disassembler for '[!u and !u2](https://docs.hyperdbg.com/commands/extension-commands/u)' commands.
 
@@ -69,7 +69,7 @@ HyperDbg> settings autounpause off
 set auto-unpause to disabled
 ```
 
-The following command shows different **syntax** used in the disassembler, you can choose your favorite **syntax** to show in '[!u and !u2' ](https://docs.hyperdbg.com/commands/extension-commands/u)commands.
+The following command shows the different **syntax** used in the disassembler. You can choose your favorite **syntax** to show in '[!u and !u2' ](https://docs.hyperdbg.com/commands/extension-commands/u)commands.
 
 ```c
 HyperDbg> settings syntax intel

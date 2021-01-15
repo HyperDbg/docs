@@ -14,13 +14,13 @@ description: Description of 'wrmsr' command in HyperDbg.
 
 ### Description
 
-Write on the model specific register using 'wrmsr' instruction.
+Write on the model-specific register using 'wrmsr' instruction.
 
 ### Parameters
 
 \[msr \(hex\) - ecx\]
 
-          The index of msr \(ECX Register for 'wrmsr' instruction\)
+          The index of MSR \(ECX Register for 'wrmsr' instruction\)
 
 \[value \(hex\) - edx:eax\]
 
@@ -31,7 +31,7 @@ core \[core number\(hex\)\] \(optional\)
           The core that we want to read the 'rdmsr' from
 
 {% hint style="success" %}
-If you don't specify the 'core' by default it will be applied to all the cores.
+If you don't specify the 'core' by default, it will be applied to all the cores.
 {% endhint %}
 
 ### Examples
@@ -72,7 +72,7 @@ typedef enum _DEBUGGER_MSR_ACTION_TYPE { DEBUGGER_MSR_READ, DEBUGGER_MSR_WRITE }
 ```
 
 {% hint style="info" %}
-If you want to execute 'wrmsr' or 'rdmsr', you should set CoreNumber to DEBUGGER\_READ\_AND\_WRITE\_ON\_MSR\_APPLY\_ALL\_CORES.
+If you want to execute 'wrmsr' or 'rdmsr', you should set CoreNumber to `DEBUGGER_READ_AND_WRITE_ON_MSR_APPLY_ALL_CORES`.
 {% endhint %}
 
 ```c

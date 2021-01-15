@@ -30,23 +30,23 @@ You can read more about **event forwarding** [here](https://docs.hyperdbg.com/ti
 
 \[name\|address\]
 
-          In the case of "**create**", it shows the address of the remote source and in the case of "**open**" or "**close**", it shows the name of the output source  
+          In the case of "**create**", it shows the address of the remote source, and in the case of "**open**" or "**close**", it shows the name of the output source.
 
 ### Examples
 
-The following command creates an output source which is a `file` and the results of the command \(script\) will be saved into the `c:\users\sina\desktop\output.txt`.
+The following command creates an output source, which is a `file` and the results of the command \(script\) will be saved into the `c:\users\sina\desktop\output.txt`.
 
 ```diff
 HyperDbg> output create MyOutputName1 file c:\users\sina\desktop\output.txt
 ```
 
-The following command creates an output source which is a `tcp` and the results of the command \(script\) will be sent into the `192.168.1.10:8080`.
+The following command creates an output source, which is a `tcp` and the results of the command \(script\) will be sent into the `192.168.1.10:8080`.
 
 ```diff
 HyperDbg> output create MyOutputName2 tcp 192.168.1.10:8080
 ```
 
-The following command creates an output source which is a `namedpipe` and the results of the command \(script\) will be sent into the `\\.\Pipe\HyperDbgOutput`.
+The following command creates an output source, which is a `namedpipe` and the results of the command \(script\) will be sent into the `\\.\Pipe\HyperDbgOutput`.
 
 ```diff
 HyperDbg> output create MyOutputName3 namedpipe \\.\Pipe\HyperDbgOutput
@@ -58,19 +58,19 @@ You cannot use the above resources until you **open** them using the following c
 HyperDbg> output open MyOutputName1
 ```
 
-When you finished using an output source, you can **close** it using the following command. Once you close an output source, you cannot use it anymore, and also you **CANNOT** open it again but once again, you can **create** a new source with the same address but with a different **name**.
+When you finished using an output source, you can **close** it using the following command. Once you close an output source, you cannot use it anymore, and also, you **CANNOT** open it again, but once again, you can **create** a new source with the same address but with a different **name**.
 
 ```diff
 HyperDbg> output close MyOutputName1
 ```
 
-After creating and opening the output source, you can use its name in all HyperDbg events. You should pass `output {MyOutputName1}` when you are creating an event, for example [!syscall](https://docs.hyperdbg.com/commands/extension-commands/syscall) is an event so you can use it like this : 
+After creating and opening the output source, you can use its name in all HyperDbg events. You should pass `output {MyOutputName1}` when you are creating an event, for example [!syscall](https://docs.hyperdbg.com/commands/extension-commands/syscall) is an event so that you can use it like this : 
 
 ```diff
 HyperDbg> !syscall script { print(@rax); } output {MyOutputName1}
 ```
 
-It is also possible to send the results to several output sources, you should separate the output names with `,` . 
+It is also possible to send the results to several output sources. You should separate the output names with `,` . 
 
 For example :
 
@@ -78,7 +78,7 @@ For example :
 HyperDbg> !syscall script { print(@rax); } output {MyOutputName1 , MyOutputName2 , MyOutputName3}
 ```
 
-You can specify up to `5` output sources in the default build of HyperDbg but if you need more output sources for a single event then you should compile HyperDbg with different configurations as described on [Customize Build](https://docs.hyperdbg.com/tips-and-tricks/misc/customize-build) and change the `DebuggerOutputSourceMaximumRemoteSourceForSingleEvent`.
+You can specify up to `5` output sources in the default build of HyperDbg, but if you need more output sources for a single event, then you should compile HyperDbg with different configurations as described on [Customize Build](https://docs.hyperdbg.com/tips-and-tricks/misc/customize-build) and change the `DebuggerOutputSourceMaximumRemoteSourceForSingleEvent`.
 
 ### IOCTL
 
