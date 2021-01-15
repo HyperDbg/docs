@@ -14,13 +14,13 @@ You can use **Transparent Mode** in both **VMI Mode** and **Debugger Mode**.
 
 For enabling this mode, first, you should use the '[!measure](https://docs.hyperdbg.com/commands/extension-commands/measure)' command. This command uses statistical methods to measure and provide the details for the transparent-mode of HyperDbg for defeating anti-debugging and anti-hypervisor methods.
 
-This command should be run before you '[load](https://docs.hyperdbg.com/commands/debugging-commands/load)' the debugger or before connecting to the debugger and after that, you can use '[!hide](https://docs.hyperdbg.com/commands/extension-commands/hide)' command.
+This command should be run before you '[load](https://docs.hyperdbg.com/commands/debugging-commands/load)' the debugger or before connecting to the debugger, and after that, you can use '[!hide](https://docs.hyperdbg.com/commands/extension-commands/hide)' command.
 
 ```text
 HyperDbg> !measure
 ```
 
-If you want to use the hardcoded results and statistics for a not-running hypervisor machine then you can use the following command to apply the default measurements.
+If you want to use the hardcoded results and statistics for a not-running hypervisor machine, you can use the following command to apply the default measurements.
 
 ```text
 HyperDbg> !measure default
@@ -32,15 +32,15 @@ After that, you should use the '[!hide](https://docs.hyperdbg.com/commands/exten
 HyperDbg> !hide pid 2a78
 ```
 
-If you want to apply to a process name then use the following command.
+If you want to apply to a process name, then use the following command.
 
 ```text
 HyperDbg> !hide name procexp.exe
 ```
 
 {% hint style="info" %}
-Transparent-mode is under active development and on each version, we add new methods to this mode to make sure that HyperDbg is transparent, however, this mode still needs a lot of contributions.
+Transparent-mode is under active development, and on each version, we add new methods to this mode to make sure that HyperDbg is transparent. However, this mode still needs a lot of contributions.
 
-If you think, you can add new methods for transparency, don't forget to contribute or ping us on [GitHub](https://github.com/HyperDbg/HyperDbg). 
+If you think you can add new methods for transparency, don't forget to contribute or ping us on [GitHub](https://github.com/HyperDbg/HyperDbg). 
 {% endhint %}
 

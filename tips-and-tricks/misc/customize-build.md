@@ -4,13 +4,13 @@ description: Description about customizing HyperDbg builds
 
 # Customize Build
 
-You have different options to build **HyperDbg** in a way you want.
+You have different options to build **HyperDbg** in the way you want.
 
 ### Configurations
 
-Before building, you can change the following options in **Configuration.h** file.
+Before building, you can change the following options in the **Configuration.h** file.
 
-By default, **HyperDbg** sends the current time of system with each message packet from kernel-mode to user-mode, if you set `ShowSystemTimeOnDebugMessages` to `FALSE` then it no longer sends date and time along with each message.
+By default, **HyperDbg** sends the current time of the system with each message packet from kernel-mode to user-mode, if you set `ShowSystemTimeOnDebugMessages` to `FALSE` then it no longer sends date and time along with each message.
 
 ```c
 /**
@@ -21,7 +21,7 @@ By default, **HyperDbg** sends the current time of system with each message pack
 #define ShowSystemTimeOnDebugMessages TRUE
 ```
 
-If you want to use **WPP Tracing** instead of **HyperDbg'**s message tracing then set `UseWPPTracing` to `TRUE`. After that, you no longer see any message in **HyperDbg** and instead, you can see the messages in a **WPP Tracing** compatible app.
+If you want to use **WPP Tracing** instead of **HyperDbg'**s message tracing, then set `UseWPPTracing` to `TRUE`. After that, you no longer see any message in **HyperDbg**, and instead, you can see the messages in a **WPP Tracing** compatible app.
 
 ```c
 /**
@@ -32,7 +32,7 @@ If you want to use **WPP Tracing** instead of **HyperDbg'**s message tracing the
 
 ```
 
-If you set this option to `TRUE` then it uses **DbgPrint** instead of **HyperDbg**'s message tracing or **WPP Tracing**, keep in mind that **DbgPrint** is not usable in most of the events as it's **not** vmx-root compatible.
+If you set this option to `TRUE` then it uses **DbgPrint** instead of **HyperDbg**'s message tracing or **WPP Tracing**. Keep in mind that **DbgPrint** is not usable in most events as it's **not** vmx-root compatible.
 
 ```c
 /**
@@ -44,7 +44,7 @@ If you set this option to `TRUE` then it uses **DbgPrint** instead of **HyperDbg
 
 ```
 
-Show debug messages in both user-mode app and debugger,  it works only if you set `UseDbgPrintInsteadOfUsermodeMessageTracking` to `FALSE`
+Shows debug messages in both the user-mode app and debugger. It works only if you set `UseDbgPrintInsteadOfUsermodeMessageTracking` to `FALSE`
 
 This option is **not** usable in the current version of **HyperDbg**.
 
@@ -63,11 +63,11 @@ This option is **not** usable in the current version of **HyperDbg**.
 #define ShowMessagesOnDebugger FALSE
 ```
 
-This is one of the **important** options of **HyperDng**, by default **HyperDbg** accumulates messages in a separate buffer and it won't send them immediately to the user-mode buffers.
+This is one of the **important** options for **HyperDng**. By default, **HyperDbg** accumulates messages in a separate buffer, and it won't send them immediately to the user-mode buffers.
 
-If you need to see messages immediately after each one message then set this option to `TRUE`. However, it kills the performance as sending buffers to the user-mode involves various and heavy functions.
+If you need to see messages immediately after each one message, then set this option to `TRUE`. However, it kills the performance as sending buffers to the user-mode involves various and heavy functions.
 
-If you set this option to `FALSE` \(**default**\), then **HyperDbg** accumulates \(**~5** or more\) messages and when the buffer is full then it sends the buffer to the user-mode **CLI** or **GUI**.
+If you set this option to `FALSE` \(**default**\), then **HyperDbg** accumulates \(**~5** or more\) messages, and when the buffer is full, it sends the buffer to the user-mode **CLI** or **GUI**.
 
 ```c
 /**
@@ -78,7 +78,7 @@ If you set this option to `FALSE` \(**default**\), then **HyperDbg** accumulates
 #define UseImmediateMessaging TRUE
 ```
 
-The following option shows whether immediate messaging is active for each event or is not active. It means that if you set this option to `TRUE` then it's like to add `imm yes` to each event command and if you set this option to `FALSE` then it's like to add `imm no` to each command.
+The following option shows whether immediate messaging is active for each event or is not active. It means that if you set this option to `TRUE` then it's like to add `imm yes` to each event command, and if you set this option to `FALSE` then it's like to add `imm no` to each command.
 
 You can still change a special event's behavior by specifying `imm yes` and `imm no`.
 
@@ -94,23 +94,23 @@ You can still change a special event's behavior by specifying `imm yes` and `imm
 
 ### Definitions
 
-Before building, you can change the following options in **Definition.h** file.
+Before building, you can change the following options in the **Definition.h** file.
 
-The following option shows the **maximum** amount of packets that **HyperDbg** uses as storage for **unread** messages, for example, if you have a high rate of producing messages then you can increase the value, if the maximum capacity is full of **unread** messages then **HyperDbg** overrides old messages and you'll lose earlier messages.
+The following option shows the **maximum** amount of packets that **HyperDbg** uses as storage for **unread** messages. For example, if you have a high rate of producing messages, you can increase the value. If the maximum capacity is full of **unread** messages, then **HyperDbg** overrides old messages, and you'll lose earlier messages.
 
 ```c
 /* Default buffer size */
 #define MaximumPacketsCapacity 1000 // number of packets
 ```
 
-The following option, shows the capacity of each packet in **HyperDbg** message tracing. If you have long messages or buffers, then you can increase this value. 
+The following option shows the capacity of each packet in **HyperDbg** message tracing. If you have long messages or buffers, then you can increase this value. 
 
 ```c
 #define PacketChunkSize                                                        \
   1000 // NOTE : REMEMBER TO CHANGE IT IN USER-MODE APP TOO
 ```
 
-**DbgPrint** has a size limitation, this option changes the default limitation of **DbgPrint**.
+**DbgPrint** has a size limitation. This option changes the default limitation of **DbgPrint**.
 
 This option is **not** usable in the current version of **HyperDbg**.
 

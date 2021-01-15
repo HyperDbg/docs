@@ -5,7 +5,7 @@ description: How to run HyperDbg on Hyper-V nested-virtualization?
 # Run HyperDbg on Hyper-V
 
 {% hint style="danger" %}
-Hyper-V has an unknown problem with HyperDbg and HyperDbg-style hypervisors, you might encounter unknown errors, we left it for future support.
+Hyper-V has an unknown problem with HyperDbg and HyperDbg-style hypervisors. You might encounter unknown errors. We left it for future support.
 {% endhint %}
 
 In order to run HyperDbg on Hyper-V, you should enable nested-virtualization on it.
