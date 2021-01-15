@@ -22,7 +22,7 @@ description: Description of '!s*' command in HyperDbg.
 
 ### Description
 
-Searching the **physical** memory for a special byte\(s\).
+Searches the **physical** memory for a special byte\(s\).
 
 ### Parameters
 

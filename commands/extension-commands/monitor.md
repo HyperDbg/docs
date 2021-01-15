@@ -14,7 +14,7 @@ description: Description of '!monitor' command in HyperDbg.
 
 ### Description
 
-Monitor read or write or read/write to a range of addresses, in the case of any read or write on your range address \(memory\), it will be triggered.
+Monitors read or write or read/write to a range of addresses, in the case of any read or write on your range address \(memory\), it will be triggered.
 
 {% hint style="info" %}
 It is exactly like read/write of Hardware Debug Registers but without any limitation in size and count.

@@ -20,7 +20,7 @@ description: Description of 'EnableEvent' function in HyperDbg Scripts
 
 ### Description
 
-Enable an event by its Event ID.
+Enables an event by its Event ID.
 
 ### Examples
 

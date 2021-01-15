@@ -14,7 +14,7 @@ description: Description of '!measure' command in HyperDbg.
 
 ### Description
 
-Measuring and providing the details for the transparent-mode of **HyperDbg** for defeating anti-debugging and anti-hypervisor methods.
+Measures and provides the details for the transparent-mode of **HyperDbg** for defeating anti-debugging and anti-hypervisor methods.
 
 This command should be run before you '[load](https://docs.hyperdbg.com/commands/debugging-commands/load)' the debugger and after that, you can use '[!hide](https://docs.hyperdbg.com/commands/extension-commands/hide)' command.
 

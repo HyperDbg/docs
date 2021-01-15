@@ -14,7 +14,7 @@ description: Description of '!pte' command in HyperDbg.
 
 ### Description
 
-The **!pte** command displays the **PML4E**, **PDPTE**, **PDE**, **PTE** for the specified address.  
+Displays the **PML4E**, **PDPTE**, **PDE**, **PTE** for the specified address.  
 
 
 ### Parameters
@@ -72,16 +72,16 @@ typedef struct _DEBUGGER_READ_PAGE_TABLE_ENTRIES_DETAILS {
     *PDEBUGGER_READ_PAGE_TABLE_ENTRIES_DETAILS;
 ```
 
-You should only fill the VirtualAddress of the above structure, when the IOCTL returns from the kernel, other parts of this structure are filled with valid entry virtual addresses and the entry value itself.
+You should only fill the VirtualAddress of the above structure when the IOCTL returns from the kernel. Other parts of this structure are filled with valid entry virtual addresses and the entry value itself.
 
-You can map the value to the specific structure of each entry, look at Intel SDM for more information.
+You can map the value to each entry's structure \(Look at Intel SDM for more information\).
 
-Also the structures are available in `MemoryMapper.h`, but they might be outdated.
+Also, the structures are available in `MemoryMapper.h` but they might be outdated.
 
 ### **Remarks**
 
 {% hint style="success" %}
-If the VirtualAddress and Value of entry for PDE and PTE from the kernel IOCTL is the same, this shows that the entry has a LARGE PDE and doesn't have PTE.
+If the **VirtualAddress** and Value of entry for PDE and PTE from the kernel IOCTL are the same, the entry has a LARGE PDE and doesn't have PTE.
 {% endhint %}
 
 ### Requirements

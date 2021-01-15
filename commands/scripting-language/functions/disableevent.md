@@ -20,7 +20,7 @@ description: Description of 'DisableEvent' function in HyperDbg Scripts
 
 ### Description
 
-Disable an event by its Event ID.
+Disables an event by its Event ID.
 
 ### Examples
 

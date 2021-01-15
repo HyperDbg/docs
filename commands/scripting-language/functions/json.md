@@ -24,7 +24,7 @@ description: Description of 'Json' function in HyperDbg Scripts
 
 ### Description
 
-Evaluate and print a MASM expression in **JSON** format.
+Evaluates and prints a MASM expression in **JSON** format.
 
 ### Examples
 

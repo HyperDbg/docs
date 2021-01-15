@@ -14,7 +14,7 @@ description: Description of '!pa2va' command in HyperDbg.
 
 ### Description
 
-This command converts the PHYSICAL address to the VIRTUAL address.
+Converts the PHYSICAL address to the VIRTUAL address.
 
 ### Parameters
 

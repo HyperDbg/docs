@@ -18,7 +18,7 @@ No argument.
 
 ### Description
 
-Break and halt the system and give control to the kernel debugger.
+Breaks and halts the system and give control to the kernel debugger.
 
 ### Examples
 
