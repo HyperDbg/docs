@@ -36,19 +36,19 @@ Print value of an address, which first, **rax** register is added with **0xa0** 
 
 `print(wstr(poi($proc+10)));print(str(poi($proc+10)));`
 
-Two values, first is **$proc** \(current `_EPROCESS`\) added with **0x10** then a dereference occurs and the target pointer in the dereferenced location is shown as a wide-char string.
+Two values, first is **$proc** \(current `_EPROCESS`\) added with **0x10**, then a dereference occurs, and the target pointer in the dereferenced location is shown as a wide-char string.
 
-Second is **$proc** \(current `_EPROCESS`\) added with **0x10** then a dereference occurs and the target pointer in the dereferenced location is shown as an ASCII string.
+Second is **$proc** \(current `_EPROCESS`\) added with **0x10**, ****then a dereference occurs, and the target pointer in the dereferenced location is shown as an ASCII string.
 
 `print(dw(NtCreateFile+10));`
 
-One value, which is **NtCreateFile** location that added with **0x10** then a DWORD value from the target address \(**NtCreateFile+10**\) is shown.
+One value, which is **NtCreateFile** location that added with **0x10**, then a DWORD value from the target address \(**NtCreateFile+10**\) is shown.
 
 `print(dw(NtCreateFile+@rcx+($proc|3+poi(poi(@rax)))));`
 
-Print the DWORD data located at **NtCreateFile** added to **rcx** register then all of them are added to the result of **rax** register dereferenced twice and added to the **$proc** which is bitwise **OR \(\|\)** by **3**.
+Print the DWORD data located at **NtCreateFile** added to **rcx** register, then all of them are added to the result of **rax** register dereferenced twice and added to the **$proc** which is bitwise **OR \(\|\)** by **3**.
 
 {% hint style="success" %}
-By default, **HyperDbg** interprets the numbers as **hex** \(base **16**\), if you want to specify other forms of a number you should use MASM prefixes. In all MASM expressions, numeric values are interpreted as numbers in the current radix \(16, 10, or 8\). You can override the default radix by specifying the **0x** prefix \(**hexadecimal**\), the **0n** prefix \(**decimal**\), the **0t** prefix \(**octal**\), or the **0y** prefix \(**binary**\).
+By default, **HyperDbg** interprets the numbers as **hex** \(base **16**\). If you want to specify other forms of a number, you should use MASM prefixes. In all MASM expressions, numeric values are interpreted as numbers in the current radix \(16, 10, or 8\). You can override the default radix by specifying the **0x** prefix \(**hexadecimal**\), the **0n** prefix \(**decimal**\), the **0t** prefix \(**octal**\), or the **0y** prefix \(**binary**\).
 {% endhint %}
 
