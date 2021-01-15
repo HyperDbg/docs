@@ -17,14 +17,14 @@ description: Description of '!tsc' command in HyperDbg.
 Triggers when the debugging machine executes **RDTSC** or **RDTSCP** instructions in any execution level \(kernel-mode or user-mode\).
 
 {% hint style="danger" %}
-Using this command is not allowed in **transparent-mode**, you should not use this command in [transparent-mode](https://docs.hyperdbg.com/tips-and-tricks/considerations/transparent-mode) as it won't trigger any event.
+Using this command is not allowed in **transparent-mode**. You should not use this command in [transparent-mode](https://docs.hyperdbg.com/tips-and-tricks/considerations/transparent-mode) as it won't trigger any event.
 {% endhint %}
 
 ### Parameters
 
 **\[pid \(hex value\)\]**
 
-          Optional value to trigger the event in just a specific process. Add `pid xx` to your command; thus, command will be executed if the process id is equal to `xx`. If you don't specify this option, then by default, you receive events on all processes.
+          Optional value to trigger the event in just a specific process. Add `pid xx` to your command; thus, the command will be executed if the process id is equal to `xx`. If you don't specify this option, then by default, you receive events on all processes.
 
 **\[core \(hex value\)\]**
 
@@ -112,7 +112,7 @@ HyperDbg> !tsc pid 490 code {90 90 90}
 
 #### Run Custom Code \(Conditional\)
 
-Monitoring process id **0x490** for **RDTSC/RDTSCP** instruction execution and run 3 nops whenever the event condition is triggered and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) and [how to create a condition](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition) for more information.
+Monitoring process id **0x490** for **RDTSC/RDTSCP** instruction execution and runs 3 nops whenever the event condition is triggered and runs 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) and [how to create a condition](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition) for more information.
 
 ```c
 HyperDbg> !tsc pid 490 code {90 90 90} condition {90 90 90}
