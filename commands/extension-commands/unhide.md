@@ -62,7 +62,7 @@ typedef struct _DEBUGGER_HIDE_AND_TRANSPARENT_DEBUGGER_MODE {
     *PDEBUGGER_HIDE_AND_TRANSPARENT_DEBUGGER_MODE;
 ```
 
-If the results were successful then kernel sends `DEBUGEER_OPERATION_WAS_SUCCESSFULL` to user-mode \(as KernelStatus to the above structure\) and if it was unsuccessful then `DEBUGEER_ERROR_DEBUGGER_ALREADY_UHIDE` which is an indicator that **HyperDbg** was not already in transparent-mode.
+If the results were successful, then the kernel sends `DEBUGEER_OPERATION_WAS_SUCCESSFULL` to user-mode \(as KernelStatus to the above structure\), and if it was unsuccessful, then `DEBUGEER_ERROR_DEBUGGER_ALREADY_UHIDE` which is an indicator that **HyperDbg** was not already in transparent-mode.
 
 ### **Remarks**
 

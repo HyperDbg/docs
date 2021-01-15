@@ -24,7 +24,7 @@ Converts the VIRTUAL address to the PHYSICAL address.
 
 \[Process Id \(hex value\)\]
 
-          The **process id** of where you want to convert the address based on it \(if you don't specify this parameter then the current process memory layout is used\)
+          The **process id** of where you want to convert the address based on it \(if you don't specify this parameter, then the current process memory layout is used\)
 
 ### Examples
 
@@ -57,14 +57,14 @@ typedef struct _DEBUGGER_VA2PA_AND_PA2VA_COMMANDS {
 } DEBUGGER_VA2PA_AND_PA2VA_COMMANDS, *PDEBUGGER_VA2PA_AND_PA2VA_COMMANDS;
 ```
 
-You should only fill the **VirtualAddress** of the above structure when you want a physical address and fill the above **PhysicalAddress** when you want a virtual address. Also set **IsVirtual2Physical** to **`true`** in the case of virtual-to-physical and set it to **`false`** in the case of physical-to-virtual.
+You should only fill the **VirtualAddress** of the above structure when you want a physical address and fill the above **PhysicalAddress** when you want a virtual address. Also, set **IsVirtual2Physical** to **`true`** in the case of virtual-to-physical and set it to **`false`** in the case of physical-to-virtual.
 
-If you want to convert based on another process memory layout then put its process id, otherwise, put the current process id on it. **ProcessId** can't be `null`.
+If you want to convert based on another process memory layout, then put its process ID. Otherwise, put the current process id on it. **ProcessId** can't be `null`.
 
 ### **Remarks**
 
 {% hint style="success" %}
-If the virtual address or process id does not exist then it shows **`0`**.
+If the virtual address or process id does not exist, then it shows **`0`**.
 {% endhint %}
 
 ### Requirements

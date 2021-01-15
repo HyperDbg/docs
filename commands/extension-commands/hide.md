@@ -14,9 +14,9 @@ description: Description of '!hide' command in HyperDbg.
 
 ### Description
 
-Enables the transparent-mode of **HyperDbg** for anti-debugging and anti-hypervisor methods. This option only works for the processes that are selected by you and won't be applied to all the processes.
+Enables the transparent-mode of **HyperDbg** for anti-debugging and anti-hypervisor methods. This option only works for the processes selected by you and won't be applied to all the processes.
 
-You should run '**!hide**' after running '[!measure](https://docs.hyperdbg.com/commands/extension-commands/measure)' command.
+You should run the '**!hide**' after running the '[!measure](https://docs.hyperdbg.com/commands/extension-commands/measure)' command.
 
 {% hint style="success" %}
 You can use this command multiple times. 
@@ -30,14 +30,14 @@ This command is case-sensitive for the **`name`** parameter.
 
 **\[pid \| name\]**
 
-          If you want to use the process id then you should specify **pid** and if you want to enter the process name then you should specify the **name** as this argument. 
+          If you want to use the process ID, you should specify **pid**, and if you want to enter the process name, you should specify the **name** as this argument. 
 
 **\[process id \(hex value\) \| name \(string\)\]**
 
           Name or process id of the process that you want to make **HyperDbg** transparent for it.
 
 {% hint style="info" %}
-You should append `.exe` to your process names. 
+You should append`.exe` to your process names. 
 {% endhint %}
 
 ### Examples
@@ -68,7 +68,7 @@ The following structure shows whether enable or disable it.
 
 `TrueIfProcessIdAndFalseIfProcessName` if this field is `TRUE` then you should fill the `ProcId` with the process id that you need to transparent **HyperDbg** for that process.
 
-Otherwise and if you want to use a process name \(not process id\) then you should set the `TrueIfProcessIdAndFalseIfProcessName` to `FALSE` and append the process name \(string\) to the bottom of this structure and put the string size + 1 \(null terminator\) to the `LengthOfProcessName`. 
+Otherwise, if you want to use a process name \(not process ID\), then you should set the `TrueIfProcessIdAndFalseIfProcessName` to `FALSE` and append the process name \(string\) to the bottom of this structure and put the string size + 1 \(null terminator\) to the `LengthOfProcessName`. 
 
 Then you should send the `sizeof(DEBUGGER_HIDE_AND_TRANSPARENT_DEBUGGER_MODE)+ProcessNameStringSize` as the input size of `DeviceIoControl`.
 
@@ -96,7 +96,7 @@ typedef struct _DEBUGGER_HIDE_AND_TRANSPARENT_DEBUGGER_MODE {
     *PDEBUGGER_HIDE_AND_TRANSPARENT_DEBUGGER_MODE;
 ```
 
-If the results were successful then kernel sends the `DEBUGEER_OPERATION_WAS_SUCCESSFULL` to user-mode as `KernelStatus`  in the above structure and if it was unsuccessful then it sends`DEBUGEER_ERROR_UNABLE_TO_HIDE_OR_UNHIDE_DEBUGGER` which is an indicator of error.
+If the results were successful, then the kernel sends the `DEBUGEER_OPERATION_WAS_SUCCESSFULL` to user-mode as `KernelStatus`  in the above structure, and if it was unsuccessful, then it sends`DEBUGEER_ERROR_UNABLE_TO_HIDE_OR_UNHIDE_DEBUGGER` which is an indicator of error.
 
 You can send the above structure multiple times if you want to hide multiple processes.
 
@@ -104,7 +104,7 @@ You can send the above structure multiple times if you want to hide multiple pro
 
 This command will not guarantee to provide **100%** transparency, especially in nested-virtualization environments.
 
-**HyperDbg** will protect you from **user-mode** anti-hypervisor methods by making vm-exits transparent even in a nested-virtualization environment; however, there are other traces for anti-VMware, anti-VirtualBox, etc. methods and these methods are still problematic, because, **HyperDbg** tries to hide itself from anti-debugging and anti-hypervisor methods not VMware, VirtualBox, etc. thus you need to run this command in a physical-machine \(not in a nested-virtualization environment\); otherwise you should find other traces for virtual machine software and solve those traces by yourself \(e.g., hooking anti-VMware APIs and Queries\).
+**HyperDbg** will protect you from **user-mode** anti-hypervisor methods by making vm-exits transparent even in a nested-virtualization environment; however, there are other traces for anti-VMware, anti-VirtualBox, etc. methods and these methods are still problematic because, **HyperDbg** tries to hide itself from anti-debugging and anti-hypervisor methods and it won't hide VMware, VirtualBox, etc. thus, you need to run this command in a physical-machine \(not in a nested-virtualization environment\); otherwise you should find other traces for virtual machine software and solve those traces by yourself \(e.g., hooking anti-VMware APIs and Queries\).
 
 ### Requirements
 
