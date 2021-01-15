@@ -14,33 +14,33 @@ description: Description of '!exception' command in HyperDbg.
 
 ### Description
 
-Triggers when the debugging machine encounters an exception \(**faults, traps, aborts**\) or NMI or interrupt. This command applies to only the first 32 entries of IDT \(Interrupt Descriptor Table\), if you need to hook entries between 32 to 255 of IDT then you should use [!interrupt](https://docs.hyperdbg.com/commands/extension-commands/interrupt) instead.
+Triggers when the debugging machine encounters an exception \(**faults, traps, aborts**\) or NMI or interrupt. This command applies to only the first 32 entries of IDT \(Interrupt Descriptor Table\). If you need to hook entries between 32 to 255 of IDT, you should use [!interrupt](https://docs.hyperdbg.com/commands/extension-commands/interrupt) instead.
 
 {% hint style="info" %}
-When you enable this event, only your specific entry will be hooked, so this command won't trigger on all exceptions/interrupts thus won't make your computer slow but on the other hand, by using [!interrupt](https://docs.hyperdbg.com/commands/extension-commands/interrupt) command, if you just need one of the entries then all entries between **32** to **255** should be emulated by **HyperDbg** so it's substantially slower.
+When you enable this event, only your specific entry will be hooked, so this command won't trigger on all exceptions/interrupts; thus, it won't make your computer slow but on the other hand, by using [!interrupt](https://docs.hyperdbg.com/commands/extension-commands/interrupt) command, if you just need one of the entries; still, all entries between **32** to **255** should be emulated by **HyperDbg**, ****so it's substantially slower.
 {% endhint %}
 
 ### Parameters
 
 **\[IDT Index \(hex value\)\]**
 
-          Trigger in the case of receiving an interrupt or exception. The value should be between **0x0** to **0x1f** \(starting from zero\). ****If you don't specify this parameter then it will be triggered for all first 32 exceptions/interrupts.
+          Trigger in the case of receiving an interrupt or exception. The value should be between **0x0** to **0x1f** \(starting from zero\). ****If you don't specify this parameter, it will be triggered for all first 32 exceptions/interrupts.
 
 **\[pid \(hex value\)\]**
 
-          Optional value to trigger the event in just a specific process. Add `pid xx` to your command thus command will be executed if the process id is equal to `xx`. If you don't specify this option then by default you receive events on all processes.
+          Optional value to trigger the event in just a specific process. Add `pid xx` to your command; thus, the command will be executed if the process id is equal to `xx`. If you don't specify this option, then by default, you receive events on all processes.
 
 **\[core \(hex value\)\]**
 
-          Optional value to trigger the event in just a specific core. Add `core xx` to your command thus command will be executed if core id is equal to `xx`. If you don't specify this option then by default you receive events on all cores.
+          Optional value to trigger the event in just a specific core. Add `core xx` to your command thus command will be executed if core id is equal to `xx`. If you don't specify this option, then by default, you receive events on all cores.
 
 **\[imm \(yes\|no\)\]**
 
-          Optional value in which `yes` means the results \(printed texts in scripts\) should be delivered immediately to the debugger. `no` means that the results can be accumulated and to be delivered as a couple of messages when the buffer is full; thus, it's substantially faster but it's not real-time. By default, this value is set to  `yes`.
+          Optional value in which `yes` means the results \(printed texts in scripts\) should be delivered immediately to the debugger. `no` means that the results can be accumulated and delivered as a couple of messages when the buffer is full; thus, it's substantially faster, but it's not real-time. By default, this value is set to  `yes`.
 
 **\[event options\]**
 
-          Regular event parameters used in HyperDbg events. \(For more information read [this ](https://docs.hyperdbg.com/using-hyperdbg/prerequisites)topic\)
+          Regular event parameters that are used in HyperDbg events. \(For more information, read [this ](https://docs.hyperdbg.com/using-hyperdbg/prerequisites)topic\)
 
 ### Context
 
@@ -55,7 +55,7 @@ This event supports three debugging mechanisms.
 * Custom Code
 
 {% hint style="info" %}
-Please read  "[How to create a condition?](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition)" if you need a conditional event, a conditional event can be used in all "**Break**", "**Script**" and "**Custom Code**".
+Please read  "[How to create a condition?](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition)" if you need a conditional event, a conditional event can be used in all "**Break**", "**Script**", and "**Custom Code**".
 {% endhint %}
 
 ### Break
@@ -80,7 +80,7 @@ HyperDbg> !exception 0x0 core 1 pid 490
 
 ### Script
 
-Using the following command you can use HyperDbg's Script Engine. You should replace the string between braces \(`HyperDbg Script Here`\) with your script. You can find script examples [here](https://docs.hyperdbg.com/commands/scripting-language/examples). 
+Using the following command, you can use HyperDbg's Script Engine. You should replace the string between braces \(`HyperDbg Script Here`\) with your script. You can find script examples [here](https://docs.hyperdbg.com/commands/scripting-language/examples). 
 
 ```
 HyperDbg> !exception 0xe script { HyperDbg Script Here }
@@ -106,7 +106,7 @@ You can use [**event forwarding**](https://docs.hyperdbg.com/tips-and-tricks/mis
 
 ### Custom Code
 
-Please read  "[How to create an action?](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action)" for getting idea about how to run custom buffer code in **HyperDbg**.
+Please read  "[How to create an action?](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action)" to get an idea about how to run the custom buffer code in **HyperDbg**.
 
 {% hint style="warning" %}
 Your custom code will be executed in vmx-root mode. Take a look at [this topic](https://docs.hyperdbg.com/tips-and-tricks/considerations/vmx-root-mode-vs-vmx-non-root-mode) for more information. Running code in vmx-root is considered "[unsafe](https://docs.hyperdbg.com/tips-and-tricks/considerations/the-unsafe-behavior)".
@@ -114,7 +114,7 @@ Your custom code will be executed in vmx-root mode. Take a look at [this topic](
 
 #### Run Custom Code \(Unconditional\)
 
-Monitoring occurrence of first 32 exceptions and interrupts ****and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes), for more information.
+Monitoring occurrence of first 32 exceptions and interrupts ****and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) for more information.
 
 ```c
 HyperDbg> !exception code {90 90 90}
@@ -122,14 +122,14 @@ HyperDbg> !exception code {90 90 90}
 
 #### Run Custom Code \(Conditional\)
 
-Monitoring occurrence of first 32 exceptions and interrupts and run 3 nops whenever the event condition is triggered and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) and [how to create a condition](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition), for more information.
+Monitoring occurrence of first 32 exceptions and interrupts and run 3 nops whenever the event condition is triggered and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) and [how to create a condition](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition) for more information.
 
 ```c
 HyperDbg> !exception code {90 90 90} condition {90 90 90}
 ```
 
 {% hint style="success" %}
-Keep in mind, a conditional event can be used in **Breaking to Debugger** and **Running Script** too.
+Keep in mind that a conditional event can be used in **Breaking to Debugger** and **Running Script** too.
 {% endhint %}
 
 ### IOCTL
@@ -140,11 +140,11 @@ As **EventType** use `EXCEPTION_OCCURRED` and send the special entry between **0
 
 ### Design
 
-Take a look at "[Design of !exception & !interrupt](https://docs.hyperdbg.com/design/features/vmm-module/design-of-exception-and-interrupt)" to see how does it work.
+Take a look at "[Design of !exception & !interrupt](https://docs.hyperdbg.com/design/features/vmm-module/design-of-exception-and-interrupt)" to see how it works.
 
 ### **Remarks**
 
-Emulating page-fault \(entry **0xe**\) is treated differently in HyperDbg, take a look at [here ](https://docs.hyperdbg.com/design/features/design-of-exception-and-interrupt)for more information.
+Emulating page-fault \(entry **0xe**\) is treated differently in HyperDbg. Take a look [here ](https://docs.hyperdbg.com/design/features/design-of-exception-and-interrupt)for more information.
 
 ### Requirements
 

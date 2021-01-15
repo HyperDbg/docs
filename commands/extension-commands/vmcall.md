@@ -17,26 +17,26 @@ description: Description of '!vmcall' command in HyperDbg.
 Triggers when the debugging machine executes **VMCALL** instruction.
 
 {% hint style="info" %}
-By using this command, you also receive **HyperDbg**'s hypercall, you shouldn't modify them. 
+By using this command, you also receive **HyperDbg**'s hypercalls. You shouldn't modify them. 
 {% endhint %}
 
 ### Parameters
 
 **\[pid \(hex value\)\]**
 
-          Optional value to trigger the event in just a specific process. Add `pid xx` to your command thus command will be executed if the process id is equal to `xx`. If you don't specify this option then by default you receive events on all processes.
+          Optional value to trigger the event in just a specific process. Add `pid xx` to your command; thus, the command will be executed if the process id is equal to `xx`. If you don't specify this option, then by default, you receive events on all processes.
 
 **\[core \(hex value\)\]**
 
-          Optional value to trigger the event in just a specific core. Add `core xx` to your command thus command will be executed if core id is equal to `xx`. If you don't specify this option then by default you receive events on all cores.
+          Optional value to trigger the event in just a specific core. Add `core xx` to your command thus command will be executed if core id is equal to `xx`. If you don't specify this option, then by default, you receive events on all cores.
 
 **\[imm \(yes\|no\)\]**
 
-          Optional value in which `yes` means the results \(printed texts in scripts\) should be delivered immediately to the debugger. `no` means that the results can be accumulated and to be delivered as a couple of messages when the buffer is full; thus, it's substantially faster but it's not real-time. By default, this value is set to  `yes`.
+          Optional value in which `yes` means the results \(printed texts in scripts\) should be delivered immediately to the debugger. `no` means that the results can be accumulated and delivered as a couple of messages when the buffer is full; thus, it's substantially faster, but it's not real-time. By default, this value is set to  `yes`.
 
 **\[event options\]**
 
-          Regular event parameters used in HyperDbg events. \(For more information read [this ](https://docs.hyperdbg.com/using-hyperdbg/prerequisites)topic\)
+          Regular event parameters that are used in HyperDbg events. \(For more information, read [this ](https://docs.hyperdbg.com/using-hyperdbg/prerequisites)topic\)
 
 ### Context
 
@@ -51,7 +51,7 @@ This event supports three debugging mechanisms.
 * Custom Code
 
 {% hint style="info" %}
-Please read  "[How to create a condition?](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition)" if you need a conditional event, a conditional event can be used in all "**Break**", "**Script**" and "**Custom Code**".
+Please read  "[How to create a condition?](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition)" if you need a conditional event, a conditional event can be used in all "**Break**", "**Script**", and "**Custom Code**".
 {% endhint %}
 
 ### Break
@@ -70,7 +70,7 @@ HyperDbg> !vmcall pid 490 core 2
 
 ### Script
 
-Using the following command you can use HyperDbg's Script Engine. You should replace the string between braces \(`HyperDbg Script Here`\) with your script. You can find script examples [here](https://docs.hyperdbg.com/commands/scripting-language/examples). 
+Using the following command, you can use HyperDbg's Script Engine. You should replace the string between braces \(`HyperDbg Script Here`\) with your script. You can find script examples [here](https://docs.hyperdbg.com/commands/scripting-language/examples). 
 
 ```
 HyperDbg> !vmcall script { HyperDbg Script Here }
@@ -96,7 +96,7 @@ You can use [**event forwarding**](https://docs.hyperdbg.com/tips-and-tricks/mis
 
 ### Custom Code
 
-Please read  "[How to create an action?](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action)" for getting idea about how to run custom buffer code in **HyperDbg**.
+Please read  "[How to create an action?](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action)" to get an idea about how to run the custom buffer code in **HyperDbg**.
 
 {% hint style="warning" %}
 Your custom code will be executed in vmx-root mode. Take a look at [this topic](https://docs.hyperdbg.com/tips-and-tricks/considerations/vmx-root-mode-vs-vmx-non-root-mode) for more information. Running code in vmx-root is considered "[unsafe](https://docs.hyperdbg.com/tips-and-tricks/considerations/the-unsafe-behavior)".
@@ -104,7 +104,7 @@ Your custom code will be executed in vmx-root mode. Take a look at [this topic](
 
 #### Run Custom Code \(Unconditional\)
 
-Monitoring process id **0x490** for **VMCALL** instruction execution ****and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes), for more information.
+Monitoring process id **0x490** for **VMCALL** instruction execution ****and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) for more information.
 
 ```c
 HyperDbg> !vmcall pid 490 code {90 90 90}
@@ -112,14 +112,14 @@ HyperDbg> !vmcall pid 490 code {90 90 90}
 
 #### Run Custom Code \(Conditional\)
 
-Monitoring process id **0x490** for **VMCALL** instruction execution and run 3 nops whenever the event condition is triggered and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) and [how to create a condition](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition), for more information.
+Monitoring process id **0x490** for **VMCALL** instruction execution and runs 3 nops whenever the event condition is triggered and runs 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) and [how to create a condition](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition) for more information.
 
 ```c
 HyperDbg> !vmcall pid 490 code {90 90 90} condition {90 90 90}
 ```
 
 {% hint style="success" %}
-Keep in mind, a conditional event can be used in **Breaking to Debugger** and **Running Script** too. ****
+Keep in mind that a conditional event can be used in **Breaking to Debugger** and **Running Script** too. ****
 {% endhint %}
 
 ### IOCTL
@@ -130,7 +130,7 @@ As **EventType** use `VMCALL_INSTRUCTION_EXECUTION` in **DEBUGGER\_GENERAL\_EVEN
 
 ### Design
 
-This command uses **VMCALL** \(**EXIT\_REASON\_VMCALL- 18**\) vm-exit to implement hypercall hooks.
+This command uses **VMCALL** \(**EXIT\_REASON\_VMCALL - 18**\) vm-exit to implement hypercall hooks.
 
 ### **Remarks**
 

@@ -14,33 +14,33 @@ description: Description of '!interrupt' command in HyperDbg.
 
 ### Description
 
-Triggers when the debugging machine encounters an external-interrupt. This command applies to only **32** to **255** entries of IDT \(Interrupt Descriptor Table\), if you need to hook entries between **0** to **31** of IDT then you should use [!exception](https://docs.hyperdbg.com/commands/extension-commands/exception) instead.
+Triggers when the debugging machine encounters an external-interrupt. This command applies to only **32** to **255** entries of IDT \(Interrupt Descriptor Table\). If you need to hook entries between **0** to **31** of IDT, then you should use [!exception](https://docs.hyperdbg.com/commands/extension-commands/exception) instead.
 
 {% hint style="info" %}
-When you enable this event, all entries from **32** to **255** will cause vm-exits, so this command will trigger on all external-interrupts thus make your computer substantially slower. This is not true about [!exception](https://docs.hyperdbg.com/commands/extension-commands/exception) command as it will only trigger on that specific entry.
+When you enable this event, all entries from **32** to **255** will cause vm-exits, so this command will trigger on all external-interrupts; thus, making your computer substantially slower. This is not true about the [!exception](https://docs.hyperdbg.com/commands/extension-commands/exception) command as it will only trigger on that specific entry.
 {% endhint %}
 
 ### Parameters
 
 **\[IDT Index \(hex value\)\]**
 
-          Trigger in the case of receiving an external-interrupt. The value should be between **0x20** to **0xff**. ****If you don't specify this parameter then it will be triggered for all external-interrupts.
+          Trigger in the case of receiving an external-interrupt. The value should be between **0x20** to **0xff**. ****If you don't specify this parameter, then it will be triggered for all external-interrupts.
 
 **\[pid \(hex value\)\]**
 
-          Optional value to trigger the event in just a specific process. Add `pid xx` to your command thus command will be executed if the process id is equal to `xx`. If you don't specify this option then by default you receive events on all processes.
+          Optional value to trigger the event in just a specific process. Add `pid xx` to your command; thus, the command will be executed if the process id is equal to `xx`. If you don't specify this option, then by default, you receive events on all processes.
 
 **\[core \(hex value\)\]**
 
-          Optional value to trigger the event in just a specific core. Add `core xx` to your command thus command will be executed if core id is equal to `xx`. If you don't specify this option then by default you receive events on all cores.
+          Optional value to trigger the event in just a specific core. Add `core xx` to your command thus command will be executed if core id is equal to `xx`. If you don't specify this option, then by default, you receive events on all cores.
 
 **\[imm \(yes\|no\)\]**
 
-          Optional value in which `yes` means the results \(printed texts in scripts\) should be delivered immediately to the debugger. `no` means that the results can be accumulated and to be delivered as a couple of messages when the buffer is full; thus, it's substantially faster but it's not real-time. By default, this value is set to `yes`.
+          Optional value in which `yes` means the results \(printed texts in scripts\) should be delivered immediately to the debugger. `no` means that the results can be accumulated and delivered as a couple of messages when the buffer is full; thus, it's substantially faster but, it's not real-time. By default, this value is set to `yes`.
 
 **\[event options\]**
 
-          Regular event parameters used in HyperDbg events. \(For more information read [this ](https://docs.hyperdbg.com/using-hyperdbg/prerequisites)topic\)
+          Regular event parameters that are used in HyperDbg events. \(For more information, read [this ](https://docs.hyperdbg.com/using-hyperdbg/prerequisites)topic\)
 
 ### Context
 
@@ -55,7 +55,7 @@ This event supports three debugging mechanisms.
 * Custom Code
 
 {% hint style="info" %}
-Please read  "[How to create a condition?](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition)" if you need a conditional event, a conditional event can be used in all "**Break**", "**Script**" and "**Custom Code**".
+Please read  "[How to create a condition?](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition)" if you need a conditional event, a conditional event can be used in all "**Break**", "**Script**", and "**Custom Code**".
 {% endhint %}
 
 ### Break
@@ -74,7 +74,7 @@ HyperDbg> !interrupt 0x25 pid 490
 
 ### Script
 
-Using the following command you can use HyperDbg's Script Engine. You should replace the string between braces \(`HyperDbg Script Here`\) with your script. You can find script examples [here](https://docs.hyperdbg.com/commands/scripting-language/examples). 
+Using the following command, you can use HyperDbg's Script Engine. You should replace the string between braces \(`HyperDbg Script Here`\) with your script. You can find script examples [here](https://docs.hyperdbg.com/commands/scripting-language/examples). 
 
 ```
 HyperDbg> !interrupt 0x25 script { HyperDbg Script Here }
@@ -100,7 +100,7 @@ You can use [**event forwarding**](https://docs.hyperdbg.com/tips-and-tricks/mis
 
 ### Custom Code
 
-Please read  "[How to create an action?](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action)" for getting idea about how to run custom buffer code in **HyperDbg**.
+Please read  "[How to create an action?](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action)" to get an idea about how to run the custom buffer code in **HyperDbg**.
 
 {% hint style="warning" %}
 Your custom code will be executed in vmx-root mode. Take a look at [this topic](https://docs.hyperdbg.com/tips-and-tricks/considerations/vmx-root-mode-vs-vmx-non-root-mode) for more information. Running code in vmx-root is considered "[unsafe](https://docs.hyperdbg.com/tips-and-tricks/considerations/the-unsafe-behavior)".
@@ -108,7 +108,7 @@ Your custom code will be executed in vmx-root mode. Take a look at [this topic](
 
 #### Run Custom Code \(Unconditional\)
 
-Monitoring the occurrence of external-interrupts ****and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes), for more information.
+Monitoring the occurrence of external-interrupts ****and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) for more information.
 
 ```c
 HyperDbg> !interrupt code {90 90 90}
@@ -116,14 +116,14 @@ HyperDbg> !interrupt code {90 90 90}
 
 #### Run Custom Code \(Conditional\)
 
-Monitoring the occurrence of external-interrupts and run 3 nops whenever the event condition is triggered and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) and [how to create a condition](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition), for more information.
+Monitoring the external-interrupts occurrence and running 3 nops whenever the event condition is triggered and running 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) and [how to create a condition](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition) for more information.
 
 ```c
 HyperDbg> !interrupt code {90 90 90} condition {90 90 90}
 ```
 
 {% hint style="success" %}
-Keep in mind, a conditional event can be used in **Breaking to Debugger** and **Running Script** too.
+Keep in mind that a conditional event can be used in **Breaking to Debugger** and **Running Script** too.
 {% endhint %}
 
 ### IOCTL
@@ -136,11 +136,11 @@ Please look at **Remarks** for more information.
 
 ### Design
 
-Take a look at "[Design of !exception & !interrupt](https://docs.hyperdbg.com/design/features/vmm-module/design-of-exception-and-interrupt)" to see how does it work.
+Take a look at "[Design of !exception & !interrupt](https://docs.hyperdbg.com/design/features/vmm-module/design-of-exception-and-interrupt)" to see how it works.
 
 ### **Remarks**
 
-You should avoid monitoring all external-interrupt because it is generally impossible, for example, thousands of clock-interrupts will be received and if you want to handle all of them then it makes your system unresponsive. By the way, you can monitor just one external-interrupt without problem.
+You should avoid monitoring all external-interrupt because it is generally impossible. For example, thousands of clock-interrupts will be received, and if you want to handle all of them, it makes your system unresponsive. By the way, you can monitor just one external-interrupt without any problem.
 
 ### Requirements
 
