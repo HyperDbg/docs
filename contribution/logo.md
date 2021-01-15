@@ -4,13 +4,13 @@ description: Logo & Artworks of HyperDbg
 
 # Logo & Artworks
 
-HyperDbg's logo is a **Schrödinger's cat** which is both alive and/or dead. It's because we love the quantum physics.
+HyperDbg's logo is a **Schrödinger's cat**, which is both alive and/or dead. It's because we love quantum physics.
 
-Here's some of the artworks you can use :
+Here are some of the artworks you can use :
 
 ![HyperDbg 1](../.gitbook/assets/artboard-2.png)
 
-Here's another one !
+Here's another one!
 
 ![HyperDbg 2](../.gitbook/assets/artboard-1.png)
 
