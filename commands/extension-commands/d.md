@@ -39,12 +39,12 @@ l \[Length\] \(optional\)
           The length \(byte\) in hex format
 
 {% hint style="danger" %}
-Process ID doesn't make sense in physical memory. If you specify **pid** then it ignored.
+Process ID doesn't make sense in physical memory. If you specify **pid** for physical memory, ****then it is ignored.
 {% endhint %}
 
 ### Examples
 
-The following command is used when we want to read content of memory at **`1000`** with length of `0x50` in a hex byte format.
+The following command is used when we want to read the content of memory at **`1000`** with length of `0x50` in a hex byte format.
 
 ```diff
 HyperDbg> !db 1000 l 50
@@ -55,7 +55,7 @@ HyperDbg> !db 1000 l 50
 #       00000000`00001040  00 00 02 00 00 00 00 00 01 01 00 00 00 00 00 00  ................
 ```
 
-The following example shows the content of memory at `1000` in a Double-word values \(4 bytes\) and ASCII characters format.
+The following example shows the content of memory at `1000` in a double-word value \(4 bytes\) and ASCII characters format.
 
 ```diff
 HyperDbg> !dc 1000
@@ -69,14 +69,14 @@ HyperDbg> !dc 1000
 #       00000000`00001070  00004000 00000000 00000000 00000000  .@..............
 ```
 
-The following example shows the content of memory at `1000` in a Double-word values \(4 bytes\) format with the length of `0x10`.
+The following example shows the content of memory at `1000` in a double-word value \(4 bytes\) format with the length of `0x10`.
 
 ```diff
 HyperDbg> !dd 1000 l 10
 #       00000000`00001000  0000000B 00000000 80860000 000210D3
 ```
 
-The following example shows the content of memory at `1000` in a Quad-word values \(8 bytes\) format.
+The following example shows the content of memory at `1000` in a quad-word value \(8 bytes\) format.
 
 ```diff
 HyperDbg> !dq 1000
@@ -106,7 +106,7 @@ typedef struct _DEBUGGER_READ_MEMORY {
 } DEBUGGER_READ_MEMORY, * PDEBUGGER_READ_MEMORY;
 ```
 
-Where `Pid` is the process id, `Address` is the target location address and `size` is the length of byte that you need to read. 
+Where `Pid` is the process id, `Address` is the target location address and `size` is the length of the byte that you need to read. 
 
 `MemoryType`is either **virtual** or **physical**.
 
@@ -114,13 +114,13 @@ Where `Pid` is the process id, `Address` is the target location address and `siz
 typedef enum _DEBUGGER_READ_MEMORY_TYPE { DEBUGGER_READ_PHYSICAL_ADDRESS, DEBUGGER_READ_VIRTUAL_ADDRESS } DEBUGGER_READ_MEMORY_TYPE;
 ```
 
-`ReadingType` is either from **kernel** or form **vmx root**, currently only the reading from kernel is implemented.
+`ReadingType` is either from the **kernel** or from the **vmx root**. Currently, only the reading from the kernel is implemented.
 
 ```c
 typedef enum _DEBUGGER_READ_READING_TYPE { READ_FROM_KERNEL, READ_FROM_VMX_ROOT } DEBUGGER_READ_READING_TYPE;
 ```
 
-If you don't want to directly read from kernel, use the following **HyperDbg Routine**.
+If you don't want to read from the kernel directly, use the following **HyperDbg** Routine.
 
 ```c
 void HyperDbgReadMemoryAndDisassemble(DEBUGGER_SHOW_MEMORY_STYLE Style, UINT64 Address,
@@ -129,20 +129,20 @@ void HyperDbgReadMemoryAndDisassemble(DEBUGGER_SHOW_MEMORY_STYLE Style, UINT64 A
                         UINT Size);
 ```
 
-The above function fill the IOCTL structure and shows the memory content, it also is able to disassemble the memory, you can specify one of the following `styles` to show the memory.
+The above function fills the IOCTL structure and shows the memory content. It is also able to disassemble the memory. You can specify one of the following `styles` to show the memory.
 
 ```c
 typedef enum _DEBUGGER_SHOW_MEMORY_STYLE { DEBUGGER_SHOW_COMMAND_DISASSEMBLE, DEBUGGER_SHOW_COMMAND_DB, DEBUGGER_SHOW_COMMAND_DC, DEBUGGER_SHOW_COMMAND_DQ, DEBUGGER_SHOW_COMMAND_DD } DEBUGGER_SHOW_MEMORY_STYLE;
 ```
 
-For disassembling use the `DEBUGGER_SHOW_COMMAND_DISASSEMBLE` as the `Style`.
+For disassembling, use the `DEBUGGER_SHOW_COMMAND_DISASSEMBLE` as the `Style`.
 
 ### **Remarks**
 
 * If you don't specify the length, the default length for HyperDbg is 0x80 Bytes.
 
 {% hint style="warning" %}
-Please note that you should specify space between 'l' and the length, for HyperDbg for example 'l10' is invalid but 'l 10' is valid. \(It's opposes to windbg\).
+Please note that you should specify space between 'l' and the length in HyperDbg. For example, 'l10' is invalid, but 'l 10' is valid. \(It's opposed to windbg\).
 {% endhint %}
 
 ### Requirements
