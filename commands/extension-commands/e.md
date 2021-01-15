@@ -36,7 +36,7 @@ Edits the **physical** address memory contents.
 
 pid \[process id\]  \(optional\)
 
-          The process id in the hex format that we want to see the memory from its context \(**cr3**\).
+          The process ID in the hex format that we want to see the memory from its context \(**cr3**\).
 
 {% hint style="info" %}
 If you don't specify the pid, then the default pid is the current process \(**HyperDbg**\) process layout of memory.
@@ -80,7 +80,7 @@ typedef struct _DEBUGGER_EDIT_MEMORY {
 } DEBUGGER_EDIT_MEMORY, *PDEBUGGER_EDIT_MEMORY;
 ```
 
-The `Result` will be filled by the kernel-mode driver when it returns from the kernel and shows whether the editing was successful or not, the following results can come from the kernel :
+The `Result` will be filled by the kernel-mode driver when it returns from the kernel and shows whether the editing was successful or not. The following results can come from the kernel :
 
 ```c
 #define DEBUGGER_ERROR_EDIT_MEMORY_STATUS_INVALID_PARAMETER 0xc000000b
@@ -90,7 +90,7 @@ The `Result` will be filled by the kernel-mode driver when it returns from the k
   0xc000000d
 ```
 
- The `Address` is where we want to modify and it can be both a **physical** address or a **virtual** address.
+ The `Address` is where we want to modify, and it can be both a **physical** address or a **virtual** address.
 
 `ProcessId` is the process that we want to modify based on its memory layout \(**cr3**\), it can't be `null` or zero.
 
@@ -115,13 +115,13 @@ typedef enum _DEBUGGER_EDIT_MEMORY_BYTE_SIZE {
 } DEBUGGER_EDIT_MEMORY_BYTE_SIZE;
 ```
 
-The above structure is added on top of an array of 64-bit values which is the new content to the memory. 
+The above structure is added on top of an array of 64-bit values, which is the new content to the memory. 
 
 For example, if you want to change the memory address of  the target to `0x90 0x90` then you should provide an array of `0x0000000000000090` and `0x0000000000000090` and append it to the end of the above structure. The count of these chunks is stored at `CountOf64Chunks` in the above structure and the final buffer that will be sent into the kernel has a size of `FinalStructureSize` bytes. 
 
 ### **Remarks**
 
-* You can change as many bytes as you need in **byte**, **dword**, and **qword** formats, just add new values to the end of the command. 
+* You can change as many bytes as you need in **byte**, **dword**, and **qword** formats. Just add new values to the end of the command. 
 
 ### Requirements
 
