@@ -4,16 +4,16 @@ description: How to programmatically activate an event using IOCTLs?
 
 # IOCTL Requests for Events
 
-In order to send an IOCTL and enable an event programmatically, you should fill the following instruction, this structure is used for tracing works in user mode and sending it to the kernel-mode, keep in mind that this structure is not what we save for events in kernel-mode.
+In order to send an IOCTL and enable an event programmatically, you should fill the following structure. This structure is used for tracing works in user mode and sending it to the kernel-mode. Keep in mind that this structure is not what we save for events in kernel-mode.
 
-After sending this structure to the kernel, if it's valid then the kernel creates a disabled event and is waiting for an action to be received then it activates the event.
+After sending this structure to the kernel, if it's valid, then the kernel creates a disabled event and is waiting for an action to be received then it activates the event.
 
 ```c
-//
-// Each command is like the following struct, it also used for tracing works in
-// user mode and sending it to the kernl mode,
-// THIS IS NOT WHAT WE SAVE FOR EVENTS IN KERNEL MODE
-//
+/**
+ * @brief Each command is like the following struct, it also used for
+ * tracing works in user mode and sending it to the kernl mode
+ * @details THIS IS NOT WHAT HYPERDBG SAVES FOR EVENTS IN KERNEL MODE
+ */
 typedef struct _DEBUGGER_GENERAL_EVENT_DETAIL {
 
   LIST_ENTRY
@@ -30,6 +30,20 @@ typedef struct _DEBUGGER_GENERAL_EVENT_DETAIL {
                     // apply it to all processes
 
   BOOLEAN IsEnabled;
+
+  BOOLEAN HasCustomOutput; // Shows whether this event has a custom output
+                           // source or not
+
+  UINT64
+  OutputSourceTags
+      [DebuggerOutputSourceMaximumRemoteSourceForSingleEvent]; // tags of
+                                                               // multiple
+                                                               // sources which
+                                                               // can be used to
+                                                               // send the event
+                                                               // results of
+                                                               // scripts to
+                                                               // remote sources
 
   UINT32 CountOfActions;
 
@@ -48,10 +62,9 @@ typedef struct _DEBUGGER_GENERAL_EVENT_DETAIL {
 } DEBUGGER_GENERAL_EVENT_DETAIL, *PDEBUGGER_GENERAL_EVENT_DETAIL;
 ```
 
-Based on your request, you can select one of the following actions from`DEBUGGER_EVENT_TYPE_ENUM` enum. This enum will be updated in the future version but if you want to simulate a special command then check the command's manual to see what's the command's type.
+Based on your request, you can select one of the following actions from`DEBUGGER_EVENT_TYPE_ENUM` enum. This enum will be updated in future versions, but if you want to simulate a special command, check the command's manual to see what's the command's type.
 
 ```c
-
 typedef enum _DEBUGGER_EVENT_TYPE_ENUM {
 
   HIDDEN_HOOK_READ_AND_WRITE,
@@ -78,22 +91,24 @@ typedef enum _DEBUGGER_EVENT_TYPE_ENUM {
   DEBUG_REGISTERS_ACCESSED,
 
   TSC_INSTRUCTION_EXECUTION,
-  PMC_INSTRUCTION_EXECUTION
+  PMC_INSTRUCTION_EXECUTION,
+
+  VMCALL_INSTRUCTION_EXECUTION,
 
 } DEBUGGER_EVENT_TYPE_ENUM;
 ```
 
 If you want to use the debugger features, you should connect the `CommandsEventList` to the list of user-mode commands.
 
-**OptionalParamX** is different in the case of each command, for example in **!epthook2** you should send the address of where you want to hook to the kernel as **OptionalParam1**, you have to check each command's manual to see what are its specific **OptionalParam**\(s\).
+**OptionalParamX** is different in the case of each command. For example, in **!epthook2**, you should send the address of where you want to hook to the kernel as **OptionalParam1**. ****You have to check each command's manual to see what are its specific **OptionalParam**\(s\).
 
 **Tag** is an ID that you can use later in action. 
 
 **IsEnabled** has a user-mode usage to trace whether the event is enabled or not.
 
-**CommandStringBuffer** is the string of the command you can ignore it.
+**CommandStringBuffer** is the string of the command. You can ignore it.
 
-If your event contains a condition buffer \(`ConditionBufferSize != 0`\), you can use set the size if `ConditionBufferSize` and append the buffer to the end of the above structure and when you send the buffer to the kernel, you should send the `sizeof(DEBUGGER_GENERAL_EVENT_DETAIL)+ ConditionBufferSize (if any)`.
+If your event contains a condition buffer \(`ConditionBufferSize != 0`\), you can use set the size if `ConditionBufferSize` and append the buffer to the end of the above structure, and when you send the buffer to the kernel, you should send the `sizeof(DEBUGGER_GENERAL_EVENT_DETAIL)+ ConditionBufferSize (if any)`.
 
 Finally, you can send it to the kernel by using the following function.
 
@@ -113,9 +128,9 @@ SendEventToKernel(PDEBUGGER_GENERAL_EVENT_DETAIL Event,
   CTL_CODE(FILE_DEVICE_UNKNOWN, 0x806, METHOD_BUFFERED, FILE_ANY_ACCESS)
 ```
 
-After sending the above event to the kernel, now you should chain an action or multiple actions to the event.
+After sending the above event to the kernel, you should chain an action or multiple actions to the event.
 
-You should fill the following structure to send a "**Break**", "**Script**" and "**Custom Code**" t the kernel, for example, you can append the buffer of custom code after this structure and send them together to the kernel.
+You should fill the following structure to send a "**Break**", "**Script**", and "**Custom Code**" to the kernel. For example, you can append the custom code buffer after this structure and send them together to the kernel.
 
 Also, **EventTag** is the unique ID that we sent previously in the event. 
 

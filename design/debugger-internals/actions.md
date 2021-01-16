@@ -6,15 +6,15 @@ description: What is actions in HyperDbg & how to use them?
 
 ### What are the actions?
 
-Actions define the operation that the debugger should do, in the case of triggering an event. In the other words, events are containers of actions.
+Actions define the operation that the debugger should do in the case of triggering an event. In other words, events are containers of actions.
 
-Each event can have zero or many actions, in aد unconditional event, all actions are performed one by one with the insertion order and in conditional events, actions are performed only and only if the condition is met.
+Each event can have zero or many actions. In an unconditional event, all actions are performed one by one with the insertion order, and in conditional events, actions are performed only and only if the condition is met.
 
 ### Types of Actions
 
-HyperDbg is not a classic debugger, so we can have multiple kinds of operations in the case of events.
+HyperDbg is not a classic debugger, so we can have multiple kinds of operations in events.
 
-Actions can be defined in 3 different types as demonstrated in the following enum.
+Actions can be defined in 3 different types, as demonstrated in the following enum.
 
 ```c
 typedef enum _DEBUGGER_EVENT_ACTION_TYPE_ENUM {
@@ -25,23 +25,23 @@ typedef enum _DEBUGGER_EVENT_ACTION_TYPE_ENUM {
 } DEBUGGER_EVENT_ACTION_TYPE_ENUM;
 ```
 
-1. **Break** : Exactly like other classic debuggers, this type of action halts the system and makes the system available for future user commands. This type of action is only available in debugging a remote machine, it is because you cannot halt your current local system.
-2. **Script** : This action type is a special feature that creates a log from the registers, memory and special details \(pseudo-registers\) without halting the system and transfers the logs from kernel mode and vmx-root mode, safely to the debugger user mode and also you can call predefined functions and change the state of the system directly. You can use this type of action in both debugging a remote machine and debugging a local machine.
-3. **Custom Code** : Running a custom code is a special feature that will allow you to execute your custom assembly codes in the case of triggering an event. This means that your assembly codes will be executed and the results will be returned safely to the debugger user mode. You can use this type of action in both debugging a remote machine and debugging a local machine.
+1. **Break** : Exactly like other classic debuggers, this type of action halts the system and makes the system available for future user commands. This type of action is only available in debugging a remote machine. It is because you cannot halt your current local system.
+2. **Script** : This action type is a special feature that creates a log from the registers, memory, and special details \(pseudo-registers\) without halting the system and transfers the logs from kernel mode and vmx-root mode, safely to the debugger user mode and also you can call predefined functions and change the state of the system directly. You can use this type of action in both debugging a remote machine and debugging a local machine.
+3. **Custom Code** : Running a custom code is a special feature that will allow you to execute your custom assembly codes in the case of triggering an event. This means that your assembly codes will be executed, and the results will be returned safely to the debugger user mode. You can use this type of action in both debugging a remote machine and debugging a local machine.
 
 ### Break
 
-By default and if you don't specify any parameters like `script { }` or `code { }` then HyperDbg interprets events as a **break**. It means that every time that this event is triggered, then the system or the target process is completely halted and now you have the ability to control the system. It is exactly like other debuggers like Windbg.  
+By default and if you don't specify any parameters like `script { }` or `code { }` then HyperDbg interprets events as a **break**. It means that every time this event is triggered, then the system or the target process is completely halted, and now you can control the system. It is exactly like other debuggers like Windbg.  
 
 ### Script
 
 Script-engine is a powerful feature of HyperDbg that makes you able to create easy statements to create logs from the system state, change the system state, and call pre-defined functions and even halt the system and give its control to the debugger.
 
-This feature never halts the system and HyperDbg's script engine is vmx-root compatible; however, you should avoid [unsafe behavior](https://docs.hyperdbg.com/tips-and-tricks/considerations/the-unsafe-behavior).
+This feature never halts the system, and HyperDbg's script engine is vmx-root compatible; however, you should avoid [unsafe behavior](https://docs.hyperdbg.com/tips-and-tricks/considerations/the-unsafe-behavior).
 
 When you use `script { }` in your events, then you are using the script-engine.
 
-Script-engine is a different project in HyperDbg's solution. There is a file, called "**ScriptEngineCommon.h**". This file contains the implementation of HyperDbg script execution engine in both user-mode and kernel-mode and it executes the scripts that was previously interpreted in user-mode.
+Script-engine is a different project in HyperDbg's solution. There is a file, called "**ScriptEngineCommon.h**". This file contains the HyperDbg script execution engine's implementation in both user-mode and kernel-mode, and it executes the scripts that were previously interpreted in user-mode.
 
 In order to call the execution engine, you should call `ScriptEngineExecute` function. 
 
@@ -63,7 +63,7 @@ typedef struct _DEBUGGER_GENERAL_ACTION {
 } DEBUGGER_GENERAL_ACTION, *PDEBUGGER_GENERAL_ACTION;
 ```
 
-Read [Scripting Language](https://docs.hyperdbg.com/commands/scripting-language) for more information and examples about script-engine and read [here ](https://docs.hyperdbg.com/design/script-engine)for more information about script-engine's design and internals. 
+Read [Scripting Language](https://docs.hyperdbg.com/commands/scripting-language) for more information and examples about script-engine and read [here ](https://docs.hyperdbg.com/design/script-engine)for more information about the script engine's design and internals. 
 
 ### Custom Code
 
@@ -71,7 +71,7 @@ Running custom codes gives you a fast and reliable way to execute your codes in 
 
 When you use `code { }` in your events, then you are using custom codes.
 
-This powerful feature can optionally give you a non-paged pool buffer with your specific size and gives the address of the buffer to your assembly code in `RCX`. You can safely use this buffer in your assembly code and if you want, HyperDbg will safely transfer this buffer to user mode for you.
+This powerful feature can optionally give you a non-paged pool buffer with your specific size and gives the address of the buffer to your assembly code in `RCX`. You can safely use this buffer in your assembly code, and if you want, HyperDbg will safely transfer this buffer to user mode for you.
 
 First, you should create a buffer of bytes that performs your task. For example, the following code is some `nops` that a custom buffer provides to the debugger. You can change it to whatever assembly bytes that you want without any limitation in size.
 
@@ -88,10 +88,10 @@ First, you should create a buffer of bytes that performs your task. For example,
 ```
 
 {% hint style="warning" %}
-Don't forget to put a **0xc3** or **ret instruction** at the end of you custom code buffer, this way you give the program's execution back to the debugger and HyperDbg can continue normally, otherwise, the HyperDbg won't get a chance to get back the execution and will cause a crash.
+Don't forget to put a **0xc3** or **ret instruction** at the end of your custom code buffer. This way, you give the program's execution back to the debugger, and HyperDbg can continue normally. Otherwise, the HyperDbg won't get a chance to get back the execution and cause a crash.
 {% endhint %}
 
-Now, you should fill the following structure which gives the details of your custom code to the debugger.
+You should fill the following structure, which gives the details of your custom code to the debugger.
 
 ```c
 typedef struct _DEBUGGER_EVENT_REQUEST_CUSTOM_CODE {
@@ -102,7 +102,7 @@ typedef struct _DEBUGGER_EVENT_REQUEST_CUSTOM_CODE {
 } DEBUGGER_EVENT_REQUEST_CUSTOM_CODE, *PDEBUGGER_EVENT_REQUEST_CUSTOM_CODE;
 ```
 
-For example, the following code shows that we use the `CustomCodeBuffer` as the custom assembly code and also we set the size of the buffer. `OptionalRequestedBufferSize` is used to request a non-paged pool buffer, if this field is zero then it means that you don't need a non-paged buffer but if it's not zero, then HyperDbg will allocate a non-paged pool for you and will pass the address of the buffer each time as the `RCX` to you assembly code.
+For example, the following code shows that we use `CustomCodeBuffer`as the custom assembly code, and also, we set the size of the buffer. `OptionalRequestedBufferSize`is used to request a non-paged pool buffer. If this field is zero, then it means that you don't need a non-paged buffer, but if it's not zero, then HyperDbg will allocate a non-paged pool for you and pass the address of the buffer each time as the `RCX` to you assembly code.
 
 ```c
     //
@@ -125,21 +125,21 @@ BOOLEAN
 DebuggerAddActionToEvent(PDEBUGGER_EVENT Event, DEBUGGER_EVENT_ACTION_TYPE_ENUM ActionType, BOOLEAN SendTheResultsImmediately, PDEBUGGER_EVENT_REQUEST_CUSTOM_CODE InTheCaseOfCustomCode, PDEBUGGER_EVENT_ACTION_RUN_SCRIPT_CONFIGURATION InTheCaseOfRunScript)
 ```
 
-**Event** is the event which you want to register this action to it.
+**Event** is the event in which you want to register this action on it.
 
 **ActionType** is the type of action \(described above\).
 
 **SendTheResultsImmediately** this field shows whether the buffer should be sent immediately to the user-mode or not.
 
-It is because HyperDbg holds a queue of messages to be delivered to user mode and when the queue has multiple messages \(the queue is full\), it sends all of them in an IRP packet to the user mode \(IRP Pending\), this makes the HyperDbg messaging more efficient as we're not going to send each message separately in one IRP packet. 
+It is because HyperDbg holds a queue of messages to be delivered to user mode. When the queue has multiple messages \(the queue is full\), it sends all of them in an IRP packet to the user mode \(IRP Pending\). This makes the HyperDbg messaging more efficient as we're not going to send each message separately in one IRP packet. 
 
 If you set this field to `TRUE`, the buffer will be delivered to the user -ode immediately, and if you set it to `FALSE`, then the buffers will be accumulated and delivered when the queue has multiple messages.
 
-You should set it to `FALSE` in most cases but if you need immediate results the choose `TRUE` and it makes you computer substantially slower in high rates of data delivery but in low rates `TRUE` makes more scene.
+You should set it to `FALSE` in most cases, but if you need immediate results the choose `TRUE` and it makes your computer substantially slower in high rates of data delivery but at low rates `TRUE`makes more scene.
 
-**InTheCaseOfCustomCode** you should fill it as described above.
+**InTheCaseOfCustomCode :** you should fill it as described above.
 
-**InTheCaseOfRunScript** is used for script engine, should be null in custom code.
+**InTheCaseOfRunScript :** is used for script engine, should be null in custom code.
 
 The following example shows how to use the `DebuggerAddActionToEvent`.
 
@@ -153,14 +153,14 @@ Please note that **DebuggerAddActionToEvent** should not be called in vmx-root m
 
 #### How to send buffers back to user-mode?
 
-If you didn't request a safe buffer or even request a safe buffer then your assembly will be called in the following form.
+If you didn't request a safe buffer or even request a safe buffer, then your assembly will be called in the following form.
 
 ```c
 typedef PVOID
 DebuggerRunCustomCodeFunc(PVOID PreAllocatedBufferAddress, PGUEST_REGS Regs, PVOID Context);
 ```
 
-If you request a safe non-paged pool buffer then your assembly will be called in the following form and as we're calling it with **fastcall** calling convention then you can expect buffer address in `RCX`.
+If you request a safe non-paged pool buffer, then your assembly will be called in the following form, and as we're calling it with **fastcall** calling convention, then you can expect buffer address in `RCX`.
 
 ```c
 ReturnBufferToUsermodeAddress = Func(Action->RequestedBuffer.RequstBufferAddress, Regs, Context);
@@ -172,9 +172,9 @@ Otherwise, `RCX` is null \(in the case, you didn't need a safe buffer\).
 Func(NULL, Regs, Context);
 ```
 
-In the above calls, `RDX` is the structure of guest's general-purpose registers, you can modify them directly and these registers will apply to the guest when it wants to continue its normal execution.
+In the above calls, `RDX`is the structure of the guest's general-purpose registers, you can modify them directly, and these registers will apply to the guest when it wants to continue its normal execution.
 
-`R8` \(Context\) is an optional parameter that describes the state and it's different for each event, you have to check each event's documentation to see what it is in that event.
+`R8` \(Context\) is an optional parameter that describes the state, and it's different for each event. You have to check each event's documentation to see what it is in that event.
 
 The following structure shows the state of registers in `Regs` parameter. You can modify or read the general-purpose registers based on this structure as a pointer to this structure is available in `RDX`.
 
@@ -201,6 +201,6 @@ typedef struct _GUEST_REGS
 ```
 
 {% hint style="success" %}
-You can read other registers \(non-general purpose registers\) directly and modify them, we're not changing them or use them in debugger and hypervisor routines so reading and changing them will directly apply to the guests registers and will apply on the normal execution \(except XMMs\).
+You can read other registers \(non-general purpose registers\) directly and modify them. We're not changing them or using them in debugger and hypervisor routines, so reading and changing them will directly apply to the guests' registers and apply to normal execution.
 {% endhint %}
 
