@@ -11,7 +11,7 @@ Each event has a has condition buffer. If this buffer is null, then the **event 
 If it's not null, then the **event is conditional**. In a **conditional event**, **actions** of that **event** will be executed only and only if the **condition** returns `TRUE`. Otherwise, all of the **actions** of that **event** will be ignored.
 
 {% hint style="info" %}
-Conditions apply to events, not actions. If you need multiple conditions for each action, you can create multiple events or use the custom code feature of actions to check for the conditions.
+Conditions apply to events, not actions. If you need multiple conditions for each action, you can create multiple events or use the custom code feature to check for the conditions.
 {% endhint %}
 
 ### Creating a Condition
@@ -44,7 +44,7 @@ The following code shows how to create a condition buffer at the kernel.
 ```
 
 {% hint style="warning" %}
-Don't forget to put a **0xc3** or **ret instruction** at the end of your condition buffer. This way, you give the program's execution back to the debugger, and HyperDbg can continue normally. Otherwise, the HyperDbg won't get a chance to get back the execution and will cause a crash.
+Don't forget to put a **0xc3** or **ret instruction** at the end of your condition buffer. This way, you give the program's execution back to the debugger, and HyperDbg can continue normally. Otherwise, the HyperDbg won't get a chance to get back the execution and cause a crash.
 {% endhint %}
 
 ### Adding the condition to the event
@@ -109,6 +109,6 @@ typedef struct _GUEST_REGS
 ```
 
 {% hint style="success" %}
-You can read other registers \(non-general purpose registers\) directly and modify them. We're not changing them or use them in debugger and hypervisor routines so reading and changing them will directly apply to the guests' registers and will apply on the normal execution.
+You can read other registers \(non-general purpose registers\) directly and modify them. We're not changing them or using them in debugger and hypervisor routines, so reading and changing them will directly apply to the guests' registers and apply to normal execution.
 {% endhint %}
 

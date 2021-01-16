@@ -4,7 +4,7 @@ description: What is actions in HyperDbg & how to use them?
 
 # Actions
 
-### What are actions?
+### What are the actions?
 
 Actions define the operation that the debugger should do, in the case of triggering an event. In the other words, events are containers of actions.
 

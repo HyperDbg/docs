@@ -4,7 +4,7 @@ description: Different controlling fields about NMIs in Intel VT-x
 
 # Control over NMIs
 
-While an NMI interrupt handler is executing, the processor blocks delivery of subsequent NMIs until the next execution of the IRET instruction. This blocking of NMIs prevents the nested execution of the NMI handler.
+While an NMI interrupt handler is executing, the processor blocks the delivery of subsequent NMIs until the next IRET instruction execution. This blocking of NMIs prevents the nested execution of the NMI handler.
 
 Execution of the IRET instruction unblocks NMIs even if the instruction causes a fault. For example, if the IRET instruction executes with EFLAGS.VM = 1 and IOPL of less than 3, a general-protection exception is generated. In such a case, NMIs are unmasked before the exception handler is invoked.
 
@@ -36,11 +36,11 @@ Intel described it this way,
 
 If this control is 1, a VM exit occurs at the beginning of any instruction if there is no virtual NMI blocking.
 
-But in short, when the guest is ready to deliver an NMI and there is nothing to block this NMI then a vm-exit occurs if you set this bit.
+But in short, when the guest is ready to deliver an NMI, and there is nothing to block this NMI, then a vm-exit occurs if you set this bit.
 
 ### **Virtual NMIs \(Pin-Based VM-Execution Controls\)**
 
-If this control is 1, NMIs are never blocked and the “blocking by NMI” bit \(bit 3\) in the interruptibility-state field indicates “virtual-NMI blocking”.
+If this control is 1, NMIs are never blocked, and the “blocking by NMI” bit \(bit 3\) in the interruptibility-state field indicates “virtual-NMI blocking”.
 
 ### **IRET & NMI Unblocking**
 
@@ -48,7 +48,7 @@ The behavior of IRET with regard to NMI blocking \(see Table 24-3\) is determine
 
 — If the “NMI exiting” VM-execution control is 0, IRET operates normally and unblocks NMIs. \(If the “NMI exiting” VM-execution control is 0, the “virtual NMIs” control must be 0; see Section 26.2.1.1.\)
 
-— If the “NMI exiting” VM-execution control is 1, IRET does not affect blocking of NMIs. If, in addition, the “virtual NMIs” VM-execution control is 1, the logical processor tracks virtual-NMI blocking. In this case,
+— If the “NMI exiting” VM-execution control is 1, IRET does not affect the blocking of NMIs. If, in addition, the “virtual NMIs” VM-execution control is 1, the logical processor tracks virtual-NMI blocking. In this case,
 
 IRET removes any virtual-NMI blocking. The unblocking of NMIs or virtual NMIs specified above occurs even if IRET causes a fault.
 
