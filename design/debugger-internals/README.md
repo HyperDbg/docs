@@ -6,11 +6,11 @@ description: 'Learn more, how we designed HyperDbg'
 
 **HyperDbg** is designed based on Hypervisor From Scratch tutorial.
 
-It's a hypervisor plus some other processor features that are exported to user-mode to make debugging applications and kernel possible possible.
+It's a hypervisor plus some other processor features exported to user-mode to make debugging applications and the kernel possible.
 
 ## Tutorials
 
-Here is link to this parts:
+Here is the link to these parts:
 
 ### **Part 1 - Basic Concepts & Configure Testing Environment**
 
