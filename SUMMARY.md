@@ -21,6 +21,8 @@
   * [Connecting To HyperDbg](using-hyperdbg/examples/connecting-to-hyperdbg.md)
   * [Hooking Any Function](using-hyperdbg/examples/hooking-any-function.md)
   * [Intercepting All SYSCALLs](using-hyperdbg/examples/intercepting-all-syscalls.md)
+  * [Monitoring Accesses To A Structure](using-hyperdbg/examples/monitoring-accesses-to-a-structure.md)
+  * [Defeating Anti-Debug & Anti-Hypervisor Methods](using-hyperdbg/examples/defeating-anti-debug-and-anti-hypervisor-methods.md)
   * [Running HyperDbg Script](using-hyperdbg/examples/running-hyperdbg-script.md)
 
 ## Commands
