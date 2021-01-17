@@ -20,7 +20,7 @@
 * [Examples](using-hyperdbg/examples/README.md)
   * [Connecting To HyperDbg](using-hyperdbg/examples/connecting-to-hyperdbg.md)
   * [Setting Breakpoints & Stepping Instructions](using-hyperdbg/examples/setting-breakpoints-and-stepping-instructions.md)
-  * [Displaying & Editing Memory](using-hyperdbg/examples/displaying-and-editing-memory.md)
+  * [Displaying & Editing & Searching Memory](using-hyperdbg/examples/displaying-and-editing-and-searching-memory.md)
   * [Managing Events](using-hyperdbg/examples/managing-events.md)
   * [Hooking Any Function](using-hyperdbg/examples/hooking-any-function.md)
   * [Intercepting All SYSCALLs](using-hyperdbg/examples/intercepting-all-syscalls.md)
