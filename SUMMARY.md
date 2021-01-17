@@ -29,6 +29,7 @@
   * [Identifying System Behavior](using-hyperdbg/examples/identifying-system-behavior.md)
   * [Defeating Anti-Debug & Anti-Hypervisor Methods](using-hyperdbg/examples/defeating-anti-debug-and-anti-hypervisor-methods.md)
   * [Running HyperDbg Script](using-hyperdbg/examples/running-hyperdbg-script.md)
+  * [Scripting Language Examples](https://docs.hyperdbg.com/commands/scripting-language/examples)
 
 ## Commands
 
