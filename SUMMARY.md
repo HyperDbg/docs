@@ -18,6 +18,9 @@
   * [How to create a condition?](using-hyperdbg/prerequisites/how-to-create-a-condition.md)
   * [How to create an action?](using-hyperdbg/prerequisites/how-to-create-an-action.md)
 * [Examples](using-hyperdbg/examples/README.md)
+  * [Connecting To HyperDbg](using-hyperdbg/examples/connecting-to-hyperdbg.md)
+  * [Hooking Any Function](using-hyperdbg/examples/hooking-any-function.md)
+  * [Intercepting All SYSCALLs](using-hyperdbg/examples/intercepting-all-syscalls.md)
   * [Running HyperDbg Script](using-hyperdbg/examples/running-hyperdbg-script.md)
 
 ## Commands
