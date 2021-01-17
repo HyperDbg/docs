@@ -21,10 +21,12 @@
   * [Connecting To HyperDbg](using-hyperdbg/examples/connecting-to-hyperdbg.md)
   * [Setting Breakpoints & Stepping Instructions](using-hyperdbg/examples/setting-breakpoints-and-stepping-instructions.md)
   * [Displaying & Editing Memory](using-hyperdbg/examples/displaying-and-editing-memory.md)
+  * [Managing Events](using-hyperdbg/examples/managing-events.md)
   * [Hooking Any Function](using-hyperdbg/examples/hooking-any-function.md)
   * [Intercepting All SYSCALLs](using-hyperdbg/examples/intercepting-all-syscalls.md)
   * [Monitoring Accesses To Structures](using-hyperdbg/examples/monitoring-accesses-to-structures.md)
   * [Triggering Special Instructions](using-hyperdbg/examples/triggering-special-instructions.md)
+  * [Identifying System Behavior](using-hyperdbg/examples/identifying-system-behavior.md)
   * [Defeating Anti-Debug & Anti-Hypervisor Methods](using-hyperdbg/examples/defeating-anti-debug-and-anti-hypervisor-methods.md)
   * [Running HyperDbg Script](using-hyperdbg/examples/running-hyperdbg-script.md)
 
