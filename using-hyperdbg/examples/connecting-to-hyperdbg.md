@@ -54,9 +54,11 @@ Most of the times, if the serial port is the only serial device that you add to 
 
 After running the above command in guest, now you should see that the debuggee is connected to the debugger.
 
-If you see an error for driver signature enforcement, visit the se 
+{% hint style="info" %}
+If you see an error for driver signature enforcement, please visit [here](https://docs.hyperdbg.com/using-hyperdbg/examples/connecting-to-hyperdbg#driver-signature-enforcement-error).
+{% endhint %}
 
-You can press CTRL+C to pause the debuggee and step through the kernel codes using the ['p' command](https://docs.hyperdbg.com/commands/debugging-commands/p) and the ['t' command](https://docs.hyperdbg.com/commands/debugging-commands/t) and if you want to continue the normal execution of debuggee, you can use the ['g' command](https://docs.hyperdbg.com/commands/debugging-commands/g).
+You can press CTRL+C to pause the debuggee and step through the kernel codes using the ['p' command](https://docs.hyperdbg.com/commands/debugging-commands/p) and the ['t' command](https://docs.hyperdbg.com/commands/debugging-commands/t), and if you want to continue the normal execution of the debuggee, you can use the ['g' command](https://docs.hyperdbg.com/commands/debugging-commands/g).
 
 ![Step and Continue Debuggee](../../.gitbook/assets/connected-to-debuggee.png)
 
@@ -64,7 +66,7 @@ You can press CTRL+C to pause the debuggee and step through the kernel codes usi
 
 If you are using an unsigned version of HyperDbg driver, you should turn off the **Driver Signature Enforcement**.
 
-![](../../.gitbook/assets/driver-signature-enforcement-error.png)
+![Driver Signature Enforcement Error](../../.gitbook/assets/driver-signature-enforcement-error.png)
 
 For disabling Driver Signature Enforcement, you can visit [here](https://docs.hyperdbg.com/getting-started/build-and-install#disable-driver-signature-enforcement).
 

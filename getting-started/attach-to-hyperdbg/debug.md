@@ -78,6 +78,10 @@ HyperDbg> .debug prepare serial 115200 com2
 
 Most of the times, if the serial port is the only serial device that you add to the virtual machine, then the name of the connected port is `com2`. However, you can see the exact name of the COM port on the guest's device manager.
 
+{% hint style="info" %}
+If you see an error for driver signature enforcement, please visit [here](https://docs.hyperdbg.com/using-hyperdbg/examples/connecting-to-hyperdbg#driver-signature-enforcement-error).
+{% endhint %}
+
 ## Connect to Debuggee \(VMI Mode\)
 
 First, make sure you have access to the remote machine by pinging its IP address and check firewall rules. After that, run the following command in **debuggee \(guest\)**.
