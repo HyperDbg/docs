@@ -31,7 +31,7 @@ HyperDbg> .debug remote serial 115200 com3
 If you want to use a named pipe instead of a COM port, you can execute the following command in the debugger \(Host\).
 
 ```text
-HyperDbg> .debug remote namedpipe \\\\.\\pipe\\HyperDbgPipe
+HyperDbg> .debug remote namedpipe \\.\pipe\HyperDbgPipe
 ```
 
 After you tell the debugger to listen on a COM port or a named pipe, now you can run the following command in the debuggee.
