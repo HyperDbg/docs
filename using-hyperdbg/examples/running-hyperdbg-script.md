@@ -14,7 +14,8 @@ For example, let's assume that we saved the following lines in **`c:\users\sina\
 .connect local
 .logopen c:\users\sina\desktop\result.txt
 load
-!epthook2 fffff800`4ed6f010 code {488B5A404881FB484442477402EB0848C7424048444232C3}
+!syscall script { print(@rax); }
+sleep 100000
 unload
 .logclose
 exit
