@@ -40,13 +40,33 @@ Now it's time to create a kernel debug connection. First of all, run the followi
 HyperDbg> .debug remote namedpipe \\.\pipe\HyperDbgPipe
 ```
 
+![Waiting for a remote connection \(Host\)](../../.gitbook/assets/wait-on-namedpipe.png)
+
 After you tell the debugger to listen on a COM port or a named pipe, now you can run the following command in the debuggee \(guest\).
 
 ```text
 HyperDbg> .debug prepare serial 115200 com2
 ```
 
+![Preparing to connect debugger \(Guest\)](../../.gitbook/assets/prepare-to-connect-to-debugger.png)
+
 Most of the times, if the serial port is the only serial device that you add to the virtual machine, then the name of the connected port is `com2`. However, you can see the exact name of the COM port on the guest's device manager.
+
+After running the above command in guest, now you should see that the debuggee is connected to the debugger.
+
+You can press CTRL+C to pause the debuggee and step through the kernel codes using the 'p' command and the 't' command and if you want to continue the normal execution of debuggee, you can use the 'g' command.
+
+![Step and Continue Debuggee](../../.gitbook/assets/connected-to-debuggee.png)
+
+{% hint style="info" %}
+If you are using an unsigned version of HyperDbg driver, you should turn of the Driver Signature Enforcement.
+{% endhint %}
+
+
+
+
+
+
 
 
 

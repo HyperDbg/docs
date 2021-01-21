@@ -37,6 +37,8 @@
   * [load \(load the kernel modules\)](commands/debugging-commands/load.md)
   * [unload \(unload the kernel modules\)](commands/debugging-commands/unload.md)
   * [events \(show and modify active/disabled events\)](commands/debugging-commands/events.md)
+  * [p \(step-over\)](commands/debugging-commands/p.md)
+  * [t \(step-in\)](commands/debugging-commands/t.md)
   * [bp \(set breakpoint\)](commands/debugging-commands/bp.md)
   * [g \(continue debuggee or processing kernel packets\)](commands/debugging-commands/g.md)
   * [pause \(break to the debugger and pause processing kernel packets\)](commands/debugging-commands/pause.md)
