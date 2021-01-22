@@ -4,6 +4,10 @@ description: 'Using d*, e*, and s* commands'
 
 # Displaying & Editing & Searching Memory
 
+One of the debugger's essential tasks is displaying or editing memory, and HyperDbg is not an exception.
+
+You can display, edit, and search both physical and virtual addresses using the following commands.
+
 ### Displaying Memory
 
 The following command is used when we want to read the content of memory at **``fffff800`3ad6f010``** with length of `0x50` from the memory layout view of process \(`4` a.k.a. system process\) in a hex byte format.
@@ -80,7 +84,7 @@ The following command is used to search for `4156415748` starting from ``fffff80
 HyperDbg> sb fffff807`7356f010 l ffff 41 56 41 57 48 
 ```
 
-The following example is used when we want to search for `f0cc8549` from `7FF62C9016AD` to `7FF62C9016AD+fff` in a different process \(process id = `1dd0`\) .
+The following example is used when we want to search for `f0cc8549` from `7FF62C9016AD` to `7FF62C9016AD+fff` in a different process \(process id = `1dd0`\).
 
 ```diff
 HyperDbg> sd 7FF62C9016AD pid 1dd0 l fff f0cc8549 
