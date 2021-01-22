@@ -1,3 +1,7 @@
+---
+description: Getting System-Calls
+---
+
 # Intercepting All SYSCALLs
 
 In HyperDbg you are able to [intercept all syscall](https://docs.hyperdbg.com/design/features/vmm-module/design-of-syscall-and-sysret) or special syscalls.

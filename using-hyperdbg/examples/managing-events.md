@@ -1,3 +1,7 @@
+---
+description: 'Enable, Disable, and remove events'
+---
+
 # Managing Events
 
 The following command shows the list of active/disabled events.
