@@ -2,7 +2,7 @@
 description: Description of '~' command in HyperDbg.
 ---
 
-# ~ \(display and change the current operating core\)
+# ~ \(display/change the current operating core\)
 
 ### Command
 
