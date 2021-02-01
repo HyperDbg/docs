@@ -41,7 +41,7 @@
   * [t \(step-in\)](commands/debugging-commands/t.md)
   * [bp \(set breakpoint\)](commands/debugging-commands/bp.md)
   * [g \(continue debuggee or processing kernel packets\)](commands/debugging-commands/g.md)
-  * [~ \(display/change the current operating core\)](commands/debugging-commands/tilde.md)
+  * [~ \(display and change the current operating core\)](commands/debugging-commands/tilde.md)
   * [pause \(break to the debugger and pause processing kernel packets\)](commands/debugging-commands/pause.md)
   * [status \(show the debuggee status\)](commands/debugging-commands/status.md)
   * [sleep \(wait for specific time in the .script command\)](commands/debugging-commands/sleep.md)
