@@ -14,7 +14,7 @@ description: Description of '~' command in HyperDbg.
 
 ### Description
 
-Shows or changes the current operating core. This command can be used only in **Debugger Mode**.
+Shows or changes the current operating core. This command can only be used in **Debugger Mode**.
 
 ### Parameters
 
@@ -74,11 +74,11 @@ In return, the debuggee sends the above structure with the following type.
 DEBUGGER_REMOTE_PACKET_REQUESTED_ACTION_DEBUGGEE_RESULT_OF_CHANGING_CORE
 ```
 
-In the returned structure, the Result is filled by the kernel.
+In the returned structure, the `Result` is filled by the kernel.
 
 If the `Result` is `DEBUGEER_OPERATION_WAS_SUCCESSFULL`, then the operation was successful, and you should wait for a new pause packet from debuggee. Otherwise, the returned result is an error \(e.g., the core number is invalid\), and the current operating core is not changed.
 
-The following function is responsible for changing the core.
+The following function is responsible for changing the core in the debugger.
 
 ```c
 BOOLEAN KdSendSwitchCorePacketToDebuggee(UINT32 NewCore);
@@ -86,7 +86,7 @@ BOOLEAN KdSendSwitchCorePacketToDebuggee(UINT32 NewCore);
 
 ### **Remarks**
 
-If the current core is equal to the target core, then it will not be changed. 
+If the current core is equal to the target core, then it will not be changed.
 
 ### Requirements
 
