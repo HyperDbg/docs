@@ -76,7 +76,7 @@ DEBUGGER_REMOTE_PACKET_REQUESTED_ACTION_DEBUGGEE_RESULT_OF_CHANGING_CORE
 
 In the returned structure, the Result is filled by the kernel.
 
-If the `Result` is `DEBUGEER_OPERATION_WAS_SUCCESSFULL`, then the operation was successful and you should wait for a new pause packet from debuggee, otherwise, the returned result is an error \(e.g., the core number is invalid\) and the current operating core is not changed.
+If the `Result` is `DEBUGEER_OPERATION_WAS_SUCCESSFULL`, then the operation was successful, and you should wait for a new pause packet from debuggee. Otherwise, the returned result is an error \(e.g., the core number is invalid\), and the current operating core is not changed.
 
 The following function is responsible for changing the core.
 
