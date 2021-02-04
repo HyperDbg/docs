@@ -61,7 +61,7 @@ typedef struct _DEBUGGEE_CHANGE_CORE_PACKET {
 UINT32 NewCore; 
 UINT32 Result;
 
-} DEBUGGEE_CHANGE_CORE_PACKET, *PDEBUGGEE_CHANGE_CORE_PACKET;Remarks
+} DEBUGGEE_CHANGE_CORE_PACKET, *PDEBUGGEE_CHANGE_CORE_PACKET;
 ```
 
 After that, send the above structure to the debuggee when debuggee is paused and waiting for new command on **vmx-root** mode.

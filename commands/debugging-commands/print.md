@@ -62,9 +62,47 @@ HyperDbg> print str(poi($proc+10))
 
 ### IOCTL
 
+This commands works over serial by sending the serial packets to the remote computer.
+
+First of all, you should fill the following structure, set the `ScriptBufferSize` and `ScriptBufferPointer` to the values you got from the script engine interpreter, and leave the `Result`.
+
+```c
+typedef struct _DEBUGGEE_SCRIPT_PACKET {
+
+  UINT32 ScriptBufferSize;
+  UINT32 ScriptBufferPointer;
+  UINT32 Result;
+
+  //
+  // The script buffer is here
+  //
+
+} DEBUGGEE_SCRIPT_PACKET, *PDEBUGGEE_SCRIPT_PACKET;
+```
+
+After that, send the above structure to the debuggee when debuggee is paused and waiting for new command on **vmx-root** mode.
+
+You should send the above structure with `DEBUGGER_REMOTE_PACKET_REQUESTED_ACTION_ON_VMX_ROOT_RUN_SCRIPT` as `RequestedAction` and `DEBUGGER_REMOTE_PACKET_TYPE_DEBUGGER_TO_DEBUGGEE_EXECUTE_ON_VMX_ROOT` as `PacketType`.
+
+In return, the debuggee sends the above structure with the following type.
+
+```c
+DEBUGGER_REMOTE_PACKET_REQUESTED_ACTION_DEBUGGEE_RESULT_RUNNING_SCRIPT
+```
+
+In the returned structure, the `Result` is filled by the kernel.
+
+If the `Result` is `DEBUGEER_OPERATION_WAS_SUCCESSFULL`, then the operation was successful. Otherwise, the returned result is an error.
+
+The following function is responsible for sending script buffers in the debugger.
+
+```c
+BOOLEAN KdSendScriptPacketToDebuggee(UINT64 BufferAddress, UINT32 BufferLength, UINT32 Pointer);
+```
+
 ### **Remarks**
 
-None
+This command is exactly like `print(expr);` in script engine, except that HyperDbg automatically adds `print(` and `);`.
 
 ### Requirements
 
