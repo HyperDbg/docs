@@ -66,6 +66,8 @@ This commands works over serial by sending the serial packets to the remote comp
 
 First of all, you should fill the following structure, set the `ScriptBufferSize` and `ScriptBufferPointer` to the values you got from the script engine interpreter, and leave the `Result`.
 
+After that, you should move the interpreted buffer to the end of the structure \(this structure is a header for the interpreted buffer\).
+
 ```c
 typedef struct _DEBUGGEE_SCRIPT_PACKET {
 
@@ -80,7 +82,7 @@ typedef struct _DEBUGGEE_SCRIPT_PACKET {
 } DEBUGGEE_SCRIPT_PACKET, *PDEBUGGEE_SCRIPT_PACKET;
 ```
 
-After that, send the above structure to the debuggee when debuggee is paused and waiting for new command on **vmx-root** mode.
+Next step is sending the above structure to the debuggee when debuggee is paused and waiting for new command on **vmx-root** mode.
 
 You should send the above structure with `DEBUGGER_REMOTE_PACKET_REQUESTED_ACTION_ON_VMX_ROOT_RUN_SCRIPT` as `RequestedAction` and `DEBUGGER_REMOTE_PACKET_TYPE_DEBUGGER_TO_DEBUGGEE_EXECUTE_ON_VMX_ROOT` as `PacketType`.
 
