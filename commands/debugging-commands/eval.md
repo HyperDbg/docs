@@ -34,7 +34,7 @@ HyperDbg> ? print(@rax);
 
 This commands works over serial by sending the serial packets to the remote computer.
 
-First of all, you should fill the following structure, set the `ScriptBufferSize` and `ScriptBufferPointer` to the values you got from the script engine interpreter, and leave the `Result`.
+First of all, you should fill the following structure, set the `ScriptBufferSize` and `ScriptBufferPointer` to buffers you got from the script engine interpreter, and leave the `Result`.
 
 After that, you should move the interpreted buffer to the end of the structure \(this structure is a header for the interpreted buffer\).
 
@@ -74,7 +74,7 @@ BOOLEAN KdSendScriptPacketToDebuggee(UINT64 BufferAddress, UINT32 BufferLength, 
 
 ### **Remarks**
 
-None
+Other aliases for this command are '**eval**' and '**evaluate**'.
 
 ### Requirements
 
