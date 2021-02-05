@@ -88,6 +88,8 @@ BOOLEAN KdSendSwitchCorePacketToDebuggee(UINT32 NewCore);
 
 If the current core is equal to the target core, then it will not be changed.
 
+Another alias for the '~' command is 'core'.
+
 ### Requirements
 
 None
