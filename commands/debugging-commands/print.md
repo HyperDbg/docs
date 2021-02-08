@@ -64,7 +64,7 @@ HyperDbg> print str(poi($proc+10))
 
 This commands works over serial by sending the serial packets to the remote computer.
 
-First of all, you should fill the following structure, set the `ScriptBufferSize` and `ScriptBufferPointer` to the values you got from the script engine interpreter, and leave the `Result`.
+First of all, you should fill the following structure, set the `ScriptBufferSize` and `ScriptBufferPointer` to the values you got from the script engine interpreter, and leave the `Result`and set the `IsFormat` to **false**.
 
 After that, you should move the interpreted buffer to the end of the structure \(this structure is a header for the interpreted buffer\).
 
@@ -73,6 +73,7 @@ typedef struct _DEBUGGEE_SCRIPT_PACKET {
 
   UINT32 ScriptBufferSize;
   UINT32 ScriptBufferPointer;
+  BOOLEAN IsFormat;
   UINT32 Result;
 
   //
@@ -89,7 +90,7 @@ You should send the above structure with `DEBUGGER_REMOTE_PACKET_REQUESTED_ACTIO
 In return, the debuggee sends the above structure with the following type.
 
 ```c
-DEBUGGER_REMOTE_PACKET_REQUESTED_ACTION_DEBUGGEE_RESULT_RUNNING_SCRIPT
+DEBUGGER_REMOTE_PACKET_REQUESTED_ACTION_DEBUGGEE_RESULT_OF_RUNNING_SCRIPT
 ```
 
 In the returned structure, the `Result` is filled by the kernel.
@@ -99,7 +100,7 @@ If the `Result` is `DEBUGEER_OPERATION_WAS_SUCCESSFULL`, then the operation was 
 The following function is responsible for sending script buffers in the debugger.
 
 ```c
-BOOLEAN KdSendScriptPacketToDebuggee(UINT64 BufferAddress, UINT32 BufferLength, UINT32 Pointer);
+BOOLEAN KdSendScriptPacketToDebuggee(UINT64 BufferAddress, UINT32 BufferLength, UINT32 Pointer, BOOLEAN IsFormat);
 ```
 
 ### **Remarks**
