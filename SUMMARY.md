@@ -127,6 +127,7 @@
   * [Event Forwarding](tips-and-tricks/misc/event-forwarding.md)
   * [Message Overflow](tips-and-tricks/misc/message-overflow.md)
   * [Customize Build](tips-and-tricks/misc/customize-build.md)
+  * [Enable and Disable Events in Debugger Mode](tips-and-tricks/misc/enable-and-disable-events-in-debugger-mode.md)
 
 ## Contribution
 
