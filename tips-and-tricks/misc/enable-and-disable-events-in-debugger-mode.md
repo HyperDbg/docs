@@ -60,5 +60,7 @@ At last, if we want to disable the event, we can use the following command.
 HyperDbg> ? DisableEvent(0);
 ```
 
+In the above examples, we used [**EnableEvent**](https://docs.hyperdbg.com/commands/scripting-language/functions/enableevent) and [**DisableEvent**](https://docs.hyperdbg.com/commands/scripting-language/functions/disableevent) functions of script-engine using the '[?](https://docs.hyperdbg.com/commands/debugging-commands/eval)' command.
+
 Using this way, we can solve the problem of losing some events in HyperDbg.
 
