@@ -62,6 +62,7 @@ If you want to see more advanced topics about HyperDbg.
 * \*\*\*\*[**Event Forwarding Mechanism**](https://docs.hyperdbg.com/tips-and-tricks/misc/event-forwarding)\*\*\*\*
 * \*\*\*\*[**Message Overflow**](https://docs.hyperdbg.com/tips-and-tricks/misc/message-overflow)\*\*\*\*
 * \*\*\*\*[**Customize Build**](https://docs.hyperdbg.com/tips-and-tricks/misc/customize-build)\*\*\*\*
+* \*\*\*\*[**Enable and Disable Events in Debugger Mode**](https://docs.hyperdbg.com/tips-and-tricks/misc/enable-and-disable-events-in-debugger-mode)
 
 ## If you want to participate in HyperDbg
 
