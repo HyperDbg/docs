@@ -77,6 +77,8 @@ BOOLEAN KdSendScriptPacketToDebuggee(UINT64 BufferAddress, UINT32 BufferLength, 
 
 Other aliases for this command are '**eval**' and '**evaluate**'.
 
+This command is guaranteed to keep debuggee in a halt state \(in Debugger Mode\); thus, nothing will change during its execution.
+
 ### Requirements
 
 None

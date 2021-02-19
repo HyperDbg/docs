@@ -39,6 +39,8 @@ In **HyperDbg**, 'status' and '[.status](https://docs.hyperdbg.com/commands/meta
 
 If you execute the '[.status](https://docs.hyperdbg.com/commands/meta-commands/.status)' command, it shows the current debugger's status \(the debuggee's IP address\). If you execute the '**status**' command, it will be executed in the debuggee and shows the debuggee's state \(not debugger\).
 
+This command will continue the debuggee for some time \(in Debugger Mode\). This means that you lose the current context \(registers & memory\) after executing this command.
+
 ### Requirements
 
 None

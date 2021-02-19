@@ -107,6 +107,8 @@ BOOLEAN KdSendScriptPacketToDebuggee(UINT64 BufferAddress, UINT32 BufferLength, 
 
 This command is exactly like `print(expr);` in script engine, except that HyperDbg automatically adds `print(` and `);`.
 
+This command is guaranteed to keep debuggee in a halt state \(in Debugger Mode\); thus, nothing will change during its execution.
+
 ### Requirements
 
 None

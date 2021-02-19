@@ -57,6 +57,8 @@ HPRDBGCTRL_API int HyperdbgLoadVmm();
 1. Only one application can get the device handle; after that, no other application is able to create a handle from the device or, in other words, is not able to call `load`command until the first app releases the handle \(by `CloseHandle`\) or call `unload` command. 
 2. The application that requests to load the kernel modules should have `SeDebugPrivilege` to obtain a handle, otherwise an `ACCESS_DENIED` is thrown.
 
+This command will continue the debuggee for some time \(in Debugger Mode\). This means that you lose the current context \(registers & memory\) after executing this command.
+
 ### Requirements
 
 * Intel VT-x is required to be enabled to perform this action.

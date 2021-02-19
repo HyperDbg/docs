@@ -54,7 +54,7 @@ HPRDBGCTRL_API int HyperdbgUnload();
 
 ### **Remarks**
 
-None
+This command will continue the debuggee for some time \(in Debugger Mode\). This means that you lose the current context \(registers & memory\) after executing this command.
 
 ### Requirements
 

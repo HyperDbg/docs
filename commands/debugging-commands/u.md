@@ -151,6 +151,8 @@ Please note that you should specify space between 'l' and the length for HyperDb
 HyperDbg uses [Zydis](https://zydis.re/) as its core disassembler.
 {% endhint %}
 
+This command is guaranteed to keep debuggee in a halt state \(in Debugger Mode\); thus, nothing will change during its execution.
+
 ### Requirements
 
 None

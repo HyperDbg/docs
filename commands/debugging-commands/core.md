@@ -88,7 +88,9 @@ BOOLEAN KdSendSwitchCorePacketToDebuggee(UINT32 NewCore);
 
 If the current core is equal to the target core, then it will not be changed.
 
-Another alias for the '~' command is 'core'.
+Another alias for the '**~**' command is '**core**'.
+
+This command is guaranteed to keep debuggee in a halt state \(in Debugger Mode\); thus, nothing will change during its execution.
 
 ### Requirements
 

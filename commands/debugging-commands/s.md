@@ -119,7 +119,9 @@ You can read the result buffer as an `UINT64` array, and if you encounter a null
 
 ### **Remarks**
 
-* You can search for as many bytes as you need in **byte**, **dword**, and **qword** formats; just add the multiple byte\(s\) values to the end of the command. 
+* You can search for as many bytes as you need in **byte**, **dword**, and **qword** formats; just add the multiple byte\(s\) values to the end of the command.
+
+This command is guaranteed to keep debuggee in a halt state \(in Debugger Mode\); thus, nothing will change during its execution.
 
 ### Requirements
 

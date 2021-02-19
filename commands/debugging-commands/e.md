@@ -123,6 +123,8 @@ For example, if you want to change the memory address of  the target to `0x90 0x
 
 * You can change as many bytes as you need in **byte**, **dword**, and **qword** formats; just add new values to the end of the command. 
 
+This command is guaranteed to keep debuggee in a halt state \(in Debugger Mode\); thus, nothing will change during its execution.
+
 ### Requirements
 
 None
