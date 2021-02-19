@@ -134,7 +134,9 @@ Take a look at "[Design of !syscall & !sysret](https://docs.hyperdbg.com/design/
 This command is not PatchGurad compatible, which means that PatchGuard detects this command and will cause BSOD; thus, make sure to turn it off \(by disabling driver signature enforcement or attaching a Windbg debugger to the Windows\) before using this command.
 {% endhint %}
 
-This command makes your computer slower.
+This command makes your computer substantially slower.
+
+This is an event command, but in the current version of HyperDbg \(in Debugger Mode\), this command will continue the debuggee for some time; however, you can use [this trick](https://docs.hyperdbg.com/tips-and-tricks/misc/enable-and-disable-events-in-debugger-mode) to make sure you won't lose any event.
 
 ### Requirements
 

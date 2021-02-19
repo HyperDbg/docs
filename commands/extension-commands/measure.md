@@ -56,6 +56,8 @@ The above command uses hardcoded details from a not-running hypervisor, and this
 **IMPORTANT NOTE: USING DEFAULT MEASUREMENTS WON'T MAKE YOU 100% TRANSPARENT AS EACH VIRTUAL MACHINE SOFTWARE HAS IT'S OWN TRACES, SO YOUR TARGET MIGHT CHECK FOR OTHER POSSIBLE TRACES AND FIGURE OUT THE PRESENCE OF THE VIRTUAL MACHINE.**
 {% endhint %}
 
+This command will continue the debuggee for some time \(in Debugger Mode\). This means that you lose the current context \(registers & memory\) after executing this command.
+
 ### Requirements
 
 None

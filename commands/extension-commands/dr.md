@@ -134,6 +134,8 @@ As **EventType** use `DEBUG_REGISTERS_ACCESSED` in **DEBUGGER\_GENERAL\_EVENT\_D
 
 This command uses Debug Register Access \(**EXIT\_REASON\_DR\_ACCESS**\) vm-exits \(**29**\) to implement hardware debug registers hooks.
 
+This is an event command, but in the current version of HyperDbg \(in Debugger Mode\), this command will continue the debuggee for some time; however, you can use [this trick](https://docs.hyperdbg.com/tips-and-tricks/misc/enable-and-disable-events-in-debugger-mode) to make sure you won't lose any event.
+
 ### **Remarks**
 
 None

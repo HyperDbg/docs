@@ -67,6 +67,8 @@ If you want to convert based on another process memory layout, then put its proc
 If the physical address or process id does not exist, then it shows **`0`**.
 {% endhint %}
 
+This command will continue the debuggee for some time \(in Debugger Mode\). This means that you lose the current context \(registers & memory\) after executing this command.
+
 ### Requirements
 
 None

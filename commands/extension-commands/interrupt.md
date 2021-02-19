@@ -142,6 +142,8 @@ Take a look at "[Design of !exception & !interrupt](https://docs.hyperdbg.com/de
 
 You should avoid monitoring all external-interrupt because it is generally impossible. For example, thousands of clock-interrupts will be received, and if you want to handle all of them, it makes your system unresponsive. By the way, you can monitor just one external-interrupt without any problem.
 
+This is an event command, but in the current version of HyperDbg \(in Debugger Mode\), this command will continue the debuggee for some time; however, you can use [this trick](https://docs.hyperdbg.com/tips-and-tricks/misc/enable-and-disable-events-in-debugger-mode) to make sure you won't lose any event.
+
 ### Requirements
 
 None

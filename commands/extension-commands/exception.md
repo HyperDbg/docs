@@ -146,6 +146,8 @@ Take a look at "[Design of !exception & !interrupt](https://docs.hyperdbg.com/de
 
 Emulating page-fault \(entry **0xe**\) is treated differently in HyperDbg. Take a look [here ](https://docs.hyperdbg.com/design/features/design-of-exception-and-interrupt)for more information.
 
+This is an event command, but in the current version of HyperDbg \(in Debugger Mode\), this command will continue the debuggee for some time; however, you can use [this trick](https://docs.hyperdbg.com/tips-and-tricks/misc/enable-and-disable-events-in-debugger-mode) to make sure you won't lose any event.
+
 ### Requirements
 
 None

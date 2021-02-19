@@ -134,7 +134,7 @@ This command uses **VMCALL** \(**EXIT\_REASON\_VMCALL - 18**\) vm-exit to implem
 
 ### **Remarks**
 
-None
+This is an event command, but in the current version of HyperDbg \(in Debugger Mode\), this command will continue the debuggee for some time; however, you can use [this trick](https://docs.hyperdbg.com/tips-and-tricks/misc/enable-and-disable-events-in-debugger-mode) to make sure you won't lose any event.
 
 ### Requirements
 

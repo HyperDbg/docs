@@ -144,6 +144,8 @@ For emulating I/O ports, vm-exit with \(**EXIT\_REASON\_IO\_INSTRUCTION**\) or e
 
 You can also modify the content of I/O ports for both **IN** and **OUT** instructions.
 
+This is an event command, but in the current version of HyperDbg \(in Debugger Mode\), this command will continue the debuggee for some time; however, you can use [this trick](https://docs.hyperdbg.com/tips-and-tricks/misc/enable-and-disable-events-in-debugger-mode) to make sure you won't lose any event.
+
 ### Requirements
 
 None

@@ -106,6 +106,8 @@ This command will not guarantee to provide **100%** transparency, especially in 
 
 **HyperDbg** will protect you from **user-mode** anti-hypervisor methods by making vm-exits transparent even in a nested-virtualization environment; however, there are other traces for anti-VMware, anti-VirtualBox, etc. methods and these methods are still problematic because, **HyperDbg** tries to hide itself from anti-debugging and anti-hypervisor methods and it won't hide VMware, VirtualBox, etc. thus, you need to run this command in a physical-machine \(not in a nested-virtualization environment\); otherwise you should find other traces for virtual machine software and solve those traces by yourself \(e.g., hooking anti-VMware APIs and Queries\).
 
+This command will continue the debuggee for some time \(in Debugger Mode\). This means that you lose the current context \(registers & memory\) after executing this command.
+
 ### Requirements
 
 None
