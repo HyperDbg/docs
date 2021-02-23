@@ -143,7 +143,11 @@ In the case of error :
 
 ### **Remarks**
 
-This command will continue the debuggee for some time \(in Debugger Mode\). This means that you lose the current context \(registers & memory\) after executing this command.
+{% hint style="danger" %}
+**Important note**
+
+If you are operating in [Debugger Mode](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/operation-modes#debugger-mode), you can enable or disable events while the debuggee is in a halt state. However, if you want to clear an event or all events then you lose the context as the debuggee is continued for some time to process the **clear** operation.
+{% endhint %}
 
 ### Requirements
 

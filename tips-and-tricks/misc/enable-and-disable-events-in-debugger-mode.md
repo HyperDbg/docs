@@ -74,5 +74,11 @@ HyperDbg> ? DisableEvent(0);
 
 In the above examples, we used [**EnableEvent**](https://docs.hyperdbg.com/commands/scripting-language/functions/enableevent) and [**DisableEvent**](https://docs.hyperdbg.com/commands/scripting-language/functions/disableevent) functions of script-engine using the '[?](https://docs.hyperdbg.com/commands/debugging-commands/eval)' command.
 
+{% hint style="danger" %}
+**Important note**
+
+If you are operating in [Debugger Mode](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/operation-modes#debugger-mode), you can enable or disable events while the debuggee is in a halt state. However, if you want to clear an event or all events then you lose the context as the debuggee is continued for some time to process the **clear** operation.
+{% endhint %}
+
 Using this way, we can solve the problem of losing some events in HyperDbg.
 
