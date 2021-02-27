@@ -10,6 +10,8 @@ This means that your commands will go through the routines from user-mode to ker
 
 It is clear that you'll lose the current context \(registers and memory\), and also your current process, which is under debugging, might find some time to continue its normal execution.
 
+One important note about HyperDbg is that whenever you want to create an event \(run an "**event**" command\), HyperDbg continues the debuggee; however, all the other events \(active events\) are ignored till the current event successfully applied; thus, HyperDbg might ignore some of the events during this process.
+
 Let's assume we triggered a breakpoint in our target process, and from now on, we want to monitor any syscall \(syscall = 0x55\) execution by that process. Clearly, if we use the [!syscall](https://docs.hyperdbg.com/commands/extension-commands/syscall) command, as it's an event, the debuggee will be continued, and we might lose some of the system-calls as we didn't apply the event \(syscall-hook\) immediately.
 
 **What's the solution to solve these problems?**
