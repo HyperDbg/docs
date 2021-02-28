@@ -40,7 +40,9 @@ Event forwarding is a one-way mechanism. This means you can just see the client'
 
 ### Format \(plain-text and JSON\)
 
-Event forwarding is only applied to script, which means that you can use the [Print](https://docs.hyperdbg.com/commands/scripting-language/functions/print) and the [Json](https://docs.hyperdbg.com/commands/scripting-language/functions/json) function to generate results that will be passed to the target output source.
+Event forwarding is only applied to script, which means that you can use the [**Print**](https://docs.hyperdbg.com/commands/scripting-language/functions/print) and the [**Printf**](https://docs.hyperdbg.com/commands/scripting-language/functions/printf) function to generate results that will be passed to the target output source.
+
+It's possible to create JSON results using the [**Printf**](https://docs.hyperdbg.com/commands/scripting-language/functions/printf) function.
 
 ### Examples
 
