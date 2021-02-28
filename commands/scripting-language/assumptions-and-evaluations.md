@@ -29,11 +29,10 @@ The following keywords are valid in **Script Engine**.
 | **dd** | Low 16 bits |
 | **dw** | Low 32 bits |
 | **dq** | 64 bits |
-| **str** | Read the address as an ANSII string |
-| **wstr** | Read the address as a wide-char string |
-| **sizeof** | Size of the target variable |
 | **not** | Flip each and every bit |
 | **neg** | True/False logic flipping |
+
+If you want to read strings and wide-strings, you can use [**Printf**](https://docs.hyperdbg.com/commands/scripting-language/functions/printf) function.
 
 ### Operators
 
@@ -78,7 +77,7 @@ The following functions are supported in **Script Engine**.
 | Function | Description |
 | :--- | :--- |
 | **Print** | Print the result of an expression. [Read more... ](https://docs.hyperdbg.com/commands/scripting-language/functions/print) |
-| **Json** | Print the result as a JSON string. [Read more...](https://docs.hyperdbg.com/commands/scripting-language/functions/json) |
+| **Printf** | Print the result in a printf-style format. [Read more...](https://docs.hyperdbg.com/commands/scripting-language/functions/printf) |
 | **Break** | Halt the system and give control to the debugger. [Read more...](https://docs.hyperdbg.com/commands/scripting-language/functions/break) |
 | **EnableEvent** | Enable an event. [Read more...](https://docs.hyperdbg.com/commands/scripting-language/functions/enableevent) |
 | **DisableEvent** | Disable an event. [Read more...](https://docs.hyperdbg.com/commands/scripting-language/functions/disableevent) |

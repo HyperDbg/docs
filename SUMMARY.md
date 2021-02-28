@@ -107,7 +107,6 @@
   * [Functions](commands/scripting-language/functions/README.md)
     * [Print](commands/scripting-language/functions/print.md)
     * [Printf](commands/scripting-language/functions/printf.md)
-    * [Json](commands/scripting-language/functions/json.md)
     * [Break](commands/scripting-language/functions/break.md)
     * [EnableEvent](commands/scripting-language/functions/enableevent.md)
     * [DisableEvent](commands/scripting-language/functions/disableevent.md)
