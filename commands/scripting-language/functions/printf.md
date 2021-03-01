@@ -83,5 +83,5 @@ You can see more examples [here](https://docs.hyperdbg.com/commands/scripting-la
 
 ### **Remarks**
 
-You should consider avoiding ["unsafe" behavior](https://docs.hyperdbg.com/tips-and-tricks/considerations/the-unsafe-behavior) in your expressions.
+You should consider avoiding ["unsafe" behavior](https://docs.hyperdbg.com/tips-and-tricks/considerations/the-unsafe-behavior) in your expressions and strings.
 
