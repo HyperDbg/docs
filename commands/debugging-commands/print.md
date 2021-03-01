@@ -48,18 +48,6 @@ The following command shows the value of an address, which first, **rax** regist
 HyperDbg> print poi(@rax+a0)
 ```
 
-The following command shows the **$proc** \(current `_EPROCESS`\) added with **0x10**, then a dereference occurs, and the target pointer in the dereferenced location is shown as a wide-char string.
-
-```diff
-HyperDbg> print wstr(poi($proc+10))
-```
-
-The following command shows the **$proc** \(current `_EPROCESS`\) added with **0x10**, ****then a dereference occurs, and the target pointer in the dereferenced location is shown as an ASCII string.
-
-```diff
-HyperDbg> print str(poi($proc+10))
-```
-
 ### IOCTL
 
 This commands works over serial by sending the serial packets to the remote computer.
