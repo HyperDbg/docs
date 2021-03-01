@@ -24,9 +24,9 @@ Evaluates and prints a MASM expression.
 
 ### Examples
 
-`print(str(@rcx));`
+`print(@rcx);`
 
-Print data as an ASCII string pointed by **rcx** register.
+Print **rcx** register.
 
 `print(dq(@rcx));`
 

@@ -7,18 +7,18 @@ description: Example of valid expressions to read the state of the system
 ### Examples
 
 ```text
-print(str(@rcx));
+printf("Result : %s", @rcx));
 print(dq(@rcx));
 print($proc+@rdx);
 print(poi(@rax+a0));
-print(wstr(poi($proc+10)));print(str(poi($proc+10)));
+printf("Result : %ws", poi($proc+10)); print("Result : %s", poi($proc+10));
 print(dw(NtCreateFile+10));
 print(dw(NtCreateFile+@rcx+($proc|3+poi(poi(@rax)))));
 ```
 
 ### Description
 
-`print(str(@rcx));`
+`printf("Result : %s", @rcx);`
 
 Print data as an ASCII string pointed by **rcx** register.
 
@@ -34,7 +34,7 @@ Print value pointed by `$proc+@rdx`  which **$proc** is equivalent to current `_
 
 Print value of an address, which first, **rax** register is added with **0xa0** constant then a dereference occurs and the target is shown as a QWORD hex.
 
-`print(wstr(poi($proc+10)));print(str(poi($proc+10)));`
+`print("Result : %ws", poi($proc+10)); print("Result : %s"poi($proc+10));`
 
 Two values, first is **$proc** \(current `_EPROCESS`\) added with **0x10**, then a dereference occurs, and the target pointer in the dereferenced location is shown as a wide-char string.
 

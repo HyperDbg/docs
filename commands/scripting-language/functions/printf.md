@@ -32,7 +32,6 @@ Evaluates and prints a MASM expression.
 | **%s** | String |
 | **%ws** | Wide-String |
 | **%ls** | Wide-String |
-| **%lc** | Character \(wchar\_t\) |
 
 ### Integer Format Specifiers \(Long\)
 
@@ -66,7 +65,7 @@ Evaluates and prints a MASM expression.
 
 ### Examples
 
-`print(str(@rcx));`
+`print(@rcx);`
 
 Print data as an ASCII string pointed by **rcx** register.
 
