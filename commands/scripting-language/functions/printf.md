@@ -10,13 +10,17 @@
 
 ### Parameters
 
-\[Expression\]
+\[Format\]
 
-         A [MASM-like expression](https://docs.hyperdbg.com/commands/scripting-language/assumptions-and-evaluations) to evaluate.
+         A printf-like format string.
+
+\[Expression\] \[...\]
+
+         [MASM-like expression\(s\)](https://docs.hyperdbg.com/commands/scripting-language/assumptions-and-evaluations) to evaluate, you can choose multiple expressions based on your "**Format**"
 
 ### Description
 
-Evaluates and prints a MASM expression.
+Evaluates and prints a printf-like format string with MASM expression\(s\).
 
 ### Supported Format Specifiers
 
@@ -65,17 +69,13 @@ Evaluates and prints a MASM expression.
 
 ### Examples
 
-`print(@rcx);`
+`printf("Result is %s", @rcx);`
 
 Print data as an ASCII string pointed by **rcx** register.
 
-`print(dq(@rcx));`
+`print("The value is %llx and the string is : %ws "dq(@rcx), poi(rax));`
 
-Print data as an 8-byte hex, pointed by **rcx** register.
-
-`print($proc+@rdx);`
-
-Print value pointed by `$proc+@rdx`  which **$proc** is equivalent to current `_EPROCESS`  added to the **rdx** register.
+Print and evaluate the above expressions. Note that **%ws** is a wide-string pointed by **rax** register. Also, the value of **rcx** register is also dereferenced and showed in quad-hex format.
 
 {% hint style="success" %}
 You can see more examples [here](https://docs.hyperdbg.com/commands/scripting-language/examples/view-system-state).
