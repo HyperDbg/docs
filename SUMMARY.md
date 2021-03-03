@@ -42,6 +42,7 @@
   * [events \(show and modify active/disabled events\)](commands/debugging-commands/events.md)
   * [p \(step-over\)](commands/debugging-commands/p.md)
   * [t \(step-in\)](commands/debugging-commands/t.md)
+  * [r \(read or modify registers\)](commands/debugging-commands/r.md)
   * [bp \(set breakpoint\)](commands/debugging-commands/bp.md)
   * [g \(continue debuggee or processing kernel packets\)](commands/debugging-commands/g.md)
   * [db, dc, dd, dq \(read virtual memory\)](commands/debugging-commands/d.md)
