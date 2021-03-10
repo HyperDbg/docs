@@ -148,3 +148,9 @@ The seeds that user-mode codes use as the starter of their output source tag.
 #define DebuggerOutputSourceTagStartSeed 0x1
 ```
 
+The following option changes the maximum number of breakpoints \('[bp](https://docs.hyperdbg.com/commands/debugging-commands/bp)' command\) that the user can put into the entire system before continuing the debuggee. If you continue the debuggee and send an IOCTL, HyperDbg will reset this number.
+
+```c
+#define MAXIMUM_BREAKPOINTS_WITHOUT_CONTINUE 50
+```
+
