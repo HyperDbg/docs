@@ -32,7 +32,37 @@ If you don't specify any parameters to the 'r' command, it shows all general-pur
 
 ### Examples
 
-_Todo_
+```text
+HyperDbg> r
+RAX=ffff948cc1ba4780 RBX=ffff948cc02f19e0 RCX=0000000000000024
+RDX=0000000000000000 RSI=0000000000000000 RDI=ffff948cc23403a0
+RIP=fffff80168d91262 RSP=ffff9305483f3698 RBP=0000000000000002
+R8=0000000000000000  R9=0000000000000000  R10=0000000048564653
+R11=0000564d43414c4c R12=4e4f485950455256 R13=0000000000000000
+R14=ffff948cc23403a0 R15=ffff948cc05556b0 IOPL=00
+OF 0  DF 0  IF 1  SF  0
+ZF 1  PF 1  CF 0  AXF 0
+CS=0010 SS=0018 DS=002b ES=002b FS=0053 GS=002b
+RFLAGS=0000000000040246
+```
+
+```text
+HyperDbg> r rax
+rax=ffff948cc1ba4780
+```
+
+```text
+HyperDbg> r cs
+cs=0000000000000010
+```
+
+```text
+HyperDbg> r rax = 10
+```
+
+```text
+HyperDbg> r rcx = rax + rdx + 10
+```
 
 ### IOCTL
 
