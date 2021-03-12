@@ -32,7 +32,9 @@ If you don't specify any parameters to the 'r' command, it shows all general-pur
 
 ### Examples
 
-```text
+If you want to see all general purpose and segment registers.
+
+```bash
 HyperDbg> r
 RAX=ffff948cc1ba4780 RBX=ffff948cc02f19e0 RCX=0000000000000024
 RDX=0000000000000000 RSI=0000000000000000 RDI=ffff948cc23403a0
@@ -46,19 +48,27 @@ CS=0010 SS=0018 DS=002b ES=002b FS=0053 GS=002b
 RFLAGS=0000000000040246
 ```
 
+If you want to see one special register \(e.g., `rax`\).
+
 ```text
 HyperDbg> r rax
 rax=ffff948cc1ba4780
 ```
+
+If you want to see one special register \(e.g., `cs`\).
 
 ```text
 HyperDbg> r cs
 cs=0000000000000010
 ```
 
+If you want to change a register to a constant hex value.
+
 ```text
 HyperDbg> r rax = 10
 ```
+
+If you want to change a register to a new value which is the result of an expression.
 
 ```text
 HyperDbg> r rcx = rax + rdx + 10
