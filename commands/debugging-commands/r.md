@@ -76,7 +76,47 @@ HyperDbg> r rcx = rax + rdx + 10
 
 ### IOCTL
 
-_Todo_
+This commands works over serial by sending the serial packets to the remote computer.
+
+First of all, you should fill the following structure, set the `RegisterId` to your special register number, which is an ID from `REGS_ENUM` enum.
+
+If you want to view all the registers, then you should set `RegisterID` to `DEBUGGEE_SHOW_ALL_REGISTERS` .
+
+```c
+typedef struct _DEBUGGEE_REGISTER_READ_DESCRIPTION {
+
+  UINT32 RegisterID; // the number is from REGS_ENUM
+  UINT64 Value;
+  UINT32 KernelStatus;
+
+} DEBUGGEE_REGISTER_READ_DESCRIPTION, *PDEBUGGEE_REGISTER_READ_DESCRIPTION;
+```
+
+The next step is sending the above structure to the debuggee when debuggee is paused and waiting for new command on **vmx-root** mode.
+
+You should send the above structure with `DEBUGGER_REMOTE_PACKET_REQUESTED_ACTION_ON_VMX_ROOT_READ_REGISTERS` as `RequestedAction` and `DEBUGGER_REMOTE_PACKET_TYPE_DEBUGGER_TO_DEBUGGEE_EXECUTE_ON_VMX_ROOT` as `PacketType`.
+
+In return, the debuggee sends the above structure with the following type.
+
+```c
+DEBUGGER_REMOTE_PACKET_REQUESTED_ACTION_DEBUGGEE_RESULT_OF_READING_REGISTERS
+```
+
+In the returned structure, the `KernelStatus` is filled by the kernel.
+
+If the `KernelStatus` is `DEBUGEER_OPERATION_WAS_SUCCESSFULL`, then the operation was successful. Otherwise, the returned result is an error.
+
+The following function is responsible for sending read register buffers in the debugger.
+
+```c
+BOOLEAN KdSendReadRegisterPacketToDebuggee(PDEBUGGEE_REGISTER_READ_DESCRIPTION RegDes);
+```
+
+If you specified `DEBUGGEE_SHOW_ALL_REGISTERS` then the debuggee sends the registers with two buffers that are appended. The first buffer is `GUEST_REGS` and the second buffer is `GUEST_EXTRA_REGISTERS`. 
+
+The first buffer contains general-purpose registers, and the second buffer contains other registers, including segment registers.
+
+Note that modifying registers are performed through script-engine as we might need the evaluation of expressions to get the register's value.
 
 ### **Remarks**
 
