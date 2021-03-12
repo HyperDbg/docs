@@ -36,6 +36,26 @@ typedef struct _DEBUGGER_FLUSH_LOGGING_BUFFERS {
 
 You don't need to fill anything from the above structure. The kernel will fill the structure, and if the `KernelStatus` was equal to `DEBUGEER_OPERATION_WAS_SUCCESSFULL`, then you can see the count of messages that are deleted from the vmx-root buffer from `CountOfMessagesThatSetAsReadFromVmxRoot` and vmx non-root buffer from `CountOfMessagesThatSetAsReadFromVmxNonRoot`.
 
+In the debugger-mode, HyperDbg uses the exact same structure, you should send the above structure over serial to the debuggee which is paused in **vmx-root** mode.  
+
+You should send the above structure with `DEBUGGER_REMOTE_PACKET_REQUESTED_ACTION_ON_VMX_ROOT_MODE_FLUSH_BUFFERS` as `RequestedAction` and `DEBUGGER_REMOTE_PACKET_TYPE_DEBUGGER_TO_DEBUGGEE_EXECUTE_ON_VMX_ROOT` as `PacketType`.
+
+In return, the debuggee sends the above structure with the following type.
+
+```c
+DEBUGGER_REMOTE_PACKET_REQUESTED_ACTION_DEBUGGEE_RESULT_OF_FLUSH
+```
+
+In the returned structure, the `KernelStatus` is filled by the kernel.
+
+If the `KernelStatus` is `DEBUGEER_OPERATION_WAS_SUCCESSFULL`, then the operation was successful. Otherwise, the returned result is an error.
+
+The following function is responsible for sending flushing buffers in the debugger.
+
+```c
+BOOLEAN KdSendFlushPacketToDebuggee();
+```
+
 ### **Remarks**
 
 You can configure **autoflush** mode in [settings](https://docs.hyperdbg.com/commands/debugging-commands/settings). This way, **HyperDbg** removes the pending messages automatically when you **disabled** or **cleared** an event.
