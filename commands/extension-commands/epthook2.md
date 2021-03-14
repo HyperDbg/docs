@@ -134,9 +134,9 @@ This command is much faster than **!epthook**, but it has the following limitati
 * `r11` is modified in the hook, so you need to make sure that the target address doesn't use this register \(at least at that point of the program\). If you need the `r11` compile the HyperDbg with another register \(change the register in `EptHookWriteAbsoluteJump` and `EptHookWriteAbsoluteJump2`in `Ept.c`\).
 
 {% hint style="danger" %}
-You shouldn't use any of **!monitor**, **!epthook**, **bp**, and **!epthook2** commands on the same page \(4KB\) simultaneously. For example, when you put a hidden hook \(**!epthook2**\) on **0x10000005**, ****you shouldn't use any of **!monitor** or **!epthook** or **bp** commands on the address starting from **0x10000000** to **0x10000fff**.
+You shouldn't use any of **!monitor**, **!epthook**, and **!epthook2** commands on the same page \(4KB\) simultaneously. For example, when you put a hidden hook \(**!epthook2**\) on **0x10000005**, ****you shouldn't use any of **!monitor** or **!epthook** commands on the address starting from **0x10000000** to **0x10000fff**.
 
- You can use **!epthook** or **bp** \(just _**!epthook**_ not **!epthook2** and not **!monitor**\) on two or more addresses on the same page \(means that you can use the **!epthook** or **bp** multiple times for addresses between a single page or putting multiple hidden breakpoints on a single page\). But you can't use **!monitor** or **!epthook2** twice on the same page.
+ You can use **!epthook** \(just _**!epthook**_ not **!epthook2** and not **!monitor**\) on two or more addresses on the same page \(means that you can use the **!epthook** multiple times for addresses between a single page or putting multiple hidden breakpoints on a single page\). But you can't use **!monitor** or **!epthook2** twice on the same page.
 {% endhint %}
 
 This is an event command, but in the current version of HyperDbg \(in Debugger Mode\), this command will continue the debuggee for some time; however, you can use [this trick](https://docs.hyperdbg.com/tips-and-tricks/misc/enable-and-disable-events-in-debugger-mode) to make sure you won't lose any event.
