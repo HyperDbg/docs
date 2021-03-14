@@ -32,11 +32,11 @@ If you use the 'bp' command, **HyperDbg** won't hide your breakpoint for the app
 
 **\[pid \| tid \| core \(hex value\)\]** \(optional\)
 
-          Optional value to trigger breakpoint in just one special process or one special thread, or one special core. Add `pid xx` to your command or `tid yy` or `core zz`; thus, the command will be executed if the process id is equal to `xx` or thread id is equal to `yy` or core is equal to `zz` . If you don't specify these options, then by default, you receive breakpoints on all conditions.
+          Optional value to trigger breakpoint in just one special process or one special thread, or one special core. Add `pid xx` to your command or `tid yy` or `core zz`; thus, the command will be executed if the process id is equal to `xx` or thread id is equal to `yy` or core is equal to `zz` . If you don't specify these options, then by default, you receive breakpoints on all conditions. See the **Remarks** section for more information about **pid**.
 
 ### Context
 
-As the **Context**, **HyperDbg** sends the **virtual** address of where the breakpoint is triggered.
+As the **Context**, **HyperDbg** sends the **virtual** address of where the breakpoint is triggered \(`RIP` of the triggered breakpoint\).
 
 ### Examples
 
@@ -75,6 +75,8 @@ id   address           status
 _Todo_
 
 ### **Remarks**
+
+In this command, **`pid xx`** does not mean that we will change the layout to a new process, it means that the address should be available in the current process layout but will be triggered only on the process with process id equal to **`xx`**, you can use the '[.process](https://docs.hyperdbg.com/commands/meta-commands/.process)' command to switch to a new process if you want to put a breakpoint on the layout of another process. 
 
 This command is guaranteed to keep debuggee in a halt state \(in Debugger Mode\); thus, nothing will change during its execution.
 
