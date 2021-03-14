@@ -20,6 +20,10 @@ Puts a hidden breakpoint \(0xcc\) on the target function in user-mode and kernel
 This implementation of the hidden hook causes vm-exit when it triggers. A faster implementation of EPT hidden hooks is [!epthook2](https://docs.hyperdbg.com/commands/extension-commands/epthook2), which is without vm-exits. Still, it has some limitations, as described in the documentation.
 {% endhint %}
 
+{% hint style="danger" %}
+If you want to keep the current context without continuing the debuggee, you should use the '[bp](https://docs.hyperdbg.com/commands/debugging-commands/bp)' command instead.
+{% endhint %}
+
 ### Parameters
 
 **\[address\]**
@@ -125,8 +129,6 @@ Use `HIDDEN_HOOK_EXEC_CC` as **EventType**, ****and send the address of where yo
 Take a look at "[Design of !epthook](https://docs.hyperdbg.com/design/features/vmm-module/design-of-epthook)" to see how does it work.
 
 ### **Remarks**
-
-In **HyperDbg**, '!epthook' and the '[bp](https://docs.hyperdbg.com/commands/debugging-commands/bp)' command are the same.
 
 This command is much slower than **!epthook2**, ****because it cause vm-exits, but on the other hand, this implementation doesn't have any limitation. For example, you can use this command for hooking user-mode while you can't use **!epthook2** on user-mode.
 
