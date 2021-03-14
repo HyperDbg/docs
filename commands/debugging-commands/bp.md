@@ -10,14 +10,18 @@ description: Description of 'bp' command in HyperDbg.
 
 ### Syntax
 
-> bp \[address\] \[pid \(hex value\)\] \[core \(hex value\)\] \[imm \(yes\|no\)\] \[event options\]
+> bp \[address\] \[ pid \| tid \| core \(hex value\)\]
 
 ### Description
 
-Puts a hidden breakpoint \(**0xcc**\) on the target function in user-mode and kernel-mode without modifying the content of memory in the case of reading/writing.
+Puts a breakpoint \(**0xcc**\) on the target function in user-mode and kernel-mode.
+
+{% hint style="danger" %}
+In **HyperDbg**, the 'bp' breakpoints are not [events](https://docs.hyperdbg.com/design/debugger-internals/events). If you want to use breakpoint in an event-like form \(e.g., if you want to create logs using script-engine\), you should use [!epthook](https://docs.hyperdbg.com/commands/extension-commands/epthook) command instead.
+{% endhint %}
 
 {% hint style="info" %}
-In **HyperDbg**, the 'bp' command is the same as the '[!epthook](https://docs.hyperdbg.com/commands/extension-commands/epthook)' command.
+If you use the 'bp' command, **HyperDbg** won't hide your breakpoint for the applications that read the memory. The only reason to use '**bp**' instead of [!epthook](https://docs.hyperdbg.com/commands/extension-commands/epthook) is that '**bp**' is guaranteed to keep debuggee in a halt state \(in Debugger Mode\); thus, nothing will change during its execution. However, the in [!epthook](https://docs.hyperdbg.com/commands/extension-commands/epthook) the guest will be continued for some times and you lose the current context.
 {% endhint %}
 
 ### Parameters
@@ -26,21 +30,9 @@ In **HyperDbg**, the 'bp' command is the same as the '[!epthook](https://docs.hy
 
           The **Virtual** address of where we want to put a breakpoint.
 
-**\[pid \(hex value\)\]**
+**\[pid \| tid \| core \(hex value\)\]** \(optional\)
 
-          Optional value to trigger the event in just a specific process. Add `pid xx` to your command; thus, the command will be executed if the process id is equal to `xx`. If you don't specify this option, then by default, you receive events on all processes.
-
-**\[core \(hex value\)\]**
-
-          Optional value to trigger the event in just a specific core. Add `core xx` to your command thus command will be executed if core id is equal to `xx`. If you don't specify this option, then by default, you receive events on all cores.
-
-**\[imm \(yes\|no\)\]**
-
-          Optional value in which `yes` means the results \(printed texts in scripts\) should be delivered immediately to the debugger. `no` means that the results can be accumulated and delivered as a couple of messages when the buffer is full; thus, it's substantially faster but not real-time. By default, this value is set to  `yes`.
-
-**\[event options\]**
-
-          Regular event parameters are used in HyperDbg events. \(For more information, read [this ](https://docs.hyperdbg.com/using-hyperdbg/prerequisites)topic\)
+          Optional value to trigger breakpoint in just one special process or one special thread or one special core. Add `pid xx` to your command or `tid yy` or `core zz`; thus, the command will be executed if the process id is equal to `xx` or thread id is equal to `yy` or core is equal to `zz` . If you don't specify these options, then by default, you receive breakpoints on all conditions.
 
 ### Context
 
