@@ -38,6 +38,10 @@ If you use the 'bp' command, **HyperDbg** won't hide your breakpoint for the app
 
 As the **Context**, **HyperDbg** sends the **virtual** address of where the breakpoint is triggered.
 
+### Examples
+
+_Todo_
+
 ### IOCTL
 
 _Todo_
