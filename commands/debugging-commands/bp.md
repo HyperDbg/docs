@@ -17,7 +17,7 @@ description: Description of 'bp' command in HyperDbg.
 Puts a breakpoint \(**0xcc**\) on the target function in user-mode and kernel-mode.
 
 {% hint style="danger" %}
-In **HyperDbg**, the 'bp' breakpoints are not [events](https://docs.hyperdbg.com/design/debugger-internals/events). If you want to use breakpoint in an event-like form \(e.g., if you want to create logs using script-engine\), you should use [!epthook](https://docs.hyperdbg.com/commands/extension-commands/epthook) command instead.
+In **HyperDbg**, the 'bp' breakpoints are **NOT** [events](https://docs.hyperdbg.com/design/debugger-internals/events). If you want to use breakpoint in an event-like form \(e.g., if you want to create logs using script-engine\), you should use [!epthook](https://docs.hyperdbg.com/commands/extension-commands/epthook) command instead.
 {% endhint %}
 
 {% hint style="info" %}
