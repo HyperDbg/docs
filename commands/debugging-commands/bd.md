@@ -24,7 +24,35 @@ Disables a previously enabled breakpoint \(**0xcc**\).
 
 ### Examples
 
-_Todo_
+Imagine we have the following active breakpoints.
+
+```text
+HyperDbg> bl
+id   address           status
+--   ---------------   --------
+01   fffff801639b1030  enabled
+02   fffff801639b1035  enabled
+03   fffff801639b103a  enabled
+04   fffff801639b103f  enabled
+```
+
+After executing the following command, it's now disabled.
+
+```text
+HyperDbg> bd 2
+```
+
+If we see the list of active breakpoints again, you can see that it's disabled.
+
+```text
+HyperDbg> bl
+id   address           status
+--   ---------------   --------
+01   fffff801639b1030  enabled
+02   fffff801639b1035  disabled
+03   fffff801639b103a  enabled
+04   fffff801639b103f  enabled
+```
 
 ### IOCTL
 

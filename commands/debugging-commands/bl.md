@@ -22,7 +22,17 @@ None
 
 ### Examples
 
-_Todo_
+The following command shows how you can use the 'bl' command.
+
+```text
+HyperDbg> bl
+id   address           status
+--   ---------------   --------
+01   fffff801639b1030  enabled
+02   fffff801639b1035  enabled
+03   fffff801639b103a  enabled
+04   fffff801639b103f  enabled
+```
 
 ### IOCTL
 

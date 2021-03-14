@@ -24,7 +24,34 @@ Clears and removes a breakpoint \(**0xcc**\).
 
 ### Examples
 
-_Todo_
+Imagine we have the following active breakpoints.
+
+```text
+HyperDbg> bl
+id   address           status
+--   ---------------   --------
+01   fffff801639b1030  enabled
+02   fffff801639b1035  enabled
+03   fffff801639b103a  enabled
+04   fffff801639b103f  enabled
+```
+
+After executing the following command, it's now removed.
+
+```text
+HyperDbg> bc 2
+```
+
+If we see the list of active breakpoints again, you can see that it's removed.
+
+```text
+HyperDbg> bl
+id   address           status
+--   ---------------   --------
+01   fffff801639b1030  enabled
+03   fffff801639b103a  enabled
+04   fffff801639b103f  enabled
+```
 
 ### IOCTL
 
