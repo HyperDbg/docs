@@ -32,11 +32,11 @@ If you use the 'bp' command, **HyperDbg** won't hide your breakpoint for the app
 
 **\[pid \| tid \| core \(hex value\)\]** \(optional\)
 
-          Optional value to trigger breakpoint in just one special process or one special thread, or one special core. Add `pid xx` to your command or `tid yy` or `core zz`; thus, the command will be executed if the process id is equal to `xx` or thread id is equal to `yy` or core is equal to `zz` . If you don't specify these options, then by default, you receive breakpoints on all conditions. See the **Remarks** section for more information about **pid**.
+          Optional value to trigger breakpoint in just one special process or one special thread, or one special core. Add `pid xx` to your command or `tid yy` or `core zz`; thus, the command will be executed if the process id is equal to `xx` or the thread id is equal to `yy` or the core is equal to `zz` . If you don't specify these options, then by default, you receive breakpoints on all conditions. See the **Remarks** section for more information about **pid**.
 
 ### Context
 
-As the **Context**, **HyperDbg** sends the **virtual** address of where the breakpoint is triggered \(`RIP` of the triggered breakpoint\).
+As the **Context**, HyperDbg sends the **virtual** address of where the breakpoint is triggered \(`RIP` of the triggered breakpoint\).
 
 ### Examples
 
