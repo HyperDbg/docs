@@ -38,7 +38,7 @@ id   address           status
 
 This commands works over serial by sending the serial packets to the remote computer.
 
-First of all, you should fill the following structure, set the `BreakpointId` to your special breakpoint id, which is derived from the '[bl](https://docs.hyperdbg.com/commands/debugging-commands/bl)' command.
+First of all, you should fill the following structure, set the `BreakpointId` to your special breakpoint id, which is derived from the 'bl' command.
 
 ```c
 typedef struct _DEBUGGEE_BP_LIST_OR_MODIFY_PACKET {

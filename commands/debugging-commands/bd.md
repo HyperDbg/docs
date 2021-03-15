@@ -42,7 +42,7 @@ After executing the following command, it's now disabled.
 HyperDbg> bd 2
 ```
 
-If we see the list of active breakpoints again, you can see that it's disabled.
+If you see the list of active breakpoints again, you can see that it's disabled.
 
 ```text
 HyperDbg> bl

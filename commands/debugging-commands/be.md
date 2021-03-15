@@ -42,7 +42,7 @@ After executing the following command, it's now enabled.
 HyperDbg> be 2
 ```
 
-If we see the list of active breakpoints again, you can see that it's enabled.
+If you see the list of active breakpoints again, you can see that it's enabled.
 
 ```text
 HyperDbg> bl

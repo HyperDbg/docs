@@ -42,7 +42,7 @@ After executing the following command, it's now removed.
 HyperDbg> bc 2
 ```
 
-If we see the list of active breakpoints again, you can see that it's removed.
+If you see the list of active breakpoints again, you can see that it's removed.
 
 ```text
 HyperDbg> bl
