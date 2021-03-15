@@ -104,9 +104,9 @@ DEBUGGER_REMOTE_PACKET_REQUESTED_ACTION_DEBUGGEE_RESULT_OF_LIST_OR_MODIFY_BREAKP
 
 In the returned structure, the `Result` is filled by the kernel.
 
-If the `KernelStatus` is `DEBUGEER_OPERATION_WAS_SUCCESSFULL`, then the operation was successful. Otherwise, the returned result is an error.
+If the `Result` is `DEBUGEER_OPERATION_WAS_SUCCESSFULL`, then the operation was successful. Otherwise, the returned result is an error.
 
-The following function is responsible for sending read register buffers in the debugger.
+The following function is responsible for sending list/modify breakpoint buffers in the debugger.
 
 ```c
 BOOLEAN KdSendListOrModifyPacketToDebuggee(PDEBUGGEE_BP_LIST_OR_MODIFY_PACKET ListOrModifyPacket);
