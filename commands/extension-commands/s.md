@@ -122,7 +122,7 @@ You can read the result buffer as an `UINT64` array, and if you encounter a null
 * You can search for as many bytes as you need in **byte**, **dword**, and **qword** formats. Just add the multiple byte\(s\) values to the end of the command. 
 * In the current implementation of **physical** memory search, the address should also be available and mapped to the target process's **virtual** address space.
 
-This command is guaranteed to keep debuggee in a halt state \(in Debugger Mode\); thus, nothing will change during its execution.
+This command will continue the debuggee for some time \(in Debugger Mode\). This means that you lose the current context \(registers & memory\) after executing this command.
 
 ### Requirements
 

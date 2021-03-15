@@ -56,7 +56,61 @@ id   address           status
 
 ### IOCTL
 
-_Todo_
+This commands works over serial by sending the serial packets to the remote computer.
+
+First of all, you should fill the following structure, set the `BreakpointId` to your special breakpoint id, which is derived from the '[bl](https://docs.hyperdbg.com/commands/debugging-commands/bl)' command.
+
+```c
+typedef struct _DEBUGGEE_BP_LIST_OR_MODIFY_PACKET {
+
+  UINT64 BreakpointId;
+  DEBUGGEE_BREAKPOINT_MODIFICATION_REQUEST Request;
+  UINT32 Result;
+
+} DEBUGGEE_BP_LIST_OR_MODIFY_PACKET, *PDEBUGGEE_BP_LIST_OR_MODIFY_PACKET;
+```
+
+In the request field, choose one of the actions from the following enum.
+
+```c
+typedef enum _DEBUGGEE_BREAKPOINT_MODIFICATION_REQUEST {
+
+  DEBUGGEE_BREAKPOINT_MODIFICATION_REQUEST_LIST_BREAKPOINTS,
+  DEBUGGEE_BREAKPOINT_MODIFICATION_REQUEST_ENABLE,
+  DEBUGGEE_BREAKPOINT_MODIFICATION_REQUEST_DISABLE,
+  DEBUGGEE_BREAKPOINT_MODIFICATION_REQUEST_CLEAR,
+
+} DEBUGGEE_BREAKPOINT_MODIFICATION_REQUEST;
+```
+
+In the case of `Request`:
+
+* If you want to list all the active breakpoint, then choose `DEBUGGEE_BREAKPOINT_MODIFICATION_REQUEST_LIST_BREAKPOINTS`.
+* If you want to enable a breakpoint, then choose `DEBUGGEE_BREAKPOINT_MODIFICATION_REQUEST_ENABLE`.
+* If you want to disable a breakpoint, then choose `DEBUGGEE_BREAKPOINT_MODIFICATION_REQUEST_DISABLE`.
+* If you want to list clear and remove a breakpoint, then choose `DEBUGGEE_BREAKPOINT_MODIFICATION_REQUEST_CLEAR`.
+
+Note that if you want to list breakpoints, there is no need to fill `BreakpointId`and HyperDbg will ignore it.
+
+The next step is sending the above structure to the debuggee when debuggee is paused and waiting for new command on **vmx-root** mode.
+
+You should send the above structure with `DEBUGGER_REMOTE_PACKET_REQUESTED_ACTION_ON_VMX_ROOT_LIST_OR_MODIFY_BREAKPOINTS` as `RequestedAction` and `DEBUGGER_REMOTE_PACKET_TYPE_DEBUGGER_TO_DEBUGGEE_EXECUTE_ON_VMX_ROOT` as `PacketType`.
+
+In return, the debuggee sends the above structure with the following type.
+
+```c
+DEBUGGER_REMOTE_PACKET_REQUESTED_ACTION_DEBUGGEE_RESULT_OF_LIST_OR_MODIFY_BREAKPOINTS
+```
+
+In the returned structure, the `Result` is filled by the kernel.
+
+If the `KernelStatus` is `DEBUGEER_OPERATION_WAS_SUCCESSFULL`, then the operation was successful. Otherwise, the returned result is an error.
+
+The following function is responsible for sending read register buffers in the debugger.
+
+```c
+BOOLEAN KdSendListOrModifyPacketToDebuggee(PDEBUGGEE_BP_LIST_OR_MODIFY_PACKET ListOrModifyPacket);
+```
 
 ### **Remarks**
 
