@@ -42,6 +42,7 @@
   * [events \(show and modify active/disabled events\)](commands/debugging-commands/events.md)
   * [p \(step-over\)](commands/debugging-commands/p.md)
   * [t \(step-in\)](commands/debugging-commands/t.md)
+  * [i \(instrument step-in\)](commands/debugging-commands/i.md)
   * [r \(read or modify registers\)](commands/debugging-commands/r.md)
   * [bp \(set breakpoint\)](commands/debugging-commands/bp.md)
   * [bl \(list breakpoints\)](commands/debugging-commands/bl.md)
