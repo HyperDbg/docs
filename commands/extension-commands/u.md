@@ -26,11 +26,11 @@ Shows the assembly regarding memory content at the **physical** address hex form
 
 ### Parameters
 
-\[Address\]
+**\[Address\]**
 
           The **physical** address of where we want to start to disassemble its memory
 
-l \[Length\] \(optional\)
+**l \[Length\] \(optional\)**
 
           The length \(byte\) in hex format
 

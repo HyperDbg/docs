@@ -14,7 +14,7 @@ description: Description of 'EnableEvent' function in HyperDbg Scripts
 
 ### Parameters
 
-\[EventId \(int\)\]
+**\[EventId \(int\)\]**
 
          Event ID of the event that needs to be activated.
 

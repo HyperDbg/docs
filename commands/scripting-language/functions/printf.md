@@ -14,11 +14,11 @@ description: Description of 'Printf' function in HyperDbg Scripts
 
 ### Parameters
 
-\[Format-string\]
+**\[Format-string\]**
 
          A printf-like format string.
 
-\[Expression\] \[...\]
+**\[Expression\] \[...\]**
 
          [MASM-like expression\(s\)](https://docs.hyperdbg.com/commands/scripting-language/assumptions-and-evaluations) to evaluate, you can choose multiple expressions based on  the format string
 
