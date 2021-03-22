@@ -18,6 +18,10 @@ description: Description of 't' command in HyperDbg.
 
 Executes a single instruction \(step-in\) and optionally displays the resulting values of all registers and flags.
 
+{% hint style="success" %}
+The difference between this command and the '[i](https://docs.hyperdbg.com/commands/debugging-commands/i)' command is that, in the '[i](https://docs.hyperdbg.com/commands/debugging-commands/i)' command, no other cores and other threads find a chance to be executed during the stepping process; the system is fully halted, and only the current core will execute just one instruction and halts again. However, in this command, all the threads and cores are continued until an instruction in the target thread is executed. This command won't follow the execution between different rings.
+{% endhint %}
+
 ### Parameters
 
 **\[count\] \(optional\)**
