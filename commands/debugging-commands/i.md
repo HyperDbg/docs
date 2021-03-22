@@ -19,7 +19,11 @@ description: Description of 'i' command in HyperDbg.
 Executes a single instruction \(step-in\) and optionally displays the resulting values of all registers and flags.
 
 {% hint style="success" %}
+The difference between this command and the '[t](https://docs.hyperdbg.com/commands/debugging-commands/t)' command is that no other cores and other threads find a chance to be executed during the stepping process; the system is fully halted, and only the current core will execute just one instruction and halts again.
+{% endhint %}
 
+{% hint style="info" %}
+This command gives you the ability to follow system-calls \(SYSCALLs\) and all the exceptions \(including **page-faults**\) from user-mode to kernel-mode and from kernel-mode to user-mode. For example, in the middle of executing one instruction in user-mode, a page-fault might happen, then if you use this command, the next instruction is in the kernel-mode **page-fault** handler. Another example, you can follow a _syscall_ from user-mode, then the next instruction is in kernel-mode **syscall handler**, and this way, you can trace the execution between different rings.
 {% endhint %}
 
 ### Parameters
