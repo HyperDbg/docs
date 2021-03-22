@@ -20,9 +20,9 @@ Executes a single instruction \(step-over\) and optionally displays the resultin
 
 ### Parameters
 
-**\[count\]**
+**\[count\] \(optional\)**
 
-          Count of step\(s\), or how many times perform the stepping operation.
+          Count of step\(s\), or how many times perform the stepping operation. If you don't set this argument, then by default, the **count** is `1`.
 
 ### Examples
 
@@ -65,7 +65,7 @@ fffff801`63a12b00    F6 44 24 10 01                      test byte ptr ss:[rsp+0
 
 This commands works over serial by sending the serial packets to the remote computer.
 
-First of all, you should fill the following structure, set the `StepType` to the type of step that you want to perform \(e.g., _step-in_, _step-over_, and _instrument step-in_\), and if it's a step-over \(only step-over\) then if the currently executing instruction is a call instruction, set the `IsCurrentInstructionACall` to `TRUE` and also set the length of the current call instruction \(if it's a call instruction\) to `CallLength`, so you can hint the debuggee to find the next instruction. In step-over and instrument step-over just set the `StepType` and set all the other members to **null**.
+First of all, you should fill the following structure, set the `StepType` to the type of step that you want to perform \(e.g., _step-in_, _step-over_, and _instrument step-in_\), and if it's a step-over \(only step-over\), then if the currently executing instruction is a **call** instruction, set the `IsCurrentInstructionACall` to `TRUE` and also set the length of the current call instruction \(if it's a call instruction\) to `CallLength`, so you can hint the debuggee to find the next instruction. In step-over and instrument step-over, just set the `StepType` and set all the other members to **null**.
 
 ```c
 typedef struct _DEBUGGEE_STEP_PACKET {
@@ -98,7 +98,7 @@ The next step is sending the above structure to the debuggee when debuggee is pa
 
 You should send the above structure with `DEBUGGER_REMOTE_PACKET_REQUESTED_ACTION_ON_VMX_ROOT_MODE_STEP` as `RequestedAction` and `DEBUGGER_REMOTE_PACKET_TYPE_DEBUGGER_TO_DEBUGGEE_EXECUTE_ON_VMX_ROOT` as `PacketType`.
 
-In return, the debuggee sends a pause packet, with the following type.
+In return, the debuggee sends a pause packet with the following type.
 
 ```c
 DEBUGGEE_PAUSING_REASON_DEBUGGEE_STEPPED
@@ -112,7 +112,11 @@ BOOLEAN KdSendStepPacketToDebuggee(DEBUGGER_REMOTE_STEPPING_REQUEST StepRequestT
 
 ### **Remarks**
 
-This command is guaranteed to keep debuggee in a halt state \(in Debugger Mode\); thus, nothing will change during its execution.
+This command will set a **trap flag** in debuggee and continue all the cores. After executing one instruction, it halts the debuggee again.
+
+If the target instruction is a call instruction, it configures the first hardware debug register breakpoint to the instruction after that call. After that, it continues the debuggee and waits for the call to be returned and the next instruction \(after the call\) to be executed.
+
+All cores and threads \(except the currently executing thread\) find a chance to be executed between each step in this type of stepping.
 
 ### Requirements
 
