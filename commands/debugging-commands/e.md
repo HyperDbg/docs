@@ -26,15 +26,15 @@ Edits the **virtual** address memory contents.
 
 ### Parameters
 
-\[Address\]
+**\[Address\]**
 
           The **virtual** address of where we want to edit its memory.
 
-\[new value \(hex\)\]
+**\[new value \(hex\)\]**
 
           The new contents in hex format
 
-pid \[process id\]  \(optional\)
+**pid \[process id\]  \(optional\)**
 
           The process ID in the hex format that we want to see the memory from its context \(**cr3**\).
 

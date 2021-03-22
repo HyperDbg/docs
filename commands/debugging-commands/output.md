@@ -10,7 +10,7 @@ description: Description of 'output' command in HyperDbg.
 
 ### Syntax
 
-> output \[create\|open\|close\] \[type \(file\|namedpipe\|tcp\)\] \[name\|address\]
+> output \[ create \| open \| close \] \[ type \(file \| namedpipe \| tcp\) \] \[ name \| address \]
 
 ### Description
 
@@ -20,15 +20,15 @@ You can read more about **event forwarding** [here](https://docs.hyperdbg.com/ti
 
 ### Parameters
 
-\[create\|open\|close\]
+**\[ create \| open \| close \]**
 
           The action of this command or whether this command tries to create a new output source or open an output source or close it.
 
-\[type \(file\|namedpipe\|tcp\)\]
+**\[ type \(file \| namedpipe \| tcp\) \]**
 
           In the case of creating an event, this parameter shows the type of the event.
 
-\[name\|address\]
+**\[ name \| address \]**
 
           In the case of "**create**", it shows the address of the remote source, and in the case of "**open**" or "**close**", it shows the name of the output source.
 

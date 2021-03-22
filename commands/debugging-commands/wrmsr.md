@@ -18,15 +18,15 @@ Write on the model-specific register using 'wrmsr' instruction.
 
 ### Parameters
 
-\[msr \(hex\) - ecx\]
+**\[msr \(hex\) - ecx\]**
 
           The index of MSR \(ECX Register for 'wrmsr' instruction\)
 
-\[value \(hex\) - edx:eax\]
+**\[value \(hex\) - edx:eax\]**
 
           The value to write on MSR \(edx:eax for 'wrmsr' instruction\)
 
-core \[core number\(hex\)\] \(optional\)
+**core \[core number\(hex\)\] \(optional\)**
 
           The core that we want to read the 'rdmsr' from
 

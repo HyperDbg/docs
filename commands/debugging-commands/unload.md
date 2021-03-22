@@ -18,7 +18,7 @@ Unloads the HyperDbg drivers and kernel modules from the target system.
 
 ### Parameters
 
-\[module name\]
+**\[module name\]**
 
           The name of the module that you want to unload
 

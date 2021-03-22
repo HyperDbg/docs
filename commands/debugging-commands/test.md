@@ -18,7 +18,7 @@ Tests the functionalities of HyperDbg in the running system.
 
 ### Parameters
 
-\[test-case number \(hex value\)\] \(optional\)
+**\[test-case number \(hex value\)\] \(optional\)**
 
           The number of special test-case. If you don't specify this parameter, then it will check all of the test-cases.
 

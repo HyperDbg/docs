@@ -20,7 +20,7 @@ Shows the loaded modules' base address, size, name, full path.
 
 ### Parameters
 
-\[module name\] \(optional\)
+**\[module name\] \(optional\)**
 
           The name or a part of the name that will be searched through all the modules and only those which match will be showed.
 

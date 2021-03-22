@@ -18,11 +18,11 @@ Reads or modifies registers when the debuggee is paused.
 
 ### Parameters
 
-\[register\]
+**\[register\]**
 
           The register that needs to be read or modified
 
-\[= expr\]
+**\[= expr\]**
 
           The value or the expression that needs to be evaluated and modify the target register
 

@@ -30,11 +30,11 @@ Shows the **physical** address memory content in hex form.
 
 ### Parameters
 
-\[Address\]
+**\[Address\]**
 
           The **physical** address of where we want to read its memory.
 
-l \[Length\] \(optional\)
+**l \[Length\] \(optional\)**
 
           The length \(byte\) in hex format
 

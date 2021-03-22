@@ -28,15 +28,15 @@ Shows the assembly regarding memory content at the **virtual** address hex form.
 
 ### Parameters
 
-\[Address\]
+**\[Address\]**
 
           The **virtual** address of where we want to start to disassemble its memory
 
-l \[Length\] \(optional\)
+**l \[Length\] \(optional\)**
 
           The length \(byte\) in hex format
 
-pid \[process id\]  \(optional\)
+**pid \[process id\]  \(optional\)**
 
           The process ID in hex format that we want to see the memory from its context \(**cr3**\).
 

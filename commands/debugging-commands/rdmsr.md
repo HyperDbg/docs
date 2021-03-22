@@ -18,11 +18,11 @@ Reads the model-specific register using '**rdmsr**' instruction.
 
 ### Parameters
 
-\[msr \(hex\) - ecx\]
+**\[msr \(hex\) - ecx\]**
 
           The index of MSR \(ECX Register for '**rdmsr**' instruction\)
 
-core \[core number\(hex\)\] \(optional\)
+**core \[core number\(hex\)\] \(optional\)**
 
           The core that we want to read the 'rdmsr' from
 

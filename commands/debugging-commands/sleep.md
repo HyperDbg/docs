@@ -18,7 +18,7 @@ Waits for the specified time \(in milliseconds\).
 
 ### Parameters
 
-\[time to wait \(milliseconds - hex value\)\]
+**\[time to wait \(milliseconds - hex value\)\]**
 
           The time that debugger should wait, in milliseconds.
 

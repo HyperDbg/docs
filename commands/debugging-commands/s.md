@@ -26,19 +26,19 @@ Searches the **virtual** memory for a special byte\(s\).
 
 ### Parameters
 
-\[search from address \(hex\)\]
+**\[search from address \(hex\)\]**
 
           The **virtual** address of where we want to start searching from its address.
 
-l \[length \(hex\)\]
+**l \[length \(hex\)\]** 
 
           Length of the searching area.
 
-\[byte pattern \(hex\)\]
+**\[byte pattern \(hex\)\]**
 
           Search for these bytes \(pattern\)
 
-pid \[process id \(hex\)\]  \(optional\)
+**pid \[process id \(hex\)\]  \(optional\)**
 
           The process ID in the hex format that we want to see the memory from its context \(**cr3**\).
 
