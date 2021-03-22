@@ -65,7 +65,7 @@ fffff801`63a12b00    F6 44 24 10 01                      test byte ptr ss:[rsp+0
 
 This commands works over serial by sending the serial packets to the remote computer.
 
-First of all, you should fill the following structure, set the `StepType` to your target virtual address that you want to put a breakpoint on it, and fill `Pid` to your special process id, and/or `Tid` to your special thread id, and/or `Core` to your special core.
+First of all, you should fill the following structure, set the `StepType` to the type of step that you want to perform \(e.g., _step-in_, _step-over_, and _instrument step-in_\), and if it's a step-over \(only step-over\) then if the currently executing instruction is a call instruction, set the `IsCurrentInstructionACall` to `TRUE` and also set the length of the current call instruction \(if it's a call instruction\) to `CallLength`, so you can hint the debuggee to find the next instruction. In step-over and instrument step-over just set the `StepType` and set all the other members to **null**.
 
 ```c
 typedef struct _DEBUGGEE_STEP_PACKET {
@@ -82,21 +82,27 @@ typedef struct _DEBUGGEE_STEP_PACKET {
 } DEBUGGEE_STEP_PACKET, *PDEBUGGEE_STEP_PACKET;
 ```
 
-If you want your breakpoint to be triggered for all processes, threads, and cores, then choose `DEBUGGEE_BP_APPLY_TO_ALL_PROCESSES`, `DEBUGGEE_BP_APPLY_TO_ALL_THREADS`, `DEBUGGEE_BP_APPLY_TO_ALL_CORES`.
+`StepType` can be chosen from one of the following types.
+
+```c
+typedef enum _DEBUGGER_REMOTE_STEPPING_REQUEST {
+
+  DEBUGGER_REMOTE_STEPPING_REQUEST_STEP_OVER,
+  DEBUGGER_REMOTE_STEPPING_REQUEST_STEP_IN,
+  DEBUGGER_REMOTE_STEPPING_REQUEST_STEP_IN_INSTRUMENT,
+
+} DEBUGGER_REMOTE_STEPPING_REQUEST;
+```
 
 The next step is sending the above structure to the debuggee when debuggee is paused and waiting for new command on **vmx-root** mode.
 
-You should send the above structure with `DEBUGGER_REMOTE_PACKET_REQUESTED_ACTION_ON_VMX_ROOT_BP` as `RequestedAction` and `DEBUGGER_REMOTE_PACKET_TYPE_DEBUGGER_TO_DEBUGGEE_EXECUTE_ON_VMX_ROOT` as `PacketType`.
+You should send the above structure with `DEBUGGER_REMOTE_PACKET_REQUESTED_ACTION_ON_VMX_ROOT_MODE_STEP` as `RequestedAction` and `DEBUGGER_REMOTE_PACKET_TYPE_DEBUGGER_TO_DEBUGGEE_EXECUTE_ON_VMX_ROOT` as `PacketType`.
 
-In return, the debuggee sends the above structure with the following type.
+In return, the debuggee sends a pause packet, with the following type.
 
 ```c
-DEBUGGER_REMOTE_PACKET_REQUESTED_ACTION_DEBUGGEE_RESULT_OF_BP
+DEBUGGEE_PAUSING_REASON_DEBUGGEE_STEPPED
 ```
-
-In the returned structure, the `Result` is filled by the kernel.
-
-If the `Result` is `DEBUGEER_OPERATION_WAS_SUCCESSFULL`, then the operation was successful. Otherwise, the returned result is an error.
 
 The following function is responsible for sending breakpoint buffers in the debugger.
 
@@ -105,8 +111,6 @@ BOOLEAN KdSendStepPacketToDebuggee(DEBUGGER_REMOTE_STEPPING_REQUEST StepRequestT
 ```
 
 ### **Remarks**
-
-In this command, **`pid xx`** does not mean that we will change the layout to a new process, it means that the address should be available in the current process layout but will be triggered only on the process with process id equal to **`xx`**, you can use the '[.process](https://docs.hyperdbg.com/commands/meta-commands/.process)' command to switch to a new process if you want to put a breakpoint on the layout of another process. 
 
 This command is guaranteed to keep debuggee in a halt state \(in Debugger Mode\); thus, nothing will change during its execution.
 
