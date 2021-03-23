@@ -46,6 +46,10 @@ Shows the **virtual** address memory content in hex form.
 If you don't specify the **pid**, then the default **pid** is the current process \(HyperDbg\) process layout of memory.
 {% endhint %}
 
+{% hint style="danger" %}
+In the [Debugger Mode](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/operation-modes#debugger-mode), the **pid** \(parameter\) is ignored. If you want to view another process memory, use the '[.process](https://docs.hyperdbg.com/commands/meta-commands/.process)' command to switch to another process memory layout.
+{% endhint %}
+
 ### Examples
 
 The following command is used when we want to read the content of memory at **``fffff800`3ad6f010``** with length of `0x50` from the memory layout view of process \(`4` a.k.a. system process\) in a hex byte format.

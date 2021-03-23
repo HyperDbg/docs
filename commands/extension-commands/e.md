@@ -38,8 +38,8 @@ Edits the **physical** address memory contents.
 
           The process ID in the hex format that we want to see the memory from its context \(**cr3**\).
 
-{% hint style="info" %}
-If you don't specify the pid, then the default pid is the current process \(**HyperDbg**\) process layout of memory.
+{% hint style="danger" %}
+Process ID doesn't make sense in physical memory. If you specify **pid** for physical memory, ****then it is ignored.
 {% endhint %}
 
 ### Examples

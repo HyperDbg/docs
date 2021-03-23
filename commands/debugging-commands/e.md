@@ -42,6 +42,10 @@ Edits the **virtual** address memory contents.
 If you don't specify the pid, then the default pid is the current process \(**HyperDbg**\) process layout of memory.
 {% endhint %}
 
+{% hint style="danger" %}
+In the [Debugger Mode](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/operation-modes#debugger-mode), the **pid** \(parameter\) is ignored. If you want to view another process memory, use the '[.process](https://docs.hyperdbg.com/commands/meta-commands/.process)' command to switch to another process memory layout.
+{% endhint %}
+
 ### Examples
 
 The following command is used when we want to edit the content of memory at ``fffff800`3ad6f010`` in a hex byte form and change it to `0x90 0x90 0x90` \(modify **three** bytes\).
