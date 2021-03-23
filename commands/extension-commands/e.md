@@ -117,7 +117,23 @@ typedef enum _DEBUGGER_EDIT_MEMORY_BYTE_SIZE {
 
 The above structure is added on top of an array of 64-bit values, which is the new content to the memory. 
 
-For example, if you want to change the memory address of  the target to `0x90 0x90` then you should provide an array of `0x0000000000000090` and `0x0000000000000090` and append it to the end of the above structure. The count of these chunks is stored at `CountOf64Chunks` in the above structure and the final buffer that will be sent into the kernel has a size of `FinalStructureSize` bytes. 
+For example, if you want to change the memory address of  the target to `0x90 0x90` then you should provide an array of `0x0000000000000090` and `0x0000000000000090` and append it to the end of the above structure. The count of these chunks is stored at `CountOf64Chunks` in the above structure and the final buffer that will be sent into the kernel has a size of `FinalStructureSize` bytes.
+
+In the debugger-mode, HyperDbg uses the exact same structure, you should send the above structure over serial to the debuggee which is paused in **vmx-root** mode.  
+
+You should send the above structure with `DEBUGGER_REMOTE_PACKET_REQUESTED_ACTION_ON_VMX_ROOT_EDIT_MEMORY` as `RequestedAction` and `DEBUGGER_REMOTE_PACKET_TYPE_DEBUGGER_TO_DEBUGGEE_EXECUTE_ON_VMX_ROOT` as `PacketType`.
+
+In return, the debuggee sends the above structure with the following type.
+
+```c
+DEBUGGER_REMOTE_PACKET_REQUESTED_ACTION_DEBUGGEE_RESULT_OF_EDITING_MEMORY
+```
+
+The following function is responsible for sending editing memory in the debugger.
+
+```c
+BOOLEAN KdSendEditMemoryPacketToDebuggee(PDEBUGGER_EDIT_MEMORY EditMem);
+```
 
 ### **Remarks**
 
