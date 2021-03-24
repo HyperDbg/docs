@@ -143,6 +143,8 @@ BOOLEAN KdSendEditMemoryPacketToDebuggee(PDEBUGGER_EDIT_MEMORY EditMem);
 
 * You can change as many bytes as you need in **byte**, **dword**, and **qword** formats; just add new values to the end of the command. 
 
+If you change the memory address that you previously set a breakpoint using the '[bp](https://docs.hyperdbg.com/commands/debugging-commands/bp)' command, the previous value is replaced when you remove the breakpoint.
+
 This command is guaranteed to keep debuggee in a halt state \(in Debugger Mode\); thus, nothing will change during its execution.
 
 ### Requirements
