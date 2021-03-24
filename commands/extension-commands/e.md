@@ -139,6 +139,10 @@ BOOLEAN KdSendEditMemoryPacketToDebuggee(PDEBUGGER_EDIT_MEMORY EditMem);
 
 * You can change as many bytes as you need in **byte**, **dword**, and **qword** formats. Just add new values to the end of the command.
 
+{% hint style="info" %}
+Physical addresses are not validated in HyperDbg, which means if you access an invalid physical address, then the debuggee halts or crashes.
+{% endhint %}
+
 This command is guaranteed to keep debuggee in a halt state \(in Debugger Mode\); thus, nothing will change during its execution.
 
 ### Requirements
