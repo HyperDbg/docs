@@ -22,6 +22,10 @@ If you simply use a command without any extra parameters, it will be treated lik
 
 ### Script
 
+Custom vmx-root mode compatible script engine is another feature for HyperDbg. 
+
+[Read more...](https://docs.hyperdbg.com/commands/scripting-language)
+
 ### Custom Codes
 
 **Run custom code** lets you run your custom assembly codes whenever a special event is triggered; this option is fast and powerful as you can customize the HyperDbg based on your needs.
