@@ -92,6 +92,16 @@ You can still change a special event's behavior by specifying `imm yes` and `imm
 #define UseImmediateMessagingByDefaultOnEvents TRUE
 ```
 
+The following option determines whether the debuggee should send its pre-initialize logs to the debugger or not.
+
+```c
+/**
+ * @brief Shows whether to show or not show the drivers debugging infomation
+ */
+#define ShowDebugInformation FALSE
+
+```
+
 ### Definitions
 
 Before building, you can change the following options in the **Definition.h** file.
