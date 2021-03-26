@@ -92,14 +92,15 @@ You can still change a special event's behavior by specifying `imm yes` and `imm
 #define UseImmediateMessagingByDefaultOnEvents TRUE
 ```
 
-The following option determines whether the debuggee should send its pre-initialize logs to the debugger or not.
+The following option enables or disables debug-mode which determines whether the debuggee should send its pre-initialize logs to the debugger or not and also enters debugger in debugging section to break the debugger in the case of errors.
 
 ```c
 /**
  * @brief Shows whether to show or not show the drivers debugging infomation
+ * and also enters debugger in debugging section to break the debugger in the
+ * case of errors
  */
-#define ShowDebugInformation FALSE
-
+#define DebugMode FALSE
 ```
 
 ### Definitions
