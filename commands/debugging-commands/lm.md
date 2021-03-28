@@ -30,24 +30,22 @@ The following command shows all the modules in the system.
 
 ```cpp
 HyperDbg> lm
-start                   size    name            path
+start                   size    name                            path
 
-fffff80434200000        11235328        ntoskrnl.exe    \SystemRoot\system32\ntoskrnl.exe
-fffff8043415c000        671744  hal.dll \SystemRoot\system32\hal.dll
-fffff80437a00000        45056   kd.dll  \SystemRoot\system32\kd.dll
-fffff80437a10000        2101248 mcupdate_GenuineIntel.dll       \SystemRoot\system32\mcupdate_GenuineIntel.dll
-fffff80437c70000        393216  msrpc.sys       \SystemRoot\System32\drivers\msrpc.sys
-fffff80437c40000        172032  ksecdd.sys      \SystemRoot\System32\drivers\ksecdd.sys
-fffff80437c20000        69632   werkernel.sys   \SystemRoot\System32\drivers\werkernel.sys
-fffff80437d10000        425984  CLFS.SYS        \SystemRoot\System32\drivers\CLFS.SYS
-fffff80437ce0000        159744  tm.sys  \SystemRoot\System32\drivers\tm.sys
-fffff80437d80000        106496  PSHED.dll       \SystemRoot\system32\PSHED.dll
-fffff80437da0000        45056   BOOTVID.dll     \SystemRoot\system32\BOOTVID.dll
-fffff80437ec0000        462848  FLTMGR.SYS      \SystemRoot\System32\drivers\FLTMGR.SYS
-fffff80437db0000        1069056 clipsp.sys      \SystemRoot\System32\drivers\clipsp.sys
-fffff80437f40000        57344   cmimcext.sys    \SystemRoot\System32\drivers\cmimcext.sys
-fffff80437f50000        49152   ntosext.sys     \SystemRoot\System32\drivers\ntosext.sys
-
+fffff801`1b800000       1046000 ntoskrnl.exe                    \SystemRoot\system32\ntoskrnl.exe
+fffff801`195d0000       6000    hal.dll                         \SystemRoot\system32\hal.dll
+fffff801`195e0000       b000    kd.dll                          \SystemRoot\system32\kd.dll
+fffff801`19230000       39d000  mcupdate_GenuineIntel.dll       \SystemRoot\system32\mcupdate_GenuineIntel.dll
+fffff801`1ec00000       69000   CLFS.SYS                        \SystemRoot\System32\drivers\CLFS.SYS
+fffff801`195f0000       27000   tm.sys                          \SystemRoot\System32\drivers\tm.sys
+fffff801`1ec70000       1a000   PSHED.dll                       \SystemRoot\system32\PSHED.dll
+fffff801`19620000       b000    BOOTVID.dll                     \SystemRoot\system32\BOOTVID.dll
+fffff801`1edb0000       6f000   FLTMGR.SYS                      \SystemRoot\System32\drivers\FLTMGR.SYS
+fffff801`1ee50000       62000   msrpc.sys                       \SystemRoot\System32\drivers\msrpc.sys
+fffff801`1ee20000       29000   ksecdd.sys                      \SystemRoot\System32\drivers\ksecdd.sys
+fffff801`1ec90000       113000  clipsp.sys                      \SystemRoot\System32\drivers\clipsp.sys
+fffff801`1eec0000       e000    cmimcext.sys                    \SystemRoot\System32\drivers\cmimcext.sys
+fffff801`1eed0000       11000   werkernel.sys                   \SystemRoot\System32\drivers\werker
 ...
 ```
 
@@ -55,15 +53,18 @@ The following example shows the modules that contain "**nt"** in their path or n
 
 ```c
 HyperDbg> lm nt
-start                   size    name            path
+start                   size    name                            path
 
-fffff80434200000        11235328        ntoskrnl.exe    \SystemRoot\system32\ntoskrnl.exe
-fffff80437a10000        2101248 mcupdate_GenuineIntel.dll       \SystemRoot\system32\mcupdate_GenuineIntel.dll
-fffff80437f50000        49152   ntosext.sys     \SystemRoot\System32\drivers\ntosext.sys
-fffff804382b0000        106496  SgrmAgent.sys   \SystemRoot\system32\drivers\SgrmAgent.sys
-fffff804383c0000        372736  intelpep.sys    \SystemRoot\System32\drivers\intelpep.sys
-
-...
+fffff801`1b800000       1046000 ntoskrnl.exe                    \SystemRoot\system32\ntoskrnl.exe
+fffff801`19230000       39d000  mcupdate_GenuineIntel.dll       \SystemRoot\system32\mcupdate_GenuineIntel.dll
+fffff801`1eef0000       c000    ntosext.sys                     \SystemRoot\System32\drivers\ntosext.sys
+fffff801`1f260000       1a000   SgrmAgent.sys                   \SystemRoot\system32\drivers\SgrmAgent.sys
+fffff801`1f370000       6b000   intelpep.sys                    \SystemRoot\System32\drivers\intelpep.sys
+fffff801`1f400000       b000    IntelTA.sys                     \SystemRoot\System32\drivers\IntelTA.sys
+fffff801`1f7a0000       1e000   mountmgr.sys                    \SystemRoot\System32\drivers\mountmgr.sys
+fffff801`20160000       7f000   fwpkclnt.sys                    \SystemRoot\System32\drivers\fwpkclnt.sys
+fffff801`23820000       40000   intelppm.sys                    \SystemRoot\System32\drivers\intelppm.sys
+fffff801`27180000       b000    KeyAgent.sys                    \??\C:\Windows\system32\drivers\KeyAgent.sys
 ```
 
 ### IOCTL
