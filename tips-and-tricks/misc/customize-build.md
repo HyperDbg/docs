@@ -165,3 +165,15 @@ The following option changes the maximum number of breakpoints \('[bp](https://d
 #define MAXIMUM_BREAKPOINTS_WITHOUT_CONTINUE 50
 ```
 
+The following option changes the speed at which HyperDbg reads kernel messages in user-mode. It's the wait time before requesting any new request to read messages in milliseconds.
+
+```c
+/**
+ * @brief The speed delay for showing messages from kernel-mode 
+ * to user-mode in  VMI-mode, using a lower value causes the 
+ * HyperDbg to show messages faster but you should keep in mind,
+ *  not to eat all of the CPU
+ */
+#define DefaultSpeedOfReadingKernelMessages 30
+```
+
