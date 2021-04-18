@@ -24,7 +24,7 @@ Converts the VIRTUAL address to the PHYSICAL address.
 
 **\[Process Id \(hex value\)\]**
 
-          The **process id** of where you want to convert the address based on it \(if you don't specify this parameter, then the current process memory layout is used\)
+          The **process id** of where you want to convert the address based on it \(if you don't specify this parameter, then the system process memory layout is used\)
 
 ### Examples
 
