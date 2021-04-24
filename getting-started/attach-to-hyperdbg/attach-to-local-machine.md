@@ -14,15 +14,18 @@ For **local debugging**, you can run `.connect local` the command to connect to 
 
 ```text
 HyperDbg> .connect local
-local debuging current system...
+local debugging (vmi-mode)
 ```
 
 You can then use the '[load](https://docs.hyperdbg.com/commands/debugging-commands/load)' command to load your module \(for instance, **vmm** module\).
 
 ```text
 HyperDbg> load vmm
-try to install driver...
-...
+loading the vmm driver
+current processor vendor is : GenuineIntel
+virtualization technology is vt-x
+vmx operation is supported by your processor
+vmm module is running...
 ```
 
 #### **When you connect to the local debugger, you are operating in** [**VMI Mode**](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/operation-modes#vmi-mode)**.**

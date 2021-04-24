@@ -17,7 +17,7 @@ Many game anti-cheat solutions use this function to monitor processes to prevent
 In order to bypass this mechanism, we use the following command in HyperDbg to set a breakpoint on this function.
 
 ```text
-HyperDbg> bp fffff805`5cbac610
+0: kHyperDbg> bp fffff805`5cbac610
 ```
 
 Then, we will run our game and see if the breakpoint is triggered or not.
@@ -27,14 +27,14 @@ If the breakpoint is triggered, then the system is halt and we are able to contr
 After that, we can use the ['p' command](https://docs.hyperdbg.com/commands/debugging-commands/p) to step-over the instructions.
 
 ```text
-HyperDbg> p 
+0: kHyperDbg> p 
 fffff805`5cbac610    48 81 EC 50 01 00 00                sub rsp, 0x150
 ```
 
 You can also add a number to instrument the instructions multiple times.
 
 ```text
-HyperDbg> p 3
+0: kHyperDbg> p 3
 fffff805`5cbac610    48 81 EC 50 01 00 00                sub rsp, 0x150
 fffff805`5cbac617    48 8D AC 24 80 00 00 00             lea rbp, ss:[rsp+0x80]
 fffff805`5cbac620    C6 45 AB 00                         mov byte ptr ss:[rbp-0x55], 0x00
@@ -43,7 +43,7 @@ fffff805`5cbac620    C6 45 AB 00                         mov byte ptr ss:[rbp-0x
 If you want to step-in, you can use the ['t' command](https://docs.hyperdbg.com/commands/debugging-commands/t).
 
 ```text
-HyperDbg> t
+0: kHyperDbg> t
 fffff805`5cbac610    48 81 EC 50 01 00 00                sub rsp, 0x150
 ```
 
