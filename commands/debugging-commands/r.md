@@ -39,7 +39,7 @@ The first parameter to this command is a register \(not an expression\). If you 
 If you want to see all general purpose and segment registers.
 
 ```bash
-HyperDbg> r
+0: kHyperDbg> r
 RAX=ffff948cc1ba4780 RBX=ffff948cc02f19e0 RCX=0000000000000024
 RDX=0000000000000000 RSI=0000000000000000 RDI=ffff948cc23403a0
 RIP=fffff80168d91262 RSP=ffff9305483f3698 RBP=0000000000000002
@@ -55,27 +55,27 @@ RFLAGS=0000000000040246
 If you want to see one special register \(e.g., `rax`\).
 
 ```text
-HyperDbg> r rax
+0: kHyperDbg> r rax
 rax=ffff948cc1ba4780
 ```
 
 If you want to see one special register \(e.g., `cs`\).
 
 ```text
-HyperDbg> r cs
+0: kHyperDbg> r cs
 cs=0000000000000010
 ```
 
 If you want to change a register to a constant hex value.
 
 ```text
-HyperDbg> r rax = 10
+0: kHyperDbg> r rax = 10
 ```
 
 If you want to change a register to a new value which is the result of an expression.
 
 ```text
-HyperDbg> r rcx = rax + rdx + 10
+0: kHyperDbg> r rcx = rax + rdx + 10
 ```
 
 ### IOCTL

@@ -72,14 +72,14 @@ HyperDbg> !dc 1000
 The following example shows the content of memory at `1000` in a double-word value \(4 bytes\) format with the length of `0x10`.
 
 ```diff
-HyperDbg> !dd 1000 l 10
+0: kHyperDbg> !dd 1000 l 10
 #       00000000`00001000  0000000B 00000000 80860000 000210D3
 ```
 
 The following example shows the content of memory at `1000` in a quad-word value \(8 bytes\) format.
 
 ```diff
-HyperDbg> !dq 1000
+0: kHyperDbg> !dq 1000
 #       00000000`00001000  00000000`0000000B 000210D3`80860000
 #       00000000`00001010  00000000`01010600 00000000`00000103
 #       00000000`00001020  FFFFF800`39FA1000 00000000`00020000

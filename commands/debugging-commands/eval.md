@@ -27,7 +27,7 @@ Evaluates and executes an expression in the remote debuggee.
 The following command shows the `@rax` ****register in the debuggee by calling the [print](https://docs.hyperdbg.com/commands/scripting-language/functions/print) function.
 
 ```diff
-HyperDbg> ? print(@rax);
+0: kHyperDbg> ? print(@rax);
 ```
 
 ### IOCTL

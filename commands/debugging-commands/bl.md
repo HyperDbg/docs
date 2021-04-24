@@ -25,7 +25,7 @@ None
 The following command shows how you can use the 'bl' command.
 
 ```text
-HyperDbg> bl
+0: kHyperDbg> bl
 id   address           status
 --   ---------------   --------
 01   fffff801639b1030  enabled

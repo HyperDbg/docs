@@ -33,14 +33,14 @@ The difference between this command and the '[i](https://docs.hyperdbg.com/comma
 If you want to step-in one instruction.
 
 ```text
-HyperDbg> t
+0: kHyperDbg> t
 fffff801`68d91267    41 5B                               pop r11
 ```
 
 If you want to step-in one instruction and view the registers.
 
 ```c
-HyperDbg> tr
+0: kHyperDbg> tr
 fffff801`68d91269    41 5A                               pop r10
 RAX=0000000000000000 RBX=ffff948cbf6599d0 RCX=0000000000000024
 RDX=0000000000000000 RSI=0000000000000000 RDI=ffff948cc266d670
@@ -57,7 +57,7 @@ RFLAGS=0000000000040046
 If you want to step-in for `5` instructions.
 
 ```c
-HyperDbg> t 5
+0: kHyperDbg> t 5
 fffff801`68d9126b    9D                                  popfq
 fffff801`68d9126c    C3                                  ret
 fffff801`63a12948    6A D1                               push 0xFFFFFFFFFFFFFFD1

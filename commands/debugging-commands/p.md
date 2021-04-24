@@ -29,14 +29,14 @@ Executes a single instruction \(step-over\) and optionally displays the resultin
 If you want to step-over one instruction.
 
 ```text
-HyperDbg> p
+0: kHyperDbg> p
 fffff801`68d91267    41 5B                               pop r11
 ```
 
 If you want to step-over one instruction and view the registers.
 
 ```c
-HyperDbg> pr
+0: kHyperDbg> pr
 fffff801`68d91269    41 5A                               pop r10
 RAX=0000000000000000 RBX=ffff948cbf6599d0 RCX=0000000000000024
 RDX=0000000000000000 RSI=0000000000000000 RDI=ffff948cc266d670
@@ -53,7 +53,7 @@ RFLAGS=0000000000040046
 If you want to step-over for `5` instructions.
 
 ```c
-HyperDbg> p 5
+0: kHyperDbg> p 5
 fffff801`68d9126b    9D                                  popfq
 fffff801`68d9126c    C3                                  ret
 fffff801`63a12948    6A D1                               push 0xFFFFFFFFFFFFFFD1

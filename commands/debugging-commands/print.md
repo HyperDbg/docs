@@ -27,25 +27,25 @@ Shows the result of an expression that will be executed in the remote debuggee.
 The following command shows the `@rax` ****register in the debuggee.
 
 ```diff
-HyperDbg> print @rax
+0: kHyperDbg> print @rax
 ```
 
 The following command shows the data as an 8-byte hex, pointed by the `@rcx` register.
 
 ```diff
-HyperDbg> print dq(@rcx))
+0: kHyperDbg> print dq(@rcx))
 ```
 
 The following command shows the value pointed by `$proc+@rdx`  which **$proc** is equivalent to current `_EPROCESS`  added to the **rdx** register.
 
 ```diff
-HyperDbg> print $proc+@rdx
+0: kHyperDbg> print $proc+@rdx
 ```
 
 The following command shows the value of an address, which first, **rax** register is added with **0xa0** constant then a dereference occurs and the target is shown as a QWORD hex.
 
 ```diff
-HyperDbg> print poi(@rax+a0)
+0: kHyperDbg> print poi(@rax+a0)
 ```
 
 ### IOCTL

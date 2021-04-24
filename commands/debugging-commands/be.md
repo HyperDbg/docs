@@ -27,7 +27,7 @@ Enables a previously disabled breakpoint \(**0xcc**\).
 Imagine we have the following active breakpoints.
 
 ```text
-HyperDbg> bl
+0: kHyperDbg> bl
 id   address           status
 --   ---------------   --------
 01   fffff801639b1030  enabled
@@ -39,13 +39,13 @@ id   address           status
 After executing the following command, it's now enabled.
 
 ```text
-HyperDbg> be 2
+0: kHyperDbg> be 2
 ```
 
 If you see the list of active breakpoints again, you can see that it's enabled.
 
 ```text
-HyperDbg> bl
+0: kHyperDbg> bl
 id   address           status
 --   ---------------   --------
 01   fffff801639b1030  enabled

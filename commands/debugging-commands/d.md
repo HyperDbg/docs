@@ -87,7 +87,7 @@ fffff800`3ad6f010  245C8948 6C894808 89481024 57182474
 The following example shows the content of memory at ``fffff800`3ad6f010`` from current process layout in a Quad-word values \(8 bytes\) format.
 
 ```diff
-HyperDbg> dq fffff800`3ad6f010
+0: kHyperDbg> dq fffff800`3ad6f010
 fffff800`3ad6f010  6C894808`245C8948 57182474`89481024
 fffff800`3ad6f020  30EC8348`57415641 00002025`048B4865
 fffff800`3ad6f030  C53DB70F`44DB3300 8B48E88B`4100203F

@@ -43,19 +43,19 @@ As the **Context**, HyperDbg sends the **virtual** address of where the breakpoi
 If you want to put breakpoints on `fffff801639b1030`, `fffff801639b1035`, `fffff801639b103a`, and `fffff801639b103f`, you can use the following commands.
 
 ```text
-HyperDbg> bp fffff801`639b1030
+0: kHyperDbg> bp fffff801`639b1030
 ```
 
 ```text
-HyperDbg> bp fffff801`639b1035
+0: kHyperDbg> bp fffff801`639b1035
 ```
 
 ```text
-HyperDbg> bp fffff801`639b103a
+0: kHyperDbg> bp fffff801`639b103a
 ```
 
 ```text
-HyperDbg> bp fffff801`639b103f
+0: kHyperDbg> bp fffff801`639b103f
 ```
 
 After that, you can see a list of active breakpoints using the '[bl](https://docs.hyperdbg.com/commands/debugging-commands/bl)' command.

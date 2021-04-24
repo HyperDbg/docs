@@ -31,21 +31,21 @@ If you don't specify any parameters to the '~' command, it shows the current ope
 The following command shows the current operating core.
 
 ```diff
-HyperDbg> ~
+0: kHyperDbg> ~
 current processor : 0x2
 ```
 
 The following commands display and then change the current operating core to `0x1`.
 
 ```text
-HyperDbg> ~
+0: kHyperDbg> ~
 current processor : 0x2
 
-HyperDbg> ~ 1
+0: kHyperDbg> ~ 1
 current operating core changed to 0x1
 fffff801`633f157f    C3                                  ret
 
-HyperDbg> ~
+0: kHyperDbg> ~
 current processor : 0x1
 ```
 
