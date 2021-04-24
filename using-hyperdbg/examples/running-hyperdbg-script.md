@@ -15,7 +15,8 @@ For example, let's assume that we saved the following lines in **`c:\users\sina\
 .logopen c:\users\sina\desktop\result.txt
 load
 !syscall script { print(@rax); }
-sleep 100000
+sleep 5000
+pause
 unload
 .logclose
 exit

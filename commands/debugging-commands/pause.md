@@ -34,6 +34,8 @@ In remote debugging, pause command or CTRL+C or CTRL+BREAK causes the target sys
 
 In local debugging, pause command or CTRL+C or CTRL+BREAK causes the debugger to stop processing kernel and vmx packets \(they won't stop working, we ignore the messages\). Also, we don't save messages, so when you pause the debugger, then the logs from the events are ignored, and you can't process them in the future.
 
+Most of the time, this command is used in scripts after the '[sleep](https://docs.hyperdbg.com/commands/debugging-commands/sleep)' command to block further messages caused by triggering events.
+
 ### Requirements
 
 None
