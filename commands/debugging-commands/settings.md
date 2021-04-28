@@ -142,7 +142,7 @@ None
 
 ### **Remarks**
 
-None
+**autounpause** and **autoflush** do not change anything in [debugger mode](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/operation-modes#debugger-mode). It is because the buffers are not accumulated and passed instantly in this mode; thus, there is nothing to flush.
 
 ### Requirements
 
