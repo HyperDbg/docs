@@ -163,7 +163,8 @@
     * [Design Prospective](design/debugger-internals/kernel-debugger/design-prospective.md)
     * [Connection](design/debugger-internals/kernel-debugger/connection.md)
 * [Script Engine](design/script-engine/README.md)
-  * [LL1 Grammar](design/script-engine/log-the-states-ll1-grammar.md)
+  * [Language Grammar](design/script-engine/language-grammar.md)
+  * [Boolean Expression Grammar](design/script-engine/boolean-expression-grammar.md)
 
 ## Links
 
