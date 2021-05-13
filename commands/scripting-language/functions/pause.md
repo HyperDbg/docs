@@ -2,15 +2,15 @@
 description: Description of 'Break' function in HyperDbg Scripts
 ---
 
-# Break
+# Pause
 
 ### Function
 
-> Break
+> Pause
 
 ### Syntax
 
-> Break \( \);
+> Pause \( \);
 
 ### Parameters
 
@@ -22,7 +22,7 @@ Breaks and halts the system and give control to the kernel debugger.
 
 ### Examples
 
-`break();`
+`pause();`
 
 Break and halt the system and give control to the debugger.
 

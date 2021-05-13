@@ -115,7 +115,7 @@
     * [Printf](commands/scripting-language/functions/printf.md)
     * [EnableEvent](commands/scripting-language/functions/enableevent.md)
     * [DisableEvent](commands/scripting-language/functions/disableevent.md)
-    * [Break](commands/scripting-language/functions/break.md)
+    * [Pause](commands/scripting-language/functions/pause.md)
 
 ## Tips & Tricks
 
