@@ -4,7 +4,7 @@ description: Description of user-defined functions and assignments
 
 # Functions & Assignments
 
-### Register Assignment
+## Register Assignment
 
 By using a simple **lvalue** register assignment, the user is able to change the value of registers.
 
@@ -34,7 +34,9 @@ if ( @rcx == 0x55) {
 }
 ```
 
-### Modify Memory
+## Modify Memory
+
+
 
 
 
