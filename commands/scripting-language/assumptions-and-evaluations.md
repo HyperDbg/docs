@@ -1,5 +1,7 @@
 ---
-description: Description about HyperDbg's Script Engine
+description: >-
+  Description of keywords, operators, pseudo-registers, number prefixes, and
+  pre-defined functions
 ---
 
 # Assumptions & Evaluations

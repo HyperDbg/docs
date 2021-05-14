@@ -109,6 +109,7 @@
 * [Scripting Language](commands/scripting-language/README.md)
   * [Assumptions & Evaluations](commands/scripting-language/assumptions-and-evaluations.md)
   * [Conditionals & Loops](commands/scripting-language/conditionals-and-loops.md)
+  * [Functions & Assignments](commands/scripting-language/functions-and-assignments.md)
   * [Examples](commands/scripting-language/examples/README.md)
     * [View system state \(registers, memory, variables\)](commands/scripting-language/examples/view-system-state.md)
   * [Functions](commands/scripting-language/functions/README.md)
