@@ -6,7 +6,7 @@ description: Description of conditional statements and loops
 
 ## Conditional Statements
 
-In HyperDbg and all other programming and scripting languages, conditional statements are used to perform different actions based on different conditions.
+Conditional statements are used to perform different actions based on different conditions.
 
 ### if
 
@@ -38,7 +38,7 @@ if (poi(@rcx + 0x10) == ffff7080deadbeef && @rdx != 55 || $pid == 4) {
 
 ### else
 
-Executes some code if a condition is **true** and another code if that condition is **false**.
+The `else` statement is executed if the `if` condition is **false**.
 
 **Syntax**
 
@@ -103,14 +103,13 @@ The following statements are used to create loops in HyperDbg's script engine.
 
 ### for
 
- The **for statement** creates a loop that consists of three expressions, enclosed in parentheses and separated by semicolons, followed by a block statement to be executed in the loop.
+The `for` ****statement creates a loop that consists of three expressions, enclosed in parentheses and separated by semicolons, followed by a block statement to be executed in the loop.
 
 **Syntax**
 
 ```c
 for (initial value; condition; incrementation or decrementation) {
-  code to be executed at least one time and continues,
-   if while condition is true;
+  code to be executed in loop;
 }
 ```
 
@@ -118,7 +117,7 @@ for (initial value; condition; incrementation or decrementation) {
 
 ```c
 for (i = 10; i != 0; i--) { 
-    printf("%d\n",i); 
+    printf("%d\n", i); 
 }
 ```
 
@@ -127,14 +126,14 @@ for (i = 10; i != 0; i--) {
 ```c
 for ( i = 0; i < 10 ; i--) {
     for (j = 0; j < 10; j++) {
-     printf("%d, %d\n", i, j); 
+        printf("%d, %d\n", i, j); 
    }
  }
 ```
 
 ### while
 
-With the `while` loop we can execute a set of statements as long as a condition is **true**.
+With the `while` loop we can execute a set of statements as long as the condition is **true**.
 
 **Syntax**
 
