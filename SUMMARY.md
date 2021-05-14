@@ -108,6 +108,7 @@
   * [!pa2va \(convert physical address to virtual address\)](commands/extension-commands/pa2va.md)
 * [Scripting Language](commands/scripting-language/README.md)
   * [Assumptions & Evaluations](commands/scripting-language/assumptions-and-evaluations.md)
+  * [Conditionals & Loops](commands/scripting-language/conditionals-and-loops.md)
   * [Examples](commands/scripting-language/examples/README.md)
     * [View system state \(registers, memory, variables\)](commands/scripting-language/examples/view-system-state.md)
   * [Functions](commands/scripting-language/functions/README.md)
