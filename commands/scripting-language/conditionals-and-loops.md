@@ -101,6 +101,37 @@ else {
 
 The following statements are used to create loops in HyperDbg's script engine.
 
+### for
+
+ The **for statement** creates a loop that consists of three expressions, enclosed in parentheses and separated by semicolons, followed by a block statement to be executed in the loop.
+
+**Syntax**
+
+```c
+for (initial value; condition; incrementation or decrementation) {
+  code to be executed at least one time and continues,
+   if while condition is true;
+}
+```
+
+**Example 1**
+
+```c
+for (i = 10; i != 0; i--) { 
+    printf("%d\n",i); 
+}
+```
+
+**Example 2**
+
+```c
+for ( i = 0; i < 10 ; i--) {
+    for (j = 0; j < 10; j++) {
+     printf("%d, %d\n", i, j); 
+   }
+ }
+```
+
 ### while
 
 With the `while` loop we can execute a set of statements as long as a condition is **true**.
@@ -145,36 +176,5 @@ do {
     printf("x = %x\n", x);
     x = x - 1;
 } while (x);
-```
-
-### for
-
- The **for statement** creates a loop that consists of three expressions, enclosed in parentheses and separated by semicolons, followed by a block statement to be executed in the loop.
-
-**Syntax**
-
-```c
-for (initial value; condition; incrementation or decrementation) {
-  code to be executed at least one time and continues,
-   if while condition is true;
-}
-```
-
-**Example 1**
-
-```c
-for (i = 10; i != 0; i--) { 
-    printf("%d\n",i); 
-}
-```
-
-**Example 2**
-
-```c
-for ( i = 0; i < 10 ; i--) {
-    for (j = 0; j < 10; j++) {
-     printf("%d, %d\n", i, j); 
-   }
- }
 ```
 
