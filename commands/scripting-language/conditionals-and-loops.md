@@ -133,7 +133,7 @@ for ( i = 0; i < 10 ; i--) {
 
 ### while
 
-With the `while` loop we can execute a set of statements as long as the condition is **true**.
+With the `while` loop, we can execute a set of statements as long as the condition is **true**.
 
 **Syntax**
 
