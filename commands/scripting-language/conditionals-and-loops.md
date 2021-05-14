@@ -20,10 +20,20 @@ if (condition) {
 }
 ```
 
-**Examples**
+**Example 1**
 
 ```c
+if (@rax == 55) {
+    printf("rax is equal to %llx\n", @rax);
+}
+```
 
+**Example 2**
+
+```c
+if (poi(@rcx + 0x10) == ffff7080deadbeef && @rdx != 55 || $pid == 4) {
+    printf("condition is met\n");
+}
 ```
 
 ### else
@@ -41,10 +51,15 @@ else {
 }
 ```
 
-**Examples**
+**Example**
 
 ```c
-
+if (@rax == 55) {
+    printf("rax is equal to %llx\n", @rax);
+}
+else {
+    printf("rax is not equal to 0x55, it is equal to %llx\n", @rax);
+}
 ```
 
 ### elsif
@@ -65,10 +80,21 @@ else {
 }
 ```
 
-**Examples**
+**Example**
 
 ```c
-
+if (@rax == 55) {
+    printf("rax is equal to 0x55\n");
+}
+elsif (@rax == 66) {
+    printf("rax is equal to 0x66\n");
+}
+elsif (@rax == 77) {
+    printf("rax is equal to 0x77\n");
+}
+else {
+    printf("rax is not equal to 0x55, 0x66, 0x77. It is equal to %llx\n", @rax);
+}
 ```
 
 ## Loops
@@ -87,10 +113,14 @@ while (condition) {
 }
 ```
 
-**Examples**
+**Example**
 
 ```c
-
+x = 55;
+while (x) {
+    printf("x = %x\n", x);
+    x = x - 1;
+}
 ```
 
 ### do, while
@@ -107,10 +137,14 @@ do {
 while (condition); 
 ```
 
-**Examples**
+**Example**
 
 ```c
-
+x = 55;
+do {
+    printf("x = %x\n", x);
+    x = x - 1;
+} while (x);
 ```
 
 ### for
@@ -124,12 +158,23 @@ for (initial value; condition; incrementation or decrementation) {
   code to be executed at least one time and continues,
    if while condition is true;
 }
-
 ```
 
-**Examples**
+**Example 1**
 
 ```c
+for (i = 10; i != 0; i--) { 
+    printf("%d\n",i); 
+}
+```
 
+**Example 2**
+
+```c
+for ( i = 0; i < 10 ; i--) {
+    for (j = 0; j < 10; j++) {
+     printf("%d, %d\n", i, j); 
+   }
+ }
 ```
 
