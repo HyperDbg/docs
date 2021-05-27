@@ -40,10 +40,10 @@ As the **Context**, HyperDbg sends the **virtual** address of where the breakpoi
 
 ### Examples
 
-If you want to put breakpoints on `fffff801639b1030`, `fffff801639b1035`, `fffff801639b103a`, and `fffff801639b103f`, you can use the following commands.
+If you want to put breakpoints on `nt!ExAllocatePoolWithTag`, `fffff801639b1035`, `fffff801639b103a`, and `fffff801639b103f`, you can use the following commands.
 
 ```text
-0: kHyperDbg> bp fffff801`639b1030
+0: kHyperDbg> bp nt!ExAllocatePoolWithTag
 ```
 
 ```text

@@ -28,6 +28,13 @@ Converts the VIRTUAL address to the PHYSICAL address.
 
 ### Examples
 
+The following command shows the physical address of `nt!ExAllocatePoolWithTag`.
+
+```diff
+HyperDbg> !va2pa nt!ExAllocatePoolWithTag
+35b1030
+```
+
 The following command shows the physical address of ``fffff800`4ebc9370``.
 
 ```diff

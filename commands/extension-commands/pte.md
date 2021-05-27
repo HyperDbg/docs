@@ -25,7 +25,18 @@ Displays the **PML4E**, **PDPTE**, **PDE**, **PTE** for the specified address.
 
 ### Examples
 
-The following command shows the page-level entries `fffff80040f00c28` .
+The following command shows the page-level entries `nt!ExAllocatePoolWithTag`.
+
+```diff
+HyperDbg> !pte nt!ExAllocatePoolWithTag
+VA fffff801639b1030
+PML4E (PXE) at ffffeaf57abd5f80 contains 0000000005109063
+PDPT (PPE) at ffffeaf57abf0028  contains 000000000510a063
+PDE at ffffeaf57e0058e0 contains 0a000000034000a1
+PDE is a large page, so it doesn't have a PTE
+```
+
+The following command shows the page-level entries `fffff80040f00c28`.
 
 ```diff
 HyperDbg> !pte fffff80040f00c28

@@ -48,6 +48,12 @@ If you don't specify the **pid**, then the default **pid** is the current proces
 
 ### Examples
 
+The following command is used to search for `4156415748` starting from `nt!ExAllocatePoolWithTag` to `nt!ExAllocatePoolWithTag+ffff`.
+
+```diff
+HyperDbg> sb nt!ExAllocatePoolWithTag l ffff 41 56 41 57 48 
+```
+
 The following command is used to search for `4156415748` starting from ``fffff807`7356f010`` to ``fffff807`7356f010+ffff``.
 
 ```diff
