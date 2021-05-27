@@ -94,6 +94,12 @@ If we want both reads and writes.
 HyperDbg> !monitor rw fffff800`4ed60000 fffff800`4ed60100 
 ```
 
+Alternatively, you can use `nt!Kd_DEFAULT_Mask` too.
+
+```c
+HyperDbg> !monitor rw nt!Kd_DEFAULT_Mask nt!Kd_DEFAULT_Mask+4 
+```
+
 ### Script
 
 Using the following command, you can use HyperDbg's Script Engine. You should replace the string between braces \(`HyperDbg Script Here`\) with your script. You can find script examples [here](https://docs.hyperdbg.com/commands/scripting-language/examples). 

@@ -66,6 +66,12 @@ Imagine we want to put a hook on ``fffff800`4ed6f010``, this will break into the
 HyperDbg> !epthook2 fffff800`4ed6f010 
 ```
 
+Alternatively, you can use `nt!ExAllocatePoolWithTag` too.
+
+```c
+HyperDbg> !epthook2 nt!ExAllocatePoolWithTag
+```
+
 ### Script
 
 Using the following command, you can use HyperDbg's Script Engine. You should replace the string between braces \(`HyperDbg Script Here`\) with your script. You can find script examples [here](https://docs.hyperdbg.com/commands/scripting-language/examples). 
