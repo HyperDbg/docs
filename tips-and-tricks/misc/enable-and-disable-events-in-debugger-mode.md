@@ -46,7 +46,7 @@ HyperDbg> events
 0       (disabled)          !syscall 55 pid 490
 ```
 
-Now, we try to debug our target process, and when we halt the debuggee in our target process, we can use the '[events](https://docs.hyperdbg.com/commands/debugging-commands/events)' command or '[EnableEvent](https://docs.hyperdbg.com/commands/scripting-language/functions/enableevent)' function \(from script-engine\) to re-enable the event.
+Now, we try to debug our target process, and when we halt the debuggee in our target process, we can use the '[events](https://docs.hyperdbg.com/commands/debugging-commands/events)' command or '[enable\_event](https://docs.hyperdbg.com/commands/scripting-language/functions/enable_event)' function \(from script-engine\) to re-enable the event.
 
 Note that `0` is the event number which we get from the '[events](https://docs.hyperdbg.com/commands/debugging-commands/events)' command.
 
@@ -57,7 +57,7 @@ HyperDbg> events e 0
 or
 
 ```c
-HyperDbg> ? EnableEvent(0);
+HyperDbg> ? enable_event(0);
 ```
 
 After that, we receive the events relating to the event with event number `0`; thus, we won't lose any events as the guest remained paused while the above expression command is executed.
@@ -71,10 +71,10 @@ HyperDbg> events d 0
 or
 
 ```c
-HyperDbg> ? DisableEvent(0);
+HyperDbg> ? disable_event(0);
 ```
 
-In the above examples, we used [**EnableEvent**](https://docs.hyperdbg.com/commands/scripting-language/functions/enableevent) and [**DisableEvent**](https://docs.hyperdbg.com/commands/scripting-language/functions/disableevent) functions of script-engine using the '[?](https://docs.hyperdbg.com/commands/debugging-commands/eval)' command.
+In the above examples, we used [**enable\_event**](https://docs.hyperdbg.com/commands/scripting-language/functions/enable_event) and [**disable\_event**](https://docs.hyperdbg.com/commands/scripting-language/functions/disable_event) functions of script-engine using the '[?](https://docs.hyperdbg.com/commands/debugging-commands/eval)' command.
 
 {% hint style="danger" %}
 **Important note**
