@@ -18,7 +18,3 @@ For ease of use, HyperDbg uses the same command-style as Windbg, which means the
 
 {% file src="../../.gitbook/assets/commandsdocstyle.pdf" caption="Download Command Documentation Style" %}
 
-{% hint style="success" %}
-HyperDbg commands are case-insensitive.
-{% endhint %}
-
