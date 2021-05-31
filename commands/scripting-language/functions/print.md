@@ -1,16 +1,16 @@
 ---
-description: Description of 'Print' function in HyperDbg Scripts
+description: Description of 'print' function in HyperDbg Scripts
 ---
 
-# Print
+# print
 
 ### Function
 
-> Print
+> print
 
 ### Syntax
 
-> Print\( Expression \);
+> print\( Expression \);
 
 ### Parameters
 

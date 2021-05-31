@@ -1,16 +1,16 @@
 ---
-description: Description of 'Printf' function in HyperDbg Scripts
+description: Description of 'printf' function in HyperDbg Scripts
 ---
 
-# Printf
+# printf
 
 ### Function
 
-> Printf
+> printf
 
 ### Syntax
 
-> Printf\(Format, Expressions \[...\] \);
+> printf\(Format, Expressions \[...\] \);
 
 ### Parameters
 
@@ -25,6 +25,10 @@ description: Description of 'Printf' function in HyperDbg Scripts
 ### Description
 
 Evaluates and prints a printf-like format string with MASM expression\(s\).
+
+{% hint style="danger" %}
+All the format specifiers should be in a lower-case format.
+{% endhint %}
 
 ### Supported Format Specifiers
 

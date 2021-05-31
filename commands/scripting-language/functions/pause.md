@@ -1,16 +1,16 @@
 ---
-description: Description of 'Break' function in HyperDbg Scripts
+description: Description of 'pause' function in HyperDbg Scripts
 ---
 
-# Pause
+# pause
 
 ### Function
 
-> Pause
+> pause
 
 ### Syntax
 
-> Pause \( \);
+> pause \( \);
 
 ### Parameters
 
