@@ -31,10 +31,10 @@ HyperDbg> x nt!ExAllocatePoolWithTag
 fffff803`1dbb1030  nt!ExAllocatePoolWithTag
 ```
 
-In the following example, we searched for the address of the wild card function \(and names\) which, starts with `ExAllocatePoo` in the `nt` module.
+In the following example, we searched for the address of functions \(and names\) which, starts with `ExAllocatePoo` in the `nt` module.
 
 ```text
-HyperDbg> x nt!ExAllocatePoo*
+0: kHyperDbg> x nt!ExAllocatePoo*
 fffff803`1dbb1030  nt!ExAllocatePoolWithTag
 fffff803`1d4421d0  nt!ExAllocatePoolWithQuotaTag
 fffff803`1d44fde0  nt!ExAllocatePoolWithTagPriority
