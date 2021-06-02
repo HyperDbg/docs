@@ -50,6 +50,7 @@
   * [bd \(disable breakpoints\)](commands/debugging-commands/bd.md)
   * [bc \(clear and remove breakpoints\)](commands/debugging-commands/bc.md)
   * [g \(continue debuggee or processing kernel packets\)](commands/debugging-commands/g.md)
+  * [x \(examine symbols and find functions and variables address\)](commands/debugging-commands/x.md)
   * [db, dc, dd, dq \(read virtual memory\)](commands/debugging-commands/d.md)
   * [eb, ed, eq \(edit virtual memory\)](commands/debugging-commands/e.md)
   * [sb, sd, sq \(search virtual memory\)](commands/debugging-commands/s.md)
