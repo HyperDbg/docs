@@ -20,7 +20,7 @@ Finds the functions or variables address in the memory based on symbols.
 
 **\[module!symbol \(wildcard string\)\]**
 
-          Specifies a function or a variable name or a pattern that the symbol must contain. The _**Symbol**_ can contain a variety of wildcard characters and specifiers. For more information about the syntax, see Remarks.
+          Specifies a function or a variable name or a pattern that the symbol must contain. The _**Symbol**_ can contain a variety of wildcard characters and specifiers. For more information about the syntax, see **Remarks**.
 
 ### Examples
 
