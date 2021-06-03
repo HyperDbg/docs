@@ -63,8 +63,7 @@ These are some examples of wildcard characters supported by this command.
 | :--- | :--- |
 | **foo** | Looks for a global symbol \(functions, variables\) named "**foo**". |
 | **foo?** | Looks for a global symbol that starts with "**foo**" and contains one extra character afterward, such as "**fool**" and "**foot**". |
-| **foo\*!bar** | Looks in every loaded module that starts with the text "**foo**" for a symbol called "**bar**". It could find matches such as these, "**foot!bar**", "**footlocker!bar**", and "**fool!bar**". |
-| **\*!\*** | It will enumerate every symbol in every loaded module. |
+| **foo!bar\*** | Looks for a global symbol in "**foo**" that starts with "**bar**" and contains extra characters afterward, such as "**foo!bar1**" and "**foo!bar2**". |
 
 ### Requirements
 
