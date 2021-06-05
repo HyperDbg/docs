@@ -114,6 +114,7 @@
   * [Functions](commands/scripting-language/functions/README.md)
     * [print](commands/scripting-language/functions/print.md)
     * [printf](commands/scripting-language/functions/printf.md)
+    * [eb, ed, eq](commands/scripting-language/functions/eb-ed-eq.md)
     * [enable\_event](commands/scripting-language/functions/enable_event.md)
     * [disable\_event](commands/scripting-language/functions/disable_event.md)
     * [pause](commands/scripting-language/functions/pause.md)
