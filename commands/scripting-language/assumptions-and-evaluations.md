@@ -80,6 +80,7 @@ The following functions are supported in **Script Engine**.
 | :--- | :--- |
 | **print** | Print the result of an expression. [Read more... ](https://docs.hyperdbg.com/commands/scripting-language/functions/print) |
 | **printf** | Print the result in a printf-style format. [Read more...](https://docs.hyperdbg.com/commands/scripting-language/functions/printf) |
+| **eb, ed, eq** | Modify memory safely. [Read more...](https://docs.hyperdbg.com/commands/scripting-language/functions/eb-ed-eq) |
 | **pause** | Halt the system and give control to the debugger. [Read more...](https://docs.hyperdbg.com/commands/scripting-language/functions/pause) |
 | **enable\_event** | Enable an event. [Read more...](https://docs.hyperdbg.com/commands/scripting-language/functions/enable_event) |
 | **disable\_event** | Disable an event. [Read more...](https://docs.hyperdbg.com/commands/scripting-language/functions/disable_event) |
