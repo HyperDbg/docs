@@ -32,7 +32,11 @@ description: 'Description of ''eb'', ''ed'', and ''eq'' functions in HyperDbg Sc
 
 ### Description
 
-`eb` modifies a single `byte`. `ed` modifies a `dwrod` and `eq` modifies a `qword` value.
+`eb` modifies a single `byte`.
+
+ `ed` modifies a `dwrod` .
+
+`eq` modifies a `qword` value.
 
 ### Return
 
