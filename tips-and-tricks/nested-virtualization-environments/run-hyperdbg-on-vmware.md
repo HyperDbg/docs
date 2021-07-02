@@ -8,7 +8,7 @@ In order to run HyperDbg on VMware, you should enable nested-virtualization on i
 
 First of all, make sure to update your VMWare to the latest version \(it’s important as VMWare sometimes has problems with nested-virtualization on out-dated versions\).
 
-Click on "Edit virtual machine settings" on your target VM/
+Click on "Edit virtual machine settings" on your target VM.
 
 ![](../../.gitbook/assets/nested-virtualization-vmware1.png)
 
