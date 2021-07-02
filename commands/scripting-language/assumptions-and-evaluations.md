@@ -34,7 +34,7 @@ The following keywords are valid in **Script Engine**.
 | **not** | Flip each and every bit |
 | **neg** | True/False logic flipping |
 
-If you want to read strings and wide-strings, you can use [**Printf**](https://docs.hyperdbg.com/commands/scripting-language/functions/printf) function.
+If you want to read strings and wide-strings, you can use [**printf**](https://docs.hyperdbg.com/commands/scripting-language/functions/printf) function.
 
 ### Operators
 
