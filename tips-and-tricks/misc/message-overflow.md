@@ -42,11 +42,11 @@ You can change `hprdbgctrl.cpp` file's **ReadIrpBasedBuffer\(\)** method to decr
 
 ### Not Use Immediate Messaging
 
-By default, **HyperDbg** accumulates messages in a separate buffer, and it won't send them immediately to the user-mode. This accumulation causes more messages to be delivered to the user-mode by one IRP packet so that the kernel messages will be transferred to the user-mode at a higher speed.
+**HyperDbg** is able to accumulate messages in a separate buffer, and it won't send them immediately to the user-mode. This accumulation causes more messages to be delivered to the user-mode by one IRP packet so that the kernel messages will be transferred to the user-mode at a higher speed.
 
 If you need to see messages immediately after each one message, then set this option to `TRUE`. However, it kills the performance as sending buffers to the user-mode involves various and heavy functions.
 
-If you set this option to `FALSE` \(**default**\), **HyperDbg** accumulates \(**~5** or more based on message length and chunk size\) messages, and when the buffer is full, it sends the buffer to the user-mode **CLI** or **GUI**.
+If you set this option to `FALSE`, **HyperDbg** accumulates \(**~5** or more based on message length and chunk size\) messages, and when the buffer is full, it sends the buffer to the user-mode **CLI** or **GUI**.
 
 You can change the following options in the **Configuration.h** file.
 
