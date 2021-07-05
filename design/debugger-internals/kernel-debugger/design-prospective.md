@@ -10,7 +10,7 @@ The following diagram illustrates how HyperDbg works on its kernel debugging mec
 
 Based on the design of HyperDbg, all the cores are halted and spinning on ring -1 \(hypervisor\).
 
-Only the first core is listening for new commands from the debugger on a polling mode serial. 
+The current operating code is listening for new commands from the debugger on a polling mode serial. 
 
 There are two scenarios in which the kernel debugger is paused.
 
