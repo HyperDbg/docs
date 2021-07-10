@@ -54,7 +54,7 @@ Bear in mind that this method only temporarily disables driver signature enforce
 In test mode, you can install any drivers you want without experiencing any problems. Don’t forget to go to normal Windows 10 mode after you solve your problem:
 
 1. Open an elevated command prompt window on your PC: right-click on the Windows Start icon and select **Command prompt \(Admin\)**.
-2. In cmd type:`bcdedit /set TESTSIGNING OFF`
+2. In cmd type:`bcdedit /set TESTSIGNING ON`
 3. Close the cmd window and restart your computer.
 4. Install your drivers.
 
