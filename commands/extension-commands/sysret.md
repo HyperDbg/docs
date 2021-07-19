@@ -24,6 +24,10 @@ Triggers when the debugging machine executes a **sysret** instruction or, in oth
 When you enable this event, all **sysret** instructions from all processes will be monitored, and due to the limitation in hardware, you can't expect it to trigger for just one process. Still, you can configure the debugger to trigger the event for you in the case of a special process by adding `pid xx`to the command.
 {% endhint %}
 
+{% hint style="success" %}
+The difference between **!sysret** and **!sysret2** is that in the first command, we safely check the memory to see if the instruction that caused **\#UD** is really a **SYSRET** or a **SYSCALL**. So, we access the memory in this command. However, we realized that older systems have problems with this way of memory access. In the second command, we just check for the RIP to see if it's a kernel address or a user address. Usually, this method works without error for several hours without any
+{% endhint %}
+
 ### Parameters
 
 **\[pid \(hex value\)\]**
