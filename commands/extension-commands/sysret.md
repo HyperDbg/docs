@@ -8,9 +8,13 @@ description: Description of '!sysret' command in HyperDbg.
 
 > !sysret
 
+> !sysret2
+
 ### Syntax
 
 > !sysret \[pid \(hex value\)\] \[core \(hex value\)\] \[imm \(yes\|no\)\] \[event options\]
+
+> !sysret2 \[pid \(hex value\)\] \[core \(hex value\)\] \[imm \(yes\|no\)\] \[event options\]
 
 ### Description
 

@@ -8,9 +8,13 @@ description: Description of '!syscall' command in HyperDbg.
 
 > !syscall
 
+> !syscall2
+
 ### Syntax
 
 > !syscall \[syscall-number \(hex value\)\] \[pid \(hex value\)\] \[core \(hex value\)\] \[imm \(yes\|no\)\] \[event options\]
+
+> !syscall2 \[syscall-number \(hex value\)\] \[pid \(hex value\)\] \[core \(hex value\)\] \[imm \(yes\|no\)\] \[event options\]
 
 ### Description
 
