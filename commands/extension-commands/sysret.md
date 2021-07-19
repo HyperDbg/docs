@@ -25,7 +25,7 @@ When you enable this event, all **sysret** instructions from all processes will 
 {% endhint %}
 
 {% hint style="success" %}
-The difference between **!sysret** and **!sysret2** is that in the first command, we safely check the memory to see if the instruction that caused **\#UD** is really a **SYSRET** or a **SYSCALL**. So, we access the memory in this command. However, we realized that older systems have problems with this way of memory access. In the second command, we just check for the RIP to see if it's a kernel address or a user address. Usually, this method works without error for several hours without any
+The difference between **!sysret** and **!sysret2** is that we safely check the memory in the first command to see if the instruction that caused **\#UD** is really an **SYSRET** or a **SYSCALL**. So, we access the memory in this command. However, we realized that older systems have problems with this way of memory access. In the second command, we just check for the RIP to see if it's a kernel address or a user address. Usually, this method works without error for several hours, but if one application generates a **\#UD**, then a BSOD will happen. The second method is generally faster in speed, but we encourage you to use the first command and if your computer doesn't support the first command, then use the second command.
 {% endhint %}
 
 ### Parameters
