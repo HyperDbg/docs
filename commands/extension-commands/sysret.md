@@ -2,7 +2,7 @@
 description: Description of '!sysret' command in HyperDbg.
 ---
 
-# !sysret \(hook SYSRET instruction execution\)
+# !sysret, !sysret2 \(hook SYSRET instruction execution\)
 
 ### Command
 

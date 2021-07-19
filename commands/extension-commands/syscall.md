@@ -2,7 +2,7 @@
 description: Description of '!syscall' command in HyperDbg.
 ---
 
-# !syscall \(hook system-calls\)
+# !syscall, !syscall2 \(hook system-calls\)
 
 ### Command
 
