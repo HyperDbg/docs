@@ -22,7 +22,7 @@ description: Description of 'check_address' function in HyperDbg Scripts
 
 Checks an address to see if the address is **valid** and **safe to access** from or not.
 
-### Return
+### Return value
 
 If the address is valid and safe it returns `1`. If the address is invalid or not safe to access then it returns `0`.
 
