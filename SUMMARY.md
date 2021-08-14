@@ -120,6 +120,7 @@
     * [enable\_event](commands/scripting-language/functions/enable_event.md)
     * [disable\_event](commands/scripting-language/functions/disable_event.md)
     * [pause](commands/scripting-language/functions/pause.md)
+    * [check\_address](commands/scripting-language/functions/check_address.md)
   * [Examples](commands/scripting-language/examples/README.md)
     * [View system state \(registers, memory, variables\)](commands/scripting-language/examples/view-system-state.md)
 
