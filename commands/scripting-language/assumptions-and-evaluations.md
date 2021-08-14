@@ -84,6 +84,7 @@ The following functions are supported in **Script Engine**.
 | **pause** | Halt the system and give control to the debugger. [Read more...](https://docs.hyperdbg.com/commands/scripting-language/functions/pause) |
 | **enable\_event** | Enable an event. [Read more...](https://docs.hyperdbg.com/commands/scripting-language/functions/enable_event) |
 | **disable\_event** | Disable an event. [Read more...](https://docs.hyperdbg.com/commands/scripting-language/functions/disable_event) |
+| **check\_address** | Check if an address is valid and safe to access or not. [Read more...](https://docs.hyperdbg.com/commands/scripting-language/functions/disable_event) |
 
 
 
