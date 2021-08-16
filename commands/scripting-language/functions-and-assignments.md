@@ -1,5 +1,5 @@
 ---
-description: Description of user-defined functions and assignments
+description: Description of functions and assignments
 ---
 
 # Functions & Assignments
