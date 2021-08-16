@@ -14,11 +14,11 @@ description: 'Description of ''eb'', ''ed'', and ''eq'' functions in HyperDbg Sc
 
 ### Syntax
 
-> eb\(Address, Value\);
+> eb\( Address, Value \);
 
-> ed\(Address, Value\);
+> ed\( Address, Value \);
 
-> eq\(Address, Value\);
+> eq\( Address, Value \);
 
 ### Parameters
 

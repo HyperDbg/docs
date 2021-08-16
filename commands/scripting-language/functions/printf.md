@@ -10,7 +10,7 @@ description: Description of 'printf' function in HyperDbg Scripts
 
 ### Syntax
 
-> printf\(Format, Expressions \[...\] \);
+> printf\( Format, Expressions \[...\] \);
 
 ### Parameters
 

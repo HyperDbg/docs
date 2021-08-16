@@ -10,7 +10,7 @@ description: Description of 'pause' function in HyperDbg Scripts
 
 ### Syntax
 
-> pause \( \);
+> pause\( \);
 
 ### Parameters
 
@@ -28,7 +28,9 @@ Break and halt the system and give control to the debugger.
 
 ### **Remarks**
 
-{% hint style="danger" %}
+{% hint style="warning" %}
 You can **only** use this function in **Debugger Mode**, and you **cannot** use it on VMI **Mode or local debugging**.
+
+This command must be used in [events](https://docs.hyperdbg.com/design/debugger-internals/events). You should avoid using this function with the '[?](https://docs.hyperdbg.com/commands/debugging-commands/eval)' command. Otherwise, the system will halt.
 {% endhint %}
 
