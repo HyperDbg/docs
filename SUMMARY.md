@@ -116,11 +116,11 @@
   * [Functions](commands/scripting-language/functions/README.md)
     * [print](commands/scripting-language/functions/print.md)
     * [printf](commands/scripting-language/functions/printf.md)
+    * [check\_address](commands/scripting-language/functions/check_address.md)
     * [eb, ed, eq](commands/scripting-language/functions/eb-ed-eq.md)
     * [enable\_event](commands/scripting-language/functions/enable_event.md)
     * [disable\_event](commands/scripting-language/functions/disable_event.md)
     * [pause](commands/scripting-language/functions/pause.md)
-    * [check\_address](commands/scripting-language/functions/check_address.md)
   * [Examples](commands/scripting-language/examples/README.md)
     * [View system state \(registers, memory, variables\)](commands/scripting-language/examples/view-system-state.md)
 
