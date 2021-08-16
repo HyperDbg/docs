@@ -64,7 +64,23 @@ my_variable = check_address(@rcx);
 
 ## Modify Memory
 
+Modifying memory is possible using '[eb, ed, eq](https://docs.hyperdbg.com/commands/scripting-language/functions/eb-ed-eq)' functions.
 
+`eb` modifies a single `byte`.
 
+`ed` modifies a `dwrod`.
 
+`eq` modifies a `qword` value.
+
+The following code edits memory \(**quad-word**\) at `fffff8031d44fde0` and change it to `0x12345678deadbeef`.
+
+```c
+IsEditApplied = eq(fffff8031d44fde0, 0x12345678deadbeef);
+```
+
+The following code changes a **byte** to 0x90 at the location that the **@rcx** register is pointing to, then adds **0x8** to it.
+
+```c
+IsEditApplied = eb(poi(@rcx)+8, 0x90);
+```
 
