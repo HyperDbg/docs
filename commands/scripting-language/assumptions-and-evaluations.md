@@ -50,6 +50,24 @@ The following operators are supported on the script engine.
 | ^ | Bitwise XOR Operator \(exclusive OR\) |
 | \| | Bitwise OR Operator |
 
+### Registers
+
+The following registers are supported by HyperDbg.
+
+| Registers | Description |
+| :--- | :--- |
+| **@rax @rcx @rdx @rbx @rsi @rdi**  | General-purpose registers |
+| **@r8 @r9 @r10 @r11 @r12 @r13 @r14 @r15**  | 64-bit mode registers |
+| **@rsp @rbp** | Stack management registers |
+| **@rip** | Program counter \(Instruction pointer\) |
+| **@rflags** | Flags register |
+| **@ds @es @cs @ss**  | Segment registers |
+| **@fs @gs** | Segment registers \(80386\) |
+| **@cr0 @cr2 @cr3 @cr4 @cr8** | Control registers |
+| **@gdtr** | Memory management registers |
+| **@idtr**  | Interrupt descriptor register |
+| **Model-/machine-specific registers \(MSRs\)** | See the '[rdmsr](https://docs.hyperdbg.com/commands/debugging-commands/rdmsr)' and '[wrmsr](https://docs.hyperdbg.com/commands/debugging-commands/wrmsr)' commands for more information. |
+
 ### Pseudo-registers
 
 Here are the currently supported pseudo-registers supported by the script engine.
