@@ -81,7 +81,7 @@ The **Context** is a special variable that shows an essential parameter of the e
 
 As an example, we want to find the _TAG_ \(**ExAllocatePoolWithTag**\). If the tag is a special value, then we want to change it to a new value.
 
-As you, ExAllocatePoolWithTag in Windows is defined as:
+As you know, ExAllocatePoolWithTag in Windows is defined as:
 
 ```c
 PVOID ExAllocatePoolWithTag(

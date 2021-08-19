@@ -31,7 +31,7 @@ HyperDbg> !epthook fffff805`5cdb2030 script { print(@r8); }
 If we want to use **!epthook2**, then the following command is used :
 
 ```c
-HyperDbg> !epthook fffff805`5cdb2030 script { print(@r8); }
+HyperDbg> !epthook2 fffff805`5cdb2030 script { print(@r8); }
 ```
 
 

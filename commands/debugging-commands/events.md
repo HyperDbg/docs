@@ -86,7 +86,7 @@ HyperDbg> events
 The following command clears and turns off every enabled and disabled event and commands.
 
 ```text
-0: kHyperDbg> event c 1
+0: kHyperDbg> event c all
 ```
 
 ### IOCTL
