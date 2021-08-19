@@ -1,5 +1,5 @@
 ---
-description: Description of 'cpu' command in HyperDbg.
+description: Description of 'load' command in HyperDbg.
 ---
 
 # load \(load the kernel modules\)

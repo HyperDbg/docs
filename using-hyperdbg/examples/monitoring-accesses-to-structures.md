@@ -25,6 +25,6 @@ HyperDbg> !monitor w 0xffff83811f265040 0xffff83811f265a80 script { print($ip); 
 If we want to monitor RIP\(s\) for reading \(not writing\), we use the following command.
 
 ```c
-HyperDbg> !monitor w 0xffff83811f265040 0xffff83811f265a80 script { print($ip); }
+HyperDbg> !monitor r 0xffff83811f265040 0xffff83811f265a80 script { print($ip); }
 ```
 

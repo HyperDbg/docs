@@ -73,7 +73,7 @@ HyperDbg> ed fffff800`3ad6f010 245C8948
 The following example is used when we want to edit the contents of memory at ``fffff800`3ad6f010`` in Quad-word values \(8 bytes\), change it to ``88889898`85858686``  and``92929393`97979898`` \(16 bytes\).
 
 ```diff
-HyperDbg> dq fffff800`3ad6f010 88889898`85858686 92929393`97979898
+HyperDbg> eq fffff800`3ad6f010 88889898`85858686 92929393`97979898
 ```
 
 ### Searching Memory
