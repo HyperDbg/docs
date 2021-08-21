@@ -8,7 +8,7 @@ One of the debugger's essential tasks is displaying or editing memory, and Hyper
 
 You can display, edit, and search both physical and virtual addresses using the following commands.
 
-### Displaying Memory
+## Displaying Memory
 
 The following command is used when we want to read the content of memory at **``fffff800`3ad6f010``** with length of `0x50` from the memory layout view of process \(`4` a.k.a. system process\) in a hex byte format.
 
@@ -56,7 +56,7 @@ fffff800`3ad6f070  8B480000`0038840F 8B485824`6C8B48D8
 fffff800`3ad6f080  8B485024`5C8B48C3 4130C483`48602474
 ```
 
-### Editing Memory
+## Editing Memory
 
 The following command is used when we want to edit the content of memory at ``fffff800`3ad6f010`` in a hex byte form and change it to `0x90 0x90 0x90` \(modify **three** bytes\).
 
@@ -70,24 +70,24 @@ The following example is used when we want to edit the contents of memory at ``f
 HyperDbg> ed fffff800`3ad6f010 245C8948
 ```
 
-The following example is used when we want to edit the contents of memory at ``fffff800`3ad6f010`` in Quad-word values \(8 bytes\), change it to ``88889898`85858686``  and``92929393`97979898`` \(16 bytes\).
+The following example is used when we want to edit the contents of memory at ``fffff800`3ad6f010`` in Quad-word values \(8 bytes\), change it to ``88889898`85858686`` and``92929393`97979898`` \(16 bytes\).
 
 ```diff
 HyperDbg> eq fffff800`3ad6f010 88889898`85858686 92929393`97979898
 ```
 
-### Searching Memory
+## Searching Memory
 
 The following command is used to search for `4156415748` starting from ``fffff807`7356f010`` to ``fffff807`7356f010+ffff``.
 
 ```diff
-HyperDbg> sb fffff807`7356f010 l ffff 41 56 41 57 48 
+HyperDbg> sb fffff807`7356f010 l ffff 41 56 41 57 48
 ```
 
 The following example is used when we want to search for `f0cc8549` from `7FF62C9016AD` to `7FF62C9016AD+fff` in a different process \(process id = `1dd0`\).
 
 ```diff
-HyperDbg> sd 7FF62C9016AD pid 1dd0 l fff f0cc8549 
+HyperDbg> sd 7FF62C9016AD pid 1dd0 l fff f0cc8549
 ```
 
 The following example is used when we want to search for ``0f450000`00c0888b`` ``8b410000`0092b1b7`` from ``fffff807`7356f010`` to ``fffff807`7356f010+100``.

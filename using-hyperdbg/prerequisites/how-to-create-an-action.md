@@ -14,19 +14,19 @@ You can have multiple "**Custom Codes**", "**Script**", and "**Break**".
 
 This document is a brief of how to create actions for an event.
 
-### Break
+## Break
 
 Break to the debugger, works exactly like classic debuggers like Windbg.
 
 If you simply use a command without any extra parameters, it will be treated like classic debuggers, and HyperDbg gives the system control to the debugger.
 
-### Script
+## Script
 
-Custom vmx-root mode compatible script engine is another feature for HyperDbg. 
+Custom vmx-root mode compatible script engine is another feature for HyperDbg.
 
 [Read more...](https://docs.hyperdbg.com/commands/scripting-language)
 
-### Custom Codes
+## Custom Codes
 
 **Run custom code** lets you run your custom assembly codes whenever a special event is triggered; this option is fast and powerful as you can customize the HyperDbg based on your needs.
 
@@ -34,7 +34,7 @@ Custom vmx-root mode compatible script engine is another feature for HyperDbg.
 Accessing random memory in **custom code** and **condition code** is considered "[unsafe](https://docs.hyperdbg.com/tips-and-tricks/considerations/the-unsafe-behavior)". You have some limitations on accessing memory on some special events.
 {% endhint %}
 
-#### Run custom code without a safe buffer
+### Run custom code without a safe buffer
 
 Each command in HyperDbg that are tagged as "**event**" in the document follows the same structure described [here](https://docs.hyperdbg.com/design/debugger-internals/events). At the time you execute a command, you can add a `code { xx xx xx xx }` where `xx` is the assembly \(hex\) of what you want to be executed in the case of that event.
 
@@ -49,7 +49,7 @@ As it called in the fastcall calling convention, **PreAllocatedBufferAddress** w
 
 **PreAllocatedBufferAddress** is the address of a non-paged safe buffer, which is passed to the function on `rcx`. \(more about it later\).
 
-**Regs**, for general-purpose registers, we pass a pointer to the following structure as the second argument on `rdx`. 
+**Regs**, for general-purpose registers, we pass a pointer to the following structure as the second argument on `rdx`.
 
 ```cpp
 typedef struct _GUEST_REGS
@@ -73,7 +73,7 @@ typedef struct _GUEST_REGS
 } GUEST_REGS, *PGUEST_REGS;
 ```
 
-The **Context** is a special variable that shows an essential parameter of the event. This value is different for each event. You should check the documentation of that command for more information about the `Context`. For example, `Context` for **!syscall** command is the syscall-number or for the **!epthook2** command is the physical address of where the hidden hook triggered. Context is passed to the custom code as the third argument on `r8` . 
+The **Context** is a special variable that shows an essential parameter of the event. This value is different for each event. You should check the documentation of that command for more information about the `Context`. For example, `Context` for **!syscall** command is the syscall-number or for the **!epthook2** command is the physical address of where the hidden hook triggered. Context is passed to the custom code as the third argument on `r8` .
 
 {% hint style="warning" %}
 **PreAllocatedBufferAddress \(rcx\)** is always _NULL_ in **Run custom code without a safe buffer**, and it's used in **Run custom code with a safe buffer**.
@@ -119,7 +119,7 @@ Imagine, the **ExAllocatePoolWithTag** is located at ``fffff800`4ed6f010``. We c
 HyperDbg> !epthook2 fffff800`4ed6f010 code {488B5A404881FB484442477402EB0848C7424048444232C3}
 ```
 
-#### Run custom code with a safe buffer
+### Run custom code with a safe buffer
 
 The difference between "**Run custom code without a safe buffer**" and "**Run custom code without a safe buffer**" is that you have an extra parameter, called `buffer xx` where `xx` is the hex length of the buffer.
 

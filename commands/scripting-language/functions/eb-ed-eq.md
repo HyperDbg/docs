@@ -52,6 +52,23 @@ The following code changes a **byte** to 0x90 at the location that the **@rcx** 
 
 `IsEditApplied = eb(poi(@rcx)+8, 0x90);`
 
+You can also use these functions without checking for the return value.
+
+`eq(fffff8031d44fde0, 0x12345678deadbeef);`
+
+It's possible to use these functions with an **if** statement.
+
+```c
+if (eq(@r11, 0x12345678deadbeef) == 1) 
+{ 
+	printf("changes are applied.\n");
+}
+else 
+{
+	printf("changes are NOT applied.\n");
+}
+```
+
 ### **Remarks**
 
 None

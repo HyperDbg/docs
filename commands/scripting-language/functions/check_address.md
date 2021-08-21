@@ -28,17 +28,30 @@ If the address is valid and safe it returns `1`. If the address is invalid or no
 
 ### Examples
 
-`check_address(@rcx + 10);`
+`IsValid = check_address(@rcx + 10);`
 
-Adds 0x10 to the **rcx** register and checks whether it's a valid and safe address or not.
+Adds 0x10 to the **rcx** register and checks whether it's a valid and safe address or not and safety and saves the result into `IsValid` variable.
 
-`check_address(dq(@rcx));`
+`IsValid = check_address(dq(@rcx));`
 
-Checks address as an 8-byte hex, pointed by **rcx** register.
+Checks address as an 8-byte hex, pointed by **rcx** register and safety and saves the result into `IsValid` variable.
 
-`check_address(0xffff83811f265040);`
+`IsValid = check_address(0xffff83811f265040);`
 
-Checks `0xffff83811f265040` address for validity and safety.
+Checks `0xffff83811f265040` address for validity and safety and saves the result into `IsValid` variable.
+
+You can also use this function with an **if** statement.
+
+```c
+if (check_address(@r11) == 1) 
+{ 
+	printf("address is valid.\n");
+}
+else 
+{
+	printf("address is invalid.\n");
+}
+```
 
 ### **Remarks**
 

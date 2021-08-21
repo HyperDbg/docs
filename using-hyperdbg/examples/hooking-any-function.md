@@ -34,5 +34,3 @@ If we want to use **!epthook2**, then the following command is used :
 HyperDbg> !epthook2 fffff805`5cdb2030 script { print(@r8); }
 ```
 
-
-
