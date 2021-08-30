@@ -31,7 +31,7 @@ After that, we can use the ['p' command](https://docs.hyperdbg.com/commands/debu
 fffff805`5cbac610    48 81 EC 50 01 00 00                sub rsp, 0x150
 ```
 
-You can also add a number to instrument the instructions multiple times.
+You can also add a number to run multiple instructions.
 
 ```text
 0: kHyperDbg> p 3
