@@ -2,7 +2,7 @@
 description: Description of 'i' command in HyperDbg.
 ---
 
-# i \(instrument step-in\)
+# i \(instrumentation step-in\)
 
 ### Command
 
@@ -34,14 +34,14 @@ This command gives you the ability to follow system-calls \(SYSCALLs\) and all t
 
 ### Examples
 
-If you want to instrument step-in one instruction.
+If you want to instrumentation step-in one instruction.
 
 ```text
 0: kHyperDbg> i
 fffff801`68d91267    41 5B                               pop r11
 ```
 
-If you want to instrument step-in one instruction and view the registers.
+If you want to instrumentation step-in one instruction and view the registers.
 
 ```c
 0: kHyperDbg> ir
@@ -58,7 +58,7 @@ CS 0010 SS 0018 DS 002b ES 002b FS 0053 GS 002b
 RFLAGS=0000000000040046
 ```
 
-If you want to instrument step-in for `5` instructions.
+If you want to instrumentation step-in for `5` instructions.
 
 ```c
 0: kHyperDbg> i 5
@@ -73,7 +73,7 @@ fffff801`63a12b00    F6 44 24 10 01                      test byte ptr ss:[rsp+0
 
 This commands works over serial by sending the serial packets to the remote computer.
 
-First of all, you should fill the following structure, set the `StepType` to the type of step that you want to perform \(e.g., _step-in_, _step-over_, and _instrument step-in_\), and if it's a step-over \(only step-over\), then if the currently executing instruction is a **call** instruction, set the `IsCurrentInstructionACall` to `TRUE` and also set the length of the current call instruction \(if it's a call instruction\) to `CallLength`, so you can hint the debuggee to find the next instruction. In step-over and instrument step-over, just set the `StepType` and set all the other members to **null**.
+First of all, you should fill the following structure, set the `StepType` to the type of step that you want to perform \(e.g., _step-in_, _step-over_, and _instrumentation step-in_\), and if it's a step-over \(only step-over\), then if the currently executing instruction is a **call** instruction, set the `IsCurrentInstructionACall` to `TRUE` and also set the length of the current call instruction \(if it's a call instruction\) to `CallLength`, so you can hint the debuggee to find the next instruction. In step-over, just set the `StepType` and set all the other members to **null**.
 
 ```c
 typedef struct _DEBUGGEE_STEP_PACKET {

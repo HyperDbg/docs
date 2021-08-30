@@ -126,7 +126,7 @@ None
 
 [t \(step-in\)](https://docs.hyperdbg.com/commands/debugging-commands/t)
 
-[i \(instrument step-in\)](https://docs.hyperdbg.com/commands/debugging-commands/i)
+[i \(instrumentation step-in\)](https://docs.hyperdbg.com/commands/debugging-commands/i)
 
 
 
