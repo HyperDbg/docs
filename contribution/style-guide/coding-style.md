@@ -39,3 +39,9 @@ For drivers, file names start with a capital case character.
 
 For user-mode codes, file names start with lower case characters. 
 
+### Error Styles
+
+In HyperDbg, errors might come from either user-mode codes, kernel-mode, or vmx-root mode. Because we want to know the root cause of the error, we follow the rule of **"`Err,` "** and **"`err,` "**.
+
+If the error starts with `err,` then, it means that the user-mode code generated this error. If the error started with `Err,` it means that it was either kernel-mode or vmx-root mode that encountered this error.
+
