@@ -65,7 +65,7 @@ fffff801`63a12b00    F6 44 24 10 01                      test byte ptr ss:[rsp+0
 
 This commands works over serial by sending the serial packets to the remote computer.
 
-First of all, you should fill the following structure, set the `StepType` to the type of step that you want to perform \(e.g., _step-in_, _step-over_, and _instrument step-in_\), and if it's a step-over \(only step-over\), then if the currently executing instruction is a **call** instruction, set the `IsCurrentInstructionACall` to `TRUE` and also set the length of the current call instruction \(if it's a call instruction\) to `CallLength`, so you can hint the debuggee to find the next instruction. In step-over and instrument step-over, just set the `StepType` and set all the other members to **null**.
+First of all, you should fill the following structure, set the `StepType` to the type of step that you want to perform \(e.g., _step-in_, _step-over_, and _instrumentation step-in_\), and if it's a step-over \(only step-over\), then if the currently executing instruction is a **call** instruction, set the `IsCurrentInstructionACall` to `TRUE` and also set the length of the current call instruction \(if it's a call instruction\) to `CallLength`, so you can hint the debuggee to find the next instruction. In step-over, just set the `StepType` and set all the other members to **null**.
 
 ```c
 typedef struct _DEBUGGEE_STEP_PACKET {
@@ -89,7 +89,7 @@ typedef enum _DEBUGGER_REMOTE_STEPPING_REQUEST {
 
   DEBUGGER_REMOTE_STEPPING_REQUEST_STEP_OVER,
   DEBUGGER_REMOTE_STEPPING_REQUEST_STEP_IN,
-  DEBUGGER_REMOTE_STEPPING_REQUEST_STEP_IN_INSTRUMENT,
+  DEBUGGER_REMOTE_STEPPING_REQUEST_INSTRUMENTATION_STEP_IN,
 
 } DEBUGGER_REMOTE_STEPPING_REQUEST;
 ```
