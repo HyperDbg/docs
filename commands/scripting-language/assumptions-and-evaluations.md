@@ -90,6 +90,30 @@ Some of the above pseudo-registers are not supported either in kernel-mode or us
 
 By default, **HyperDbg** interprets the numbers as hex \(base 16\). If you want to specify other forms of a number, you should use MASM prefixes. In all MASM expressions, numeric values are interpreted as numbers in the current radix \(16, 10, or 8\). You can override the default radix by specifying the 0x prefix \(hexadecimal\), the 0n prefix \(decimal\), the 0t prefix \(octal\), or the 0y prefix \(binary\).
 
+### Comments
+
+HyperDbg's comments are like C comments. 
+
+ A comment starts with a slash asterisk `/*` and ends with an asterisk slash `*/` and can be anywhere in your program. Comments can span several lines within your C program.
+
+```text
+/* comment goes here */
+```
+
+OR
+
+```text
+/*
+ * comment goes here
+ */
+```
+
+You can create a comment on a single line.
+
+```text
+/* comment goes here */
+```
+
 ### Functions
 
 The following functions are supported in **Script Engine**.
