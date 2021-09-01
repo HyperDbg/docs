@@ -111,7 +111,7 @@ OR
 You can create a comment on a single line.
 
 ```text
-/* comment goes here */
+// comment goes here 
 ```
 
 ### Functions
