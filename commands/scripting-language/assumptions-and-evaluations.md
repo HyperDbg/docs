@@ -34,7 +34,7 @@ The following keywords are valid in **Script Engine**.
 | **not** | Flip each and every bit |
 | **neg** | True/False logic flipping |
 
-If you want to read strings and wide-strings, you can use [**printf**](https://docs.hyperdbg.com/commands/scripting-language/functions/printf) function.
+If you want to read strings or wide-char strings, you can use [**printf**](https://docs.hyperdbg.com/commands/scripting-language/functions/printf) function.
 
 ### Operators
 
@@ -76,9 +76,9 @@ Here are the currently supported pseudo-registers supported by the script engine
 | Pseudo-register | Description |
 | :--- | :--- |
 | **$pid** | The process ID \(PID\) of the current process. |
-| **$proc** | The address of the current process \(that is, the address of the`EPROCESS` block\). |
+| **$proc** | The address of the current process \(that is, the address of the `nt!_EPROCESS` block\). |
 | **$tid** | The thread ID for the current thread. |
-| **$thread** | The address of the current thread. In kernel-mode debugging, this address is the address of the `ETHREAD` block. |
+| **$thread** | The address of the current thread. In kernel-mode debugging, this address is the address of the `nt!_ETHREAD` block. |
 | **$peb** | The address of the process environment block \(PEB\) of the current process. |
 | **$teb** | The address of the thread environment block \(TEB\) of the current thread. |
 | **$ip** | The instruction pointer register \(rip\). |
