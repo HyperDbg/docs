@@ -56,16 +56,17 @@ The following registers are supported by HyperDbg.
 
 | Registers | Description |
 | :--- | :--- |
-| **@rax @rcx @rdx @rbx @rsi @rdi**  | General-purpose registers |
-| **@r8 @r9 @r10 @r11 @r12 @r13 @r14 @r15**  | 64-bit mode registers |
-| **@rsp @rbp** | Stack management registers |
-| **@rip** | Program counter \(Instruction pointer\) |
-| **@rflags** | Flags register |
+| **@rax @eax @ax @ah @al @rcx @ecx @cx @ch @cl @rdx @edx @dx @dh @dl @rbx @ebx @bx @bh @bl @rsi @esi @si @sil @rdi @edi @di @dil** | General-purpose registers |
+| **@r8 @r8d @r8w @r8h @r8l @r9 @r9d @r9w @r9h @r9l @r10 @r10d @r10w @r10h @r10l @r11 @r11d @r11w @r11h @r11l @r12 @r12d @r12w @r12h @r12l @r13 @r13d @r13w @r13h @r13l @r14 @r14d @r14w @r14h @r14l @r15 @r15d @r15w @r15h @r15l** | 64-bit mode registers |
+| **@rsp @esp @sp @spl @rbp @ebp @bp @bpl** | Stack management registers |
+| **@rip @eip @ip** | Program counter \(Instruction pointer\) |
+| **@rflags @eflags @flags** | Flags register |
 | **@ds @es @cs @ss**  | Segment registers |
 | **@fs @gs** | Segment registers \(80386\) |
 | **@cr0 @cr2 @cr3 @cr4 @cr8** | Control registers |
-| **@gdtr** | Memory management registers |
+| **@gdtr @ldtr @tr** | Memory management registers |
 | **@idtr**  | Interrupt descriptor register |
+| **@dr0 @dr1 @dr2 @dr3 @dr6 @dr7** | Debug registers |
 | **Model-/machine-specific registers \(MSRs\)** | See the '[rdmsr](https://docs.hyperdbg.com/commands/debugging-commands/rdmsr)' and '[wrmsr](https://docs.hyperdbg.com/commands/debugging-commands/wrmsr)' commands for more information. |
 
 ### Pseudo-registers
