@@ -40,7 +40,8 @@ _**Done!** You successfully used HyperDbg Debugger._
 
 * \*\*\*\*[**Assumptions & Evaluations \(MASM-Style\)**](https://docs.hyperdbg.com/commands/scripting-language/assumptions-and-evaluations)\*\*\*\*
 * \*\*\*\*[**Conditionals & Loops**](https://docs.hyperdbg.com/commands/scripting-language/conditionals-and-loops)
-* \*\*\*\*[**Functions & Assignments**](https://docs.hyperdbg.com/commands/scripting-language/functions-and-assignments)
+* \*\*\*\*[**Variables & Assignments**](https://docs.hyperdbg.com/commands/scripting-language/variables-and-assignments)
+* \*\*\*\*[**Script Functions**](https://docs.hyperdbg.com/commands/scripting-language/functions)\*\*\*\*
 * \*\*\*\*[**Script Examples**](https://docs.hyperdbg.com/commands/scripting-language/examples)
 * \*\*\*\*[**List of Script Functions**](https://docs.hyperdbg.com/commands/scripting-language/functions)
 
