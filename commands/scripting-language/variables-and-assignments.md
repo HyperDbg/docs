@@ -1,8 +1,8 @@
 ---
-description: Description of functions and assignments
+description: Description of variables and assignments
 ---
 
-# Functions & Assignments
+# Variables & Assignments
 
 ## Register Assignment
 
