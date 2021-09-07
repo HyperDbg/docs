@@ -121,13 +121,23 @@ The following functions are supported in **Script Engine**.
 
 | Function | Description |
 | :--- | :--- |
-| **print** | Print the result of an expression. [Read more... ](https://docs.hyperdbg.com/commands/scripting-language/functions/print) |
-| **printf** | Print the result in a printf-style format. [Read more...](https://docs.hyperdbg.com/commands/scripting-language/functions/printf) |
-| **eb, ed, eq** | Modify memory safely. [Read more...](https://docs.hyperdbg.com/commands/scripting-language/functions/eb-ed-eq) |
-| **pause** | Halt the system and give control to the debugger. [Read more...](https://docs.hyperdbg.com/commands/scripting-language/functions/pause) |
-| **enable\_event** | Enable an event. [Read more...](https://docs.hyperdbg.com/commands/scripting-language/functions/enable_event) |
-| **disable\_event** | Disable an event. [Read more...](https://docs.hyperdbg.com/commands/scripting-language/functions/disable_event) |
-| **check\_address** | Check if an address is valid and safe to access or not. [Read more...](https://docs.hyperdbg.com/commands/scripting-language/functions/disable_event) |
+| **print** | Print the result of an expression. [Read more... ](https://docs.hyperdbg.com/commands/scripting-language/functions/exports/print) |
+| **printf** | Print the result in a printf-style format. [Read more...](https://docs.hyperdbg.com/commands/scripting-language/functions/exports/printf) |
+| **eb, ed, eq** | Modify memory safely. [Read more...](https://docs.hyperdbg.com/commands/scripting-language/functions/memory/eb-ed-eq) |
+| **pause** | Halt the system and give control to the debugger. [Read more...](https://docs.hyperdbg.com/commands/scripting-language/functions/debugger/pause) |
+| **enable\_event** | Enable an event. [Read more...](https://docs.hyperdbg.com/commands/scripting-language/functions/events/enable_event) |
+| **disable\_event** | Disable an event. [Read more...](https://docs.hyperdbg.com/commands/scripting-language/functions/events/disable_event) |
+| **check\_address** | Check if an address is valid and safe to access or not. [Read more...](https://docs.hyperdbg.com/commands/scripting-language/functions/memory/check_address) |
+| **strlen** | Count the length of ASCII strings. [Read more...](https://docs.hyperdbg.com/commands/scripting-language/functions/strings/strlen) |
+| **wcslen** | Count the length of wide-char strings. [Read more...](https://docs.hyperdbg.com/commands/scripting-language/functions/strings/wcslen) |
+| **spinlock\_lock** | Lock an spinlock. [Read more...](https://docs.hyperdbg.com/commands/scripting-language/functions/spinlocks/spinlock_lock) |
+| **spinlock\_lock\_custom\_wait** | Lock an spinlock with a pause timer. [Read more...](https://docs.hyperdbg.com/commands/scripting-language/functions/spinlocks/spinlock_lock_custom_wait) |
+| **spinlock\_unlock** | Unlock an spinlock. [Read more...](https://docs.hyperdbg.com/commands/scripting-language/functions/spinlocks/spinlock_unlock) |
+| **interlocked\_compare\_exchange** | Perform an atomic compare-and-exchange operation on the specified values. [Read more...](https://docs.hyperdbg.com/commands/scripting-language/functions/interlocked/interlocked_compare_exchange) |
+| **interlocked\_decrement** | Decrement \(decrease by one\) the value of the variable as an atomic operation. [Read more...](https://docs.hyperdbg.com/commands/scripting-language/functions/interlocked/interlocked_decrement) |
+| **interlocked\_exchange** | Sets a variable to the specified value as an atomic operation. [Read more...](https://docs.hyperdbg.com/commands/scripting-language/functions/interlocked/interlocked_exchange) |
+| **interlocked\_exchange\_add** | Performs an atomic addition of two values. [Read more...](https://docs.hyperdbg.com/commands/scripting-language/functions/interlocked/interlocked_exchange_add) |
+| **interlocked\_increment** | Increment \(increase by one\) the value of the variable as an atomic operation. [Read more...](https://docs.hyperdbg.com/commands/scripting-language/functions/interlocked/interlocked_increment) |
 
 
 
