@@ -68,7 +68,7 @@ Like local variables, all global variables are defined without **type**, and all
 
 The variables can be used as an input to other functions or might be used in conditional statements or loops.
 
-You can also use global variables as volatile variables to the [spinlocks](https://docs.hyperdbg.com/commands/scripting-language/functions/spinlocks) or [interlocked](https://docs.hyperdbg.com/commands/scripting-language/functions/interlocked) functions. 
+You can also use global variables as [volatile](https://en.wikipedia.org/wiki/Volatile_%28computer_programming%29) variables to the [spinlocks](https://docs.hyperdbg.com/commands/scripting-language/functions/spinlocks) or [interlocked](https://docs.hyperdbg.com/commands/scripting-language/functions/interlocked) functions. 
 
 The difference between local variables and global variables is that the global variables start with a `.` DOT.
 
@@ -98,7 +98,7 @@ Also, you can assign the results of functions to the global variables.
 
 You should not write to a global variable simultaneously from different cores. It's clear that other cores might trigger the same event and use the global variable or modify that variable.
 
-To solve this problem, you can use [spinlock](https://docs.hyperdbg.com/commands/scripting-language/functions/spinlocks) functions. In this case, if you want to perform mathematical calculations on different global variables, you should use [interlocked](https://docs.hyperdbg.com/commands/scripting-language/functions/interlocked) functions instead of performing them using regular math operators.
+To solve this problem, you can use [spinlock](https://docs.hyperdbg.com/commands/scripting-language/functions/spinlocks) functions. If you want to perform mathematical calculations on different global variables, you should use [interlocked](https://docs.hyperdbg.com/commands/scripting-language/functions/interlocked) functions instead of performing them using regular math operators.
 
 ```c
 //
