@@ -44,6 +44,8 @@ Locks the spinlock of a global variable \(lock\) called `.my_lock_var`, it used 
 
 If your lock needs to be checked more frequently, you should specify a lower value as the second argument. However, it's not a power-efficient approach, but it gives you a more real-time spinlock. If you give a number higher than 65536, it takes longer to re-check the lock by the processor.
 
+It's actually the number of times which the **PAUSE** instruction is executed.
+
 ### Related
 
 [spinlock\_lock](https://docs.hyperdbg.com/commands/scripting-language/functions/spinlocks/spinlock_lock)
