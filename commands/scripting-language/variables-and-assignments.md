@@ -98,9 +98,28 @@ Also, you can assign the results of functions to the global variables.
 
 You should not write to a global variable simultaneously from different cores. It's clear that other cores might trigger the same event and use the global variable or modify that variable.
 
-To solve this problem, you can use [spinlock](https://docs.hyperdbg.com/commands/scripting-language/functions/spinlocks) functions and in this case, if you want to perform mathematical calculations on different global variables, you should use interlocked functions instead of performing them using regular math operators.
+To solve this problem, you can use [spinlock](https://docs.hyperdbg.com/commands/scripting-language/functions/spinlocks) functions and in this case, if you want to perform mathematical calculations on different global variables, you should use [interlocked](https://docs.hyperdbg.com/commands/scripting-language/functions/interlocked) functions instead of performing them using regular math operators.
+
+```c
+//
+// First, we should create a separate global variable as the lock
+//
+spinlock_lock(.my_global_variable_lock);
+
+//
+// Now, it's safe to change the global variable in a multi-core
+// environment
+//
+.my_global_var = 0x1234;
 
 
+//
+// At last, we should release the lock
+//
+spinlock_unlock(.my_global_variable_lock);
+```
+
+If you are running HyperDbg on a single-core machine, there is no need to use a **spinlock** or use **interlocked** functions for calculations, you can directly modify them without any problem.
 
 ## Modify Memory
 
