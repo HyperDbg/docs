@@ -14,9 +14,9 @@ description: Description of 'interlocked_decrement' function in HyperDbg Scripts
 
 ### Parameters
 
-**\[GlobalVariable\]**
+**\[GlobalVariable \(Addend\)\]**
 
-         A global variable to subtract by `1`.
+         A global variable to be subtracted by `1`.
 
 ### Description
 

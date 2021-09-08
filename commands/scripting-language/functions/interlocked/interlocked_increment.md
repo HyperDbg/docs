@@ -14,9 +14,9 @@ description: Description of 'interlocked_increment' function in HyperDbg Scripts
 
 ### Parameters
 
-**\[GlobalVariable\]**
+**\[GlobalVariable \(Addend\)\]**
 
-         A global variable to add `1` to it.
+         A global variable to be added by `1`.
 
 ### Description
 

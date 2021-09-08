@@ -14,11 +14,11 @@ description: Description of 'interlocked_exchange_add' function in HyperDbg Scri
 
 ### Parameters
 
-**\[GlobalVariable\]**
+**\[GlobalVariable \(Addend\)\]**
 
          A global variable to add the value of the resulting instruction to it.
 
-**\[Expression\]**
+**\[Expression \(Value\)\]**
 
          The value which is added to the global variable.
 
@@ -28,7 +28,7 @@ Performs an atomic addition of two values.
 
 ### Return value
 
-The function returns the initial value of the **`GlobalVariable`** parameter
+The function returns the initial value of the **`GlobalVariable(Addend)`** parameter.
 
 ### Examples
 
