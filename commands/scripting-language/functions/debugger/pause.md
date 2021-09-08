@@ -34,3 +34,7 @@ You can **only** use this function in **Debugger Mode**, and you **cannot** use 
 This command must be used in [events](https://docs.hyperdbg.com/design/debugger-internals/events). You should avoid using this function with the '[?](https://docs.hyperdbg.com/commands/debugging-commands/eval)' command. Otherwise, the system will halt.
 {% endhint %}
 
+### Related
+
+None
+

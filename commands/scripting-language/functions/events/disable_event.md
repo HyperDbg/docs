@@ -32,3 +32,7 @@ Disable an event with `EventId = 1`.
 
 You can see events' ID using the [event](https://docs.hyperdbg.com/commands/debugging-commands/events) command. The first column of [this command](https://docs.hyperdbg.com/commands/debugging-commands/events)'s results shows the event ID.
 
+### Related
+
+[enable\_event](https://docs.hyperdbg.com/commands/scripting-language/functions/events/enable_event)
+

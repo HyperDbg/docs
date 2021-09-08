@@ -44,5 +44,9 @@ You can see more examples [here](https://docs.hyperdbg.com/commands/scripting-la
 
 You should consider avoiding ["unsafe" behavior](https://docs.hyperdbg.com/tips-and-tricks/considerations/the-unsafe-behavior) in your expressions.
 
+### Related
+
+[printf](https://docs.hyperdbg.com/commands/scripting-language/functions/exports/printf)
+
 
 

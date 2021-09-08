@@ -44,3 +44,7 @@ Counts ASCII string length located at `0xffff83811f265040` address and saves the
 
 None
 
+### Related
+
+[wcslen](https://docs.hyperdbg.com/commands/scripting-language/functions/strings/wcslen)
+
