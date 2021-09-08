@@ -96,7 +96,9 @@ Also, you can assign the results of functions to the global variables.
 
 ### Using global variables on multi-core systems
 
+You should not write to a global variable simultaneously from different cores. It's clear that other cores might trigger the same event and use the global variable or modify that variable.
 
+To solve this problem, you can use [spinlock](https://docs.hyperdbg.com/commands/scripting-language/functions/spinlocks) functions.
 
 ## Modify Memory
 
