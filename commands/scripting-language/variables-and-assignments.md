@@ -98,7 +98,9 @@ Also, you can assign the results of functions to the global variables.
 
 You should not write to a global variable simultaneously from different cores. It's clear that other cores might trigger the same event and use the global variable or modify that variable.
 
-To solve this problem, you can use [spinlock](https://docs.hyperdbg.com/commands/scripting-language/functions/spinlocks) functions.
+To solve this problem, you can use [spinlock](https://docs.hyperdbg.com/commands/scripting-language/functions/spinlocks) functions and in this case, if you want to perform mathematical calculations on different global variables, you should use interlocked functions instead of performing them using regular math operators.
+
+
 
 ## Modify Memory
 
