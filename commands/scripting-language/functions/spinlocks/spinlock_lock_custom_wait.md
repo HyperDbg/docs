@@ -14,7 +14,7 @@ description: Description of 'spinlock_lock_custom_wait' function in HyperDbg Scr
 
 ### Parameters
 
-**\[GlobalVariable\]**
+**\[GlobalVariable \(Lock\)\]**
 
          A global variable, used as a [lock](https://en.wikipedia.org/wiki/Spinlock).
 

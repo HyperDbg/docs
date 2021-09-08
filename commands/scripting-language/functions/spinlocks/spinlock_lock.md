@@ -14,7 +14,7 @@ description: Description of 'spinlock_lock' function in HyperDbg Scripts
 
 ### Parameters
 
-**\[GlobalVariable\]**
+**\[GlobalVariable \(Lock\)\]**
 
          A global variable, used as a [lock](https://en.wikipedia.org/wiki/Spinlock).
 

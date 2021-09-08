@@ -14,7 +14,7 @@ description: Description of 'disable_event' function in HyperDbg Scripts
 
 ### Parameters
 
-**\[EventId \(int\)\]**
+**\[Expression \(EventId\)\]**
 
          Event ID of the event that needs to be deactivated.
 
