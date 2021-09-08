@@ -34,11 +34,11 @@ Adds 0x10 to the **rcx** register and counts the length of the ASCII string, whi
 
 `StringLen = strlen(dq(@rcx));`
 
-Counts ASCII strings length as an 8-byte hex address, pointed by **rcx** register and saves the result into `StringLen` variable.
+Counts ASCII string length as an 8-byte hex address, pointed by **rcx** register and saves the result into `StringLen` variable.
 
 `StringLen = strlen(0xffff83811f265040);`
 
-Counts string located at `0xffff83811f265040` address and saves the result into `StringLen` variable.
+Counts ASCII string length located at `0xffff83811f265040` address and saves the result into `StringLen` variable.
 
 ### **Remarks**
 
