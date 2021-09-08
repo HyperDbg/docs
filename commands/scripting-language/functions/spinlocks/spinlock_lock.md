@@ -20,7 +20,7 @@ description: Description of 'spinlock_lock' function in HyperDbg Scripts
 
 ### Description
 
-Locks the spin lock referred to by lock.
+Locks the spinlock referred to by lock. The lock can be unlocked by [spinlock\_unlock](https://docs.hyperdbg.com/commands/scripting-language/functions/spinlocks/spinlock_unlock).
 
 ### Return value
 
@@ -30,7 +30,7 @@ None
 
 `spinlock_lock(.my_lock_var);`
 
-Locks the spinlock of a global variable called `.my_lock_var`.
+Locks the spinlock of a global variable \(lock\) called `.my_lock_var`.
 
 ### **Remarks**
 
