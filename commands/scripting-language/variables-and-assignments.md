@@ -119,7 +119,17 @@ spinlock_lock(.my_global_variable_lock);
 spinlock_unlock(.my_global_variable_lock);
 ```
 
+As another example, assume that you want to count the number of times that a function is called, for this purpose we need a global variable to hold this number. You can safely use [interlocked\_increment](https://docs.hyperdbg.com/commands/scripting-language/functions/interlocked/interlocked_increment) for this purpose and for other mathematical operations or [atomic](https://wiki.osdev.org/Atomic_operation) exchange operations, you can use other [**interlocked**](https://docs.hyperdbg.com/commands/scripting-language/functions/interlocked/) functions.
+
+```c
+interlocked_increment(.my_global_counter);
+```
+
 If you are running HyperDbg on a single-core machine, there is no need to use a **spinlock** or use **interlocked** functions for calculations, you can directly modify them without any problem.
+
+{% hint style="info" %}
+Both of the global variables and the local variables are initialized with `NULL`.
+{% endhint %}
 
 ## Modify Memory
 
