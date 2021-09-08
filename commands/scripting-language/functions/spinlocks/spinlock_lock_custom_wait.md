@@ -20,7 +20,7 @@ description: Description of 'spinlock_lock_custom_wait' function in HyperDbg Scr
 
 **\[Expression\]**
 
-         A [MASM-like expression](https://docs.hyperdbg.com/commands/scripting-language/assumptions-and-evaluations) to evaluate which is the maximum wait time for the spinlock to recheck the lock.
+         A [MASM-like expression](https://docs.hyperdbg.com/commands/scripting-language/assumptions-and-evaluations) to evaluate which is the maximum wait time for the spinlock to re-check the lock.
 
 {% hint style="info" %}
 By default in [spinlock\_lock](https://docs.hyperdbg.com/commands/scripting-language/functions/spinlocks/spinlock_lock), the maximum waiting time is **`65536`**.
