@@ -35,6 +35,7 @@
 
 * [Debugging Commands](commands/debugging-commands/README.md)
   * [\# \(comment in batch scripts\)](commands/debugging-commands/comment.md)
+  * [? \(evaluate and execute expressions and scripts in debuggee\)](commands/debugging-commands/eval.md)
   * [~ \(display and change the current operating core\)](commands/debugging-commands/core.md)
   * [load \(load the kernel modules\)](commands/debugging-commands/load.md)
   * [unload \(unload the kernel modules\)](commands/debugging-commands/unload.md)
