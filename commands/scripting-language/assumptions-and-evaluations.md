@@ -77,11 +77,11 @@ Each flag of **RFLAGS** is also supported in HyperDbg.
 | :--- | :--- | :--- | :--- | :--- |
 | **FLAGS** |  |  |  |  |
 | 0 | 0x0001 | **@cf** | Carry flag | Status |
-| 1 | 0x0002 |     **\_** | Reserved, always 1 in **EFLAGS** |     **\_** |
+| 1 | 0x0002 |     **\_** | Reserved, always 1 in **EFLAGS** |      **\_** |
 | 2 | 0x0004 | **@pf** | Parity flag | Status |
-| 3 | 0x0008 |     **\_** | Reserved |     **\_** |
+| 3 | 0x0008 |     **\_** | Reserved |      **\_** |
 | 4 | 0x0010 | **@af** | Adjust flag | Status |
-| 5 | 0x0020 |     **\_** | Reserved |     **\_** |
+| 5 | 0x0020 |     **\_** | Reserved |      **\_** |
 | 6 | 0x0040 | **@zf** | Zero flag | Status |
 | 7 | 0x0080 | **@sf** | Sign flag | Status |
 | 8 | 0x0100 | **@tf** | Trap flag \(single step\) | Control |
@@ -90,7 +90,7 @@ Each flag of **RFLAGS** is also supported in HyperDbg.
 | 11 | 0x0800 | **@of** | Overflow flag | Status |
 | 44543 | 0x3000 | **@iopl** | I/O privilege level \(286+ only\), always 1 on 8086 and 186 | System |
 | 14 | 0x4000 | **@nt** | Nested task flag \(286+ only\),  always 1 on 8086 and 186 | System |
-| 15 | 0x8000 |     **\_** | Reserved,  always 1 on 8086 and 186,  always 0 on later models |     **\_** |
+| 15 | 0x8000 |     **\_** | Reserved,  always 1 on 8086 and 186,  always 0 on later models |      **\_** |
 | **EFLAGS** |  |  |  |  |
 | 16 | 0x0001 0000 | **@rf** | Resume flag \(386+ only\) | System |
 | 17 | 0x0002 0000 | **@vm** | Virtual 8086 mode flag \(386+ only\) | System |
@@ -100,7 +100,7 @@ Each flag of **RFLAGS** is also supported in HyperDbg.
 | 21 | 0x0020 0000 | **@id** | Able to use CPUID instruction \(Pentium+\) | System |
 | 22‑31 | 0xFFC0 0000 |     **\_** | Reserved | System |
 | **RFLAGS** |  |  |  |  |
-| 32‑63 | 0xFFFF FFFF… 0000 0000 | Reserved |     **\_** |     **\_** |
+| 32‑63 | 0xFFFF FFFF… 0000 0000 | Reserved |     **\_** |      **\_** |
 
 ### Pseudo-registers
 
