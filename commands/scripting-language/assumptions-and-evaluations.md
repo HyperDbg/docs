@@ -77,7 +77,7 @@ Each flag of **RFLAGS** is also supported in HyperDbg.
 | :--- | :--- | :--- | :--- | :--- |
 | **FLAGS** |  |  |  |  |
 | 0 | 0x0001 | **@cf** | Carry flag | Status |
-| 1 | 0x0002 |  | Reserved, always 1 in **EFLAGS** |  |
+| 1 | 0x0002 | \_ | Reserved, always 1 in **EFLAGS** | \_ |
 | 2 | 0x0004 | **@pf** | Parity flag | Status |
 | 3 | 0x0008 |  | Reserved |  |
 | 4 | 0x0010 | **@af** | Adjust flag | Status |
@@ -88,8 +88,7 @@ Each flag of **RFLAGS** is also supported in HyperDbg.
 | 9 | 0x0200 | **@if** | Interrupt enable flag | Control |
 | 10 | 0x0400 | **@df** | Direction flag | Control |
 | 11 | 0x0800 | **@of** | Overflow flag | Status |
-| 44543 | 0x3000 | **@iopl** | I/O privilege level \(286+ only\), | System |
-|  |  |  | always 1 on 8086 and 186 |  |
+| 44543 | 0x3000 | **@iopl** | I/O privilege level \(286+ only\), always 1 on 8086 and 186 | System |
 | 14 | 0x4000 | **@nt** | Nested task flag \(286+ only\),  always 1 on 8086 and 186 | System |
 | 15 | 0x8000 |  | Reserved,  always 1 on 8086 and 186,  always 0 on later models |  |
 | **EFLAGS** |  |  |  |  |
