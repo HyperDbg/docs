@@ -69,34 +69,36 @@ The following registers are supported by HyperDbg.
 | **@dr0 @dr1 @dr2 @dr3 @dr6 @dr7** | Debug registers |
 | **Model-/machine-specific registers \(MSRs\)** | See the '[rdmsr](https://docs.hyperdbg.com/commands/debugging-commands/rdmsr)' and '[wrmsr](https://docs.hyperdbg.com/commands/debugging-commands/wrmsr)' commands for more information. |
 
+Each flag of **RFLAGS** is also supported in HyperDbg.
 
 
-| **Bit \#** | **Mask** | **Abbreviation** | **Description** | **Category** |
+
+| **Bit \#** | **Mask** | **Register Abbreviation** | **Description** | **Category** |
 | :--- | :--- | :--- | :--- | :--- |
 | **FLAGS** |  |  |  |  |
-| 0 | 0x0001 | CF | Carry flag | Status |
+| 0 | 0x0001 | **@cf** | Carry flag | Status |
 | 1 | 0x0002 |  | Reserved, always 1 in **EFLAGS** |  |
-| 2 | 0x0004 | PF | Parity flag | Status |
+| 2 | 0x0004 | **@pf** | Parity flag | Status |
 | 3 | 0x0008 |  | Reserved |  |
-| 4 | 0x0010 | AF | Adjust flag | Status |
+| 4 | 0x0010 | **@af** | Adjust flag | Status |
 | 5 | 0x0020 |  | Reserved |  |
-| 6 | 0x0040 | ZF | Zero flag | Status |
-| 7 | 0x0080 | SF | Sign flag | Status |
-| 8 | 0x0100 | TF | Trap flag \(single step\) | Control |
-| 9 | 0x0200 | IF | Interrupt enable flag | Control |
-| 10 | 0x0400 | DF | Direction flag | Control |
-| 11 | 0x0800 | OF | Overflow flag | Status |
-| 44543 | 0x3000 | IOPL | I/O privilege level \(286+ only\), | System |
+| 6 | 0x0040 | **@zf** | Zero flag | Status |
+| 7 | 0x0080 | **@sf** | Sign flag | Status |
+| 8 | 0x0100 | **@tf** | Trap flag \(single step\) | Control |
+| 9 | 0x0200 | **@if** | Interrupt enable flag | Control |
+| 10 | 0x0400 | **@df** | Direction flag | Control |
+| 11 | 0x0800 | **@of** | Overflow flag | Status |
+| 44543 | 0x3000 | **@iopl** | I/O privilege level \(286+ only\), | System |
 |  |  |  | always 1 on 8086 and 186 |  |
-| 14 | 0x4000 | NT | Nested task flag \(286+ only\),  always 1 on 8086 and 186 | System |
+| 14 | 0x4000 | **@nt** | Nested task flag \(286+ only\),  always 1 on 8086 and 186 | System |
 | 15 | 0x8000 |  | Reserved,  always 1 on 8086 and 186,  always 0 on later models |  |
 | **EFLAGS** |  |  |  |  |
-| 16 | 0x0001 0000 | RF | Resume flag \(386+ only\) | System |
-| 17 | 0x0002 0000 | VM | Virtual 8086 mode flag \(386+ only\) | System |
-| 18 | 0x0004 0000 | AC | Alignment check \(486SX+ only\) | System |
-| 19 | 0x0008 0000 | VIF | Virtual interrupt flag \(Pentium+\) | System |
-| 20 | 0x0010 0000 | VIP | Virtual interrupt pending \(Pentium+\) | System |
-| 21 | 0x0020 0000 | ID | Able to use CPUID instruction \(Pentium+\) | System |
+| 16 | 0x0001 0000 | **@rf** | Resume flag \(386+ only\) | System |
+| 17 | 0x0002 0000 | **@vm** | Virtual 8086 mode flag \(386+ only\) | System |
+| 18 | 0x0004 0000 | **@ac** | Alignment check \(486SX+ only\) | System |
+| 19 | 0x0008 0000 | **@vif** | Virtual interrupt flag \(Pentium+\) | System |
+| 20 | 0x0010 0000 | **@vip** | Virtual interrupt pending \(Pentium+\) | System |
+| 21 | 0x0020 0000 | **@id** | Able to use CPUID instruction \(Pentium+\) | System |
 | 22‑31 | 0xFFC0 0000 |  | Reserved | System |
 | **RFLAGS** |  |  |  |  |
 | 32‑63 | 0xFFFF FFFF… 0000 0000 | Reserved |  |  |
