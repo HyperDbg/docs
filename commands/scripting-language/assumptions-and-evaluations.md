@@ -77,7 +77,7 @@ Each flag of **RFLAGS** is also supported in HyperDbg.
 | :--- | :--- | :--- | :--- | :--- |
 | **FLAGS** |  |  |  |  |
 | 0 | 0x0001 | **@cf** | Carry flag | Status |
-| 1 | 0x0002 | \_ | Reserved, always 1 in **EFLAGS** | \_ |
+| 1 | 0x0002 |     \_ | Reserved, always 1 in **EFLAGS** |     \_ |
 | 2 | 0x0004 | **@pf** | Parity flag | Status |
 | 3 | 0x0008 |  | Reserved |  |
 | 4 | 0x0010 | **@af** | Adjust flag | Status |
