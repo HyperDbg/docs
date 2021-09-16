@@ -111,6 +111,7 @@ Here are the currently supported pseudo-registers supported by the script engine
 | **$pid** | The process ID \(PID\) of the current process. |
 | **$proc** | The address of the current process \(that is, the address of the `nt!_EPROCESS` block\). |
 | **$tid** | The thread ID for the current thread. |
+| **$core** | The core ID for the current core. |
 | **$thread** | The address of the current thread. In kernel-mode debugging, this address is the address of the `nt!_ETHREAD` block. |
 | **$peb** | The address of the process environment block \(PEB\) of the current process. |
 | **$teb** | The address of the thread environment block \(TEB\) of the current thread. |
