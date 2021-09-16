@@ -88,7 +88,7 @@ Each flag of **RFLAGS** is also supported in HyperDbg.
 | 9 | 0x0200 | **@if** | Interrupt enable flag | Control |
 | 10 | 0x0400 | **@df** | Direction flag | Control |
 | 11 | 0x0800 | **@of** | Overflow flag | Status |
-| 44543 | 0x3000 | **@iopl** | I/O privilege level \(286+ only\), always 1 on 8086 and 186 | System |
+| 12-13 | 0x3000 | **@iopl** | I/O privilege level \(286+ only\), always 1 on 8086 and 186 | System |
 | 14 | 0x4000 | **@nt** | Nested task flag \(286+ only\),  always 1 on 8086 and 186 | System |
 | 15 | 0x8000 |     **\_** | Reserved,  always 1 on 8086 and 186,  always 0 on later models |      **\_** |
 | **EFLAGS** |  |  |  |  |
