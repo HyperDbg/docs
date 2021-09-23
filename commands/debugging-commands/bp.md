@@ -40,10 +40,18 @@ As the **Context**, HyperDbg sends the **virtual** address of where the breakpoi
 
 ### Examples
 
-If you want to put breakpoints on `nt!ExAllocatePoolWithTag`, `fffff801639b1035`, `fffff801639b103a`, and `fffff801639b103f`, you can use the following commands.
+If you want to put breakpoints on `nt!ExAllocatePoolWithTag`, `nt!ExAllocatePoolWithTag+5`,`nt!ExAllocatePoolWithTag+@rax+5`,  `fffff801639b1035`, `fffff801639b103a`, and `fffff801639b103f`, you can use the following commands.
 
 ```text
 0: kHyperDbg> bp nt!ExAllocatePoolWithTag
+```
+
+```text
+0: kHyperDbg> bp nt!ExAllocatePoolWithTag+5
+```
+
+```text
+0: kHyperDbg> bp nt!ExAllocatePoolWithTag+@rax+5
 ```
 
 ```text
@@ -66,8 +74,10 @@ id   address           status
 --   ---------------   --------
 01   fffff801639b1030  enabled
 02   fffff801639b1035  enabled
-03   fffff801639b103a  enabled
-04   fffff801639b103f  enabled
+03   fffff801639b1040  enabled
+04   fffff801639b1035  enabled
+05   fffff801639b103a  enabled
+06  fffff801639b103f  enabled
 ```
 
 ### IOCTL

@@ -54,6 +54,12 @@ The following command is used when we want to edit the content of memory at `nt!
 HyperDbg> eb nt!Kd_DEFAULT_Mask ff ff ff ff
 ```
 
+The following command is used when we want to edit the content of memory at `nt!Kd_DEFAULT_Mask+@rax+10` in a hex byte form and change it to `0xff 0xff 0xff 0xff`\(modify **four** bytes\).
+
+```diff
+HyperDbg> eb nt!Kd_DEFAULT_Mask+@rax+10 ff ff ff ff
+```
+
 The following command is used when we want to edit the content of memory at ``fffff800`3ad6f010`` in a hex byte form and change it to `0x90 0x90 0x90` \(modify **three** bytes\).
 
 ```diff

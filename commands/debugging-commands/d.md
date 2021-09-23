@@ -63,6 +63,17 @@ fffff801`63cf4a1c  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ............
 fffff801`63cf4a2c  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
 ```
 
+The following command is used when we want to read the content of memory at `nt!Kd_DEFAULT_Mask+@rax+10` with length of `0x30`from the memory layout view of process \(`4` a.k.a. system process\) in a hex byte format.
+
+Note that `@rax` is **0x10** in this case.
+
+```diff
+HyperDbg> db Kd_DEFAULT_Mask+@rax+10 l 30 pid 4
+fffff801`63cf4a0c  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+fffff801`63cf4a1c  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+fffff801`63cf4a2c  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
+```
+
 The following command is used when we want to read the content of memory at **``fffff800`3ad6f010``** with length of `0x50` from the memory layout view of process \(`4` a.k.a. system process\) in a hex byte format.
 
 ```diff

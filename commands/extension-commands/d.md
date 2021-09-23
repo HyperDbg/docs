@@ -55,6 +55,19 @@ HyperDbg> !db 1000 l 50
 #       00000000`00001040  00 00 02 00 00 00 00 00 01 01 00 00 00 00 00 00  ................
 ```
 
+The following command is used when we want to read the content of memory after evaluating the expression **`@rax+@rbx`** with length of `0x50` in a hex byte format.
+
+Note that the result of **`@rax+@rbx`**is `0x1000` in this case.
+
+```diff
+HyperDbg> !db @rax+@rbx l 50
+#       00000000`00001000  0B 00 00 00 00 00 00 00 00 00 86 80 D3 10 02 00  ................
+#       00000000`00001010  00 06 01 01 00 00 00 00 03 01 00 00 00 00 00 00  ................
+#       00000000`00001020  00 10 FA 39 00 F8 FF FF 00 00 02 00 00 00 00 00  ...9............
+#       00000000`00001030  03 01 00 00 00 00 00 00 00 10 FC 39 00 F8 FF FF  ...........9....
+#       00000000`00001040  00 00 02 00 00 00 00 00 01 01 00 00 00 00 00 0
+```
+
 The following example shows the content of memory at `1000` in a double-word value \(4 bytes\) and ASCII characters format.
 
 ```diff

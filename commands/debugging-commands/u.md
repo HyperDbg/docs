@@ -71,6 +71,46 @@ fffff800`3ad6f059 44 8B C8                            mov r9d, eax
 fffff800`3ad6f05c 89 5C 24 20                         mov dword ptr ss:[rsp+0x20], ebx
 ```
 
+The following example shows the assembly content \(x64\) of memory at `nt!ExAllocatePoolWithTag` from current process memory layout.
+
+```diff
+HyperDbg> u nt!ExAllocatePoolWithTag
+fffff801`639b1030    48 89 5C 24 08                      mov qword ptr ss:[rsp+0x08], rbx
+fffff801`639b1035    48 89 6C 24 10                      mov qword ptr ss:[rsp+0x10], rbp
+fffff801`639b103a    48 89 74 24 18                      mov qword ptr ss:[rsp+0x18], rsi
+fffff801`639b103f    57                                  push rdi
+fffff801`639b1040    41 56                               push r14
+fffff801`639b1042    41 57                               push r15
+fffff801`639b1044    48 83 EC 30                         sub rsp, 0x30
+fffff801`639b1048    65 48 8B 04 25 20 00 00 00          mov rax, qword ptr gs:[0x0000000000000020]
+fffff801`639b1051    45 8B F0                            mov r14d, r8d
+fffff801`639b1054    44 0F B7 3D A4 8F 34 00             movzx r15d, word ptr ds:[0xFFFFF80163CFA000]
+fffff801`639b105c    48 8B EA                            mov rbp, rdx
+fffff801`639b105f    8B F1                               mov esi, ecx
+fffff801`639b1061    4C 8B 88 C0 00 00 00                mov r9, qword ptr ds:[rax+0xC0]
+fffff801`639b1068    41 0F B7 B9 92 00 00 00             movzx edi, word ptr ds:[r9+0x92]
+```
+
+The following example shows the assembly content \(x64\) of memory at `nt!ExAllocatePoolWithTag+5` from current process memory layout.
+
+```diff
+HyperDbg> u nt!ExAllocatePoolWithTag+5
+fffff801`639b1035    48 89 6C 24 10                      mov qword ptr ss:[rsp+0x10], rbp
+fffff801`639b103a    48 89 74 24 18                      mov qword ptr ss:[rsp+0x18], rsi
+fffff801`639b103f    57                                  push rdi
+fffff801`639b1040    41 56                               push r14
+fffff801`639b1042    41 57                               push r15
+fffff801`639b1044    48 83 EC 30                         sub rsp, 0x30
+fffff801`639b1048    65 48 8B 04 25 20 00 00 00          mov rax, qword ptr gs:[0x0000000000000020]
+fffff801`639b1051    45 8B F0                            mov r14d, r8d
+fffff801`639b1054    44 0F B7 3D A4 8F 34 00             movzx r15d, word ptr ds:[0xFFFFF80163CFA000]
+fffff801`639b105c    48 8B EA                            mov rbp, rdx
+fffff801`639b105f    8B F1                               mov esi, ecx
+fffff801`639b1061    4C 8B 88 C0 00 00 00                mov r9, qword ptr ds:[rax+0xC0]
+fffff801`639b1068    41 0F B7 B9 92 00 00 00             movzx edi, word ptr ds:[r9+0x92]
+fffff801`639b1070    0F BA EF 1F                         bts edi, 0x1F
+```
+
 The following example shows the assembly content \(x64\) of memory at ``fffff800`3ad6f010`` from current process memory layout.
 
 ```diff

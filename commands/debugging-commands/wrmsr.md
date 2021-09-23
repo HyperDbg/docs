@@ -42,6 +42,12 @@ The following command shows how we can change the MSR register `c0000082` to ``f
 HyperDbg> wrmsr c0000082 fffff807`73553180
 ```
 
+The following command shows how we can change the MSR register `c0000082` to the result of evaluating `nt!ExAllocatePoolWithTag+10` using `wrmsr` command.
+
+```diff
+HyperDbg> wrmsr c0000082 nt!ExAllocatePoolWithTag+10
+```
+
 The following command shows how we can change the MSR register `c0000082` to ``fffff807`73553180`` using `wrmsr` command for core `2`.
 
 ```diff

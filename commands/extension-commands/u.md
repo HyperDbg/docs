@@ -64,6 +64,32 @@ HyperDbg> !u 1000 l 50
 00000000`00001025 F8                                  clc
 ```
 
+The following command is used when we want to disassemble the content of memory \(x64\) at **`@rax+@rbx`** with length of `0x50`bytes.
+
+Note that the result of **`@rax+@rbx`**is `0x1000` in this case.
+
+```diff
+HyperDbg> !u @rax+@rbx l 50
+00000000`00001000 0B 00                               or eax, dword ptr ds:[rax]
+00000000`00001002 00 00                               add byte ptr ds:[rax], al
+00000000`00001004 00 00                               add byte ptr ds:[rax], al
+00000000`00001006 00 00                               add byte ptr ds:[rax], al
+00000000`00001008 00 00                               add byte ptr ds:[rax], al
+00000000`0000100a 86 80 D3 10 02 00                   xchg byte ptr ds:[rax+0x210D3], al
+00000000`00001010 00 06                               add byte ptr ds:[rsi], al
+00000000`00001012 01 01                               add dword ptr ds:[rcx], eax
+00000000`00001014 00 00                               add byte ptr ds:[rax], al
+00000000`00001016 00 00                               add byte ptr ds:[rax], al
+00000000`00001018 03 01                               add eax, dword ptr ds:[rcx]
+00000000`0000101a 00 00                               add byte ptr ds:[rax], al
+00000000`0000101c 00 00                               add byte ptr ds:[rax], al
+00000000`0000101e 00 00                               add byte ptr ds:[rax], al
+00000000`00001020 00 10                               add byte ptr ds:[rax], dl
+00000000`00001022 FA                                  cli
+00000000`00001023 39 00                               cmp dword ptr ds:[rax], eax
+00000000`00001025 F8                                  clc
+```
+
 The following example shows the assembly content of memory \(x64\) at `1000`.
 
 ```diff

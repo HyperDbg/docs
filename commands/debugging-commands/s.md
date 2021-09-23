@@ -54,6 +54,12 @@ The following command is used to search for `4156415748` starting from `nt!ExAll
 HyperDbg> sb nt!ExAllocatePoolWithTag l ffff 41 56 41 57 48 
 ```
 
+The following command is used to search for `4156415748` starting from `nt!ExAllocatePoolWithTag+100` to `nt!ExAllocatePoolWithTag+100+ffff`.
+
+```diff
+HyperDbg> sb nt!ExAllocatePoolWithTag+100 l ffff 41 56 41 57 48 
+```
+
 The following command is used to search for `4156415748` starting from ``fffff807`7356f010`` to ``fffff807`7356f010+ffff``.
 
 ```diff

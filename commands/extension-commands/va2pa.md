@@ -35,6 +35,13 @@ HyperDbg> !va2pa nt!ExAllocatePoolWithTag
 35b1030
 ```
 
+The following command shows the physical address of `nt!ExAllocatePoolWithTag+5`.
+
+```diff
+HyperDbg> !va2pa nt!ExAllocatePoolWithTag
+35b1035
+```
+
 The following command shows the physical address of ``fffff800`4ebc9370``.
 
 ```diff

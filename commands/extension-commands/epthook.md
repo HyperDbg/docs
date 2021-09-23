@@ -76,6 +76,12 @@ Alternatively, you can use `nt!ExAllocatePoolWithTag` too.
 HyperDbg> !epthook nt!ExAllocatePoolWithTag
 ```
 
+You can also use an expression like `nt!ExAllocatePoolWithTag+@rcx+5` too.
+
+```c
+HyperDbg> !epthook nt!ExAllocatePoolWithTag+@rcx+5
+```
+
 ### Script
 
 Using the following command, you can use HyperDbg's Script Engine. You should replace the string between braces \(`HyperDbg Script Here`\) with your script. You can find script examples [here](https://docs.hyperdbg.com/commands/scripting-language/examples). 

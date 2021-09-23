@@ -48,16 +48,22 @@ Process ID doesn't make sense in physical memory. If you specify **pid** for phy
 
 ### Examples
 
-The following command is used to search for `4156415748` starting from `76f010` to `76f010+ffff`.
+The following command is used to search for `4156415748`starting from `76f010` to `76f010+ffff`.
 
 ```diff
 HyperDbg> !sb 76f010 l ffff 41 56 41 57 48 
 ```
 
-The following example is used when we want to search for `f0cc8549` from `9016AD` to `9016AD+fff` in a different process \(process id = `1dd0`\).
+The following example is used when we want to search for `f0cc8549`from `9016AD`to `9016AD+fff` in a different process \(process id = `1dd0`\).
 
 ```diff
 HyperDbg> !sd 9016AD pid 1dd0 l fff f0cc8549 
+```
+
+The following example is used when we want to search for `f0cc8549`from `@rax+@rbx+5`to `@rax+@rbx+5+fff` in a different process \(process id = `1dd0`\).
+
+```diff
+HyperDbg> !sd @rax+@rbx+5 pid 1dd0 l fff f0cc8549 
 ```
 
 The following example is used when we want to search for ``0f450000`00c0888b`` ``8b410000`0092b1b7`` from `76f010` to `76f010+100`.

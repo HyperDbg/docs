@@ -35,6 +35,13 @@ HyperDbg> !va2pa 21c9370
 FFFFF8004EBC9370
 ```
 
+The following command shows the physical address of the result of evaluating `@rax+@rbx+5`.
+
+```diff
+HyperDbg> !va2pa @rax+@rbx+5
+FFFFF8004EB65546
+```
+
 The following command shows the physical address of `21c9370`in the process layout of process id \(0x4\).
 
 ```diff
