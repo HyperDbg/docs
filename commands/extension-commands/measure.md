@@ -53,7 +53,7 @@ HyperDbg> !measure default
 The above command uses hardcoded details from a not-running hypervisor, and this way, you can provide transparency for vm-exit. However, it does not belong to your machine, so it's highly recommended to let **HyperDbg** measure and provide your own machine's details.
 
 {% hint style="info" %}
-**IMPORTANT NOTE: USING DEFAULT MEASUREMENTS WON'T MAKE YOU 100% TRANSPARENT AS EACH VIRTUAL MACHINE SOFTWARE HAS IT'S OWN TRACES, SO YOUR TARGET MIGHT CHECK FOR OTHER POSSIBLE TRACES AND FIGURE OUT THE PRESENCE OF THE VIRTUAL MACHINE.**
+**IMPORTANT NOTE: USING DEFAULT MEASUREMENTS WON'T MAKE YOU 100% TRANSPARENT AS EACH VIRTUAL MACHINE SOFTWARE HAS ITS OWN TRACES, SO YOUR TARGET MIGHT CHECK FOR OTHER POSSIBLE TRACES AND FIGURE OUT THE PRESENCE OF THE VIRTUAL MACHINE.**
 {% endhint %}
 
 This command will continue the debuggee for some time \(in Debugger Mode\). This means that you lose the current context \(registers & memory\) after executing this command.
