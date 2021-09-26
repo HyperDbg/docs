@@ -8,8 +8,6 @@ description: >-
 
 The following articles describe **HyperDbg**'s _Script Engine_.
 
-The evaluation engine is open-source, and it is available in the [evaluation](https://github.com/HyperDbg/evaluation) repository.
-
 ### Description
 
 **HyperDbg** uses a MASM-like \(Windbg\) syntax to evaluate script expressions.
