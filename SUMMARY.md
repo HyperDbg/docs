@@ -79,7 +79,7 @@
   * [.formats \(show number formats\)](commands/meta-commands/.formats.md)
   * [.script \(run batch script commands\)](commands/meta-commands/.script.md)
   * [.sympath \(set the symbol server\)](commands/meta-commands/.sympath.md)
-  * [.sym \(load/reload/unload/download pdb symbols\)](commands/meta-commands/.sym.md)
+  * [.sym \(load pdb symbols\)](commands/meta-commands/.sym.md)
   * [.logopen \(open log file\)](commands/meta-commands/.logopen.md)
   * [.logclose \(close log file\)](commands/meta-commands/.logclose.md)
   * [.cls \(clear the screen\)](commands/meta-commands/.cls.md)
