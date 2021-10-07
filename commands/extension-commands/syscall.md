@@ -48,7 +48,7 @@ The difference between **!syscall** and **!syscall2** is that we safely check th
 
 **\[event options\]**
 
-          Regular event parameters that are used in HyperDbg events. \(For more information, read [this ](https://docs.hyperdbg.com/using-hyperdbg/prerequisites)topic\)
+          Regular event parameters that are used in HyperDbg events. \(For more information, read [this ](https://docs.hyperdbg.org/using-hyperdbg/prerequisites)topic\)
 
 ### Context
 
@@ -63,12 +63,12 @@ This event supports three debugging mechanisms.
 * Custom Code
 
 {% hint style="info" %}
-Please read  "[How to create a condition?](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition)" if you need a conditional event, a conditional event can be used in all "**Break**", "**Script**", and "**Custom Code**".
+Please read  "[How to create a condition?](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-a-condition)" if you need a conditional event, a conditional event can be used in all "**Break**", "**Script**", and "**Custom Code**".
 {% endhint %}
 
 ### Break
 
-You can use the [condition ](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition)if you want to check the syscall parameters. For example, Windows uses an x64 fast-call calling convention on its system-call entry; thus, you can check whether parameters of **syscall** `rcx,rdx,r8, etc.` match to your debugging logic or not and have a conditional syscall hooker, and also, you can change the parameters of a **syscall**.
+You can use the [condition ](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-a-condition)if you want to check the syscall parameters. For example, Windows uses an x64 fast-call calling convention on its system-call entry; thus, you can check whether parameters of **syscall** `rcx,rdx,r8, etc.` match to your debugging logic or not and have a conditional syscall hooker, and also, you can change the parameters of a **syscall**.
 
 Imagine we want to break on all system-calls of a process id **0x490**.
 
@@ -84,7 +84,7 @@ HyperDbg> !syscall 55 pid 490
 
 ### Script
 
-Using the following command, you can use HyperDbg's Script Engine. You should replace the string between braces \(`HyperDbg Script Here`\) with your script. You can find script examples [here](https://docs.hyperdbg.com/commands/scripting-language/examples). 
+Using the following command, you can use HyperDbg's Script Engine. You should replace the string between braces \(`HyperDbg Script Here`\) with your script. You can find script examples [here](https://docs.hyperdbg.org/commands/scripting-language/examples). 
 
 ```
 HyperDbg> !syscall 55 script { HyperDbg Script Here }
@@ -105,20 +105,20 @@ HyperDbg> !syscall 55 script {file:c:\users\sina\desktop\script.txt}
 ```
 
 {% hint style="success" %}
-You can use [**event forwarding**](https://docs.hyperdbg.com/tips-and-tricks/misc/event-forwarding) to forward the event monitoring results from this event and other events to an external source, e.g., **File**, **NamedPipe**, or **TCP Socket**. This way, you can use **HyperDbg** as a monitoring tool and gather your target system's behavior and use it later or analyze it on other systems.
+You can use [**event forwarding**](https://docs.hyperdbg.org/tips-and-tricks/misc/event-forwarding) to forward the event monitoring results from this event and other events to an external source, e.g., **File**, **NamedPipe**, or **TCP Socket**. This way, you can use **HyperDbg** as a monitoring tool and gather your target system's behavior and use it later or analyze it on other systems.
 {% endhint %}
 
 ### Custom Code
 
-Please read  "[How to create an action?](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action)" to get an idea about how to run the custom buffer code in **HyperDbg**.
+Please read  "[How to create an action?](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action)" to get an idea about how to run the custom buffer code in **HyperDbg**.
 
 {% hint style="warning" %}
-Your custom code will be executed in vmx-root mode. Take a look at [this topic](https://docs.hyperdbg.com/tips-and-tricks/considerations/vmx-root-mode-vs-vmx-non-root-mode) for more information. Running code in vmx-root is considered "[unsafe](https://docs.hyperdbg.com/tips-and-tricks/considerations/the-unsafe-behavior)".
+Your custom code will be executed in vmx-root mode. Take a look at [this topic](https://docs.hyperdbg.org/tips-and-tricks/considerations/vmx-root-mode-vs-vmx-non-root-mode) for more information. Running code in vmx-root is considered "[unsafe](https://docs.hyperdbg.org/tips-and-tricks/considerations/the-unsafe-behavior)".
 {% endhint %}
 
 #### Run Custom Code \(Unconditional\)
 
-Monitoring process id **0x490** for syscall-number **0x55** and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) for more information.
+Monitoring process id **0x490** for syscall-number **0x55** and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) for more information.
 
 ```c
 HyperDbg> !syscall 55 pid 490 code {90 90 90}
@@ -126,7 +126,7 @@ HyperDbg> !syscall 55 pid 490 code {90 90 90}
 
 #### Run Custom Code \(Conditional\)
 
-Monitoring process id **0x490** for syscall-number **0x55** and runs 3 nops whenever the event condition is triggered and runs 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) and [how to create a condition](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition) for more information.
+Monitoring process id **0x490** for syscall-number **0x55** and runs 3 nops whenever the event condition is triggered and runs 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) and [how to create a condition](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-a-condition) for more information.
 
 ```c
 HyperDbg> !syscall 55 pid 490 code {90 90 90} condition {90 90 90}
@@ -138,13 +138,13 @@ Keep in mind that a conditional event can be used in **Breaking to Debugger** an
 
 ### IOCTL
 
-This command uses the same method to [send IOCTL for regular events](https://docs.hyperdbg.com/design/debugger-internals/ioctl-requests-for-events). 
+This command uses the same method to [send IOCTL for regular events](https://docs.hyperdbg.org/design/debugger-internals/ioctl-requests-for-events). 
 
 As **EventType** use  `SYSCALL_HOOK_EFER_SYSCALL`and send the start syscall-number \(if any\) if you want just a special system-call in `OptionalParam1` in  **DEBUGGER\_GENERAL\_EVENT\_DETAIL**.
 
 ### Design
 
-Take a look at "[Design of !syscall & !sysret](https://docs.hyperdbg.com/design/features/vmm-module/design-of-syscall-and-sysret)" to see how it works.
+Take a look at "[Design of !syscall & !sysret](https://docs.hyperdbg.org/design/features/vmm-module/design-of-syscall-and-sysret)" to see how it works.
 
 ### **Remarks**
 
@@ -154,7 +154,7 @@ This command is not PatchGurad compatible, which means that PatchGuard detects t
 
 This command makes your computer substantially slower.
 
-This is an event command, but in the current version of HyperDbg \(in Debugger Mode\), this command will continue the debuggee for some time; however, you can use [this trick](https://docs.hyperdbg.com/tips-and-tricks/misc/enable-and-disable-events-in-debugger-mode) to make sure you won't lose any event.
+This is an event command, but in the current version of HyperDbg \(in Debugger Mode\), this command will continue the debuggee for some time; however, you can use [this trick](https://docs.hyperdbg.org/tips-and-tricks/misc/enable-and-disable-events-in-debugger-mode) to make sure you won't lose any event.
 
 ### Requirements
 
@@ -164,5 +164,5 @@ Post-Nehalem Processor \(EPT\)
 
 [Windows X86-64 System Call Table \(XP/2003/Vista/2008/7/2012/8/10\)](https://j00ru.vexillium.org/syscalls/nt/64/)
 
-[!sysret \(hook SYSRET instruction execution\)](https://docs.hyperdbg.com/commands/extension-commands/sysret)
+[!sysret \(hook SYSRET instruction execution\)](https://docs.hyperdbg.org/commands/extension-commands/sysret)
 

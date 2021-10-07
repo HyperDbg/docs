@@ -6,11 +6,11 @@ description: Kernel Message Tracing Overflow
 
 Kernel buffers for transferring data safely to the user-mode \(debugger\) can be filled. If the debugger doesn't find time to transfer all messages, then the new messages will replace the previous messages, and as a result, you lose your messages, which are not yet transferred to the user-mode. 
 
-In the rest of this document, you will learn the important factors that can decrease such scenarios. Take a look at [Customize Build](https://docs.hyperdbg.com/tips-and-tricks/misc/customize-build) for more information.
+In the rest of this document, you will learn the important factors that can decrease such scenarios. Take a look at [Customize Build](https://docs.hyperdbg.org/tips-and-tricks/misc/customize-build) for more information.
 
 ### Use Conditions
 
-[Condition code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition) buffers are one of the most important parts of **HyperDbg**. You can use this feature to avoid triggering unnecessary events \(actions\) by creating conditions that filter the results for you in assembly form in both kernel-mode and vmx-root mode.
+[Condition code](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-a-condition) buffers are one of the most important parts of **HyperDbg**. You can use this feature to avoid triggering unnecessary events \(actions\) by creating conditions that filter the results for you in assembly form in both kernel-mode and vmx-root mode.
 
 ### Change Reading Delay 
 

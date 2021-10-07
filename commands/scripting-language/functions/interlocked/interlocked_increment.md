@@ -38,11 +38,11 @@ None
 
 ### Related
 
-[interlocked\_compare\_exchange](https://docs.hyperdbg.com/commands/scripting-language/functions/interlocked/interlocked_compare_exchange)
+[interlocked\_compare\_exchange](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_compare_exchange)
 
-[interlocked\_decrement](https://docs.hyperdbg.com/commands/scripting-language/functions/interlocked/interlocked_decrement)
+[interlocked\_decrement](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_decrement)
 
-[interlocked\_exchange](https://docs.hyperdbg.com/commands/scripting-language/functions/interlocked/interlocked_exchange)
+[interlocked\_exchange](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_exchange)
 
-[interlocked\_exchange\_add](https://docs.hyperdbg.com/commands/scripting-language/functions/interlocked/interlocked_exchange_add)
+[interlocked\_exchange\_add](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_exchange_add)
 

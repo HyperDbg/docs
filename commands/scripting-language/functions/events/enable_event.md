@@ -30,9 +30,9 @@ Enable an event with `EventId = 1`.
 
 ### **Remarks**
 
-You can see events' ID using the [event](https://docs.hyperdbg.com/commands/debugging-commands/events) command. The first column of [this command](https://docs.hyperdbg.com/commands/debugging-commands/events)'s results shows the event ID.
+You can see events' ID using the [event](https://docs.hyperdbg.org/commands/debugging-commands/events) command. The first column of [this command](https://docs.hyperdbg.org/commands/debugging-commands/events)'s results shows the event ID.
 
 ### Related
 
-[disable\_event](https://docs.hyperdbg.com/commands/scripting-language/functions/events/disable_event)
+[disable\_event](https://docs.hyperdbg.org/commands/scripting-language/functions/events/disable_event)
 

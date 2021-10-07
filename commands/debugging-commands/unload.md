@@ -68,5 +68,5 @@ None
 
 ### Related
 
-[load \(load the kernel modules\)](https://docs.hyperdbg.com/commands/debugging-commands/load)
+[load \(load the kernel modules\)](https://docs.hyperdbg.org/commands/debugging-commands/load)
 

@@ -6,11 +6,11 @@ description: Design of !epthook command
 
 The most interesting feature in classic hypervisors is EPT hidden hooks.
 
-In HyperDbg, we designed two types of hidden EPT hooks. First, a classic EPT hook that tries to hide breakpoints using EPT \([**!epthook**](https://docs.hyperdbg.com/commands/extension-commands/epthook)\), and the second EPT hook is hidden detours \([**!epthook2**](https://docs.hyperdbg.com/commands/extension-commands/epthook2)\).
+In HyperDbg, we designed two types of hidden EPT hooks. First, a classic EPT hook that tries to hide breakpoints using EPT \([**!epthook**](https://docs.hyperdbg.org/commands/extension-commands/epthook)\), and the second EPT hook is hidden detours \([**!epthook2**](https://docs.hyperdbg.org/commands/extension-commands/epthook2)\).
 
 The classic EPT Hook uses the Execute Only feature in Intel Extended Page Table \(EPT\).
 
-Generally, [!epthook2](https://docs.hyperdbg.com/commands/extension-commands/epthook2) is much faster than the [!epthook](https://docs.hyperdbg.com/commands/extension-commands/epthook) because it's like hidden inline hooks, but it has some limitations described [here](https://docs.hyperdbg.com/commands/extension-commands/epthook2#remarks), but the classic EPT hook can be used in both user-mode and kernel-mode without limitation.
+Generally, [!epthook2](https://docs.hyperdbg.org/commands/extension-commands/epthook2) is much faster than the [!epthook](https://docs.hyperdbg.org/commands/extension-commands/epthook) because it's like hidden inline hooks, but it has some limitations described [here](https://docs.hyperdbg.org/commands/extension-commands/epthook2#remarks), but the classic EPT hook can be used in both user-mode and kernel-mode without limitation.
 
 This hook copies all the target page contents \(containing the breakpoint address\(es\)\) to a new location then puts the breakpoint on the new page.
 

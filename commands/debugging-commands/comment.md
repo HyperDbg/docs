@@ -17,7 +17,7 @@ description: 'Description of ''#'' command in HyperDbg.'
 Comments a line of code or batch script.
 
 {% hint style="success" %}
-In HyperDbg's batch scripts '`#`' is used as the comment character. However, in the script engine, it uses a C-like [commenting style](https://docs.hyperdbg.com/commands/scripting-language/assumptions-and-evaluations#comments).
+In HyperDbg's batch scripts '`#`' is used as the comment character. However, in the script engine, it uses a C-like [commenting style](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations#comments).
 {% endhint %}
 
 ### Parameters

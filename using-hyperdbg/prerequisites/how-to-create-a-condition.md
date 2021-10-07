@@ -4,13 +4,13 @@ description: This document helps you to create a condition for events
 
 # How to create a condition?
 
-HyperDbg supports the creation of conditional events. Each event has one [condition ](https://docs.hyperdbg.com/design/debugger-internals/conditions)and can have multiple [actions](https://docs.hyperdbg.com/design/debugger-internals/actions).
+HyperDbg supports the creation of conditional events. Each event has one [condition ](https://docs.hyperdbg.org/design/debugger-internals/conditions)and can have multiple [actions](https://docs.hyperdbg.org/design/debugger-internals/actions).
 
 An unconditional event is an event that all its actions will be executed without any condition.
 
 This document is a brief of how to create a conditional event.
 
-Each command in HyperDbg that are tagged as "**event**" in the document follows the same structure described [here](https://docs.hyperdbg.com/design/debugger-internals/events). At the time you execute a command, you can add a `condition { xx xx xx xx }` where `xx` is the assembly \(hex\) of what you want to be executed in the case of that event.
+Each command in HyperDbg that are tagged as "**event**" in the document follows the same structure described [here](https://docs.hyperdbg.org/design/debugger-internals/events). At the time you execute a command, you can add a `condition { xx xx xx xx }` where `xx` is the assembly \(hex\) of what you want to be executed in the case of that event.
 
 For example, let's imagine we want to create a condition for a command like "**!epthook**".
 
@@ -200,7 +200,7 @@ HyperDbg> !epthook2 fffff800`4ed6f010 condition {488B59104881FB0010000074054831C
 One important note is that if you want to create a condition for **!syscall** command, which is common, then you should know that the syscall calling convention is fastcall \(`rcx`, `rdx`, `r8`, `r9` and stack\), so if your target user-mode application is x64, then you can expect the exact arguments from user-mode to kernel-mode. Still, if your user-mode application is x86, then Windows might change some of the arguments that contain addresses to new addresses. 
 
 {% hint style="danger" %}
-Accessing random memory in **custom code** and **condition code** in vmx root-mode is considered "[unsafe](https://docs.hyperdbg.com/tips-and-tricks/considerations/the-unsafe-behavior)". You have some limitations on accessing memory on some special events.
+Accessing random memory in **custom code** and **condition code** in vmx root-mode is considered "[unsafe](https://docs.hyperdbg.org/tips-and-tricks/considerations/the-unsafe-behavior)". You have some limitations on accessing memory on some special events.
 {% endhint %}
 
 

@@ -20,11 +20,11 @@ Evaluates and executes an expression in the remote debuggee.
 
 **\[expression\]**
 
- The expression is based on HyperDbg's [scripting language](https://web.archive.org/web/20210228003007/https://docs.hyperdbg.com/commands/scripting-language/assumptions-and-evaluations).
+ The expression is based on HyperDbg's [scripting language](https://web.archive.org/web/20210228003007/https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations).
 
 ### Examples <a id="examples"></a>
 
-The following command shows the `@rax` register in the debuggee by calling the [print](https://web.archive.org/web/20210228003007/https://docs.hyperdbg.com/commands/scripting-language/functions/print) function.
+The following command shows the `@rax` register in the debuggee by calling the [print](https://web.archive.org/web/20210228003007/https://docs.hyperdbg.org/commands/scripting-language/functions/print) function.
 
 ```text
 HyperDbg> ? print(@rax);

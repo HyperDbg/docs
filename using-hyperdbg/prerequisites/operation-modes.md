@@ -14,7 +14,7 @@ If you want to use **HyperDbg**, you should operate at least in **VMI Mode** or 
 
 In this mode, you can use all of the **HyperDbg** features, except break to the debugger and step instructions in **kernel-mode**. Still, you can break to the debugger and step user-mode instruction without any limitation.
 
-Based on **HyperDbg** [actions](https://docs.hyperdbg.com/using-hyperdbg/prerequisites), only **break to the debugger** for **kernel-mode** \(not user mode\) is not available in this mode, and you can use scripts and custom codes in both user-mode and kernel-mode. 
+Based on **HyperDbg** [actions](https://docs.hyperdbg.org/using-hyperdbg/prerequisites), only **break to the debugger** for **kernel-mode** \(not user mode\) is not available in this mode, and you can use scripts and custom codes in both user-mode and kernel-mode. 
 
 You can use this mode in both **local debugging** and **remote debugging**.
 
@@ -32,7 +32,7 @@ If you are not trying to break and halt the system for stepping and instrumentin
 
 If you enable this mode, then **HyperDbg** tries to make itself transparent from anti-debugging and anti-hypervisor methods and not reveal the hypervisor's presence on timing and microarchitectural attacks; however, it won't guarantee 100% transparency, but it makes it substantially harder for the anti-debugging methods.
 
-To enable this mode, you should use '[!measure](https://docs.hyperdbg.com/commands/extension-commands/measure)' and '[!hide](https://docs.hyperdbg.com/commands/extension-commands/hide)' commands.
+To enable this mode, you should use '[!measure](https://docs.hyperdbg.org/commands/extension-commands/measure)' and '[!hide](https://docs.hyperdbg.org/commands/extension-commands/hide)' commands.
 
 You can use **Transparent Mode** in both **VMI Mode** and **Debugger Mode**.
 

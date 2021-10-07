@@ -20,7 +20,7 @@ Shows the result of an expression that will be executed in the remote debuggee.
 
 **\[expression\]**
 
-          The expression is based on HyperDbg's [scripting language](https://docs.hyperdbg.com/commands/scripting-language/assumptions-and-evaluations).
+          The expression is based on HyperDbg's [scripting language](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations).
 
 ### Examples
 

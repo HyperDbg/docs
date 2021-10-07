@@ -42,7 +42,7 @@ No, the current version is only limited to Windows 10; however, one of our top p
 
 ## Should I have a separate machine to use HyperDbg?
 
-Of course not! The only problem with not having a separate machine is that you can only operate on [VMI mode](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/operation-modes#vmi-mode), and you can't pause \(halt\) the system with breakpoint or for stepping. You can also use VMware Workstation to debug in [debugger mode](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/operation-modes#debugger-mode) with all of the features, including stepping and pausing the debuggee.
+Of course not! The only problem with not having a separate machine is that you can only operate on [VMI mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#vmi-mode), and you can't pause \(halt\) the system with breakpoint or for stepping. You can also use VMware Workstation to debug in [debugger mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode) with all of the features, including stepping and pausing the debuggee.
 
 ## Can I use it on a nested-virtualization environment \(VMware, VirtualBox, Hyper-V\)?
 
@@ -54,5 +54,5 @@ The source for reading about Hypervisors and HyperDbg internals is [Hypervisor F
 
 For contribution, you can follow the [contribution guide](https://github.com/HyperDbg/HyperDbg/blob/master/CONTRIBUTING.md).
 
-You can visit [here ](https://docs.hyperdbg.com/design)to know more about HyperDbg [design ](https://docs.hyperdbg.com/design)internals.
+You can visit [here ](https://docs.hyperdbg.org/design)to know more about HyperDbg [design ](https://docs.hyperdbg.org/design)internals.
 

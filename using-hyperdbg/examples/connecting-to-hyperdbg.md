@@ -8,9 +8,9 @@ This article only describes the **Debugger Mode** of the HyperDbg in the VMware 
 
 You might want to :
 
-* [Attach to a local machine](https://docs.hyperdbg.com/getting-started/attach-to-hyperdbg/attach-to-local-machine)
-* [Connect to a physical machine](https://docs.hyperdbg.com/getting-started/attach-to-hyperdbg/debug#physical-machine)
-* [Connect to VMI Mode](https://docs.hyperdbg.com/getting-started/attach-to-hyperdbg/debug#connect-to-debuggee-vmi-mode)
+* [Attach to a local machine](https://docs.hyperdbg.org/getting-started/attach-to-hyperdbg/attach-to-local-machine)
+* [Connect to a physical machine](https://docs.hyperdbg.org/getting-started/attach-to-hyperdbg/debug#physical-machine)
+* [Connect to VMI Mode](https://docs.hyperdbg.org/getting-started/attach-to-hyperdbg/debug#connect-to-debuggee-vmi-mode)
 
 In order to run HyperDbg on a VMware Workstation machine, first, turn off your guest machine then, you need to enable **Nested Virtualization**. Open your virtual machine and click on Edit **virtual machine settings**.
 
@@ -55,10 +55,10 @@ Most of the times, if the serial port is the only serial device that you add to 
 After running the above command in guest, now you should see that the debuggee is connected to the debugger.
 
 {% hint style="info" %}
-If you see an error for driver signature enforcement, please visit [here](https://docs.hyperdbg.com/using-hyperdbg/examples/connecting-to-hyperdbg#driver-signature-enforcement-error).
+If you see an error for driver signature enforcement, please visit [here](https://docs.hyperdbg.org/using-hyperdbg/examples/connecting-to-hyperdbg#driver-signature-enforcement-error).
 {% endhint %}
 
-You can press CTRL+C to pause the debuggee and step through the kernel codes using the ['p' command](https://docs.hyperdbg.com/commands/debugging-commands/p) and the ['t' command](https://docs.hyperdbg.com/commands/debugging-commands/t), and if you want to continue the normal execution of the debuggee, you can use the ['g' command](https://docs.hyperdbg.com/commands/debugging-commands/g).
+You can press CTRL+C to pause the debuggee and step through the kernel codes using the ['p' command](https://docs.hyperdbg.org/commands/debugging-commands/p) and the ['t' command](https://docs.hyperdbg.org/commands/debugging-commands/t), and if you want to continue the normal execution of the debuggee, you can use the ['g' command](https://docs.hyperdbg.org/commands/debugging-commands/g).
 
 ![Step and Continue Debuggee](../../.gitbook/assets/connected-to-debuggee.png)
 
@@ -68,5 +68,5 @@ If you are using an unsigned version of HyperDbg driver, you should turn off the
 
 ![Driver Signature Enforcement Error](../../.gitbook/assets/driver-signature-enforcement-error.png)
 
-For disabling Driver Signature Enforcement, you can visit [here](https://docs.hyperdbg.com/getting-started/build-and-install#disable-driver-signature-enforcement).
+For disabling Driver Signature Enforcement, you can visit [here](https://docs.hyperdbg.org/getting-started/build-and-install#disable-driver-signature-enforcement).
 

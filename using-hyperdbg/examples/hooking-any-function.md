@@ -6,9 +6,9 @@ description: Description about hooking options in HyperDbg
 
 Hooking is a powerful feature of HyperDbg. You can hook all user-mode and kernel-mode functions and expect a fast in-line hook or unlimited EPT hooks.
 
-Currently, hooking functions is possible through the [!epthook](https://docs.hyperdbg.com/commands/extension-commands/epthook) and [!epthook2](https://docs.hyperdbg.com/commands/extension-commands/epthook2).
+Currently, hooking functions is possible through the [!epthook](https://docs.hyperdbg.org/commands/extension-commands/epthook) and [!epthook2](https://docs.hyperdbg.org/commands/extension-commands/epthook2).
 
-**!epthook2** is generally a faster hook; however, it has some limitations that are mentioned [here](https://docs.hyperdbg.com/commands/extension-commands/epthook2#remarks).
+**!epthook2** is generally a faster hook; however, it has some limitations that are mentioned [here](https://docs.hyperdbg.org/commands/extension-commands/epthook2#remarks).
 
 Assume that `ExAllocatePoolWithTag` is located at ``fffff805`5cdb2030``.
 

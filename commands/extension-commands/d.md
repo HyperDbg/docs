@@ -170,7 +170,7 @@ BOOLEAN KdSendReadMemoryPacketToDebuggee(PDEBUGGER_READ_MEMORY ReadMem);
 
 * If you don't specify the length, the default length for HyperDbg is 0x80 Bytes.
 
-HyperDbg won't remove breakpoints previously set using the '[bp](https://docs.hyperdbg.com/commands/debugging-commands/bp)' command if you're disassembling or reading the memory of a special **physical** address. However, for the virtual addresses, HyperDbg ignores breakpoints and shows the target location's real value. 
+HyperDbg won't remove breakpoints previously set using the '[bp](https://docs.hyperdbg.org/commands/debugging-commands/bp)' command if you're disassembling or reading the memory of a special **physical** address. However, for the virtual addresses, HyperDbg ignores breakpoints and shows the target location's real value. 
 
 {% hint style="warning" %}
 Please note that you should specify space between 'l' and the length in HyperDbg. For example, 'l10' is invalid, but 'l 10' is valid. \(It's opposed to windbg\).
@@ -188,5 +188,5 @@ None
 
 ### Related
 
-[db, dc, dd, dq \(read virtual memory\)](https://docs.hyperdbg.com/commands/debugging-commands/d)
+[db, dc, dd, dq \(read virtual memory\)](https://docs.hyperdbg.org/commands/debugging-commands/d)
 

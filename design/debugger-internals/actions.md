@@ -37,7 +37,7 @@ By default and if you don't specify any parameters like `script { }` or `code { 
 
 Script-engine is a powerful feature of HyperDbg that makes you able to create easy statements to create logs from the system state, change the system state, and call pre-defined functions and even halt the system and give its control to the debugger.
 
-This feature never halts the system, and HyperDbg's script engine is vmx-root compatible; however, you should avoid [unsafe behavior](https://docs.hyperdbg.com/tips-and-tricks/considerations/the-unsafe-behavior).
+This feature never halts the system, and HyperDbg's script engine is vmx-root compatible; however, you should avoid [unsafe behavior](https://docs.hyperdbg.org/tips-and-tricks/considerations/the-unsafe-behavior).
 
 When you use `script { }` in your events, then you are using the script-engine.
 
@@ -63,7 +63,7 @@ typedef struct _DEBUGGER_GENERAL_ACTION {
 } DEBUGGER_GENERAL_ACTION, *PDEBUGGER_GENERAL_ACTION;
 ```
 
-Read [Scripting Language](https://docs.hyperdbg.com/commands/scripting-language) for more information and examples about script-engine and read [here ](https://docs.hyperdbg.com/design/script-engine)for more information about the script engine's design and internals. 
+Read [Scripting Language](https://docs.hyperdbg.org/commands/scripting-language) for more information and examples about script-engine and read [here ](https://docs.hyperdbg.org/design/script-engine)for more information about the script engine's design and internals. 
 
 ### Custom Code
 

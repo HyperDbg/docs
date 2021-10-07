@@ -4,7 +4,7 @@ description: Remote debugging in VMI Mode and Debugger Mode
 
 # Attach to a remote machine
 
-If you have access to a remote physical machine or a nested virtualization environment like \(VMware Workstation, VirtualBox, Hyper-V, etc.\), you can **operate** in both ****[**VMI Mode**](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/operation-modes#vmi-mode) and [**Debugger Mode**](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/operation-modes#debugger-mode).
+If you have access to a remote physical machine or a nested virtualization environment like \(VMware Workstation, VirtualBox, Hyper-V, etc.\), you can **operate** in both ****[**VMI Mode**](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#vmi-mode) and [**Debugger Mode**](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode).
 
 In **VMI Mode**, you can't break the kernel mode and step through the kernel instructions; still, you can step and break user-mode applications. This mode needs a network connection \(TCP\).
 
@@ -79,7 +79,7 @@ HyperDbg> .debug prepare serial 115200 com2
 Most of the times, if the serial port is the only serial device that you add to the virtual machine, then the name of the connected port is `com2`. However, you can see the exact name of the COM port on the guest's device manager.
 
 {% hint style="info" %}
-If you see an error for driver signature enforcement, please visit [here](https://docs.hyperdbg.com/using-hyperdbg/examples/connecting-to-hyperdbg#driver-signature-enforcement-error).
+If you see an error for driver signature enforcement, please visit [here](https://docs.hyperdbg.org/using-hyperdbg/examples/connecting-to-hyperdbg#driver-signature-enforcement-error).
 {% endhint %}
 
 ## Connect to Debuggee \(VMI Mode\)
@@ -113,5 +113,5 @@ listening on 50000 ...
 connected to : 127.0.0.1:52830
 ```
 
-You can see the state of the debugger by using the '[.status](https://docs.hyperdbg.com/commands/meta-commands/.status)' command.
+You can see the state of the debugger by using the '[.status](https://docs.hyperdbg.org/commands/meta-commands/.status)' command.
 

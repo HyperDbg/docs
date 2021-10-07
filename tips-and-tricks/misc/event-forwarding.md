@@ -12,9 +12,9 @@ Thanks a lot to [Samir](https://twitter.com/SBousseaden) for his valuable sugges
 
 ### Output command
 
-A new command called "[output](https://docs.hyperdbg.com/commands/debugging-commands/output)" was added to the HyperDbg to create remote sources.
+A new command called "[output](https://docs.hyperdbg.org/commands/debugging-commands/output)" was added to the HyperDbg to create remote sources.
 
-In order to use event forwarding, you should perform the following steps. All of them are done using the [output ](https://docs.hyperdbg.com/commands/debugging-commands/output)command.
+In order to use event forwarding, you should perform the following steps. All of them are done using the [output ](https://docs.hyperdbg.org/commands/debugging-commands/output)command.
 
 First, you should create an output source.
 
@@ -32,17 +32,17 @@ HyperDbg supports multiple output sources, which means that you can send the res
 
 You can create unlimited output sources, but you can use a limited number of output sources for a single event.
 
-Check the [output ](https://docs.hyperdbg.com/commands/debugging-commands/output)command to see more examples.
+Check the [output ](https://docs.hyperdbg.org/commands/debugging-commands/output)command to see more examples.
 
 ### Remarks
 
-Event forwarding is a one-way mechanism. This means you can just see the client's logs, and you cannot make changes to the logs or send commands to the target client. If you want t,o control the debugger from a remote system, you can use [.listen](https://docs.hyperdbg.com/commands/meta-commands/.listen) and [.connect](https://docs.hyperdbg.com/commands/meta-commands/.connect) commands.
+Event forwarding is a one-way mechanism. This means you can just see the client's logs, and you cannot make changes to the logs or send commands to the target client. If you want t,o control the debugger from a remote system, you can use [.listen](https://docs.hyperdbg.org/commands/meta-commands/.listen) and [.connect](https://docs.hyperdbg.org/commands/meta-commands/.connect) commands.
 
 ### Format \(plain-text and JSON\)
 
-Event forwarding is only applied to the script, which means that you can use the [**print** ](https://docs.hyperdbg.com/commands/scripting-language/functions/exports/print)and the [**printf**](https://docs.hyperdbg.com/commands/scripting-language/functions/exports/printf) ****function to generate results that will be passed to the target output source.
+Event forwarding is only applied to the script, which means that you can use the [**print** ](https://docs.hyperdbg.org/commands/scripting-language/functions/exports/print)and the [**printf**](https://docs.hyperdbg.org/commands/scripting-language/functions/exports/printf) ****function to generate results that will be passed to the target output source.
 
-It's possible to create JSON results using the [**printf**](https://docs.hyperdbg.com/commands/scripting-language/functions/exports/printf) ****function.
+It's possible to create JSON results using the [**printf**](https://docs.hyperdbg.org/commands/scripting-language/functions/exports/printf) ****function.
 
 ### Examples
 

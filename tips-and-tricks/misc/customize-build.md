@@ -135,7 +135,7 @@ The following option indicates the start seed for creating the event's `Tag` val
 #define DebuggerEventTagStartSeed 0x1000000
 ```
 
-The following option limits the count of maximum results for [s\*](https://docs.hyperdbg.com/commands/debugging-commands/s) and [!s\*](https://docs.hyperdbg.com/commands/extension-commands/s) commands.
+The following option limits the count of maximum results for [s\*](https://docs.hyperdbg.org/commands/debugging-commands/s) and [!s\*](https://docs.hyperdbg.org/commands/extension-commands/s) commands.
 
 ```c
 #define MaximumSearchResults 0x1000
@@ -159,7 +159,7 @@ The seeds that user-mode codes use as the starter of their output source tag.
 #define DebuggerOutputSourceTagStartSeed 0x1
 ```
 
-The following option changes the maximum number of breakpoints \('[bp](https://docs.hyperdbg.com/commands/debugging-commands/bp)' command\) that the user can put into the entire system before continuing the debuggee. If you continue the debuggee and send an IOCTL, HyperDbg will reset this number.
+The following option changes the maximum number of breakpoints \('[bp](https://docs.hyperdbg.org/commands/debugging-commands/bp)' command\) that the user can put into the entire system before continuing the debuggee. If you continue the debuggee and send an IOCTL, HyperDbg will reset this number.
 
 ```c
 #define MAXIMUM_BREAKPOINTS_WITHOUT_CONTINUE 50

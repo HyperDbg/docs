@@ -217,5 +217,5 @@ None
 
 [Zydis](https://zydis.re/)
 
-[!u \(disassemble physical address\)](https://docs.hyperdbg.com/commands/extension-commands/u)
+[!u \(disassemble physical address\)](https://docs.hyperdbg.org/commands/extension-commands/u)
 

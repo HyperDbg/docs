@@ -4,7 +4,7 @@ description: 'Enable, Disable, and remove events'
 
 # Managing Events
 
-Each time you use a command like [!syscall](https://docs.hyperdbg.com/commands/extension-commands/syscall), [!epthook](https://docs.hyperdbg.com/commands/extension-commands/epthook), [bp](https://docs.hyperdbg.com/commands/debugging-commands/bp), [!monitor](https://docs.hyperdbg.com/commands/extension-commands/monitor), etc., you create an event.
+Each time you use a command like [!syscall](https://docs.hyperdbg.org/commands/extension-commands/syscall), [!epthook](https://docs.hyperdbg.org/commands/extension-commands/epthook), [bp](https://docs.hyperdbg.org/commands/debugging-commands/bp), [!monitor](https://docs.hyperdbg.org/commands/extension-commands/monitor), etc., you create an event.
 
 After that, you can disable or re-enable the event or completely clear the event. This article demonstrates how to manage events in HyperDbg.
 

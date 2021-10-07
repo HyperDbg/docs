@@ -37,9 +37,9 @@ Each option has its own different value, for example, some options might be on o
 | **autounpause** | on \| off | on |
 | **syntax** | intel \| att \| masm | intel |
 
-**autounpause** : if you turn your **autounpause** on, then if you press CTRL+C or run '[pause](https://docs.hyperdbg.com/commands/debugging-commands/pause)' command to break to the debugger, every new event will automatically turn off your break and you'll start receiving events and messages from the kernel-mode buffers. However, if you turn it off, then you won't receive kernel buffers and messages when you invoke a new event as the debugger will remain in paused state \(for example, paused because of '[pause](https://docs.hyperdbg.com/commands/debugging-commands/pause)' command or CTRL+C\), in this case, you can resume receiving messages from the kernel-mode buffer by running '[g](https://docs.hyperdbg.com/commands/debugging-commands/g)' command.
+**autounpause** : if you turn your **autounpause** on, then if you press CTRL+C or run '[pause](https://docs.hyperdbg.org/commands/debugging-commands/pause)' command to break to the debugger, every new event will automatically turn off your break and you'll start receiving events and messages from the kernel-mode buffers. However, if you turn it off, then you won't receive kernel buffers and messages when you invoke a new event as the debugger will remain in paused state \(for example, paused because of '[pause](https://docs.hyperdbg.org/commands/debugging-commands/pause)' command or CTRL+C\), in this case, you can resume receiving messages from the kernel-mode buffer by running '[g](https://docs.hyperdbg.org/commands/debugging-commands/g)' command.
 
-**syntax** : specifies the syntax of disassembler for '[!u and !u2](https://docs.hyperdbg.com/commands/extension-commands/u)' commands.
+**syntax** : specifies the syntax of disassembler for '[!u and !u2](https://docs.hyperdbg.org/commands/extension-commands/u)' commands.
 
 ### Examples
 
@@ -64,7 +64,7 @@ HyperDbg >settings autounpause off
 set auto-unpause to disabled
 ```
 
-The following command shows different **syntax** used in the disassembler, you can choose your favorite **syntax** to show in '[!u and !u2' ](https://docs.hyperdbg.com/commands/extension-commands/u)commands.
+The following command shows different **syntax** used in the disassembler, you can choose your favorite **syntax** to show in '[!u and !u2' ](https://docs.hyperdbg.org/commands/extension-commands/u)commands.
 
 ```c
 HyperDbg >settings syntax intel

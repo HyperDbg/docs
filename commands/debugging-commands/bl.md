@@ -104,11 +104,11 @@ None
 
 ### Related
 
-[bp \(set breakpoint\)](https://docs.hyperdbg.com/commands/debugging-commands/bp)
+[bp \(set breakpoint\)](https://docs.hyperdbg.org/commands/debugging-commands/bp)
 
-[be \(enable breakpoints\)](https://docs.hyperdbg.com/commands/debugging-commands/be)
+[be \(enable breakpoints\)](https://docs.hyperdbg.org/commands/debugging-commands/be)
 
-[bd \(disable breakpoints\)](https://docs.hyperdbg.com/commands/debugging-commands/bd)
+[bd \(disable breakpoints\)](https://docs.hyperdbg.org/commands/debugging-commands/bd)
 
-[bc \(clear and remove breakpoints\)](https://docs.hyperdbg.com/commands/debugging-commands/bc)
+[bc \(clear and remove breakpoints\)](https://docs.hyperdbg.org/commands/debugging-commands/bc)
 

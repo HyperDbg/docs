@@ -14,10 +14,10 @@ description: Description of '!exception' command in HyperDbg.
 
 ### Description
 
-Triggers when the debugging machine encounters an exception \(**faults, traps, aborts**\) or NMI or interrupt. This command applies to only the first 32 entries of IDT \(Interrupt Descriptor Table\). If you need to hook entries between 32 to 255 of IDT, you should use [!interrupt](https://docs.hyperdbg.com/commands/extension-commands/interrupt) instead.
+Triggers when the debugging machine encounters an exception \(**faults, traps, aborts**\) or NMI or interrupt. This command applies to only the first 32 entries of IDT \(Interrupt Descriptor Table\). If you need to hook entries between 32 to 255 of IDT, you should use [!interrupt](https://docs.hyperdbg.org/commands/extension-commands/interrupt) instead.
 
 {% hint style="info" %}
-When you enable this event, only your specific entry will be hooked, so this command won't trigger on all exceptions/interrupts; thus, it won't make your computer slow but on the other hand, by using [!interrupt](https://docs.hyperdbg.com/commands/extension-commands/interrupt) command, if you just need one of the entries; still, all entries between **32** to **255** should be emulated by **HyperDbg**, ****so it's substantially slower.
+When you enable this event, only your specific entry will be hooked, so this command won't trigger on all exceptions/interrupts; thus, it won't make your computer slow but on the other hand, by using [!interrupt](https://docs.hyperdbg.org/commands/extension-commands/interrupt) command, if you just need one of the entries; still, all entries between **32** to **255** should be emulated by **HyperDbg**, ****so it's substantially slower.
 {% endhint %}
 
 ### Parameters
@@ -40,7 +40,7 @@ When you enable this event, only your specific entry will be hooked, so this com
 
 **\[event options\]**
 
-          Regular event parameters that are used in HyperDbg events. \(For more information, read [this ](https://docs.hyperdbg.com/using-hyperdbg/prerequisites)topic\)
+          Regular event parameters that are used in HyperDbg events. \(For more information, read [this ](https://docs.hyperdbg.org/using-hyperdbg/prerequisites)topic\)
 
 ### Context
 
@@ -55,7 +55,7 @@ This event supports three debugging mechanisms.
 * Custom Code
 
 {% hint style="info" %}
-Please read  "[How to create a condition?](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition)" if you need a conditional event, a conditional event can be used in all "**Break**", "**Script**", and "**Custom Code**".
+Please read  "[How to create a condition?](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-a-condition)" if you need a conditional event, a conditional event can be used in all "**Break**", "**Script**", and "**Custom Code**".
 {% endhint %}
 
 ### Break
@@ -80,7 +80,7 @@ HyperDbg> !exception 0x0 core 1 pid 490
 
 ### Script
 
-Using the following command, you can use HyperDbg's Script Engine. You should replace the string between braces \(`HyperDbg Script Here`\) with your script. You can find script examples [here](https://docs.hyperdbg.com/commands/scripting-language/examples). 
+Using the following command, you can use HyperDbg's Script Engine. You should replace the string between braces \(`HyperDbg Script Here`\) with your script. You can find script examples [here](https://docs.hyperdbg.org/commands/scripting-language/examples). 
 
 ```
 HyperDbg> !exception 0xe script { HyperDbg Script Here }
@@ -101,20 +101,20 @@ HyperDbg> !exception 0xe script {file:c:\users\sina\desktop\script.txt}
 ```
 
 {% hint style="success" %}
-You can use [**event forwarding**](https://docs.hyperdbg.com/tips-and-tricks/misc/event-forwarding) to forward the event monitoring results from this event and other events to an external source, e.g., **File**, **NamedPipe**, or **TCP Socket**. This way, you can use **HyperDbg** as a monitoring tool and gather your target system's behavior and use it later or analyze it on other systems.
+You can use [**event forwarding**](https://docs.hyperdbg.org/tips-and-tricks/misc/event-forwarding) to forward the event monitoring results from this event and other events to an external source, e.g., **File**, **NamedPipe**, or **TCP Socket**. This way, you can use **HyperDbg** as a monitoring tool and gather your target system's behavior and use it later or analyze it on other systems.
 {% endhint %}
 
 ### Custom Code
 
-Please read  "[How to create an action?](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action)" to get an idea about how to run the custom buffer code in **HyperDbg**.
+Please read  "[How to create an action?](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action)" to get an idea about how to run the custom buffer code in **HyperDbg**.
 
 {% hint style="warning" %}
-Your custom code will be executed in vmx-root mode. Take a look at [this topic](https://docs.hyperdbg.com/tips-and-tricks/considerations/vmx-root-mode-vs-vmx-non-root-mode) for more information. Running code in vmx-root is considered "[unsafe](https://docs.hyperdbg.com/tips-and-tricks/considerations/the-unsafe-behavior)".
+Your custom code will be executed in vmx-root mode. Take a look at [this topic](https://docs.hyperdbg.org/tips-and-tricks/considerations/vmx-root-mode-vs-vmx-non-root-mode) for more information. Running code in vmx-root is considered "[unsafe](https://docs.hyperdbg.org/tips-and-tricks/considerations/the-unsafe-behavior)".
 {% endhint %}
 
 #### Run Custom Code \(Unconditional\)
 
-Monitoring occurrence of first 32 exceptions and interrupts ****and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) for more information.
+Monitoring occurrence of first 32 exceptions and interrupts ****and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) for more information.
 
 ```c
 HyperDbg> !exception code {90 90 90}
@@ -122,7 +122,7 @@ HyperDbg> !exception code {90 90 90}
 
 #### Run Custom Code \(Conditional\)
 
-Monitoring occurrence of first 32 exceptions and interrupts and run 3 nops whenever the event condition is triggered and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) and [how to create a condition](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/how-to-create-a-condition) for more information.
+Monitoring occurrence of first 32 exceptions and interrupts and run 3 nops whenever the event condition is triggered and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) and [how to create a condition](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-a-condition) for more information.
 
 ```c
 HyperDbg> !exception code {90 90 90} condition {90 90 90}
@@ -134,23 +134,23 @@ Keep in mind that a conditional event can be used in **Breaking to Debugger** an
 
 ### IOCTL
 
-This command uses the same method to [send IOCTL for regular events](https://docs.hyperdbg.com/design/debugger-internals/ioctl-requests-for-events). 
+This command uses the same method to [send IOCTL for regular events](https://docs.hyperdbg.org/design/debugger-internals/ioctl-requests-for-events). 
 
 As **EventType** use `EXCEPTION_OCCURRED` and send the special entry between **0x0** to **0x1f** \(if any\) if you want to monitor just a special exception or interrupt in `OptionalParam1` in  **DEBUGGER\_GENERAL\_EVENT\_DETAIL**.
 
 ### Design
 
-Take a look at "[Design of !exception & !interrupt](https://docs.hyperdbg.com/design/features/vmm-module/design-of-exception-and-interrupt)" to see how it works.
+Take a look at "[Design of !exception & !interrupt](https://docs.hyperdbg.org/design/features/vmm-module/design-of-exception-and-interrupt)" to see how it works.
 
 ### **Remarks**
 
-Emulating page-fault \(entry **0xe**\) is treated differently in HyperDbg. Take a look [here ](https://docs.hyperdbg.com/design/features/design-of-exception-and-interrupt)for more information.
+Emulating page-fault \(entry **0xe**\) is treated differently in HyperDbg. Take a look [here ](https://docs.hyperdbg.org/design/features/design-of-exception-and-interrupt)for more information.
 
-If the debugger breaks due to the triggering **!exception** event, [the instrumentation stepping command](https://docs.hyperdbg.com/commands/debugging-commands/i) won't re-inject the event into the debuggee. In other words, the ['i' command](https://docs.hyperdbg.com/commands/debugging-commands/i) will continue the normal execution as if the debuggee never created such an **EXCEPTION**.
+If the debugger breaks due to the triggering **!exception** event, [the instrumentation stepping command](https://docs.hyperdbg.org/commands/debugging-commands/i) won't re-inject the event into the debuggee. In other words, the ['i' command](https://docs.hyperdbg.org/commands/debugging-commands/i) will continue the normal execution as if the debuggee never created such an **EXCEPTION**.
 
 This command will re-inject the event to the debuggee after triggering the event \(not before it\).
 
-This is an event command, but in the current version of HyperDbg \(in Debugger Mode\), this command will continue the debuggee for some time; however, you can use [this trick](https://docs.hyperdbg.com/tips-and-tricks/misc/enable-and-disable-events-in-debugger-mode) to make sure you won't lose any event.
+This is an event command, but in the current version of HyperDbg \(in Debugger Mode\), this command will continue the debuggee for some time; however, you can use [this trick](https://docs.hyperdbg.org/tips-and-tricks/misc/enable-and-disable-events-in-debugger-mode) to make sure you won't lose any event.
 
 ### Requirements
 
@@ -158,5 +158,5 @@ None
 
 ### Related
 
-[!interrupt \(hook external device interrupts\)](https://docs.hyperdbg.com/commands/extension-commands/interrupt)
+[!interrupt \(hook external device interrupts\)](https://docs.hyperdbg.org/commands/extension-commands/interrupt)
 

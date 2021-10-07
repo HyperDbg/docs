@@ -10,5 +10,5 @@ By vmx non-root, it means that the code will be executed in regular kernel-mode 
 
 You should be cautious if you want to cause vm-exit in vmx non-root. For example, you should not execute CPUID in vmx-root as it makes your logging mechanism slower. In other words, there is no limitation, but you have to know what you want to do.
 
-Please make sure to avoid ["unsafe" behavior](https://docs.hyperdbg.com/tips-and-tricks/considerations/the-unsafe-behavior) in vmx-root mode.
+Please make sure to avoid ["unsafe" behavior](https://docs.hyperdbg.org/tips-and-tricks/considerations/the-unsafe-behavior) in vmx-root mode.
 

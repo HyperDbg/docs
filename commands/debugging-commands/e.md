@@ -43,7 +43,7 @@ If you don't specify the pid, then the default pid is the current process \(**Hy
 {% endhint %}
 
 {% hint style="danger" %}
-In the [Debugger Mode](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/operation-modes#debugger-mode), the **pid** \(parameter\) is ignored. If you want to view another process memory, use the '[.process](https://docs.hyperdbg.com/commands/meta-commands/.process)' command to switch to another process memory layout.
+In the [Debugger Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode), the **pid** \(parameter\) is ignored. If you want to view another process memory, use the '[.process](https://docs.hyperdbg.org/commands/meta-commands/.process)' command to switch to another process memory layout.
 {% endhint %}
 
 ### Examples
@@ -155,7 +155,7 @@ BOOLEAN KdSendEditMemoryPacketToDebuggee(PDEBUGGER_EDIT_MEMORY EditMem);
 
 * You can change as many bytes as you need in **byte**, **dword**, and **qword** formats; just add new values to the end of the command. 
 
-If you change the memory address that you previously set a breakpoint using the '[bp](https://docs.hyperdbg.com/commands/debugging-commands/bp)' command, the previous value is replaced when you remove the breakpoint.
+If you change the memory address that you previously set a breakpoint using the '[bp](https://docs.hyperdbg.org/commands/debugging-commands/bp)' command, the previous value is replaced when you remove the breakpoint.
 
 This command is guaranteed to keep debuggee in a halt state \(in Debugger Mode\); thus, nothing will change during its execution.
 
@@ -165,5 +165,5 @@ None
 
 ### Related
 
-[!eb, !ed, !eq \(edit physical memory\)](https://docs.hyperdbg.com/commands/extension-commands/e)
+[!eb, !ed, !eq \(edit physical memory\)](https://docs.hyperdbg.org/commands/extension-commands/e)
 

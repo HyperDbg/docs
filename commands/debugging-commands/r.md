@@ -31,7 +31,7 @@ If you don't specify any parameters to the 'r' command, it shows all general-pur
 {% endhint %}
 
 {% hint style="success" %}
-The first parameter to this command is a register \(not an expression\). If you want to evaluate and see the result of registers as an expression \(e.g., `rax+rbx+rcx`\) then you can use the '[.formats](https://docs.hyperdbg.com/commands/meta-commands/.formats)' command.
+The first parameter to this command is a register \(not an expression\). If you want to evaluate and see the result of registers as an expression \(e.g., `rax+rbx+rcx`\) then you can use the '[.formats](https://docs.hyperdbg.org/commands/meta-commands/.formats)' command.
 {% endhint %}
 
 ### Examples

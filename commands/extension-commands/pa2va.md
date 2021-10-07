@@ -82,5 +82,5 @@ None
 
 ### Related
 
-[!va2pa \(convert a virtual address to physical address\)](https://docs.hyperdbg.com/commands/extension-commands/va2pa)
+[!va2pa \(convert a virtual address to physical address\)](https://docs.hyperdbg.org/commands/extension-commands/va2pa)
 

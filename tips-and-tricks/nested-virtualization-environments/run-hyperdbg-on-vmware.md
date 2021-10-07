@@ -16,7 +16,7 @@ Now, enable the following options on your machine.
 
 ![](../../.gitbook/assets/nested-virtualization-vmware2.png)
 
-Note that you have a limitation on using **!ioin** and **!ioout** in VMware nested-virtualization. \([VMware backdoor I/O port](https://docs.hyperdbg.com/tips-and-tricks/nested-virtualization-environments/vmware-backdoor-io-ports)\).
+Note that you have a limitation on using **!ioin** and **!ioout** in VMware nested-virtualization. \([VMware backdoor I/O port](https://docs.hyperdbg.org/tips-and-tricks/nested-virtualization-environments/vmware-backdoor-io-ports)\).
 
 {% hint style="warning" %}
 **HyperDbg** will not hide traces from VMware or any other nested-virtualization environments. Malware or any application can detect the presence of VMWare, and regular anti-vm techniques detect the VMware environment.

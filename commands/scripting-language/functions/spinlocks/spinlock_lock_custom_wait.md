@@ -20,15 +20,15 @@ description: Description of 'spinlock_lock_custom_wait' function in HyperDbg Scr
 
 **\[Expression\]**
 
-         A [MASM-like expression](https://docs.hyperdbg.com/commands/scripting-language/assumptions-and-evaluations) to evaluate which is the maximum wait time for the spinlock to re-check the lock.
+         A [MASM-like expression](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations) to evaluate which is the maximum wait time for the spinlock to re-check the lock.
 
 {% hint style="info" %}
-By default in [spinlock\_lock](https://docs.hyperdbg.com/commands/scripting-language/functions/spinlocks/spinlock_lock), the maximum waiting time is **`65536`**.
+By default in [spinlock\_lock](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks/spinlock_lock), the maximum waiting time is **`65536`**.
 {% endhint %}
 
 ### Description
 
-Locks the spinlock referred to by lock and also uses the maximum wait time to re-check the lock. The lock can be unlocked by [spinlock\_unlock](https://docs.hyperdbg.com/commands/scripting-language/functions/spinlocks/spinlock_unlock).
+Locks the spinlock referred to by lock and also uses the maximum wait time to re-check the lock. The lock can be unlocked by [spinlock\_unlock](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks/spinlock_unlock).
 
 ### Return value
 
@@ -48,7 +48,7 @@ It's actually the number of times which the **PAUSE** instruction is executed.
 
 ### Related
 
-[spinlock\_lock](https://docs.hyperdbg.com/commands/scripting-language/functions/spinlocks/spinlock_lock)
+[spinlock\_lock](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks/spinlock_lock)
 
-[spinlock\_unlock](https://docs.hyperdbg.com/commands/scripting-language/functions/spinlocks/spinlock_unlock)
+[spinlock\_unlock](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks/spinlock_unlock)
 

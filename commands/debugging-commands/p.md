@@ -124,9 +124,9 @@ None
 
 ### Related
 
-[t \(step-in\)](https://docs.hyperdbg.com/commands/debugging-commands/t)
+[t \(step-in\)](https://docs.hyperdbg.org/commands/debugging-commands/t)
 
-[i \(instrumentation step-in\)](https://docs.hyperdbg.com/commands/debugging-commands/i)
+[i \(instrumentation step-in\)](https://docs.hyperdbg.org/commands/debugging-commands/i)
 
 
 

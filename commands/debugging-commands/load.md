@@ -68,5 +68,5 @@ This command will continue the debuggee for some time \(in Debugger Mode\). This
 
 ## Related
 
-[unload \(unload the kernel modules\)](https://docs.hyperdbg.com/commands/debugging-commands/unload)
+[unload \(unload the kernel modules\)](https://docs.hyperdbg.org/commands/debugging-commands/unload)
 

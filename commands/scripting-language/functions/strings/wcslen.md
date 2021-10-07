@@ -16,7 +16,7 @@ description: Description of 'wcslen' function in HyperDbg Scripts
 
 **\[Expression \(Address\)\]**
 
-         A [MASM-like expression](https://docs.hyperdbg.com/commands/scripting-language/assumptions-and-evaluations) to evaluate which is the address of the target location to compute the string length.
+         A [MASM-like expression](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations) to evaluate which is the address of the target location to compute the string length.
 
 ### Description
 
@@ -46,5 +46,5 @@ None
 
 ### Related
 
-[strlen](https://docs.hyperdbg.com/commands/scripting-language/functions/strings/strlen)
+[strlen](https://docs.hyperdbg.org/commands/scripting-language/functions/strings/strlen)
 

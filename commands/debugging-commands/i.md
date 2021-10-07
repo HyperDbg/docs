@@ -19,7 +19,7 @@ description: Description of 'i' command in HyperDbg.
 Executes a single instruction \(step-in\) and optionally displays the resulting values of all registers and flags.
 
 {% hint style="success" %}
-The difference between this command and the '[t](https://docs.hyperdbg.com/commands/debugging-commands/t)' command is that no other cores and other threads find a chance to be executed during the stepping process; the system is fully halted, and only the current core will execute just one instruction and halts again.
+The difference between this command and the '[t](https://docs.hyperdbg.org/commands/debugging-commands/t)' command is that no other cores and other threads find a chance to be executed during the stepping process; the system is fully halted, and only the current core will execute just one instruction and halts again.
 {% endhint %}
 
 {% hint style="info" %}
@@ -132,7 +132,7 @@ None
 
 ### Related
 
-[p \(step-over\)](https://docs.hyperdbg.com/commands/debugging-commands/p)
+[p \(step-over\)](https://docs.hyperdbg.org/commands/debugging-commands/p)
 
-[t \(step-in\)](https://docs.hyperdbg.com/commands/debugging-commands/t)
+[t \(step-in\)](https://docs.hyperdbg.org/commands/debugging-commands/t)
 

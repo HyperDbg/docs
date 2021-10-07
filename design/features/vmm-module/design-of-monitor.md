@@ -4,7 +4,7 @@ description: Design of !monitor command
 
 # Design of !monitor
 
-The implementation of the [!monitor](https://docs.hyperdbg.com/commands/extension-commands/monitor) command is derived from our [Hypervisor From Scratch \(Part 8\)](https://rayanfam.com/topics/hypervisor-from-scratch-part-8/). 
+The implementation of the [!monitor](https://docs.hyperdbg.org/commands/extension-commands/monitor) command is derived from our [Hypervisor From Scratch \(Part 8\)](https://rayanfam.com/topics/hypervisor-from-scratch-part-8/). 
 
 ### **Simulating Hardware Debug Registers Without Any Limitation**
 

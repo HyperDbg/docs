@@ -6,10 +6,10 @@ description: Using command-line features
 
 There are two ways to run batch-script like commands in **HyperDbg**.
 
-First, we can save our command\(s\) in a file and then use the [.script](https://docs.hyperdbg.com/commands/meta-commands/.script) command, and the second way is to pass the `--script` argument to the **hyperdbg-cli.exe**.
+First, we can save our command\(s\) in a file and then use the [.script](https://docs.hyperdbg.org/commands/meta-commands/.script) command, and the second way is to pass the `--script` argument to the **hyperdbg-cli.exe**.
 
 {% hint style="success" %}
-In HyperDbg's batch scripts '`#`' is used as the [comment character](https://docs.hyperdbg.com/commands/debugging-commands/comment). However, in the script engine, it uses a C-like [commenting style](https://docs.hyperdbg.com/commands/scripting-language/assumptions-and-evaluations#comments).
+In HyperDbg's batch scripts '`#`' is used as the [comment character](https://docs.hyperdbg.org/commands/debugging-commands/comment). However, in the script engine, it uses a C-like [commenting style](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations#comments).
 {% endhint %}
 
 For example, let's assume that we saved the following lines in **`c:\users\sina\desktop\script.txt`.**

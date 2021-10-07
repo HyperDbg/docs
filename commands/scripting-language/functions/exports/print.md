@@ -16,7 +16,7 @@ description: Description of 'print' function in HyperDbg Scripts
 
 **\[Expression\]**
 
-         A [MASM-like expression](https://docs.hyperdbg.com/commands/scripting-language/assumptions-and-evaluations) to evaluate.
+         A [MASM-like expression](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations) to evaluate.
 
 ### Description
 
@@ -37,16 +37,16 @@ Print data as an 8-byte hex, pointed by **rcx** register.
 Print value pointed by `$proc+@rdx`  which **$proc** is equivalent to current `_EPROCESS`  added to the **rdx** register.
 
 {% hint style="success" %}
-You can see more examples [here](https://docs.hyperdbg.com/commands/scripting-language/examples/view-system-state).
+You can see more examples [here](https://docs.hyperdbg.org/commands/scripting-language/examples/view-system-state).
 {% endhint %}
 
 ### **Remarks**
 
-You should consider avoiding ["unsafe" behavior](https://docs.hyperdbg.com/tips-and-tricks/considerations/the-unsafe-behavior) in your expressions.
+You should consider avoiding ["unsafe" behavior](https://docs.hyperdbg.org/tips-and-tricks/considerations/the-unsafe-behavior) in your expressions.
 
 ### Related
 
-[printf](https://docs.hyperdbg.com/commands/scripting-language/functions/exports/printf)
+[printf](https://docs.hyperdbg.org/commands/scripting-language/functions/exports/printf)
 
 
 

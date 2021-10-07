@@ -8,7 +8,7 @@ description: Using Transparent-mode in HyperDbg
 
 If you enable this mode, then HyperDbg tries to make itself transparent from anti-debugging and anti-hypervisor methods and not reveal the hypervisor's presence on timing and microarchitectural attacks; however, it won't guarantee 100% transparency, but it makes it substantially harder for the anti-debugging methods.
 
-To enable this mode, you should use '[!measure](https://docs.hyperdbg.com/commands/extension-commands/measure)' and '[!hide](https://docs.hyperdbg.com/commands/extension-commands/hide)' commands.
+To enable this mode, you should use '[!measure](https://docs.hyperdbg.org/commands/extension-commands/measure)' and '[!hide](https://docs.hyperdbg.org/commands/extension-commands/hide)' commands.
 
 You can use **Transparent Mode** in both **VMI Mode** and **Debugger Mode**.
 
@@ -24,9 +24,9 @@ As you can see in the above picture, HyperDbg is detected by many factors. In fa
 
 Now, we can use HyperDbg's Transparent-mode to bypass **pafish**.
 
-For enabling this mode, first, we should use the '[!measure](https://docs.hyperdbg.com/commands/extension-commands/measure)' command. This command uses statistical methods to measure and provide the details for the transparent-mode of HyperDbg for defeating anti-debugging and anti-hypervisor methods.
+For enabling this mode, first, we should use the '[!measure](https://docs.hyperdbg.org/commands/extension-commands/measure)' command. This command uses statistical methods to measure and provide the details for the transparent-mode of HyperDbg for defeating anti-debugging and anti-hypervisor methods.
 
-This command should be run before we '[load](https://docs.hyperdbg.com/commands/debugging-commands/load)' the debugger or before connecting to the debugger, and after that, we can use the '[!hide](https://docs.hyperdbg.com/commands/extension-commands/hide)' command.
+This command should be run before we '[load](https://docs.hyperdbg.org/commands/debugging-commands/load)' the debugger or before connecting to the debugger, and after that, we can use the '[!hide](https://docs.hyperdbg.org/commands/extension-commands/hide)' command.
 
 ```text
 HyperDbg> !measure
@@ -38,7 +38,7 @@ If we want to use the hardcoded results and statistics for a not-running hypervi
 HyperDbg> !measure default
 ```
 
-After that, we should use the '[!hide](https://docs.hyperdbg.com/commands/extension-commands/hide)' command. For example, if you want to apply the transparent features to process id `2a78` we can use the following command.
+After that, we should use the '[!hide](https://docs.hyperdbg.org/commands/extension-commands/hide)' command. For example, if you want to apply the transparent features to process id `2a78` we can use the following command.
 
 ```text
 HyperDbg> !hide pid 2a78

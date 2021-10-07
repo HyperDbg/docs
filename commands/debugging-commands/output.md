@@ -16,7 +16,7 @@ description: Description of 'output' command in HyperDbg.
 
 Create, open, or close a source output for event forwarding.
 
-You can read more about **event forwarding** [here](https://docs.hyperdbg.com/tips-and-tricks/misc/event-forwarding).
+You can read more about **event forwarding** [here](https://docs.hyperdbg.org/tips-and-tricks/misc/event-forwarding).
 
 ### Parameters
 
@@ -64,7 +64,7 @@ When you finished using an output source, you can **close** it using the followi
 HyperDbg> output close MyOutputName1
 ```
 
-After creating and opening the output source, you can use its name in all HyperDbg events. You should pass `output {MyOutputName1}` when you are creating an event, for example [!syscall](https://docs.hyperdbg.com/commands/extension-commands/syscall) is an event so that you can use it like this : 
+After creating and opening the output source, you can use its name in all HyperDbg events. You should pass `output {MyOutputName1}` when you are creating an event, for example [!syscall](https://docs.hyperdbg.org/commands/extension-commands/syscall) is an event so that you can use it like this : 
 
 ```diff
 HyperDbg> !syscall script { print(@rax); } output {MyOutputName1}
@@ -78,7 +78,7 @@ For example :
 HyperDbg> !syscall script { print(@rax); } output {MyOutputName1 , MyOutputName2 , MyOutputName3}
 ```
 
-You can specify up to `5` output sources in the default build of HyperDbg, but if you need more output sources for a single event, then you should compile HyperDbg with different configurations as described on [Customize Build](https://docs.hyperdbg.com/tips-and-tricks/misc/customize-build) and change the `DebuggerOutputSourceMaximumRemoteSourceForSingleEvent`.
+You can specify up to `5` output sources in the default build of HyperDbg, but if you need more output sources for a single event, then you should compile HyperDbg with different configurations as described on [Customize Build](https://docs.hyperdbg.org/tips-and-tricks/misc/customize-build) and change the `DebuggerOutputSourceMaximumRemoteSourceForSingleEvent`.
 
 ### IOCTL
 
@@ -86,7 +86,7 @@ None
 
 ### **Remarks**
 
-You can use this command to forward the results of the scripts from all the [events](https://docs.hyperdbg.com/design/debugger-internals/events).
+You can use this command to forward the results of the scripts from all the [events](https://docs.hyperdbg.org/design/debugger-internals/events).
 
 {% hint style="danger" %}
 You **cannot** use event forwarding in the immediate messaging mode in events \(`imm no`\).
@@ -98,5 +98,5 @@ None
 
 ### Related
 
-[Event Forwarding](https://docs.hyperdbg.com/tips-and-tricks/misc/event-forwarding)
+[Event Forwarding](https://docs.hyperdbg.org/tips-and-tricks/misc/event-forwarding)
 

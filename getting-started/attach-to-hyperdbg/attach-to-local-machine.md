@@ -17,7 +17,7 @@ HyperDbg> .connect local
 local debugging (vmi-mode)
 ```
 
-You can then use the '[load](https://docs.hyperdbg.com/commands/debugging-commands/load)' command to load your module \(for instance, **vmm** module\).
+You can then use the '[load](https://docs.hyperdbg.org/commands/debugging-commands/load)' command to load your module \(for instance, **vmm** module\).
 
 ```text
 HyperDbg> load vmm
@@ -28,5 +28,5 @@ vmx operation is supported by your processor
 vmm module is running...
 ```
 
-#### **When you connect to the local debugger, you are operating in** [**VMI Mode**](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/operation-modes#vmi-mode)**.**
+#### **When you connect to the local debugger, you are operating in** [**VMI Mode**](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#vmi-mode)**.**
 

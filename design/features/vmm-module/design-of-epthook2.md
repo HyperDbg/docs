@@ -4,7 +4,7 @@ description: Design of !epthook2 command
 
 # Design of !epthook2
 
-The implementation of the [!epthook2](https://docs.hyperdbg.com/commands/extension-commands/epthook2) command is derived from our [Hypervisor From Scratch \(Part 8\)](https://rayanfam.com/topics/hypervisor-from-scratch-part-8/). 
+The implementation of the [!epthook2](https://docs.hyperdbg.org/commands/extension-commands/epthook2) command is derived from our [Hypervisor From Scratch \(Part 8\)](https://rayanfam.com/topics/hypervisor-from-scratch-part-8/). 
 
 ### Super fast, in-line hidden hooks
 

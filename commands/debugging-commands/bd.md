@@ -20,7 +20,7 @@ Disables a previously enabled breakpoint \(**0xcc**\).
 
 **\[breakpoint id \(hex value\)\]**
 
-          The **breakpoint id** of the target breakpoint. You can see a list of breakpoints and breakpoint ids using the '[bl](https://docs.hyperdbg.com/commands/debugging-commands/bl)' command.
+          The **breakpoint id** of the target breakpoint. You can see a list of breakpoints and breakpoint ids using the '[bl](https://docs.hyperdbg.org/commands/debugging-commands/bl)' command.
 
 ### Examples
 
@@ -58,7 +58,7 @@ id   address           status
 
 This commands works over serial by sending the serial packets to the remote computer.
 
-First of all, you should fill the following structure, set the `BreakpointId` to your special breakpoint id, which is derived from the '[bl](https://docs.hyperdbg.com/commands/debugging-commands/bl)' command.
+First of all, you should fill the following structure, set the `BreakpointId` to your special breakpoint id, which is derived from the '[bl](https://docs.hyperdbg.org/commands/debugging-commands/bl)' command.
 
 ```c
 typedef struct _DEBUGGEE_BP_LIST_OR_MODIFY_PACKET {
@@ -122,11 +122,11 @@ None
 
 ### Related
 
-[bp \(set breakpoint\)](https://docs.hyperdbg.com/commands/debugging-commands/bp)
+[bp \(set breakpoint\)](https://docs.hyperdbg.org/commands/debugging-commands/bp)
 
-[bl \(list breakpoints\)](https://docs.hyperdbg.com/commands/debugging-commands/bl)
+[bl \(list breakpoints\)](https://docs.hyperdbg.org/commands/debugging-commands/bl)
 
-[be \(enable breakpoints\)](https://docs.hyperdbg.com/commands/debugging-commands/be)
+[be \(enable breakpoints\)](https://docs.hyperdbg.org/commands/debugging-commands/be)
 
-[bc \(clear and remove breakpoints\)](https://docs.hyperdbg.com/commands/debugging-commands/bc)
+[bc \(clear and remove breakpoints\)](https://docs.hyperdbg.org/commands/debugging-commands/bc)
 

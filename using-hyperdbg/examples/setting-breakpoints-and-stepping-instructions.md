@@ -6,7 +6,7 @@ description: 'Set breakpoint, Step-over, and Step-in'
 
 In HyperDbg, we have multiple options to set a breakpoint.
 
-One of the ways of setting breakpoints is [hooking](https://docs.hyperdbg.com/using-hyperdbg/examples/hooking-any-function). Another way is using the ['bp' command](https://docs.hyperdbg.com/commands/debugging-commands/bp). In this article, we describe the second method.
+One of the ways of setting breakpoints is [hooking](https://docs.hyperdbg.org/using-hyperdbg/examples/hooking-any-function). Another way is using the ['bp' command](https://docs.hyperdbg.org/commands/debugging-commands/bp). In this article, we describe the second method.
 
 Assume that `ObRegisterCallbacks` is located at ``fffff805`5cbac610``.
 
@@ -24,7 +24,7 @@ Then, we will run our game and see if the breakpoint is triggered or not.
 
 If the breakpoint is triggered, then the system is halt and we are able to control the debuggee.
 
-After that, we can use the ['p' command](https://docs.hyperdbg.com/commands/debugging-commands/p) to step-over the instructions.
+After that, we can use the ['p' command](https://docs.hyperdbg.org/commands/debugging-commands/p) to step-over the instructions.
 
 ```text
 0: kHyperDbg> p 
@@ -40,7 +40,7 @@ fffff805`5cbac617    48 8D AC 24 80 00 00 00             lea rbp, ss:[rsp+0x80]
 fffff805`5cbac620    C6 45 AB 00                         mov byte ptr ss:[rbp-0x55], 0x00
 ```
 
-If you want to step-in, you can use the ['t' command](https://docs.hyperdbg.com/commands/debugging-commands/t).
+If you want to step-in, you can use the ['t' command](https://docs.hyperdbg.org/commands/debugging-commands/t).
 
 ```text
 0: kHyperDbg> t

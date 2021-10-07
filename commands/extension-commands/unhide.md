@@ -74,5 +74,5 @@ None
 
 ### Related
 
-[!hide \(enable transparent mode\)](https://docs.hyperdbg.com/commands/extension-commands/hide)
+[!hide \(enable transparent mode\)](https://docs.hyperdbg.org/commands/extension-commands/hide)
 

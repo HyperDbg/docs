@@ -20,7 +20,7 @@ description: Description of 'spinlock_lock' function in HyperDbg Scripts
 
 ### Description
 
-Locks the spinlock referred to by lock. The lock can be unlocked by [spinlock\_unlock](https://docs.hyperdbg.com/commands/scripting-language/functions/spinlocks/spinlock_unlock).
+Locks the spinlock referred to by lock. The lock can be unlocked by [spinlock\_unlock](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks/spinlock_unlock).
 
 ### Return value
 
@@ -38,7 +38,7 @@ None
 
 ### Related
 
-[spinlock\_lock\_custom\_wait](https://docs.hyperdbg.com/commands/scripting-language/functions/spinlocks/spinlock_lock_custom_wait)
+[spinlock\_lock\_custom\_wait](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks/spinlock_lock_custom_wait)
 
-[spinlock\_unlock](https://docs.hyperdbg.com/commands/scripting-language/functions/spinlocks/spinlock_unlock)
+[spinlock\_unlock](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks/spinlock_unlock)
 

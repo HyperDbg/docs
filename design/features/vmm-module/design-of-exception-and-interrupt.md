@@ -4,7 +4,7 @@ description: Design of !exception and !interrupt command
 
 # Design of !exception & !interrupt
 
-[!exception](https://docs.hyperdbg.com/commands/extension-commands/exception) and [!interrupt](https://docs.hyperdbg.com/commands/extension-commands/interrupt) commands are used to hook the **exceptions**, **faults**, **aborts**, and **external-interrupts**.
+[!exception](https://docs.hyperdbg.org/commands/extension-commands/exception) and [!interrupt](https://docs.hyperdbg.org/commands/extension-commands/interrupt) commands are used to hook the **exceptions**, **faults**, **aborts**, and **external-interrupts**.
 
 **!exception** command uses the **Exception Bitmap** field of VMCS, which is a mask that if you set a special bit on it then every time that an exception generated \(on that special IDT entry which we set the mask\), it causes vm-exit.
 

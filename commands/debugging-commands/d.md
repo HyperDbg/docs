@@ -47,7 +47,7 @@ If you don't specify the **pid**, then the default **pid** is the current proces
 {% endhint %}
 
 {% hint style="danger" %}
-In the [Debugger Mode](https://docs.hyperdbg.com/using-hyperdbg/prerequisites/operation-modes#debugger-mode), the **pid** \(parameter\) is ignored. If you want to view another process memory, use the '[.process](https://docs.hyperdbg.com/commands/meta-commands/.process)' command to switch to another process memory layout.
+In the [Debugger Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode), the **pid** \(parameter\) is ignored. If you want to view another process memory, use the '[.process](https://docs.hyperdbg.org/commands/meta-commands/.process)' command to switch to another process memory layout.
 {% endhint %}
 
 ### Examples
@@ -199,5 +199,5 @@ None
 
 ### Related
 
-[!db, !dc, !dd, !dq \(read physical memory\)](https://docs.hyperdbg.com/commands/extension-commands/d)
+[!db, !dc, !dd, !dq \(read physical memory\)](https://docs.hyperdbg.org/commands/extension-commands/d)
 

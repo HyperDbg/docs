@@ -95,5 +95,5 @@ None
 
 ### Related
 
-[rdmsr \(read model-specific register\)](https://docs.hyperdbg.com/commands/debugging-commands/rdmsr)
+[rdmsr \(read model-specific register\)](https://docs.hyperdbg.org/commands/debugging-commands/rdmsr)
 

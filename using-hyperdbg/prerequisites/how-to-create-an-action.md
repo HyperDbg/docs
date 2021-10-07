@@ -4,11 +4,11 @@ description: This document helps you to create an action for events
 
 # How to create an action?
 
-[Actions ](https://docs.hyperdbg.com/design/debugger-internals/actions)are an essential part of the [events](https://docs.hyperdbg.com/design/debugger-internals/events).
+[Actions ](https://docs.hyperdbg.org/design/debugger-internals/actions)are an essential part of the [events](https://docs.hyperdbg.org/design/debugger-internals/events).
 
 Each event consists of zero or multiple actions. An event with zero actions is treated as a disabled event.
 
-There are three types of actions in HyperDbg as described [here](https://docs.hyperdbg.com/using-hyperdbg/prerequisites).
+There are three types of actions in HyperDbg as described [here](https://docs.hyperdbg.org/using-hyperdbg/prerequisites).
 
 You can have multiple "**Custom Codes**", "**Script**", and "**Break**".
 
@@ -24,19 +24,19 @@ If you simply use a command without any extra parameters, it will be treated lik
 
 Custom vmx-root mode compatible script engine is another feature for HyperDbg.
 
-[Read more...](https://docs.hyperdbg.com/commands/scripting-language)
+[Read more...](https://docs.hyperdbg.org/commands/scripting-language)
 
 ## Custom Codes
 
 **Run custom code** lets you run your custom assembly codes whenever a special event is triggered; this option is fast and powerful as you can customize the HyperDbg based on your needs.
 
 {% hint style="danger" %}
-Accessing random memory in **custom code** and **condition code** is considered "[unsafe](https://docs.hyperdbg.com/tips-and-tricks/considerations/the-unsafe-behavior)". You have some limitations on accessing memory on some special events.
+Accessing random memory in **custom code** and **condition code** is considered "[unsafe](https://docs.hyperdbg.org/tips-and-tricks/considerations/the-unsafe-behavior)". You have some limitations on accessing memory on some special events.
 {% endhint %}
 
 ### Run custom code without a safe buffer
 
-Each command in HyperDbg that are tagged as "**event**" in the document follows the same structure described [here](https://docs.hyperdbg.com/design/debugger-internals/events). At the time you execute a command, you can add a `code { xx xx xx xx }` where `xx` is the assembly \(hex\) of what you want to be executed in the case of that event.
+Each command in HyperDbg that are tagged as "**event**" in the document follows the same structure described [here](https://docs.hyperdbg.org/design/debugger-internals/events). At the time you execute a command, you can add a `code { xx xx xx xx }` where `xx` is the assembly \(hex\) of what you want to be executed in the case of that event.
 
 Generally, the assembly `code` in the code block will be called in the following form.
 

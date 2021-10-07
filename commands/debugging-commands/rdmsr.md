@@ -90,5 +90,5 @@ None
 
 ### Related
 
-[wrmsr \(write model-specific register\)](https://docs.hyperdbg.com/commands/debugging-commands/wrmsr)
+[wrmsr \(write model-specific register\)](https://docs.hyperdbg.org/commands/debugging-commands/wrmsr)
 

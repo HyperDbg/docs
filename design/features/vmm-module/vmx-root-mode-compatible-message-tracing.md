@@ -6,7 +6,7 @@ description: >-
 
 # VMX root-mode Compatible Message Tracing
 
-If you need to change and customize message tracing options, please visit [here](https://docs.hyperdbg.com/tips-and-tricks/misc/customize-build).
+If you need to change and customize message tracing options, please visit [here](https://docs.hyperdbg.org/tips-and-tricks/misc/customize-build).
 
 The message tracing is derived from our [Hypervisor From Scratch 8](https://rayanfam.com/topics/hypervisor-from-scratch-part-8/) :
 
