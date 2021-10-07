@@ -146,8 +146,9 @@
 
 * [Considerations](tips-and-tricks/considerations/README.md)
   * [Basic Concepts in Intel VT-x](tips-and-tricks/considerations/basic-concepts-in-intel-vt-x.md)
-  * [Vmx root-mode vs Vmx non-root mode](tips-and-tricks/considerations/vmx-root-mode-vs-vmx-non-root-mode.md)
+  * [VMX root-mode vs VMX non-root mode](tips-and-tricks/considerations/vmx-root-mode-vs-vmx-non-root-mode.md)
   * [The "unsafe" behavior](tips-and-tricks/considerations/the-unsafe-behavior.md)
+  * [Script engine in VMX non-root mode](tips-and-tricks/considerations/script-engine-in-vmx-non-root-mode.md)
   * [Transparent Mode](tips-and-tricks/considerations/transparent-mode.md)
 * [Nested-Virtualization Environments](tips-and-tricks/nested-virtualization-environments/README.md)
   * [Run HyperDbg on VMware](tips-and-tricks/nested-virtualization-environments/run-hyperdbg-on-vmware.md)

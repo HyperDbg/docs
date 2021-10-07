@@ -2,7 +2,7 @@
 description: What is vmx-root mode and what is vmx non-root mode?
 ---
 
-# Vmx root-mode vs Vmx non-root mode
+# VMX root-mode vs VMX non-root mode
 
 By vmx-root code execution in HyperDbg, we mean that the code is executed after a vm-exit and before VMRESUME instruction.
 
