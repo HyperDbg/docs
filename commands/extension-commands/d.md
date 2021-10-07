@@ -4,7 +4,7 @@ description: Description of '!d*' command in HyperDbg.
 
 # !db, !dc, !dd, !dq \(read physical memory\)
 
-### Command
+## Command
 
 > !db : read memory as Byte values and ASCII characters
 >
@@ -14,7 +14,7 @@ description: Description of '!d*' command in HyperDbg.
 >
 > !dq : read memory as Quad-word values \(8 bytes\)
 
-### Syntax
+## Syntax
 
 > !db \[address\] l \[length \(hex\)\]
 >
@@ -24,25 +24,29 @@ description: Description of '!d*' command in HyperDbg.
 >
 > !dq \[address\] l \[length \(hex\)\]
 
-### Description
+## Description
 
 Shows the **physical** address memory content in hex form.
 
-### Parameters
+## Parameters
 
 **\[Address\]**
 
-          The **physical** address of where we want to read its memory.
+```text
+      The **physical** address of where we want to read its memory.
+```
 
 **l \[Length\] \(optional\)**
 
-          The length \(byte\) in hex format
+```text
+      The length \(byte\) in hex format
+```
 
 {% hint style="danger" %}
-Process ID doesn't make sense in physical memory. If you specify **pid** for physical memory, ****then it is ignored.
+Process ID doesn't make sense in physical memory. If you specify **pid** for physical memory, _\*\*_then it is ignored.
 {% endhint %}
 
-### Examples
+## Examples
 
 The following command is used when we want to read the content of memory at **`1000`** with length of `0x50` in a hex byte format.
 
@@ -103,7 +107,7 @@ The following example shows the content of memory at `1000` in a quad-word value
 #       00000000`00001070  00000000`00004000 00000000`00000000
 ```
 
-### IOCTL
+## IOCTL
 
 This function works by calling **DeviceIoControl** with `IOCTL = IOCTL_DEBUGGER_READ_MEMORY` , you have to send it in the following structure.
 
@@ -119,7 +123,7 @@ typedef struct _DEBUGGER_READ_MEMORY {
 } DEBUGGER_READ_MEMORY, * PDEBUGGER_READ_MEMORY;
 ```
 
-Where `Pid` is the process id, `Address` is the target location address and `size` is the length of the byte that you need to read. 
+Where `Pid` is the process id, `Address` is the target location address and `size` is the length of the byte that you need to read.
 
 `MemoryType`is either **virtual** or **physical**.
 
@@ -150,7 +154,7 @@ typedef enum _DEBUGGER_SHOW_MEMORY_STYLE { DEBUGGER_SHOW_COMMAND_DISASSEMBLE, DE
 
 For disassembling, use the `DEBUGGER_SHOW_COMMAND_DISASSEMBLE` as the `Style`.
 
-In the debugger-mode, HyperDbg uses the exact same structure, you should send the above structure over serial to the debuggee which is paused in **vmx-root** mode.  
+In the debugger-mode, HyperDbg uses the exact same structure, you should send the above structure over serial to the debuggee which is paused in **vmx-root** mode.
 
 You should send the above structure with `DEBUGGER_REMOTE_PACKET_REQUESTED_ACTION_ON_VMX_ROOT_READ_MEMORY` as `RequestedAction` and `DEBUGGER_REMOTE_PACKET_TYPE_DEBUGGER_TO_DEBUGGEE_EXECUTE_ON_VMX_ROOT` as `PacketType`.
 
@@ -166,11 +170,11 @@ The following function is responsible for sending reading memory in the debugger
 BOOLEAN KdSendReadMemoryPacketToDebuggee(PDEBUGGER_READ_MEMORY ReadMem);
 ```
 
-### **Remarks**
+## **Remarks**
 
 * If you don't specify the length, the default length for HyperDbg is 0x80 Bytes.
 
-HyperDbg won't remove breakpoints previously set using the '[bp](https://docs.hyperdbg.org/commands/debugging-commands/bp)' command if you're disassembling or reading the memory of a special **physical** address. However, for the virtual addresses, HyperDbg ignores breakpoints and shows the target location's real value. 
+HyperDbg won't remove breakpoints previously set using the '[bp](https://docs.hyperdbg.org/commands/debugging-commands/bp)' command if you're disassembling or reading the memory of a special **physical** address. However, for the virtual addresses, HyperDbg ignores breakpoints and shows the target location's real value.
 
 {% hint style="warning" %}
 Please note that you should specify space between 'l' and the length in HyperDbg. For example, 'l10' is invalid, but 'l 10' is valid. \(It's opposed to windbg\).
@@ -182,11 +186,11 @@ Physical addresses are not validated in HyperDbg, which means if you access an i
 
 This command is guaranteed to keep debuggee in a halt state \(in Debugger Mode\); thus, nothing will change during its execution.
 
-### Requirements
+## Requirements
 
 None
 
-### Related
+## Related
 
 [db, dc, dd, dq \(read virtual memory\)](https://docs.hyperdbg.org/commands/debugging-commands/d)
 

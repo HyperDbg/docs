@@ -4,7 +4,7 @@ description: Description of 'd*' command in HyperDbg.
 
 # db, dc, dd, dq \(read virtual memory\)
 
-### Command
+## Command
 
 > db : read memory as Byte values and ASCII characters
 >
@@ -14,7 +14,7 @@ description: Description of 'd*' command in HyperDbg.
 >
 > dq : read memory as Quad-word values \(8 bytes\)
 
-### Syntax
+## Syntax
 
 > db \[address\] l \[length \(hex\)\] pid \[process id \(hex\)\]
 >
@@ -24,23 +24,29 @@ description: Description of 'd*' command in HyperDbg.
 >
 > dq \[address\] l \[length \(hex\)\] pid \[process id \(hex\)\]
 
-### Description
+## Description
 
 Shows the **virtual** address memory content in hex form.
 
-### Parameters
+## Parameters
 
 **\[Address\]**
 
-          The **virtual** address of where we want to read its memory.
+```text
+      The **virtual** address of where we want to read its memory.
+```
 
 **l \[Length\] \(optional\)**
 
-          The length \(byte\) in hex format
+```text
+      The length \(byte\) in hex format
+```
 
-**pid \[process id\]  \(optional\)**
+**pid \[process id\] \(optional\)**
 
-          The process ID in hex format that we want to see the memory from its context \(**cr3**\).
+```text
+      The process ID in hex format that we want to see the memory from its context \(**cr3**\).
+```
 
 {% hint style="info" %}
 If you don't specify the **pid**, then the default **pid** is the current process \(HyperDbg\) process layout of memory.
@@ -50,7 +56,7 @@ If you don't specify the **pid**, then the default **pid** is the current proces
 In the [Debugger Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode), the **pid** \(parameter\) is ignored. If you want to view another process memory, use the '[.process](https://docs.hyperdbg.org/commands/meta-commands/.process)' command to switch to another process memory layout.
 {% endhint %}
 
-### Examples
+## Examples
 
 The following command is used when we want to read the content of memory at `nt!Kd_DEFAULT_Mask` with length of `0x50`from the memory layout view of process \(`4` a.k.a. system process\) in a hex byte format.
 
@@ -120,7 +126,7 @@ fffff800`3ad6f070  8B480000`0038840F 8B485824`6C8B48D8
 fffff800`3ad6f080  8B485024`5C8B48C3 4130C483`48602474
 ```
 
-### IOCTL
+## IOCTL
 
 This function works by calling **DeviceIoControl** with `IOCTL = IOCTL_DEBUGGER_READ_MEMORY` , you have to send it in the following structure.
 
@@ -136,7 +142,7 @@ typedef struct _DEBUGGER_READ_MEMORY {
 } DEBUGGER_READ_MEMORY, * PDEBUGGER_READ_MEMORY;
 ```
 
-Where `Pid` is the process id, `Address` is the target location address and `size` is the length of the byte\(s\) that you need to read. 
+Where `Pid` is the process id, `Address` is the target location address and `size` is the length of the byte\(s\) that you need to read.
 
 `MemoryType`is either **virtual** or **physical**.
 
@@ -167,7 +173,7 @@ typedef enum _DEBUGGER_SHOW_MEMORY_STYLE { DEBUGGER_SHOW_COMMAND_DISASSEMBLE, DE
 
 For disassembling, use the `DEBUGGER_SHOW_COMMAND_DISASSEMBLE` as the `Style`.
 
-In the debugger-mode, HyperDbg uses the exact same structure, you should send the above structure over serial to the debuggee which is paused in **vmx-root** mode.  
+In the debugger-mode, HyperDbg uses the exact same structure, you should send the above structure over serial to the debuggee which is paused in **vmx-root** mode.
 
 You should send the above structure with `DEBUGGER_REMOTE_PACKET_REQUESTED_ACTION_ON_VMX_ROOT_READ_MEMORY` as `RequestedAction` and `DEBUGGER_REMOTE_PACKET_TYPE_DEBUGGER_TO_DEBUGGEE_EXECUTE_ON_VMX_ROOT` as `PacketType`.
 
@@ -183,7 +189,7 @@ The following function is responsible for sending reading memory in the debugger
 BOOLEAN KdSendReadMemoryPacketToDebuggee(PDEBUGGER_READ_MEMORY ReadMem);
 ```
 
-### **Remarks**
+## **Remarks**
 
 * If you don't specify the length, the default length for HyperDbg is 0x80 Bytes.
 
@@ -193,11 +199,11 @@ Please note that you should specify space between 'l' and the length in HyperDbg
 
 This command is guaranteed to keep debuggee in a halt state \(in Debugger Mode\); thus, nothing will change during its execution.
 
-### Requirements
+## Requirements
 
 None
 
-### Related
+## Related
 
 [!db, !dc, !dd, !dq \(read physical memory\)](https://docs.hyperdbg.org/commands/extension-commands/d)
 

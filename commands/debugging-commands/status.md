@@ -4,23 +4,23 @@ description: Description of 'status' command in HyperDbg.
 
 # status \(show the debuggee status\)
 
-### Command
+## Command
 
 > status
 
-### Syntax
+## Syntax
 
 > status
 
-### Description
+## Description
 
 Shows the connection status of the **HyperDbg**'s Connection.
 
-### Parameters
+## Parameters
 
 None
 
-### Examples
+## Examples
 
 The following example shows the status of the **debuggee**.
 
@@ -29,11 +29,11 @@ HyperDbg (192.168.1.10:50000)> status
 local debugging ('vmi mode')
 ```
 
-### IOCTL
+## IOCTL
 
 None
 
-### **Remarks**
+## **Remarks**
 
 In **HyperDbg**, 'status' and '[.status](https://docs.hyperdbg.org/commands/meta-commands/.status)' commands are different if you connected to a remote debugger, but if you try to debug your system locally, then these commands are the same.
 
@@ -41,11 +41,11 @@ If you execute the '[.status](https://docs.hyperdbg.org/commands/meta-commands/.
 
 This command will continue the debuggee for some time \(in Debugger Mode\). This means that you lose the current context \(registers & memory\) after executing this command.
 
-### Requirements
+## Requirements
 
 None
 
-### Related
+## Related
 
 [.status \(show the debugger status\)](https://docs.hyperdbg.org/commands/meta-commands/.status)
 

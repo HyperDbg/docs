@@ -17,7 +17,7 @@ For example, let's imagine we want to create a condition for a command like "**!
 When you execute the command like :
 
 ```c
-HyperDbg> !epthook fffff801deadbeef 
+HyperDbg> !epthook fffff801deadbeef
 ```
 
 then it is unconditional, but when you execute a command like this :
@@ -32,7 +32,7 @@ then it is a conditional command.
 Note that you can use all of the events in the same way \(instead of **!epthook**\). For example, you can use **!syscall, !sysret, !epthook2, !ioin,** etc.
 {% endhint %}
 
-### Parameters to Conditions
+## Parameters to Conditions
 
 ```cpp
 typedef UINT64
@@ -65,9 +65,9 @@ typedef struct _GUEST_REGS
 } GUEST_REGS, *PGUEST_REGS;
 ```
 
- The `Context` is a special variable that shows an essential parameter of an event. This value is different for each event. You should check the documentation of that command for more information about the `Context`. For example, `Context` for **!syscall** command is the syscall-number or for the **!epthook2** command is the physical address of where the hidden hook triggered. 
+The `Context` is a special variable that shows an essential parameter of an event. This value is different for each event. You should check the documentation of that command for more information about the `Context`. For example, `Context` for **!syscall** command is the syscall-number or for the **!epthook2** command is the physical address of where the hidden hook triggered.
 
-### Example 1
+## Example 1
 
 Imagine we want to check for the name of the process, so only if the name contains the "**svchost.exe**" then triggers the event's action\(s\).
 
@@ -77,19 +77,19 @@ We all know that you can search for the name of the process in its `_EPROCESS`.
 
 For example, **ImageFileName** in **\_EPROCESS** contains the 15 characters of the process name. It is not where Windows shows the name in Task Manager but checking this value is enough.
 
-The following assembly code gets the current `_KTHREAD` from `_KPCR`. From there, we can find the address of `_KPROCESS`, and this structure is located at the start address of `_EPROCESS`. 
+The following assembly code gets the current `_KTHREAD` from `_KPCR`. From there, we can find the address of `_KPROCESS`, and this structure is located at the start address of `_EPROCESS`.
 
 As you can see from the above picture, **ImageFileName** is located at `+0x450` after the `_EPROCESS`.
 
-So our final assembly code is like this : 
+So our final assembly code is like this :
 
 ![](../../.gitbook/assets/assembly.png)
 
 {% hint style="warning" %}
-The offsets of `_EPROCESS`and other structures might change in the different versions of Windows. 
+The offsets of `_EPROCESS`and other structures might change in the different versions of Windows.
 {% endhint %}
 
-Now we should assemble the above code into its hex representation in the assembly. For example, you can use an [online assembler](http://defuse.ca/online-x86-assembler.htm). 
+Now we should assemble the above code into its hex representation in the assembly. For example, you can use an [online assembler](http://defuse.ca/online-x86-assembler.htm).
 
 Keep in mind that if you return with `rax=0` or `null` then it means **false**, and if you return anything other than zero \(for example `rax=1`\) then it means **true**.
 
@@ -128,7 +128,7 @@ HyperDbg> !syscall condition {65488B042588010000488B80B8000000488B805004000048B9
 
 We automatically add a `0xc3` or `ret` the opcode to the end of the condition assembly, and in the case if you forget to return the control of the processor back to the **HyperDbg**, then there is no problem. Make sure to not jump to another address without returning back to the **HyperDbg**. Otherwise, it causes a crash on your system.
 
-### Example 2
+## Example 2
 
 Sometimes we need to read the registers and decide based on them. For example, let's imagine we want to hook `ExAllocatePoolWithTag` and if the size of the requested buffer is `xx` then perform the actions.
 
@@ -146,7 +146,7 @@ It's obvious that based on the x64 fastcall calling convention in Windows, `Pool
 
 Note that `rdx` is not the same as the `rdx` that you receive in the function, instead we pass a structure containing all the general-purpose register, you can read them or even modify them, and if you modify them, then the operating system will continue with new values in these registers.
 
-For general-purpose registers, we pass a pointer to the following structure as the first argument on `rcx`. 
+For general-purpose registers, we pass a pointer to the following structure as the first argument on `rcx`.
 
 ```cpp
 typedef struct _GUEST_REGS
@@ -174,7 +174,7 @@ typedef struct _GUEST_REGS
 If you want to change or examine other registers like XMM registers, floating-point registers, or other registers, you can change and examine them directly.
 {% endhint %}
 
-In the following example, we want to check `NumberOfBytes (rdx)` with `0x1000` and if the requested size is **0x1000**, ****then the actions should be performed.
+In the following example, we want to check `NumberOfBytes (rdx)` with `0x1000` and if the requested size is **0x1000**, _\*\*_then the actions should be performed.
 
 ```cpp
 mov rbx , [rcx+0x10]  ; rbx now conains the rdx of the guest [target debuggee]
@@ -191,17 +191,15 @@ Return:
 ret
 ```
 
-After using assembler to convert the above code to hex representation of assembly, the final command will be like this : 
+After using assembler to convert the above code to hex representation of assembly, the final command will be like this :
 
 ```cpp
 HyperDbg> !epthook2 fffff800`4ed6f010 condition {488B59104881FB0010000074054831C0EB0748C7C001000000C3}
 ```
 
-One important note is that if you want to create a condition for **!syscall** command, which is common, then you should know that the syscall calling convention is fastcall \(`rcx`, `rdx`, `r8`, `r9` and stack\), so if your target user-mode application is x64, then you can expect the exact arguments from user-mode to kernel-mode. Still, if your user-mode application is x86, then Windows might change some of the arguments that contain addresses to new addresses. 
+One important note is that if you want to create a condition for **!syscall** command, which is common, then you should know that the syscall calling convention is fastcall \(`rcx`, `rdx`, `r8`, `r9` and stack\), so if your target user-mode application is x64, then you can expect the exact arguments from user-mode to kernel-mode. Still, if your user-mode application is x86, then Windows might change some of the arguments that contain addresses to new addresses.
 
 {% hint style="danger" %}
 Accessing random memory in **custom code** and **condition code** in vmx root-mode is considered "[unsafe](https://docs.hyperdbg.org/tips-and-tricks/considerations/the-unsafe-behavior)". You have some limitations on accessing memory on some special events.
 {% endhint %}
-
-
 

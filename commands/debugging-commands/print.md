@@ -4,27 +4,29 @@ description: Description of 'print' command in HyperDbg.
 
 # print \(evaluate and print expression in debuggee\)
 
-### Command
+## Command
 
 > print
 
-### Syntax
+## Syntax
 
 > print \[expression\]
 
-### Description
+## Description
 
 Shows the result of an expression that will be executed in the remote debuggee.
 
-### Parameters
+## Parameters
 
 **\[expression\]**
 
-          The expression is based on HyperDbg's [scripting language](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations).
+```text
+      The expression is based on HyperDbg's [scripting language](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations).
+```
 
-### Examples
+## Examples
 
-The following command shows the `@rax` ****register in the debuggee.
+The following command shows the `@rax` _\*\*_register in the debuggee.
 
 ```diff
 0: kHyperDbg> print @rax
@@ -36,7 +38,7 @@ The following command shows the data as an 8-byte hex, pointed by the `@rcx` reg
 0: kHyperDbg> print dq(@rcx))
 ```
 
-The following command shows the value pointed by `$proc+@rdx`  which **$proc** is equivalent to current `_EPROCESS`  added to the **rdx** register.
+The following command shows the value pointed by `$proc+@rdx` which **$proc** is equivalent to current `_EPROCESS` added to the **rdx** register.
 
 ```diff
 0: kHyperDbg> print $proc+@rdx
@@ -48,7 +50,7 @@ The following command shows the value of an address, which first, **rax** regist
 0: kHyperDbg> print poi(@rax+a0)
 ```
 
-### IOCTL
+## IOCTL
 
 This commands works over serial by sending the serial packets to the remote computer.
 
@@ -91,17 +93,17 @@ The following function is responsible for sending script buffers in the debugger
 BOOLEAN KdSendScriptPacketToDebuggee(UINT64 BufferAddress, UINT32 BufferLength, UINT32 Pointer, BOOLEAN IsFormat);
 ```
 
-### **Remarks**
+## **Remarks**
 
 This command is exactly like `print(expr);` in script engine, except that HyperDbg automatically adds `print(` and `);`.
 
 This command is guaranteed to keep debuggee in a halt state \(in Debugger Mode\); thus, nothing will change during its execution.
 
-### Requirements
+## Requirements
 
 None
 
-### Related
+## Related
 
 None
 

@@ -4,45 +4,51 @@ description: Description of 'interlocked_compare_exchange' function in HyperDbg 
 
 # interlocked\_compare\_exchange
 
-### Function
+## Function
 
 > interlocked\_compare\_exchange
 
-### Syntax
+## Syntax
 
 > interlocked\_compare\_exchange\( GlobalVariable, Expression, Expression \);
 
-### Parameters
+## Parameters
 
 **\[GlobalVariable \(Destination\)\]**
 
-         A global variable that is compared with the value of **Comperand**.
+```text
+     A global variable that is compared with the value of **Comperand**.
+```
 
 **\[Expression \(ExChange\)\]**
 
-         Specifies the output value pointed to by **Destination** if the input value pointed to by **Destination** equals the value of **Comperand**.
+```text
+     Specifies the output value pointed to by **Destination** if the input value pointed to by **Destination** equals the value of **Comperand**.
+```
 
 **\[Expression \(Comperand\)\]**
 
-        Specifies the value that is compared with the input value pointed to by **Destination**.
+```text
+    Specifies the value that is compared with the input value pointed to by **Destination**.
+```
 
-### Description
+## Description
 
 Performs an atomic operation that compares the input value pointed to by **Destination** with the value of **Comperand**.
 
-### Return value
+## Return value
 
 The function returns the original value of **\*Destination**.
 
-### Examples
+## Examples
 
 None
 
-### **Remarks**
+## **Remarks**
 
 None
 
-### Related
+## Related
 
 [interlocked\_exchange\_add](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_exchange_add)
 

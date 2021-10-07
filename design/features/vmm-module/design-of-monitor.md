@@ -4,9 +4,9 @@ description: Design of !monitor command
 
 # Design of !monitor
 
-The implementation of the [!monitor](https://docs.hyperdbg.org/commands/extension-commands/monitor) command is derived from our [Hypervisor From Scratch \(Part 8\)](https://rayanfam.com/topics/hypervisor-from-scratch-part-8/). 
+The implementation of the [!monitor](https://docs.hyperdbg.org/commands/extension-commands/monitor) command is derived from our [Hypervisor From Scratch \(Part 8\)](https://rayanfam.com/topics/hypervisor-from-scratch-part-8/).
 
-### **Simulating Hardware Debug Registers Without Any Limitation**
+## **Simulating Hardware Debug Registers Without Any Limitation**
 
 Have you ever used hardware debugger registers ?!
 
@@ -18,7 +18,7 @@ What if we have a structure \(let say **\_EPROCESS**\) and want to see what func
 
 It’s not possible with current debug registers, but we use EPT to rescue!
 
-### **Hidden Hooks Scenarios for Read/Write and Execute**
+## **Hidden Hooks Scenarios for Read/Write and Execute**
 
 We have two strategies for hidden hooks, one for **Read/Write** and one for **Execute**.
 
@@ -28,6 +28,5 @@ This means before the operating system or a kernel driver tries to read or write
 
 VMM resumes, and one instruction executes, or in other words, read or write is performed, then an MTF vm-exit occurs. In the MTF vm-exit handler, we unset the read and write access again, so any future access to that page will cause an EPT Violation.
 
-Note that all of the above scenarios happen to one core. Each core has a separate TLB and separate Monitor Trap Flag.  
-
+Note that all of the above scenarios happen to one core. Each core has a separate TLB and separate Monitor Trap Flag.
 

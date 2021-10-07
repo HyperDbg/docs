@@ -14,7 +14,7 @@ You can use **Transparent Mode** in both **VMI Mode** and **Debugger Mode**.
 
 For testing transparent-mode, we use [pafish](https://github.com/a0rtega/pafish).
 
-**Pafish** is a demonstration tool that employs several techniques to detect sandboxes and analysis environments in the same way as malware families do. 
+**Pafish** is a demonstration tool that employs several techniques to detect sandboxes and analysis environments in the same way as malware families do.
 
 If we load HyperDbg and run **pafish**, we see the following results:
 

@@ -4,27 +4,29 @@ description: Description of '!measure' command in HyperDbg.
 
 # !measure \(measuring and providing details for transparent-mode\)
 
-### Command
+## Command
 
 > !measure
 
-### Syntax
+## Syntax
 
 > !measure \[default\]
 
-### Description
+## Description
 
 Measures and provides the details for the transparent-mode of **HyperDbg** for defeating anti-debugging and anti-hypervisor methods.
 
 This command should be run before you '[load](https://docs.hyperdbg.org/commands/debugging-commands/load)' the debugger, and after that, you can use the '[!hide](https://docs.hyperdbg.org/commands/extension-commands/hide)' command.
 
-### Parameters
+## Parameters
 
 **\[default\]**
 
-          If you specify '**default**', then **HyperDbg** uses the hardcoded measurements from a not-running hypervisor machine; however, it's not recommended. See the **Remarks** for more information.
+```text
+      If you specify '**default**', then **HyperDbg** uses the hardcoded measurements from a not-running hypervisor machine; however, it's not recommended. See the **Remarks** for more information.
+```
 
-### Examples
+## Examples
 
 The following command measures and provides statistics for transparent-mode based on your machine.
 
@@ -38,11 +40,11 @@ The following command uses the hardcoded results and statistics for a not-runnin
 HyperDbg> !measure default
 ```
 
-### IOCTL
+## IOCTL
 
 None
 
-### **Remarks**
+## **Remarks**
 
 If you are running on a nested-virtualization environment, then the result of the measurements will not provide transparency for you. Instead, you can use the following command :
 
@@ -58,11 +60,11 @@ The above command uses hardcoded details from a not-running hypervisor, and this
 
 This command will continue the debuggee for some time \(in Debugger Mode\). This means that you lose the current context \(registers & memory\) after executing this command.
 
-### Requirements
+## Requirements
 
 None
 
-### Related
+## Related
 
 [!hide \(enable transparent-mode\)](https://docs.hyperdbg.org/commands/extension-commands/hide)
 

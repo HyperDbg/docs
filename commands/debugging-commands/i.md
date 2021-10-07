@@ -4,17 +4,17 @@ description: Description of 'i' command in HyperDbg.
 
 # i \(instrumentation step-in\)
 
-### Command
+## Command
 
 > i
-
+>
 > ir
 
-### Syntax
+## Syntax
 
 > i\[r\] \[count \(hex value\)\]
 
-### Description
+## Description
 
 Executes a single instruction \(step-in\) and optionally displays the resulting values of all registers and flags.
 
@@ -26,13 +26,15 @@ The difference between this command and the '[t](https://docs.hyperdbg.org/comma
 This command gives you the ability to follow system-calls \(SYSCALLs\) and all the exceptions \(including **page-faults**\) from user-mode to kernel-mode and from kernel-mode to user-mode. For example, in the middle of executing one instruction in user-mode, a page-fault might happen, then if you use this command, the next instruction is in the kernel-mode **page-fault** handler. Another example, you can follow a _syscall_ from user-mode, then the next instruction is in kernel-mode **syscall handler**, and this way, you can trace the execution between different rings.
 {% endhint %}
 
-### Parameters
+## Parameters
 
 **\[count\] \(optional\)**
 
-          Count of step\(s\), or how many times perform the stepping operation. If you don't set this argument, then by default, the **count** is `1`.
+```text
+      Count of step\(s\), or how many times perform the stepping operation. If you don't set this argument, then by default, the **count** is `1`.
+```
 
-### Examples
+## Examples
 
 If you want to instrumentation step-in one instruction.
 
@@ -69,7 +71,7 @@ fffff801`63a1294a    E9 B1 00 00 00                      jmp 0xFFFFF80163A12A00
 fffff801`63a12b00    F6 44 24 10 01                      test byte ptr ss:[rsp+0x10], 0x01
 ```
 
-### IOCTL
+## IOCTL
 
 This commands works over serial by sending the serial packets to the remote computer.
 
@@ -118,19 +120,19 @@ The following function is responsible for sending breakpoint buffers in the debu
 BOOLEAN KdSendStepPacketToDebuggee(DEBUGGER_REMOTE_STEPPING_REQUEST StepRequestType);
 ```
 
-### **Remarks**
+## **Remarks**
 
 This command will set a **Monitor Trap Flag** in debuggee and continue just the current executing core. After executing one instruction, it halts the debuggee again.
 
-If the currently executing instruction is a **call** instruction, it will follow and enter the call instruction. 
+If the currently executing instruction is a **call** instruction, it will follow and enter the call instruction.
 
 HyperDbg guarantees that all cores and threads won't find a chance to be executed between each step in this type of stepping.
 
-### Requirements
+## Requirements
 
 None
 
-### Related
+## Related
 
 [p \(step-over\)](https://docs.hyperdbg.org/commands/debugging-commands/p)
 

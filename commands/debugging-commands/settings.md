@@ -4,33 +4,37 @@ description: Description of 'settings' command in HyperDbg.
 
 # settings \(configures different options and preferences\)
 
-### Command
+## Command
 
 > settings
 
-### Syntax
+## Syntax
 
 > settings \[option name\] \[value \(name \| hex value \| on \| off\)\]
 
-### Description
+## Description
 
 This command queries or changes the value of options and preferences.
 
-### Parameters
+## Parameters
 
 **\[option name\]**
 
-          Name of the option.
+```text
+      Name of the option.
+```
 
 **\[value \(name \| hex value \| on \| off\)\] \(optional\)**
 
-         Target value to modify the option.
+```text
+     Target value to modify the option.
+```
 
 {% hint style="success" %}
 Each option has its own value; for example, some options might be on or off, and others might be custom numbers or names.
 {% endhint %}
 
-### Options
+## Options
 
 | Options | Values | Default Value |
 | :--- | :--- | :--- |
@@ -38,7 +42,7 @@ Each option has its own value; for example, some options might be on or off, and
 | **autounpause** | on \| off | on |
 | **syntax** | intel \| att \| masm | intel |
 
-**autoflush :** if you turn **autoflush** on, after each disabling or clearing an event using the '[events](https://docs.hyperdbg.org/commands/debugging-commands/events)' command, all the possible pending buffers and messages from **all the commands \(not just the command that you disabled or removed\)** that are stored to be received by the user-mode from the kernel-mode and when you press '[g](https://docs.hyperdbg.org/commands/debugging-commands/g)', you no longer see any results from previous commands; however, some commands might continue generating new messages, and those new messages won't be removed. 
+**autoflush :** if you turn **autoflush** on, after each disabling or clearing an event using the '[events](https://docs.hyperdbg.org/commands/debugging-commands/events)' command, all the possible pending buffers and messages from **all the commands \(not just the command that you disabled or removed\)** that are stored to be received by the user-mode from the kernel-mode and when you press '[g](https://docs.hyperdbg.org/commands/debugging-commands/g)', you no longer see any results from previous commands; however, some commands might continue generating new messages, and those new messages won't be removed.
 
 You can also perform the **autoflush** manually by running the '[flush](https://docs.hyperdbg.org/commands/debugging-commands/flush)' command.
 
@@ -46,7 +50,7 @@ You can also perform the **autoflush** manually by running the '[flush](https://
 
 **syntax** : specifies the syntax of disassembler for '[!u and !u2](https://docs.hyperdbg.org/commands/extension-commands/u)' commands.
 
-### Examples
+## Examples
 
 The following command shows the state of **`autounpause`** option.
 
@@ -136,19 +140,19 @@ fffff804`2d16f045 8B F9                               mov edi, ecx
 fffff804`2d16f047 4C 8B 88 C0 00 00 00                mov r9, qword ptr ds:[rax+C0h]
 ```
 
-### IOCTL
+## IOCTL
 
 None
 
-### **Remarks**
+## **Remarks**
 
 **autounpause** and **autoflush** do not change anything in [debugger mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode). It is because the buffers are not accumulated and passed instantly in this mode; thus, there is nothing to flush.
 
-### Requirements
+## Requirements
 
 None
 
-### Related
+## Related
 
 None
 

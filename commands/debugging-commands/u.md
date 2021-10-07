@@ -4,13 +4,13 @@ description: 'Description of ''u, u2'' command in HyperDbg.'
 
 # u, u2 \(disassemble virtual address\)
 
-### Command
+## Command
 
-> u 
+> u
 >
 > u2
 
-### Syntax
+## Syntax
 
 > u \[address\] l \[length \(hex\)\] pid \[process id \(hex\)\]
 >
@@ -22,29 +22,35 @@ description: 'Description of ''u, u2'' command in HyperDbg.'
 **u** disassembles as x64, and **u2** disassembles as x86.
 {% endhint %}
 
-### Description
+## Description
 
 Shows the assembly regarding memory content at the **virtual** address hex form.
 
-### Parameters
+## Parameters
 
 **\[Address\]**
 
-          The **virtual** address of where we want to start to disassemble its memory
+```text
+      The **virtual** address of where we want to start to disassemble its memory
+```
 
 **l \[Length\] \(optional\)**
 
-          The length \(byte\) in hex format
+```text
+      The length \(byte\) in hex format
+```
 
-**pid \[process id\]  \(optional\)**
+**pid \[process id\] \(optional\)**
 
-          The process ID in hex format that we want to see the memory from its context \(**cr3**\).
+```text
+      The process ID in hex format that we want to see the memory from its context \(**cr3**\).
+```
 
 {% hint style="info" %}
 If you don't specify the pid, then the default pid is the current process \(HyperDbg\) process layout of memory.
 {% endhint %}
 
-### Examples
+## Examples
 
 The following command is used when we want to disassemble the content of memory \(x64\) at **``fffff800`3ad6f010``** with length of `0x50` bytes from the memory layout view of process \(`4` a.k.a. system process\).
 
@@ -132,7 +138,7 @@ fffff800`3ad6f045 8B F9                               mov edi, ecx
 fffff800`3ad6f047 4C 8B 88 C0 00 00 00                mov r9, qword ptr ds:[rax+0xC0]
 ```
 
-### IOCTL
+## IOCTL
 
 This function works by calling **DeviceIoControl** with `IOCTL = IOCTL_DEBUGGER_READ_MEMORY` , you have to send it in the following structure.
 
@@ -148,7 +154,7 @@ typedef struct _DEBUGGER_READ_MEMORY {
 } DEBUGGER_READ_MEMORY, * PDEBUGGER_READ_MEMORY;
 ```
 
-Where `Pid` is the process id, `Address` is the target location address and `size` is the length of the byte that you need to read. 
+Where `Pid` is the process id, `Address` is the target location address and `size` is the length of the byte that you need to read.
 
 `MemoryType`is either **virtual** or **physical**.
 
@@ -179,7 +185,7 @@ typedef enum _DEBUGGER_SHOW_MEMORY_STYLE { DEBUGGER_SHOW_COMMAND_DISASSEMBLE64, 
 
 **For disassembling, use the `DEBUGGER_SHOW_COMMAND_DISASSEMBLE64` as the `Style` for x64 disassembling and for disassembling x86, use the `DEBUGGER_SHOW_COMMAND_DISASSEMBLE32`.**
 
-In the debugger-mode, HyperDbg uses the exact same structure, you should send the above structure over serial to the debuggee which is paused in **vmx-root** mode.  
+In the debugger-mode, HyperDbg uses the exact same structure, you should send the above structure over serial to the debuggee which is paused in **vmx-root** mode.
 
 You should send the above structure with `DEBUGGER_REMOTE_PACKET_REQUESTED_ACTION_ON_VMX_ROOT_READ_MEMORY` as `RequestedAction` and `DEBUGGER_REMOTE_PACKET_TYPE_DEBUGGER_TO_DEBUGGEE_EXECUTE_ON_VMX_ROOT` as `PacketType`.
 
@@ -195,7 +201,7 @@ The following function is responsible for sending reading memory in the debugger
 BOOLEAN KdSendReadMemoryPacketToDebuggee(PDEBUGGER_READ_MEMORY ReadMem);
 ```
 
-### **Remarks**
+## **Remarks**
 
 * If you don't specify the length, the default length for HyperDbg is 0x40 Bytes.
 
@@ -209,11 +215,11 @@ HyperDbg uses [Zydis](https://zydis.re/) as its core disassembler.
 
 This command is guaranteed to keep debuggee in a halt state \(in Debugger Mode\); thus, nothing will change during its execution.
 
-### Requirements
+## Requirements
 
 None
 
-### Related
+## Related
 
 [Zydis](https://zydis.re/)
 

@@ -4,23 +4,23 @@ description: Description of 'flush' command in HyperDbg.
 
 # flush \(remove pending kernel buffers and messages\)
 
-### Command
+## Command
 
 > flush
 
-### Syntax
+## Syntax
 
 > flush
 
-### Description
+## Description
 
-This command removes all the possible pending buffers and messages from **all the commands \(not just the command that you disabled or removed\)** that are stored to be received by the user-mode from the kernel-mode, and when you press '[g](https://docs.hyperdbg.org/commands/debugging-commands/g)', you no longer see any results from previous commands; however, some commands might continue generating new messages, and those new messages won't be removed. 
+This command removes all the possible pending buffers and messages from **all the commands \(not just the command that you disabled or removed\)** that are stored to be received by the user-mode from the kernel-mode, and when you press '[g](https://docs.hyperdbg.org/commands/debugging-commands/g)', you no longer see any results from previous commands; however, some commands might continue generating new messages, and those new messages won't be removed.
 
-### Parameters
+## Parameters
 
 None
 
-### IOCTL
+## IOCTL
 
 This function works by calling **DeviceIoControl** with `IOCTL = IOCTL_DEBUGGER__FLUSH_LOGGING_BUFFERS`, you have to send it in the following structure.
 
@@ -36,7 +36,7 @@ typedef struct _DEBUGGER_FLUSH_LOGGING_BUFFERS {
 
 You don't need to fill anything from the above structure. The kernel will fill the structure, and if the `KernelStatus` was equal to `DEBUGEER_OPERATION_WAS_SUCCESSFULL`, then you can see the count of messages that are deleted from the vmx-root buffer from `CountOfMessagesThatSetAsReadFromVmxRoot` and vmx non-root buffer from `CountOfMessagesThatSetAsReadFromVmxNonRoot`.
 
-In the debugger-mode, HyperDbg uses the exact same structure, you should send the above structure over serial to the debuggee which is paused in **vmx-root** mode.  
+In the debugger-mode, HyperDbg uses the exact same structure, you should send the above structure over serial to the debuggee which is paused in **vmx-root** mode.
 
 You should send the above structure with `DEBUGGER_REMOTE_PACKET_REQUESTED_ACTION_ON_VMX_ROOT_MODE_FLUSH_BUFFERS` as `RequestedAction` and `DEBUGGER_REMOTE_PACKET_TYPE_DEBUGGER_TO_DEBUGGEE_EXECUTE_ON_VMX_ROOT` as `PacketType`.
 
@@ -56,17 +56,17 @@ The following function is responsible for sending flushing buffers in the debugg
 BOOLEAN KdSendFlushPacketToDebuggee();
 ```
 
-### **Remarks**
+## **Remarks**
 
 You can configure **autoflush** mode in [settings](https://docs.hyperdbg.org/commands/debugging-commands/settings). This way, **HyperDbg** removes the pending messages automatically when you **disabled** or **cleared** an event.
 
 This command is guaranteed to keep debuggee in a halt state \(in Debugger Mode\); thus, nothing will change during its execution.
 
-### Requirements
+## Requirements
 
 None
 
-### Related
+## Related
 
 [settings \(configures different options and preferences\)](https://docs.hyperdbg.org/commands/debugging-commands/settings)
 

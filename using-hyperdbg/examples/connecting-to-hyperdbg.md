@@ -26,7 +26,7 @@ Next, click on **Add...** then choose **Serial Port** and click on **Finish**.
 
 ![Adding a serial device](../../.gitbook/assets/vmware-debug3.png)
 
-Now, click on **Use named pipe:** and add a name for your named pipe. 
+Now, click on **Use named pipe:** and add a name for your named pipe.
 
 Your name should start with **`\\.\pipe\`** . For example, choose **`\\.\pipe\HyperDbgDebug`**.
 
@@ -34,7 +34,7 @@ Make sure to enable **Yield CPU on poll**.
 
 ![Change serial device configuration](../../.gitbook/assets/vmware-debug4.png)
 
-Now it's time to create a kernel debug connection. First of all, run the following command on the host \(debugger\). You should change the named pipe address to whatever name you chose on the previous part.   
+Now it's time to create a kernel debug connection. First of all, run the following command on the host \(debugger\). You should change the named pipe address to whatever name you chose on the previous part.
 
 ```text
 HyperDbg> .debug remote namedpipe \\.\pipe\HyperDbgPipe
@@ -62,7 +62,7 @@ You can press CTRL+C to pause the debuggee and step through the kernel codes usi
 
 ![Step and Continue Debuggee](../../.gitbook/assets/connected-to-debuggee.png)
 
-### Driver Signature Enforcement Error
+## Driver Signature Enforcement Error
 
 If you are using an unsigned version of HyperDbg driver, you should turn off the **Driver Signature Enforcement**.
 

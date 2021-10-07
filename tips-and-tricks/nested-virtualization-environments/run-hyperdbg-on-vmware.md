@@ -22,5 +22,3 @@ Note that you have a limitation on using **!ioin** and **!ioout** in VMware nest
 **HyperDbg** will not hide traces from VMware or any other nested-virtualization environments. Malware or any application can detect the presence of VMWare, and regular anti-vm techniques detect the VMware environment.
 {% endhint %}
 
-
-

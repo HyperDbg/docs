@@ -8,7 +8,7 @@ description: >-
 
 The following articles describe **HyperDbg**'s _Script Engine_.
 
-### Description
+## Description
 
 **HyperDbg** uses a MASM-like \(Windbg\) syntax to evaluate script expressions.
 
@@ -16,7 +16,7 @@ The following articles describe **HyperDbg**'s _Script Engine_.
 **HyperDbg** script engine is case-sensitive.
 {% endhint %}
 
-### Keywords
+## Keywords
 
 The following keywords are valid in **Script Engine**.
 
@@ -34,7 +34,7 @@ The following keywords are valid in **Script Engine**.
 
 If you want to read strings or wide-char strings, you can use [**printf**](https://docs.hyperdbg.org/commands/scripting-language/functions/printf) function.
 
-### Operators
+## Operators
 
 The following operators are supported on the script engine.
 
@@ -48,7 +48,7 @@ The following operators are supported on the script engine.
 | ^ | Bitwise XOR Operator \(exclusive OR\) |
 | \| | Bitwise OR Operator |
 
-### Registers
+## Registers
 
 The following registers are supported by HyperDbg.
 
@@ -59,27 +59,25 @@ The following registers are supported by HyperDbg.
 | **@rsp @esp @sp @spl @rbp @ebp @bp @bpl** | Stack management registers |
 | **@rip @eip @ip** | Program counter \(Instruction pointer\) |
 | **@rflags @eflags @flags** | Flags register |
-| **@ds @es @cs @ss**  | Segment registers |
+| **@ds @es @cs @ss** | Segment registers |
 | **@fs @gs** | Segment registers \(80386\) |
 | **@cr0 @cr2 @cr3 @cr4 @cr8** | Control registers |
 | **@gdtr @ldtr @tr** | Memory management registers |
-| **@idtr**  | Interrupt descriptor register |
+| **@idtr** | Interrupt descriptor register |
 | **@dr0 @dr1 @dr2 @dr3 @dr6 @dr7** | Debug registers |
 | **Model-/machine-specific registers \(MSRs\)** | See the '[rdmsr](https://docs.hyperdbg.org/commands/debugging-commands/rdmsr)' and '[wrmsr](https://docs.hyperdbg.org/commands/debugging-commands/wrmsr)' commands for more information. |
 
 Each flag of **RFLAGS** is also supported in HyperDbg.
 
-
-
 | **Bit \#** | **Mask** | **Register Abbreviation** | **Description** | **Category** |
 | :--- | :--- | :--- | :--- | :--- |
 | **FLAGS** |  |  |  |  |
 | 0 | 0x0001 | **@cf** | Carry flag | Status |
-| 1 | 0x0002 |     **\_** | Reserved, always 1 in **EFLAGS** |      **\_** |
+| 1 | 0x0002 | **\_** | Reserved, always 1 in **EFLAGS** | **\_** |
 | 2 | 0x0004 | **@pf** | Parity flag | Status |
-| 3 | 0x0008 |     **\_** | Reserved |      **\_** |
+| 3 | 0x0008 | **\_** | Reserved | **\_** |
 | 4 | 0x0010 | **@af** | Adjust flag | Status |
-| 5 | 0x0020 |     **\_** | Reserved |      **\_** |
+| 5 | 0x0020 | **\_** | Reserved | **\_** |
 | 6 | 0x0040 | **@zf** | Zero flag | Status |
 | 7 | 0x0080 | **@sf** | Sign flag | Status |
 | 8 | 0x0100 | **@tf** | Trap flag \(single step\) | Control |
@@ -88,7 +86,7 @@ Each flag of **RFLAGS** is also supported in HyperDbg.
 | 11 | 0x0800 | **@of** | Overflow flag | Status |
 | 12-13 | 0x3000 | **@iopl** | I/O privilege level \(286+ only\), always 1 on 8086 and 186 | System |
 | 14 | 0x4000 | **@nt** | Nested task flag \(286+ only\),  always 1 on 8086 and 186 | System |
-| 15 | 0x8000 |     **\_** | Reserved,  always 1 on 8086 and 186,  always 0 on later models |      **\_** |
+| 15 | 0x8000 | **\_** | Reserved,  always 1 on 8086 and 186,  always 0 on later models | **\_** |
 | **EFLAGS** |  |  |  |  |
 | 16 | 0x0001 0000 | **@rf** | Resume flag \(386+ only\) | System |
 | 17 | 0x0002 0000 | **@vm** | Virtual 8086 mode flag \(386+ only\) | System |
@@ -96,11 +94,11 @@ Each flag of **RFLAGS** is also supported in HyperDbg.
 | 19 | 0x0008 0000 | **@vif** | Virtual interrupt flag \(Pentium+\) | System |
 | 20 | 0x0010 0000 | **@vip** | Virtual interrupt pending \(Pentium+\) | System |
 | 21 | 0x0020 0000 | **@id** | Able to use CPUID instruction \(Pentium+\) | System |
-| 22‑31 | 0xFFC0 0000 |     **\_** | Reserved | System |
+| 22‑31 | 0xFFC0 0000 | **\_** | Reserved | System |
 | **RFLAGS** |  |  |  |  |
-| 32‑63 | 0xFFFF FFFF… 0000 0000 | Reserved |     **\_** |      **\_** |
+| 32‑63 | 0xFFFF FFFF… 0000 0000 | Reserved | **\_** | **\_** |
 
-### Pseudo-registers
+## Pseudo-registers
 
 Here are the currently supported pseudo-registers supported by the script engine.
 
@@ -120,15 +118,15 @@ Here are the currently supported pseudo-registers supported by the script engine
 
 Some of the above pseudo-registers are not supported either in kernel-mode or user-mode. If you use these registers, then it returns `NULL`.
 
-### Number Prefixes
+## Number Prefixes
 
 By default, **HyperDbg** interprets the numbers as hex \(base 16\). If you want to specify other forms of a number, you should use MASM prefixes. In all MASM expressions, numeric values are interpreted as numbers in the current radix \(16, 10, or 8\). You can override the default radix by specifying the 0x prefix \(hexadecimal\), the 0n prefix \(decimal\), the 0t prefix \(octal\), or the 0y prefix \(binary\).
 
-### Comments
+## Comments
 
-HyperDbg's comments are like C comments. 
+HyperDbg's comments are like C comments.
 
- A comment starts with a slash asterisk `/*` and ends with an asterisk slash `*/` and can be anywhere in your program. Comments can span several lines within your C program.
+A comment starts with a slash asterisk `/*` and ends with an asterisk slash `*/` and can be anywhere in your program. Comments can span several lines within your C program.
 
 ```text
 /* comment goes here */
@@ -145,10 +143,10 @@ OR
 You can create a comment on a single line.
 
 ```text
-// comment goes here 
+// comment goes here
 ```
 
-### Functions
+## Functions
 
 The following functions are supported in **Script Engine**.
 
@@ -171,6 +169,4 @@ The following functions are supported in **Script Engine**.
 | **interlocked\_exchange** | Sets a variable to the specified value as an atomic operation. [Read more...](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_exchange) |
 | **interlocked\_exchange\_add** | Performs an atomic addition of two values. [Read more...](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_exchange_add) |
 | **interlocked\_increment** | Increment \(increase by one\) the value of the variable as an atomic operation. [Read more...](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_increment) |
-
-
 

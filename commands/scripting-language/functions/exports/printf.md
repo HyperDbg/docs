@@ -4,25 +4,29 @@ description: Description of 'printf' function in HyperDbg Scripts
 
 # printf
 
-### Function
+## Function
 
 > printf
 
-### Syntax
+## Syntax
 
 > printf\( Format, Expressions \[...\] \);
 
-### Parameters
+## Parameters
 
 **\[Format-string\]**
 
-         A printf-like format string.
+```text
+     A printf-like format string.
+```
 
 **\[Expression\] \[...\]**
 
-         [MASM-like expression\(s\)](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations) to evaluate, you can choose multiple expressions based on  the format string
+```text
+     [MASM-like expression\(s\)](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations) to evaluate, you can choose multiple expressions based on  the format string
+```
 
-### Description
+## Description
 
 Evaluates and prints a printf-like format string with MASM expression\(s\).
 
@@ -30,7 +34,7 @@ Evaluates and prints a printf-like format string with MASM expression\(s\).
 All the format specifiers should be in a lower-case format.
 {% endhint %}
 
-### Supported Format Specifiers
+## Supported Format Specifiers
 
 | Specifier | Description |
 | :--- | :--- |
@@ -45,7 +49,7 @@ All the format specifiers should be in a lower-case format.
 | **%ws** | Wide-String |
 | **%ls** | Wide-String |
 
-### Integer Format Specifiers \(Long\)
+## Integer Format Specifiers \(Long\)
 
 | Specifier | Description |
 | :--- | :--- |
@@ -55,7 +59,7 @@ All the format specifiers should be in a lower-case format.
 | **%lo** | Long octal integer |
 | **%lx** | Long hex integer |
 
-### Integer Format Specifiers \(Long Long\)
+## Integer Format Specifiers \(Long Long\)
 
 | Specifier | Description |
 | :--- | :--- |
@@ -65,7 +69,7 @@ All the format specifiers should be in a lower-case format.
 | **%llo** | Long long \(64-bit\) octal integer |
 | **%llx** | Long long \(64-bit\) hex integer |
 
-### Integer Format Specifiers \(Short\)
+## Integer Format Specifiers \(Short\)
 
 | Specifier | Description |
 | :--- | :--- |
@@ -75,7 +79,7 @@ All the format specifiers should be in a lower-case format.
 | **%ho** | Short octal integer |
 | **%hx** | Short hex integer |
 
-### Examples
+## Examples
 
 `printf("Result is %s", @rcx);`
 
@@ -89,11 +93,11 @@ Print and evaluate the above expressions. Note that **%ws** is a wide-string poi
 You can see more examples [here](https://docs.hyperdbg.org/commands/scripting-language/examples/view-system-state).
 {% endhint %}
 
-### **Remarks**
+## **Remarks**
 
 You should consider avoiding ["unsafe" behavior](https://docs.hyperdbg.org/tips-and-tricks/considerations/the-unsafe-behavior) in your expressions and strings.
 
-### Related
+## Related
 
 [print](https://docs.hyperdbg.org/commands/scripting-language/functions/exports/print)
 

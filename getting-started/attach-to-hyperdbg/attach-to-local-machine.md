@@ -28,5 +28,5 @@ vmx operation is supported by your processor
 vmm module is running...
 ```
 
-#### **When you connect to the local debugger, you are operating in** [**VMI Mode**](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#vmi-mode)**.**
+## **When you connect to the local debugger, you are operating in** [**VMI Mode**](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#vmi-mode)**.**
 

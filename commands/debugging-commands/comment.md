@@ -4,15 +4,15 @@ description: 'Description of ''#'' command in HyperDbg.'
 
 # \# \(comment in batch scripts\)
 
-### Command
+## Command
 
 > \#
 
-### Syntax
+## Syntax
 
 > \# ...
 
-### Description
+## Description
 
 Comments a line of code or batch script.
 
@@ -20,13 +20,15 @@ Comments a line of code or batch script.
 In HyperDbg's batch scripts '`#`' is used as the comment character. However, in the script engine, it uses a C-like [commenting style](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations#comments).
 {% endhint %}
 
-### Parameters
+## Parameters
 
 **\[...\]**
 
-          Everything after this command is interpreted as a comment.
+```text
+      Everything after this command is interpreted as a comment.
+```
 
-### Examples
+## Examples
 
 The following example shows the comments style in HyperDbg.
 
@@ -35,19 +37,19 @@ The following example shows the comments style in HyperDbg.
 .connect local # This is an inline comment.
 ```
 
-### IOCTL
+## IOCTL
 
 None
 
-### **Remarks**
+## **Remarks**
 
 None
 
-### Requirements
+## Requirements
 
 None
 
-### Related
+## Related
 
 None
 

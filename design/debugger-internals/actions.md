@@ -4,13 +4,13 @@ description: What is actions in HyperDbg & how to use them?
 
 # Actions
 
-### What are the actions?
+## What are the actions?
 
 Actions define the operation that the debugger should do in the case of triggering an event. In other words, events are containers of actions.
 
 Each event can have zero or many actions. In an unconditional event, all actions are performed one by one with the insertion order, and in conditional events, actions are performed only and only if the condition is met.
 
-### Types of Actions
+## Types of Actions
 
 HyperDbg is not a classic debugger, so we can have multiple kinds of operations in events.
 
@@ -29,11 +29,11 @@ typedef enum _DEBUGGER_EVENT_ACTION_TYPE_ENUM {
 2. **Script** : This action type is a special feature that creates a log from the registers, memory, and special details \(pseudo-registers\) without halting the system and transfers the logs from kernel mode and vmx-root mode, safely to the debugger user mode and also you can call predefined functions and change the state of the system directly. You can use this type of action in both debugging a remote machine and debugging a local machine.
 3. **Custom Code** : Running a custom code is a special feature that will allow you to execute your custom assembly codes in the case of triggering an event. This means that your assembly codes will be executed, and the results will be returned safely to the debugger user mode. You can use this type of action in both debugging a remote machine and debugging a local machine.
 
-### Break
+## Break
 
-By default and if you don't specify any parameters like `script { }` or `code { }` then HyperDbg interprets events as a **break**. It means that every time this event is triggered, then the system or the target process is completely halted, and now you can control the system. It is exactly like other debuggers like Windbg.  
+By default and if you don't specify any parameters like `script { }` or `code { }` then HyperDbg interprets events as a **break**. It means that every time this event is triggered, then the system or the target process is completely halted, and now you can control the system. It is exactly like other debuggers like Windbg.
 
-### Script
+## Script
 
 Script-engine is a powerful feature of HyperDbg that makes you able to create easy statements to create logs from the system state, change the system state, and call pre-defined functions and even halt the system and give its control to the debugger.
 
@@ -43,9 +43,9 @@ When you use `script { }` in your events, then you are using the script-engine.
 
 Script-engine is a different project in HyperDbg's solution. There is a file, called "**ScriptEngineCommon.h**". This file contains the HyperDbg script execution engine's implementation in both user-mode and kernel-mode, and it executes the scripts that were previously interpreted in user-mode.
 
-In order to call the execution engine, you should call `ScriptEngineExecute` function. 
+In order to call the execution engine, you should call `ScriptEngineExecute` function.
 
-If you want to interpret a script, you should call `ScriptEngineParseWrapper` which is a wrapper for `ScriptEngineParse`. This function gives a stack \(memory\) that can be executed in both user-mode and kernel-mode. 
+If you want to interpret a script, you should call `ScriptEngineParseWrapper` which is a wrapper for `ScriptEngineParse`. This function gives a stack \(memory\) that can be executed in both user-mode and kernel-mode.
 
 By using the following structure, `ScriptBufferSize` and `ScriptBufferPointer` we pass the script buffer to the kernel.
 
@@ -63,9 +63,9 @@ typedef struct _DEBUGGER_GENERAL_ACTION {
 } DEBUGGER_GENERAL_ACTION, *PDEBUGGER_GENERAL_ACTION;
 ```
 
-Read [Scripting Language](https://docs.hyperdbg.org/commands/scripting-language) for more information and examples about script-engine and read [here ](https://docs.hyperdbg.org/design/script-engine)for more information about the script engine's design and internals. 
+Read [Scripting Language](https://docs.hyperdbg.org/commands/scripting-language) for more information and examples about script-engine and read [here ](https://docs.hyperdbg.org/design/script-engine)for more information about the script engine's design and internals.
 
-### Custom Code
+## Custom Code
 
 Running custom codes gives you a fast and reliable way to execute your codes in the case of triggering events without breaking the whole system, so it's super fast.
 
@@ -108,7 +108,7 @@ For example, the following code shows that we use `CustomCodeBuffer`as the custo
     //
     // Add action for RUN_CUSTOM_CODE
     //
-    
+
     DEBUGGER_EVENT_REQUEST_CUSTOM_CODE CustomCode = {0};
 
     CustomCode.CustomCodeBufferSize        = sizeof(CustomCodeBuffer);
@@ -131,7 +131,7 @@ DebuggerAddActionToEvent(PDEBUGGER_EVENT Event, DEBUGGER_EVENT_ACTION_TYPE_ENUM 
 
 **SendTheResultsImmediately** this field shows whether the buffer should be sent immediately to the user-mode or not.
 
-It is because HyperDbg holds a queue of messages to be delivered to user mode. When the queue has multiple messages \(the queue is full\), it sends all of them in an IRP packet to the user mode \(IRP Pending\). This makes the HyperDbg messaging more efficient as we're not going to send each message separately in one IRP packet. 
+It is because HyperDbg holds a queue of messages to be delivered to user mode. When the queue has multiple messages \(the queue is full\), it sends all of them in an IRP packet to the user mode \(IRP Pending\). This makes the HyperDbg messaging more efficient as we're not going to send each message separately in one IRP packet.
 
 If you set this field to `TRUE`, the buffer will be delivered to the user -ode immediately, and if you set it to `FALSE`, then the buffers will be accumulated and delivered when the queue has multiple messages.
 
@@ -151,7 +151,7 @@ The following example shows how to use the `DebuggerAddActionToEvent`.
 Please note that **DebuggerAddActionToEvent** should not be called in vmx-root mode.
 {% endhint %}
 
-#### How to send buffers back to user-mode?
+### How to send buffers back to user-mode?
 
 If you didn't request a safe buffer or even request a safe buffer, then your assembly will be called in the following form.
 

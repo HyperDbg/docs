@@ -4,7 +4,7 @@ description: This document helps you to build and install HyperDbg
 
 # Build & Install
 
-### Download & Install
+## Download & Install
 
 To build HyperDbg, you need to install the following software.
 
@@ -14,17 +14,17 @@ To build HyperDbg, you need to install the following software.
 
 **Windows Software Development Kit \(Windows SDK\) for Windows 10**
 
-*  You can download it at: \[[https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk)\]
+* You can download it at: \[[https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk)\]
 
-**Windows Driver Kit \(WDK\)** 
+**Windows Driver Kit \(WDK\)**
 
 * You can download it at: \[[https://developer.microsoft.com/en-us/windows/hardware/windows-driver-kit](https://developer.microsoft.com/en-us/windows/hardware/windows-driver-kit)\]
 
-### Build & Compile
+## Build & Compile
 
 First, clone the project using git or download it [here](https://github.com/HyperDbg/HyperDbg/archive/master.zip).
 
-```
+```text
 git clone --recursive https://github.com/HyperDbg/HyperDbg.git
 ```
 
@@ -34,7 +34,7 @@ After building, you need to disable driver signature enforcement. It is because 
 
 For this purpose, you can **Disable Driver Signature Enforcement** or **Put Windows in Test Mode**.
 
-### Disable Driver Signature Enforcement
+## Disable Driver Signature Enforcement
 
 This is the simplest way to disable driver signature enforcement on Windows 10 but bear in mind that this method will temporarily disable driver signature enforcement.
 
@@ -49,7 +49,7 @@ To disable driver signature enforcement, do the following:
 
 Bear in mind that this method only temporarily disables driver signature enforcement, and after a restart, you have to re-disable it again.
 
-### Put Windows in Test Mode
+## Put Windows in Test Mode
 
 In test mode, you can install any drivers you want without experiencing any problems. Don’t forget to go to normal Windows 10 mode after you solve your problem:
 
@@ -60,9 +60,7 @@ In test mode, you can install any drivers you want without experiencing any prob
 
 For more options, please visit [here](https://windowsreport.com/driver-signature-enforcement-windows-10/).
 
-### Run & Test
+## Run & Test
 
 Open **hyperdbg-cli.exe**, and visit [Quick Start](https://docs.hyperdbg.org/getting-started/quick-start) to start using **HyperDbg**.
-
-
 

@@ -24,7 +24,7 @@ HyperDbg has a unique architecture. The principles of designing HyperDbg are mak
 
 ## What's the difference between HyperDbg and Windbg?
 
-HyperDbg has a completely different architecture. Windbg operates on ring 0 \(kernel\) while HyperDbg is running on ring -1 \(hypervisor\); thus, HyperDbg provides unique features that are not available on Windbg \(OS-Level\). 
+HyperDbg has a completely different architecture. Windbg operates on ring 0 \(kernel\) while HyperDbg is running on ring -1 \(hypervisor\); thus, HyperDbg provides unique features that are not available on Windbg \(OS-Level\).
 
 Besides that, HyperDbg is not just a simple debugger. It comes up with modern reverse engineering methods by using vt-x and other modern processor facilities to ease the reverse engineering, analyzing, and fuzzing.
 
@@ -34,7 +34,7 @@ The current version of HyperDbg only supports Intel x64 processors. You cannot r
 
 ## What generation of Intel Processors supports HyperDbg?
 
-Your processor should support Intel Extended Page Table \(A.K.A. EPT\), which is introduced on Nehalem Microarchitecture, but some functionalities only work on Intel's 4th or later generation; so, the previous processors might have undefined behaviors with some of the functionalities of HyperDbg.  It's recommended to use a **Skylake** \(6th generation\) processor or newer processors.
+Your processor should support Intel Extended Page Table \(A.K.A. EPT\), which is introduced on Nehalem Microarchitecture, but some functionalities only work on Intel's 4th or later generation; so, the previous processors might have undefined behaviors with some of the functionalities of HyperDbg. It's recommended to use a **Skylake** \(6th generation\) processor or newer processors.
 
 ## Can I use it on Linux or macOS?
 
@@ -46,7 +46,7 @@ Of course not! The only problem with not having a separate machine is that you c
 
 ## Can I use it on a nested-virtualization environment \(VMware, VirtualBox, Hyper-V\)?
 
-The current versions of HyperDbg are only tested on VMware Workstation \(Not VMware player\), but in the future versions, we will support all the virtualization platforms with nested-virtualization. 
+The current versions of HyperDbg are only tested on VMware Workstation \(Not VMware player\), but in the future versions, we will support all the virtualization platforms with nested-virtualization.
 
 ## How can I start reading about HyperDbg internals? How does it work? Can I contribute to HyperDbg?
 

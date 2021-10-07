@@ -24,7 +24,7 @@ If we want to monitor port `0x3f8` for `OUT` instruction, we use the following c
 HyperDbg> !ioout 0x3f8
 ```
 
- Let's intercept another instruction. 
+Let's intercept another instruction.
 
 We know that **CPUID** is an important instruction that tries to get processor features to see if a processor supports a special feature or not.
 

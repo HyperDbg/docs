@@ -4,15 +4,15 @@ description: Description of 'bp' command in HyperDbg.
 
 # bp \(set breakpoint\)
 
-### Command
+## Command
 
 > bp
 
-### Syntax
+## Syntax
 
 > bp \[address\] \[ pid \| tid \| core \(hex value\)\]
 
-### Description
+## Description
 
 Puts a breakpoint \(**0xcc**\) on the target function in user-mode and kernel-mode.
 
@@ -24,23 +24,27 @@ In **HyperDbg**, the 'bp' breakpoints are **NOT** [events](https://docs.hyperdbg
 If you use the 'bp' command, **HyperDbg** won't hide your breakpoint for the applications that read the memory. The only reason to use '**bp**' instead of [!epthook](https://docs.hyperdbg.org/commands/extension-commands/epthook) is that '**bp**' is guaranteed to keep debuggee in a halt state \(in Debugger Mode\); thus, nothing will change during its execution. However, the in [!epthook](https://docs.hyperdbg.org/commands/extension-commands/epthook) the guest will be continued for some time, and you lose the current context.
 {% endhint %}
 
-### Parameters
+## Parameters
 
 **\[address\]**
 
-          The **Virtual** address of where we want to put a breakpoint.
+```text
+      The **Virtual** address of where we want to put a breakpoint.
+```
 
 **\[pid \| tid \| core \(hex value\)\] \(optional\)**
 
-          Optional value to trigger breakpoint in just one special process or one special thread, or one special core. Add `pid xx` to your command or `tid yy` or `core zz`; thus, the command will be executed if the process id is equal to `xx` or the thread id is equal to `yy` or the core is equal to `zz` . If you don't specify these options, then by default, you receive breakpoints on all conditions. See the **Remarks** section for more information about **pid**.
+```text
+      Optional value to trigger breakpoint in just one special process or one special thread, or one special core. Add `pid xx` to your command or `tid yy` or `core zz`; thus, the command will be executed if the process id is equal to `xx` or the thread id is equal to `yy` or the core is equal to `zz` . If you don't specify these options, then by default, you receive breakpoints on all conditions. See the **Remarks** section for more information about **pid**.
+```
 
-### Context
+## Context
 
 As the **Context**, HyperDbg sends the **virtual** address of where the breakpoint is triggered \(`RIP` of the triggered breakpoint\).
 
-### Examples
+## Examples
 
-If you want to put breakpoints on `nt!ExAllocatePoolWithTag`, `nt!ExAllocatePoolWithTag+5`,`nt!ExAllocatePoolWithTag+@rax+5`,  `fffff801639b1035`, `fffff801639b103a`, and `fffff801639b103f`, you can use the following commands.
+If you want to put breakpoints on `nt!ExAllocatePoolWithTag`, `nt!ExAllocatePoolWithTag+5`,`nt!ExAllocatePoolWithTag+@rax+5`, `fffff801639b1035`, `fffff801639b103a`, and `fffff801639b103f`, you can use the following commands.
 
 ```text
 0: kHyperDbg> bp nt!ExAllocatePoolWithTag
@@ -80,7 +84,7 @@ id   address           status
 06  fffff801639b103f  enabled
 ```
 
-### IOCTL
+## IOCTL
 
 This commands works over serial by sending the serial packets to the remote computer.
 
@@ -120,17 +124,17 @@ The following function is responsible for sending breakpoint buffers in the debu
 BOOLEAN KdSendBpPacketToDebuggee(PDEBUGGEE_BP_PACKET BpPacket);
 ```
 
-### **Remarks**
+## **Remarks**
 
-In this command, **`pid xx`** does not mean that we will change the layout to a new process, it means that the address should be available in the current process layout but will be triggered only on the process with process id equal to **`xx`**, you can use the '[.process](https://docs.hyperdbg.org/commands/meta-commands/.process)' command to switch to a new process if you want to put a breakpoint on the layout of another process. 
+In this command, **`pid xx`** does not mean that we will change the layout to a new process, it means that the address should be available in the current process layout but will be triggered only on the process with process id equal to **`xx`**, you can use the '[.process](https://docs.hyperdbg.org/commands/meta-commands/.process)' command to switch to a new process if you want to put a breakpoint on the layout of another process.
 
 This command is guaranteed to keep debuggee in a halt state \(in Debugger Mode\); thus, nothing will change during its execution.
 
-### Requirements
+## Requirements
 
 None
 
-### Related
+## Related
 
 [!epthook \(hidden hook with EPT - stealth breakpoints\)](https://docs.hyperdbg.org/commands/extension-commands/epthook)
 

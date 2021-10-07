@@ -6,7 +6,7 @@ description: Description about customizing HyperDbg builds
 
 You have different options to build **HyperDbg** in the way you want.
 
-### Configurations
+## Configurations
 
 Before building, you can change the following options in the **Configuration.h** file.
 
@@ -29,7 +29,6 @@ If you want to use **WPP Tracing** instead of **HyperDbg'**s message tracing, th
  *
  */
 #define UseWPPTracing FALSE
-
 ```
 
 If you set this option to `TRUE` then it uses **DbgPrint** instead of **HyperDbg**'s message tracing or **WPP Tracing**. Keep in mind that **DbgPrint** is not usable in most events as it's **not** vmx-root compatible.
@@ -41,7 +40,6 @@ If you set this option to `TRUE` then it uses **DbgPrint** instead of **HyperDbg
  *
  */
 #define UseDbgPrintInsteadOfUsermodeMessageTracking FALSE
-
 ```
 
 Shows debug messages in both the user-mode app and debugger. It works only if you set `UseDbgPrintInsteadOfUsermodeMessageTracking` to `FALSE`
@@ -103,7 +101,7 @@ The following option enables or disables debug-mode which determines whether the
 #define DebugMode FALSE
 ```
 
-### Definitions
+## Definitions
 
 Before building, you can change the following options in the **Definition.h** file.
 
@@ -114,7 +112,7 @@ The following option shows the **maximum** amount of packets that **HyperDbg** u
 #define MaximumPacketsCapacity 1000 // number of packets
 ```
 
-The following option shows the capacity of each packet in **HyperDbg** message tracing. If you have long messages or buffers, then you can increase this value. 
+The following option shows the capacity of each packet in **HyperDbg** message tracing. If you have long messages or buffers, then you can increase this value.
 
 ```c
 #define PacketChunkSize                                                        \

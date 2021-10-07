@@ -40,6 +40,6 @@ HyperDbg> !hide name procexp.exe
 
 Transparent-mode is under active development, and on each version, we add new methods to this mode to make sure that HyperDbg is transparent. However, this mode still needs a lot of contributions.
 
-If you think you can add new methods for transparency, don't forget to contribute or ping us on [GitHub](https://github.com/HyperDbg/HyperDbg).[  
+If you think you can add new methods for transparency, don't forget to contribute or ping us on [GitHub](https://github.com/HyperDbg/HyperDbg).[    
 ](https://docs.hyperdbg.org/tips-and-tricks/considerations/the-unsafe-behavior)
 

@@ -4,25 +4,27 @@ description: Description of 'bc' command in HyperDbg.
 
 # bc \(clear and remove breakpoints\)
 
-### Command
+## Command
 
 > bc
 
-### Syntax
+## Syntax
 
 > bc \[breakpoint id \(hex value\)\]
 
-### Description
+## Description
 
 Clears and removes a breakpoint \(**0xcc**\).
 
-### Parameters
+## Parameters
 
 **\[breakpoint id \(hex value\)\]**
 
-          The **breakpoint id** of the target breakpoint. You can see a list of breakpoints and breakpoint ids using the '[bl](https://docs.hyperdbg.org/commands/debugging-commands/bl)' command.
+```text
+      The **breakpoint id** of the target breakpoint. You can see a list of breakpoints and breakpoint ids using the '[bl](https://docs.hyperdbg.org/commands/debugging-commands/bl)' command.
+```
 
-### Examples
+## Examples
 
 Imagine we have the following active breakpoints.
 
@@ -53,7 +55,7 @@ id   address           status
 04   fffff801639b103f  enabled
 ```
 
-### IOCTL
+## IOCTL
 
 This commands works over serial by sending the serial packets to the remote computer.
 
@@ -111,15 +113,15 @@ The following function is responsible for sending list/modify breakpoint buffers
 BOOLEAN KdSendListOrModifyPacketToDebuggee(PDEBUGGEE_BP_LIST_OR_MODIFY_PACKET ListOrModifyPacket);
 ```
 
-### **Remarks**
+## **Remarks**
 
 This command is guaranteed to keep debuggee in a halt state \(in Debugger Mode\); thus, nothing will change during its execution.
 
-### Requirements
+## Requirements
 
 None
 
-### Related
+## Related
 
 [bp \(set breakpoint\)](https://docs.hyperdbg.org/commands/debugging-commands/bp)
 

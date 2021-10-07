@@ -27,7 +27,7 @@ unload
 exit
 ```
 
-Now, if we run **HyperDbg**, ****then we can **.script** command like this :
+Now, if we run **HyperDbg**, **\*\*then we can** .script\*\* command like this :
 
 ```bash
 HyperDbg> .script c:\users\sina\desktop\script.txt

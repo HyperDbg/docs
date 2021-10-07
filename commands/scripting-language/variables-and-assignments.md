@@ -36,7 +36,7 @@ if ( @rcx == 0x55) {
 
 ## Local Variables Assignment
 
-In HyperDbg's script engine, all the variables are defined without **Type**, ****and all of them are considered unsigned 64-bit integers. You can save results of functions and boolean expressions or results of mathematical calculations alongside 64-bit addresses to the variables.
+In HyperDbg's script engine, all the variables are defined without **Type**, _\*\*_and all of them are considered unsigned 64-bit integers. You can save results of functions and boolean expressions or results of mathematical calculations alongside 64-bit addresses to the variables.
 
 The variables can be used as an input to other functions or might be used in conditional statements or loops.
 
@@ -68,7 +68,7 @@ Like local variables, all global variables are defined without **type**, and all
 
 The variables can be used as an input to other functions or might be used in conditional statements or loops.
 
-You can also use global variables as [volatile](https://en.wikipedia.org/wiki/Volatile_%28computer_programming%29) variables to the [spinlocks](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks) or [interlocked](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked) functions. 
+You can also use global variables as [volatile](https://en.wikipedia.org/wiki/Volatile_%28computer_programming%29) variables to the [spinlocks](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks) or [interlocked](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked) functions.
 
 The difference between local variables and global variables is that the global variables start with a `.` DOT.
 

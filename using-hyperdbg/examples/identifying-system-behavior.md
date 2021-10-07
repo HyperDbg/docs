@@ -27,7 +27,7 @@ For example, MSR **0xc0000082 \(LSTAR\)** is one of the MSRs used by malware and
 If we want to break on RDMSR to MSR **0xc0000082**.
 
 ```c
-HyperDbg> !msrread 0xc0000082 
+HyperDbg> !msrread 0xc0000082
 ```
 
 If we want to break on WRMSR to MSR **0xc0000082**.

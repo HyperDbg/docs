@@ -4,25 +4,25 @@ description: Description of '?' command in HyperDbg.
 
 # ? \(evaluate and execute expressions and scripts in debuggee\)
 
-### Command <a id="command"></a>
+## Command <a id="command"></a>
 
 > ?
 
-### Syntax <a id="syntax"></a>
+## Syntax <a id="syntax"></a>
 
 > ? \[expression\]
 
-### Description <a id="description"></a>
+## Description <a id="description"></a>
 
 Evaluates and executes an expression in the remote debuggee.
 
-### Parameters <a id="parameters"></a>
+## Parameters <a id="parameters"></a>
 
 **\[expression\]**
 
- The expression is based on HyperDbg's [scripting language](https://web.archive.org/web/20210228003007/https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations).
+The expression is based on HyperDbg's [scripting language](https://web.archive.org/web/20210228003007/https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations).
 
-### Examples <a id="examples"></a>
+## Examples <a id="examples"></a>
 
 The following command shows the `@rax` register in the debuggee by calling the [print](https://web.archive.org/web/20210228003007/https://docs.hyperdbg.org/commands/scripting-language/functions/print) function.
 
@@ -30,7 +30,7 @@ The following command shows the `@rax` register in the debuggee by calling the [
 HyperDbg> ? print(@rax);
 ```
 
-### IOCTL <a id="ioctl"></a>
+## IOCTL <a id="ioctl"></a>
 
 This commands works over serial by sending the serial packets to the remote computer.
 
@@ -62,17 +62,17 @@ The following function is responsible for sending script buffers in the debugger
 BOOLEAN KdSendScriptPacketToDebuggee(UINT64 BufferAddress, UINT32 BufferLength, UINT32 Pointer, BOOLEAN IsFormat);
 ```
 
-### **Remarks** <a id="remarks"></a>
+## **Remarks** <a id="remarks"></a>
 
 Other aliases for this command are '**eval**' and '**evaluate**'.
 
 This command is guaranteed to keep debuggee in a halt state \(in Debugger Mode\); thus, nothing will change during its execution.
 
-### Requirements <a id="requirements"></a>
+## Requirements <a id="requirements"></a>
 
 None
 
-### Related <a id="related"></a>
+## Related <a id="related"></a>
 
 None
 

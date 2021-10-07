@@ -4,9 +4,9 @@ description: Design of !epthook2 command
 
 # Design of !epthook2
 
-The implementation of the [!epthook2](https://docs.hyperdbg.org/commands/extension-commands/epthook2) command is derived from our [Hypervisor From Scratch \(Part 8\)](https://rayanfam.com/topics/hypervisor-from-scratch-part-8/). 
+The implementation of the [!epthook2](https://docs.hyperdbg.org/commands/extension-commands/epthook2) command is derived from our [Hypervisor From Scratch \(Part 8\)](https://rayanfam.com/topics/hypervisor-from-scratch-part-8/).
 
-### Super fast, in-line hidden hooks
+## Super fast, in-line hidden hooks
 
 For execution hooks, we use a capability in Intel processors called **execute-only**.
 
@@ -30,8 +30,5 @@ This is a simple inline hook that we use our Length Disassembler Engine and buil
 
 In the case of EPT Violations, first, we find the details of the physical address that caused this vm-exit. Then we call **EptHandleHookedPage** to create a log about the details. Then we set an MTF to restore to the hooked state after executing one instruction.
 
-Each time an EPT Violation occurs, we check whether it was because of a **Read Access** or a **Write Access** or an **Execute Access** violation and log **GUEST\_RIP**, then we restore the initial flags \(All read, write, and exec is allowed\).  
-  
-  
-
+Each time an EPT Violation occurs, we check whether it was because of a **Read Access** or a **Write Access** or an **Execute Access** violation and log **GUEST\_RIP**, then we restore the initial flags \(All read, write, and exec is allowed\).
 

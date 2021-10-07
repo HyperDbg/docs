@@ -4,41 +4,45 @@ description: Description of 'interlocked_exchange' function in HyperDbg Scripts
 
 # interlocked\_exchange
 
-### Function
+## Function
 
 > interlocked\_exchange
 
-### Syntax
+## Syntax
 
 > interlocked\_exchange\( GlobalVariable, Expression \);
 
-### Parameters
+## Parameters
 
 **\[GlobalVariable \(Target\)\]**
 
-         A global variable to be exchanged. The function sets this variable to **Value** and returns its prior value.
+```text
+     A global variable to be exchanged. The function sets this variable to **Value** and returns its prior value.
+```
 
 **\[Expression \(Value\)\]**
 
-         The value to be exchanged with the value pointed to by **Target**.
+```text
+     The value to be exchanged with the value pointed to by **Target**.
+```
 
-### Description
+## Description
 
 Sets a variable to the specified value as an atomic operation.
 
-### Return value
+## Return value
 
 Returns the initial value of the **Target** parameter.
 
-### Examples
+## Examples
 
 None
 
-### **Remarks**
+## **Remarks**
 
 None
 
-### Related
+## Related
 
 [interlocked\_compare\_exchange](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_compare_exchange)
 
