@@ -90,6 +90,10 @@ HyperDbg> !epthook2 nt!ExAllocatePoolWithTag+@rcx+5
 
 ## Script
 
+{% hint style="info" %}
+**Important:** This command operates in vmx non-root mode; however, HyperDbg's script engine is designed to work on vmx root-mode. We prefer to use the script engine in **!epthook2** and won't cause vm-exit to keep this command as fast as possible, thus, you have some limitations on using script engine as is described on "[Script engine in VMX non-root mode](https://docs.hyperdbg.org/tips-and-tricks/considerations/script-engine-in-vmx-non-root-mode)".
+{% endhint %}
+
 Using the following command, you can use HyperDbg's Script Engine. You should replace the string between braces \(`HyperDbg Script Here`\) with your script. You can find script examples [here](https://docs.hyperdbg.org/commands/scripting-language/examples).
 
 ```text
