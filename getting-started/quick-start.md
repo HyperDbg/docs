@@ -75,9 +75,9 @@ If you want to see more advanced topics about HyperDbg.
 * [**Doxygen Style**](https://docs.hyperdbg.org/contribution/style-guide/doxygen-style)
 * [**Logo & Artworks**](https://docs.hyperdbg.org/style-guide/logo)
 
-You can also follow the **\[**contribution guide**\]\(**[https://github.com/HyperDbg/HyperDbg/blob/master/CONTRIBUTING.md](https://github.com/HyperDbg/HyperDbg/blob/master/CONTRIBUTING.md)**\)**.
+You can also follow the ****[**contribution guide**](https://github.com/HyperDbg/HyperDbg/blob/master/CONTRIBUTING.md).
 
 ## **Any other questions**
 
-If you have any other questions, then it's probably addressed in the **\[**FAQ**\]\(**[https://docs.hyperdbg.org/getting-started/faq](https://docs.hyperdbg.org/getting-started/faq)**\)** section. If your question remained unanswered or your problem is unsolved, then you can create an [**issue**](https://github.com/HyperDbg/HyperDbg/issues).
+If you have any other questions, then it's probably addressed in the [**FAQ**](https://docs.hyperdbg.org/getting-started/faq) ****section. If your question remained unanswered or your problem is unsolved, then you can create an [**issue**](https://github.com/HyperDbg/HyperDbg/issues).
 
