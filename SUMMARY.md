@@ -29,7 +29,7 @@
   * [Identifying System Behavior](using-hyperdbg/examples/identifying-system-behavior.md)
   * [Defeating Anti-Debug & Anti-Hypervisor Methods](using-hyperdbg/examples/defeating-anti-debug-and-anti-hypervisor-methods.md)
   * [Running HyperDbg Script](using-hyperdbg/examples/running-hyperdbg-script.md)
-  * [Scripting Language Examples](https://docs.hyperdbg.com/commands/scripting-language/examples)
+  * [Scripting Language Examples](https://docs.hyperdbg.org/commands/scripting-language/examples)
 
 ## Commands
 
@@ -195,6 +195,6 @@
 
 * [Twitter](https://twitter.com/HyperDbg)
 * [YouTube](https://youtube.com/c/HyperDbg)
-* [Doxygen](https://doxygen.hyperdbg.com/)
+* [Doxygen](https://doxygen.hyperdbg.org/)
 * [Contribution](https://github.com/HyperDbg/HyperDbg/blob/master/CONTRIBUTING.md)
 
