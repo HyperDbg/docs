@@ -16,9 +16,7 @@ description: Description of 'interlocked_increment' function in HyperDbg Scripts
 
 **\[\*Variable (Addend)]**
 
-```
-     A reference to a variable (most of the time a global variable) to be added by `1`.
-```
+A reference to a variable (most of the time a global variable) to be added by `1`.
 
 ## Description
 

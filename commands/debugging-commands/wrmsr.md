@@ -20,21 +20,15 @@ Write on the model-specific register using 'wrmsr' instruction.
 
 **\[msr \(hex\) - ecx\]**
 
-```text
-      The index of MSR \(ECX Register for 'wrmsr' instruction\)
-```
+The index of MSR \(ECX Register for 'wrmsr' instruction\)
 
 **\[value \(hex\) - edx:eax\]**
 
-```text
-      The value to write on MSR \(edx:eax for 'wrmsr' instruction\)
-```
+The value to write on MSR \(edx:eax for 'wrmsr' instruction\)
 
 **core \[core number\(hex\)\] \(optional\)**
 
-```text
-      The core that we want to read the 'rdmsr' from
-```
+The core that we want to read the 'rdmsr' from
 
 {% hint style="success" %}
 If you don't specify the 'core' by default, it will be applied to all the cores.

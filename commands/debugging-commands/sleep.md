@@ -20,9 +20,7 @@ Waits for the specified time \(in milliseconds\).
 
 **\[time to wait \(milliseconds - hex value\)\]**
 
-```text
-      The time that debugger should wait, in milliseconds.
-```
+The time that debugger should wait, in milliseconds.
 
 ## IOCTL
 

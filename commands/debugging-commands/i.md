@@ -30,9 +30,7 @@ This command gives you the ability to follow system-calls \(SYSCALLs\) and all t
 
 **\[count\] \(optional\)**
 
-```text
-      Count of step\(s\), or how many times perform the stepping operation. If you don't set this argument, then by default, the **count** is `1`.
-```
+Count of step\(s\), or how many times perform the stepping operation. If you don't set this argument, then by default, the **count** is `1`.
 
 ## Examples
 

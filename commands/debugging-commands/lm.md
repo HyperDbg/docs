@@ -22,7 +22,7 @@ Shows the loaded modules' base address, size, name, full path.
 
 **\[module name\] \(optional\)**
 
-          The name or a part of the name that will be searched through all the modules and only those which match will be showed.
+The name or a part of the name that will be searched through all the modules and only those which match will be showed.
 
 ### Examples
 

@@ -16,15 +16,11 @@ description: Description of 'interlocked_exchange' function in HyperDbg Scripts
 
 **\[\*Variable (Target)]**
 
-```
-     A reference to a variable (most of the time a global variable) to be exchanged. The function sets this variable to **Value** and returns its prior value.
-```
+A reference to a variable (most of the time a global variable) to be exchanged. The function sets this variable to **Value** and returns its prior value.
 
 **\[Expression (Value)]**
 
-```
-     The value to be exchanged with the value pointed to by **Target**.
-```
+The value to be exchanged with the value pointed to by **Target**.
 
 ## Description
 

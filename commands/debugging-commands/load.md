@@ -20,9 +20,7 @@ Loads the HyperDbg's drivers and kernel modules into the target system.
 
 **\[module name\]**
 
-```text
-      The name of the module that you want to load
-```
+The name of the module that you want to load
 
 ## Modules
 

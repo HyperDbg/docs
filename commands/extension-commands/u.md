@@ -28,15 +28,11 @@ Shows the assembly regarding memory content at the **physical** address hex form
 
 **\[Address\]**
 
-```text
-      The **physical** address of where we want to start to disassemble its memory
-```
+The **physical** address of where we want to start to disassemble its memory
 
 **l \[Length\] \(optional\)**
 
-```text
-      The length \(byte\) in hex format
-```
+The length \(byte\) in hex format
 
 {% hint style="danger" %}
 Process ID doesn't make sense in physical memory. If you specify **pid,** then it is ignored.

@@ -16,15 +16,11 @@ description: Description of 'interlocked_exchange_add' function in HyperDbg Scri
 
 **\[\*Variable (Addend)]**
 
-```
-     A reference to a variable (most of the time a global variable) to add the value of the resulting instruction to it.
-```
+A reference to a variable (most of the time a global variable) to add the value of the resulting instruction to it.
 
 **\[Expression (Value)]**
 
-```
-     The value which is added to the global variable.
-```
+The value which is added to the global variable.
 
 ## Description
 

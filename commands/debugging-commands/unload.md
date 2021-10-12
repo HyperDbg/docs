@@ -20,15 +20,12 @@ Unloads the HyperDbg drivers and kernel modules from the target system.
 
 **\[remove\]\(optional\)**
 
-```text
-      If you want to remove the installed driver \(See **Remarks** for more information\)
-```
+If you want to remove the installed driver \(See **Remarks** for more information\)
+
 
 **\[module name\]**
 
-```text
-      The name of the module that you want to unload
-```
+The name of the module that you want to unload
 
 ## Modules
 

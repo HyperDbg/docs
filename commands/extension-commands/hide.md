@@ -30,15 +30,11 @@ This command is case-sensitive for the **`name`** parameter.
 
 **\[pid \| name\]**
 
-```text
-      If you want to use the process ID, you should specify **pid**, and if you want to enter the process name, you should specify the **name** as this argument. 
-```
+If you want to use the process ID, you should specify **pid**, and if you want to enter the process name, you should specify the **name** as this argument. 
 
 **\[process id \(hex value\) \| name \(string\)\]**
 
-```text
-      Name or process id of the process that you want to make **HyperDbg** transparent for it.
-```
+Name or process id of the process that you want to make **HyperDbg** transparent for it.
 
 {% hint style="info" %}
 You should append`.exe` to your process names.

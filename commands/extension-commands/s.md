@@ -28,19 +28,19 @@ Searches the **physical** memory for a special byte\(s\).
 
 **\[search from address \(hex\)\]**
 
-          The **physical** address of where we want to start searching from its address.
+The **physical** address of where we want to start searching from its address.
 
 **l \[length \(hex\)\]**
 
-          Length of the searching area.
+Length of the searching area.
 
 **\[byte pattern \(hex\)\]**
 
-          Search for these bytes \(pattern\)
+Search for these bytes \(pattern\)
 
 **pid \[process id \(hex\)\]  \(optional\)**
 
-          The process ID in the hex format that we want to see the memory from its context \(**cr3**\).
+The process ID in the hex format that we want to see the memory from its context \(**cr3**\).
 
 {% hint style="danger" %}
 Process ID doesn't make sense in physical memory. If you specify **pid** for physical memory, ****then it is ignored.

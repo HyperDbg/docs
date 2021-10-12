@@ -24,11 +24,11 @@ description: 'Description of ''eb'', ''ed'', and ''eq'' functions in HyperDbg Sc
 
 **\[Expression \(Address\)\]**
 
-         Address of the target memory that needs to be modified.
+Address of the target memory that needs to be modified.
 
 **\[Expression \(Value\)\]**
 
-         The value that needs to be replaced on the target address.
+The value that needs to be replaced on the target address.
 
 ### Description
 

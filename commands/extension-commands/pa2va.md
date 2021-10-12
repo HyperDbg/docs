@@ -20,9 +20,7 @@ Converts the PHYSICAL address to the VIRTUAL address.
 
 **\[Physical Address\]**
 
-```text
-      The target **physical** address
-```
+The target **physical** address
 
 **\[Process Id \(hex value\)\]**
 

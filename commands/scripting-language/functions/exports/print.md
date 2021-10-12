@@ -16,9 +16,7 @@ description: Description of 'print' function in HyperDbg Scripts
 
 **\[Expression\]**
 
-```text
-     A [MASM-like expression](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations) to evaluate.
-```
+A [MASM-like expression](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations) to evaluate.
 
 ## Description
 

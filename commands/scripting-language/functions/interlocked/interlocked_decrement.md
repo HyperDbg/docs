@@ -16,9 +16,7 @@ description: Description of 'interlocked_decrement' function in HyperDbg Scripts
 
 **\[\*Variable (Addend)]**
 
-```
-     A reference to a variable (most of the time a global variable) to be subtracted by `1`.
-```
+A reference to a variable (most of the time a global variable) to be subtracted by `1`.
 
 ## Description
 

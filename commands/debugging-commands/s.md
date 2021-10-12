@@ -28,19 +28,19 @@ Searches the **virtual** memory for a special byte\(s\).
 
 **\[search from address \(hex\)\]**
 
-          The **virtual** address of where we want to start searching from its address.
+The **virtual** address of where we want to start searching from its address.
 
 **l \[length \(hex\)\]** 
 
-          Length of the searching area.
+Length of the searching area.
 
 **\[byte pattern \(hex\)\]**
 
-          Search for these bytes \(pattern\)
+Search for these bytes \(pattern\)
 
 **pid \[process id \(hex\)\]  \(optional\)**
 
-          The process ID in the hex format that we want to see the memory from its context \(**cr3**\).
+The process ID in the hex format that we want to see the memory from its context \(**cr3**\).
 
 {% hint style="info" %}
 If you don't specify the **pid**, then the default **pid** is the current process \(**HyperDbg**\) process layout of memory.

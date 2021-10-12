@@ -20,9 +20,7 @@ Disables a previously enabled breakpoint \(**0xcc**\).
 
 **\[breakpoint id \(hex value\)\]**
 
-```text
-      The **breakpoint id** of the target breakpoint. You can see a list of breakpoints and breakpoint ids using the '[bl](https://docs.hyperdbg.org/commands/debugging-commands/bl)' command.
-```
+The **breakpoint id** of the target breakpoint. You can see a list of breakpoints and breakpoint ids using the '[bl](https://docs.hyperdbg.org/commands/debugging-commands/bl)' command.
 
 ## Examples
 

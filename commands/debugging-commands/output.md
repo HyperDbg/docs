@@ -22,21 +22,15 @@ You can read more about **event forwarding** [here](https://docs.hyperdbg.org/ti
 
 **\[create \| open \| close\]**
 
-```text
-      The action of this command or whether this command tries to create a new output source or open an output source or close it.
-```
+The action of this command or whether this command tries to create a new output source or open an output source or close it.
 
 **\[type \(file \| namedpipe \| tcp\)\]**
 
-```text
-      In the case of creating an event, this parameter shows the type of the event.
-```
+In the case of creating an event, this parameter shows the type of the event.
 
 **\[name \| address\]**
 
-```text
-      In the case of "**create**", it shows the address of the remote source, and in the case of "**open**" or "**close**", it shows the name of the output source.
-```
+In the case of "**create**", it shows the address of the remote source, and in the case of "**open**" or "**close**", it shows the name of the output source.
 
 ## Examples
 

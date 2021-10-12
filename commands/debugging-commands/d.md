@@ -32,21 +32,15 @@ Shows the **virtual** address memory content in hex form.
 
 **\[Address\]**
 
-```text
-      The **virtual** address of where we want to read its memory.
-```
+The **virtual** address of where we want to read its memory.
 
 **l \[Length\] \(optional\)**
 
-```text
-      The length \(byte\) in hex format
-```
+The length \(byte\) in hex format
 
 **pid \[process id\] \(optional\)**
 
-```text
-      The process ID in hex format that we want to see the memory from its context \(**cr3**\).
-```
+The process ID in hex format that we want to see the memory from its context \(**cr3**\).
 
 {% hint style="info" %}
 If you don't specify the **pid**, then the default **pid** is the current process \(HyperDbg\) process layout of memory.

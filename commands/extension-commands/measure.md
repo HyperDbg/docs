@@ -22,9 +22,7 @@ This command should be run before you '[load](https://docs.hyperdbg.org/commands
 
 **\[default\]**
 
-```text
-      If you specify '**default**', then **HyperDbg** uses the hardcoded measurements from a not-running hypervisor machine; however, it's not recommended. See the **Remarks** for more information.
-```
+If you specify '**default**', then **HyperDbg** uses the hardcoded measurements from a not-running hypervisor machine; however, it's not recommended. See the **Remarks** for more information.
 
 ## Examples
 

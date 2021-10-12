@@ -20,15 +20,11 @@ This command queries or changes the value of options and preferences.
 
 **\[option name\]**
 
-```text
-      Name of the option.
-```
+Name of the option.
 
 **\[value \(name \| hex value \| on \| off\)\] \(optional\)**
 
-```text
-     Target value to modify the option.
-```
+Target value to modify the option.
 
 {% hint style="success" %}
 Each option has its own value; for example, some options might be on or off, and others might be custom numbers or names.

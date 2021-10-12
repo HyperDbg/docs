@@ -16,21 +16,15 @@ description: Description of 'interlocked_compare_exchange' function in HyperDbg 
 
 **\[\*Variable (Destination)]**
 
-```
-     A reference to a variable (most of the time a global variable) that is compared with the value of **Comperand**.
-```
+A reference to a variable (most of the time a global variable) that is compared with the value of **Comperand**.
 
 **\[Expression (ExChange)]**
 
-```
-     Specifies the output value pointed to by **Destination** if the input value pointed to by **Destination** equals the value of **Comperand**.
-```
+Specifies the output value pointed to by **Destination** if the input value pointed to by **Destination** equals the value of **Comperand**.
 
 **\[Expression (Comperand)]**
 
-```
-    Specifies the value that is compared with the input value pointed to by **Destination**.
-```
+Specifies the value that is compared with the input value pointed to by **Destination**.
 
 ## Description
 

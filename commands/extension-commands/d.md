@@ -32,15 +32,11 @@ Shows the **physical** address memory content in hex form.
 
 **\[Address\]**
 
-```text
-      The **physical** address of where we want to read its memory.
-```
+The **physical** address of where we want to read its memory.
 
 **l \[Length\] \(optional\)**
 
-```text
-      The length \(byte\) in hex format
-```
+The length \(byte\) in hex format
 
 {% hint style="danger" %}
 Process ID doesn't make sense in physical memory. If you specify **pid** for physical memory, _\*\*_then it is ignored.

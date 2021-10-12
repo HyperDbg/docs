@@ -24,51 +24,37 @@ It is exactly like read/write of Hardware Debug Registers but without any size a
 
 **\[mode\]**
 
-```text
-      Can be one of these values :
+Can be one of these values :
 
-      **rw** : trigger in the case of reading and writing.
+**rw** : trigger in the case of reading and writing.
 
-      **r** : trigger in the case of reading.
+**r** : trigger in the case of reading.
 
-      **w** : trigger in the case of writing.
-```
+**w** : trigger in the case of writing.
 
 **\[from address\]**
 
-```text
-      The start  **Virtual** address of where we want to monitor for reading or writing.
-```
+The start  **Virtual** address of where we want to monitor for reading or writing.
 
 **\[to address\]**
 
-```text
-      The end of **Virtual** address of where we want to monitor for reading or writing.
-```
+The end of **Virtual** address of where we want to monitor for reading or writing.
 
 **\[pid \(hex value\)\]**
 
-```text
-      Optional value to trigger the event in just a specific process. Add `pid xx` to your command; thus, the command will be executed if the process id is equal to `xx`. If you don't specify this option, then by default, you receive events on all processes.
-```
+Optional value to trigger the event in just a specific process. Add `pid xx` to your command; thus, the command will be executed if the process id is equal to `xx`. If you don't specify this option, then by default, you receive events on all processes.
 
 **\[core \(hex value\)\]**
 
-```text
-      Optional value to trigger the event in just a specific core. Add `core xx` to your command thus command will be executed if core id is equal to `xx`. If you don't specify this option, then by default, you receive events on all cores.
-```
+Optional value to trigger the event in just a specific core. Add `core xx` to your command thus command will be executed if core id is equal to `xx`. If you don't specify this option, then by default, you receive events on all cores.
 
 **\[imm \(yes\|no\)\]**
 
-```text
-      Optional value in which `yes` means the results \(printed texts in scripts\) should be delivered immediately to the debugger. `no` means that the results can be accumulated and delivered as a couple of messages when the buffer is full; thus, it's substantially faster, but it's not real-time. By default, this value is set to  `yes`.
-```
+Optional value in which `yes` means the results \(printed texts in scripts\) should be delivered immediately to the debugger. `no` means that the results can be accumulated and delivered as a couple of messages when the buffer is full; thus, it's substantially faster, but it's not real-time. By default, this value is set to  `yes`.
 
 **\[event options\]**
 
-```text
-      Regular event parameters that are used in HyperDbg events. \(For more information, read [this ](https://docs.hyperdbg.org/using-hyperdbg/prerequisites)topic\)
-```
+Regular event parameters that are used in HyperDbg events. \(For more information, read [this ](https://docs.hyperdbg.org/using-hyperdbg/prerequisites)topic\)
 
 ## Context
 

@@ -20,15 +20,11 @@ Reads or modifies registers when the debuggee is paused.
 
 **\[register\]**
 
-```text
-      The register that needs to be read or modified
-```
+The register that needs to be read or modified
 
 **\[= expr\]**
 
-```text
-      The value or the expression that needs to be evaluated and modify the target register
-```
+The value or the expression that needs to be evaluated and modify the target register
 
 {% hint style="info" %}
 If you don't specify any parameters to the 'r' command, it shows all general-purpose + segment registers.

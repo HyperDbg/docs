@@ -28,21 +28,15 @@ Edits the **virtual** address memory contents.
 
 **\[Address\]**
 
-```text
-      The **virtual** address of where we want to edit its memory.
-```
+The **virtual** address of where we want to edit its memory.
 
 **\[new value \(hex\)\]**
 
-```text
-      The new contents in hex format
-```
+The new contents in hex format
 
 **pid \[process id\] \(optional\)**
 
-```text
-      The process ID in the hex format that we want to see the memory from its context \(**cr3**\).
-```
+The process ID in the hex format that we want to see the memory from its context \(**cr3**\).
 
 {% hint style="info" %}
 If you don't specify the pid, then the default pid is the current process \(**HyperDbg**\) process layout of memory.

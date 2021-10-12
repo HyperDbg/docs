@@ -20,15 +20,11 @@ Reads the model-specific register using '**rdmsr**' instruction.
 
 **\[msr \(hex\) - ecx\]**
 
-```text
-      The index of MSR \(ECX Register for '**rdmsr**' instruction\)
-```
+The index of MSR \(ECX Register for '**rdmsr**' instruction\)
 
 **core \[core number\(hex\)\] \(optional\)**
 
-```text
-      The core that we want to read the 'rdmsr' from
-```
+The core that we want to read the 'rdmsr' from
 
 {% hint style="success" %}
 If you don't specify the 'core' by default, it shows the MSR for all cores.

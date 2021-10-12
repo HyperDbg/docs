@@ -24,9 +24,7 @@ In HyperDbg's batch scripts '`#`' is used as the comment character. However, in 
 
 **\[...\]**
 
-```text
-      Everything after this command is interpreted as a comment.
-```
+Everything after \# is interpreted as a comment.
 
 ## Examples
 

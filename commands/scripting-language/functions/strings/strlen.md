@@ -16,9 +16,7 @@ description: Description of 'strlen' function in HyperDbg Scripts
 
 **\[Expression \(Address\)\]**
 
-```text
-     A [MASM-like expression](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations) to evaluate which is the address of the target location to compute the string length.
-```
+A [MASM-like expression](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations) to evaluate which is the address of the target location to compute the string length.
 
 ## Description
 

@@ -20,7 +20,7 @@ Shows or changes the current operating core. This command can only be used in **
 
 **\[core number \(hex value\)\] \(optional\)**
 
-          Target core number \(starts from zero\).
+Target core number \(starts from zero\).
 
 {% hint style="success" %}
 If you don't specify any parameters to the '~' command, it shows the current operating core.

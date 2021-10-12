@@ -20,21 +20,17 @@ Shows a list of active/disabled events and commands or disables or clears the ev
 
 **\[e\|d\|c\] \(optional\)**
 
-```text
-      Type of action can be one of the `e`, `d`, or `c`.
+Type of action can be one of the `e`, `d`, or `c`.
 
-    **e** : enables the target event
+**e** : enables the target event
 
-    **d** : disables the target event
+**d** : disables the target event
 
-    **c** : clears and removes the target event
-```
+**c** : clears and removes the target event
 
 **\[event number \(hex value\) \| all\] \(optional\)**
 
-```text
-      Specifies the target event \(you can see the list of events and their unique event numbers by running the '**events**' command\), you can specify `all` to apply your action to all active/disabled events.
-```
+Specifies the target event \(you can see the list of events and their unique event numbers by running the '**events**' command\), you can specify `all` to apply your action to all active/disabled events.
 
 {% hint style="success" %}
 If you don't specify any parameters to the '**events**' command, it shows a list of events and their unique event numbers.
