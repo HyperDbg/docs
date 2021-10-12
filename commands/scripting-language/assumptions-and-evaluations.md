@@ -23,6 +23,7 @@ The following keywords are valid in **Script Engine**.
 | Keyword | Description                                   |
 | ------- | --------------------------------------------- |
 | **poi** | Pointer-sized data from the specified address |
+| **ref** | Reference address of the specified variable   |
 | **hi**  | High 16 bits                                  |
 | **low** | Low 16 bits                                   |
 | **db**  | Low 8 bits                                    |
@@ -41,6 +42,7 @@ The following operators are supported on the script engine.
 | Operator | Description                         |
 | -------- | ----------------------------------- |
 | ( )      | Parentheses                         |
+| \* &     | Unary Operators                     |
 | \* / %   | Arithmetic Operators                |
 | + -      | Arithmetic Operators                |
 | << >>    | Shift Operators                     |
