@@ -8,7 +8,7 @@ HyperDbg operates based on the following grammar.
 
 ### Language Grammar
 
-```text
+```
 # ThreeOpFunc1 inputs are three numbers and returns a number.
 .ThreeOpFunc1->interlocked_compare_exchange
 
@@ -176,6 +176,4 @@ L_VALUE->@PUSH _register
 NULL->eps
 
 
-
 ```
-
