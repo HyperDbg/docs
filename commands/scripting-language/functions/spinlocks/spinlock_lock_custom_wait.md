@@ -16,7 +16,7 @@ description: Description of 'spinlock_lock_custom_wait' function in HyperDbg Scr
 
 **\[\*Variable (Lock)]**
 
-          A global variable, used as a [lock](https://en.wikipedia.org/wiki/Spinlock).
+          A reference to a** **variable (most of the time a global variable), used as a [lock](https://en.wikipedia.org/wiki/Spinlock).
 
 **\[Expression]**
 
