@@ -54,3 +54,4 @@ You can see the source code for these series on GitHub.
 
 Here's a diagram that shows how HyperDbg works!
 
+![](../../.gitbook/assets/diagram_hq_v1.png)
