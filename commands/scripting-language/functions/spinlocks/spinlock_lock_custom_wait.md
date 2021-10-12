@@ -48,9 +48,7 @@ Then, you can use it like this:
 
 `spinlock_lock_custom_wait(&.my_lock, 500);`
 
-The above example locks the spinlock of a global variable (lock) called `.my_lock_var`. Note that you should use the unary operator `&` to pass a reference of the global variable to this function.
-
-Locks the spinlock of a global variable (lock) called `.my_lock_var`, it used **500** as the maximum wait time.
+The above example locks the spinlock of a global variable (lock) which is called `.my_lock`. It uses **500** as the maximum wait time. Note that you should use the unary operator `&` to pass a reference of the global variable to this function.
 
 ## **Remarks**
 
