@@ -2,21 +2,21 @@
 description: Description of 'spinlock_unlock' function in HyperDbg Scripts
 ---
 
-# spinlock\_unlock
+# spinlock_unlock
 
 ## Function
 
-> spinlock\_unlock
+> spinlock_unlock
 
 ## Syntax
 
-> spinlock\_unlock\( GlobalVariable \);
+> spinlock_unlock( GlobalVariable );
 
 ## Parameters
 
-**\[GlobalVariable \(Lock\)\]**
+**\[GlobalVariable (Lock)]**
 
-```text
+```
      A global variable, used as a [lock](https://en.wikipedia.org/wiki/Spinlock). The lock can be locked by [spinlock\_lock](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks/spinlock_lock).
 ```
 
@@ -30,9 +30,9 @@ None
 
 ## Examples
 
-`spinlock_unlock(.my_lock_var);`
+`spinlock_unlock(&.my_lock_var);`
 
-unlocks the spinlock of a global variable \(lock\) called `.my_lock_var`.
+unlocks the spinlock of a global variable (lock) which is called `.my_lock`.
 
 ## **Remarks**
 
@@ -40,7 +40,6 @@ None
 
 ## Related
 
-[spinlock\_lock](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks/spinlock_lock)
+[spinlock_lock](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks/spinlock_lock)
 
-[spinlock\_lock\_custom\_wait](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks/spinlock_lock_custom_wait)
-
+[spinlock_lock_custom_wait](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks/spinlock_lock_custom_wait)

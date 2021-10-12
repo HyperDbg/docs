@@ -38,7 +38,7 @@ Then, you can use it like this:
 
 `spinlock_lock(&.my_lock);`
 
-The above example locks the spinlock of a global variable (lock) called `.my_lock_var`. Note that you should use the unary operator `&` to pass a reference of the global variable to this function.
+The above example locks the spinlock of a global variable (lock) called `.my_lock`. Note that you should use the unary operator `&` to pass a reference of the global variable to this function.
 
 ## **Remarks**
 
