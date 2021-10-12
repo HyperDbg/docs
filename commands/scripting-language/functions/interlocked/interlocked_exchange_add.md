@@ -2,27 +2,27 @@
 description: Description of 'interlocked_exchange_add' function in HyperDbg Scripts
 ---
 
-# interlocked\_exchange\_add
+# interlocked_exchange_add
 
 ## Function
 
-> interlocked\_exchange\_add
+> interlocked_exchange_add
 
 ## Syntax
 
-> interlocked\_exchange\_add\( GlobalVariable, Expression \);
+> interlocked_exchange_add( \*Variable, Expression );
 
 ## Parameters
 
-**\[GlobalVariable \(Addend\)\]**
+**\[\*Variable (Addend)]**
 
-```text
-     A global variable to add the value of the resulting instruction to it.
+```
+     A reference to a variable (most of the time a global variable) to add the value of the resulting instruction to it.
 ```
 
-**\[Expression \(Value\)\]**
+**\[Expression (Value)]**
 
-```text
+```
      The value which is added to the global variable.
 ```
 
@@ -38,19 +38,18 @@ The function returns the initial value of the **`GlobalVariable(Addend)`** param
 
 `Result = interlocked_exchange_add(.my_gloabl_counter, 0x55);`
 
-Adds the value \(`0x55`\) to the global variable and saves the initial value of the `.my_gloabl_counter` into a local variable named `Result`.
+Adds the value (`0x55`) to the global variable and saves the initial value of the `.my_gloabl_counter` into a local variable named `Result`.
 
 ## **Remarks**
 
-You can also perform the subtraction by addition \(using the 2's-complement system\).
+You can also perform the subtraction by addition (using the 2's-complement system).
 
 ## Related
 
-[interlocked\_compare\_exchange](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_compare_exchange)
+[interlocked_compare_exchange](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_compare_exchange)
 
-[interlocked\_increment](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_increment)
+[interlocked_increment](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_increment)
 
-[interlocked\_exchange](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_exchange)
+[interlocked_exchange](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_exchange)
 
-[interlocked\_decrement](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_decrement)
-
+[interlocked_decrement](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_decrement)
