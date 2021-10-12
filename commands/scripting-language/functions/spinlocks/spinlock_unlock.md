@@ -10,14 +10,14 @@ description: Description of 'spinlock_unlock' function in HyperDbg Scripts
 
 ## Syntax
 
-> spinlock_unlock( GlobalVariable );
+> spinlock_unlock( \*Variable );
 
 ## Parameters
 
-**\[GlobalVariable (Lock)]**
+**\[\*Variable (Lock)]**
 
 ```
-     A global variable, used as a [lock](https://en.wikipedia.org/wiki/Spinlock). The lock can be locked by [spinlock\_lock](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks/spinlock_lock).
+     A variable (most ofglobal) variable, used as a [lock](https://en.wikipedia.org/wiki/Spinlock). The lock can be locked by [spinlock\_lock](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks/spinlock_lock).
 ```
 
 ## Description
@@ -32,7 +32,7 @@ None
 
 `spinlock_unlock(&.my_lock_var);`
 
-unlocks the spinlock of a global variable (lock) which is called `.my_lock`.
+unlocks the spinlock of a global variable (lock) which is called `.my_lock`. Note that you should use the unary operator `&` to pass a reference of the global variable to this function.
 
 ## **Remarks**
 
