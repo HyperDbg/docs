@@ -10,15 +10,13 @@ description: Description of 'spinlock_lock' function in HyperDbg Scripts
 
 ## Syntax
 
-> spinlock_lock( GlobalVariable );
+> spinlock_lock( \*Variable );
 
 ## Parameters
 
-**\[GlobalVariable (Lock)]**
+**\[\*Variable (Lock)]**
 
-```
-     A global variable, used as a [lock](https://en.wikipedia.org/wiki/Spinlock).
-```
+          A reference to a** **variable (most of the time a global variable), used as a [lock](https://en.wikipedia.org/wiki/Spinlock).
 
 ## Description
 
