@@ -2,27 +2,27 @@
 description: Description of 'interlocked_increment' function in HyperDbg Scripts
 ---
 
-# interlocked\_increment
+# interlocked_increment
 
 ## Function
 
-> interlocked\_increment
+> interlocked_increment
 
 ## Syntax
 
-> interlocked\_increment\( GlobalVariable \);
+> interlocked_increment( \*Variable );
 
 ## Parameters
 
-**\[GlobalVariable \(Addend\)\]**
+**\[\*Variable (Addend)]**
 
-```text
-     A global variable to be added by `1`.
+```
+     A reference to a variable (most of the time a global variable) to be added by `1`.
 ```
 
 ## Description
 
-Increments \(increases by one\) the value of the specified global variable as an atomic operation.
+Increments (increases by one) the value of the specified global variable as an atomic operation.
 
 ## Return value
 
@@ -40,11 +40,10 @@ None
 
 ## Related
 
-[interlocked\_compare\_exchange](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_compare_exchange)
+[interlocked_compare_exchange](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_compare_exchange)
 
-[interlocked\_decrement](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_decrement)
+[interlocked_decrement](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_decrement)
 
-[interlocked\_exchange](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_exchange)
+[interlocked_exchange](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_exchange)
 
-[interlocked\_exchange\_add](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_exchange_add)
-
+[interlocked_exchange_add](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_exchange_add)
