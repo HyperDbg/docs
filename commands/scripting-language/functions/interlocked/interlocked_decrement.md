@@ -2,27 +2,27 @@
 description: Description of 'interlocked_decrement' function in HyperDbg Scripts
 ---
 
-# interlocked\_decrement
+# interlocked_decrement
 
 ## Function
 
-> interlocked\_decrement
+> interlocked_decrement
 
 ## Syntax
 
-> interlocked\_decrement\( GlobalVariable \);
+> interlocked_decrement( \*Variable );
 
 ## Parameters
 
-**\[GlobalVariable \(Addend\)\]**
+**\[\*Variable (Addend)]**
 
-```text
-     A global variable to be subtracted by `1`.
+```
+     A reference to a variable (most of the time a global variable) to be subtracted by `1`.
 ```
 
 ## Description
 
-Decrements \(decreases by one\) the value of the specified global variable as an atomic operation.
+Decrements (decreases by one) the value of the specified global variable as an atomic operation.
 
 ## Return value
 
@@ -40,11 +40,10 @@ None
 
 ## Related
 
-[interlocked\_compare\_exchange](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_compare_exchange)
+[interlocked_compare_exchange](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_compare_exchange)
 
-[interlocked\_increment](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_increment)
+[interlocked_increment](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_increment)
 
-[interlocked\_exchange](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_exchange)
+[interlocked_exchange](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_exchange)
 
-[interlocked\_exchange\_add](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_exchange_add)
-
+[interlocked_exchange_add](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_exchange_add)
