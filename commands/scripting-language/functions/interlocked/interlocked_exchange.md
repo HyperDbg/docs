@@ -2,27 +2,27 @@
 description: Description of 'interlocked_exchange' function in HyperDbg Scripts
 ---
 
-# interlocked\_exchange
+# interlocked_exchange
 
 ## Function
 
-> interlocked\_exchange
+> interlocked_exchange
 
 ## Syntax
 
-> interlocked\_exchange\( GlobalVariable, Expression \);
+> interlocked_exchange( \*Variable, Expression );
 
 ## Parameters
 
-**\[GlobalVariable \(Target\)\]**
+**\[\*Variable (Target)]**
 
-```text
-     A global variable to be exchanged. The function sets this variable to **Value** and returns its prior value.
+```
+     A reference to a variable (most of the time a global variable) to be exchanged. The function sets this variable to **Value** and returns its prior value.
 ```
 
-**\[Expression \(Value\)\]**
+**\[Expression (Value)]**
 
-```text
+```
      The value to be exchanged with the value pointed to by **Target**.
 ```
 
@@ -44,11 +44,10 @@ None
 
 ## Related
 
-[interlocked\_compare\_exchange](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_compare_exchange)
+[interlocked_compare_exchange](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_compare_exchange)
 
-[interlocked\_increment](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_increment)
+[interlocked_increment](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_increment)
 
-[interlocked\_exchange\_add](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_exchange_add)
+[interlocked_exchange_add](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_exchange_add)
 
-[interlocked\_decrement](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_decrement)
-
+[interlocked_decrement](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_decrement)
