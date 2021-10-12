@@ -30,13 +30,15 @@ None
 
 ## Examples
 
-First of all, you should define a gob
+First of all, you should define a global variable and assign zero to it (unlocked state).
 
 `? .my_lock = 0;`
 
+Then, you can use it like this:
+
 `spinlock_lock(&.my_lock);`
 
-Locks the spinlock of a global variable (lock) called `.my_lock_var`. Note that you should use the unary operator `&` to pass a reference of the global variable to this function.
+The above example, locks the spinlock of a global variable (lock) called `.my_lock_var`. Note that you should use the unary operator `&` to pass a reference of the global variable to this function.
 
 ## **Remarks**
 
