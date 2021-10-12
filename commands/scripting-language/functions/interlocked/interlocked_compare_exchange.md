@@ -2,33 +2,33 @@
 description: Description of 'interlocked_compare_exchange' function in HyperDbg Scripts
 ---
 
-# interlocked\_compare\_exchange
+# interlocked_compare_exchange
 
 ## Function
 
-> interlocked\_compare\_exchange
+> interlocked_compare_exchange
 
 ## Syntax
 
-> interlocked\_compare\_exchange\( GlobalVariable, Expression, Expression \);
+> interlocked_compare_exchange( \*Variable, Expression, Expression );
 
 ## Parameters
 
-**\[GlobalVariable \(Destination\)\]**
+**\[\*Variable (Destination)]**
 
-```text
-     A global variable that is compared with the value of **Comperand**.
+```
+     A reference to a variable (most of the time a global variable) that is compared with the value of **Comperand**.
 ```
 
-**\[Expression \(ExChange\)\]**
+**\[Expression (ExChange)]**
 
-```text
+```
      Specifies the output value pointed to by **Destination** if the input value pointed to by **Destination** equals the value of **Comperand**.
 ```
 
-**\[Expression \(Comperand\)\]**
+**\[Expression (Comperand)]**
 
-```text
+```
     Specifies the value that is compared with the input value pointed to by **Destination**.
 ```
 
@@ -50,11 +50,10 @@ None
 
 ## Related
 
-[interlocked\_exchange\_add](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_exchange_add)
+[interlocked_exchange_add](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_exchange_add)
 
-[interlocked\_increment](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_increment)
+[interlocked_increment](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_increment)
 
-[interlocked\_exchange](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_exchange)
+[interlocked_exchange](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_exchange)
 
-[interlocked\_decrement](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_decrement)
-
+[interlocked_decrement](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_decrement)
