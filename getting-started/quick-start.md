@@ -19,14 +19,16 @@ If you want to build HyperDbg, follow the steps in the links below; you can also
 
 After that, you need to attach to an instance of HyperDbg.
 
-* [**Local Debugging \(VMI Mode\)**](https://docs.hyperdbg.org/getting-started/attach-to-hyperdbg/attach-to-local-machine)
-* [**Debug a Physical Machine \(Debugger Mode\)**](https://docs.hyperdbg.org/getting-started/attach-to-hyperdbg/debug#physical-machine)
-* [**Debug a VMware Workstation Guest \(Debugger Mode\)**](https://docs.hyperdbg.org/getting-started/attach-to-hyperdbg/debug#vmware-workstation)
-* [**Connect to a Remote Machine \(VMI Mode\)**](https://docs.hyperdbg.org/getting-started/attach-to-hyperdbg/debug#connect-to-debuggee-vmi-mode)
+* [**Local Debugging (VMI Mode)**](https://docs.hyperdbg.org/getting-started/attach-to-hyperdbg/attach-to-local-machine)
+* [**Debug a Physical Machine (Debugger Mode)**](https://docs.hyperdbg.org/getting-started/attach-to-hyperdbg/debug#physical-machine)
+* [**Debug a VMware Workstation Guest (Debugger Mode)**](https://docs.hyperdbg.org/getting-started/attach-to-hyperdbg/debug#vmware-workstation)
+* [**Connect to a Remote Machine (VMI Mode)**](https://docs.hyperdbg.org/getting-started/attach-to-hyperdbg/debug#connect-to-debuggee-vmi-mode)
 
 Finally, you can see many examples provided in the following link to use HyperDbg.
 
-{% page-ref page="../using-hyperdbg/examples/" %}
+{% content-ref url="../commands/scripting-language/examples/" %}
+[examples](../commands/scripting-language/examples/)
+{% endcontent-ref %}
 
 _**Done!** You successfully used HyperDbg Debugger._
 
@@ -75,9 +77,8 @@ If you want to see more advanced topics about HyperDbg.
 * [**Doxygen Style**](https://docs.hyperdbg.org/contribution/style-guide/doxygen-style)
 * [**Logo & Artworks**](https://docs.hyperdbg.org/style-guide/logo)
 
-You can also follow the ****[**contribution guide**](https://github.com/HyperDbg/HyperDbg/blob/master/CONTRIBUTING.md).
+You can also follow the \*\*\*\*[**contribution guide**](https://github.com/HyperDbg/HyperDbg/blob/master/CONTRIBUTING.md).
 
 ## **Any other questions**
 
-If you have any other questions, then it's probably addressed in the [**FAQ**](https://docs.hyperdbg.org/getting-started/faq) ****section. If your question remained unanswered or your problem is unsolved, then you can create an [**issue**](https://github.com/HyperDbg/HyperDbg/issues).
-
+If you have any other questions, then it's probably addressed in the [**FAQ**](https://docs.hyperdbg.org/getting-started/faq) \*\*\*\*section. If your question remained unanswered or your problem is unsolved, then you can create an [**issue**](https://github.com/HyperDbg/HyperDbg/issues).
