@@ -118,6 +118,7 @@
     * [view system state (registers, memory, variables)](commands/scripting-language/examples/view-system-state.md)
     * [change system state (registers, memory, variables)](commands/scripting-language/examples/change-system-state-registers-memory-variables.md)
     * [conditional breakpoints](commands/scripting-language/examples/conditional-breakpoints.md)
+    * [change the normal sequence of execution](commands/scripting-language/examples/change-the-normal-sequence-of-execution.md)
     * [access to a variable from different cores](commands/scripting-language/examples/access-to-a-variable-from-different-cores.md)
     * [count occurrences of an event](commands/scripting-language/examples/count-occurrences-of-an-event.md)
   * [Functions](commands/scripting-language/functions/README.md)
