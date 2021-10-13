@@ -2,7 +2,7 @@
 description: Description of '!va2pa' command in HyperDbg.
 ---
 
-# !va2pa \(convert a virtual address to physical address\)
+# !va2pa (convert a virtual address to physical address)
 
 ### Command
 
@@ -10,7 +10,7 @@ description: Description of '!va2pa' command in HyperDbg.
 
 ### Syntax
 
-> !va2pa \[Virtual Address\] pid \[Process Id \(hex value\)\]
+> !va2pa \[Virtual Address] pid \[Process Id (hex value)]
 
 ### Description
 
@@ -18,13 +18,13 @@ Converts the VIRTUAL address to the PHYSICAL address.
 
 ### Parameters
 
-**\[Virtual Address\]**
+**\[Virtual Address]**
 
 The target **virtual** address
 
-**\[Process Id \(hex value\)\]**
+**\[Process Id (hex value)]**
 
-The **process id** of where you want to convert the address based on it \(if you don't specify this parameter, then the system process memory layout is used\)
+The **process id** of where you want to convert the address based on it (if you don't specify this parameter, then the system process memory layout is used)
 
 ### Examples
 
@@ -49,7 +49,7 @@ HyperDbg> !va2pa fffff800`4ebc9370
 21c9370
 ```
 
-The following command shows the physical address of ``fffff800`4ebc9370``in the process layout of process id \(0x4\).
+The following command shows the physical address of ``fffff800`4ebc9370``in the process layout of process id (0x4).
 
 ```diff
 HyperDbg> !va2pa fffff800`4ebc9370 pid 0x4
@@ -71,7 +71,7 @@ typedef struct _DEBUGGER_VA2PA_AND_PA2VA_COMMANDS {
 } DEBUGGER_VA2PA_AND_PA2VA_COMMANDS, *PDEBUGGER_VA2PA_AND_PA2VA_COMMANDS;
 ```
 
-You should only fill the **VirtualAddress** of the above structure when you want a physical address and fill the above **PhysicalAddress** when you want a virtual address. Also, set **IsVirtual2Physical** to **`true`** in the case of virtual-to-physical and set it to **`false`** in the case of physical-to-virtual.
+You should only fill the **VirtualAddress** of the above structure when you want a physical address and fill the above **PhysicalAddress** when you want a virtual address. Also, set **IsVirtual2Physical** to `true` in the case of virtual-to-physical and set it to `false` in the case of physical-to-virtual.
 
 If you want to convert based on another process memory layout, then put its process ID. Otherwise, put the current process id on it. **ProcessId** can't be `null`.
 
@@ -81,7 +81,7 @@ If you want to convert based on another process memory layout, then put its proc
 If the virtual address or process id does not exist, then it shows **`0`**.
 {% endhint %}
 
-This command will continue the debuggee for some time \(in Debugger Mode\). This means that you lose the current context \(registers & memory\) after executing this command.
+This command will continue the debuggee for some time (in Debugger Mode). This means that you lose the current context (registers & memory) after executing this command.
 
 ### Requirements
 
@@ -89,5 +89,4 @@ None
 
 ### Related
 
-[!pa2va \(convert physical address to virtual address\)](https://docs.hyperdbg.org/commands/extension-commands/pa2va)
-
+[!pa2va (convert physical address to virtual address)](https://docs.hyperdbg.org/commands/extension-commands/pa2va)
