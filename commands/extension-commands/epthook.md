@@ -140,7 +140,7 @@ Keep in mind that a conditional event can be used in **Breaking to Debugger** an
 
 This command uses the same method to [send IOCTL for regular events](https://docs.hyperdbg.org/design/debugger-internals/ioctl-requests-for-events).
 
-Use `HIDDEN_HOOK_EXEC_CC` as **EventType**, and send the address of where you want to hook in `OptionalParam1`in DEBUGGER_GENERAL_EVENT_DETAIL\*\*.
+Use `HIDDEN_HOOK_EXEC_CC` as **EventType**, and send the address of where you want to hook in `OptionalParam1`in `DEBUGGER_GENERAL_EVENT_DETAIL`.
 
 ### Design
 
@@ -148,14 +148,14 @@ Take a look at "[Design of !epthook](https://docs.hyperdbg.org/design/features/v
 
 ### Remarks
 
-This command is much slower than **!epthook2**, **\*\*because it cause vm-exits, but on the other hand, this implementation doesn't have any limitation. For example, you can use this command for hooking user-mode while you can't use** !epthook2\*\* on user-mode.
+This command is much slower than **!epthook2**, because it cause vm-exits, but on the other hand, this implementation doesn't have any limitation. For example, you can use this command for hooking user-mode while you can't use **!epthook2** on user-mode.
 
 **Why don't we use a physical address to find this command?**
 
 Generally, it's better to use the physical address. Still, we don't use the physical address here (**!epthook2** uses physical address) because if we want to compare **physical** address, we have to flush TLB (change `Cr3`) to convert **GUEST_RIP** to the physical address. As **HyperDbg** is designed to stick to the **System** process (pid = 4), this cr3 change is unavoidable. On the other hand, this command is designed to work on both user-mode and kernel-mode of random processes, and as you know, flushing TLB makes this command even slower. Hence, it's better to deal with the virtual address.
 
 {% hint style="danger" %}
-You shouldn't use any of **!monitor**, **!epthook**, and **!epthook2** commands on the same page (4KB) simultaneously. For example, when you put a hidden hook (**!epthook2**) on **0x10000005**, **\*\*you shouldn't use any of** !monitor **or** !epthook **commands on the address starting from** 0x10000000 **to** 0x10000fff\*\*.
+You shouldn't use any of **!monitor**, **!epthook**, and **!epthook2** commands on the same page (4KB) simultaneously. For example, when you put a hidden hook (**!epthook2**) on **0x10000005**, you shouldn't use any of **!monitor** **or** !epthook **commands on the address starting from** 0x10000000 **to** 0x10000fff\*\*.
 
 You can use **!epthook** (just _**!epthook**_ not **!epthook2** and not **!monitor**) on two or more addresses on the same page (means that you can use the **!epthook** multiple times for addresses between a single page or putting multiple hidden breakpoints on a single page). But you can't use **!monitor** or **!epthook2** twice on the same page.
 {% endhint %}
