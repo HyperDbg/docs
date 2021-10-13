@@ -12,7 +12,7 @@ First, we can save our command(s) in a file and then use the [.script](https://d
 In HyperDbg's batch scripts '`#`' is used as the [comment character](https://docs.hyperdbg.org/commands/debugging-commands/comment). However, in the script engine, it uses a C-like [commenting style](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations#comments).
 {% endhint %}
 
-For example, let's assume that we saved the following lines in `c:\users\sina\desktop\script.txt`**.**
+For example, let's assume that we saved the following lines in `c:\users\sina\desktop\script.txt`.
 
 ```bash
 # Test HyperDbg Script
@@ -27,7 +27,7 @@ unload
 exit
 ```
 
-Now, if we run **HyperDbg**, **\*\*then we can** .script\*\* command like this :
+Now, if we run HyperDbg, then we can v command like this :
 
 ```bash
 HyperDbg> .script c:\users\sina\desktop\script.txt
