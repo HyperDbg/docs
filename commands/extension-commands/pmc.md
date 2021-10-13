@@ -2,7 +2,7 @@
 description: Description of '!pmc' command in HyperDbg.
 ---
 
-# !pmc \(hook RDPMC instruction execution\)
+# !pmc (hook RDPMC instruction execution)
 
 ### Command
 
@@ -10,11 +10,11 @@ description: Description of '!pmc' command in HyperDbg.
 
 ### Syntax
 
-> !pmc \[pid \(hex value\)\] \[core \(hex value\)\] \[imm \(yes\|no\)\] \[event options\]
+> !pmc \[pid (hex value)] \[core (hex value)] \[imm (yes|no)] \[event options]
 
 ### Description
 
-Triggers when the debugging machine executes **RDPMC** instruction in any level of execution \(kernel-mode or user-mode\).
+Triggers when the debugging machine executes **RDPMC** instruction in any level of execution (kernel-mode or user-mode).
 
 {% hint style="danger" %}
 Using this command makes **HyperDbg** vulnerable to timing methods to detect the presence of hypervisor. You should not use this command in [transparent-mode](https://docs.hyperdbg.org/tips-and-tricks/considerations/transparent-mode).
@@ -22,25 +22,25 @@ Using this command makes **HyperDbg** vulnerable to timing methods to detect the
 
 ### Parameters
 
-**\[pid \(hex value\)\]**
+**\[pid (hex value)]**
 
 Optional value to trigger the event in just a specific process. Add `pid xx` to your command; thus, the command will be executed if the process id is equal to `xx`. If you don't specify this, option then by default, you receive events on all processes.
 
-**\[core \(hex value\)\]**
+**\[core (hex value)]**
 
 Optional value to trigger the event in just a specific core. Add `core xx` to your command thus command will be executed if core id is equal to `xx`. If you don't specify this option, then by default, you receive events on all cores.
 
-**\[imm \(yes\|no\)\]**
+**\[imm (yes|no)]**
 
-Optional value in which `yes` means the results \(printed texts in scripts\) should be delivered immediately to the debugger. `no` means that the results can be accumulated and delivered as a couple of messages when the buffer is full; thus, it's substantially faster, but it's not real-time. By default, this value is set to  `yes`.
+Optional value in which `yes` means the results (printed texts in scripts) should be delivered immediately to the debugger. `no` means that the results can be accumulated and delivered as a couple of messages when the buffer is full; thus, it's substantially faster, but it's not real-time. By default, this value is set to `yes`.
 
-**\[event options\]**
+**\[event options]**
 
-Regular event parameters that are used in HyperDbg events. \(For more information, read [this ](https://docs.hyperdbg.org/using-hyperdbg/prerequisites)topic\)
+Regular event parameters that are used in HyperDbg events. (For more information, read [this ](https://docs.hyperdbg.org/using-hyperdbg/prerequisites)topic)
 
 ### Context
 
-As the **Context** \(**`r8`** in custom code and **`rdx`** in condition code register\) to the event trigger, **HyperDbg** sends **NULL**.
+As the **Context** (`r8` in custom code and `rdx` in condition code register) to the event trigger, **HyperDbg** sends **NULL**.
 
 ### Debugger
 
@@ -70,23 +70,23 @@ HyperDbg> !pmc pid 490 core 2
 
 #### Script
 
-Using the following command, you can use HyperDbg's Script Engine. You should replace the string between braces \(`HyperDbg Script Here`\) with your script. You can find script examples [here](https://docs.hyperdbg.org/commands/scripting-language/examples).
+Using the following command, you can use HyperDbg's Script Engine. You should replace the string between braces (`HyperDbg Script Here`) with your script. You can find script examples [here](https://docs.hyperdbg.org/commands/scripting-language/examples).
 
-```text
+```
 HyperDbg> !pmc script { HyperDbg Script Here }
 ```
 
 The above command when messages don't need to be delivered immediately.
 
-```text
+```
 HyperDbg> !pmc script { HyperDbg Script Here } imm no
 ```
 
-**Script \(From File\)**
+**Script (From File)**
 
 If you saved your script into a file then you can add `file:` instead of a script and append the file path to it. For example, the following examples show how you can run a script from `file:c:\users\sina\desktop\script.txt`.
 
-```text
+```
 HyperDbg> !pmc script {file:c:\users\sina\desktop\script.txt}
 ```
 
@@ -102,15 +102,15 @@ Please read "[How to create an action?](https://docs.hyperdbg.org/using-hyperdbg
 Your custom code will be executed in vmx-root mode. Take a look at [this topic](https://docs.hyperdbg.org/tips-and-tricks/considerations/vmx-root-mode-vs-vmx-non-root-mode) for more information. Running code in vmx-root is considered "[unsafe](https://docs.hyperdbg.org/tips-and-tricks/considerations/the-unsafe-behavior)".
 {% endhint %}
 
-##### Run Custom Code \(Unconditional\)
+**Run Custom Code (Unconditional)**
 
-Monitoring process id **0x490** for **RDPMC** instruction execution _\*\*_and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) for more information.
+Monitoring process id **0x490** for **RDPMC** instruction execution and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) for more information.
 
 ```c
 HyperDbg> !pmc pid 490 code {90 90 90}
 ```
 
-##### Run Custom Code \(Conditional\)
+**Run Custom Code (Conditional)**
 
 Monitoring process id **0x490** for **RDPMC** instruction execution and runs 3 nops whenever the event condition is triggered and runs 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) and [how to create a condition](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-a-condition) for more information.
 
@@ -126,15 +126,15 @@ Keep in mind that a conditional event can be used in **Breaking to Debugger** an
 
 This command uses the same method to [send IOCTL for regular events](https://docs.hyperdbg.org/design/debugger-internals/ioctl-requests-for-events).
 
-As **EventType** use `PMC_INSTRUCTION_EXECUTION` in **DEBUGGER\_GENERAL\_EVENT\_DETAIL**.
+As **EventType** use `PMC_INSTRUCTION_EXECUTION` in `DEBUGGER_GENERAL_EVENT_DETAIL`.
 
 ### Design
 
-This command uses **RDPMC** \(**EXIT\_REASON\_RDPMC - 15**\) vm-exit to implement RDPMC hooks.
+This command uses **RDPMC** (**EXIT_REASON_RDPMC - 15**) vm-exit to implement RDPMC hooks.
 
 ### Remarks
 
-This is an event command, but in the current version of HyperDbg \(in Debugger Mode\), this command will continue the debuggee for some time; however, you can use [this trick](https://docs.hyperdbg.org/tips-and-tricks/misc/enable-and-disable-events-in-debugger-mode) to make sure you won't lose any event.
+This is an event command, but in the current version of HyperDbg (in Debugger Mode), this command will continue the debuggee for some time; however, you can use [this trick](https://docs.hyperdbg.org/tips-and-tricks/misc/enable-and-disable-events-in-debugger-mode) to make sure you won't lose any event.
 
 ### Requirements
 
@@ -142,5 +142,4 @@ None
 
 ### Related
 
-[!tsc \(hook RDTSC/RDTSCP instruction execution\)](https://docs.hyperdbg.org/commands/extension-commands/tsc)
-
+[!tsc (hook RDTSC/RDTSCP instruction execution)](https://docs.hyperdbg.org/commands/extension-commands/tsc)
