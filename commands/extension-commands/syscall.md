@@ -50,11 +50,11 @@ Optional value in which `yes` means the results \(printed texts in scripts\) sho
 
 Regular event parameters that are used in HyperDbg events. \(For more information, read [this ](https://docs.hyperdbg.org/using-hyperdbg/prerequisites)topic\)
 
-## Context
+### Context
 
 As the **Context** \(**`r8`** in custom code and **`rdx`** in condition code register\) to the event trigger, **HyperDbg** sends the system-call number, which is `rax` register in Windows system-call calling convention.
 
-## Debugger
+### Debugger
 
 This event supports three debugging mechanisms.
 
@@ -66,7 +66,7 @@ This event supports three debugging mechanisms.
 Please read "[How to create a condition?](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-a-condition)" if you need a conditional event, a conditional event can be used in all "**Break**", "**Script**", and "**Custom Code**".
 {% endhint %}
 
-## Break
+#### Break
 
 You can use the [condition ](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-a-condition)if you want to check the syscall parameters. For example, Windows uses an x64 fast-call calling convention on its system-call entry; thus, you can check whether parameters of **syscall** `rcx,rdx,r8, etc.` match to your debugging logic or not and have a conditional syscall hooker, and also, you can change the parameters of a **syscall**.
 
@@ -82,7 +82,7 @@ Suppose we want to break on system-call **0x55** in process id **0x490**. Take a
 HyperDbg> !syscall 55 pid 490
 ```
 
-## Script
+#### Script
 
 Using the following command, you can use HyperDbg's Script Engine. You should replace the string between braces \(`HyperDbg Script Here`\) with your script. You can find script examples [here](https://docs.hyperdbg.org/commands/scripting-language/examples).
 
@@ -108,7 +108,7 @@ HyperDbg> !syscall 55 script {file:c:\users\sina\desktop\script.txt}
 You can use [**event forwarding**](https://docs.hyperdbg.org/tips-and-tricks/misc/event-forwarding) to forward the event monitoring results from this event and other events to an external source, e.g., **File**, **NamedPipe**, or **TCP Socket**. This way, you can use **HyperDbg** as a monitoring tool and gather your target system's behavior and use it later or analyze it on other systems.
 {% endhint %}
 
-## Custom Code
+### Custom Code
 
 Please read "[How to create an action?](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action)" to get an idea about how to run the custom buffer code in **HyperDbg**.
 
@@ -116,7 +116,7 @@ Please read "[How to create an action?](https://docs.hyperdbg.org/using-hyperdbg
 Your custom code will be executed in vmx-root mode. Take a look at [this topic](https://docs.hyperdbg.org/tips-and-tricks/considerations/vmx-root-mode-vs-vmx-non-root-mode) for more information. Running code in vmx-root is considered "[unsafe](https://docs.hyperdbg.org/tips-and-tricks/considerations/the-unsafe-behavior)".
 {% endhint %}
 
-### Run Custom Code \(Unconditional\)
+##### Run Custom Code \(Unconditional\)
 
 Monitoring process id **0x490** for syscall-number **0x55** and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) for more information.
 
@@ -124,7 +124,7 @@ Monitoring process id **0x490** for syscall-number **0x55** and run 3 nops whene
 HyperDbg> !syscall 55 pid 490 code {90 90 90}
 ```
 
-### Run Custom Code \(Conditional\)
+##### Run Custom Code \(Conditional\)
 
 Monitoring process id **0x490** for syscall-number **0x55** and runs 3 nops whenever the event condition is triggered and runs 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) and [how to create a condition](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-a-condition) for more information.
 
@@ -142,7 +142,7 @@ This command uses the same method to [send IOCTL for regular events](https://doc
 
 As **EventType** use `SYSCALL_HOOK_EFER_SYSCALL`and send the start syscall-number \(if any\) if you want just a special system-call in `OptionalParam1` in **DEBUGGER\_GENERAL\_EVENT\_DETAIL**.
 
-## Design
+### Design
 
 Take a look at "[Design of !syscall & !sysret](https://docs.hyperdbg.org/design/features/vmm-module/design-of-syscall-and-sysret)" to see how it works.
 

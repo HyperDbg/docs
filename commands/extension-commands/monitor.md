@@ -56,13 +56,13 @@ Optional value in which `yes` means the results \(printed texts in scripts\) sho
 
 Regular event parameters that are used in HyperDbg events. \(For more information, read [this ](https://docs.hyperdbg.org/using-hyperdbg/prerequisites)topic\)
 
-## Context
+### Context
 
 As the **Context** \(**`r8`** in custom code and **`rdx`** in condition code register\) to the event trigger, **HyperDbg** sends the **physical** address of where triggered this event.
 
 It's a physical address representation of what you entered as **\[from address\]** and **\[to address\],** so it's not a constant address and might be different in the range you entered \(in a physical address format\).
 
-## Debugger
+### Debugger
 
 This event supports three debugging mechanisms.
 
@@ -74,7 +74,7 @@ This event supports three debugging mechanisms.
 Please read "[How to create a condition?](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-a-condition)" if you need a conditional event, a conditional event can be used in all "**Break**", "**Script**", and "**Custom Code**".
 {% endhint %}
 
-## Break
+#### Break
 
 Imagine we want to put a monitor writes but not reads on address from ``fffff800`4ed60000`` to ``fffff800`4ed60100`` , this will break to the debugger and gives the control back to you.
 
@@ -100,7 +100,7 @@ Alternatively, you can use `nt!Kd_DEFAULT_Mask` too.
 HyperDbg> !monitor rw nt!Kd_DEFAULT_Mask nt!Kd_DEFAULT_Mask+4
 ```
 
-## Script
+#### Script
 
 Using the following command, you can use HyperDbg's Script Engine. You should replace the string between braces \(`HyperDbg Script Here`\) with your script. You can find script examples [here](https://docs.hyperdbg.org/commands/scripting-language/examples).
 
@@ -126,7 +126,7 @@ HyperDbg> !monitor w fffff800`4ed60000 fffff800`4ed60100 script {file:c:\users\s
 You can use [**event forwarding**](https://docs.hyperdbg.org/tips-and-tricks/misc/event-forwarding) to forward the event monitoring results from this event and other events to an external source, e.g., **File**, **NamedPipe**, or **TCP Socket**. This way, you can use **HyperDbg** as a monitoring tool and gather your target system's behavior and use it later or analyze it on other systems.
 {% endhint %}
 
-## Custom Code
+### Custom Code
 
 Please read "[How to create an action?](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action)" to get an idea about how to run a custom buffer code in **HyperDbg**.
 
@@ -134,7 +134,7 @@ Please read "[How to create an action?](https://docs.hyperdbg.org/using-hyperdbg
 Your custom code will be executed in vmx-root mode. Take a look at [this topic](https://docs.hyperdbg.org/tips-and-tricks/considerations/vmx-root-mode-vs-vmx-non-root-mode) for more information. Running code in vmx-root is considered "[unsafe](https://docs.hyperdbg.org/tips-and-tricks/considerations/the-unsafe-behavior)".
 {% endhint %}
 
-### Run Custom Code \(Unconditional\)
+##### Run Custom Code \(Unconditional\)
 
 Monitoring reads and writes on address from ``fffff800`4ed60000`` to ``fffff800`4ed60100`` and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) for more information.
 
@@ -142,7 +142,7 @@ Monitoring reads and writes on address from ``fffff800`4ed60000`` to ``fffff800`
 HyperDbg> !monitor rw fffff800`4ed60000 fffff800`4ed60100 code {90 90 90}
 ```
 
-### Run Custom Code \(Conditional\)
+##### Run Custom Code \(Conditional\)
 
 Monitoring reads and writes on address from ``fffff800`4ed60000`` to ``fffff800`4ed60100`` and run 3 nops whenever the event condition is triggered and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) and [how to create a condition](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-a-condition) for more information.
 
@@ -160,7 +160,7 @@ This command uses the same method to [send IOCTL for regular events](https://doc
 
 As **EventType** use `HIDDEN_HOOK_READ` in the case you want just reads, use `HIDDEN_HOOK_WRITE` in the case you want just writes and use `HIDDEN_HOOK_READ_AND_WRITE` in the case you want both reads and writes and send the start address \(**from address**\) of where you want to monitor in `OptionalParam1`and end address \(**to address**\) of where you want to monitor in `OptionalParam2`address **DEBUGGER\_GENERAL\_EVENT\_DETAIL**.
 
-## Design
+### Design
 
 Take a look at "[Design of !monitor](https://docs.hyperdbg.org/design/features/vmm-module/design-of-monitor)" to see how does it work.
 

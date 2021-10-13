@@ -42,11 +42,11 @@ Optional value in which `yes` means the results \(printed texts in scripts\) sho
 
 Regular event parameters that are used in HyperDbg events. \(For more information, read [this ](https://docs.hyperdbg.org/using-hyperdbg/prerequisites)topic\)
 
-## Context
+### Context
 
 As the **Context** \(**`r8`** in custom code and **`rdx`** in condition code register\) to the event trigger, **HyperDbg** sends the **physical** address of where put the hidden hook's breakpoint.
 
-## Debugger
+### Debugger
 
 This event supports three debugging mechanisms.
 
@@ -58,7 +58,7 @@ This event supports three debugging mechanisms.
 Please read "[How to create a condition?](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-a-condition)" if you need a conditional event, a conditional event can be used in all "**Break**", "**Script**", and "**Custom Code**".
 {% endhint %}
 
-## Break
+#### Break
 
 Imagine we want to put a hook on ``fffff800`4ed6f010``, this will break into the debugger when the target address hits and gives the control back to you.
 
@@ -78,7 +78,7 @@ You can also use an expression like `nt!ExAllocatePoolWithTag+@rcx+5` too.
 HyperDbg> !epthook2 nt!ExAllocatePoolWithTag+@rcx+5
 ```
 
-## Script
+#### Script
 
 {% hint style="info" %}
 **Important:** This command operates in vmx non-root mode; however, HyperDbg's script engine is designed to work on vmx root-mode. We prefer to use the script engine in **!epthook2** and won't cause vm-exit to keep this command as fast as possible, thus, you have some limitations on using script engine as is described on "[Script engine in VMX non-root mode](https://docs.hyperdbg.org/tips-and-tricks/considerations/script-engine-in-vmx-non-root-mode)".
@@ -108,7 +108,7 @@ HyperDbg> !epthook2 fffff800`4ed6f010 script {file:c:\users\sina\desktop\script.
 You can use [**event forwarding**](https://docs.hyperdbg.org/tips-and-tricks/misc/event-forwarding) to forward the event monitoring results from this event and other events to an external source, e.g., **File**, **NamedPipe**, or **TCP Socket**. This way, you can use **HyperDbg** as a monitoring tool and gather your target system's behavior and use it later or analyze it on other systems.
 {% endhint %}
 
-## Custom Code
+### Custom Code
 
 Please read "[How to create an action?](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action)" to get an idea about how to run a custom buffer code in **HyperDbg**.
 
@@ -116,7 +116,7 @@ Please read "[How to create an action?](https://docs.hyperdbg.org/using-hyperdbg
 Your custom code will be executed in vmx-root mode. Take a look at [this topic](https://docs.hyperdbg.org/tips-and-tricks/considerations/vmx-root-mode-vs-vmx-non-root-mode) for more information. Running code in vmx-root is considered "[unsafe](https://docs.hyperdbg.org/tips-and-tricks/considerations/the-unsafe-behavior)".
 {% endhint %}
 
-### Run Custom Code \(Unconditional\)
+##### Run Custom Code \(Unconditional\)
 
 Putting a hook on `fffff801deadbeef` and run 3 nops whenever the hook is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) for more information.
 
@@ -124,7 +124,7 @@ Putting a hook on `fffff801deadbeef` and run 3 nops whenever the hook is trigger
 HyperDbg> !epthook2 fffff801deadbeef code {90 90 90}
 ```
 
-### Run Custom Code \(Conditional\)
+##### Run Custom Code \(Conditional\)
 
 Putting a hook on `fffff801deadbeef` and run 3 nops whenever the hook is triggered and also 3 nops condition. Take a look at [Run Custom Code](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) and [how to create a condition](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-a-condition) for more information.
 
@@ -142,7 +142,7 @@ This command uses the same method to [send IOCTL for regular events](https://doc
 
 Use `HIDDEN_HOOK_EXEC_DETOURS` as **EventType**, **\*\*and send the address of where you want to hook in `OptionalParam1`in** DEBUGGER\_GENERAL\_EVENT\_DETAIL\*\*.
 
-## Design
+### Design
 
 Take a look at "[Design of !epthook2](https://docs.hyperdbg.org/design/features/vmm-module/design-of-epthook2)" to see how does it work.
 

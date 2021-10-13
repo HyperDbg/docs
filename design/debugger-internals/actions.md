@@ -29,11 +29,11 @@ typedef enum _DEBUGGER_EVENT_ACTION_TYPE_ENUM {
 2. **Script** : This action type is a special feature that creates a log from the registers, memory, and special details \(pseudo-registers\) without halting the system and transfers the logs from kernel mode and vmx-root mode, safely to the debugger user mode and also you can call predefined functions and change the state of the system directly. You can use this type of action in both debugging a remote machine and debugging a local machine.
 3. **Custom Code** : Running a custom code is a special feature that will allow you to execute your custom assembly codes in the case of triggering an event. This means that your assembly codes will be executed, and the results will be returned safely to the debugger user mode. You can use this type of action in both debugging a remote machine and debugging a local machine.
 
-## Break
+#### Break
 
 By default and if you don't specify any parameters like `script { }` or `code { }` then HyperDbg interprets events as a **break**. It means that every time this event is triggered, then the system or the target process is completely halted, and now you can control the system. It is exactly like other debuggers like Windbg.
 
-## Script
+#### Script
 
 Script-engine is a powerful feature of HyperDbg that makes you able to create easy statements to create logs from the system state, change the system state, and call pre-defined functions and even halt the system and give its control to the debugger.
 
@@ -65,7 +65,7 @@ typedef struct _DEBUGGER_GENERAL_ACTION {
 
 Read [Scripting Language](https://docs.hyperdbg.org/commands/scripting-language) for more information and examples about script-engine and read [here ](https://docs.hyperdbg.org/design/script-engine)for more information about the script engine's design and internals.
 
-## Custom Code
+### Custom Code
 
 Running custom codes gives you a fast and reliable way to execute your codes in the case of triggering events without breaking the whole system, so it's super fast.
 

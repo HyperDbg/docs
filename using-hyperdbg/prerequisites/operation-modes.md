@@ -18,7 +18,7 @@ Based on **HyperDbg** [actions](https://docs.hyperdbg.org/using-hyperdbg/prerequ
 
 You can use this mode in both **local debugging** and **remote debugging**.
 
-## Debugger Mode
+### Debugger Mode
 
 If you want to use **HyperDbg** to the kernel and halt the system to step in and step out through the kernel instructions, then you should use this mode of operation.
 

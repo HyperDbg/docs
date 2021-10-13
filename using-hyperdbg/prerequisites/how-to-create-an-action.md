@@ -14,13 +14,13 @@ You can have multiple "**Custom Codes**", "**Script**", and "**Break**".
 
 This document is a brief of how to create actions for an event.
 
-## Break
+#### Break
 
 Break to the debugger, works exactly like classic debuggers like Windbg.
 
 If you simply use a command without any extra parameters, it will be treated like classic debuggers, and HyperDbg gives the system control to the debugger.
 
-## Script
+#### Script
 
 Custom vmx-root mode compatible script engine is another feature for HyperDbg.
 
