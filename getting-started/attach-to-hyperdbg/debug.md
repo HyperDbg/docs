@@ -4,13 +4,13 @@ description: Remote debugging in VMI Mode and Debugger Mode
 
 # Attach to a remote machine
 
-If you have access to a remote physical machine or a nested virtualization environment like (VMware Workstation, VirtualBox, Hyper-V, etc.), you can **operate** in both **VMI Mode** and [Debugger Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode).
+If you have access to a remote physical machine or a nested virtualization environment like (VMware Workstation, VirtualBox, Hyper-V, etc.), you can **operate** in both [**VMI Mode**](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#vmi-mode) and [**Debugger Mode**](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode).
 
 In **VMI Mode**, you can't break the kernel mode and step through the kernel instructions; still, you can step and break user-mode applications. This mode needs a network connection (TCP).
 
 In **Debugger Mode**, you can break the kernel mode and step through the kernel instructions. It needs a serial (cable or virtual device) to connect to the target machine.
 
-If you don't want to break and step kernel-mode instructions, then use VMI Mode instead. It is because the serial cable is slow, so transferring high-rates of data is substantially slower.
+If you don't want to break and step kernel-mode instructions, then use VMI Mode instead. It is because the serial cable is slow, so transferring high rates of data are substantially slower.
 
 ## Connect to Debuggee (Debugger Mode)
 
@@ -58,7 +58,7 @@ Next, click on **Add...** then choose **Serial Port** and click on **Finish**.
 
 Now, click on **Use named pipe:** and add a name for your named pipe.
 
-Your name should start with **`\\.\pipe\`** . For example, choose **`\\.\pipe\HyperDbgDebug`**.
+Your name should start with `\\.\pipe\` . For example, choose **`\\.\pipe\HyperDbgDebug`**.
 
 Make sure to enable **Yield CPU on poll**.
 
