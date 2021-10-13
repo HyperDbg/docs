@@ -2,7 +2,7 @@
 description: Description of 'cpu' command in HyperDbg.
 ---
 
-# cpu \(check cpu supported technologies\)
+# cpu (check cpu supported technologies)
 
 ### Command
 
@@ -24,7 +24,7 @@ None
 
 The following examples show a sample of `cpu` results.
 
-```text
+```
 HyperDbg> cpu
 
 vendor : GenuineIntel
@@ -48,9 +48,9 @@ This function is completely a user-mode function. There is not kernel IOCTL for 
 
 ### Remarks
 
-1. If you didn't attach to any remote sessions, it would show the current system's details.
+If you didn't attach to any remote sessions, it would show the current system's details.
 
-This command will continue the debuggee for some time \(in Debugger Mode\). This means that you lose the current context \(registers & memory\) after executing this command.
+This command will continue the debuggee for some time (in Debugger Mode). This means that you lose the current context (registers & memory) after executing this command.
 
 ### Requirements
 
@@ -59,4 +59,3 @@ None
 ### Related
 
 None
-
