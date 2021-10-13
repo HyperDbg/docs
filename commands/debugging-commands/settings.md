@@ -2,7 +2,7 @@
 description: Description of 'settings' command in HyperDbg.
 ---
 
-# settings \(configures different options and preferences\)
+# settings (configures different options and preferences)
 
 ### Command
 
@@ -10,7 +10,7 @@ description: Description of 'settings' command in HyperDbg.
 
 ### Syntax
 
-> settings \[option name\] \[value \(name \| hex value \| on \| off\)\]
+> settings \[option name] \[value (name | hex value | on | off)]
 
 ### Description
 
@@ -18,11 +18,11 @@ This command queries or changes the value of options and preferences.
 
 ### Parameters
 
-**\[option name\]**
+**\[option name]**
 
 Name of the option.
 
-**\[value \(name \| hex value \| on \| off\)\] \(optional\)**
+**\[value (name | hex value | on | off)] (optional)**
 
 Target value to modify the option.
 
@@ -30,25 +30,25 @@ Target value to modify the option.
 Each option has its own value; for example, some options might be on or off, and others might be custom numbers or names.
 {% endhint %}
 
-## Options
+### Options
 
-| Options | Values | Default Value |
-| :--- | :--- | :--- |
-| **autoflush** | on \| off | off |
-| **autounpause** | on \| off | on |
-| **syntax** | intel \| att \| masm | intel |
+| Options         | Values               | Default Value |
+| --------------- | -------------------- | ------------- |
+| **autoflush**   | on \| off            | off           |
+| **autounpause** | on \| off            | on            |
+| **syntax**      | intel \| att \| masm | intel         |
 
-**autoflush :** if you turn **autoflush** on, after each disabling or clearing an event using the '[events](https://docs.hyperdbg.org/commands/debugging-commands/events)' command, all the possible pending buffers and messages from **all the commands \(not just the command that you disabled or removed\)** that are stored to be received by the user-mode from the kernel-mode and when you press '[g](https://docs.hyperdbg.org/commands/debugging-commands/g)', you no longer see any results from previous commands; however, some commands might continue generating new messages, and those new messages won't be removed.
+**autoflush :** if you turn **autoflush** on, after each disabling or clearing an event using the '[events](https://docs.hyperdbg.org/commands/debugging-commands/events)' command, all the possible pending buffers and messages from **all the commands (not just the command that you disabled or removed)** that are stored to be received by the user-mode from the kernel-mode and when you press '[g](https://docs.hyperdbg.org/commands/debugging-commands/g)', you no longer see any results from previous commands; however, some commands might continue generating new messages, and those new messages won't be removed.
 
 You can also perform the **autoflush** manually by running the '[flush](https://docs.hyperdbg.org/commands/debugging-commands/flush)' command.
 
-**autounpause** : if you turn **autounpause** on, then if you press CTRL+C or run the '[pause](https://docs.hyperdbg.org/commands/debugging-commands/pause)' command to break to the debugger, every new event will automatically turn off your break, and you'll start receiving events and messages from the kernel-mode buffers. However, if you turn it off, then you won't receive kernel buffers and messages when you invoke a new event as the debugger will remain in the paused state \(for example, paused because of '[pause](https://docs.hyperdbg.org/commands/debugging-commands/pause)' command or CTRL+C\), in this case, you can resume receiving messages from the kernel-mode buffer by running '[g](https://docs.hyperdbg.org/commands/debugging-commands/g)' command.
+**autounpause** : if you turn **autounpause** on, then if you press CTRL+C or run the '[pause](https://docs.hyperdbg.org/commands/debugging-commands/pause)' command to break to the debugger, every new event will automatically turn off your break, and you'll start receiving events and messages from the kernel-mode buffers. However, if you turn it off, then you won't receive kernel buffers and messages when you invoke a new event as the debugger will remain in the paused state (for example, paused because of '[pause](https://docs.hyperdbg.org/commands/debugging-commands/pause)' command or CTRL+C), in this case, you can resume receiving messages from the kernel-mode buffer by running '[g](https://docs.hyperdbg.org/commands/debugging-commands/g)' command.
 
 **syntax** : specifies the syntax of disassembler for '[!u and !u2](https://docs.hyperdbg.org/commands/extension-commands/u)' commands.
 
 ### Examples
 
-The following command shows the state of **`autounpause`** option.
+The following command shows the state of `autounpause` option.
 
 ```diff
 HyperDbg> settings autounpause
@@ -64,7 +64,7 @@ set auto-unpause to enabled
 
 The following command turns **`autounpause`** off.
 
-```text
+```
 HyperDbg> settings autounpause off
 set auto-unpause to disabled
 ```
@@ -151,4 +151,3 @@ None
 ### Related
 
 None
-
