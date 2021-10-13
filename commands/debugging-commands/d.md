@@ -2,27 +2,27 @@
 description: Description of 'd*' command in HyperDbg.
 ---
 
-# db, dc, dd, dq \(read virtual memory\)
+# db, dc, dd, dq (read virtual memory)
 
 ### Command
 
 > db : read memory as Byte values and ASCII characters
 >
-> dc : read memory as Double-word values \(4 bytes\) and ASCII characters
+> dc : read memory as Double-word values (4 bytes) and ASCII characters
 >
-> dd : read memory as Double-word values \(4 bytes\)
+> dd : read memory as Double-word values (4 bytes)
 >
-> dq : read memory as Quad-word values \(8 bytes\)
+> dq : read memory as Quad-word values (8 bytes)
 
 ### Syntax
 
-> db \[address\] l \[length \(hex\)\] pid \[process id \(hex\)\]
+> db \[address] l \[length (hex)] pid \[process id (hex)]
 >
-> dc \[address\] l \[length \(hex\)\] pid \[process id \(hex\)\]
+> dc \[address] l \[length (hex)] pid \[process id (hex)]
 >
-> dd \[address\] l \[length \(hex\)\] pid \[process id \(hex\)\]
+> dd \[address] l \[length (hex)] pid \[process id (hex)]
 >
-> dq \[address\] l \[length \(hex\)\] pid \[process id \(hex\)\]
+> dq \[address] l \[length (hex)] pid \[process id (hex)]
 
 ### Description
 
@@ -30,29 +30,29 @@ Shows the **virtual** address memory content in hex form.
 
 ### Parameters
 
-**\[Address\]**
+**\[Address]**
 
 The **virtual** address of where we want to read its memory.
 
-**l \[Length\] \(optional\)**
+**l \[Length] (optional)**
 
-The length \(byte\) in hex format
+The length (byte) in hex format
 
-**pid \[process id\] \(optional\)**
+**pid \[process id] (optional)**
 
-The process ID in hex format that we want to see the memory from its context \(**cr3**\).
+The process ID in hex format that we want to see the memory from its context (**cr3**).
 
 {% hint style="info" %}
-If you don't specify the **pid**, then the default **pid** is the current process \(HyperDbg\) process layout of memory.
+If you don't specify the **pid**, then the default **pid** is the current process (HyperDbg) process layout of memory.
 {% endhint %}
 
 {% hint style="danger" %}
-In the [Debugger Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode), the **pid** \(parameter\) is ignored. If you want to view another process memory, use the '[.process](https://docs.hyperdbg.org/commands/meta-commands/.process)' command to switch to another process memory layout.
+In the [Debugger Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode), the **pid** (parameter) is ignored. If you want to view another process memory, use the '[.process](https://docs.hyperdbg.org/commands/meta-commands/.process)' command to switch to another process memory layout.
 {% endhint %}
 
 ### Examples
 
-The following command is used when we want to read the content of memory at `nt!Kd_DEFAULT_Mask` with length of `0x50`from the memory layout view of process \(`4` a.k.a. system process\) in a hex byte format.
+The following command is used when we want to read the content of memory at `nt!Kd_DEFAULT_Mask` with length of `0x50`from the memory layout view of process (`4` a.k.a. system process) in a hex byte format.
 
 ```diff
 HyperDbg> db Kd_DEFAULT_Mask l 50 pid 4
@@ -63,7 +63,7 @@ fffff801`63cf4a1c  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ............
 fffff801`63cf4a2c  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
 ```
 
-The following command is used when we want to read the content of memory at `nt!Kd_DEFAULT_Mask+@rax+10` with length of `0x30`from the memory layout view of process \(`4` a.k.a. system process\) in a hex byte format.
+The following command is used when we want to read the content of memory at `nt!Kd_DEFAULT_Mask+@rax+10` with length of `0x30`from the memory layout view of process (`4` a.k.a. system process) in a hex byte format.
 
 Note that `@rax` is **0x10** in this case.
 
@@ -74,7 +74,7 @@ fffff801`63cf4a1c  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ............
 fffff801`63cf4a2c  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................
 ```
 
-The following command is used when we want to read the content of memory at **``fffff800`3ad6f010``** with length of `0x50` from the memory layout view of process \(`4` a.k.a. system process\) in a hex byte format.
+The following command is used when we want to read the content of memory at ``fffff800`3ad6f010`` with length of `0x50` from the memory layout view of process (`4` a.k.a. system process) in a hex byte format.
 
 ```diff
 HyperDbg> db fffff800`3ad6f010 l 50 pid 4
@@ -85,7 +85,7 @@ fffff800`3ad6f040  F2 89 5C 24 68 8B F9 4C 8B 88 C0 00 00 00 45 0F  ..\$h..L....
 fffff800`3ad6f050  B7 B1 92 00 00 00 41 8B C6 44 8B C8 89 5C 24 20  ......A..D...\$
 ```
 
-The following example shows the content of memory at ``fffff800`3ad6f010`` from current process layout in a Double-word value \(4 bytes\) and ASCII characters format.
+The following example shows the content of memory at ``fffff800`3ad6f010`` from current process layout in a Double-word value (4 bytes) and ASCII characters format.
 
 ```diff
 HyperDbg> dc fffff800`3ad6f010
@@ -99,14 +99,14 @@ fffff800`3ad6f070  0038840F 8B480000 6C8B48D8 8B485824  ..8...H..H.l$XH.
 fffff800`3ad6f080  5C8B48C3 8B485024 48602474 4130C483  .H.\$PH.t$`H..0A
 ```
 
-The following example shows the content of memory at ``fffff800`3ad6f010`` from current process layout in a Double-word values \(4 bytes\) format with the length of `0x10`.
+The following example shows the content of memory at ``fffff800`3ad6f010`` from current process layout in a Double-word values (4 bytes) format with the length of `0x10`.
 
 ```diff
 HyperDbg> dd fffff800`3ad6f010 l 10
 fffff800`3ad6f010  245C8948 6C894808 89481024 57182474
 ```
 
-The following example shows the content of memory at ``fffff800`3ad6f010`` from current process layout in a Quad-word values \(8 bytes\) format.
+The following example shows the content of memory at ``fffff800`3ad6f010`` from current process layout in a Quad-word values (8 bytes) format.
 
 ```diff
 0: kHyperDbg> dq fffff800`3ad6f010
@@ -136,7 +136,7 @@ typedef struct _DEBUGGER_READ_MEMORY {
 } DEBUGGER_READ_MEMORY, * PDEBUGGER_READ_MEMORY;
 ```
 
-Where `Pid` is the process id, `Address` is the target location address and `size` is the length of the byte\(s\) that you need to read.
+Where `Pid` is the process id, `Address` is the target location address and `size` is the length of the byte(s) that you need to read.
 
 `MemoryType`is either **virtual** or **physical**.
 
@@ -167,7 +167,7 @@ typedef enum _DEBUGGER_SHOW_MEMORY_STYLE { DEBUGGER_SHOW_COMMAND_DISASSEMBLE, DE
 
 For disassembling, use the `DEBUGGER_SHOW_COMMAND_DISASSEMBLE` as the `Style`.
 
-In the debugger-mode, HyperDbg uses the exact same structure, you should send the above structure over serial to the debuggee which is paused in **vmx-root** mode.
+In the debugger mode, HyperDbg uses the exact same structure, you should send the above structure over serial to the debuggee which is paused in **vmx-root** mode.
 
 You should send the above structure with `DEBUGGER_REMOTE_PACKET_REQUESTED_ACTION_ON_VMX_ROOT_READ_MEMORY` as `RequestedAction` and `DEBUGGER_REMOTE_PACKET_TYPE_DEBUGGER_TO_DEBUGGEE_EXECUTE_ON_VMX_ROOT` as `PacketType`.
 
@@ -188,10 +188,10 @@ BOOLEAN KdSendReadMemoryPacketToDebuggee(PDEBUGGER_READ_MEMORY ReadMem);
 * If you don't specify the length, the default length for HyperDbg is 0x80 Bytes.
 
 {% hint style="warning" %}
-Please note that you should specify space between 'l' and the length in HyperDbg. For example, 'l10' is invalid, but 'l 10' is valid. \(It's opposed to windbg\).
+Please note that you should specify a space between 'l' and the length in HyperDbg. For example, 'l10' is invalid, but 'l 10' is valid. (It's opposed to windbg).
 {% endhint %}
 
-This command is guaranteed to keep debuggee in a halt state \(in Debugger Mode\); thus, nothing will change during its execution.
+This command is guaranteed to keep debuggee in a halt state (in Debugger Mode); thus, nothing will change during its execution.
 
 ### Requirements
 
@@ -199,5 +199,4 @@ None
 
 ### Related
 
-[!db, !dc, !dd, !dq \(read physical memory\)](https://docs.hyperdbg.org/commands/extension-commands/d)
-
+[!db, !dc, !dd, !dq (read physical memory)](https://docs.hyperdbg.org/commands/extension-commands/d)
