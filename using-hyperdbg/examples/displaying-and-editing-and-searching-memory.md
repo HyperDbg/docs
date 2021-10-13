@@ -1,5 +1,5 @@
 ---
-description: 'Using d*, e*, and s* commands'
+description: Using d*, e*, and s* commands
 ---
 
 # Displaying & Editing & Searching Memory
@@ -10,7 +10,7 @@ You can display, edit, and search both physical and virtual addresses using the 
 
 ## Displaying Memory
 
-The following command is used when we want to read the content of memory at **``fffff800`3ad6f010``** with length of `0x50` from the memory layout view of process \(`4` a.k.a. system process\) in a hex byte format.
+The following command is used when we want to read the content of memory at ``fffff800`3ad6f010`` with the length of `0x50` from the memory layout view of the process (`4` a.k.a. system process) in a hex byte format.
 
 ```diff
 HyperDbg> db fffff800`3ad6f010 l 50 pid 4
@@ -21,7 +21,7 @@ fffff800`3ad6f040  F2 89 5C 24 68 8B F9 4C 8B 88 C0 00 00 00 45 0F  ..\$h..L....
 fffff800`3ad6f050  B7 B1 92 00 00 00 41 8B C6 44 8B C8 89 5C 24 20  ......A..D...\$
 ```
 
-The following example shows the content of memory at ``fffff800`3ad6f010`` from current process layout in a Double-word value \(4 bytes\) and ASCII characters format.
+The following example shows the content of memory at ``fffff800`3ad6f010`` from current process layout in a Double-word value (4 bytes) and ASCII characters format.
 
 ```diff
 HyperDbg> dc fffff800`3ad6f010
@@ -35,14 +35,14 @@ fffff800`3ad6f070  0038840F 8B480000 6C8B48D8 8B485824  ..8...H..H.l$XH.
 fffff800`3ad6f080  5C8B48C3 8B485024 48602474 4130C483  .H.\$PH.t$`H..0A
 ```
 
-The following example shows the content of memory at ``fffff800`3ad6f010`` from current process layout in a Double-word values \(4 bytes\) format with the length of `0x10`.
+The following example shows the content of memory at ``fffff800`3ad6f010`` from current process layout in a Double-word values (4 bytes) format with the length of `0x10`.
 
 ```diff
 HyperDbg> dd fffff800`3ad6f010 l 10
 fffff800`3ad6f010  245C8948 6C894808 89481024 57182474
 ```
 
-The following example shows the content of memory at ``fffff800`3ad6f010`` from current process layout in a Quad-word values \(8 bytes\) format.
+The following example shows the content of memory at ``fffff800`3ad6f010`` from current process layout in a Quad-word values (8 bytes) format.
 
 ```diff
 HyperDbg> dq fffff800`3ad6f010
@@ -58,19 +58,19 @@ fffff800`3ad6f080  8B485024`5C8B48C3 4130C483`48602474
 
 ## Editing Memory
 
-The following command is used when we want to edit the content of memory at ``fffff800`3ad6f010`` in a hex byte form and change it to `0x90 0x90 0x90` \(modify **three** bytes\).
+The following command is used when we want to edit the content of memory at ``fffff800`3ad6f010`` in a hex byte form and change it to `0x90 0x90 0x90` (modify **three** bytes).
 
 ```diff
 HyperDbg> eb fffff800`3ad6f010 90 90 90
 ```
 
-The following example is used when we want to edit the contents of memory at ``fffff800`3ad6f010`` in Double-word values \(4 bytes\), change it to `245C8948` .
+The following example is used when we want to edit the contents of memory at ``fffff800`3ad6f010`` in Double-word values (4 bytes), change it to `245C8948` .
 
 ```diff
 HyperDbg> ed fffff800`3ad6f010 245C8948
 ```
 
-The following example is used when we want to edit the contents of memory at ``fffff800`3ad6f010`` in Quad-word values \(8 bytes\), change it to ``88889898`85858686`` and``92929393`97979898`` \(16 bytes\).
+The following example is used when we want to edit the contents of memory at ``fffff800`3ad6f010`` in Quad-word values (8 bytes), change it to ``88889898`85858686`` and``92929393`97979898`` (16 bytes).
 
 ```diff
 HyperDbg> eq fffff800`3ad6f010 88889898`85858686 92929393`97979898
@@ -84,7 +84,7 @@ The following command is used to search for `4156415748` starting from ``fffff80
 HyperDbg> sb fffff807`7356f010 l ffff 41 56 41 57 48
 ```
 
-The following example is used when we want to search for `f0cc8549` from `7FF62C9016AD` to `7FF62C9016AD+fff` in a different process \(process id = `1dd0`\).
+The following example is used when we want to search for `f0cc8549` from `7FF62C9016AD` to `7FF62C9016AD+fff` in a different process (process id = `1dd0`).
 
 ```diff
 HyperDbg> sd 7FF62C9016AD pid 1dd0 l fff f0cc8549
@@ -99,4 +99,3 @@ HyperDbg> sq fffff807`7356f010 l 100 0f450000`00c0888b 8b410000`0092b1b7
 {% hint style="info" %}
 If you want to perform the above actions on physical addresses, you can add **`!`** to any of the above commands.
 {% endhint %}
-
