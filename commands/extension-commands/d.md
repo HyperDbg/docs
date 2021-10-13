@@ -2,27 +2,27 @@
 description: Description of '!d*' command in HyperDbg.
 ---
 
-# !db, !dc, !dd, !dq \(read physical memory\)
+# !db, !dc, !dd, !dq (read physical memory)
 
 ### Command
 
 > !db : read memory as Byte values and ASCII characters
 >
-> !dc : read memory as Double-word values \(4 bytes\) and ASCII characters
+> !dc : read memory as Double-word values (4 bytes) and ASCII characters
 >
-> !dd : read memory as Double-word values \(4 bytes\)
+> !dd : read memory as Double-word values (4 bytes)
 >
-> !dq : read memory as Quad-word values \(8 bytes\)
+> !dq : read memory as Quad-word values (8 bytes)
 
 ### Syntax
 
-> !db \[address\] l \[length \(hex\)\]
+> !db \[address] l \[length (hex)]
 >
-> !dc \[address\] l \[length \(hex\)\]
+> !dc \[address] l \[length (hex)]
 >
-> !dd \[address\] l \[length \(hex\)\]
+> !dd \[address] l \[length (hex)]
 >
-> !dq \[address\] l \[length \(hex\)\]
+> !dq \[address] l \[length (hex)]
 
 ### Description
 
@@ -30,16 +30,16 @@ Shows the **physical** address memory content in hex form.
 
 ### Parameters
 
-**\[Address\]**
+**\[Address]**
 
 The **physical** address of where we want to read its memory.
 
-**l \[Length\] \(optional\)**
+**l \[Length] (optional)**
 
-The length \(byte\) in hex format
+The length (byte) in hex format
 
 {% hint style="danger" %}
-Process ID doesn't make sense in physical memory. If you specify **pid** for physical memory, _\*\*_then it is ignored.
+Process ID doesn't make sense in physical memory. If you specify **pid** for physical memory, \_\*\*\_then it is ignored.
 {% endhint %}
 
 ### Examples
@@ -55,9 +55,9 @@ HyperDbg> !db 1000 l 50
 #       00000000`00001040  00 00 02 00 00 00 00 00 01 01 00 00 00 00 00 00  ................
 ```
 
-The following command is used when we want to read the content of memory after evaluating the expression **`@rax+@rbx`** with length of `0x50` in a hex byte format.
+The following command is used when we want to read the content of memory after evaluating the expression `@rax+@rbx` with length of `0x50` in a hex byte format.
 
-Note that the result of **`@rax+@rbx`**is `0x1000` in this case.
+Note that the result of `@rax+@rbx` is `0x1000` in this case.
 
 ```diff
 HyperDbg> !db @rax+@rbx l 50
@@ -68,7 +68,7 @@ HyperDbg> !db @rax+@rbx l 50
 #       00000000`00001040  00 00 02 00 00 00 00 00 01 01 00 00 00 00 00 0
 ```
 
-The following example shows the content of memory at `1000` in a double-word value \(4 bytes\) and ASCII characters format.
+The following example shows the content of memory at `1000` in a double-word value (4 bytes) and ASCII characters format.
 
 ```diff
 HyperDbg> !dc 1000
@@ -82,14 +82,14 @@ HyperDbg> !dc 1000
 #       00000000`00001070  00004000 00000000 00000000 00000000  .@..............
 ```
 
-The following example shows the content of memory at `1000` in a double-word value \(4 bytes\) format with the length of `0x10`.
+The following example shows the content of memory at `1000` in a double-word value (4 bytes) format with the length of `0x10`.
 
 ```diff
 0: kHyperDbg> !dd 1000 l 10
 #       00000000`00001000  0000000B 00000000 80860000 000210D3
 ```
 
-The following example shows the content of memory at `1000` in a quad-word value \(8 bytes\) format.
+The following example shows the content of memory at `1000` in a quad-word value (8 bytes) format.
 
 ```diff
 0: kHyperDbg> !dq 1000
@@ -150,7 +150,7 @@ typedef enum _DEBUGGER_SHOW_MEMORY_STYLE { DEBUGGER_SHOW_COMMAND_DISASSEMBLE, DE
 
 For disassembling, use the `DEBUGGER_SHOW_COMMAND_DISASSEMBLE` as the `Style`.
 
-In the debugger-mode, HyperDbg uses the exact same structure, you should send the above structure over serial to the debuggee which is paused in **vmx-root** mode.
+In the debugger mode, HyperDbg uses the exact same structure, you should send the above structure over serial to the debuggee which is paused in **vmx-root** mode.
 
 You should send the above structure with `DEBUGGER_REMOTE_PACKET_REQUESTED_ACTION_ON_VMX_ROOT_READ_MEMORY` as `RequestedAction` and `DEBUGGER_REMOTE_PACKET_TYPE_DEBUGGER_TO_DEBUGGEE_EXECUTE_ON_VMX_ROOT` as `PacketType`.
 
@@ -173,14 +173,14 @@ BOOLEAN KdSendReadMemoryPacketToDebuggee(PDEBUGGER_READ_MEMORY ReadMem);
 HyperDbg won't remove breakpoints previously set using the '[bp](https://docs.hyperdbg.org/commands/debugging-commands/bp)' command if you're disassembling or reading the memory of a special **physical** address. However, for the virtual addresses, HyperDbg ignores breakpoints and shows the target location's real value.
 
 {% hint style="warning" %}
-Please note that you should specify space between 'l' and the length in HyperDbg. For example, 'l10' is invalid, but 'l 10' is valid. \(It's opposed to windbg\).
+Please note that you should specify a space between 'l' and the length in HyperDbg. For example, 'l10' is invalid, but 'l 10' is valid. (It's opposed to windbg).
 {% endhint %}
 
 {% hint style="info" %}
 Physical addresses are not validated in HyperDbg, which means if you access an invalid physical address, then the debuggee halts or crashes.
 {% endhint %}
 
-This command is guaranteed to keep debuggee in a halt state \(in Debugger Mode\); thus, nothing will change during its execution.
+This command is guaranteed to keep debuggee in a halt state (in Debugger Mode); thus, nothing will change during its execution.
 
 ### Requirements
 
@@ -188,5 +188,4 @@ None
 
 ### Related
 
-[db, dc, dd, dq \(read virtual memory\)](https://docs.hyperdbg.org/commands/debugging-commands/d)
-
+[db, dc, dd, dq (read virtual memory)](https://docs.hyperdbg.org/commands/debugging-commands/d)
