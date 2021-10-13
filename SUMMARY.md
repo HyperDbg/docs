@@ -174,7 +174,7 @@
   * [Doxygen Style](contribution/style-guide/doxygen-style.md)
 * [Logo & Artworks](contribution/logo.md)
 
-### Design
+## Design
 
 * [Features](design/features/README.md)
   * [VMM (Module)](design/features/vmm-module/README.md)
