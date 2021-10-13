@@ -2,7 +2,7 @@
 description: Description of '!pa2va' command in HyperDbg.
 ---
 
-# !pa2va \(convert physical address to virtual address\)
+# !pa2va (convert physical address to virtual address)
 
 ### Command
 
@@ -10,7 +10,7 @@ description: Description of '!pa2va' command in HyperDbg.
 
 ### Syntax
 
-> !pa2va \[Physical Address\] pid \[Process Id \(hex value\)\]
+> !pa2va \[Physical Address] pid \[Process Id (hex value)]
 
 ### Description
 
@@ -18,15 +18,13 @@ Converts the PHYSICAL address to the VIRTUAL address.
 
 ### Parameters
 
-**\[Physical Address\]**
+**\[Physical Address]**
 
 The target **physical** address
 
-**\[Process Id \(hex value\)\]**
+**\[Process Id (hex value)]**
 
-```text
-      The **process id** of where you want to convert the address based on it \(if you don't specify this parameter, then the system process memory layout is used\)
-```
+The **process id** of where you want to convert the address based on it (if you don't specify this parameter, then the system process memory layout is used)
 
 ### Examples
 
@@ -44,7 +42,7 @@ HyperDbg> !va2pa @rax+@rbx+5
 FFFFF8004EB65546
 ```
 
-The following command shows the physical address of `21c9370`in the process layout of process id \(0x4\).
+The following command shows the physical address of `21c9370`in the process layout of process id (0x4).
 
 ```diff
 HyperDbg> !va2pa 21c9370 pid 0x4
@@ -76,7 +74,7 @@ If you want to convert based on another process memory layout, then put its proc
 If the physical address or process id does not exist, then it shows **`0`**.
 {% endhint %}
 
-This command will continue the debuggee for some time \(in Debugger Mode\). This means that you lose the current context \(registers & memory\) after executing this command.
+This command will continue the debuggee for some time (in Debugger Mode). This means that you lose the current context (registers & memory) after executing this command.
 
 ### Requirements
 
@@ -84,5 +82,4 @@ None
 
 ### Related
 
-[!va2pa \(convert a virtual address to physical address\)](https://docs.hyperdbg.org/commands/extension-commands/va2pa)
-
+[!va2pa (convert a virtual address to physical address)](https://docs.hyperdbg.org/commands/extension-commands/va2pa)

@@ -22,7 +22,7 @@ A reference to a variable (most of the time a global variable) to be subtracted 
 
 Decrements (decreases by one) the value of the specified global variable as an atomic operation.
 
-## Return value
+### Return value
 
 The function returns the resulting decremented value.
 
@@ -30,7 +30,7 @@ The function returns the resulting decremented value.
 
 `Result = interlocked_decrement(.my_gloabl_counter);`
 
-Decrements a global variable by **`1`** and saves the results into a local variable named `Result`.
+Decrements a global variable by `1` and saves the results into a local variable named `Result`.
 
 ### Remarks
 

@@ -26,9 +26,9 @@ The value which is added to the global variable.
 
 Performs an atomic addition of two values.
 
-## Return value
+### Return value
 
-The function returns the initial value of the **`GlobalVariable(Addend)`** parameter.
+The function returns the initial value of the `Variable(Addend)` parameter.
 
 ### Examples
 

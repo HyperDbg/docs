@@ -36,7 +36,7 @@ if ( @rcx == 0x55) {
 
 ## Local Variables Assignment
 
-In HyperDbg's script engine, all the variables are defined without **Type**, _\*\*_and all of them are considered unsigned 64-bit integers. You can save results of functions and boolean expressions or results of mathematical calculations alongside 64-bit addresses to the variables.
+In HyperDbg's script engine, all the variables are defined without **Type**, and all of them are considered unsigned 64-bit integers. You can save results of functions and boolean expressions or results of mathematical calculations alongside 64-bit addresses to the variables.
 
 The variables can be used as an input to other functions or might be used in conditional statements or loops.
 
@@ -68,7 +68,7 @@ Like local variables, all global variables are defined without **type**, and all
 
 The variables can be used as an input to other functions or might be used in conditional statements or loops.
 
-You can also use global variables as [volatile](https://en.wikipedia.org/wiki/Volatile_%28computer_programming%29) variables to the [spinlocks](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks) or [interlocked](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked) functions.
+You can also use global variables as [volatile](https://en.wikipedia.org/wiki/Volatile_\(computer_programming\)) variables to the [spinlocks](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks) or [interlocked](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked) functions.
 
 The difference between local variables and global variables is that the global variables start with a `.` DOT.
 
@@ -119,7 +119,7 @@ spinlock_lock(.my_global_variable_lock);
 spinlock_unlock(.my_global_variable_lock);
 ```
 
-As another example, assume that we want to count the number of times a function is called. For this purpose, we need a global variable to hold this number. You can safely use [interlocked\_increment](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_increment) for this purpose, and for other mathematical operations or [atomic](https://wiki.osdev.org/Atomic_operation) exchange operations, you can use other [**interlocked**](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/) functions.
+As another example, assume that we want to count the number of times a function is called. For this purpose, we need a global variable to hold this number. You can safely use [interlocked_increment](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_increment) for this purpose, and for other mathematical operations or [atomic](https://wiki.osdev.org/Atomic_operation) exchange operations, you can use other [**interlocked**](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/) functions.
 
 ```c
 interlocked_increment(.my_global_counter);
@@ -141,15 +141,14 @@ Modifying memory is possible using '[eb, ed, eq](https://docs.hyperdbg.org/comma
 
 `eq` modifies a `qword` value.
 
-The following code edits memory \(**quad-word**\) at `fffff8031d44fde0` and change it to `0x12345678deadbeef`.
+The following code edits memory (**quad-word**) at `fffff8031d44fde0` and change it to `0x12345678deadbeef`.
 
 ```c
 IsEditApplied = eq(fffff8031d44fde0, 0x12345678deadbeef);
 ```
 
-The following code changes a **byte** to 0x90 at the location that the **@rcx** register is pointing to, then adds **0x8** to it.
+The following code changes a **byte** to 0x90 at the location that the **@rcx** register is pointing to, then adds 0x8 to it.
 
 ```c
 IsEditApplied = eb(poi(@rcx)+8, 0x90);
 ```
-

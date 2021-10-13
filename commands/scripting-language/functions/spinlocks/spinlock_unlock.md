@@ -16,13 +16,13 @@ description: Description of 'spinlock_unlock' function in HyperDbg Scripts
 
 **\[\*Variable (Lock)]**
 
-A reference to a** **variable (most of the time a global variable), used as a [lock](https://en.wikipedia.org/wiki/Spinlock). The lock can be locked by [spinlock_lock](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks/spinlock_lock).
+A reference to a variable (most of the time a global variable), used as a [lock](https://en.wikipedia.org/wiki/Spinlock). The lock can be locked by [spinlock_lock](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks/spinlock_lock).
 
 ### Description
 
 Unlocks the spinlock referred to by lock.
 
-## Return value
+### Return value
 
 None
 

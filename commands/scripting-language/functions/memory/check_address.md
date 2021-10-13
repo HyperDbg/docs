@@ -2,19 +2,19 @@
 description: Description of 'check_address' function in HyperDbg Scripts
 ---
 
-# check\_address
+# check_address
 
 ### Function
 
-> check\_address
+> check_address
 
 ### Syntax
 
-> check\_address\( Expression \);
+> check_address( Expression );
 
 ### Parameters
 
-**\[Expression \(Address\)\]**
+**\[Expression (Address)]**
 
 A [MASM-like expression](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations) to evaluate which is the address of the target location to check.
 
@@ -22,7 +22,7 @@ A [MASM-like expression](https://docs.hyperdbg.org/commands/scripting-language/a
 
 Checks an address to see if the address is **valid** and **safe to access** from or not.
 
-## Return value
+### Return value
 
 If the address is valid and safe it returns `1`. If the address is invalid or not safe to access then it returns `0`.
 
@@ -60,4 +60,3 @@ None
 ### Related
 
 None
-

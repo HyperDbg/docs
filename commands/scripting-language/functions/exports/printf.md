@@ -10,70 +10,70 @@ description: Description of 'printf' function in HyperDbg Scripts
 
 ### Syntax
 
-> printf\( Format, Expressions \[...\] \);
+> printf( Format, Expressions \[...] );
 
 ### Parameters
 
-**\[Format-string\]**
+**\[Format-string]**
 
 A printf-like format string.
 
-**\[Expression\] \[...\]**
+**\[Expression] \[...]**
 
-[MASM-like expression\(s\)](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations) to evaluate, you can choose multiple expressions based on  the format string
+[MASM-like expression(s)](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations) to evaluate, you can choose multiple expressions based on the format string
 
 ### Description
 
-Evaluates and prints a printf-like format string with MASM expression\(s\).
+Evaluates and prints a printf-like format string with MASM expression(s).
 
 {% hint style="danger" %}
 All the format specifiers should be in a lower-case format.
 {% endhint %}
 
-## Supported Format Specifiers
+### Supported Format Specifiers
 
-| Specifier | Description |
-| :--- | :--- |
-| **%d** | Decimal signed integer |
-| **%i** | Decimal signed integer |
-| **%u** | Decimal unsigned integer |
-| **%o** | Octal integer |
-| **%x** | Hex integer |
-| **%c** | Character \(char\) |
-| **%p** | Pointer \(void \*\) |
-| **%s** | String |
-| **%ws** | Wide-String |
-| **%ls** | Wide-String |
+| Specifier | Description              |
+| --------- | ------------------------ |
+| **%d**    | Decimal signed integer   |
+| **%i**    | Decimal signed integer   |
+| **%u**    | Decimal unsigned integer |
+| **%o**    | Octal integer            |
+| **%x**    | Hex integer              |
+| **%c**    | Character (char)         |
+| **%p**    | Pointer (void \*)        |
+| **%s**    | String                   |
+| **%ws**   | Wide-String              |
+| **%ls**   | Wide-String              |
 
-## Integer Format Specifiers \(Long\)
+### Integer Format Specifiers (Long)
 
-| Specifier | Description |
-| :--- | :--- |
-| **%ld** | Long decimal signed integer |
-| **%li** | Long decimal signed integer |
-| **%lu** | Long decimal unsigned integer |
-| **%lo** | Long octal integer |
-| **%lx** | Long hex integer |
+| Specifier | Description                   |
+| --------- | ----------------------------- |
+| **%ld**   | Long decimal signed integer   |
+| **%li**   | Long decimal signed integer   |
+| **%lu**   | Long decimal unsigned integer |
+| **%lo**   | Long octal integer            |
+| **%lx**   | Long hex integer              |
 
-## Integer Format Specifiers \(Long Long\)
+### Integer Format Specifiers (Long Long)
 
-| Specifier | Description |
-| :--- | :--- |
-| **%lld** | Long long \(64-bit\) decimal signed integer |
-| **%lli** | Long long \(64-bit\) decimal signed integer |
-| **%llu** | Long long \(64-bit\) decimal unsigned integer |
-| **%llo** | Long long \(64-bit\) octal integer |
-| **%llx** | Long long \(64-bit\) hex integer |
+| Specifier | Description                                 |
+| --------- | ------------------------------------------- |
+| **%lld**  | Long long (64-bit) decimal signed integer   |
+| **%lli**  | Long long (64-bit) decimal signed integer   |
+| **%llu**  | Long long (64-bit) decimal unsigned integer |
+| **%llo**  | Long long (64-bit) octal integer            |
+| **%llx**  | Long long (64-bit) hex integer              |
 
-## Integer Format Specifiers \(Short\)
+### Integer Format Specifiers (Short)
 
-| Specifier | Description |
-| :--- | :--- |
-| **%hd** | Short decimal signed integer |
-| **%hi** | Short decimal signed integer |
-| **%hu** | Short decimal unsigned integer |
-| **%ho** | Short octal integer |
-| **%hx** | Short hex integer |
+| Specifier | Description                    |
+| --------- | ------------------------------ |
+| **%hd**   | Short decimal signed integer   |
+| **%hi**   | Short decimal signed integer   |
+| **%hu**   | Short decimal unsigned integer |
+| **%ho**   | Short octal integer            |
+| **%hx**   | Short hex integer              |
 
 ### Examples
 
@@ -96,4 +96,3 @@ You should consider avoiding ["unsafe" behavior](https://docs.hyperdbg.org/tips-
 ### Related
 
 [print](https://docs.hyperdbg.org/commands/scripting-language/functions/exports/print)
-

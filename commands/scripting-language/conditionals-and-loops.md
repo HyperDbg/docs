@@ -64,7 +64,7 @@ else {
 
 ### elsif
 
-Multiple `if...else` statements can be nested to create an `elsif` clause. Note that there is one `elsif` \(in one word\) keyword in HyperDbg script engine.
+Multiple `if...else` statements can be nested to create an `elsif` clause. Note that there is one `elsif` (in one word) keyword in HyperDbg script engine.
 
 **Syntax**
 
@@ -103,7 +103,7 @@ The following statements are used to create loops in HyperDbg's script engine.
 
 ### for
 
-The `for` ****statement creates a loop that consists of three expressions, enclosed in parentheses and separated by semicolons, followed by a block statement to be executed in the loop.
+The `for` statement creates a loop that consists of three expressions, enclosed in parentheses and separated by semicolons, followed by a block statement to be executed in the loop.
 
 **Syntax**
 
@@ -176,4 +176,3 @@ do {
     x = x - 1;
 } while (x);
 ```
-

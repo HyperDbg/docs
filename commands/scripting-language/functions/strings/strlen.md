@@ -10,11 +10,11 @@ description: Description of 'strlen' function in HyperDbg Scripts
 
 ### Syntax
 
-> strlen\( Expression \);
+> strlen( Expression );
 
 ### Parameters
 
-**\[Expression \(Address\)\]**
+**\[Expression (Address)]**
 
 A [MASM-like expression](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations) to evaluate which is the address of the target location to compute the string length.
 
@@ -22,7 +22,7 @@ A [MASM-like expression](https://docs.hyperdbg.org/commands/scripting-language/a
 
 Counts the length of the ASCII string from an address.
 
-## Return value
+### Return value
 
 The return value is the length of the strings which is located at the target address. If there is an error or if the address is invalid then, it returns `0`.
 
@@ -47,4 +47,3 @@ None
 ### Related
 
 [wcslen](https://docs.hyperdbg.org/commands/scripting-language/functions/strings/wcslen)
-

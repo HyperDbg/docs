@@ -26,7 +26,7 @@ The value to be exchanged with the value pointed to by **Target**.
 
 Sets a variable to the specified value as an atomic operation.
 
-## Return value
+### Return value
 
 Returns the initial value of the **Target** parameter.
 

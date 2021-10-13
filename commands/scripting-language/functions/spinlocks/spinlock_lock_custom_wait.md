@@ -16,7 +16,7 @@ description: Description of 'spinlock_lock_custom_wait' function in HyperDbg Scr
 
 **\[\*Variable (Lock)]**
 
-A reference to a** **variable (most of the time a global variable), used as a [lock](https://en.wikipedia.org/wiki/Spinlock).
+A reference to a\*\* \*\*variable (most of the time a global variable), used as a [lock](https://en.wikipedia.org/wiki/Spinlock).
 
 **\[Expression]**
 
@@ -30,7 +30,7 @@ By default in [spinlock_lock](https://docs.hyperdbg.org/commands/scripting-langu
 
 Locks the spinlock referred to by lock and also uses the maximum wait time to re-check the lock. The lock can be unlocked by [spinlock_unlock](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks/spinlock_unlock).
 
-## Return value
+### Return value
 
 None
 

@@ -22,7 +22,7 @@ A reference to a variable (most of the time a global variable) to be added by `1
 
 Increments (increases by one) the value of the specified global variable as an atomic operation.
 
-## Return value
+### Return value
 
 The function returns the resulting incremented value.
 

@@ -30,7 +30,7 @@ Specifies the value that is compared with the input value pointed to by **Destin
 
 Performs an atomic operation that compares the input value pointed to by **Destination** with the value of **Comperand**.
 
-## Return value
+### Return value
 
 The function returns the original value of **\*Destination**.
 
