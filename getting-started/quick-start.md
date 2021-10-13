@@ -59,8 +59,8 @@ If you want to see more advanced topics about HyperDbg.
 * [**Basic Concepts in Intel VT-x**](https://docs.hyperdbg.org/tips-and-tricks/considerations/basic-concepts-in-intel-vt-x)
 * [**VMX root-mode vs VMX non-root mode**](https://docs.hyperdbg.org/tips-and-tricks/considerations/vmx-root-mode-vs-vmx-non-root-mode)
 * [**The "unsafe" behavior**](https://docs.hyperdbg.org/tips-and-tricks/considerations/the-unsafe-behavior)
-* \*\*\*\*[**Script engine in VMX non-root mode**](https://docs.hyperdbg.org/tips-and-tricks/considerations/script-engine-in-vmx-non-root-mode)
-* \*\*\*\*[**Transparent Mode**](https://docs.hyperdbg.org/tips-and-tricks/considerations/transparent-mode)
+* [**Script engine in VMX non-root mode**](https://docs.hyperdbg.org/tips-and-tricks/considerations/script-engine-in-vmx-non-root-mode)
+* [**Transparent Mode**](https://docs.hyperdbg.org/tips-and-tricks/considerations/transparent-mode)
 * [**VMware backdoor I/O ports**](https://docs.hyperdbg.org/tips-and-tricks/nested-virtualization-environments/vmware-backdoor-io-ports)
 
 ## Miscellaneous topics...
@@ -77,8 +77,8 @@ If you want to see more advanced topics about HyperDbg.
 * [**Doxygen Style**](https://docs.hyperdbg.org/contribution/style-guide/doxygen-style)
 * [**Logo & Artworks**](https://docs.hyperdbg.org/style-guide/logo)
 
-You can also follow the \*\*\*\*[**contribution guide**](https://github.com/HyperDbg/HyperDbg/blob/master/CONTRIBUTING.md).
+You can also follow the [**contribution guide**](https://github.com/HyperDbg/HyperDbg/blob/master/CONTRIBUTING.md).
 
 ## **Any other questions**
 
-If you have any other questions, then it's probably addressed in the [**FAQ**](https://docs.hyperdbg.org/getting-started/faq) \*\*\*\*section. If your question remained unanswered or your problem is unsolved, then you can create an [**issue**](https://github.com/HyperDbg/HyperDbg/issues).
+If you have any other questions, then it's probably addressed in the [**FAQ**](https://docs.hyperdbg.org/getting-started/faq) section. If your question remained unanswered or your problem is unsolved, then you can create an [**issue**](https://github.com/HyperDbg/HyperDbg/issues).
