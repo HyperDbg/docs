@@ -18,7 +18,7 @@ VMware Player doesn't have nested virtualization, so it cannot be used for Hyper
 
 ![Editing VM Settings](../../.gitbook/assets/vmware-debug1.png)
 
-After that, click on **Virtualize Intel VT-x/EPT or AMD-V/RVI** and **Virtualize IOMMU \(IO memory management unit\)**.
+After that, click on **Virtualize Intel VT-x/EPT or AMD-V/RVI** and **Virtualize IOMMU (IO memory management unit)**.
 
 ![Enabling Nested-Virtualization](../../.gitbook/assets/vmware-debug2.png)
 
@@ -28,29 +28,29 @@ Next, click on **Add...** then choose **Serial Port** and click on **Finish**.
 
 Now, click on **Use named pipe:** and add a name for your named pipe.
 
-Your name should start with **`\\.\pipe\`** . For example, choose **`\\.\pipe\HyperDbgDebug`**.
+Your name should start with `\\.\pipe\` . For example, choose `\\.\pipe\HyperDbgDebu`**`g`**.
 
 Make sure to enable **Yield CPU on poll**.
 
 ![Change serial device configuration](../../.gitbook/assets/vmware-debug4.png)
 
-Now it's time to create a kernel debug connection. First of all, run the following command on the host \(debugger\). You should change the named pipe address to whatever name you chose on the previous part.
+Now it's time to create a kernel debug connection. First of all, run the following command on the host (debugger). You should change the named pipe address to whatever name you chose on the previous part.
 
-```text
+```
 HyperDbg> .debug remote namedpipe \\.\pipe\HyperDbgPipe
 ```
 
-![Waiting for a remote connection \(Host\)](../../.gitbook/assets/wait-on-namedpipe.png)
+![Waiting for a remote connection (Host)](../../.gitbook/assets/wait-on-namedpipe.png)
 
-After you tell the debugger to listen on a COM port or a named pipe, now you can run the following command in the debuggee \(guest\).
+After you tell the debugger to listen on a COM port or a named pipe, now you can run the following command in the debuggee (guest).
 
-```text
+```
 HyperDbg> .debug prepare serial 115200 com2
 ```
 
-![Preparing to connect debugger \(Guest\)](../../.gitbook/assets/prepare-to-connect-to-debugger.png)
+![Preparing to connect debugger (Guest)](../../.gitbook/assets/prepare-to-connect-to-debugger.png)
 
-Most of the times, if the serial port is the only serial device that you add to the virtual machine, then the name of the connected port is `com2`. However, you can see the exact name of the COM port on the guest's device manager.
+Most of the time, if the serial port is the only serial device that you add to the virtual machine, then the name of the connected port is `com2`. However, you can see the exact name of the COM port on the guest's device manager.
 
 After running the above command in guest, now you should see that the debuggee is connected to the debugger.
 
@@ -69,4 +69,3 @@ If you are using an unsigned version of HyperDbg driver, you should turn off the
 ![Driver Signature Enforcement Error](../../.gitbook/assets/driver-signature-enforcement-error.png)
 
 For disabling Driver Signature Enforcement, you can visit [here](https://docs.hyperdbg.org/getting-started/build-and-install#disable-driver-signature-enforcement).
-
