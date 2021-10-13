@@ -4,15 +4,15 @@ description: Description of '!cpuid' command in HyperDbg.
 
 # !cpuid \(hook CPUID instruction execution\)
 
-## Command
+### Command
 
 > !cpuid
 
-## Syntax
+### Syntax
 
 > !cpuid \[pid \(hex value\)\] \[core \(hex value\)\] \[imm \(yes\|no\)\] \[event options\]
 
-## Description
+### Description
 
 Triggers when the debugging machine executes a **CPUID** instruction in any level of execution \(kernel-mode or user-mode\).
 
@@ -20,7 +20,7 @@ Triggers when the debugging machine executes a **CPUID** instruction in any leve
 You can check for a specific CPUID index with a [condition](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-a-condition). Also, HyperDbg won't change any CPUID results in [transparent-mode](https://docs.hyperdbg.org/commands/extension-commands/hide). You can change the results of the CPUID by changing guest registers.
 {% endhint %}
 
-## Parameters
+### Parameters
 
 **\[pid \(hex value\)\]**
 
@@ -122,7 +122,7 @@ HyperDbg> !cpuid pid 490 code {90 90 90} condition {90 90 90}
 Keep in mind that a conditional event can be used in **Breaking to Debugger** and **Running Script** too.
 {% endhint %}
 
-## IOCTL
+### IOCTL
 
 This command uses the same method to [send IOCTL for regular events](https://docs.hyperdbg.org/design/debugger-internals/ioctl-requests-for-events).
 
@@ -132,15 +132,15 @@ As **EventType** use `CPUID_INSTRUCTION_EXECUTION` in **DEBUGGER\_GENERAL\_EVENT
 
 This command uses CPUID \(**EXIT\_REASON\_CPUID**\) vm-exits \(**10**\) to implement CPUID hooks.
 
-## **Remarks**
+### Remarks
 
 This is an event command, but in the current version of HyperDbg \(in Debugger Mode\), this command will continue the debuggee for some time; however, you can use [this trick](https://docs.hyperdbg.org/tips-and-tricks/misc/enable-and-disable-events-in-debugger-mode) to make sure you won't lose any event.
 
-## Requirements
+### Requirements
 
 None
 
-## Related
+### Related
 
 None
 

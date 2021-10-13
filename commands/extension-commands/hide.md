@@ -4,15 +4,15 @@ description: Description of '!hide' command in HyperDbg.
 
 # !hide \(enable transparent-mode\)
 
-## Command
+### Command
 
 > !hide
 
-## Syntax
+### Syntax
 
 > !hide \[pid \| name\] \[process id \(hex value\) \| name \(string\)\]
 
-## Description
+### Description
 
 Enables the transparent-mode of **HyperDbg** for anti-debugging and anti-hypervisor methods. This option only works for the processes selected by you and won't be applied to all the processes.
 
@@ -26,7 +26,7 @@ You can use this command multiple times.
 This command is case-sensitive for the **`name`** parameter.
 {% endhint %}
 
-## Parameters
+### Parameters
 
 **\[pid \| name\]**
 
@@ -40,7 +40,7 @@ Name or process id of the process that you want to make **HyperDbg** transparent
 You should append`.exe` to your process names.
 {% endhint %}
 
-## Examples
+### Examples
 
 If you want to hide **HyperDbg** for process id **`2a78`**.
 
@@ -54,7 +54,7 @@ If you want to hide **HyperDbg** for all the processes that their process names 
 HyperDbg> !hide name procexp.exe
 ```
 
-## IOCTL
+### IOCTL
 
 You should send the `IOCTL_DEBUGGER_HIDE_AND_UNHIDE_TO_TRANSPARENT_THE_DEBUGGER` IOCTL to enable or disable transparent-mode.
 
@@ -100,7 +100,7 @@ If the results were successful, then the kernel sends the `DEBUGEER_OPERATION_WA
 
 You can send the above structure multiple times if you want to hide multiple processes.
 
-## **Remarks**
+### Remarks
 
 This command will not guarantee to provide **100%** transparency, especially in nested-virtualization environments.
 
@@ -108,11 +108,11 @@ This command will not guarantee to provide **100%** transparency, especially in 
 
 This command will continue the debuggee for some time \(in Debugger Mode\). This means that you lose the current context \(registers & memory\) after executing this command.
 
-## Requirements
+### Requirements
 
 None
 
-## Related
+### Related
 
 [!measure \(measuring and providing details for transparent-mode\)](https://docs.hyperdbg.org/commands/extension-commands/measure)
 

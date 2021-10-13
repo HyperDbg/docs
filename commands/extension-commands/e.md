@@ -4,7 +4,7 @@ description: Description of '!e*' command in HyperDbg.
 
 # !eb, !ed, !eq \(edit physical memory\)
 
-## Command
+### Command
 
 > !eb : edit memory as Byte values
 >
@@ -12,7 +12,7 @@ description: Description of '!e*' command in HyperDbg.
 >
 > !eq : edit memory as Quad-word values \(8 bytes\)
 
-## Syntax
+### Syntax
 
 > !eb \[address\] \[new value \(hex\)\] pid \[process id \(hex\)\]
 >
@@ -20,11 +20,11 @@ description: Description of '!e*' command in HyperDbg.
 >
 > !eq \[address\] \[new value \(hex\)\] pid \[process id \(hex\)\]
 
-## Description
+### Description
 
 Edits the **physical** address memory contents.
 
-## Parameters
+### Parameters
 
 **\[Address\]**
 
@@ -42,7 +42,7 @@ The process ID in the hex format that we want to see the memory from its context
 Process ID doesn't make sense in physical memory. If you specify **pid** for physical memory, _\*\*_then it is ignored.
 {% endhint %}
 
-## Examples
+### Examples
 
 The following command is used when we want to edit the content of physical memory at `1000` in a hex byte form and change it to `0x90 0x90 0x90` \(modify **three** bytes\).
 
@@ -68,7 +68,7 @@ The following example is used when we want to edit the contents of physical memo
 0: kHyperDbg> !dq 1000 88889898`85858686 92929393`97979898
 ```
 
-## IOCTL
+### IOCTL
 
 This function works by calling **DeviceIoControl** with `IOCTL = IOCTL_DEBUGGER_EDIT_MEMORY`, you have to send it in the following structure.
 
@@ -141,7 +141,7 @@ The following function is responsible for sending editing memory in the debugger
 BOOLEAN KdSendEditMemoryPacketToDebuggee(PDEBUGGER_EDIT_MEMORY EditMem);
 ```
 
-## **Remarks**
+### Remarks
 
 * You can change as many bytes as you need in **byte**, **dword**, and **qword** formats. Just add new values to the end of the command.
 
@@ -153,11 +153,11 @@ Physical addresses are not validated in HyperDbg, which means if you access an i
 
 This command is guaranteed to keep debuggee in a halt state \(in Debugger Mode\); thus, nothing will change during its execution.
 
-## Requirements
+### Requirements
 
 None
 
-## Related
+### Related
 
 [eb, ed, eq \(edit virtual memory\)](https://docs.hyperdbg.org/commands/debugging-commands/e)
 

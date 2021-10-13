@@ -100,7 +100,7 @@ You can map the value to each entry's structure \(Look at Intel SDM for more inf
 
 Also, the structures are available in `MemoryMapper.h` but they might be outdated.
 
-### **Remarks**
+### Remarks
 
 {% hint style="success" %}
 If the **VirtualAddress** and Value of entry for PDE and PTE from the kernel IOCTL are the same, the entry has a LARGE PDE and doesn't have PTE.

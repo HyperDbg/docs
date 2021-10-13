@@ -4,19 +4,19 @@ description: Description of 'event' command in HyperDbg.
 
 # events \(show and modify active/disabled events\)
 
-## Command
+### Command
 
 > events
 
-## Syntax
+### Syntax
 
 > events \[e\|d\|c\] \[event number \(hex value\) \| all\]
 
-## Description
+### Description
 
 Shows a list of active/disabled events and commands or disables or clears the event\(s\).
 
-## Parameters
+### Parameters
 
 **\[e\|d\|c\] \(optional\)**
 
@@ -36,7 +36,7 @@ Specifies the target event \(you can see the list of events and their unique eve
 If you don't specify any parameters to the '**events**' command, it shows a list of events and their unique event numbers.
 {% endhint %}
 
-## Examples
+### Examples
 
 The following command shows the list of active/disabled events.
 
@@ -89,7 +89,7 @@ The following command clears and turns off every enabled and disabled event and 
 0: kHyperDbg> event c all
 ```
 
-## IOCTL
+### IOCTL
 
 This function works by calling **DeviceIoControl** with `IOCTL = IOCTL_DEBUGGER_MODIFY_EVENTS`, you have to send it in the following structure.
 
@@ -141,7 +141,7 @@ In the case of error :
 #define DEBUGGER_ERROR_DEBUGGER_MODIFY_EVENTS_INVALID_TYPE_OF_ACTION 0xc000000f
 ```
 
-## **Remarks**
+### Remarks
 
 {% hint style="danger" %}
 **Important note**
@@ -149,11 +149,11 @@ In the case of error :
 If you are operating in [Debugger Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode), you can enable or disable events while the debuggee is in a halt state. However, if you want to clear an event or all events then you lose the context as the debuggee is continued for some time to process the **clear** operation.
 {% endhint %}
 
-## Requirements
+### Requirements
 
 None
 
-## Related
+### Related
 
 None
 

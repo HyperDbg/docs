@@ -4,17 +4,17 @@ description: Description of 't' command in HyperDbg.
 
 # t \(step-in\)
 
-## Command
+### Command
 
 > t
 >
 > tr
 
-## Syntax
+### Syntax
 
 > t\[r\] \[count \(hex value\)\]
 
-## Description
+### Description
 
 Executes a single instruction \(step-in\) and optionally displays the resulting values of all registers and flags.
 
@@ -22,13 +22,13 @@ Executes a single instruction \(step-in\) and optionally displays the resulting 
 The difference between this command and the '[i](https://docs.hyperdbg.org/commands/debugging-commands/i)' command is that, in the '[i](https://docs.hyperdbg.org/commands/debugging-commands/i)' command, no other cores and other threads find a chance to be executed during the stepping process; the system is fully halted, and only the current core will execute just one instruction and halts again. However, in this command, all the threads and cores are continued until an instruction in the target thread is executed. This command won't follow the execution between different rings.
 {% endhint %}
 
-## Parameters
+### Parameters
 
 **\[count\] \(optional\)**
 
 Count of step\(s\), or how many times perform the stepping operation. If you don't set this argument, then by default, the **count** is `1`.
 
-## Examples
+### Examples
 
 If you want to step-in one instruction.
 
@@ -65,7 +65,7 @@ fffff801`63a1294a    E9 B1 00 00 00                      jmp 0xFFFFF80163A12A00
 fffff801`63a12b00    F6 44 24 10 01                      test byte ptr ss:[rsp+0x10], 0x01
 ```
 
-## IOCTL
+### IOCTL
 
 This commands works over serial by sending the serial packets to the remote computer.
 
@@ -114,7 +114,7 @@ The following function is responsible for sending breakpoint buffers in the debu
 BOOLEAN KdSendStepPacketToDebuggee(DEBUGGER_REMOTE_STEPPING_REQUEST StepRequestType);
 ```
 
-## **Remarks**
+### Remarks
 
 This command will set a **trap flag** in debuggee and continue all the cores. After executing one instruction, it halts the debuggee again.
 
@@ -122,11 +122,11 @@ If the currently executing instruction is a **call** instruction, it will follow
 
 All cores and threads \(except the currently executing thread\) find a chance to be executed between each step in this type of stepping.
 
-## Requirements
+### Requirements
 
 None
 
-## Related
+### Related
 
 [p \(step-over\)](https://docs.hyperdbg.org/commands/debugging-commands/p)
 

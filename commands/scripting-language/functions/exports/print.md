@@ -4,25 +4,25 @@ description: Description of 'print' function in HyperDbg Scripts
 
 # print
 
-## Function
+### Function
 
 > print
 
-## Syntax
+### Syntax
 
 > print\( Expression \);
 
-## Parameters
+### Parameters
 
 **\[Expression\]**
 
 A [MASM-like expression](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations) to evaluate.
 
-## Description
+### Description
 
 Evaluates and prints a MASM expression.
 
-## Examples
+### Examples
 
 `print(@rcx);`
 
@@ -40,11 +40,11 @@ Print value pointed by `$proc+@rdx` which **$proc** is equivalent to current `_E
 You can see more examples [here](https://docs.hyperdbg.org/commands/scripting-language/examples/view-system-state).
 {% endhint %}
 
-## **Remarks**
+### Remarks
 
 You should consider avoiding ["unsafe" behavior](https://docs.hyperdbg.org/tips-and-tricks/considerations/the-unsafe-behavior) in your expressions.
 
-## Related
+### Related
 
 [printf](https://docs.hyperdbg.org/commands/scripting-language/functions/exports/printf)
 

@@ -34,7 +34,7 @@ You can create unlimited output sources, but you can use a limited number of out
 
 Check the [output ](https://docs.hyperdbg.org/commands/debugging-commands/output)command to see more examples.
 
-## Remarks
+### Remarks
 
 Event forwarding is a one-way mechanism. This means you can just see the client's logs, and you cannot make changes to the logs or send commands to the target client. If you want t,o control the debugger from a remote system, you can use [.listen](https://docs.hyperdbg.org/commands/meta-commands/.listen) and [.connect](https://docs.hyperdbg.org/commands/meta-commands/.connect) commands.
 
@@ -44,7 +44,7 @@ Event forwarding is only applied to the script, which means that you can use the
 
 It's possible to create JSON results using the [**printf**](https://docs.hyperdbg.org/commands/scripting-language/functions/exports/printf) _\*\*_function.
 
-## Examples
+### Examples
 
 The following repository contains some examples of listening on a named pipe as a server or listening on TCP sockets to use event forwarding.
 

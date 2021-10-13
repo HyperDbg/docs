@@ -4,21 +4,21 @@ description: Description of 'interlocked_decrement' function in HyperDbg Scripts
 
 # interlocked_decrement
 
-## Function
+### Function
 
 > interlocked_decrement
 
-## Syntax
+### Syntax
 
 > interlocked_decrement( \*Variable );
 
-## Parameters
+### Parameters
 
 **\[\*Variable (Addend)]**
 
 A reference to a variable (most of the time a global variable) to be subtracted by `1`.
 
-## Description
+### Description
 
 Decrements (decreases by one) the value of the specified global variable as an atomic operation.
 
@@ -26,17 +26,17 @@ Decrements (decreases by one) the value of the specified global variable as an a
 
 The function returns the resulting decremented value.
 
-## Examples
+### Examples
 
 `Result = interlocked_decrement(.my_gloabl_counter);`
 
 Decrements a global variable by **`1`** and saves the results into a local variable named `Result`.
 
-## **Remarks**
+### Remarks
 
 None
 
-## Related
+### Related
 
 [interlocked_compare_exchange](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_compare_exchange)
 

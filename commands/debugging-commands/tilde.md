@@ -84,7 +84,7 @@ The following function is responsible for changing the core in the debugger.
 BOOLEAN KdSendSwitchCorePacketToDebuggee(UINT32 NewCore);
 ```
 
-### **Remarks**
+### Remarks
 
 If the current core is equal to the target core, then it will not be changed.
 

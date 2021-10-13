@@ -71,7 +71,7 @@ fffff801`27180000       b000    KeyAgent.sys                    \??\C:\Windows\s
 
 This function work by calling **NtQuerySystemInformation** and does not gets the address from the kernel, so it doesn't have any IOCTL.
 
-### **Remarks**
+### Remarks
 
 This command will continue the debuggee for some time \(in Debugger Mode\). This means that you lose the current context \(registers & memory\) after executing this command.
 

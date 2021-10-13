@@ -4,15 +4,15 @@ description: Description of '!exception' command in HyperDbg.
 
 # !exception \(hook first 32 entries of IDT\)
 
-## Command
+### Command
 
 > !exception
 
-## Syntax
+### Syntax
 
 > !exception \[IDT Index \(hex value\)\] \[pid \(hex value\)\] \[core \(hex value\)\] \[imm \(yes\|no\)\] \[event options\]
 
-## Description
+### Description
 
 Triggers when the debugging machine encounters an exception \(**faults, traps, aborts**\) or NMI or interrupt. This command applies to only the first 32 entries of IDT \(Interrupt Descriptor Table\). If you need to hook entries between 32 to 255 of IDT, you should use [!interrupt](https://docs.hyperdbg.org/commands/extension-commands/interrupt) instead.
 
@@ -20,7 +20,7 @@ Triggers when the debugging machine encounters an exception \(**faults, traps, a
 When you enable this event, only your specific entry will be hooked, so this command won't trigger on all exceptions/interrupts; thus, it won't make your computer slow but on the other hand, by using [!interrupt](https://docs.hyperdbg.org/commands/extension-commands/interrupt) command, if you just need one of the entries; still, all entries between **32** to **255** should be emulated by **HyperDbg**, _\*\*_so it's substantially slower.
 {% endhint %}
 
-## Parameters
+### Parameters
 
 **\[IDT Index \(hex value\)\]**
 
@@ -132,7 +132,7 @@ HyperDbg> !exception code {90 90 90} condition {90 90 90}
 Keep in mind that a conditional event can be used in **Breaking to Debugger** and **Running Script** too.
 {% endhint %}
 
-## IOCTL
+### IOCTL
 
 This command uses the same method to [send IOCTL for regular events](https://docs.hyperdbg.org/design/debugger-internals/ioctl-requests-for-events).
 
@@ -142,7 +142,7 @@ As **EventType** use `EXCEPTION_OCCURRED` and send the special entry between **0
 
 Take a look at "[Design of !exception & !interrupt](https://docs.hyperdbg.org/design/features/vmm-module/design-of-exception-and-interrupt)" to see how it works.
 
-## **Remarks**
+### Remarks
 
 Emulating page-fault \(entry **0xe**\) is treated differently in HyperDbg. Take a look [here ](https://docs.hyperdbg.org/design/features/design-of-exception-and-interrupt)for more information.
 
@@ -152,11 +152,11 @@ This command will re-inject the event to the debuggee after triggering the event
 
 This is an event command, but in the current version of HyperDbg \(in Debugger Mode\), this command will continue the debuggee for some time; however, you can use [this trick](https://docs.hyperdbg.org/tips-and-tricks/misc/enable-and-disable-events-in-debugger-mode) to make sure you won't lose any event.
 
-## Requirements
+### Requirements
 
 None
 
-## Related
+### Related
 
 [!interrupt \(hook external device interrupts\)](https://docs.hyperdbg.org/commands/extension-commands/interrupt)
 

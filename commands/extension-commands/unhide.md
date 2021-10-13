@@ -4,29 +4,29 @@ description: Description of '!unhide' command in HyperDbg.
 
 # !unhide \(disable transparent-mode\)
 
-## Command
+### Command
 
 > !unhide
 
-## Syntax
+### Syntax
 
 > !unhide
 
-## Description
+### Description
 
 Disables the transparent-mode of **HyperDbg**.
 
-## Parameters
+### Parameters
 
 None
 
-## Examples
+### Examples
 
 ```text
 HyperDbg> !unhide
 ```
 
-## IOCTL
+### IOCTL
 
 You should send the `IOCTL_DEBUGGER_HIDE_AND_UNHIDE_TO_TRANSPARENT_THE_DEBUGGER` IOCTL to enable or disable transparent-mode.
 
@@ -64,15 +64,15 @@ typedef struct _DEBUGGER_HIDE_AND_TRANSPARENT_DEBUGGER_MODE {
 
 If the results were successful, then the kernel sends `DEBUGEER_OPERATION_WAS_SUCCESSFULL` to user-mode \(as KernelStatus to the above structure\), and if it was unsuccessful, then `DEBUGEER_ERROR_DEBUGGER_ALREADY_UHIDE` which is an indicator that **HyperDbg** was not already in transparent-mode.
 
-## **Remarks**
+### Remarks
 
 This command will continue the debuggee for some time \(in Debugger Mode\). This means that you lose the current context \(registers & memory\) after executing this command.
 
-## Requirements
+### Requirements
 
 None
 
-## Related
+### Related
 
 [!hide \(enable transparent mode\)](https://docs.hyperdbg.org/commands/extension-commands/hide)
 

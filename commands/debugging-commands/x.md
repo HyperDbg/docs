@@ -51,7 +51,7 @@ fffff803`1d4a1070  nt!ExAllocatePoolMm
 
 None
 
-### **Remarks**
+### Remarks
 
 {% hint style="info" %}
 The default module is **`nt`**. If you don't specify the module name, then **`nt`** is selected.

@@ -4,7 +4,7 @@ description: 'Description of ''eb'', ''ed'', and ''eq'' functions in HyperDbg Sc
 
 # eb, ed, eq
 
-### Function
+#### Function
 
 > eb
 
@@ -69,7 +69,7 @@ else
 }
 ```
 
-### **Remarks**
+### Remarks
 
 None
 

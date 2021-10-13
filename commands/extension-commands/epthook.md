@@ -4,15 +4,15 @@ description: Description of '!epthook' command in HyperDbg.
 
 # !epthook \(hidden hook with EPT - stealth breakpoints\)
 
-## Command
+### Command
 
 > !epthook
 
-## Syntax
+### Syntax
 
 > !epthook \[address\] \[pid \(hex value\)\] \[core \(hex value\)\] \[imm \(yes\|no\)\] \[event options\]
 
-## Description
+### Description
 
 Puts a hidden breakpoint \(0xcc\) on the target function in user-mode and kernel-mode without modifying the content of memory in the case of reading/writing.
 
@@ -24,7 +24,7 @@ This implementation of the hidden hook causes vm-exit when it triggers. A faster
 If you want to keep the current context without continuing the debuggee, you should use the '[bp](https://docs.hyperdbg.org/commands/debugging-commands/bp)' command instead.
 {% endhint %}
 
-## Parameters
+### Parameters
 
 **\[address\]**
 
@@ -136,7 +136,7 @@ HyperDbg> !epthook fffff801deadbeef code {90 90 90} condition {90 90 90}
 Keep in mind that a conditional event can be used in **Breaking to Debugger** and **Running Script** too.
 {% endhint %}
 
-## IOCTL
+### IOCTL
 
 This command uses the same method to [send IOCTL for regular events](https://docs.hyperdbg.org/design/debugger-internals/ioctl-requests-for-events).
 
@@ -146,7 +146,7 @@ Use `HIDDEN_HOOK_EXEC_CC` as **EventType**, **\*\*and send the address of where 
 
 Take a look at "[Design of !epthook](https://docs.hyperdbg.org/design/features/vmm-module/design-of-epthook)" to see how does it work.
 
-## **Remarks**
+### Remarks
 
 This command is much slower than **!epthook2**, **\*\*because it cause vm-exits, but on the other hand, this implementation doesn't have any limitation. For example, you can use this command for hooking user-mode while you can't use** !epthook2\*\* on user-mode.
 
@@ -162,13 +162,13 @@ You can use **!epthook** \(just _**!epthook**_ not **!epthook2** and not **!moni
 
 This is an event command, but in the current version of HyperDbg \(in Debugger Mode\), this command will continue the debuggee for some time; however, you can use [this trick](https://docs.hyperdbg.org/tips-and-tricks/misc/enable-and-disable-events-in-debugger-mode) to make sure you won't lose any event.
 
-## Requirements
+### Requirements
 
 Post-Nehalem Processor \(EPT\)
 
 Processor with Execute-only Pages Support
 
-## Related
+### Related
 
 [bp \(set breakpoint\)](https://docs.hyperdbg.org/commands/debugging-commands/bp)
 

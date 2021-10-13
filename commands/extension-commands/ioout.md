@@ -4,15 +4,15 @@ description: Description of '!ioout' command in HyperDbg.
 
 # !ioout \(hook OUT instruction execution\)
 
-## Command
+### Command
 
 > !ioout
 
-## Syntax
+### Syntax
 
 > !ioout \[port \(hex value\)\] \[pid \(hex value\)\] \[core \(hex value\)\] \[imm \(yes\|no\)\] \[event options\]
 
-## Description
+### Description
 
 Triggers when the debugging machine executes **OUT** or **OUT\*** instructions or, in other words, when Windows or a driver tries to use I/O ports.
 
@@ -20,7 +20,7 @@ Triggers when the debugging machine executes **OUT** or **OUT\*** instructions o
 When you enable this event, only your specific I/O port will be hooked, so this command won't trigger on all I/O ports, thus won't make your computer slow.
 {% endhint %}
 
-## Parameters
+### Parameters
 
 **\[port \(hex value\)\]**
 
@@ -128,7 +128,7 @@ HyperDbg> !ioout 0x3f8 code {90 90 90} condition {90 90 90}
 Keep in mind that a conditional event can be used in **Breaking to Debugger** and **Running Script** too.
 {% endhint %}
 
-## IOCTL
+### IOCTL
 
 This command uses the same method to [send IOCTL for regular events](https://docs.hyperdbg.org/design/debugger-internals/ioctl-requests-for-events).
 
@@ -140,17 +140,17 @@ Both **!ioin** and **!ioout** use the vm-exits caused by setting bits in the I/O
 
 For emulating I/O ports, vm-exit with \(**EXIT\_REASON\_IO\_INSTRUCTION**\) or exit-reason **30** is used.
 
-## **Remarks**
+### Remarks
 
 You can also modify the content of I/O ports for both **IN** and **OUT** instructions.
 
 This is an event command, but in the current version of HyperDbg \(in Debugger Mode\), this command will continue the debuggee for some time; however, you can use [this trick](https://docs.hyperdbg.org/tips-and-tricks/misc/enable-and-disable-events-in-debugger-mode) to make sure you won't lose any event.
 
-## Requirements
+### Requirements
 
 None
 
-## Related
+### Related
 
 [!ioin \(hook IN instruction execution\)](https://docs.hyperdbg.org/commands/extension-commands/ioin)
 

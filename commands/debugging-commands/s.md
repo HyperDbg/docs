@@ -129,7 +129,7 @@ Also, you should provide a buffer \(size = `MaximumSearchResults * sizeof(UINT64
 
 You can read the result buffer as an `UINT64` array, and if you encounter a null entry, then it means there is no other result.
 
-### **Remarks**
+### Remarks
 
 * You can search for as many bytes as you need in **byte**, **dword**, and **qword** formats; just add the multiple byte\(s\) values to the end of the command.
 

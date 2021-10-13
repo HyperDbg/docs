@@ -4,15 +4,15 @@ description: Description of '!msrread' command in HyperDbg.
 
 # !msrread \(hook RDMSR instruction execution\)
 
-## Command
+### Command
 
 > !msrread
 
-## Syntax
+### Syntax
 
 > !msrread \[msr \(hex value\)\] \[pid \(hex value\)\] \[core \(hex value\)\] \[imm \(yes\|no\)\] \[event options\]
 
-## Description
+### Description
 
 Triggers when the debugging machine executes an **RDMSR** instruction or, in other words, when Windows or a driver tries to read a Model-Specific Register \(MSR\).
 
@@ -20,7 +20,7 @@ Triggers when the debugging machine executes an **RDMSR** instruction or, in oth
 When you enable this event, only your specific MSR will be hooked, so this command won't trigger on all MSRs thus won't make your computer slow.
 {% endhint %}
 
-## Parameters
+### Parameters
 
 **\[msr \(hex value\)\]**
 
@@ -126,7 +126,7 @@ HyperDbg> !msrread 0xc0000082 code {90 90 90} condition {90 90 90}
 Keep in mind that a conditional event can be used in **Breaking to Debugger** and **Running Script** too.
 {% endhint %}
 
-## IOCTL
+### IOCTL
 
 This command uses the same method to [send IOCTL for regular events](https://docs.hyperdbg.org/design/debugger-internals/ioctl-requests-for-events).
 
@@ -140,15 +140,15 @@ For **!msrread** vm-exit with \(**EXIT\_REASON\_MSR\_READ**\) or exit-reason **3
 
 For **!msrwrite** vm-exit with \(**EXIT\_REASON\_MSR\_WRITE**\) or exit-reason **32** is used.
 
-## **Remarks**
+### Remarks
 
 This is an event command, but in the current version of HyperDbg \(in Debugger Mode\), this command will continue the debuggee for some time; however, you can use [this trick](https://docs.hyperdbg.org/tips-and-tricks/misc/enable-and-disable-events-in-debugger-mode) to make sure you won't lose any event.
 
-## Requirements
+### Requirements
 
 None
 
-## Related
+### Related
 
 [!msrwrite \(hook WRMSR instruction execution\)](https://docs.hyperdbg.org/commands/extension-commands/msrwrite)
 

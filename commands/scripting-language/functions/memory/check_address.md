@@ -4,21 +4,21 @@ description: Description of 'check_address' function in HyperDbg Scripts
 
 # check\_address
 
-## Function
+### Function
 
 > check\_address
 
-## Syntax
+### Syntax
 
 > check\_address\( Expression \);
 
-## Parameters
+### Parameters
 
 **\[Expression \(Address\)\]**
 
 A [MASM-like expression](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations) to evaluate which is the address of the target location to check.
 
-## Description
+### Description
 
 Checks an address to see if the address is **valid** and **safe to access** from or not.
 
@@ -26,7 +26,7 @@ Checks an address to see if the address is **valid** and **safe to access** from
 
 If the address is valid and safe it returns `1`. If the address is invalid or not safe to access then it returns `0`.
 
-## Examples
+### Examples
 
 `IsValid = check_address(@rcx + 10);`
 
@@ -53,11 +53,11 @@ else
 }
 ```
 
-## **Remarks**
+### Remarks
 
 None
 
-## Related
+### Related
 
 None
 

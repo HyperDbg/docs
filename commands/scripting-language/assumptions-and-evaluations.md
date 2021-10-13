@@ -8,7 +8,7 @@ description: >-
 
 The following articles describe **HyperDbg**'s _Script Engine_.
 
-## Description
+### Description
 
 **HyperDbg** uses a MASM-like (Windbg) syntax to evaluate script expressions.
 

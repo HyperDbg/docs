@@ -4,19 +4,19 @@ description: Description of 'wrmsr' command in HyperDbg.
 
 # wrmsr \(write model-specific register\)
 
-## Command
+### Command
 
 > wrmsr
 
-## Syntax
+### Syntax
 
 > wrmsr \[msr \(hex\) - ecx\] \[value \(hex\) - edx:eax\] core \[core number\(hex\)\]
 
-## Description
+### Description
 
 Write on the model-specific register using 'wrmsr' instruction.
 
-## Parameters
+### Parameters
 
 **\[msr \(hex\) - ecx\]**
 
@@ -34,7 +34,7 @@ The core that we want to read the 'rdmsr' from
 If you don't specify the 'core' by default, it will be applied to all the cores.
 {% endhint %}
 
-## Examples
+### Examples
 
 The following command shows how we can change the MSR register `c0000082` to ``fffff807`73553180`` using `wrmsr` command.
 
@@ -54,7 +54,7 @@ The following command shows how we can change the MSR register `c0000082` to ``f
 HyperDbg> wrmsr c0000082 fffff807`73553180 core 2
 ```
 
-## IOCTL
+### IOCTL
 
 This function works by calling **DeviceIoControl** with `IOCTL = IOCTL_DEBUGGER_READ_OR_WRITE_MSR`, you have to send it in the following structure.
 
@@ -85,15 +85,15 @@ If you want to execute 'wrmsr' or 'rdmsr', you should set CoreNumber to `DEBUGGE
 #define DEBUGGER_READ_AND_WRITE_ON_MSR_APPLY_ALL_CORES 0xffffffff
 ```
 
-## **Remarks**
+### Remarks
 
 This command will continue the debuggee for some time \(in Debugger Mode\). This means that you lose the current context \(registers & memory\) after executing this command.
 
-## Requirements
+### Requirements
 
 None
 
-## Related
+### Related
 
 [rdmsr \(read model-specific register\)](https://docs.hyperdbg.org/commands/debugging-commands/rdmsr)
 

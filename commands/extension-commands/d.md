@@ -4,7 +4,7 @@ description: Description of '!d*' command in HyperDbg.
 
 # !db, !dc, !dd, !dq \(read physical memory\)
 
-## Command
+### Command
 
 > !db : read memory as Byte values and ASCII characters
 >
@@ -14,7 +14,7 @@ description: Description of '!d*' command in HyperDbg.
 >
 > !dq : read memory as Quad-word values \(8 bytes\)
 
-## Syntax
+### Syntax
 
 > !db \[address\] l \[length \(hex\)\]
 >
@@ -24,11 +24,11 @@ description: Description of '!d*' command in HyperDbg.
 >
 > !dq \[address\] l \[length \(hex\)\]
 
-## Description
+### Description
 
 Shows the **physical** address memory content in hex form.
 
-## Parameters
+### Parameters
 
 **\[Address\]**
 
@@ -42,7 +42,7 @@ The length \(byte\) in hex format
 Process ID doesn't make sense in physical memory. If you specify **pid** for physical memory, _\*\*_then it is ignored.
 {% endhint %}
 
-## Examples
+### Examples
 
 The following command is used when we want to read the content of memory at **`1000`** with length of `0x50` in a hex byte format.
 
@@ -103,7 +103,7 @@ The following example shows the content of memory at `1000` in a quad-word value
 #       00000000`00001070  00000000`00004000 00000000`00000000
 ```
 
-## IOCTL
+### IOCTL
 
 This function works by calling **DeviceIoControl** with `IOCTL = IOCTL_DEBUGGER_READ_MEMORY` , you have to send it in the following structure.
 
@@ -166,7 +166,7 @@ The following function is responsible for sending reading memory in the debugger
 BOOLEAN KdSendReadMemoryPacketToDebuggee(PDEBUGGER_READ_MEMORY ReadMem);
 ```
 
-## **Remarks**
+### Remarks
 
 * If you don't specify the length, the default length for HyperDbg is 0x80 Bytes.
 
@@ -182,11 +182,11 @@ Physical addresses are not validated in HyperDbg, which means if you access an i
 
 This command is guaranteed to keep debuggee in a halt state \(in Debugger Mode\); thus, nothing will change during its execution.
 
-## Requirements
+### Requirements
 
 None
 
-## Related
+### Related
 
 [db, dc, dd, dq \(read virtual memory\)](https://docs.hyperdbg.org/commands/debugging-commands/d)
 

@@ -4,19 +4,19 @@ description: Description of '!va2pa' command in HyperDbg.
 
 # !va2pa \(convert a virtual address to physical address\)
 
-## Command
+### Command
 
 > !va2pa
 
-## Syntax
+### Syntax
 
 > !va2pa \[Virtual Address\] pid \[Process Id \(hex value\)\]
 
-## Description
+### Description
 
 Converts the VIRTUAL address to the PHYSICAL address.
 
-## Parameters
+### Parameters
 
 **\[Virtual Address\]**
 
@@ -26,7 +26,7 @@ The target **virtual** address
 
 The **process id** of where you want to convert the address based on it \(if you don't specify this parameter, then the system process memory layout is used\)
 
-## Examples
+### Examples
 
 The following command shows the physical address of `nt!ExAllocatePoolWithTag`.
 
@@ -56,7 +56,7 @@ HyperDbg> !va2pa fffff800`4ebc9370 pid 0x4
 21c9370
 ```
 
-## IOCTL
+### IOCTL
 
 This function works by calling **DeviceIoControl** with `IOCTL = IOCTL_DEBUGGER_VA2PA_AND_PA2VA_COMMANDS`, you have to send it in the following structure.
 
@@ -75,7 +75,7 @@ You should only fill the **VirtualAddress** of the above structure when you want
 
 If you want to convert based on another process memory layout, then put its process ID. Otherwise, put the current process id on it. **ProcessId** can't be `null`.
 
-## **Remarks**
+### Remarks
 
 {% hint style="success" %}
 If the virtual address or process id does not exist, then it shows **`0`**.
@@ -83,11 +83,11 @@ If the virtual address or process id does not exist, then it shows **`0`**.
 
 This command will continue the debuggee for some time \(in Debugger Mode\). This means that you lose the current context \(registers & memory\) after executing this command.
 
-## Requirements
+### Requirements
 
 None
 
-## Related
+### Related
 
 [!pa2va \(convert physical address to virtual address\)](https://docs.hyperdbg.org/commands/extension-commands/pa2va)
 

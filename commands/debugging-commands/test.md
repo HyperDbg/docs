@@ -32,7 +32,7 @@ HyperDbg> test
 
 None
 
-### **Remarks**
+### Remarks
 
 None
 

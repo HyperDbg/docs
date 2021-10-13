@@ -4,21 +4,21 @@ description: Description of 'strlen' function in HyperDbg Scripts
 
 # strlen
 
-## Function
+### Function
 
 > strlen
 
-## Syntax
+### Syntax
 
 > strlen\( Expression \);
 
-## Parameters
+### Parameters
 
 **\[Expression \(Address\)\]**
 
 A [MASM-like expression](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations) to evaluate which is the address of the target location to compute the string length.
 
-## Description
+### Description
 
 Counts the length of the ASCII string from an address.
 
@@ -26,7 +26,7 @@ Counts the length of the ASCII string from an address.
 
 The return value is the length of the strings which is located at the target address. If there is an error or if the address is invalid then, it returns `0`.
 
-## Examples
+### Examples
 
 `StringLen = strlen(@rcx + 10);`
 
@@ -40,11 +40,11 @@ Counts ASCII string length as an 8-byte hex address, pointed by **rcx** register
 
 Counts ASCII string length located at `0xffff83811f265040` address and saves the result into `StringLen` variable.
 
-## **Remarks**
+### Remarks
 
 None
 
-## Related
+### Related
 
 [wcslen](https://docs.hyperdbg.org/commands/scripting-language/functions/strings/wcslen)
 

@@ -4,15 +4,15 @@ description: Description of 'pause' command in HyperDbg.
 
 # pause \(break to the debugger and pause processing kernel packets\)
 
-## Command
+### Command
 
 > pause
 
-## Syntax
+### Syntax
 
 > pause
 
-## Description
+### Description
 
 On the remote system, this command halts the system and gives control of the remote system to the debugger. In local debugging, this command stops processing kernel and vmx packets and ignores them.
 
@@ -20,15 +20,15 @@ On the remote system, this command halts the system and gives control of the rem
 You can unpause using the [g command](https://docs.hyperdbg.org/commands/debugging-commands/g).
 {% endhint %}
 
-## Parameters
+### Parameters
 
 None
 
-## IOCTL
+### IOCTL
 
 None
 
-## **Remarks**
+### Remarks
 
 In remote debugging, pause command or CTRL+C or CTRL+BREAK causes the target system to pause completely, and the target system halts.
 
@@ -36,11 +36,11 @@ In local debugging, pause command or CTRL+C or CTRL+BREAK causes the debugger to
 
 Most of the time, this command is used in scripts after the '[sleep](https://docs.hyperdbg.org/commands/debugging-commands/sleep)' command to block further messages caused by triggering events.
 
-## Requirements
+### Requirements
 
 None
 
-## Related
+### Related
 
 [.script \(run batch script commands\)](https://docs.hyperdbg.org/commands/meta-commands/.script)
 

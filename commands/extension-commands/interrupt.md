@@ -4,15 +4,15 @@ description: Description of '!interrupt' command in HyperDbg.
 
 # !interrupt \(hook external device interrupts\)
 
-## Command
+### Command
 
 > !interrupt
 
-## Syntax
+### Syntax
 
 > !interrupt \[IDT Index \(hex value\)\] \[pid \(hex value\)\] \[core \(hex value\)\] \[imm \(yes\|no\)\] \[event options\]
 
-## Description
+### Description
 
 Triggers when the debugging machine encounters an external-interrupt. This command applies to only **32** to **255** entries of IDT \(Interrupt Descriptor Table\). If you need to hook entries between **0** to **31** of IDT, then you should use [!exception](https://docs.hyperdbg.org/commands/extension-commands/exception) instead.
 
@@ -20,7 +20,7 @@ Triggers when the debugging machine encounters an external-interrupt. This comma
 When you enable this event, all entries from **32** to **255** will cause vm-exits, so this command will trigger on all external-interrupts; thus, making your computer substantially slower. This is not true about the [!exception](https://docs.hyperdbg.org/commands/extension-commands/exception) command as it will only trigger on that specific entry.
 {% endhint %}
 
-## Parameters
+### Parameters
 
 **\[IDT Index \(hex value\)\]**
 
@@ -126,7 +126,7 @@ HyperDbg> !interrupt code {90 90 90} condition {90 90 90}
 Keep in mind that a conditional event can be used in **Breaking to Debugger** and **Running Script** too.
 {% endhint %}
 
-## IOCTL
+### IOCTL
 
 This command uses the same method to [send IOCTL for regular events](https://docs.hyperdbg.org/design/debugger-internals/ioctl-requests-for-events).
 
@@ -138,17 +138,17 @@ Please look at **Remarks** for more information.
 
 Take a look at "[Design of !exception & !interrupt](https://docs.hyperdbg.org/design/features/vmm-module/design-of-exception-and-interrupt)" to see how it works.
 
-## **Remarks**
+### Remarks
 
 You should avoid monitoring all external-interrupt because it is generally impossible. For example, thousands of clock-interrupts will be received, and if you want to handle all of them, it makes your system unresponsive. By the way, you can monitor just one external-interrupt without any problem.
 
 This is an event command, but in the current version of HyperDbg \(in Debugger Mode\), this command will continue the debuggee for some time; however, you can use [this trick](https://docs.hyperdbg.org/tips-and-tricks/misc/enable-and-disable-events-in-debugger-mode) to make sure you won't lose any event.
 
-## Requirements
+### Requirements
 
 None
 
-## Related
+### Related
 
 [!exception \(hook first 32 entries of IDT\)](https://docs.hyperdbg.org/commands/extension-commands/exception)
 

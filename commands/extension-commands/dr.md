@@ -4,19 +4,19 @@ description: Description of '!dr' command in HyperDbg.
 
 # !dr \(hook access to debug registers\)
 
-## Command
+### Command
 
 > !dr
 
-## Syntax
+### Syntax
 
 > !dr \[pid \(hex value\)\] \[core \(hex value\)\] \[imm \(yes\|no\)\] \[event options\]
 
-## Description
+### Description
 
 Triggers, when the debugging machine accesses one of the hardware debug registers.
 
-## Parameters
+### Parameters
 
 **\[pid \(hex value\)\]**
 
@@ -124,7 +124,7 @@ HyperDbg> !dr pid 490 code {90 90 90} condition {90 90 90}
 Keep in mind that a conditional event can be used in **Breaking to Debugger** and **Running Script** too.
 {% endhint %}
 
-## IOCTL
+### IOCTL
 
 This command uses the same method to [send IOCTL for regular events](https://docs.hyperdbg.org/design/debugger-internals/ioctl-requests-for-events).
 
@@ -136,15 +136,15 @@ This command uses Debug Register Access \(**EXIT\_REASON\_DR\_ACCESS**\) vm-exit
 
 This is an event command, but in the current version of HyperDbg \(in Debugger Mode\), this command will continue the debuggee for some time; however, you can use [this trick](https://docs.hyperdbg.org/tips-and-tricks/misc/enable-and-disable-events-in-debugger-mode) to make sure you won't lose any event.
 
-## **Remarks**
+### Remarks
 
 None
 
-## Requirements
+### Requirements
 
 None
 
-## Related
+### Related
 
 None
 

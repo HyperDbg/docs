@@ -4,19 +4,19 @@ description: Description of '!syscall' command in HyperDbg.
 
 # !syscall, !syscall2 \(hook system-calls\)
 
-## Command
+### Command
 
 > !syscall
 >
 > !syscall2
 
-## Syntax
+### Syntax
 
 > !syscall \[syscall-number \(hex value\)\] \[pid \(hex value\)\] \[core \(hex value\)\] \[imm \(yes\|no\)\] \[event options\]
 >
 > !syscall2 \[syscall-number \(hex value\)\] \[pid \(hex value\)\] \[core \(hex value\)\] \[imm \(yes\|no\)\] \[event options\]
 
-## Description
+### Description
 
 Triggers when the debugging machine executes a **syscall** instruction or, in other words, when Windows tries to run a system call, this event will be triggered.
 
@@ -28,7 +28,7 @@ When you enable this event, all **syscall** instructions from all processes will
 The difference between **!syscall** and **!syscall2** is that we safely check the memory in the first command to see if the instruction that caused **\#UD** is really an **SYSRET** or a **SYSCALL**. So, we access the memory in this command. However, we realized that older systems have problems with this way of memory access. In the second command, we just check for the RIP to see if it's a kernel address or a user address. Usually, this method works without error for several hours, but if one application generates a **\#UD**, then a BSOD will happen. The second method is generally faster in speed, but we encourage you to use the first command and if your computer doesn't support the first command, then use the second command.
 {% endhint %}
 
-## Parameters
+### Parameters
 
 **\[syscall-number \(hex value\)\]**
 
@@ -136,7 +136,7 @@ HyperDbg> !syscall 55 pid 490 code {90 90 90} condition {90 90 90}
 Keep in mind that a conditional event can be used in **Breaking to Debugger** and **Running Script** too.
 {% endhint %}
 
-## IOCTL
+### IOCTL
 
 This command uses the same method to [send IOCTL for regular events](https://docs.hyperdbg.org/design/debugger-internals/ioctl-requests-for-events).
 
@@ -146,7 +146,7 @@ As **EventType** use `SYSCALL_HOOK_EFER_SYSCALL`and send the start syscall-numbe
 
 Take a look at "[Design of !syscall & !sysret](https://docs.hyperdbg.org/design/features/vmm-module/design-of-syscall-and-sysret)" to see how it works.
 
-## **Remarks**
+### Remarks
 
 {% hint style="danger" %}
 This command is not PatchGurad compatible, which means that PatchGuard detects this command and will cause BSOD; thus, make sure to turn it off \(by disabling driver signature enforcement or attaching a Windbg debugger to the Windows\) before using this command.
@@ -156,11 +156,11 @@ This command makes your computer substantially slower.
 
 This is an event command, but in the current version of HyperDbg \(in Debugger Mode\), this command will continue the debuggee for some time; however, you can use [this trick](https://docs.hyperdbg.org/tips-and-tricks/misc/enable-and-disable-events-in-debugger-mode) to make sure you won't lose any event.
 
-## Requirements
+### Requirements
 
 Post-Nehalem Processor \(EPT\)
 
-## Related
+### Related
 
 [Windows X86-64 System Call Table \(XP/2003/Vista/2008/7/2012/8/10\)](https://j00ru.vexillium.org/syscalls/nt/64/)
 

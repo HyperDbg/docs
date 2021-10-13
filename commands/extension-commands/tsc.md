@@ -4,15 +4,15 @@ description: Description of '!tsc' command in HyperDbg.
 
 # !tsc \(hook RDTSC/RDTSCP instruction execution\)
 
-## Command
+### Command
 
 > !tsc
 
-## Syntax
+### Syntax
 
 > !tsc \[pid \(hex value\)\] \[core \(hex value\)\] \[imm \(yes\|no\)\] \[event options\]
 
-## Description
+### Description
 
 Triggers when the debugging machine executes **RDTSC** or **RDTSCP** instructions in any execution level \(kernel-mode or user-mode\).
 
@@ -20,7 +20,7 @@ Triggers when the debugging machine executes **RDTSC** or **RDTSCP** instruction
 Using this command is not allowed in **transparent-mode**. You should not use this command in [transparent-mode](https://docs.hyperdbg.org/tips-and-tricks/considerations/transparent-mode) as it won't trigger any event.
 {% endhint %}
 
-## Parameters
+### Parameters
 
 **\[pid \(hex value\)\]**
 
@@ -122,7 +122,7 @@ HyperDbg> !tsc pid 490 code {90 90 90} condition {90 90 90}
 Keep in mind that a conditional event can be used in **Breaking to Debugger** and **Running Script** too.
 {% endhint %}
 
-## IOCTL
+### IOCTL
 
 This command uses the same method to [send IOCTL for regular events](https://docs.hyperdbg.org/design/debugger-internals/ioctl-requests-for-events).
 
@@ -132,15 +132,15 @@ As **EventType** use `TSC_INSTRUCTION_EXECUTION` in **DEBUGGER\_GENERAL\_EVENT\_
 
 This command uses **RDTSC** \(**EXIT\_REASON\_RDTSC - 16**\) and **RDTSCP** \(**EXIT\_REASON\_RDTSCP - 51**\) vm-exits to implement **RDTSC/RDTSCP** hooks.
 
-## **Remarks**
+### Remarks
 
 None
 
-## Requirements
+### Requirements
 
 None
 
-## Related
+### Related
 
 [!pmc \(hook RDPMC instruction execution\)](https://docs.hyperdbg.org/commands/extension-commands/pmc)
 

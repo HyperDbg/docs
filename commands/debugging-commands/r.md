@@ -4,19 +4,19 @@ description: Description of 'r' command in HyperDbg.
 
 # r \(read or modify registers\)
 
-## Command
+### Command
 
 > r
 
-## Syntax
+### Syntax
 
 > r \[register\] \[= expr\]
 
-## Description
+### Description
 
 Reads or modifies registers when the debuggee is paused.
 
-## Parameters
+### Parameters
 
 **\[register\]**
 
@@ -34,7 +34,7 @@ If you don't specify any parameters to the 'r' command, it shows all general-pur
 The first parameter to this command is a register \(not an expression\). If you want to evaluate and see the result of registers as an expression \(e.g., `rax+rbx+rcx`\) then you can use the '[.formats](https://docs.hyperdbg.org/commands/meta-commands/.formats)' command.
 {% endhint %}
 
-## Examples
+### Examples
 
 If you want to see all general purpose and segment registers.
 
@@ -78,7 +78,7 @@ If you want to change a register to a new value which is the result of an expres
 0: kHyperDbg> r rcx = rax + rdx + 10
 ```
 
-## IOCTL
+### IOCTL
 
 This commands works over serial by sending the serial packets to the remote computer.
 
@@ -122,15 +122,15 @@ The first buffer contains general-purpose registers, and the second buffer conta
 
 Note that modifying registers are performed through script-engine as we might need the evaluation of expressions to get the register's value.
 
-## **Remarks**
+### Remarks
 
 This command is guaranteed to keep debuggee in a halt state \(in Debugger Mode\); thus, nothing will change during its execution.
 
-## Requirements
+### Requirements
 
 None
 
-## Related
+### Related
 
 None
 

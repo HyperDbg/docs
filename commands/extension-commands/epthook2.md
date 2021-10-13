@@ -4,15 +4,15 @@ description: Description of '!epthook2' command in HyperDbg.
 
 # !epthook2 \(hidden hook with EPT - detours\)
 
-## Command
+### Command
 
 > !epthook2
 
-## Syntax
+### Syntax
 
 > !epthook2 \[address\] \[pid \(hex value\)\] \[core \(hex value\)\] \[imm \(yes\|no\)\] \[event options\]
 
-## Description
+### Description
 
 Puts an in-line, detours-style kernel EPT hidden hook. \(fast\)
 
@@ -20,7 +20,7 @@ Puts an in-line, detours-style kernel EPT hidden hook. \(fast\)
 This implementation of the hidden hook won't cause vm-exit when it triggers. It's like detours, and everything is done in vmx non-root, so it's much faster than !epthook, but it some limitations. See **Remarks** for more information.
 {% endhint %}
 
-## Parameters
+### Parameters
 
 **\[address\]**
 
@@ -136,7 +136,7 @@ HyperDbg> !epthook2 fffff801deadbeef code {90 90 90} condition {90 90 90}
 Keep in mind that a conditional event can be used in **Breaking to Debugger** and **Running Script** too.
 {% endhint %}
 
-## IOCTL
+### IOCTL
 
 This command uses the same method to [send IOCTL for regular events](https://docs.hyperdbg.org/design/debugger-internals/ioctl-requests-for-events).
 
@@ -146,7 +146,7 @@ Use `HIDDEN_HOOK_EXEC_DETOURS` as **EventType**, **\*\*and send the address of w
 
 Take a look at "[Design of !epthook2](https://docs.hyperdbg.org/design/features/vmm-module/design-of-epthook2)" to see how does it work.
 
-## **Remarks**
+### Remarks
 
 This command is much faster than **!epthook**, but it has the following limitations:
 
@@ -162,13 +162,13 @@ You can use **!epthook** \(just _**!epthook**_ not **!epthook2** and not **!moni
 
 This is an event command, but in the current version of HyperDbg \(in Debugger Mode\), this command will continue the debuggee for some time; however, you can use [this trick](https://docs.hyperdbg.org/tips-and-tricks/misc/enable-and-disable-events-in-debugger-mode) to make sure you won't lose any event.
 
-## Requirements
+### Requirements
 
 Post-Nehalem Processor \(EPT\)
 
 Processor with Execute-only Pages Support
 
-## Related
+### Related
 
 [!epthook \(hidden hook with EPT - stealth breakpoints\)](https://docs.hyperdbg.org/commands/extension-commands/epthook)
 

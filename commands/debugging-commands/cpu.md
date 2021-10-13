@@ -46,7 +46,7 @@ AVX512ER not supported
 
 This function is completely a user-mode function. There is not kernel IOCTL for it.
 
-### **Remarks**
+### Remarks
 
 1. If you didn't attach to any remote sessions, it would show the current system's details.
 

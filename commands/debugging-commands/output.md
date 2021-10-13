@@ -4,21 +4,21 @@ description: Description of 'output' command in HyperDbg.
 
 # output \(create output source for event forwarding\)
 
-## Command
+### Command
 
 > output
 
-## Syntax
+### Syntax
 
 > output \[create \| open \| close\] \[type \(file \| namedpipe \| tcp\)\] \[name \| address\]
 
-## Description
+### Description
 
 Create, open, or close a source output for event forwarding.
 
 You can read more about **event forwarding** [here](https://docs.hyperdbg.org/tips-and-tricks/misc/event-forwarding).
 
-## Parameters
+### Parameters
 
 **\[create \| open \| close\]**
 
@@ -32,7 +32,7 @@ In the case of creating an event, this parameter shows the type of the event.
 
 In the case of "**create**", it shows the address of the remote source, and in the case of "**open**" or "**close**", it shows the name of the output source.
 
-## Examples
+### Examples
 
 The following command creates an output source, which is a `file` and the results of the command \(script\) will be saved into the `c:\users\sina\desktop\output.txt`.
 
@@ -80,11 +80,11 @@ HyperDbg> !syscall script { print(@rax); } output {MyOutputName1 , MyOutputName2
 
 You can specify up to `5` output sources in the default build of HyperDbg, but if you need more output sources for a single event, then you should compile HyperDbg with different configurations as described on [Customize Build](https://docs.hyperdbg.org/tips-and-tricks/misc/customize-build) and change the `DebuggerOutputSourceMaximumRemoteSourceForSingleEvent`.
 
-## IOCTL
+### IOCTL
 
 None
 
-## **Remarks**
+### Remarks
 
 You can use this command to forward the results of the scripts from all the [events](https://docs.hyperdbg.org/design/debugger-internals/events).
 
@@ -92,11 +92,11 @@ You can use this command to forward the results of the scripts from all the [eve
 You **cannot** use event forwarding in the immediate messaging mode in events \(`imm no`\).
 {% endhint %}
 
-## Requirements
+### Requirements
 
 None
 
-## Related
+### Related
 
 [Event Forwarding](https://docs.hyperdbg.org/tips-and-tricks/misc/event-forwarding)
 

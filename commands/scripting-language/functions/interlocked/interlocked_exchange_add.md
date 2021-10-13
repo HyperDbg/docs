@@ -4,15 +4,15 @@ description: Description of 'interlocked_exchange_add' function in HyperDbg Scri
 
 # interlocked_exchange_add
 
-## Function
+### Function
 
 > interlocked_exchange_add
 
-## Syntax
+### Syntax
 
 > interlocked_exchange_add( \*Variable, Expression );
 
-## Parameters
+### Parameters
 
 **\[\*Variable (Addend)]**
 
@@ -22,7 +22,7 @@ A reference to a variable (most of the time a global variable) to add the value 
 
 The value which is added to the global variable.
 
-## Description
+### Description
 
 Performs an atomic addition of two values.
 
@@ -30,17 +30,17 @@ Performs an atomic addition of two values.
 
 The function returns the initial value of the **`GlobalVariable(Addend)`** parameter.
 
-## Examples
+### Examples
 
 `Result = interlocked_exchange_add(.my_gloabl_counter, 0x55);`
 
 Adds the value (`0x55`) to the global variable and saves the initial value of the `.my_gloabl_counter` into a local variable named `Result`.
 
-## **Remarks**
+### Remarks
 
 You can also perform the subtraction by addition (using the 2's-complement system).
 
-## Related
+### Related
 
 [interlocked_compare_exchange](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_compare_exchange)
 

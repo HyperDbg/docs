@@ -4,21 +4,21 @@ description: Description of 'interlocked_increment' function in HyperDbg Scripts
 
 # interlocked_increment
 
-## Function
+### Function
 
 > interlocked_increment
 
-## Syntax
+### Syntax
 
 > interlocked_increment( \*Variable );
 
-## Parameters
+### Parameters
 
 **\[\*Variable (Addend)]**
 
 A reference to a variable (most of the time a global variable) to be added by `1`.
 
-## Description
+### Description
 
 Increments (increases by one) the value of the specified global variable as an atomic operation.
 
@@ -26,17 +26,17 @@ Increments (increases by one) the value of the specified global variable as an a
 
 The function returns the resulting incremented value.
 
-## Examples
+### Examples
 
 `Result = interlocked_increment(.my_gloabl_counter);`
 
 Increments a global variable by **`1`** and saves the results into a local variable named `Result`.
 
-## **Remarks**
+### Remarks
 
 None
 
-## Related
+### Related
 
 [interlocked_compare_exchange](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_compare_exchange)
 

@@ -4,15 +4,15 @@ description: Description of 'printf' function in HyperDbg Scripts
 
 # printf
 
-## Function
+### Function
 
 > printf
 
-## Syntax
+### Syntax
 
 > printf\( Format, Expressions \[...\] \);
 
-## Parameters
+### Parameters
 
 **\[Format-string\]**
 
@@ -22,7 +22,7 @@ A printf-like format string.
 
 [MASM-like expression\(s\)](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations) to evaluate, you can choose multiple expressions based on  the format string
 
-## Description
+### Description
 
 Evaluates and prints a printf-like format string with MASM expression\(s\).
 
@@ -75,7 +75,7 @@ All the format specifiers should be in a lower-case format.
 | **%ho** | Short octal integer |
 | **%hx** | Short hex integer |
 
-## Examples
+### Examples
 
 `printf("Result is %s", @rcx);`
 
@@ -89,11 +89,11 @@ Print and evaluate the above expressions. Note that **%ws** is a wide-string poi
 You can see more examples [here](https://docs.hyperdbg.org/commands/scripting-language/examples/view-system-state).
 {% endhint %}
 
-## **Remarks**
+### Remarks
 
 You should consider avoiding ["unsafe" behavior](https://docs.hyperdbg.org/tips-and-tricks/considerations/the-unsafe-behavior) in your expressions and strings.
 
-## Related
+### Related
 
 [print](https://docs.hyperdbg.org/commands/scripting-language/functions/exports/print)
 

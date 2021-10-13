@@ -4,7 +4,7 @@ description: Description of 'e*' command in HyperDbg.
 
 # eb, ed, eq \(edit virtual memory\)
 
-## Command
+### Command
 
 > eb : edit memory as Byte values
 >
@@ -12,7 +12,7 @@ description: Description of 'e*' command in HyperDbg.
 >
 > eq : edit memory as Quad-word values \(8 bytes\)
 
-## Syntax
+### Syntax
 
 > eb \[address\] \[new value \(hex\)\] pid \[process id \(hex\)\]
 >
@@ -20,11 +20,11 @@ description: Description of 'e*' command in HyperDbg.
 >
 > eq \[address\] \[new value \(hex\)\] pid \[process id \(hex\)\]
 
-## Description
+### Description
 
 Edits the **virtual** address memory contents.
 
-## Parameters
+### Parameters
 
 **\[Address\]**
 
@@ -46,7 +46,7 @@ If you don't specify the pid, then the default pid is the current process \(**Hy
 In the [Debugger Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode), the **pid** \(parameter\) is ignored. If you want to view another process memory, use the '[.process](https://docs.hyperdbg.org/commands/meta-commands/.process)' command to switch to another process memory layout.
 {% endhint %}
 
-## Examples
+### Examples
 
 The following command is used when we want to edit the content of memory at `nt!Kd_DEFAULT_Mask` in a hex byte form and change it to `0xff 0xff 0xff 0xff`\(modify **four** bytes\).
 
@@ -78,7 +78,7 @@ The following example is used when we want to edit the contents of memory at ``f
 0: kHyperDbg> dq fffff800`3ad6f010 88889898`85858686 92929393`97979898
 ```
 
-## IOCTL
+### IOCTL
 
 This function works by calling **DeviceIoControl** with `IOCTL = IOCTL_DEBUGGER_EDIT_MEMORY`, you have to send it in the following structure.
 
@@ -151,7 +151,7 @@ The following function is responsible for sending editing memory in the debugger
 BOOLEAN KdSendEditMemoryPacketToDebuggee(PDEBUGGER_EDIT_MEMORY EditMem);
 ```
 
-## **Remarks**
+### Remarks
 
 * You can change as many bytes as you need in **byte**, **dword**, and **qword** formats; just add new values to the end of the command. 
 
@@ -159,11 +159,11 @@ If you change the memory address that you previously set a breakpoint using the 
 
 This command is guaranteed to keep debuggee in a halt state \(in Debugger Mode\); thus, nothing will change during its execution.
 
-## Requirements
+### Requirements
 
 None
 
-## Related
+### Related
 
 [!eb, !ed, !eq \(edit physical memory\)](https://docs.hyperdbg.org/commands/extension-commands/e)
 

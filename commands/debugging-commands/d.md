@@ -4,7 +4,7 @@ description: Description of 'd*' command in HyperDbg.
 
 # db, dc, dd, dq \(read virtual memory\)
 
-## Command
+### Command
 
 > db : read memory as Byte values and ASCII characters
 >
@@ -14,7 +14,7 @@ description: Description of 'd*' command in HyperDbg.
 >
 > dq : read memory as Quad-word values \(8 bytes\)
 
-## Syntax
+### Syntax
 
 > db \[address\] l \[length \(hex\)\] pid \[process id \(hex\)\]
 >
@@ -24,11 +24,11 @@ description: Description of 'd*' command in HyperDbg.
 >
 > dq \[address\] l \[length \(hex\)\] pid \[process id \(hex\)\]
 
-## Description
+### Description
 
 Shows the **virtual** address memory content in hex form.
 
-## Parameters
+### Parameters
 
 **\[Address\]**
 
@@ -50,7 +50,7 @@ If you don't specify the **pid**, then the default **pid** is the current proces
 In the [Debugger Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode), the **pid** \(parameter\) is ignored. If you want to view another process memory, use the '[.process](https://docs.hyperdbg.org/commands/meta-commands/.process)' command to switch to another process memory layout.
 {% endhint %}
 
-## Examples
+### Examples
 
 The following command is used when we want to read the content of memory at `nt!Kd_DEFAULT_Mask` with length of `0x50`from the memory layout view of process \(`4` a.k.a. system process\) in a hex byte format.
 
@@ -120,7 +120,7 @@ fffff800`3ad6f070  8B480000`0038840F 8B485824`6C8B48D8
 fffff800`3ad6f080  8B485024`5C8B48C3 4130C483`48602474
 ```
 
-## IOCTL
+### IOCTL
 
 This function works by calling **DeviceIoControl** with `IOCTL = IOCTL_DEBUGGER_READ_MEMORY` , you have to send it in the following structure.
 
@@ -183,7 +183,7 @@ The following function is responsible for sending reading memory in the debugger
 BOOLEAN KdSendReadMemoryPacketToDebuggee(PDEBUGGER_READ_MEMORY ReadMem);
 ```
 
-## **Remarks**
+### Remarks
 
 * If you don't specify the length, the default length for HyperDbg is 0x80 Bytes.
 
@@ -193,11 +193,11 @@ Please note that you should specify space between 'l' and the length in HyperDbg
 
 This command is guaranteed to keep debuggee in a halt state \(in Debugger Mode\); thus, nothing will change during its execution.
 
-## Requirements
+### Requirements
 
 None
 
-## Related
+### Related
 
 [!db, !dc, !dd, !dq \(read physical memory\)](https://docs.hyperdbg.org/commands/extension-commands/d)
 

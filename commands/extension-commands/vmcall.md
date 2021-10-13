@@ -4,15 +4,15 @@ description: Description of '!vmcall' command in HyperDbg.
 
 # !vmcall \(hook hypercalls\)
 
-## Command
+### Command
 
 > !vmcall
 
-## Syntax
+### Syntax
 
 > !vmcall \[pid \(hex value\)\] \[core \(hex value\)\] \[imm \(yes\|no\)\] \[event options\]
 
-## Description
+### Description
 
 Triggers when the debugging machine executes **VMCALL** instruction.
 
@@ -20,7 +20,7 @@ Triggers when the debugging machine executes **VMCALL** instruction.
 By using this command, you also receive **HyperDbg**'s hypercalls. You shouldn't modify them.
 {% endhint %}
 
-## Parameters
+### Parameters
 
 **\[pid \(hex value\)\]**
 
@@ -122,7 +122,7 @@ HyperDbg> !vmcall pid 490 code {90 90 90} condition {90 90 90}
 Keep in mind that a conditional event can be used in **Breaking to Debugger** and **Running Script** too. _\*\*_
 {% endhint %}
 
-## IOCTL
+### IOCTL
 
 This command uses the same method to [send IOCTL for regular events](https://docs.hyperdbg.org/design/debugger-internals/ioctl-requests-for-events).
 
@@ -132,15 +132,15 @@ As **EventType** use `VMCALL_INSTRUCTION_EXECUTION` in **DEBUGGER\_GENERAL\_EVEN
 
 This command uses **VMCALL** \(**EXIT\_REASON\_VMCALL - 18**\) vm-exit to implement hypercall hooks.
 
-## **Remarks**
+### Remarks
 
 This is an event command, but in the current version of HyperDbg \(in Debugger Mode\), this command will continue the debuggee for some time; however, you can use [this trick](https://docs.hyperdbg.org/tips-and-tricks/misc/enable-and-disable-events-in-debugger-mode) to make sure you won't lose any event.
 
-## Requirements
+### Requirements
 
 None
 
-## Related
+### Related
 
 None
 

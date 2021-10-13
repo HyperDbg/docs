@@ -4,23 +4,23 @@ description: Description of 'bl' command in HyperDbg.
 
 # bl \(list breakpoints\)
 
-## Command
+### Command
 
 > bl
 
-## Syntax
+### Syntax
 
 > bl
 
-## Description
+### Description
 
 Lists all the enabled/disabled breakpoints.
 
-## Parameters
+### Parameters
 
 None
 
-## Examples
+### Examples
 
 The following command shows how you can use the 'bl' command.
 
@@ -34,7 +34,7 @@ id   address           status
 04   fffff801639b103f  enabled
 ```
 
-## IOCTL
+### IOCTL
 
 This commands works over serial by sending the serial packets to the remote computer.
 
@@ -94,15 +94,15 @@ BOOLEAN KdSendListOrModifyPacketToDebuggee(PDEBUGGEE_BP_LIST_OR_MODIFY_PACKET Li
 
 HyperDbg will send a list of all active breakpoints and their **status** including **pid**, **tid**, and **core** as message strings to the debugger.
 
-## **Remarks**
+### Remarks
 
 This command is guaranteed to keep debuggee in a halt state \(in Debugger Mode\); thus, nothing will change during its execution.
 
-## Requirements
+### Requirements
 
 None
 
-## Related
+### Related
 
 [bp \(set breakpoint\)](https://docs.hyperdbg.org/commands/debugging-commands/bp)
 

@@ -4,39 +4,39 @@ description: Description of 'exit' command in HyperDbg.
 
 # exit \(exit from the debugger\)
 
-## Command
+### Command
 
 > exit
 
-## Syntax
+### Syntax
 
 > exit
 
-## Description
+### Description
 
 Unloads the kernel modules and closes the debugger.
 
-## Parameters
+### Parameters
 
 None
 
-## Examples
+### Examples
 
 None
 
-## IOCTL
+### IOCTL
 
 Performs an `unload` before exiting the debugger, please visit [unload ](https://docs.hyperdbg.org/commands/debugging-commands/unload)for more information.
 
-## **Remarks**
+### Remarks
 
 None
 
-## Requirements
+### Requirements
 
 None
 
-## Related
+### Related
 
 [ unload \(unload the kernel modules\)](https://docs.hyperdbg.org/commands/debugging-commands/unload)
 

@@ -4,15 +4,15 @@ description: Description of 'interlocked_compare_exchange' function in HyperDbg 
 
 # interlocked_compare_exchange
 
-## Function
+### Function
 
 > interlocked_compare_exchange
 
-## Syntax
+### Syntax
 
 > interlocked_compare_exchange( \*Variable, Expression, Expression );
 
-## Parameters
+### Parameters
 
 **\[\*Variable (Destination)]**
 
@@ -26,7 +26,7 @@ Specifies the output value pointed to by **Destination** if the input value poin
 
 Specifies the value that is compared with the input value pointed to by **Destination**.
 
-## Description
+### Description
 
 Performs an atomic operation that compares the input value pointed to by **Destination** with the value of **Comperand**.
 
@@ -34,15 +34,15 @@ Performs an atomic operation that compares the input value pointed to by **Desti
 
 The function returns the original value of **\*Destination**.
 
-## Examples
+### Examples
 
 None
 
-## **Remarks**
+### Remarks
 
 None
 
-## Related
+### Related
 
 [interlocked_exchange_add](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_exchange_add)
 

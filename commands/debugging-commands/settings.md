@@ -4,19 +4,19 @@ description: Description of 'settings' command in HyperDbg.
 
 # settings \(configures different options and preferences\)
 
-## Command
+### Command
 
 > settings
 
-## Syntax
+### Syntax
 
 > settings \[option name\] \[value \(name \| hex value \| on \| off\)\]
 
-## Description
+### Description
 
 This command queries or changes the value of options and preferences.
 
-## Parameters
+### Parameters
 
 **\[option name\]**
 
@@ -46,7 +46,7 @@ You can also perform the **autoflush** manually by running the '[flush](https://
 
 **syntax** : specifies the syntax of disassembler for '[!u and !u2](https://docs.hyperdbg.org/commands/extension-commands/u)' commands.
 
-## Examples
+### Examples
 
 The following command shows the state of **`autounpause`** option.
 
@@ -136,19 +136,19 @@ fffff804`2d16f045 8B F9                               mov edi, ecx
 fffff804`2d16f047 4C 8B 88 C0 00 00 00                mov r9, qword ptr ds:[rax+C0h]
 ```
 
-## IOCTL
+### IOCTL
 
 None
 
-## **Remarks**
+### Remarks
 
 **autounpause** and **autoflush** do not change anything in [debugger mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode). It is because the buffers are not accumulated and passed instantly in this mode; thus, there is nothing to flush.
 
-## Requirements
+### Requirements
 
 None
 
-## Related
+### Related
 
 None
 

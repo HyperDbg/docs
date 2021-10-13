@@ -4,15 +4,15 @@ description: Description of '!pmc' command in HyperDbg.
 
 # !pmc \(hook RDPMC instruction execution\)
 
-## Command
+### Command
 
 > !pmc
 
-## Syntax
+### Syntax
 
 > !pmc \[pid \(hex value\)\] \[core \(hex value\)\] \[imm \(yes\|no\)\] \[event options\]
 
-## Description
+### Description
 
 Triggers when the debugging machine executes **RDPMC** instruction in any level of execution \(kernel-mode or user-mode\).
 
@@ -20,7 +20,7 @@ Triggers when the debugging machine executes **RDPMC** instruction in any level 
 Using this command makes **HyperDbg** vulnerable to timing methods to detect the presence of hypervisor. You should not use this command in [transparent-mode](https://docs.hyperdbg.org/tips-and-tricks/considerations/transparent-mode).
 {% endhint %}
 
-## Parameters
+### Parameters
 
 **\[pid \(hex value\)\]**
 
@@ -122,7 +122,7 @@ HyperDbg> !pmc pid 490 code {90 90 90} condition {90 90 90}
 Keep in mind that a conditional event can be used in **Breaking to Debugger** and **Running Script** too.
 {% endhint %}
 
-## IOCTL
+### IOCTL
 
 This command uses the same method to [send IOCTL for regular events](https://docs.hyperdbg.org/design/debugger-internals/ioctl-requests-for-events).
 
@@ -132,15 +132,15 @@ As **EventType** use `PMC_INSTRUCTION_EXECUTION` in **DEBUGGER\_GENERAL\_EVENT\_
 
 This command uses **RDPMC** \(**EXIT\_REASON\_RDPMC - 15**\) vm-exit to implement RDPMC hooks.
 
-## **Remarks**
+### Remarks
 
 This is an event command, but in the current version of HyperDbg \(in Debugger Mode\), this command will continue the debuggee for some time; however, you can use [this trick](https://docs.hyperdbg.org/tips-and-tricks/misc/enable-and-disable-events-in-debugger-mode) to make sure you won't lose any event.
 
-## Requirements
+### Requirements
 
 None
 
-## Related
+### Related
 
 [!tsc \(hook RDTSC/RDTSCP instruction execution\)](https://docs.hyperdbg.org/commands/extension-commands/tsc)
 

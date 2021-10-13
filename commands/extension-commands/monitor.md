@@ -4,15 +4,15 @@ description: Description of '!monitor' command in HyperDbg.
 
 # !monitor \(monitor read/write to a page\)
 
-## Command
+### Command
 
 > !monitor
 
-## Syntax
+### Syntax
 
 > !monitor \[mode\] \[from address\] \[to address\] \[pid \(hex value\)\] \[core \(hex value\)\] \[imm \(yes\|no\)\] \[event options\]
 
-## Description
+### Description
 
 Monitors read or write or read/write to a range of addresses. If any read or write on your range address \(memory\), it will be triggered.
 
@@ -20,7 +20,7 @@ Monitors read or write or read/write to a range of addresses. If any read or wri
 It is exactly like read/write of Hardware Debug Registers but without any size and count limitation.
 {% endhint %}
 
-## Parameters
+### Parameters
 
 **\[mode\]**
 
@@ -154,7 +154,7 @@ HyperDbg> !monitor rw fffff800`4ed60000 fffff800`4ed60100 code {90 90 90} condit
 Keep in mind that a conditional event can be used in **Breaking to Debugger** and **Running Script** too.
 {% endhint %}
 
-## IOCTL
+### IOCTL
 
 This command uses the same method to [send IOCTL for regular events](https://docs.hyperdbg.org/design/debugger-internals/ioctl-requests-for-events).
 
@@ -164,7 +164,7 @@ As **EventType** use `HIDDEN_HOOK_READ` in the case you want just reads, use `HI
 
 Take a look at "[Design of !monitor](https://docs.hyperdbg.org/design/features/vmm-module/design-of-monitor)" to see how does it work.
 
-## **Remarks**
+### Remarks
 
 {% hint style="danger" %}
 You shouldn't use any of **!monitor**, **!epthook**, and **!epthook2** commands on the same page \(4KB\) simultaneously. For example, when you put a hidden hook \(**!epthook2**\) on **0x10000005**, **\*\*you shouldn't use any of** !monitor **or** !epthook **commands on the address starting from** 0x10000000 **to** 0x10000fff\*\*.
@@ -174,11 +174,11 @@ You can use **!epthook** \(just _**!epthook**_ not **!epthook2** and not **!moni
 
 This is an event command, but in the current version of HyperDbg \(in Debugger Mode\), this command will continue the debuggee for some time; however, you can use [this trick](https://docs.hyperdbg.org/tips-and-tricks/misc/enable-and-disable-events-in-debugger-mode) to make sure you won't lose any event.
 
-## Requirements
+### Requirements
 
 Post-Nehalem Processor \(EPT\)
 
-## Related
+### Related
 
 None
 

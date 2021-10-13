@@ -4,21 +4,21 @@ description: Description of 'spinlock_lock' function in HyperDbg Scripts
 
 # spinlock_lock
 
-## Function
+### Function
 
 > spinlock_lock
 
-## Syntax
+### Syntax
 
 > spinlock_lock( \*Variable );
 
-## Parameters
+### Parameters
 
 **\[\*Variable (Lock)]**
 
 A reference to a** **variable (most of the time a global variable), used as a [lock](https://en.wikipedia.org/wiki/Spinlock).
 
-## Description
+### Description
 
 Locks the spinlock referred to by lock. The lock can be unlocked by [spinlock_unlock](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks/spinlock_unlock).
 
@@ -26,7 +26,7 @@ Locks the spinlock referred to by lock. The lock can be unlocked by [spinlock_un
 
 None
 
-## Examples
+### Examples
 
 First of all, you should define a global variable and assign zero to it (unlocked state).
 
@@ -38,11 +38,11 @@ Then, you can use it like this:
 
 The above example locks the spinlock of a global variable (lock) called `.my_lock`. Note that you should use the unary operator `&` to pass a reference of the global variable to this function.
 
-## **Remarks**
+### Remarks
 
 None
 
-## Related
+### Related
 
 [spinlock_lock_custom_wait](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks/spinlock_lock_custom_wait)
 

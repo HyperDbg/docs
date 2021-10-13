@@ -4,15 +4,15 @@ description: Description of 'spinlock_lock_custom_wait' function in HyperDbg Scr
 
 # spinlock_lock_custom_wait
 
-## Function
+### Function
 
 > spinlock_lock_custom_wait
 
-## Syntax
+### Syntax
 
 > spinlock_lock_custom_wait( \*Variable, Expression );
 
-## Parameters
+### Parameters
 
 **\[\*Variable (Lock)]**
 
@@ -26,7 +26,7 @@ A [MASM-like expression](https://docs.hyperdbg.org/commands/scripting-language/a
 By default in [spinlock_lock](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks/spinlock_lock), the maximum waiting time is **`65536`**.
 {% endhint %}
 
-## Description
+### Description
 
 Locks the spinlock referred to by lock and also uses the maximum wait time to re-check the lock. The lock can be unlocked by [spinlock_unlock](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks/spinlock_unlock).
 
@@ -34,7 +34,7 @@ Locks the spinlock referred to by lock and also uses the maximum wait time to re
 
 None
 
-## Examples
+### Examples
 
 First of all, you should define a global variable and assign zero to it (unlocked state).
 
@@ -46,13 +46,13 @@ Then, you can use it like this:
 
 The above example locks the spinlock of a global variable (lock) which is called `.my_lock`. It uses **500** as the maximum wait time. Note that you should use the unary operator `&` to pass a reference of the global variable to this function.
 
-## **Remarks**
+### Remarks
 
 If your lock needs to be checked more frequently, you should specify a lower value as the second argument. However, it's not a power-efficient approach, but it gives you a more real-time spinlock. If you give a number higher than 65536, it takes longer to re-check the lock by the processor.
 
 It's actually the number of times which the **PAUSE** instruction is executed.
 
-## Related
+### Related
 
 [spinlock_lock](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks/spinlock_lock)
 

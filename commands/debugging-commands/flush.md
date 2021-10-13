@@ -4,23 +4,23 @@ description: Description of 'flush' command in HyperDbg.
 
 # flush \(remove pending kernel buffers and messages\)
 
-## Command
+### Command
 
 > flush
 
-## Syntax
+### Syntax
 
 > flush
 
-## Description
+### Description
 
 This command removes all the possible pending buffers and messages from **all the commands \(not just the command that you disabled or removed\)** that are stored to be received by the user-mode from the kernel-mode, and when you press '[g](https://docs.hyperdbg.org/commands/debugging-commands/g)', you no longer see any results from previous commands; however, some commands might continue generating new messages, and those new messages won't be removed.
 
-## Parameters
+### Parameters
 
 None
 
-## IOCTL
+### IOCTL
 
 This function works by calling **DeviceIoControl** with `IOCTL = IOCTL_DEBUGGER__FLUSH_LOGGING_BUFFERS`, you have to send it in the following structure.
 
@@ -56,17 +56,17 @@ The following function is responsible for sending flushing buffers in the debugg
 BOOLEAN KdSendFlushPacketToDebuggee();
 ```
 
-## **Remarks**
+### Remarks
 
 You can configure **autoflush** mode in [settings](https://docs.hyperdbg.org/commands/debugging-commands/settings). This way, **HyperDbg** removes the pending messages automatically when you **disabled** or **cleared** an event.
 
 This command is guaranteed to keep debuggee in a halt state \(in Debugger Mode\); thus, nothing will change during its execution.
 
-## Requirements
+### Requirements
 
 None
 
-## Related
+### Related
 
 [settings \(configures different options and preferences\)](https://docs.hyperdbg.org/commands/debugging-commands/settings)
 
