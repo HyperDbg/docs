@@ -2,23 +2,23 @@
 description: Description of '!e*' command in HyperDbg.
 ---
 
-# !eb, !ed, !eq \(edit physical memory\)
+# !eb, !ed, !eq (edit physical memory)
 
 ### Command
 
 > !eb : edit memory as Byte values
 >
-> !ed : edit memory as Double-word values \(4 bytes\)
+> !ed : edit memory as Double-word values (4 bytes)
 >
-> !eq : edit memory as Quad-word values \(8 bytes\)
+> !eq : edit memory as Quad-word values (8 bytes)
 
 ### Syntax
 
-> !eb \[address\] \[new value \(hex\)\] pid \[process id \(hex\)\]
+> !eb \[address] \[new value (hex)] pid \[process id (hex)]
 >
-> !ed \[address\] \[new value \(hex\)\] pid \[process id \(hex\)\]
+> !ed \[address] \[new value (hex)] pid \[process id (hex)]
 >
-> !eq \[address\] \[new value \(hex\)\] pid \[process id \(hex\)\]
+> !eq \[address] \[new value (hex)] pid \[process id (hex)]
 
 ### Description
 
@@ -26,43 +26,43 @@ Edits the **physical** address memory contents.
 
 ### Parameters
 
-**\[Address\]**
+**\[Address]**
 
 The **physical** address of where we want to edit its memory.
 
-**\[new value \(hex\)\]**
+**\[new value (hex)]**
 
 The new contents in hex format
 
-**pid \[process id\] \(optional\)**
+**pid \[process id] (optional)**
 
-The process ID in the hex format that we want to see the memory from its context \(**cr3**\).
+The process ID in the hex format that we want to see the memory from its context (**cr3**).
 
 {% hint style="danger" %}
-Process ID doesn't make sense in physical memory. If you specify **pid** for physical memory, _\*\*_then it is ignored.
+Process ID doesn't make sense in physical memory. If you specify **pid** for physical memory, it is ignored.
 {% endhint %}
 
 ### Examples
 
-The following command is used when we want to edit the content of physical memory at `1000` in a hex byte form and change it to `0x90 0x90 0x90` \(modify **three** bytes\).
+The following command is used when we want to edit the content of physical memory at `1000` in a hex byte form and change it to `0x90 0x90 0x90` (modify **three** bytes).
 
 ```diff
 HyperDbg> !eb 1000 90 90 90
 ```
 
-The following example is used when we want to edit the contents of physical memory at `1000` in Double-word values \(4 bytes\), change it to `245C8948` .
+The following example is used when we want to edit the contents of physical memory at `1000` in Double-word values (4 bytes), change it to `245C8948` .
 
 ```diff
 HyperDbg> !ed 1000 245C8948
 ```
 
-The following example is used when we want to edit the contents of physical memory at `@rax+@rbx+5` in Double-word values \(4 bytes\), change it to `245C8948` .
+The following example is used when we want to edit the contents of physical memory at `@rax+@rbx+5` in Double-word values (4 bytes), change it to `245C8948` .
 
 ```diff
 HyperDbg> !ed @rax+@rbx+5 245C8948
 ```
 
-The following example is used when we want to edit the contents of physical memory at `1000` in Quad-word values \(8 bytes\), change it to ``88889898`85858686`` and``92929393`97979898`` \(16 bytes\).
+The following example is used when we want to edit the contents of physical memory at `1000` in Quad-word values (8 bytes), change it to ``88889898`85858686`` and``92929393`97979898`` (16 bytes).
 
 ```diff
 0: kHyperDbg> !dq 1000 88889898`85858686 92929393`97979898
@@ -98,7 +98,7 @@ The `Result` will be filled by the kernel-mode driver when it returns from the k
 
 The `Address` is where we want to modify, and it can be both a **physical** address or a **virtual** address.
 
-`ProcessId` is the process that we want to modify based on its memory layout \(**cr3**\), it can't be `null` or zero.
+`ProcessId` is the process that we want to modify based on its memory layout (**cr3**), it can't be `null` or zero.
 
 `MemoryType` shows whether the `Address` is a **physical** address or a **virtual** address.
 
@@ -125,7 +125,7 @@ The above structure is added on top of an array of 64-bit values, which is the n
 
 For example, if you want to change the memory address of the target to `0x90 0x90` then you should provide an array of `0x0000000000000090` and `0x0000000000000090` and append it to the end of the above structure. The count of these chunks is stored at `CountOf64Chunks` in the above structure and the final buffer that will be sent into the kernel has a size of `FinalStructureSize` bytes.
 
-In the debugger-mode, HyperDbg uses the exact same structure, you should send the above structure over serial to the debuggee which is paused in **vmx-root** mode.
+In the debugger mode, HyperDbg uses the exact same structure, you should send the above structure over serial to the debuggee which is paused in **vmx-root** mode.
 
 You should send the above structure with `DEBUGGER_REMOTE_PACKET_REQUESTED_ACTION_ON_VMX_ROOT_EDIT_MEMORY` as `RequestedAction` and `DEBUGGER_REMOTE_PACKET_TYPE_DEBUGGER_TO_DEBUGGEE_EXECUTE_ON_VMX_ROOT` as `PacketType`.
 
@@ -151,7 +151,7 @@ If you change the memory address that you previously set a breakpoint using the 
 Physical addresses are not validated in HyperDbg, which means if you access an invalid physical address, then the debuggee halts or crashes.
 {% endhint %}
 
-This command is guaranteed to keep debuggee in a halt state \(in Debugger Mode\); thus, nothing will change during its execution.
+This command is guaranteed to keep debuggee in a halt state (in Debugger Mode); thus, nothing will change during its execution.
 
 ### Requirements
 
@@ -159,5 +159,4 @@ None
 
 ### Related
 
-[eb, ed, eq \(edit virtual memory\)](https://docs.hyperdbg.org/commands/debugging-commands/e)
-
+[eb, ed, eq (edit virtual memory)](https://docs.hyperdbg.org/commands/debugging-commands/e)
