@@ -2,7 +2,7 @@
 description: Description of '!tsc' command in HyperDbg.
 ---
 
-# !tsc \(hook RDTSC/RDTSCP instruction execution\)
+# !tsc (hook RDTSC/RDTSCP instruction execution)
 
 ### Command
 
@@ -10,11 +10,11 @@ description: Description of '!tsc' command in HyperDbg.
 
 ### Syntax
 
-> !tsc \[pid \(hex value\)\] \[core \(hex value\)\] \[imm \(yes\|no\)\] \[event options\]
+> !tsc \[pid (hex value)] \[core (hex value)] \[imm (yes|no)] \[event options]
 
 ### Description
 
-Triggers when the debugging machine executes **RDTSC** or **RDTSCP** instructions in any execution level \(kernel-mode or user-mode\).
+Triggers when the debugging machine executes **RDTSC** or **RDTSCP** instructions in any execution level (kernel-mode or user-mode).
 
 {% hint style="danger" %}
 Using this command is not allowed in **transparent-mode**. You should not use this command in [transparent-mode](https://docs.hyperdbg.org/tips-and-tricks/considerations/transparent-mode) as it won't trigger any event.
@@ -22,25 +22,25 @@ Using this command is not allowed in **transparent-mode**. You should not use th
 
 ### Parameters
 
-**\[pid \(hex value\)\]**
+**\[pid (hex value)]**
 
 Optional value to trigger the event in just a specific process. Add `pid xx` to your command; thus, the command will be executed if the process id is equal to `xx`. If you don't specify this option, then by default, you receive events on all processes.
 
-**\[core \(hex value\)\]**
+**\[core (hex value)]**
 
 Optional value to trigger the event in just a specific core. Add `core xx` to your command thus command will be executed if core id is equal to `xx`. If you don't specify this option, then by default, you receive events on all cores.
 
-**\[imm \(yes\|no\)\]**
+**\[imm (yes|no)]**
 
-Optional value in which `yes` means the results \(printed texts in scripts\) should be delivered immediately to the debugger. `no` means that the results can be accumulated and delivered as a couple of messages when the buffer is full; thus, it's substantially faster, but it's not real-time. By default, this value is set to  `yes`.
+Optional value in which `yes` means the results (printed texts in scripts) should be delivered immediately to the debugger. `no` means that the results can be accumulated and delivered as a couple of messages when the buffer is full; thus, it's substantially faster, but it's not real-time. By default, this value is set to `yes`.
 
-**\[event options\]**
+**\[event options]**
 
-Regular event parameters that are used in HyperDbg events. \(For more information, read [this ](https://docs.hyperdbg.org/using-hyperdbg/prerequisites)topic\)
+Regular event parameters that are used in HyperDbg events. (For more information, read [this ](https://docs.hyperdbg.org/using-hyperdbg/prerequisites)topic)
 
 ### Context
 
-As the **Context** \(**`r8`** in custom code and **`rdx`** in condition code register\) to the event trigger, **HyperDbg** sends **FALSE \(0\)** in the case of **RDTSC** and **TRUE \(1\)** in the case of **RDTSCP**.
+As the **Context** (`r8` in custom code and `rdx` in condition code register) to the event trigger, **HyperDbg** sends **FALSE (0)** in the case of **RDTSC** and **TRUE (1)** in the case of **RDTSCP**.
 
 ### Debugger
 
@@ -70,23 +70,23 @@ HyperDbg> !tsc pid 490
 
 #### Script
 
-Using the following command, you can use HyperDbg's Script Engine. You should replace the string between braces \(`HyperDbg Script Here`\) with your script. You can find script examples [here](https://docs.hyperdbg.org/commands/scripting-language/examples).
+Using the following command, you can use HyperDbg's Script Engine. You should replace the string between braces (`HyperDbg Script Here`) with your script. You can find script examples [here](https://docs.hyperdbg.org/commands/scripting-language/examples).
 
-```text
+```
 HyperDbg> !tsc script { HyperDbg Script Here }
 ```
 
 The above command when messages don't need to be delivered immediately.
 
-```text
+```
 HyperDbg> !tsc script { HyperDbg Script Here } imm no
 ```
 
-**Script \(From File\)**
+**Script (From File)**
 
 If you saved your script into a file, then you can add `file:` instead of a script and append the file path to it. For example, the following examples show how you can run a script from `file:c:\users\sina\desktop\script.txt`.
 
-```text
+```
 HyperDbg> !tsc script {file:c:\users\sina\desktop\script.txt}
 ```
 
@@ -102,15 +102,15 @@ Please read "[How to create an action?](https://docs.hyperdbg.org/using-hyperdbg
 Your custom code will be executed in vmx-root mode. Take a look at [this topic](https://docs.hyperdbg.org/tips-and-tricks/considerations/vmx-root-mode-vs-vmx-non-root-mode) for more information. Running code in vmx-root is considered "[unsafe](https://docs.hyperdbg.org/tips-and-tricks/considerations/the-unsafe-behavior)".
 {% endhint %}
 
-##### Run Custom Code \(Unconditional\)
+**Run Custom Code (Unconditional)**
 
-Monitoring process id **0x490** for **RDTSC/RDTSCP** instruction execution _\*\*_and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) for more information.
+Monitoring process id **0x490** for **RDTSC/RDTSCP** instruction execution and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) for more information.
 
 ```c
 HyperDbg> !tsc pid 490 code {90 90 90}
 ```
 
-##### Run Custom Code \(Conditional\)
+**Run Custom Code (Conditional)**
 
 Monitoring process id **0x490** for **RDTSC/RDTSCP** instruction execution and runs 3 nops whenever the event condition is triggered and runs 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) and [how to create a condition](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-a-condition) for more information.
 
@@ -126,11 +126,11 @@ Keep in mind that a conditional event can be used in **Breaking to Debugger** an
 
 This command uses the same method to [send IOCTL for regular events](https://docs.hyperdbg.org/design/debugger-internals/ioctl-requests-for-events).
 
-As **EventType** use `TSC_INSTRUCTION_EXECUTION` in **DEBUGGER\_GENERAL\_EVENT\_DETAIL**.
+As **EventType** use `TSC_INSTRUCTION_EXECUTION` in `DEBUGGER_GENERAL_EVENT_DETAIL`.
 
 ### Design
 
-This command uses **RDTSC** \(**EXIT\_REASON\_RDTSC - 16**\) and **RDTSCP** \(**EXIT\_REASON\_RDTSCP - 51**\) vm-exits to implement **RDTSC/RDTSCP** hooks.
+This command uses **RDTSC** (**EXIT_REASON_RDTSC - 16**) and **RDTSCP** (**EXIT_REASON_RDTSCP - 51**) vm-exits to implement **RDTSC/RDTSCP** hooks.
 
 ### Remarks
 
@@ -142,5 +142,4 @@ None
 
 ### Related
 
-[!pmc \(hook RDPMC instruction execution\)](https://docs.hyperdbg.org/commands/extension-commands/pmc)
-
+[!pmc (hook RDPMC instruction execution)](https://docs.hyperdbg.org/commands/extension-commands/pmc)
