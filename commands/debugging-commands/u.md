@@ -175,9 +175,9 @@ The above function fills the IOCTL structure and shows the memory content. It is
 typedef enum _DEBUGGER_SHOW_MEMORY_STYLE { DEBUGGER_SHOW_COMMAND_DISASSEMBLE64, DEBUGGER_SHOW_COMMAND_DISASSEMBLE32, DEBUGGER_SHOW_COMMAND_DB, DEBUGGER_SHOW_COMMAND_DC, DEBUGGER_SHOW_COMMAND_DQ, DEBUGGER_SHOW_COMMAND_DD } DEBUGGER_SHOW_MEMORY_STYLE;
 ```
 
-**For disassembling, use the `DEBUGGER_SHOW_COMMAND_DISASSEMBLE64` as the `Style` for x64 disassembling and for disassembling x86, use the **`DEBUGGER_SHOW_COMMAND_DISASSEMBLE32`**.**
+For disassembling, use the `DEBUGGER_SHOW_COMMAND_DISASSEMBLE64` as the `Style` for x64 disassembling, and for disassembling x86, use the `DEBUGGER_SHOW_COMMAND_DISASSEMBLE32`.
 
-In the debugger-mode, HyperDbg uses the exact same structure, you should send the above structure over serial to the debuggee which is paused in **vmx-root** mode.
+In the debugger mode, HyperDbg uses the exact same structure, you should send the above structure over serial to the debuggee which is paused in **vmx-root** mode.
 
 You should send the above structure with `DEBUGGER_REMOTE_PACKET_REQUESTED_ACTION_ON_VMX_ROOT_READ_MEMORY` as `RequestedAction` and `DEBUGGER_REMOTE_PACKET_TYPE_DEBUGGER_TO_DEBUGGEE_EXECUTE_ON_VMX_ROOT` as `PacketType`.
 
@@ -198,7 +198,7 @@ BOOLEAN KdSendReadMemoryPacketToDebuggee(PDEBUGGER_READ_MEMORY ReadMem);
 * If you don't specify the length, the default length for HyperDbg is 0x40 Bytes.
 
 {% hint style="warning" %}
-Please note that you should specify space between 'l' and the length for HyperDbg. For example, 'l10' is invalid, but 'l 10' is valid. (It's opposed to windbg).
+Please note that you should specify a space between 'l' and the length for HyperDbg. For example, 'l10' is invalid, but 'l 10' is valid. (It's opposed to windbg).
 {% endhint %}
 
 {% hint style="success" %}
