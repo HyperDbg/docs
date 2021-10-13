@@ -10,7 +10,7 @@ An unconditional event is an event that all its actions will be executed without
 
 This document is a brief of how to create a conditional event.
 
-Each command in HyperDbg that are tagged as "**event**" in the document follows the same structure described [here](https://docs.hyperdbg.org/design/debugger-internals/events). At the time you execute a command, you can add a `condition { xx xx xx xx }` where `xx` is the assembly \(hex\) of what you want to be executed in the case of that event.
+Each command in HyperDbg that are tagged as "**event**" in the document follows the same structure described [here](https://docs.hyperdbg.org/design/debugger-internals/events). At the time you execute a command, you can add a `condition { xx xx xx xx }` where `xx` is the assembly (hex) of what you want to be executed in the case of that event.
 
 For example, let's imagine we want to create a condition for a command like "**!epthook**".
 
@@ -29,7 +29,7 @@ HyperDbg> !epthook fffff801deadbeef condition { 90 90 90 90 }
 then it is a conditional command.
 
 {% hint style="success" %}
-Note that you can use all of the events in the same way \(instead of **!epthook**\). For example, you can use **!syscall, !sysret, !epthook2, !ioin,** etc.
+Note that you can use all of the events in the same way (instead of **!epthook**). For example, you can use **!syscall, !sysret, !epthook2, !ioin,** etc.
 {% endhint %}
 
 ### Parameters to Conditions
@@ -69,7 +69,7 @@ The `Context` is a special variable that shows an essential parameter of an even
 
 ## Example 1
 
-Imagine we want to check for the name of the process, so only if the name contains the "**svchost.exe**" then triggers the event's action\(s\).
+Imagine we want to check for the name of the process, so only if the name contains the "**svchost.exe**" then triggers the event's action(s).
 
 We all know that you can search for the name of the process in its `_EPROCESS`.
 
@@ -91,7 +91,7 @@ The offsets of `_EPROCESS`and other structures might change in the different ver
 
 Now we should assemble the above code into its hex representation in the assembly. For example, you can use an [online assembler](http://defuse.ca/online-x86-assembler.htm).
 
-Keep in mind that if you return with `rax=0` or `null` then it means **false**, and if you return anything other than zero \(for example `rax=1`\) then it means **true**.
+Keep in mind that if you return with `rax=0` or `null` then it means **false**, and if you return anything other than zero (for example `rax=1`) then it means **true**.
 
 If you return true, then all the actions of that event will be executed, and if you return **false**, then **HyperDbg** ignores the actions of that event.
 
@@ -132,7 +132,7 @@ We automatically add a `0xc3` or `ret` the opcode to the end of the condition as
 
 Sometimes we need to read the registers and decide based on them. For example, let's imagine we want to hook `ExAllocatePoolWithTag` and if the size of the requested buffer is `xx` then perform the actions.
 
-This function \(`ExAllocatePoolWithTag`\) is defined like this :
+This function (`ExAllocatePoolWithTag`) is defined like this :
 
 ```cpp
 PVOID ExAllocatePoolWithTag(
@@ -174,7 +174,7 @@ typedef struct _GUEST_REGS
 If you want to change or examine other registers like XMM registers, floating-point registers, or other registers, you can change and examine them directly.
 {% endhint %}
 
-In the following example, we want to check `NumberOfBytes (rdx)` with `0x1000` and if the requested size is **0x1000**, _\*\*_then the actions should be performed.
+In the following example, we want to check `NumberOfBytes (rdx)` with `0x1000` and if the requested size is **0x1000**, then the actions should be performed.
 
 ```cpp
 mov rbx , [rcx+0x10]  ; rbx now conains the rdx of the guest [target debuggee]
@@ -197,9 +197,8 @@ After using assembler to convert the above code to hex representation of assembl
 HyperDbg> !epthook2 fffff800`4ed6f010 condition {488B59104881FB0010000074054831C0EB0748C7C001000000C3}
 ```
 
-One important note is that if you want to create a condition for **!syscall** command, which is common, then you should know that the syscall calling convention is fastcall \(`rcx`, `rdx`, `r8`, `r9` and stack\), so if your target user-mode application is x64, then you can expect the exact arguments from user-mode to kernel-mode. Still, if your user-mode application is x86, then Windows might change some of the arguments that contain addresses to new addresses.
+One important note is that if you want to create a condition for **!syscall** command, which is common, then you should know that the syscall calling convention is fastcall (`rcx`, `rdx`, `r8`, `r9` and stack), so if your target user-mode application is x64, then you can expect the exact arguments from user-mode to kernel-mode. Still, if your user-mode application is x86, then Windows might change some of the arguments that contain addresses to new addresses.
 
 {% hint style="danger" %}
 Accessing random memory in **custom code** and **condition code** in vmx root-mode is considered "[unsafe](https://docs.hyperdbg.org/tips-and-tricks/considerations/the-unsafe-behavior)". You have some limitations on accessing memory on some special events.
 {% endhint %}
-
