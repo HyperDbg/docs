@@ -136,7 +136,7 @@ Your custom code will be executed in vmx-root mode. Take a look at [this topic](
 
 **Run Custom Code (Unconditional)**
 
-Monitoring reads and writes on address from ``fffff800`4ed60000`` to ``fffff800`4ed60100`` and runs 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) for more information.
+Monitoring reads and writes on address from ``fffff800`4ed60000`` to ``fffff800`4ed60100`` and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) for more information.
 
 ```c
 HyperDbg> !monitor rw fffff800`4ed60000 fffff800`4ed60100 code {90 90 90}
@@ -158,7 +158,7 @@ Keep in mind that a conditional event can be used in **Breaking to Debugger** an
 
 This command uses the same method to [send IOCTL for regular events](https://docs.hyperdbg.org/design/debugger-internals/ioctl-requests-for-events).
 
-As **EventType** use `HIDDEN_HOOK_READ` in the case you want just reads, use `HIDDEN_HOOK_WRITE` in the case you want just writes and use `HIDDEN_HOOK_READ_AND_WRITE` in the case you want both reads and writes and send the start address (**from address**) of where you want to monitor in `OptionalParam1`and end address (**to address**) of where you want to monitor in `OptionalParam2`address **DEBUGGER_GENERAL_EVENT_DETAIL**.
+As **EventType** use `HIDDEN_HOOK_READ` in the case you want just reads, use `HIDDEN_HOOK_WRITE` in the case you want just writes and use `HIDDEN_HOOK_READ_AND_WRITE` in the case you want both reads and writes and send the start address (**from address**) of where you want to monitor in `OptionalParam1`and end address (**to address**) of where you want to monitor in `OptionalParam2`address `DEBUGGER_GENERAL_EVENT_DETAIL`.
 
 ### Design
 

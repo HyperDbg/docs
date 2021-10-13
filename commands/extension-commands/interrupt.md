@@ -116,7 +116,7 @@ HyperDbg> !interrupt code {90 90 90}
 
 **Run Custom Code (Conditional)**
 
-Monitoring the external-interrupts occurrence and running 3 nops whenever the event condition is triggered and running 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) and [how to create a condition](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-a-condition) for more information.
+Monitoring the external-interrupts occurrence and run 3 nops whenever the event condition is triggered and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) and [how to create a condition](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-a-condition) for more information.
 
 ```c
 HyperDbg> !interrupt code {90 90 90} condition {90 90 90}

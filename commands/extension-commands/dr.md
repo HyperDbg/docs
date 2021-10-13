@@ -106,7 +106,7 @@ Your custom code will be executed in vmx-root mode. Take a look at [this topic](
 
 **Run Custom Code (Unconditional)**
 
-Monitoring process ID **0x490** for any access to **hardware debug registers** and running 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) for more information.
+Monitoring process ID **0x490** for any access to **hardware debug registers** and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) for more information.
 
 ```c
 HyperDbg> !dr pid 490 code {90 90 90}
@@ -114,7 +114,7 @@ HyperDbg> !dr pid 490 code {90 90 90}
 
 **Run Custom Code (Conditional)**
 
-Monitoring process ID **0x490** for any access to **hardware debug registers** and running 3 nops whenever the event condition is triggered and running 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) and [how to create a condition](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-a-condition) for more information.
+Monitoring process ID **0x490** for any access to **hardware debug registers** and run 3 nops whenever the event condition is triggered and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) and [how to create a condition](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-a-condition) for more information.
 
 ```c
 HyperDbg> !dr pid 490 code {90 90 90} condition {90 90 90}
@@ -128,7 +128,7 @@ Keep in mind that a conditional event can be used in **Breaking to Debugger** an
 
 This command uses the same method to [send IOCTL for regular events](https://docs.hyperdbg.org/design/debugger-internals/ioctl-requests-for-events).
 
-As **EventType** use `DEBUG_REGISTERS_ACCESSED` in **DEBUGGER_GENERAL_EVENT_DETAIL**.
+As **EventType** use `DEBUG_REGISTERS_ACCESSED` in `DEBUGGER_GENERAL_EVENT_DETAIL`.
 
 ### Design
 
