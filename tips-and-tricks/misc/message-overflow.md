@@ -4,17 +4,17 @@ description: Kernel Message Tracing Overflow
 
 # Message Overflow
 
-Kernel buffers for transferring data safely to the user-mode \(debugger\) can be filled. If the debugger doesn't find time to transfer all messages, then the new messages will replace the previous messages, and as a result, you lose your messages, which are not yet transferred to the user-mode.
+Kernel buffers for transferring data safely to the user-mode (debugger) can be filled. If the debugger doesn't find time to transfer all messages, then the new messages will replace the previous messages, and as a result, you lose your messages, which are not yet transferred to the user-mode.
 
 In the rest of this document, you will learn the important factors that can decrease such scenarios. Take a look at [Customize Build](https://docs.hyperdbg.org/tips-and-tricks/misc/customize-build) for more information.
 
 ## Use Conditions
 
-[Condition code](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-a-condition) buffers are one of the most important parts of **HyperDbg**. You can use this feature to avoid triggering unnecessary events \(actions\) by creating conditions that filter the results for you in assembly form in both kernel-mode and vmx-root mode.
+[Condition code](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-a-condition) buffers are one of the most important parts of **HyperDbg**. You can use this feature to avoid triggering unnecessary events (actions) by creating conditions that filter the results for you in assembly form in both kernel-mode and vmx-root mode.
 
 ## Change Reading Delay
 
-You can change `hprdbgctrl.cpp` file's **ReadIrpBasedBuffer\(\)** method to decrease the delay between reading each message from the kernel. You can change `Sleep(200);` to a lower time \(ms\), so you can read messages faster.
+You can change `hprdbgctrl.cpp` file's **ReadIrpBasedBuffer()** method to decrease the delay between reading each message from the kernel. You can change `Sleep(200);` to a lower time (ms), so you can read messages faster.
 
 ```c
 ...
@@ -46,7 +46,7 @@ You can change `hprdbgctrl.cpp` file's **ReadIrpBasedBuffer\(\)** method to decr
 
 If you need to see messages immediately after each one message, then set this option to `TRUE`. However, it kills the performance as sending buffers to the user-mode involves various and heavy functions.
 
-If you set this option to `FALSE`, **HyperDbg** accumulates \(**~5** or more based on message length and chunk size\) messages, and when the buffer is full, it sends the buffer to the user-mode **CLI** or **GUI**.
+If you set this option to `FALSE`, **HyperDbg** accumulates (**\~5** or more based on message length and chunk size) messages, and when the buffer is full, it sends the buffer to the user-mode **CLI** or **GUI**.
 
 You can change the following options in the **Configuration.h** file.
 
@@ -63,7 +63,7 @@ You can change the following options in the **Configuration.h** file.
 
 This is the most important factor in message tracing, if you increase the following value, then more messages will be stored in **HyperDbg** buffers; thus, they won't be replaced until the buffer is full, for example, if set this value to **1000**, then if you produce **1000** messages that are not delivered to the user-mode, **HyperDbg** replaces new messages with older messages, and in the case, if you set this value to **2000** then you have more capacity; thus, the buffers will have the capacity to hold twice more messages.
 
-However, keep in mind that **HyperDbg** occupies more non-paged pools \(RAM\) by increasing the following value, so you need to balance your message capacity with your memory \(RAM\).
+However, keep in mind that **HyperDbg** occupies more non-paged pools (RAM) by increasing the following value, so you need to balance your message capacity with your memory (RAM).
 
 ```c
 /* Default buffer size */
@@ -74,12 +74,9 @@ However, keep in mind that **HyperDbg** occupies more non-paged pools \(RAM\) by
 
 The following option shows the capacity of each packet in **HyperDbg**'s message tracing. If you have long messages or buffers, then you can increase this value.
 
-If you increased it, then **HyperDbg** accumulates more messages and won't send them immediately to the user-mode \(as described in **Not Use Immediate Messaging** above\). This will lead to better performance; however, messages will be delivered by a delay \(for accumulation\).
+If you increased it, then **HyperDbg** accumulates more messages and won't send them immediately to the user-mode (as described in **Not Use Immediate Messaging** above). This will lead to better performance; however, messages will be delivered by a delay (for accumulation).
 
 ```c
 #define PacketChunkSize                                                        \
   1000 // NOTE : REMEMBER TO CHANGE IT IN USER-MODE APP TOO
 ```
-
-\*\*\*\*
-

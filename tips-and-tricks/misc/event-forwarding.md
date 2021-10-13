@@ -4,7 +4,7 @@ description: Brief explanation about Event Forwarding Mechanism
 
 # Event Forwarding
 
-Event forwarding is a feature designed to make HyperDbg a tool for log gathering and analyzing system behavior. This way, you can use HyperDbg for [\#DFIR](https://twitter.com/search?q=%23dfir) purposes.
+Event forwarding is a feature designed to make HyperDbg a tool for log gathering and analyzing system behavior. This way, you can use HyperDbg for [#DFIR](https://twitter.com/search?q=%23dfir) purposes.
 
 You can use event forwarding to forward the event monitoring result from your internal system to an external source, e.g., **File**, **NamedPipe**, or **TCP Socket**.
 
@@ -38,23 +38,22 @@ Check the [output ](https://docs.hyperdbg.org/commands/debugging-commands/output
 
 Event forwarding is a one-way mechanism. This means you can just see the client's logs, and you cannot make changes to the logs or send commands to the target client. If you want t,o control the debugger from a remote system, you can use [.listen](https://docs.hyperdbg.org/commands/meta-commands/.listen) and [.connect](https://docs.hyperdbg.org/commands/meta-commands/.connect) commands.
 
-## Format \(plain-text and JSON\)
+## Format (plain-text and JSON)
 
-Event forwarding is only applied to the script, which means that you can use the [**print** ](https://docs.hyperdbg.org/commands/scripting-language/functions/exports/print)and the [**printf**](https://docs.hyperdbg.org/commands/scripting-language/functions/exports/printf) _\*\*_function to generate results that will be passed to the target output source.
+Event forwarding is only applied to the script, which means that you can use the [**print** ](https://docs.hyperdbg.org/commands/scripting-language/functions/exports/print)and the [**printf**](https://docs.hyperdbg.org/commands/scripting-language/functions/exports/printf) function to generate results that will be passed to the target output source.
 
-It's possible to create JSON results using the [**printf**](https://docs.hyperdbg.org/commands/scripting-language/functions/exports/printf) _\*\*_function.
+It's possible to create JSON results using the [**printf**](https://docs.hyperdbg.org/commands/scripting-language/functions/exports/printf) function.
 
 ### Examples
 
 The following repository contains some examples of listening on a named pipe as a server or listening on TCP sockets to use event forwarding.
 
-{% embed url="https://github.com/HyperDbg/event-forwarding-examples" caption="" %}
+{% embed url="https://github.com/HyperDbg/event-forwarding-examples" %}
 
-Assume that we want to send the results of syscall \(syscall numbers in `rax`\) to several sources. The following video shows how to redirect these events to the **file**, **TCP Socket**, **named pipe**.
+Assume that we want to send the results of syscall (syscall numbers in `rax`) to several sources. The following video shows how to redirect these events to the **file**, **TCP Socket**, **named pipe**.
 
 ## Demo
 
 Watch the video - How to use event forwarding.
 
-{% embed url="https://www.youtube.com/watch?v=tyapdCEZtic" caption="" %}
-
+{% embed url="https://www.youtube.com/watch?v=tyapdCEZtic" %}

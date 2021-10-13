@@ -21,7 +21,7 @@ By default, **HyperDbg** sends the current time of the system with each message 
 #define ShowSystemTimeOnDebugMessages TRUE
 ```
 
-If you want to use **WPP Tracing** instead of **HyperDbg'**s message tracing, then set `UseWPPTracing` to `TRUE`. After that, you no longer see any message in **HyperDbg**, and instead, you can see the messages in a **WPP Tracing** compatible app.
+If you want to use **WPP Tracing** instead of **HyperDbg**'s message tracing, then set `UseWPPTracing` to `TRUE`. After that, you no longer see any message in **HyperDbg**, and instead, you can see the messages in a **WPP Tracing** compatible app.
 
 ```c
 /**
@@ -65,7 +65,7 @@ This is one of the **important** options for **HyperDng**. By default, **HyperDb
 
 If you need to see messages immediately after each one message, then set this option to `TRUE`. However, it kills the performance as sending buffers to the user-mode involves various and heavy functions.
 
-If you set this option to `FALSE` \(**default**\), then **HyperDbg** accumulates \(**~5** or more\) messages, and when the buffer is full, it sends the buffer to the user-mode **CLI** or **GUI**.
+If you set this option to `FALSE` (**default**), then **HyperDbg** accumulates (**\~5** or more) messages, and when the buffer is full, it sends the buffer to the user-mode **CLI** or **GUI**.
 
 ```c
 /**
@@ -157,7 +157,7 @@ The seeds that user-mode codes use as the starter of their output source tag.
 #define DebuggerOutputSourceTagStartSeed 0x1
 ```
 
-The following option changes the maximum number of breakpoints \('[bp](https://docs.hyperdbg.org/commands/debugging-commands/bp)' command\) that the user can put into the entire system before continuing the debuggee. If you continue the debuggee and send an IOCTL, HyperDbg will reset this number.
+The following option changes the maximum number of breakpoints ('[bp](https://docs.hyperdbg.org/commands/debugging-commands/bp)' command) that the user can put into the entire system before continuing the debuggee. If you continue the debuggee and send an IOCTL, HyperDbg will reset this number.
 
 ```c
 #define MAXIMUM_BREAKPOINTS_WITHOUT_CONTINUE 50
@@ -174,4 +174,3 @@ The following option changes the speed at which HyperDbg reads kernel messages i
  */
 #define DefaultSpeedOfReadingKernelMessages 30
 ```
-

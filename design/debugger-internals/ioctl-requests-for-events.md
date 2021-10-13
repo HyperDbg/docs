@@ -100,15 +100,15 @@ typedef enum _DEBUGGER_EVENT_TYPE_ENUM {
 
 If you want to use the debugger features, you should connect the `CommandsEventList` to the list of user-mode commands.
 
-**OptionalParamX** is different in the case of each command. For example, in **!epthook2**, you should send the address of where you want to hook to the kernel as **OptionalParam1**. ****You have to check each command's manual to see what are its specific **OptionalParam**\(s\).
+**OptionalParamX** is different in the case of each command. For example, in **!epthook2**, you should send the address of where you want to hook to the kernel as **OptionalParam1**. You have to check each command's manual to see what are its specific **OptionalParam**(s).
 
-**Tag** is an ID that you can use later in action. 
+**Tag** is an ID that you can use later in action.
 
 **IsEnabled** has a user-mode usage to trace whether the event is enabled or not.
 
 **CommandStringBuffer** is the string of the command. You can ignore it.
 
-If your event contains a condition buffer \(`ConditionBufferSize != 0`\), you can use set the size if `ConditionBufferSize` and append the buffer to the end of the above structure, and when you send the buffer to the kernel, you should send the `sizeof(DEBUGGER_GENERAL_EVENT_DETAIL)+ ConditionBufferSize (if any)`.
+If your event contains a condition buffer (`ConditionBufferSize != 0`), you can use set the size if `ConditionBufferSize` and append the buffer to the end of the above structure, and when you send the buffer to the kernel, you should send the `sizeof(DEBUGGER_GENERAL_EVENT_DETAIL)+ ConditionBufferSize (if any)`.
 
 Finally, you can send it to the kernel by using the following function.
 
@@ -121,7 +121,7 @@ SendEventToKernel(PDEBUGGER_GENERAL_EVENT_DETAIL Event,
                   UINT32 EventBufferLength);
 ```
 
- If you want to send it directly using IOCTL, you can use the following IOCTL :
+If you want to send it directly using IOCTL, you can use the following IOCTL :
 
 ```c
 #define IOCTL_DEBUGGER_REGISTER_EVENT                                          \
@@ -132,7 +132,7 @@ After sending the above event to the kernel, you should chain an action or multi
 
 You should fill the following structure to send a "**Break**", "**Script**", and "**Custom Code**" to the kernel. For example, you can append the custom code buffer after this structure and send them together to the kernel.
 
-Also, **EventTag** is the unique ID that we sent previously in the event. 
+Also, **EventTag** is the unique ID that we sent previously in the event.
 
 ```c
 //
@@ -167,4 +167,3 @@ If you want to register the action to the event directly using `DeviceIoControl`
 #define IOCTL_DEBUGGER_ADD_ACTION_TO_EVENT                                     \
   CTL_CODE(FILE_DEVICE_UNKNOWN, 0x807, METHOD_BUFFERED, FILE_ANY_ACCESS)
 ```
-
