@@ -36,7 +36,7 @@ The **physical** address of where we want to read its memory.
 
 **l \[Length] (optional)**
 
-The length (byte) in hex format
+The length (byte) in hex format.
 
 {% hint style="danger" %}
 Process ID doesn't make sense in physical memory. If you specify **pid** for physical memory, \_\*\*\_then it is ignored.
