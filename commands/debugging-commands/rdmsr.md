@@ -2,7 +2,7 @@
 description: Description of 'rdmsr' command in HyperDbg.
 ---
 
-# rdmsr \(read model-specific register\)
+# rdmsr (read model-specific register)
 
 ### Command
 
@@ -10,7 +10,7 @@ description: Description of 'rdmsr' command in HyperDbg.
 
 ### Syntax
 
-> rdmsr \[msr \(hex\) - ecx\] core \[core number\(hex\)\]
+> rdmsr \[msr (hex) - ecx] core \[core number(hex)]
 
 ### Description
 
@@ -18,13 +18,13 @@ Reads the model-specific register using '**rdmsr**' instruction.
 
 ### Parameters
 
-**\[msr \(hex\) - ecx\]**
+**\[msr (hex) - ecx]**
 
-The index of MSR \(ECX Register for '**rdmsr**' instruction\)
+The index of MSR (ECX Register for '**rdmsr**' instruction).
 
-**core \[core number\(hex\)\] \(optional\)**
+**core \[core number(hex)] (optional)**
 
-The core that we want to read the 'rdmsr' from
+The core that we want to read the 'rdmsr' from it.
 
 {% hint style="success" %}
 If you don't specify the 'core' by default, it shows the MSR for all cores.
@@ -82,7 +82,7 @@ If you want to execute '**wrmsr**' or '**rdmsr**', you should set CoreNumber to 
 
 ### Remarks
 
-This command will continue the debuggee for some time \(in Debugger Mode\). This means that you lose the current context \(registers & memory\) after executing this command.
+This command will continue the debuggee for some time (in Debugger Mode). This means that you lose the current context (registers & memory) after executing this command.
 
 ### Requirements
 
@@ -90,5 +90,4 @@ None
 
 ### Related
 
-[wrmsr \(write model-specific register\)](https://docs.hyperdbg.org/commands/debugging-commands/wrmsr)
-
+[wrmsr (write model-specific register)](https://docs.hyperdbg.org/commands/debugging-commands/wrmsr)
