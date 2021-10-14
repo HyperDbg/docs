@@ -37,7 +37,7 @@ spinlock_unlock(&.my_lock);
 ```
 
 {% hint style="danger" %}
-If you don't use spinlocks and access to the global variables without using a lo
+If you don't use spinlocks and access to the global variables without using a lock then your result might not be true as the debuggee might run the script simultaneously in two cores and 
 {% endhint %}
 
 You can see the result of the above command:
