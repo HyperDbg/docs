@@ -7,7 +7,7 @@ These statements are handled in both command syntax, like you can specify a **co
 In this example, we want to put a conditional breakpoint on `nt!ExAllocatePoolWithTag` only and only when it's called from `nt!CmpAllocatePoolWithTag` function.
 
 {% hint style="info" %}
-This example is only applicable to debugger mode.
+This example is only applicable to the [debugger mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode). Because, pausing debugger is only available in this mode. However, you can write whate
 {% endhint %}
 
 Let's take a look at memory at `nt!ExAllocatePoolWithTag` :
