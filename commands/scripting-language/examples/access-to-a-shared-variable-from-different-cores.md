@@ -1,3 +1,7 @@
+---
+description: An example of sharing global variables between different cores
+---
+
 # access to a shared variable from different cores
 
 Sharing memory (variables) between different cores is one of the challenges in the operating systems, and it is tricky to handle. HyperDbg has the same limitations in handling shared resources between different cores.
@@ -61,7 +65,7 @@ if ($context == 0x55) {
 }
 ```
 
-You can see the result of the above command:
+You can see the result of the above script:
 
 ![Counting NtCreateFile System-calls](../../../.gitbook/assets/counting-NtCreateFile-syscalls.PNG)
 
