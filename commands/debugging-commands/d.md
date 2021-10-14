@@ -36,7 +36,7 @@ The **virtual** address of where we want to read its memory.
 
 **l \[Length] (optional)**
 
-The length (byte) in hex format
+The length (byte) in hex format.
 
 **pid \[process id] (optional)**
 
