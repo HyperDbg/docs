@@ -2,7 +2,7 @@
 description: Description of 'wrmsr' command in HyperDbg.
 ---
 
-# wrmsr \(write model-specific register\)
+# wrmsr (write model-specific register)
 
 ### Command
 
@@ -10,7 +10,7 @@ description: Description of 'wrmsr' command in HyperDbg.
 
 ### Syntax
 
-> wrmsr \[msr \(hex\) - ecx\] \[value \(hex\) - edx:eax\] core \[core number\(hex\)\]
+> wrmsr \[msr (hex) - ecx] \[value (hex) - edx:eax] core \[core number(hex)]
 
 ### Description
 
@@ -18,17 +18,17 @@ Write on the model-specific register using 'wrmsr' instruction.
 
 ### Parameters
 
-**\[msr \(hex\) - ecx\]**
+**\[msr (hex) - ecx]**
 
-The index of MSR \(ECX Register for 'wrmsr' instruction\)
+The index of MSR (ECX Register for 'wrmsr' instruction).
 
-**\[value \(hex\) - edx:eax\]**
+**\[value (hex) - edx:eax]**
 
-The value to write on MSR \(edx:eax for 'wrmsr' instruction\)
+The value to write on MSR (edx:eax for 'wrmsr' instruction).
 
-**core \[core number\(hex\)\] \(optional\)**
+**core \[core number(hex)] (optional)**
 
-The core that we want to read the 'rdmsr' from
+The core that we want to read the 'rdmsr' from it.
 
 {% hint style="success" %}
 If you don't specify the 'core' by default, it will be applied to all the cores.
@@ -87,7 +87,7 @@ If you want to execute 'wrmsr' or 'rdmsr', you should set CoreNumber to `DEBUGGE
 
 ### Remarks
 
-This command will continue the debuggee for some time \(in Debugger Mode\). This means that you lose the current context \(registers & memory\) after executing this command.
+This command will continue the debuggee for some time (in Debugger Mode). This means that you lose the current context (registers & memory) after executing this command.
 
 ### Requirements
 
@@ -95,5 +95,4 @@ None
 
 ### Related
 
-[rdmsr \(read model-specific register\)](https://docs.hyperdbg.org/commands/debugging-commands/rdmsr)
-
+[rdmsr (read model-specific register)](https://docs.hyperdbg.org/commands/debugging-commands/rdmsr)
