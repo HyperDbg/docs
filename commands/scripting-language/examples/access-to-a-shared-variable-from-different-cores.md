@@ -10,7 +10,9 @@ In the [!syscall](https://docs.hyperdbg.org/commands/extension-commands/syscall#
 
 One of the solutions to avoid simultaneous read/write from the shared objects (global variables) is using [spinlocks](https://en.wikipedia.org/wiki/Spinlock).
 
-Spinlocks are implemented through functions in script engine.
+[Spinlocks](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks) are implemented through functions in the script engine.
+
+First of all, we should define two global variables. One to be used as the counter and the other is used as the lock
 
 {% hint style="warning" %}
 Keep in mind, that the lock variable should be a global variable, not a local variable.
