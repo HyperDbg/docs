@@ -2,7 +2,7 @@
 description: Description of '!hide' command in HyperDbg.
 ---
 
-# !hide \(enable transparent-mode\)
+# !hide (enable transparent-mode)
 
 ### Command
 
@@ -10,7 +10,7 @@ description: Description of '!hide' command in HyperDbg.
 
 ### Syntax
 
-> !hide \[pid \| name\] \[process id \(hex value\) \| name \(string\)\]
+> !hide \[pid | name] \[process id (hex value) | name (string)]
 
 ### Description
 
@@ -28,11 +28,11 @@ This command is case-sensitive for the **`name`** parameter.
 
 ### Parameters
 
-**\[pid \| name\]**
+**\[pid | name]**
 
-If you want to use the process ID, you should specify **pid**, and if you want to enter the process name, you should specify the **name** as this argument. 
+If you want to use the process ID, you should specify **pid**, and if you want to enter the process name, you should specify the **name** as this argument.
 
-**\[process id \(hex value\) \| name \(string\)\]**
+**\[process id (hex value) | name (string)]**
 
 Name or process id of the process that you want to make **HyperDbg** transparent for it.
 
@@ -42,15 +42,15 @@ You should append`.exe` to your process names.
 
 ### Examples
 
-If you want to hide **HyperDbg** for process id **`2a78`**.
+If you want to hide **HyperDbg** for process id **2a78**.
 
-```text
+```
 HyperDbg> !hide pid 2a78
 ```
 
 If you want to hide **HyperDbg** for all the processes that their process names start with `procexp.exe` .
 
-```text
+```
 HyperDbg> !hide name procexp.exe
 ```
 
@@ -68,7 +68,7 @@ The following structure shows whether enable or disable it.
 
 `TrueIfProcessIdAndFalseIfProcessName` if this field is `TRUE` then you should fill the `ProcId` with the process id that you need to transparent **HyperDbg** for that process.
 
-Otherwise, if you want to use a process name \(not process ID\), then you should set the `TrueIfProcessIdAndFalseIfProcessName` to `FALSE` and append the process name \(string\) to the bottom of this structure and put the string size + 1 \(null terminator\) to the `LengthOfProcessName`.
+Otherwise, if you want to use a process name (not process ID), then you should set the `TrueIfProcessIdAndFalseIfProcessName` to `FALSE` and append the process name (string) to the bottom of this structure and put the string size + 1 (null terminator) to the `LengthOfProcessName`.
 
 Then you should send the `sizeof(DEBUGGER_HIDE_AND_TRANSPARENT_DEBUGGER_MODE)+ProcessNameStringSize` as the input size of `DeviceIoControl`.
 
@@ -104,9 +104,9 @@ You can send the above structure multiple times if you want to hide multiple pro
 
 This command will not guarantee to provide **100%** transparency, especially in nested-virtualization environments.
 
-**HyperDbg** will protect you from **user-mode** anti-hypervisor methods by making vm-exits transparent even in a nested-virtualization environment; however, there are other traces for anti-VMware, anti-VirtualBox, etc. methods and these methods are still problematic because, **HyperDbg** tries to hide itself from anti-debugging and anti-hypervisor methods and it won't hide VMware, VirtualBox, etc. thus, you need to run this command in a physical-machine \(not in a nested-virtualization environment\); otherwise you should find other traces for virtual machine software and solve those traces by yourself \(e.g., hooking anti-VMware APIs and Queries\).
+**HyperDbg** will protect you from **user-mode** anti-hypervisor methods by making vm-exits transparent even in a nested-virtualization environment; however, there are other traces for anti-VMware, anti-VirtualBox, etc. methods and these methods are still problematic because, **HyperDbg** tries to hide itself from anti-debugging and anti-hypervisor methods and it won't hide VMware, VirtualBox, etc. thus, you need to run this command in a physical-machine (not in a nested-virtualization environment); otherwise you should find other traces for virtual machine software and solve those traces by yourself (e.g., hooking anti-VMware APIs and Queries).
 
-This command will continue the debuggee for some time \(in Debugger Mode\). This means that you lose the current context \(registers & memory\) after executing this command.
+This command will continue the debuggee for some time (in Debugger Mode). This means that you lose the current context (registers & memory) after executing this command.
 
 ### Requirements
 
@@ -114,7 +114,6 @@ None
 
 ### Related
 
-[!measure \(measuring and providing details for transparent-mode\)](https://docs.hyperdbg.org/commands/extension-commands/measure)
+[!measure (measuring and providing details for transparent-mode)](https://docs.hyperdbg.org/commands/extension-commands/measure)
 
-[!unhide \(disable transparent-mode\)](https://docs.hyperdbg.org/commands/extension-commands/unhide)
-
+[!unhide (disable transparent-mode)](https://docs.hyperdbg.org/commands/extension-commands/unhide)
