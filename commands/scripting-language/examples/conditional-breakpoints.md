@@ -37,4 +37,6 @@ fffff801`6325c5d0    CC                                  int3
 
 ```
 
-As you can
+As you can see, `nt!ExAllocatePoolWithTag` is called from ``fffff801`6325c5c4`` in `nt!CmpAllocatePoolWithTag`.
+
+Base
