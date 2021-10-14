@@ -10,7 +10,7 @@ One of the solutions to avoid simultaneous read/write from the shared objects (g
 
 [Spinlocks](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks) are implemented through functions in the script engine.
 
-First of all, we should define two global variables. One for the counter and the other is used as the [lock](https://en.wikipedia.org/wiki/Lock_\(computer_science\)).
+First of all, we should define two global variables. One is for the counter, and the other will be used as the [lock](https://en.wikipedia.org/wiki/Lock_\(computer_science\)).
 
 The can be achieved by using the following commands.
 
