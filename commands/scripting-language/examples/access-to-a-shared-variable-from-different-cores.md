@@ -31,10 +31,14 @@ Now, we will
 spinlock_lock(&.my_lock); 
 
 .my_counter = .my_counter + 1;
-	printf("NtCreateFile syscall (0x0055) is called %llx times\n", .my_counter);
+printf("NtCreateFile syscall (0x0055) is called %llx times\n", .my_counter);
 	
-	spinlock_unlock(&.my_lock);
+spinlock_unlock(&.my_lock);
 ```
+
+{% hint style="danger" %}
+If you don't use spinlocks and access to the global variables without using a lo
+{% endhint %}
 
 You can see the result of the above command:
 
