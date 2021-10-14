@@ -8,7 +8,11 @@ We know that the syscall number for `nt!NtCreateFile` is **0x55**.
 
 In the [!syscall](https://docs.hyperdbg.org/commands/extension-commands/syscall#context) command, both `$context` and **RAX **register contain the syscall number.
 
-One of the solutions to avoid simultaneous read/wro
+One of the solutions to avoid simultaneous read/write from the shared objects (global variables) is using [spinlocks](https://en.wikipedia.org/wiki/Spinlock).
+
+Spinlocks are implemented through functions in script engine.
+
+
 
 
 
