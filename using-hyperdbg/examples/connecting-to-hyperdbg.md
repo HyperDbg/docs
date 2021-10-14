@@ -28,7 +28,7 @@ Next, click on **Add...** then choose **Serial Port** and click on **Finish**.
 
 Now, click on **Use named pipe:** and add a name for your named pipe.
 
-Your name should start with `\\.\pipe\` . For example, choose `\\.\pipe\HyperDbgDebu`**`g`**.
+Your name should start with `\\.\pipe\` . For example, choose `\\.\pipe\HyperDbgDebug`.
 
 Make sure to enable **Yield CPU on poll**.
 
@@ -58,7 +58,7 @@ After running the above command in guest, now you should see that the debuggee i
 If you see an error for driver signature enforcement, please visit [here](https://docs.hyperdbg.org/using-hyperdbg/examples/connecting-to-hyperdbg#driver-signature-enforcement-error).
 {% endhint %}
 
-You can press CTRL+C to pause the debuggee and step through the kernel codes using the ['p' command](https://docs.hyperdbg.org/commands/debugging-commands/p) and the ['t' command](https://docs.hyperdbg.org/commands/debugging-commands/t), and if you want to continue the normal execution of the debuggee, you can use the ['g' command](https://docs.hyperdbg.org/commands/debugging-commands/g).
+You can press **CTRL+C** to pause the debuggee and step through the kernel codes using the ['p' command](https://docs.hyperdbg.org/commands/debugging-commands/p) and the ['t' command](https://docs.hyperdbg.org/commands/debugging-commands/t), and if you want to continue the normal execution of the debuggee, you can use the ['g' command](https://docs.hyperdbg.org/commands/debugging-commands/g).
 
 ![Step and Continue Debuggee](../../.gitbook/assets/connected-to-debuggee.png)
 
