@@ -7,44 +7,46 @@ description: Example of valid expressions to read the state of the system
 ### Examples
 
 ```
-printf("Result : %s", @rcx));
-print(dq(@rcx));
-print($proc+@rdx);
-print(poi(@rax+a0));
-printf("Result : %ws", poi($proc+10)); printf("Result : %s", poi($proc+10));
-print(dw(NtCreateFile+10));
-print(dw(NtCreateFile+@rcx+($proc|3+poi(poi(@rax)))));
+? printf("Result : %s", @rcx));
+? print(dq(@rcx));
+? print($proc+@rdx);
+? print(poi(@rax+a0));
+? printf("Result : %ws", poi($proc+10)); printf("Result : %s", poi($proc+10));
+? print(dw(NtCreateFile+10));
+? print(dw(NtCreateFile+@rcx+($proc|3+poi(poi(@rax)))));
 ```
 
 ### Description
 
-`printf("Result : %s", @rcx);`
+`? printf("Result : %s", @rcx);`
 
 Print data as an ASCII string pointed by **rcx** register.
 
-`print(dq(@rcx));`
+![](broken-reference)
+
+`? print(dq(@rcx));`
 
 Print data as an 8-byte hex, pointed by **rcx** register.
 
-`print($proc+@rdx);`
+`? print($proc+@rdx);`
 
 Print value pointed by `$proc+@rdx` which **$proc** is equivalent to current `_EPROCESS` added to the **rdx** register.
 
-`print(poi(@rax+a0));`
+`? print(poi(@rax+a0));`
 
 Print value of an address, which first, **rax** register is added with **0xa0** constant then a dereference occurs and the target is shown as a QWORD hex.
 
-`print("Result : %ws", poi($proc+10)); printf("Result : %s", poi($proc+10));`
+`? print("Result : %ws", poi($proc+10)); printf("Result : %s", poi($proc+10));`
 
 Two values, first is **$proc** (current `_EPROCESS`) added with **0x10**, then a dereference occurs, and the target pointer in the dereferenced location is shown as a wide-char string.
 
 Second is **$proc** (current `_EPROCESS`) added with **0x10**, then a dereference occurs, and the target pointer in the dereferenced location is shown as an ASCII string.
 
-`print(dw(NtCreateFile+10));`
+`? print(dw(NtCreateFile+10));`
 
 One value, which is **NtCreateFile** location that added with **0x10**, then a DWORD value from the target address (**NtCreateFile+10**) is shown.
 
-`print(dw(NtCreateFile+@rcx+($proc|3+poi(poi(@rax)))));`
+`? print(dw(NtCreateFile+@rcx+($proc|3+poi(poi(@rax)))));`
 
 Print the DWORD data located at **NtCreateFile** added to **rcx** register, then all of them are added to the result of **rax** register dereferenced twice and added to the **$proc** which is bitwise **OR (|)** by **3**.
 
