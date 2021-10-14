@@ -2,23 +2,23 @@
 description: Description of 'e*' command in HyperDbg.
 ---
 
-# eb, ed, eq \(edit virtual memory\)
+# eb, ed, eq (edit virtual memory)
 
 ### Command
 
 > eb : edit memory as Byte values
 >
-> ed : edit memory as Double-word values \(4 bytes\)
+> ed : edit memory as Double-word values (4 bytes)
 >
-> eq : edit memory as Quad-word values \(8 bytes\)
+> eq : edit memory as Quad-word values (8 bytes)
 
 ### Syntax
 
-> eb \[address\] \[new value \(hex\)\] pid \[process id \(hex\)\]
+> eb \[address] \[new value (hex)] pid \[process id (hex)]
 >
-> ed \[address\] \[new value \(hex\)\] pid \[process id \(hex\)\]
+> ed \[address] \[new value (hex)] pid \[process id (hex)]
 >
-> eq \[address\] \[new value \(hex\)\] pid \[process id \(hex\)\]
+> eq \[address] \[new value (hex)] pid \[process id (hex)]
 
 ### Description
 
@@ -26,53 +26,53 @@ Edits the **virtual** address memory contents.
 
 ### Parameters
 
-**\[Address\]**
+**\[Address]**
 
 The **virtual** address of where we want to edit its memory.
 
-**\[new value \(hex\)\]**
+**\[new value (hex)]**
 
-The new contents in hex format
+The new contents in hex format.
 
-**pid \[process id\] \(optional\)**
+**pid \[process id] (optional)**
 
-The process ID in the hex format that we want to see the memory from its context \(**cr3**\).
+The process ID in the hex format that we want to see the memory from its context (**cr3**).
 
 {% hint style="info" %}
-If you don't specify the pid, then the default pid is the current process \(**HyperDbg**\) process layout of memory.
+If you don't specify the pid, then the default pid is the current process (**HyperDbg**) process layout of memory.
 {% endhint %}
 
 {% hint style="danger" %}
-In the [Debugger Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode), the **pid** \(parameter\) is ignored. If you want to view another process memory, use the '[.process](https://docs.hyperdbg.org/commands/meta-commands/.process)' command to switch to another process memory layout.
+In the [Debugger Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode), the **pid** (parameter) is ignored. If you want to view another process memory, use the '[.process](https://docs.hyperdbg.org/commands/meta-commands/.process)' command to switch to another process memory layout.
 {% endhint %}
 
 ### Examples
 
-The following command is used when we want to edit the content of memory at `nt!Kd_DEFAULT_Mask` in a hex byte form and change it to `0xff 0xff 0xff 0xff`\(modify **four** bytes\).
+The following command is used when we want to edit the content of memory at `nt!Kd_DEFAULT_Mask` in a hex byte form and change it to `0xff 0xff 0xff 0xff`(modify **four** bytes).
 
 ```diff
 HyperDbg> eb nt!Kd_DEFAULT_Mask ff ff ff ff
 ```
 
-The following command is used when we want to edit the content of memory at `nt!Kd_DEFAULT_Mask+@rax+10` in a hex byte form and change it to `0xff 0xff 0xff 0xff`\(modify **four** bytes\).
+The following command is used when we want to edit the content of memory at `nt!Kd_DEFAULT_Mask+@rax+10` in a hex byte form and change it to `0xff 0xff 0xff 0xff`(modify **four** bytes).
 
 ```diff
 HyperDbg> eb nt!Kd_DEFAULT_Mask+@rax+10 ff ff ff ff
 ```
 
-The following command is used when we want to edit the content of memory at ``fffff800`3ad6f010`` in a hex byte form and change it to `0x90 0x90 0x90` \(modify **three** bytes\).
+The following command is used when we want to edit the content of memory at ``fffff800`3ad6f010`` in a hex byte form and change it to `0x90 0x90 0x90` (modify **three** bytes).
 
 ```diff
 HyperDbg> eb fffff800`3ad6f010 90 90 90
 ```
 
-The following example is used when we want to edit the contents of memory at ``fffff800`3ad6f010`` in Double-word values \(4 bytes\), change it to `245C8948` .
+The following example is used when we want to edit the contents of memory at ``fffff800`3ad6f010`` in Double-word values (4 bytes), change it to `245C8948` .
 
 ```diff
 HyperDbg> ed fffff800`3ad6f010 245C8948
 ```
 
-The following example is used when we want to edit the contents of memory at ``fffff800`3ad6f010`` in Quad-word values \(8 bytes\), change it to ``88889898`85858686`` and``92929393`97979898`` \(16 bytes\).
+The following example is used when we want to edit the contents of memory at ``fffff800`3ad6f010`` in Quad-word values (8 bytes), change it to ``88889898`85858686`` and``92929393`97979898`` (16 bytes).
 
 ```diff
 0: kHyperDbg> dq fffff800`3ad6f010 88889898`85858686 92929393`97979898
@@ -108,7 +108,7 @@ The `Result` will be filled by the kernel-mode driver when it returns from the k
 
 The `Address` is where we want to modify, and it can be both a **physical** address or a **virtual** address.
 
-`ProcessId` is the process that we want to modify based on its memory layout \(**cr3**\), it can't be `null` or zero.
+`ProcessId` is the process that we want to modify based on its memory layout (**cr3**), it can't be `null` or zero.
 
 `MemoryType` shows whether the `Address` is a **physical** address or a **virtual** address.
 
@@ -153,11 +153,11 @@ BOOLEAN KdSendEditMemoryPacketToDebuggee(PDEBUGGER_EDIT_MEMORY EditMem);
 
 ### Remarks
 
-* You can change as many bytes as you need in **byte**, **dword**, and **qword** formats; just add new values to the end of the command. 
+* You can change as many bytes as you need in **byte**, **dword**, and **qword** formats; just add new values to the end of the command.
 
 If you change the memory address that you previously set a breakpoint using the '[bp](https://docs.hyperdbg.org/commands/debugging-commands/bp)' command, the previous value is replaced when you remove the breakpoint.
 
-This command is guaranteed to keep debuggee in a halt state \(in Debugger Mode\); thus, nothing will change during its execution.
+This command is guaranteed to keep debuggee in a halt state (in Debugger Mode); thus, nothing will change during its execution.
 
 ### Requirements
 
@@ -165,5 +165,4 @@ None
 
 ### Related
 
-[!eb, !ed, !eq \(edit physical memory\)](https://docs.hyperdbg.org/commands/extension-commands/e)
-
+[!eb, !ed, !eq (edit physical memory)](https://docs.hyperdbg.org/commands/extension-commands/e)

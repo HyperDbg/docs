@@ -32,7 +32,7 @@ The **physical** address of where we want to edit its memory.
 
 **\[new value (hex)]**
 
-The new contents in hex format
+The new contents in hex format.
 
 **pid \[process id] (optional)**
 
