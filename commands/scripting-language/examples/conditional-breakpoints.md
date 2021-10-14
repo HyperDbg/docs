@@ -45,4 +45,4 @@ As the stack is down-to-up in computer science, if we dereference **@rsp** regis
 
 We know that the next instruction after the call instruction is ``fffff801`6325c5c9`` which is `nt!CmpAllocatePoolWithTag+0x9`. Now, we put a EPT hook on the target function `nt!ExAllocatePoolWithTag` and check whether the caller is `nt!CmpAllocatePoolWithTag+0x9`.
 
-If 
+If the caller is our what we expected, then we'll halt the debugger and get the control of the debuggee by using pause(); fu
