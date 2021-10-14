@@ -25,7 +25,7 @@ The can be achieved by using the following commands.
 Keep in mind, that the lock variable should be a global variable, not a local variable.
 {% endhint %}
 
-Now, we will 
+Now, we protect the [critical section](https://en.wikipedia.org/wiki/Critical_section) by using spinlock_lock function.
 
 ```
 spinlock_lock(&.my_lock); 
