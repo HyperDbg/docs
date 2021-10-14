@@ -2,7 +2,7 @@
 
 Conditional statements are one of the essential parts of debuggers, and HyperDbg is not an exception.
 
-These statements are handled in both command syntax, like you can specify a **core **or **pid **that triggers the event. Still, you can also use the script engine that gives you more flexibility to compare different arguments and, if necessary, call functions wh.
+These statements are handled in both command syntax, like you can specify a **core **or **pid **that triggers the event. Still, you can also use the script engine that gives you more flexibility to compare different arguments and, if necessary, call functions.
 
 In this example, we want to put a conditional breakpoint on `nt!ExAllocatePoolWithTag` only and only when it's called from `nt!CmpAllocatePoolWithTag` function.
 
@@ -39,7 +39,7 @@ fffff801`6325c5d0    CC                                  int3
 
 As you can see, `nt!ExAllocatePoolWithTag` is called from ``fffff801`6325c5c4`` in `nt!CmpAllocatePoolWithTag`.
 
-Based on x86 assembly, a `call` instruction pushes the address of the next instruction to the stack, so the program can be continued later with the next instruction.
+Based on x86 assembly, a `call` instruction pushes the address of the next instruction to the stack, so that the program can be continued later with the next instruction.
 
 As the stack is down-to-up in computer science, if we dereference **@rsp** register and read 8-bytes from the stack, it's the pointer to the next instruction that the caller expects to be called after the call is finished (returned).
 
