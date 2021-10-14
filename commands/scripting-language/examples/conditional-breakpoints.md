@@ -47,5 +47,15 @@ We know that the next instruction after the call instruction is ``fffff801`6325c
 
 If the caller is our what we expected, then we'll halt the debugger and get the control of the debuggee by using [pause();](https://docs.hyperdbg.org/commands/scripting-language/functions/debugger/pause) function.
 
-All in all, the followi
+All in all, the following script is the implementation of this logic.
 
+```
+!epthook nt!ExAllocatePoolWithTag script {
+
+	if (poi(@rsp) == nt!CmpAllocatePoolWithTag+0x9) {
+		pause();
+	}
+}
+```
+
+![](broken-reference)
