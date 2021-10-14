@@ -20,11 +20,11 @@ Converts the PHYSICAL address to the VIRTUAL address.
 
 **\[Physical Address]**
 
-The target **physical** address
+The target **physical** address.
 
 **\[Process Id (hex value)]**
 
-The **process id** of where you want to convert the address based on it (if you don't specify this parameter, then the system process memory layout is used)
+The **process id** of where you want to convert the address based on it. If you don't specify this parameter, then the system process memory layout is used.
 
 ### Examples
 
