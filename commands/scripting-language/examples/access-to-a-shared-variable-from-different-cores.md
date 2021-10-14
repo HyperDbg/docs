@@ -12,9 +12,9 @@ One of the solutions to avoid simultaneous read/write from the shared objects (g
 
 Spinlocks are implemented through functions in script engine.
 
-
-
-
+{% hint style="warning" %}
+Keep in mind, that the lock variable should be a global variable, not a local variable.
+{% endhint %}
 
 You can see the result of the above command:
 
