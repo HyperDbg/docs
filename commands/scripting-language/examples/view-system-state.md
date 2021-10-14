@@ -8,6 +8,7 @@ description: Example of valid expressions to read the state of the system
 
 ```
 ? printf("Result : %s", @rcx));
+? printf("Process name: %s", $pname);
 ? print(dq(@rcx));
 ? print($proc+@rdx);
 ? print(poi(@rax+a0));
@@ -22,7 +23,9 @@ description: Example of valid expressions to read the state of the system
 
 Print data as an ASCII string pointed by **rcx** register.
 
-![](broken-reference)
+`? printf("Process name: %s", $pname);`
+
+Print the process name.
 
 `? print(dq(@rcx));`
 
