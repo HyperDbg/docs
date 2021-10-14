@@ -28,7 +28,7 @@ Shows the assembly regarding memory content at the **physical** address hex form
 
 **\[Address]**
 
-The **physical** address of where we want to start to disassemble its memory
+The **physical** address of where we want to start to disassemble its memory.
 
 **l \[Length] (optional)**
 
