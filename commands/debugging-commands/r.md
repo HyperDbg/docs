@@ -2,7 +2,7 @@
 description: Description of 'r' command in HyperDbg.
 ---
 
-# r \(read or modify registers\)
+# r (read or modify registers)
 
 ### Command
 
@@ -10,7 +10,7 @@ description: Description of 'r' command in HyperDbg.
 
 ### Syntax
 
-> r \[register\] \[= expr\]
+> r \[register] \[= expr]
 
 ### Description
 
@@ -18,20 +18,20 @@ Reads or modifies registers when the debuggee is paused.
 
 ### Parameters
 
-**\[register\]**
+**\[register]**
 
-The register that needs to be read or modified
+The register that needs to be read or modified.
 
-**\[= expr\]**
+**\[= expr]**
 
-The value or the expression that needs to be evaluated and modify the target register
+The value or the expression that needs to be evaluated and modify the target register.
 
 {% hint style="info" %}
 If you don't specify any parameters to the 'r' command, it shows all general-purpose + segment registers.
 {% endhint %}
 
 {% hint style="success" %}
-The first parameter to this command is a register \(not an expression\). If you want to evaluate and see the result of registers as an expression \(e.g., `rax+rbx+rcx`\) then you can use the '[.formats](https://docs.hyperdbg.org/commands/meta-commands/.formats)' command.
+The first parameter to this command is a register (not an expression). If you want to evaluate and see the result of registers as an expression (e.g., `rax+rbx+rcx`) then you can use the '[.formats](https://docs.hyperdbg.org/commands/meta-commands/.formats)' command.
 {% endhint %}
 
 ### Examples
@@ -52,29 +52,29 @@ CS=0010 SS=0018 DS=002b ES=002b FS=0053 GS=002b
 RFLAGS=0000000000040246
 ```
 
-If you want to see one special register \(e.g., `rax`\).
+If you want to see one special register (e.g., `rax`).
 
-```text
+```
 0: kHyperDbg> r rax
 rax=ffff948cc1ba4780
 ```
 
-If you want to see one special register \(e.g., `cs`\).
+If you want to see one special register (e.g., `cs`).
 
-```text
+```
 0: kHyperDbg> r cs
 cs=0000000000000010
 ```
 
 If you want to change a register to a constant hex value.
 
-```text
+```
 0: kHyperDbg> r rax = 10
 ```
 
 If you want to change a register to a new value which is the result of an expression.
 
-```text
+```
 0: kHyperDbg> r rcx = rax + rdx + 10
 ```
 
@@ -124,7 +124,7 @@ Note that modifying registers are performed through script-engine as we might ne
 
 ### Remarks
 
-This command is guaranteed to keep debuggee in a halt state \(in Debugger Mode\); thus, nothing will change during its execution.
+This command is guaranteed to keep debuggee in a halt state (in Debugger Mode); thus, nothing will change during its execution.
 
 ### Requirements
 
@@ -133,4 +133,3 @@ None
 ### Related
 
 None
-
