@@ -2,7 +2,7 @@
 description: Description of '!pte' command in HyperDbg.
 ---
 
-# !pte \(display page-level address and entries\)
+# !pte (display page-level address and entries)
 
 ### Command
 
@@ -10,18 +10,17 @@ description: Description of '!pte' command in HyperDbg.
 
 ### Syntax
 
-> !pte \[Virtual Address\]
+> !pte \[Virtual Address]
 
 ### Description
 
-Displays the **PML4E**, **PDPTE**, **PDE**, **PTE** for the specified address.  
-
+Displays the **PML4E**, **PDPTE**, **PDE**, **PTE** for the specified address.
 
 ### Parameters
 
-**\[Virtual Address\]**
+**\[Virtual Address]**
 
-The **virtual** address of where we want to read its page-level entries
+The **virtual** address of where we want to read its page-level entries.
 
 ### Examples
 
@@ -96,7 +95,7 @@ typedef struct _DEBUGGER_READ_PAGE_TABLE_ENTRIES_DETAILS {
 
 You should only fill the VirtualAddress of the above structure when the IOCTL returns from the kernel. Other parts of this structure are filled with valid entry virtual addresses and the entry value itself.
 
-You can map the value to each entry's structure \(Look at Intel SDM for more information\).
+You can map the value to each entry's structure (Look at Intel SDM for more information).
 
 Also, the structures are available in `MemoryMapper.h` but they might be outdated.
 
@@ -106,7 +105,7 @@ Also, the structures are available in `MemoryMapper.h` but they might be outdate
 If the **VirtualAddress** and Value of entry for PDE and PTE from the kernel IOCTL are the same, the entry has a LARGE PDE and doesn't have PTE.
 {% endhint %}
 
-This command will continue the debuggee for some time \(in Debugger Mode\). This means that you lose the current context \(registers & memory\) after executing this command.
+This command will continue the debuggee for some time (in Debugger Mode). This means that you lose the current context (registers & memory) after executing this command.
 
 ### Requirements
 
@@ -115,4 +114,3 @@ None
 ### Related
 
 None
-
