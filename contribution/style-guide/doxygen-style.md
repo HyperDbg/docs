@@ -48,9 +48,9 @@ MathPower(int Base, int Exp)
 This is the allowed set of Doxygen tags that can be used.
 
 * [@brief](http://www.doxygen.nl/manual/commands.html#cmdbrief):[ ](http://www.doxygen.nl/manual/commands.html#cmdbrief)Starts a paragraph that serves as a brief description.
-* \[@details]\(http://www.doxygen.nl/manual/commands.html#cmddetails) Just like \[@brief]\(http://www.doxygen.nl/manual/commands.html#cmdbrief) starts a brief description, `\details` starts the detailed description.
-* \[@param]\(http://doxygen.org/manual/commands.html#cmdparam) Describes function parameters.
-* \[@return]\(http://doxygen.org/manual/commands.html#cmdreturn) Describes return values.
+* [@details](http://www.doxygen.nl/manual/commands.html#cmddetails): Just like \[@brief]\(http://www.doxygen.nl/manual/commands.html#cmdbrief) starts a brief description, `\details` starts the detailed description.
+* [@param](http://doxygen.org/manual/commands.html#cmdparam): Describes function parameters.
+* \[@return]\(x) Describes return values.
 * \[@see]\(http://doxygen.org/manual/commands.html#cmdsa) Describes a cross-reference to classes, functions, methods, variables, files, or URL.
 * \[@warning]\(http://www.doxygen.nl/manual/commands.html#cmdwarning) Starts a paragraph where one or more warning messages may be entered.
 
