@@ -2,7 +2,7 @@
 description: Description of 'print' command in HyperDbg.
 ---
 
-# print \(evaluate and print expression in debuggee\)
+# print (evaluate and print expression in debuggee)
 
 ### Command
 
@@ -10,7 +10,7 @@ description: Description of 'print' command in HyperDbg.
 
 ### Syntax
 
-> print \[expression\]
+> print \[expression]
 
 ### Description
 
@@ -18,13 +18,13 @@ Shows the result of an expression that will be executed in the remote debuggee.
 
 ### Parameters
 
-**\[expression\]**
+**\[expression]**
 
 The expression is based on HyperDbg's [scripting language](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations).
 
 ### Examples
 
-The following command shows the `@rax` _\*\*_register in the debuggee.
+The following command shows the `@rax` register in the debuggee.
 
 ```diff
 0: kHyperDbg> print @rax
@@ -54,7 +54,7 @@ This commands works over serial by sending the serial packets to the remote comp
 
 First of all, you should fill the following structure, set the `ScriptBufferSize` and `ScriptBufferPointer` to the values you got from the script engine interpreter, and leave the `Result`and set the `IsFormat` to **false**.
 
-After that, you should move the interpreted buffer to the end of the structure \(this structure is a header for the interpreted buffer\).
+After that, you should move the interpreted buffer to the end of the structure (this structure is a header for the interpreted buffer).
 
 ```c
 typedef struct _DEBUGGEE_SCRIPT_PACKET {
@@ -95,7 +95,7 @@ BOOLEAN KdSendScriptPacketToDebuggee(UINT64 BufferAddress, UINT32 BufferLength, 
 
 This command is exactly like `print(expr);` in script engine, except that HyperDbg automatically adds `print(` and `);`.
 
-This command is guaranteed to keep debuggee in a halt state \(in Debugger Mode\); thus, nothing will change during its execution.
+This command is guaranteed to keep debuggee in a halt state (in Debugger Mode); thus, nothing will change during its execution.
 
 ### Requirements
 
@@ -104,4 +104,3 @@ None
 ### Related
 
 None
-
