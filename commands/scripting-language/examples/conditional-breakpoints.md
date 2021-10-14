@@ -4,6 +4,23 @@ Conditional statements are one of the important parts of debuggers and HyperDbg 
 
 These statements are handled in both command syntax like you can specify a **core **or **pid **that triggers the event but you can also use the script engine that gives you more flexibility to compare different arguments and if necessary, call functions.
 
-In this example, we want to put a conditional breakpoint on `nt!ExAllocatePoolWithTag` only and only when it's called from `nt!CmpAllocatePoolWithTag` function.
+In this example, we want to put a conditional breakpoint on `nt!ExAllocatePoolWithTag` only and only when it's called from `c` function.
 
-Let's take a look at memory at bot
+Let's take a look at memory at `nt!ExAllocatePoolWithTag` :
+
+```
+2: kHyperDbg> u nt!ExAllocatePoolWithTag
+fffff801`639b1030    48 89 5C 24 08                      mov qword ptr ss:[rsp+0x08], rbx
+fffff801`639b1035    48 89 6C 24 10                      mov qword ptr ss:[rsp+0x10], rbp
+fffff801`639b103a    48 89 74 24 18                      mov qword ptr ss:[rsp+0x18], rsi
+fffff801`639b103f    57                                  push rdi
+fffff801`639b1040    41 56                               push r14
+fffff801`639b1042    41 57                               push r15
+fffff801`639b1044    48 83 EC 30                         sub rsp, 0x30
+fffff801`639b1048    65 48 8B 04 25 20 00 00 00          mov rax, qword ptr gs:[0x0000000000000020]
+fffff801`639b1051    45 8B F0                            mov r14d, r8d
+fffff801`639b1054    44 0F B7 3D A4 8F 34 00             movzx r15d, word ptr ds:[0xFFFFF80163CFA000]
+fffff801`639b105c    48 8B EA                            mov rbp, rdx
+```
+
+The assebly code for 
