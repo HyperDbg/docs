@@ -1,12 +1,12 @@
 # access to a shared variable from different cores
 
-Sharing memory (variables) between different cores is tricky.
+Sharing memory (variables) between different cores is tricky in the operating system.
 
 Imagine we want to count the number of times that `nt!NtCreateFile` system-calls are called in our system.
 
 We know that the syscall number for `nt!NtCreateFile` is **0x55**.
 
-In the [!syscall](https://docs.hyperdbg.org/commands/extension-commands/syscall#context) command, both `$context` and **RAX **register contain the syscall number.
+In the [!syscall](https://docs.hyperdbg.org/commands/extension-commands/syscall#context) command, both the `$context` and **RAX **register contain the syscall number.
 
 One of the solutions to avoid simultaneous read/write from the shared objects (global variables) is using [spinlocks](https://en.wikipedia.org/wiki/Spinlock).
 
@@ -25,7 +25,7 @@ The can be achieved by using the following commands.
 Keep in mind, that the lock variable should be a global variable, not a local variable.
 {% endhint %}
 
-Now, we protect the [critical section](https://en.wikipedia.org/wiki/Critical_section) by using [spinlock_lock](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks/spinlock_lock) function. After that, we can safely read our global variable my_counter
+Now, we protect the [critical section](https://en.wikipedia.org/wiki/Critical_section) by using [spinlock_lock](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks/spinlock_lock) function. After that, we can safely read our global variable `.my_counter` and change its value.
 
 ```
 spinlock_lock(&.my_lock); 
