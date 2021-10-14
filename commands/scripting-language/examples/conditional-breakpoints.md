@@ -39,9 +39,9 @@ fffff801`6325c5d0    CC                                  int3
 
 As you can see, `nt!ExAllocatePoolWithTag` is called from ``fffff801`6325c5c4`` in `nt!CmpAllocatePoolWithTag`.
 
-Based on x86 assembly, a `call` instruction pushes the address of the next instruction to the stack, so that the program can be continued later with the next instruction.
+Based on x86 assembly, a `call` instruction pushes the address of the next instruction to the stack so that the program can be continued later with the next instruction.
 
-As the stack is down-to-up in computer science, if we dereference **@rsp** register and read 8-bytes from the stack, it's the pointer to the next instruction that the caller expects to be called after the call is finished (returned).
+As the stack is down-to-up in computer science, if we dereference **@rsp** register and read 8-bytes from the stack, it's the pointer to the next instruction that the caller expects to be called after the **call** is finished (returned).
 
 We know that the next instruction after the call instruction is ``fffff801`6325c5c9`` which is `nt!CmpAllocatePoolWithTag+0x9`. Now, we put a EPT hook on the target function `nt!ExAllocatePoolWithTag` and check whether the caller is `nt!CmpAllocatePoolWithTag+0x9`.
 
