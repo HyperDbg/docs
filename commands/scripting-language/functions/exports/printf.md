@@ -20,7 +20,7 @@ A printf-like format string.
 
 **\[Expression] \[...]**
 
-[MASM-like expression(s)](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations) to evaluate, you can choose multiple expressions based on the format string
+[MASM-like expression(s)](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations) to evaluate, you can choose multiple expressions based on the format string.
 
 ### Description
 
