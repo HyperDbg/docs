@@ -30,7 +30,7 @@ The function returns the resulting incremented value.
 
 `Result = interlocked_increment(.my_gloabl_counter);`
 
-Increments a global variable by **`1`** and saves the results into a local variable named `Result`.
+Increments a global variable by **1** and saves the results into a local variable named `Result`.
 
 ### Remarks
 
