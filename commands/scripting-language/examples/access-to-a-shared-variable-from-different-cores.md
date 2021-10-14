@@ -37,7 +37,7 @@ spinlock_unlock(&.my_lock);
 Using spinlocks, we are sure that two (or more) cores won't execute our critical section. Only one core runs the critical section simultaneously, and other cores will wait until the current core releases the lock using the [spinlock_unlock](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks/spinlock_unlock) function.
 
 {% hint style="danger" %}
-If you don't use spinlocks and access to the global variables without using a lock then your result might not be accurate as the debuggee might (and will) run the script simultaneously in two cores, and your code has the classic problem of [concurrent reading of shared memory](https://en.wikipedia.org/wiki/Concurrent_computing) in multi-core environment.
+If you don't use spinlocks and access to global variables without using a lock then your result might not be accurate as the debuggee might (and will) run the script at the same time in two cores, and your code has the classic problem of [concurrent reading of shared memory](https://en.wikipedia.org/wiki/Concurrent_computing) in multi-core environment.
 {% endhint %}
 
 To wrap up, we'll use the following script to accomplish the above task.
