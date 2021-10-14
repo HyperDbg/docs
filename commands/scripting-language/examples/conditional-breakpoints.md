@@ -6,6 +6,10 @@ These statements are handled in both command syntax, like you can specify a **co
 
 In this example, we want to put a conditional breakpoint on `nt!ExAllocatePoolWithTag` only and only when it's called from `nt!CmpAllocatePoolWithTag` function.
 
+{% hint style="info" %}
+This example is only appl
+{% endhint %}
+
 Let's take a look at memory at `nt!ExAllocatePoolWithTag` :
 
 ```
@@ -62,4 +66,4 @@ All in all, the following script is the implementation of this logic.
 
 You can see that the debugger will get the target system's control whenever it's called from `nt!CmpAllocatePoolWithTag+0x4`.
 
-![](broken-reference)
+![Conditional event/breakpoint](broken-reference)
