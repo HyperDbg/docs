@@ -11,7 +11,7 @@ Events are an essential concept in HyperDbg. Almost all of the HyperDbg features
 For example, hidden hooks are an event. When this event is triggered, your actions will be performed, or a syscall hook is an event. Whenever the system executes an **SYSRET** instruction or a **SYSCALL** instruction, then the event is triggered.
 
 {% hint style="success" %}
-Note that some of the structures might be changed in the future \(means that some of the fields might be removed or new fields added to these structures\) versions of HyperDbg, but these concepts remain the same.
+Note that some of the structures might be changed in the future (means that some of the fields might be removed or new fields added to these structures) versions of HyperDbg, but these concepts remain the same.
 {% endhint %}
 
 Most of the basic debugger routines are implemented in **Debugger.c** in HyperDbg driver.
@@ -54,7 +54,7 @@ typedef struct _DEBUGGER_EVENT {
 
 `Tag` is a unique identity for each event, we want to send results back to the user mode, we use this `tag`. `Tag` is generated in the user-mode application and will send to the kernel-mode using different IOCTLs.
 
-`EventsOfSameTypeList`, we save the events of the same type in a linked list \(more details later\).
+`EventsOfSameTypeList`, we save the events of the same type in a linked list (more details later).
 
 `EventType` shows the type of the current event.
 
@@ -85,7 +85,7 @@ PDEBUGGER_EVENT
 DebuggerCreateEvent(BOOLEAN Enabled, UINT32 CoreId, UINT32 ProcessId, DEBUGGER_EVENT_TYPE_ENUM EventType, UINT64 Tag, UINT32 ConditionsBufferSize, PVOID ConditionBuffer);
 ```
 
-For example, we create a new event for a **`HIDDEN_HOOK_READ`**, and as the condition buffer is null; thus, it's unconditional.
+For example, we create a new event for a `HIDDEN_HOOK_READ`, and as the condition buffer is null; thus, it's unconditional.
 
 ```c
 //
@@ -113,7 +113,7 @@ Please note that **DebuggerCreateEvent**, should not be called in vmx-root mode.
 
 ### Registering an event
 
-After creating an event, we should add action\(s\) to the event. `DebuggerAddActionToEvent`is used to add actions to the events \(we describe it in the **actions** section\).
+After creating an event, we should add action(s) to the event. `DebuggerAddActionToEvent`is used to add actions to the events (we describe it in the **actions** section).
 
 Finally, we have to use the following command to register the event.
 
@@ -143,7 +143,6 @@ PDEBUGGER_CORE_EVENTS g_Events;
 `DEBUGGER_CORE_EVENTS` contains a linked-list for each event. For example, `Events` contain the following lists in the first release.
 
 ```c
-
 typedef struct _DEBUGGER_CORE_EVENTS
 {
     //
@@ -177,11 +176,11 @@ typedef struct _DEBUGGER_CORE_EVENTS
 
 When an event is triggered, it searches for the corresponding list in the above structure to find all related events.
 
-If there is an event \(or multiple events\), it checks whether the event is enabled or not. If it was enabled, then it checks to see if the event is conditional or unconditional. If it was conditional, then it calls the condition function.
+If there is an event (or multiple events), it checks whether the event is enabled or not. If it was enabled, then it checks to see if the event is conditional or unconditional. If it was conditional, then it calls the condition function.
 
-Condition buffer is a user-specific buffer \(code\) if it returns a zero value \(in `RAX`\) or in other words, returns **FALSE**, then the event is not performed, and HyperDbg checks for other events \(If any\).
+Condition buffer is a user-specific buffer (code) if it returns a zero value (in `RAX`) or in other words, returns **FALSE**, then the event is not performed, and HyperDbg checks for other events (If any).
 
-If the `RAX`is a non-zero value \(e.g. `RAX=0x1`\) then all the actions of that event will be performed.
+If the `RAX`is a non-zero value (e.g. `RAX=0x1`) then all the actions of that event will be performed.
 
 ### Triggering an event
 
@@ -196,7 +195,7 @@ BOOLEAN
 DebuggerTriggerEvents(DEBUGGER_EVENT_TYPE_ENUM EventType, PGUEST_REGS Regs, PVOID Context);
 ```
 
-The caller should provide the kind of events to trigger \(`EventType`\) and pass the general purpose-registers \(`Regs`\), and an optional argument as `Context`. Most of the times the `Context` is the instruction pointer \(`RIP`\) or `GUEST_RIP`'s of when the event was triggered, but it might be different in some events.
+The caller should provide the kind of events to trigger (`EventType`) and pass the general purpose-registers (`Regs`), and an optional argument as `Context`. Most of the times the `Context` is the instruction pointer (`RIP`) or `GUEST_RIP`'s of when the event was triggered, but it might be different in some events.
 
 For example, the following code is used to trigger all the events related to `HIDDEN_HOOK_EXEC_DETOURS` events.
 
@@ -251,4 +250,3 @@ DebuggerRemoveEvent(UINT64 Tag);
 ```
 
 If you remove an event, you are no longer able to disable or enable it.
-
