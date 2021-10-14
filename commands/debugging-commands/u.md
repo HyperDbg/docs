@@ -44,7 +44,7 @@ If you don't specify the pid, then the default pid is the current process (Hyper
 
 ### Examples
 
-The following command is used when we want to disassemble the content of memory (x64) at **``fffff800`3ad6f010``** with length of `0x50` bytes from the memory layout view of process (`4` a.k.a. system process).
+The following command is used when we want to disassemble the content of memory (x64) at ``fffff800`3ad6f010`` with length of `0x50` bytes from the memory layout view of process (`4` a.k.a. system process).
 
 ```diff
 HyperDbg> u fffff800`3ad6f010 l 50 pid 4
