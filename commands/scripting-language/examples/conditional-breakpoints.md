@@ -4,7 +4,7 @@ Conditional statements are one of the important parts of debuggers and HyperDbg 
 
 These statements are handled in both command syntax like you can specify a **core **or **pid **that triggers the event but you can also use the script engine that gives you more flexibility to compare different arguments and if necessary, call functions.
 
-In this example, we want to put a conditional breakpoint on `nt!ExAllocatePoolWithTag` only and only when it's called from `c` function.
+In this example, we want to put a conditional breakpoint on `nt!ExAllocatePoolWithTag` only and only when it's called from `nt!CmpAllocatePoolWithTag` function.
 
 Let's take a look at memory at `nt!ExAllocatePoolWithTag` :
 
@@ -23,4 +23,18 @@ fffff801`639b1054    44 0F B7 3D A4 8F 34 00             movzx r15d, word ptr ds
 fffff801`639b105c    48 8B EA                            mov rbp, rdx
 ```
 
-The assebly code for 
+The assebly code for `nt!CmpAllocatePoolWithTag` :
+
+```
+2: kHyperDbg> u nt!CmpAllocatePoolWithTag
+fffff801`6325c5c0    48 83 EC 28                         sub rsp, 0x28
+fffff801`6325c5c4    E8 67 4A 75 00                      call 0xFFFFF801639B1030
+fffff801`6325c5c9    48 83 C4 28                         add rsp, 0x28
+fffff801`6325c5cd    C3                                  ret
+fffff801`6325c5ce    CC                                  int3
+fffff801`6325c5cf    CC                                  int3
+fffff801`6325c5d0    CC                                  int3
+
+```
+
+As you can
