@@ -8,7 +8,7 @@ We know that the syscall number for `nt!NtCreateFile` is **0x55**.
 
 In the [!syscall](https://docs.hyperdbg.org/commands/extension-commands/syscall#context) command, both `$context` and **RAX **register contain the syscall number.
 
-Th
+One of the solutions to avoid simultaneous read/wro
 
 
 
