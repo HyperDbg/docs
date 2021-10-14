@@ -2,7 +2,7 @@
 
 Sharing memory (variables) between different cores is tricky.
 
-Imagine we want to count the number of times that `nt!NtCreateFile` system-calls are used in our system.
+Imagine we want to count the number of times that `nt!NtCreateFile` system-calls are called in our system.
 
 We know that the syscall number for `nt!NtCreateFile` is **0x55**.
 

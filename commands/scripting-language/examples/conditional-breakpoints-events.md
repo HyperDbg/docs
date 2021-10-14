@@ -59,7 +59,7 @@ If the caller is what we expected, then we'll halt the debugger and get the cont
 
 All in all, the following script is the implementation of this logic.
 
-```
+```clike
 !epthook nt!ExAllocatePoolWithTag script {
 
 	if (poi(@rsp) == nt!CmpAllocatePoolWithTag+0x9) {
