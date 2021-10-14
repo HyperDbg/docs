@@ -36,7 +36,7 @@ Length of the searching area.
 
 **\[byte pattern (hex)]**
 
-Search for these bytes (pattern)
+Search for these bytes (pattern).
 
 **pid \[process id (hex)] (optional)**
 
