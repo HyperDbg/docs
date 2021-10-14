@@ -28,11 +28,11 @@ Shows the assembly regarding memory content at the **virtual** address hex form.
 
 **\[Address]**
 
-The **virtual** address of where we want to start to disassemble its memory
+The **virtual** address of where we want to start to disassemble its memory.
 
 **l \[Length] (optional)**
 
-The length (byte) in hex format
+The length (byte) in hex format.
 
 **pid \[process id] (optional)**
 
