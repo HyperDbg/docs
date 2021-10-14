@@ -6,8 +6,7 @@ description: >-
 
 # Prerequisites
 
-  
-In HyperDbg, there is a fundamental term called "**event**". Each time you use HyperDbg, you set a special event; for instance, imagine you want to intercept system-calls. You should set up an event that will be triggered in the case of a "syscall" execution, or when you set a hidden hook event on a particular function.
+In HyperDbg, there is a fundamental term called "**event**". Each time you use HyperDbg, you set a special event; for instance, imagine you want to intercept system-calls. You should set up an event that will be triggered in the case of a syscall execution, or when you set a hidden hook event on a particular function.
 
 Whenever these events are triggered, HyperDbg performs specific actions that are configured by you.
 
@@ -15,7 +14,7 @@ Whenever these events are triggered, HyperDbg performs specific actions that are
 
 HyperDbg has three types of actions. These actions are **Break**, **Script**, **Custom Codes**.
 
-**Break** is exactly like classic-debuggers, where all of the cores are paused and won't run any instruction without the debugger's permission. \(This feature is not available in local debugging\).
+**Break** is exactly like classic-debuggers, where all of the cores are paused and won't run any instruction without the debugger's permission. (This feature is not available in local debugging).
 
 **Script** is a feature that helps you view the parameters, registers, and memory without breaking into the debugger and running your custom script. You can use it when you want to analyze your target, and it creates the logs or run codes in the kernel.
 
@@ -25,7 +24,6 @@ It's much faster than exiting to the debugger and continues from there as all of
 
 #### What are the conditions?
 
-Each event will be triggered only in two situations. First, you set a particular condition for the event \(**conditionally**\), so each time the event is triggered, and the condition is met, then your selected action is performed.
+Each event will be triggered only in two situations. First, you set a particular condition for the event (**conditionally**), so each time the event is triggered, and the condition is met, then your selected action is performed.
 
-The second situation is when you didn't put any conditions \(**unconditionally**\), so it will be triggered when that event happens, and there is no condition check.
-
+The second situation is when you didn't put any conditions (**unconditionally**), so it will be triggered when that event happens, and there is no condition check.
