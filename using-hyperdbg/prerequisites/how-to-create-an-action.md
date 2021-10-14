@@ -24,8 +24,6 @@ If you simply use a command without any extra parameters, it will be treated lik
 
 Custom vmx-root mode compatible script engine is another feature for HyperDbg.
 
-[Read more...](https://docs.hyperdbg.org/commands/scripting-language)
-
 ## Custom Codes
 
 **Run custom code** lets you run your custom assembly codes whenever a special event is triggered; this option is fast and powerful as you can customize the HyperDbg based on your needs.
@@ -36,7 +34,7 @@ Accessing random memory in **custom code** and **condition code** is considered 
 
 ### Run custom code without a safe buffer
 
-Each command in HyperDbg that are tagged as "**event**" in the document follows the same structure described [here](https://docs.hyperdbg.org/design/debugger-internals/events). At the time you execute a command, you can add a `code { xx xx xx xx }` where `xx` is the assembly \(hex\) of what you want to be executed in the case of that event.
+Each command in HyperDbg that are tagged as "**event**" in the document follows the same structure described [here](https://docs.hyperdbg.org/design/debugger-internals/events). At the time you execute a command, you can add a `code { xx xx xx xx }` where `xx` is the assembly (hex) of what you want to be executed in the case of that event.
 
 Generally, the assembly `code` in the code block will be called in the following form.
 
@@ -47,7 +45,7 @@ DebuggerRunCustomCodeFunc(PVOID PreAllocatedBufferAddress, PGUEST_REGS Regs, PVO
 
 As it called in the fastcall calling convention, **PreAllocatedBufferAddress** will be on `rcx`, **Regs** will be on `rdx` and **Context** is on `r8`.
 
-**PreAllocatedBufferAddress** is the address of a non-paged safe buffer, which is passed to the function on `rcx`. \(more about it later\).
+**PreAllocatedBufferAddress** is the address of a non-paged safe buffer, which is passed to the function on `rcx`. (more about it later).
 
 **Regs**, for general-purpose registers, we pass a pointer to the following structure as the second argument on `rdx`.
 
@@ -76,10 +74,10 @@ typedef struct _GUEST_REGS
 The **Context** is a special variable that shows an essential parameter of the event. This value is different for each event. You should check the documentation of that command for more information about the `Context`. For example, `Context` for **!syscall** command is the syscall-number or for the **!epthook2** command is the physical address of where the hidden hook triggered. Context is passed to the custom code as the third argument on `r8` .
 
 {% hint style="warning" %}
-**PreAllocatedBufferAddress \(rcx\)** is always _NULL_ in **Run custom code without a safe buffer**, and it's used in **Run custom code with a safe buffer**.
+**PreAllocatedBufferAddress (rcx)** is always _NULL_ in **Run custom code without a safe buffer**, and it's used in **Run custom code with a safe buffer**.
 {% endhint %}
 
-As an example, we want to find the _TAG_ \(**ExAllocatePoolWithTag**\). If the tag is a special value, then we want to change it to a new value.
+As an example, we want to find the _TAG_ (**ExAllocatePoolWithTag**). If the tag is a special value, then we want to change it to a new value.
 
 As you know, ExAllocatePoolWithTag in Windows is defined as:
 
@@ -95,7 +93,7 @@ Based on the x64 calling convention, the parameters are passed as **rcx**, **rdx
 
 As you know, if you want to change a register in the target OS, you have to find the register in _Regs_ and change it from there. Based on `_GUEST_REGS`, **r8** is on **0x40** from the top of this structure.
 
-Take a look at the following assembly code. It first checks whether the _Tag_ \(**r8**\) is **HDBG**, and if it's **HDBG**, then we change it to **HDB2**.
+Take a look at the following assembly code. It first checks whether the _Tag_ (**r8**) is **HDBG**, and if it's **HDBG**, then we change it to **HDB2**.
 
 ![](../../.gitbook/assets/actioncodeexample2.png)
 
@@ -124,8 +122,7 @@ HyperDbg> !epthook2 fffff800`4ed6f010 code {488B5A404881FB484442477402EB0848C742
 The difference between "**Run custom code without a safe buffer**" and "**Run custom code without a safe buffer**" is that you have an extra parameter, called `buffer xx` where `xx` is the hex length of the buffer.
 
 {% hint style="danger" %}
-The **PreAllocatedBufferAddress** is just one buffer. You have to know how many cores you have. If there are two or more cores that might use the buffer simultaneously, you have to use a special location \(offset from the top of the buffer\) for each core to avoid race conditions and unintended behavior.
+The **PreAllocatedBufferAddress** is just one buffer. You have to know how many cores you have. If there are two or more cores that might use the buffer simultaneously, you have to use a special location (offset from the top of the buffer) for each core to avoid race conditions and unintended behavior.
 {% endhint %}
 
 You can use the buffer which is available in `rcx`.
-
