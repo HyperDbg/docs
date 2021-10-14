@@ -39,12 +39,12 @@ The **physical** address of where we want to read its memory.
 The length (byte) in hex format.
 
 {% hint style="danger" %}
-Process ID doesn't make sense in physical memory. If you specify **pid** for physical memory, \_\*\*\_then it is ignored.
+Process ID doesn't make sense in physical memory. If you specify **pid** for physical memory, then it is ignored.
 {% endhint %}
 
 ### Examples
 
-The following command is used when we want to read the content of memory at **`1000`** with length of `0x50` in a hex byte format.
+The following command is used when we want to read the content of memory at `1000` with length of `0x50` in a hex byte format.
 
 ```diff
 HyperDbg> !db 1000 l 50
