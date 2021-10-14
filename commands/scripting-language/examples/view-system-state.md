@@ -38,7 +38,7 @@ Print value of an address, which first, **rax** register is added with **0xa0** 
 
 Two values, first is **$proc** (current `_EPROCESS`) added with **0x10**, then a dereference occurs, and the target pointer in the dereferenced location is shown as a wide-char string.
 
-Second is **$proc** (current `_EPROCESS`) added with **0x10**, \*\*\*\*then a dereference occurs, and the target pointer in the dereferenced location is shown as an ASCII string.
+Second is **$proc** (current `_EPROCESS`) added with **0x10**, then a dereference occurs, and the target pointer in the dereferenced location is shown as an ASCII string.
 
 `print(dw(NtCreateFile+10));`
 
