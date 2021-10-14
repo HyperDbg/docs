@@ -34,7 +34,7 @@ printf("NtCreateFile syscall (0x0055) is called %llx times\n", .my_counter);
 spinlock_unlock(&.my_lock);
 ```
 
-Using spinlocks, we are sure that two (or more) cores won't execute our critical section and only one core is executing the critical section at the same time and other cores will wait till the current core releases the lock using [spinlock_unlock](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks/spinlock_unlock) function.
+Using spinlocks, we are sure that two (or more) cores won't execute our critical section. Only one core is executing the critical section at the same time and other cores will wait till the current core releases the lock using [spinlock_unlock](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks/spinlock_unlock) function.
 
 {% hint style="danger" %}
 If you don't use spinlocks and access to the global variables without using a lock then your result might not be true as the debuggee might (and will) run the script simultaneously in two cores and your code has the classic problem of [concurrent reading of shared memory](https://en.wikipedia.org/wiki/Concurrent_computing) in multi-core environment.
