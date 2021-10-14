@@ -1,4 +1,8 @@
-# conditional breakpoints
+---
+description: An example of using conditional breakpoint (events)
+---
+
+# conditional breakpoints/events
 
 Conditional statements are one of the essential parts of debuggers, and HyperDbg is not an exception.
 
@@ -7,7 +11,7 @@ These statements are handled in both command syntax, like you can specify a **co
 In this example, we want to put a conditional breakpoint on `nt!ExAllocatePoolWithTag` only and only when it's called from `nt!CmpAllocatePoolWithTag` function.
 
 {% hint style="info" %}
-This example is only applicable to the [debugger mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode). Because pausing debugger is only available in this mode. However, you can write anything other than pausing debugger in the script in [VMI mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#vmi-mode).
+This example is only applicable to the [debugger mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode). Because pausing debugger is only available in this mode, however, you can write anything other than pausing debugger in the script in [VMI mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#vmi-mode).
 {% endhint %}
 
 Let's take a look at memory at `nt!ExAllocatePoolWithTag` :
@@ -66,4 +70,4 @@ All in all, the following script is the implementation of this logic.
 
 You can see that the debugger will get the target system's control whenever it's called from `nt!CmpAllocatePoolWithTag+0x4`.
 
-![Conditional event/breakpoint](broken-reference)
+![Conditional event/breakpoint](../../../.gitbook/assets/pause-when-conditions-met.PNG)
