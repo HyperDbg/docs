@@ -12,7 +12,7 @@ One of the solutions to avoid simultaneous read/write from the shared objects (g
 
 First of all, we should define two global variables. One is for the counter, and the other will be used as the [lock](https://en.wikipedia.org/wiki/Lock_\(computer_science\)).
 
-The can be achieved by using the following commands.
+This can be achieved by using the following commands.
 
 ```
 ? .my_lock = 0;
@@ -20,10 +20,10 @@ The can be achieved by using the following commands.
 ```
 
 {% hint style="warning" %}
-Keep in mind, that the lock variable should be a global variable, not a local variable.
+Keep in mind that the lock variable should be a **global variable**, not a local variable.
 {% endhint %}
 
-Now, we protect the [critical section](https://en.wikipedia.org/wiki/Critical_section) by using [spinlock_lock](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks/spinlock_lock) function. After that, we can safely read our global variable `.my_counter` and change its value.
+Now, we protect the [critical section](https://en.wikipedia.org/wiki/Critical_section) of our counter by using [spinlock_lock](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks/spinlock_lock) function. After that, we can safely read our global variable `.my_counter` and change its value.
 
 ```
 spinlock_lock(&.my_lock); 
