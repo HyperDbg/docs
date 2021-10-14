@@ -58,6 +58,6 @@ All in all, the following script is the implementation of this logic.
 }
 ```
 
-You can see that the
+You can see that the debugger will get the target system's control whenever it's called from `nt!CmpAllocatePoolWithTag+0x4`.
 
 ![](broken-reference)
