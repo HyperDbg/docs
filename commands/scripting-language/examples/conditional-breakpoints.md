@@ -39,4 +39,4 @@ fffff801`6325c5d0    CC                                  int3
 
 As you can see, `nt!ExAllocatePoolWithTag` is called from ``fffff801`6325c5c4`` in `nt!CmpAllocatePoolWithTag`.
 
-Base
+Based on x86 assembly, a `call` instruction pushes the address of the next instruction to the stack, so the program can be continued
