@@ -2,7 +2,7 @@
 description: Description of 'x' command in HyperDbg.
 ---
 
-# x \(examine symbols and find functions and variables address\)
+# x (examine symbols and find functions and variables address)
 
 ### Command
 
@@ -10,7 +10,7 @@ description: Description of 'x' command in HyperDbg.
 
 ### Syntax
 
-> x \[module!symbol \(wildcard string\)\]
+> x \[module!symbol (wildcard string)]
 
 ### Description
 
@@ -18,22 +18,22 @@ Finds the functions or variables address in the memory based on symbols.
 
 ### Parameters
 
-**\[module!symbol \(wildcard string\)\]**
+**\[module!symbol (wildcard string)]**
 
-Specifies a function or a variable name or a pattern that the symbol must contain. The _**Symbol**_ can contain a variety of wildcard characters and specifiers. For more information about the syntax, see **Remarks**.
+Specifies a function or a variable name or a pattern that the symbol must contain. The _**Symbol**_ can contain a variety of wildcard characters and specifiers. (For more information about the syntax, see **Remarks**)
 
 ### Examples
 
 In the following example, we searched for the address of the `ExAllocatePoolWithTag` function in the `nt` module.
 
-```text
+```
 HyperDbg> x nt!ExAllocatePoolWithTag
 fffff803`1dbb1030  nt!ExAllocatePoolWithTag
 ```
 
-In the following example, we searched for the address of functions \(and names\) which, starts with `ExAllocatePoo` in the `nt` module.
+In the following example, we searched for the address of functions (and names) which, starts with `ExAllocatePoo` in the `nt` module.
 
-```text
+```
 0: kHyperDbg> x nt!ExAllocatePoo*
 fffff803`1dbb1030  nt!ExAllocatePoolWithTag
 fffff803`1d4421d0  nt!ExAllocatePoolWithQuotaTag
@@ -59,10 +59,10 @@ The default module is **`nt`**. If you don't specify the module name, then **`nt
 
 These are some examples of wildcard characters supported by this command.
 
-| Value | Meaning |
-| :--- | :--- |
-| **foo** | Looks for a global symbol \(functions, variables\) named "**foo**". |
-| **foo?** | Looks for a global symbol that starts with "**foo**" and contains one extra character afterward, such as "**fool**" and "**foot**". |
+| Value         | Meaning                                                                                                                                               |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **foo**       | Looks for a global symbol (functions, variables) named "**foo**".                                                                                     |
+| **foo?**      | Looks for a global symbol that starts with "**foo**" and contains one extra character afterward, such as "**fool**" and "**foot**".                   |
 | **foo!bar\*** | Looks for a global symbol in "**foo**" that starts with "**bar**" and contains extra characters afterward, such as "**foo!bar1**" and "**foo!bar2**". |
 
 ### Requirements
@@ -72,4 +72,3 @@ None
 ### Related
 
 None
-
