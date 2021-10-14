@@ -37,7 +37,7 @@ spinlock_unlock(&.my_lock);
 ```
 
 {% hint style="danger" %}
-If you don't use spinlocks and access to the global variables without using a lock then your result might not be true as the debuggee might run the script simultaneously in two cores and 
+If you don't use spinlocks and access to the global variables without using a lock then your result might not be true as the debuggee might (and will) run the script simultaneously in two cores and your code has the classic problem of concurrent reading of shared memory in multi-core environment.
 {% endhint %}
 
 You can see the result of the above command:
