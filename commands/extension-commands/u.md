@@ -40,7 +40,7 @@ Process ID doesn't make sense in physical memory. If you specify **pid,** then i
 
 ### Examples
 
-The following command is used when we want to disassemble the content of memory (x64) at **`1000`** with length of `0x50`bytes.
+The following command is used when we want to disassemble the content of memory (x64) at `1000` with length of `0x50`bytes.
 
 ```diff
 HyperDbg> !u 1000 l 50
@@ -138,7 +138,7 @@ Where `Pid` is the process id, `Address` is the target location address and `siz
 typedef enum _DEBUGGER_READ_MEMORY_TYPE { DEBUGGER_READ_PHYSICAL_ADDRESS, DEBUGGER_READ_VIRTUAL_ADDRESS } DEBUGGER_READ_MEMORY_TYPE;
 ```
 
-`ReadingType` is either from the **kernel** or from the **vmx root**. Currently, only the reading from the kernel is implemented.
+`ReadingType` is either from the **kernel** or from the **vmx-root**. Currently, only the reading from the kernel is implemented.
 
 ```c
 typedef enum _DEBUGGER_READ_READING_TYPE { READ_FROM_KERNEL, READ_FROM_VMX_ROOT } DEBUGGER_READ_READING_TYPE;
