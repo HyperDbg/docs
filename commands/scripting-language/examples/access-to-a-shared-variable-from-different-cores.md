@@ -1,6 +1,6 @@
 # access to a shared variable from different cores
 
-Sharing memory (variables) between different cores is tricky in the operating system.
+Sharing memory (variables) between different cores is one of the challenges in the operating systems, and it is tricky to handle. HyperDbg 
 
 Imagine we want to count the number of times that `nt!NtCreateFile` system-calls are called in our system.
 
