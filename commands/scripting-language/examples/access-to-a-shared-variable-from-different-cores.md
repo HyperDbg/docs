@@ -17,13 +17,24 @@ First of all, we should define two global variables. One to be used as the count
 The can be achieved by using the following commands.
 
 ```
-.my_lock = 0;
+? .my_lock = 0;
 ? .my_counter = 0;
 ```
 
 {% hint style="warning" %}
 Keep in mind, that the lock variable should be a global variable, not a local variable.
 {% endhint %}
+
+Now, we will 
+
+```
+spinlock_lock(&.my_lock); 
+
+.my_counter = .my_counter + 1;
+	printf("NtCreateFile syscall (0x0055) is called %llx times\n", .my_counter);
+	
+	spinlock_unlock(&.my_lock);
+```
 
 You can see the result of the above command:
 
