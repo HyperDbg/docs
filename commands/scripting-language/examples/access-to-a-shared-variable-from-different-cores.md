@@ -23,7 +23,7 @@ This can be achieved by using the following commands.
 Keep in mind that the lock variable should be a **global variable**, not a local variable.
 {% endhint %}
 
-Now, we protect the [critical section](https://en.wikipedia.org/wiki/Critical_section) of our counter by using [spinlock_lock](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks/spinlock_lock) function. After that, we can safely read our global variable `.my_counter` and change its value.
+Now, we protect the [critical section](https://en.wikipedia.org/wiki/Critical_section) of our counter by using the [spinlock_lock](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks/spinlock_lock) function. After that, we can safely read our global variable `.my_counter` and change its value.
 
 ```
 spinlock_lock(&.my_lock); 
@@ -34,7 +34,7 @@ printf("NtCreateFile syscall (0x0055) is called %llx times\n", .my_counter);
 spinlock_unlock(&.my_lock);
 ```
 
-Using spinlocks, we are sure that two (or more) cores won't execute our critical section. Only one core is executing the critical section at the same time and other cores will wait till the current core releases the lock using [spinlock_unlock](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks/spinlock_unlock) function.
+Using spinlocks, we are sure that two (or more) cores won't execute our critical section. Only one core executes the critical section simultaneously, and other cores will wait until the current core releases the lock using [spinlock_unlock](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks/spinlock_unlock) function.
 
 {% hint style="danger" %}
 If you don't use spinlocks and access to the global variables without using a lock then your result might not be true as the debuggee might (and will) run the script simultaneously in two cores and your code has the classic problem of [concurrent reading of shared memory](https://en.wikipedia.org/wiki/Concurrent_computing) in multi-core environment.
