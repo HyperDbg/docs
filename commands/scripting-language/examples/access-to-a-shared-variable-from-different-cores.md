@@ -2,11 +2,9 @@
 
 Sharing memory (variables) between different cores is one of the challenges in the operating systems, and it is tricky to handle. HyperDbg has the same limitations in handling shared resources between different cores.
 
-Imagine we want to count the number of times that `nt!NtCreateFile` system-calls are called in our system.
+Imagine we want to count the number of times that `nt!NtCreateFile` system-call is called in our system. 
 
-We know that the syscall number for `nt!NtCreateFile` is **0x55**.
-
-In the [!syscall](https://docs.hyperdbg.org/commands/extension-commands/syscall#context) command, both the `$context` and **RAX **register contain the syscall number.
+We know that the syscall number for `nt!NtCreateFile` is **0x55**. In the [!syscall](https://docs.hyperdbg.org/commands/extension-commands/syscall#context) command, both the `$context` and **RAX **register contain the syscall number.
 
 One of the solutions to avoid simultaneous read/write from the shared objects (global variables) is using [spinlocks](https://en.wikipedia.org/wiki/Spinlock).
 
