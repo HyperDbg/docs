@@ -2,7 +2,7 @@
 
 One of the use cases of HyperDbg is counting the occurrence of different events. However, incrementing and decrementing values from different cores is problematic as you can't add everything using mathematical operators. It is because the result of the computation might not be accurate.
 
-The problem arises because if you want to access a value to add or subtract the value, other cores might do the same operation simultaneously. Each of the cores is computing the new values at the same time, so we might (and will) lose some of the operations as other core's results might replace the current core's computation.
+The problem arises because if you want to access a value to add or subtract the value, other cores might do the same operation simultaneously. Each of the cores is computing the new values at the same time, so we might (and will) lose some of the operations as other core's results might replace the current core's computation re.
 
 In order to prevent this problem, you can use interlocked functions in HyperDbg's script engine.
 
