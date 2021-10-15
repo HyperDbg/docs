@@ -6,10 +6,10 @@ description: An example of creating logs from NtOpenFile
 
 Creating logs from different APIs and functions is one of the essential tasks in reverse-engineering and program or malware analyzing and HyperDbg is optimized to be fast and accurate for this case.
 
-Assume that we want to create a log from all the files that a process wants to open. For this case we want to hook nt!OpenFile. 
+Assume that we want to create a log from all the files that a process wants to open. For this case we want to hook nt!NtOpenFile. 
 
 {% hint style="info" %}
-Note t
+Note that, there are other functions to get handle from files, e.g., nt!CreateFile but for this example, we only use nt!NtOpenFile. You can 
 {% endhint %}
 
 ```c
