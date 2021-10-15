@@ -29,3 +29,9 @@ int main()
 	@zf = 0;
 }
 ```
+
+{% file src="broken-reference" %}
+
+![](broken-reference)
+
+![](broken-reference)
