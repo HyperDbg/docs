@@ -4,7 +4,9 @@ description: An example of creating logs from NtOpenFile
 
 # trace function calls
 
-Creating logs from different APIs and functions is one of the essential tasks in reverse-engineering and program/ma and HyperDbg is optimized to be fast and accurate to help you
+Creating logs from different APIs and functions is one of the essential tasks in reverse-engineering and program or malware analyzing and HyperDbg is optimized to be fast and accurate for this case.
+
+Assume that we want to create a log from all the files that a process wants to open
 
 ```c
 __kernel_entry NTSYSCALLAPI NTSTATUS NtOpenFile(
