@@ -51,7 +51,7 @@ From the relative-address view, this function is stored in the memory like this:
    +0x028 SecurityQualityOfService : Ptr64 Void
 ```
 
-We can see that there is _UNICODE_
+We can see that there is UNICODE_STRING fiel
 
 ```
 typedef struct _UNICODE_STRING {
