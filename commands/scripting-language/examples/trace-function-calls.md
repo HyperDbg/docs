@@ -40,7 +40,7 @@ typedef struct _OBJECT_ATTRIBUTES {
 } OBJECT_ATTRIBUTES;
 ```
 
-
+From the relative-address view, this function is stored in the memory like this:
 
 ```
    +0x000 Length           : Uint4B
@@ -50,6 +50,8 @@ typedef struct _OBJECT_ATTRIBUTES {
    +0x020 SecurityDescriptor : Ptr64 Void
    +0x028 SecurityQualityOfService : Ptr64 Void
 ```
+
+We can see that there is _UNICODE_
 
 ```
 typedef struct _UNICODE_STRING {
