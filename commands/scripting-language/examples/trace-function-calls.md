@@ -14,7 +14,7 @@ Note that there are other functions to get the handle from files, e.g., [**nt!Nt
 
 From the [MSDN](https://docs.microsoft.com/en-us/windows/win32/api/winternl/nf-winternl-ntopenfile), **NtOpenFile** is defined like this:
 
-```c
+```clike
 __kernel_entry NTSYSCALLAPI NTSTATUS NtOpenFile(
   PHANDLE            FileHandle,
   ACCESS_MASK        DesiredAccess,
@@ -42,7 +42,7 @@ typedef struct _OBJECT_ATTRIBUTES {
 
 From the relative-address point of view, this function is stored in the memory like this:
 
-```
+```clike
    +0x000 Length           : Uint4B
    +0x008 RootDirectory    : Ptr64 Void
    +0x010 ObjectName       : Ptr64 _UNICODE_STRING
@@ -55,7 +55,7 @@ We can see that there is a [**UNICODE_STRING**](https://docs.microsoft.com/en-us
 
 If we look at the **UNICODE_STRING** structure. It's defined like this:
 
-```
+```clike
 typedef struct _UNICODE_STRING {
   USHORT Length;
   USHORT MaximumLength;
@@ -65,7 +65,7 @@ typedef struct _UNICODE_STRING {
 
 And the compiler saves it like this:
 
-```
+```clike
    +0x000 Length           : Uint2B
    +0x002 MaximumLength    : Uint2B
    +0x008 Buffer           : Ptr64 Wchar
@@ -122,7 +122,7 @@ Next, we clear all the breakpoints using the [bc](https://docs.hyperdbg.org/comm
 
 All in all, we set a hook to this function using [!epthook](https://docs.hyperdbg.org/commands/extension-commands/epthook) command and in the script payload of the command, we use our statement.
 
-```
+```clike
 !epthook nt!NtOpenFile script {
 	printf("%ws\n", dq(poi(r8 + 10) + 0x8));
 }
