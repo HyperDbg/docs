@@ -73,7 +73,9 @@ And the compiler save it like this:
 
 Ok, now we have all the offsets that we want to create a log from the file names.
 
-First, the ObjectAttributes parameter is passed as the 3rd parameter to the f
+First, the ObjectAttributes parameter is passed as the 3rd parameter to the function and as the calling convention is Windows fastcall (rcx. rdx, r8, r9, stack), our target parameter is located at r8.
+
+In
 
 ```clike
 0: kHyperDbg> bp nt!NtOpenFile
