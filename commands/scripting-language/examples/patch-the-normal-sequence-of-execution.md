@@ -32,4 +32,6 @@ int main()
 }
 ```
 
-![](broken-reference)
+![](../../../.gitbook/assets/patch-the-target-address.PNG)
+
+![](../../../.gitbook/assets/clearing-the-patch-events.PNG)
