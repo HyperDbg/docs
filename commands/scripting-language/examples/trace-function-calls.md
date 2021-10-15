@@ -79,7 +79,7 @@ In our case, r8 is a pointer to the \_OBJECT_ATTRIBUTES and if we add 0x10 to it
 
 ObjectName is a pointer to a UNICODE_STRING so we'll derefrence this pointer using poi operator to reach to the top of the UNICODE_STRING.
 
-In the UNICODE_STRING, we'll add 0x8 to reach to the Buffer filed of th
+In the UNICODE_STRING, we'll add 0x8 to reach to the Buffer filed of this structre and now we dereference it again to get the pointer where the file name string is located.
 
 ```clike
 0: kHyperDbg> bp nt!NtOpenFile
