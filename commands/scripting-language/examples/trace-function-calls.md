@@ -81,6 +81,8 @@ ObjectName is a pointer to a UNICODE_STRING so we'll derefrence this pointer usi
 
 In the UNICODE_STRING, we'll add 0x8 to reach to the Buffer filed of this structre and now we dereference it again to get the pointer where the file name string is located.
 
+We'll use print and dc commands to test our computation.
+
 ```clike
 0: kHyperDbg> bp nt!NtOpenFile
 
@@ -102,11 +104,21 @@ fffff801`637c1240  006A0062 00630065 00730074 004C005C  b.j.e.c.t.s.\.L.
 fffff801`637c1250  0077006F 006F004E 0050006E 00670061  o.w.N.o.n.P.a.g.
 fffff801`637c1260  00640065 006F0050 006C006F 006F0043  e.d.P.o.o.l.C.o.
 
+
+```
+
+```clike
 3: kHyperDbg> ? printf("%ws\n", dq(poi(r8 + 10) + 0x8));
 \Device\MountPointManager
+```
 
+
+
+```clike
 3: kHyperDbg> bc all
 ```
+
+
 
 ```
 !epthook nt!NtOpenFile script {
