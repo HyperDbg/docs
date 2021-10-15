@@ -31,7 +31,3 @@ int main()
 	@zf = 0;
 }
 ```
-
-![](../../../.gitbook/assets/patch-the-target-program.PNG)
-
-![](../../../.gitbook/assets/clear-the-patch-events.PNG)
