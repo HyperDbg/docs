@@ -14,7 +14,7 @@ For this purpose, first, we define a global variable.c
 ? .my_counter = 0;
 ```
 
-After that, 
+After that, we'll use !exception command with 0xe parameter that shows we want to intercept pag we use interlocked_increment
 
 ```
 !exception 0xe pid 4 script {
