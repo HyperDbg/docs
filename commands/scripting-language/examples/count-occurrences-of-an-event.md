@@ -4,4 +4,21 @@ One of the use cases of HyperDbg is counting the occurrence of different events.
 
 The problem arises from the fact that if you want to access a value to add or subtract the value, other cores might do the same operation simaltaneously and each of the cores are computing the new values at the same time so we might (and will) lose some of the operations as the current core's computation might be replaced by other core's results.
 
-In order to prevent this problem, you can 
+In order to prevent this problem, you can use interlocked functions in HyperDbg's script engine.
+
+Imagine we want to count the number of times that system process (process id = 4) will access a paged-out page and leads to a page-fault.
+
+For this purpose, first, we define a global variable.c
+
+```
+? .my_counter = 0;
+```
+
+After that, 
+
+```
+!exception 0xe pid 4 script {
+	
+	.Result = interlocked_increment(&.my_counter);
+}
+```
