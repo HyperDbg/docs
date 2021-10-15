@@ -27,4 +27,13 @@ In the event's script we use interlocked_increment function to each time increme
 
 Now we let the debuggee to continue its normal execution using the 'g' command.
 
-After some times, we can read the value of .my_counter global variable usien
+After some times, we can read the value of .my_counter global variable using 'print' command.
+
+```
+print .my_counter
+```
+
+You can see the final results:
+
+![](broken-reference)
+
