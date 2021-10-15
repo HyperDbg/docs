@@ -71,7 +71,9 @@ And the compiler save it like this:
    +0x008 Buffer           : Ptr64 Wchar
 ```
 
-Ok, 
+Ok, now we have all the offsets that we want to create a log from the file names.
+
+First, the ObjectAttributes parameter is passed as the 3rd parameter to the f
 
 ```clike
 0: kHyperDbg> bp nt!NtOpenFile
