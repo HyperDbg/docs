@@ -105,9 +105,9 @@ fffff801`637c1250  0077006F 006F004E 0050006E 00670061  o.w.N.o.n.P.a.g.
 fffff801`637c1260  00640065 006F0050 006C006F 006F0043  e.d.P.o.o.l.C.o.
 ```
 
-You can clea see that the computed address contains the object name.
+You can clearly see that the computed address contains the object name.
 
-Now, we'll show it using printf function with %ws as the identifier to show the buffer as unicode string.
+Now, we'll show it using [printf](https://docs.hyperdbg.org/commands/scripting-language/functions/exports/printf) function with `%ws` as the identifier to show the buffer as unicode string.
 
 ```clike
 3: kHyperDbg> ? printf("%ws\n", dq(poi(r8 + 10) + 0x8));
