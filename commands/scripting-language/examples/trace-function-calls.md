@@ -128,7 +128,7 @@ All in all, we set a hook to this function using !epthook command and in the scr
 }
 ```
 
-You can see the results of how it shows every objects name when you continue the 
+You can see the results of how it shows every objects name when you continue the debuggee.
 
-![](../../../.gitbook/assets/NtOpenFile-Interpret.PNG)
+![Getting NtOpenFile object names](../../../.gitbook/assets/NtOpenFile-Interpret.PNG)
 
