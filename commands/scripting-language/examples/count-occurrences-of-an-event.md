@@ -25,9 +25,9 @@ In the event's script, we use the [interlocked_increment](https://docs.hyperdbg.
 }
 ```
 
-Now we let the debuggee to continue its normal execution using the 'g' command.
+Now we let the debuggee continue its normal execution using the '[g](https://docs.hyperdbg.org/commands/debugging-commands/g)' command.
 
-After some times, we can read the value of .my_counter global variable using 'print' command.
+After some time, we can read the value of the `.my_counter` global variable using the '[print](https://docs.hyperdbg.org/commands/debugging-commands/print)' command.
 
 ```
 print .my_counter
