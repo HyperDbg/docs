@@ -25,7 +25,9 @@ __kernel_entry NTSYSCALLAPI NTSTATUS NtOpenFile(
 );
 ```
 
-As you might know, there is no pointer to the file name in the above proto-type. In fact, the file name pointer is embeded into the ObjectAttributes para
+As you might know, there is no pointer to the file name in the above proto-type. In fact, the file name pointer is embeded into the ObjectAttributes paramter to this function.
+
+If you want to see how OBJECT_ATTRIBUTES structure is defined, you can see this link from MSDN.
 
 ```c
 typedef struct _OBJECT_ATTRIBUTES {
@@ -37,6 +39,8 @@ typedef struct _OBJECT_ATTRIBUTES {
   PVOID           SecurityQualityOfService;
 } OBJECT_ATTRIBUTES;
 ```
+
+
 
 ```
    +0x000 Length           : Uint4B
