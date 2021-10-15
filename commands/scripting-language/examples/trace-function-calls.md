@@ -79,9 +79,9 @@ In our case, **r8** is a pointer to the **OBJECT_ATTRIBUTES**, and if we add **0
 
 **ObjectName** is a pointer to the **UNICODE_STRING**, so we'll dereference this pointer using thr `poi` operator to reach the top of the **UNICODE_STRING**.
 
-In the **UNICODE_STRING**, we'll add 0x8 to reach to the Buffer filed of this structre and now we dereference it again to get the pointer where the file name string is located.
+In the **UNICODE_STRING**, we'll add **0x8** to get the **Buffer** filed of this structure, and now we dereference it again to get the pointer where the file name string is located.
 
-We'll use print and dc commands to test our computation.
+We'll use [print](https://docs.hyperdbg.org/commands/debugging-commands/print) and dc commands to test our computation.
 
 ```clike
 0: kHyperDbg> bp nt!NtOpenFile
