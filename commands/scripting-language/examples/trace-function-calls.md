@@ -73,7 +73,7 @@ And the compiler saves it like this:
 
 Ok, we have all the offsets that we want to create a log from the file names.
 
-First, the **ObjectAttributes** parameter is passed as the **3rd** parameter to the function, and as the calling convention is Windows fastcall (**rcx**, **rdx**, **r8**, **r9**, **stack**), our target parameter is located at **r8 t**.
+First, the **ObjectAttributes** parameter is passed as the **3rd** parameter to the function, and as the calling convention is Windows fastcall (**rcx**, **rdx**, **r8**, **r9**, **stack**), our target parameter is located at the **r8** register.
 
 In our case, **r8** is a pointer to the **OBJECT_ATTRIBUTES**, and if we add **0x10** to it, we'll reach the **ObjectName** field of this structure.
 
@@ -107,7 +107,7 @@ fffff801`637c1260  00640065 006F0050 006C006F 006F0043  e.d.P.o.o.l.C.o.
 
 You can clearly see that the computed address contains the object name.
 
-Now, we'll show it using [printf](https://docs.hyperdbg.org/commands/scripting-language/functions/exports/printf) function with `%ws` as the identifier to show the buffer as unicode string.
+Now, we'll show it using [printf](https://docs.hyperdbg.org/commands/scripting-language/functions/exports/printf) function with `%ws` as the identifier to show the buffer as  unicode string.
 
 ```clike
 3: kHyperDbg> ? printf("%ws\n", dq(poi(r8 + 10) + 0x8));
