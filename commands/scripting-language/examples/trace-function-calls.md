@@ -77,9 +77,9 @@ First, the **ObjectAttributes** parameter is passed as the **3rd** parameter to 
 
 In our case, **r8** is a pointer to the **OBJECT_ATTRIBUTES**, and if we add **0x10** to it, we'll reach the **ObjectName** field of this structure.
 
-ObjectName is a pointer to a UNICODE_STRING so we'll derefrence this pointer using poi operator to reach to the top of the UNICODE_STRING.
+**ObjectName** is a pointer to the **UNICODE_STRING**, so we'll dereference this pointer using thr `poi` operator to reach the top of the **UNICODE_STRING**.
 
-In the UNICODE_STRING, we'll add 0x8 to reach to the Buffer filed of this structre and now we dereference it again to get the pointer where the file name string is located.
+In the **UNICODE_STRING**, we'll add 0x8 to reach to the Buffer filed of this structre and now we dereference it again to get the pointer where the file name string is located.
 
 We'll use print and dc commands to test our computation.
 
