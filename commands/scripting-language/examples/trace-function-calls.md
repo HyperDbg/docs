@@ -25,9 +25,9 @@ __kernel_entry NTSYSCALLAPI NTSTATUS NtOpenFile(
 );
 ```
 
-As you might know, there is no pointer to the file name in the above prototype. In fact, the file name pointer is embeded into the ObjectAttributes paramter to this function.
+As you might know, there is no pointer to the file name in the above prototype. In fact, the file name's pointer is embedded into the **ObjectAttributes** parameter to this function.
 
-If you want to see how OBJECT_ATTRIBUTES structure is defined, you can see this link from MSDN.
+If you want to see how **OBJECT_ATTRIBUTES** structure is defined, you can see [this](https://docs.microsoft.com/en-us/windows/win32/api/ntdef/ns-ntdef-\_object_attributes) link from MSDN.
 
 ```c
 typedef struct _OBJECT_ATTRIBUTES {
@@ -40,7 +40,7 @@ typedef struct _OBJECT_ATTRIBUTES {
 } OBJECT_ATTRIBUTES;
 ```
 
-From the relative-address view, this function is stored in the memory like this:
+From the relative-address point of view, this function is stored in the memory like this:
 
 ```
    +0x000 Length           : Uint4B
