@@ -6,13 +6,13 @@ description: An example of creating logs from NtOpenFile
 
 Creating logs from different APIs and functions is one of the essential tasks in reverse engineering and program or malware analysis. HyperDbg is optimized to be fast and accurate for this case.
 
-Assume that we want to create a log from all the files that a process wants to open. For this case, we want to hook [nt!NtOpenFile](https://docs.microsoft.com/en-us/windows/win32/api/winternl/nf-winternl-ntopenfile). 
+Assume that we want to create a log from all the files that a process wants to open. For this case, we want to hook [**nt!NtOpenFile**](https://docs.microsoft.com/en-us/windows/win32/api/winternl/nf-winternl-ntopenfile). 
 
 {% hint style="info" %}
-Note that there are other functions to get the handle from files, e.g., [nt!NtCreateFile](https://docs.microsoft.com/en-us/windows/win32/api/winternl/nf-winternl-ntcreatefile) but for this example, we only use **nt!NtOpenFile**. You can create your scripts for other functions too.
+Note that there are other functions to get the handle from files, e.g., [**nt!NtCreateFile**](https://docs.microsoft.com/en-us/windows/win32/api/winternl/nf-winternl-ntcreatefile) but for this example, we only use **nt!NtOpenFile**. You can create your scripts for other functions too.
 {% endhint %}
 
-From the MSDN, NtOpenFile is defined like this:
+From the [MSDN](https://docs.microsoft.com/en-us/windows/win32/api/winternl/nf-winternl-ntopenfile), **NtOpenFile** is defined like this:
 
 ```c
 __kernel_entry NTSYSCALLAPI NTSTATUS NtOpenFile(
@@ -25,7 +25,7 @@ __kernel_entry NTSYSCALLAPI NTSTATUS NtOpenFile(
 );
 ```
 
-As you might know, there is no pointer to the file name in the above proto-type. In fact, the file name pointer is embeded into the ObjectAttributes paramter to this function.
+As you might know, there is no pointer to the file name in the above prototype. In fact, the file name pointer is embeded into the ObjectAttributes paramter to this function.
 
 If you want to see how OBJECT_ATTRIBUTES structure is defined, you can see this link from MSDN.
 
