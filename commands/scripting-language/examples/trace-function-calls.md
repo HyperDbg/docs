@@ -114,13 +114,13 @@ Now, we'll show it using [printf](https://docs.hyperdbg.org/commands/scripting-l
 \Device\MountPointManager
 ```
 
-Next, we clear the breakpints using the bc command.
+Next, we clear all the breakpoints using the [bc](https://docs.hyperdbg.org/commands/debugging-commands/bc) command.
 
 ```clike
 3: kHyperDbg> bc all
 ```
 
-All in all, we set a hook to this function using !epthook command and in the script payload of the command, we use the script that we made above.
+All in all, we set a hook to this function using [!epthook](https://docs.hyperdbg.org/commands/extension-commands/epthook) command and in the script payload of the command, we use the stathat we made above.
 
 ```
 !epthook nt!NtOpenFile script {
