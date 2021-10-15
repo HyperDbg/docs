@@ -81,7 +81,7 @@ In our case, **r8** is a pointer to the **OBJECT_ATTRIBUTES**, and if we add **0
 
 In the **UNICODE_STRING**, we'll add **0x8** to get the **Buffer** filed of this structure, and now we dereference it again to get the pointer where the file name string is located.
 
-We'll use [print](https://docs.hyperdbg.org/commands/debugging-commands/print) and dc commands to test our computation.
+We'll put a breakpoint on this function and use [print](https://docs.hyperdbg.org/commands/debugging-commands/print) and [dc](https://docs.hyperdbg.org/commands/debugging-commands/d) commands to verify our computation.
 
 ```clike
 0: kHyperDbg> bp nt!NtOpenFile
@@ -105,7 +105,7 @@ fffff801`637c1250  0077006F 006F004E 0050006E 00670061  o.w.N.o.n.P.a.g.
 fffff801`637c1260  00640065 006F0050 006C006F 006F0043  e.d.P.o.o.l.C.o.
 ```
 
-We can see that the computed address contains the object name.
+You can clea see that the computed address contains the object name.
 
 Now, we'll show it using printf function with %ws as the identifier to show the buffer as unicode string.
 
