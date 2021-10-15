@@ -35,5 +35,5 @@ print .my_counter
 
 You can see the final results:
 
-![](broken-reference)
+![Get count of page-faults](broken-reference)
 
