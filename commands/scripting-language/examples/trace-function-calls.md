@@ -114,11 +114,13 @@ Now, we'll show it using printf function with %ws as the identifier to show the 
 \Device\MountPointManager
 ```
 
-
+Next, we clear the breakpints using the bc command.
 
 ```clike
 3: kHyperDbg> bc all
 ```
+
+All in all, we set a hook to this function using !epthook 
 
 
 
