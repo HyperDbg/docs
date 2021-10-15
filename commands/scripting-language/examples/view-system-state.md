@@ -1,5 +1,5 @@
 ---
-description: Example of valid expressions to read the state of the system
+description: An example of valid expressions to read the state of the system
 ---
 
 # view system state (registers, memory, variables)
