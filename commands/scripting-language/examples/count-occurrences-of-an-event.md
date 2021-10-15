@@ -6,7 +6,7 @@ The problem arises because if you want to access a value to add or subtract the 
 
 In order to prevent this problem, you can use [interlocked](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked) functions in HyperDbg's script engine.
 
-Imagine we want to count the number of times that system process (**process id = 4**) will access a paged-out memory (or invalid access) which leads to a page-fault.
+Imagine we want to count the number of times that system process (**process id = 4**) will access a paged-out memory (or invalid access) leto a page-fault.
 
 For this purpose, first, we define a global variable.
 
@@ -14,7 +14,7 @@ For this purpose, first, we define a global variable.
 ? .my_counter = 0;
 ```
 
-After that, we'll use the [!exception](https://docs.hyperdbg.org/commands/extension-commands/exception) command with the **0xe** parameter that shows we want to intercept page-faults and **pid 4**, which shows that only the system process should trigger the event.
+After that, we'll use the [!exception](https://docs.hyperdbg.org/commands/extension-commands/exception) command with the **0xe** parameter, which indicates that we want to intercept page-faults and **pid 4**, which shows that only the system process should trigger the event.
 
 In the event's script, we use the [interlocked_increment](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_increment) function to each time increment the value by **1**. 
 
