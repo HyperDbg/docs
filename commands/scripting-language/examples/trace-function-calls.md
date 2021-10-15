@@ -120,15 +120,15 @@ Next, we clear the breakpints using the bc command.
 3: kHyperDbg> bc all
 ```
 
-All in all, we set a hook to this function using !epthook 
-
-
+All in all, we set a hook to this function using !epthook command and in the script payload of the command, we use the script that we made above.
 
 ```
 !epthook nt!NtOpenFile script {
 	printf("%ws\n", dq(poi(r8 + 10) + 0x8));
 }
 ```
+
+You can see the results of how it shows every objects name when you continue the 
 
 ![](../../../.gitbook/assets/NtOpenFile-Interpret.PNG)
 
