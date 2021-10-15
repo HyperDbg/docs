@@ -14,7 +14,9 @@ For this purpose, first, we define a global variable.c
 ? .my_counter = 0;
 ```
 
-After that, we'll use !exception command with 0xe parameter that shows we want to intercept page-fault and pid 4 which shows that onlغ  we use interlocked_increment
+After that, we'll use !exception command with 0xe parameter that shows we want to intercept page-fault and pid 4 which shows that only system process should trigger the event.
+
+In the event's script we use interlocked_increment function to each time increment the value by 1. 
 
 ```
 !exception 0xe pid 4 script {
@@ -22,3 +24,5 @@ After that, we'll use !exception command with 0xe parameter that shows we want t
 	.Result = interlocked_increment(&.my_counter);
 }
 ```
+
+No
