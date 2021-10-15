@@ -1,4 +1,4 @@
-# change the normal sequence of execution
+# patch the normal sequence of execution
 
 ```clike
 #include <iostream>
@@ -24,7 +24,7 @@ int main()
 }
 ```
 
-![](broken-reference)
+![](../../../.gitbook/assets/find-the-target-patch-address-x64dbg.PNG)
 
 ```clike
 !epthook 004C5A1C pid 225c script {
@@ -32,6 +32,6 @@ int main()
 }
 ```
 
-![](broken-reference)
+![](../../../.gitbook/assets/patch-the-target-program.PNG)
 
-![](broken-reference)
+![](../../../.gitbook/assets/clear-the-patch-events.PNG)

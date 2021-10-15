@@ -119,7 +119,7 @@
     * [change system state (registers, memory, variables)](commands/scripting-language/examples/change-system-state-registers-memory-variables.md)
     * [trace function calls](commands/scripting-language/examples/trace-function-calls.md)
     * [conditional breakpoints and events](commands/scripting-language/examples/conditional-breakpoints-and-events.md)
-    * [change the normal sequence of execution](commands/scripting-language/examples/change-the-normal-sequence-of-execution.md)
+    * [patch the normal sequence of execution](commands/scripting-language/examples/patch-the-normal-sequence-of-execution.md)
     * [access to a shared variable from different cores](commands/scripting-language/examples/access-to-a-shared-variable-from-different-cores.md)
     * [count occurrences of events](commands/scripting-language/examples/count-occurrences-of-events.md)
   * [Functions](commands/scripting-language/functions/README.md)
