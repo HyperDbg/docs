@@ -16,16 +16,16 @@ From the MSDN, NtOpenFile is defined like this:
 
 ```c
 __kernel_entry NTSYSCALLAPI NTSTATUS NtOpenFile(
-  PHANDLE            FileHandle, rcx
-  ACCESS_MASK        DesiredAccess,  rdx
-  POBJECT_ATTRIBUTES ObjectAttributes, r8
+  PHANDLE            FileHandle,
+  ACCESS_MASK        DesiredAccess,
+  POBJECT_ATTRIBUTES ObjectAttributes,
   PIO_STATUS_BLOCK   IoStatusBlock,
   ULONG              ShareAccess,
   ULONG              OpenOptions
 );
 ```
 
-As
+As you might know, there is no pointer to the file name in the above proto-type. In fact, the file name pointer is embeded into the ObjectAttributes para
 
 ```c
 typedef struct _OBJECT_ATTRIBUTES {
