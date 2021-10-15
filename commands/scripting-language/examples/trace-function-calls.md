@@ -77,7 +77,9 @@ First, the ObjectAttributes parameter is passed as the 3rd parameter to the func
 
 In our case, r8 is a pointer to the \_OBJECT_ATTRIBUTES and if we add 0x10 to it, we'll reach to the ObjectName filed of this structure.
 
-ObjectName is a pointer to a UNICODE_STRING so we'll derefrence this pointer using poi operator to reach to the top of our UNICODESTRIN
+ObjectName is a pointer to a UNICODE_STRING so we'll derefrence this pointer using poi operator to reach to the top of the UNICODE_STRING.
+
+In the UNICODE_STRING, we'll add 0x8 to reach to the Buffer filed of th
 
 ```clike
 0: kHyperDbg> bp nt!NtOpenFile
