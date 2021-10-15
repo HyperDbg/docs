@@ -14,7 +14,7 @@ For this purpose, first, we define a global variable.
 ? .my_counter = 0;
 ```
 
-After that, we'll use !exception command with 0xe parameter that shows we want to intercept page-faults and pid 4 which shows that only system process should trigger the event.
+After that, we'll use [!exception](https://docs.hyperdbg.org/commands/extension-commands/exception) command with the **0xe** parameter that shows we want to intercept page-faults and **pid 4**, which shows that only th system process should trigger the event.
 
 In the event's script we use interlocked_increment function to each time increment the value by 1. 
 
