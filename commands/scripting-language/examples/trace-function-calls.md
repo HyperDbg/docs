@@ -9,8 +9,10 @@ Creating logs from different APIs and functions is one of the essential tasks in
 Assume that we want to create a log from all the files that a process wants to open. For this case we want to hook nt!NtOpenFile. 
 
 {% hint style="info" %}
-Note that, there are other functions to get handle from files, e.g., nt!CreateFile but for this example, we only use nt!NtOpenFile. You can 
+Note that, there are other functions to get handle from files, e.g., nt!CreateFile but for this example, we only use nt!NtOpenFile. You can create your scripts for other APIs too.
 {% endhint %}
+
+From the MSDN, NtOpenFile is defined like this:
 
 ```c
 __kernel_entry NTSYSCALLAPI NTSTATUS NtOpenFile(
@@ -22,6 +24,8 @@ __kernel_entry NTSYSCALLAPI NTSTATUS NtOpenFile(
   ULONG              OpenOptions
 );
 ```
+
+As
 
 ```c
 typedef struct _OBJECT_ATTRIBUTES {
