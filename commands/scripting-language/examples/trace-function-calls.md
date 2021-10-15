@@ -51,7 +51,7 @@ From the relative-address view, this function is stored in the memory like this:
    +0x028 SecurityQualityOfService : Ptr64 Void
 ```
 
-We can see that there is UNICODE_STRING fiel
+We can see that there is UNICODE_STRING field named ObjectName. This is the name of object that we're trying to open using NtOpenFile. This structure is also used in NtCreateFile, exa
 
 ```
 typedef struct _UNICODE_STRING {
