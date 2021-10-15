@@ -128,7 +128,7 @@ At last, we set a hook to this function using [!epthook](https://docs.hyperdbg.o
 }
 ```
 
-You can see the results of how it shows every object's name when you continue the debuggee.
+You can see the results of how it displays every object's name when you continue the debuggee.
 
 ![Getting NtOpenFile object names](../../../.gitbook/assets/NtOpenFile-Interpret.PNG)
 
