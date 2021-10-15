@@ -1,8 +1,8 @@
 # count occurrences of an event
 
-One of the use cases of HyperDbg is counting the occurrence of different events. However, incrementing and decrementing value from different cores are problematic as you can't add everything by using mathematical operators as the result might not be accurate.
+One of the use cases of HyperDbg is counting the occurrence of different events. However, incrementing and decrementing values from different cores is problematic as you can't add everything using mathematical operators. It is because the result of the computation might not be accurate.
 
-The problem arises from the fact that if you want to access a value to add or subtract the value, other cores might do the same operation simaltaneously and each of the cores are computing the new values at the same time so we might (and will) lose some of the operations as the current core's computation might be replaced by other core's results.
+The problem arises because if you want to access a value to add or subtract the value, other cores might do the same operation simultaneously. Each of the cores is computing the new values at the same time, so we might (and will) lose some of the operations as other core's results might replace the current core's computation.
 
 In order to prevent this problem, you can use interlocked functions in HyperDbg's script engine.
 
@@ -14,7 +14,7 @@ For this purpose, first, we define a global variable.
 ? .my_counter = 0;
 ```
 
-After that, we'll use !exception command with 0xe parameter that shows we want to intercept page-fault and pid 4 which shows that only system process should trigger the event.
+After that, we'll use !exception command with 0xe parameter that shows we want to intercept page-faults and pid 4 which shows that only system process should trigger the event.
 
 In the event's script we use interlocked_increment function to each time increment the value by 1. 
 
