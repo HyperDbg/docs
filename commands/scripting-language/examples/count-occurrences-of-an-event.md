@@ -1,3 +1,3 @@
 # count occurrences of an event
 
-One of the use cases of HyperDbg is couting the occurance of different valu
+One of the use cases of HyperDbg is counting the occurrence of different events. However, incrementing and decrement is values that are 
