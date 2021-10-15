@@ -8,7 +8,7 @@ In order to prevent this problem, you can use interlocked functions in HyperDbg'
 
 Imagine we want to count the number of times that system process (process id = 4) will access a paged-out page and leads to a page-fault.
 
-For this purpose, first, we define a global variable.c
+For this purpose, first, we define a global variable.
 
 ```
 ? .my_counter = 0;
