@@ -1,3 +1,3 @@
 # count occurrences of an event
 
-Add
+One of the use cases of HyperDbg is couting the occurance of different valu
