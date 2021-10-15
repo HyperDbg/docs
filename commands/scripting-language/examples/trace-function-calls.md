@@ -77,7 +77,7 @@ First, the **ObjectAttributes** parameter is passed as the **3rd** parameter to 
 
 In our case, **r8** is a pointer to the **OBJECT_ATTRIBUTES**, and if we add **0x10** to it, we'll reach the **ObjectName** field of this structure.
 
-**ObjectName** is a pointer to the **UNICODE_STRING**, so we'll dereference this pointer using thr `poi` operator to reach the top of the **UNICODE_STRING**.
+**ObjectName** is a pointer to the **UNICODE_STRING**, so we'll dereference this pointer using the `poi` operator to reach the top of the **UNICODE_STRING**.
 
 In the **UNICODE_STRING**, we'll add **0x8** to get the **Buffer** filed of this structure, and now we dereference it again to get the pointer where the file name string is located.
 
@@ -120,7 +120,7 @@ Next, we clear all the breakpoints using the [bc](https://docs.hyperdbg.org/comm
 3: kHyperDbg> bc all
 ```
 
-All in all, we set a hook to this function using [!epthook](https://docs.hyperdbg.org/commands/extension-commands/epthook) command and in the script payload of the command, we use the stathat we made above.
+All in all, we set a hook to this function using [!epthook](https://docs.hyperdbg.org/commands/extension-commands/epthook) command and in the script payload of the command, we use our statement.
 
 ```
 !epthook nt!NtOpenFile script {
@@ -128,7 +128,7 @@ All in all, we set a hook to this function using [!epthook](https://docs.hyperdb
 }
 ```
 
-You can see the results of how it shows every objects name when you continue the debuggee.
+You can see the results of how it shows every object's name when you continue the debuggee.
 
 ![Getting NtOpenFile object names](../../../.gitbook/assets/NtOpenFile-Interpret.PNG)
 
