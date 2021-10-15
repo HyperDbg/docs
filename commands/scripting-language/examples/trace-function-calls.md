@@ -107,7 +107,7 @@ fffff801`637c1260  00640065 006F0050 006C006F 006F0043  e.d.P.o.o.l.C.o.
 
 You can clearly see that the computed address contains the object name.
 
-Now, we'll show it using [printf](https://docs.hyperdbg.org/commands/scripting-language/functions/exports/printf) function with `%ws` as the identifier to show the buffer as  unicode string.
+Now, we'll show it using [printf](https://docs.hyperdbg.org/commands/scripting-language/functions/exports/printf) function with `%ws` as the identifier to show the buffer as a unicode string.
 
 ```clike
 3: kHyperDbg> ? printf("%ws\n", dq(poi(r8 + 10) + 0x8));
@@ -120,7 +120,7 @@ Next, we clear all the breakpoints using the [bc](https://docs.hyperdbg.org/comm
 3: kHyperDbg> bc all
 ```
 
-All in all, we set a hook to this function using [!epthook](https://docs.hyperdbg.org/commands/extension-commands/epthook) command and in the script payload of the command, we use our statement.
+At last, we set a hook to this function using [!epthook](https://docs.hyperdbg.org/commands/extension-commands/epthook) command and in the script payload of the command, we use our above statement.
 
 ```clike
 !epthook nt!NtOpenFile script {
