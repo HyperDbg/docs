@@ -51,7 +51,9 @@ From the relative-address view, this function is stored in the memory like this:
    +0x028 SecurityQualityOfService : Ptr64 Void
 ```
 
-We can see that there is UNICODE_STRING field named ObjectName. This is the name of object that we're trying to open using NtOpenFile. This structure is also used in NtCreateFile, exa
+We can see that there is UNICODE_STRING field named ObjectName. This is the name of object that we're trying to open using NtOpenFile. This structure is also used in [NtCreateFile](https://docs.microsoft.com/en-us/windows/win32/api/winternl/nf-winternl-ntcreatefile), exactly the same.
+
+If we look at UNICODE_STRING structure. It's defined like this:
 
 ```
 typedef struct _UNICODE_STRING {
@@ -61,11 +63,15 @@ typedef struct _UNICODE_STRING {
 } UNICODE_STRING, *PUNICODE_STRING;
 ```
 
+And the compiler save it like this:
+
 ```
    +0x000 Length           : Uint2B
    +0x002 MaximumLength    : Uint2B
    +0x008 Buffer           : Ptr64 Wchar
 ```
+
+Ok, 
 
 ```clike
 0: kHyperDbg> bp nt!NtOpenFile
