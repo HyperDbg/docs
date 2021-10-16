@@ -44,8 +44,8 @@ So, we use the following hidden breakpoint to change the **@zf** flag.
 }
 ```
 
-{% hint style="info" %}
-You can change al
+{% hint style="success" %}
+In the aboYou can change all of the registers that are supported by HyperDbg, like general-purpose register, RFLAGS, etc.
 {% endhint %}
 
 Now, let's test our theory, if we run the above HyperDbg script, we can see that the message is changed.
