@@ -1,5 +1,7 @@
 # patch the normal sequence of execution
 
+One of the powerful features of H
+
 ```clike
 #include <iostream>
 #include <Windows.h>
