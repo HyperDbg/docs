@@ -38,5 +38,15 @@ You can even change the program's flow by modifying program counter (PC) and sta
 ? @rip =  0xfffff8003ad6f010; @rsp = fffff800`5b660000;
 ```
 
+### Changing global & local variables
+
+You can change the local and global variables exactly the same as changing registers.
+
+```clike
+? .my_ =  0xfffff8003ad6f010; @rsp = fffff800`5b660000;
+```
+
+###
+
 
 
