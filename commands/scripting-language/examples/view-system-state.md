@@ -31,13 +31,13 @@ Print data as an ASCII string pointed by **rcx** register.
 
 Print the process name.
 
-
-
-`? print(dq(@rcx));`
+```clike
+? print(dq(@rcx));
+```
 
 Print data as an 8-byte hex, pointed by **rcx** register.
 
-`? print($proc+@rdx);`
+``
 
 Print value pointed by `$proc+@rdx` which **$proc** is equivalent to current `_EPROCESS` added to the **rdx** register.
 
