@@ -43,8 +43,16 @@ You can even change the program's flow by modifying program counter (PC) and sta
 You can change the local and global variables exactly the same as changing registers.
 
 ```clike
-? .my_ =  0xfffff8003ad6f010; @rsp = fffff800`5b660000;
+? .my_global_var =  @rax + @edx;
 ```
+
+Or for the local variable:
+
+```clike
+? my_local_var =  @rax + @edx;
+```
+
+Changing memory
 
 ###
 
