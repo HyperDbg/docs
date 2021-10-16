@@ -22,7 +22,13 @@ Evaluationg a statement and changing **EBX** register by its result.
 ? @ebx = @rdx | 0xfffff550 + @edx;
 ```
 
-You 
+You can also change the control registers, debug register, etc.
+
+```clike
+? @cr3 =  0xff00ee;
+```
+
+Or 
 
 
 
