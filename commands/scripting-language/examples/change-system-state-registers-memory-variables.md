@@ -9,7 +9,7 @@ Changing the system state is a crucial task for the debuggers. You can change th
 In this example, we'll describe general examples that can be used to modify different registers, memory, and variables.
 
 {% hint style="success" %}
-You can use all of the script engine statements either in the script section of events or running them using the '[?](https://docs.hyperdbg.org/commands/debugging-commands/eval)' command.
+You can use all script engine statements in the script section of events or run them using the '[?](https://docs.hyperdbg.org/commands/debugging-commands/eval)' command.
 {% endhint %}
 
 ### Changing registers
@@ -36,7 +36,7 @@ You can also change the control registers, debug register, etc.
 ? @cr3 =  0xff00ee;
 ```
 
-You can even change the program's flow by modifying program counter (PC) and stack pointer.
+You can even change the program's flow by modifying the program counter (PC) and stack pointer.
 
 ```clike
 ? @rip =  0xfffff8003ad6f010; @rsp = fffff800`5b660000;
@@ -60,7 +60,7 @@ Or for the local variable:
 
 Modifying memory is possible through '[memory](https://docs.hyperdbg.org/commands/scripting-language/functions/memory)' functions.
 
-The following code changes a **byte** to 0x90 at the location that the **rcx** register is pointing to, then adds **0x8** to it.
+The following code changes a **byte** to 0x90 at the location that the **RCX** register is pointing to, then adds **0x8** to it.
 
 ```clike
 IsEditApplied = eb(poi(@rcx)+8, 0x90);
