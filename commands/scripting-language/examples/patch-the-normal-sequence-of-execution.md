@@ -1,6 +1,6 @@
 # patch the normal sequence of execution
 
-One of the powerful features of HyperDbg's script engine is its ability to change the target program's normal execution flow. These changes are applied from the hypervisor so it's hidden from the view of the application.
+One of the powerful features of HyperDbg's script engine is its ability to change the target program's normal execution flow. These changes are applied from the hypervisor-level so it's hidden from the program's perspective.
 
 To demonstrate an example of this method, we compiled the following c++ program, which is a simple infinite loop that always shows a message (`"test_bool is TRUE !\n"`). It's because the `test_bool` variable is filled with `ture`.
 
