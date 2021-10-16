@@ -32,7 +32,15 @@ You can also change the control registers, debug register, etc.
 ? @cr3 =  0xff00ee;
 ```
 
-You can even change the program's flow by modifying program counter.
+You can even change the program's flow by modifying program counter (PC) and stack pointer.
+
+
+
+```clike
+? @rip =  0xff00ee;
+```
+
+
 
 
 
