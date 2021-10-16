@@ -34,7 +34,7 @@ int main()
 
 You can use your favorite static analyzer like IDA Pro, or Ghidra to see the source code, but in this example, I used [x64dbg](https://x64dbg.com) to show you what exactly we want to patch. As you can see, the above code is converted to the following assembly codes, and our condition `if (test_bool == true)` is assembled at `004C5A1C` with a **JNE** instruction.
 
-![A](../../../.gitbook/assets/find-the-target-patch-address-x64dbg.PNG)
+![Assembly code of loop function](../../../.gitbook/assets/find-the-target-patch-address-x64dbg.PNG)
 
 As you might know, **JNE** instruction decides whether to perform the jump or not based on the **Zero Flag**. Thus, if we change the `@zf` register, the jump is performed, and we should see the second message (`"test_bool is FALSE !\n"`).
 
@@ -54,10 +54,10 @@ In the above script, you can change all of the registers supported by HyperDbg, 
 
 Now, let's test our theory. If we run the above HyperDbg script, we can see that the message is changed.
 
-![](../../../.gitbook/assets/patch-the-target-address.PNG)
+![Applying the patch](../../../.gitbook/assets/patch-the-target-address.PNG)
 
 If we clear the event, we can see that the results are returned to the previous form.
 
-![](../../../.gitbook/assets/clearing-the-patch-events.PNG)
+![Clearing the pa](../../../.gitbook/assets/clearing-the-patch-events.PNG)
 
 This was an example of changing the program's flow without attaching to the target process. You can also change the memory using [eb, ed, eq](https://docs.hyperdbg.org/commands/scripting-language/functions/memory/eb-ed-eq) functions.
