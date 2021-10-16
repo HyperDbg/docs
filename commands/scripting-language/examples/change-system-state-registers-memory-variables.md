@@ -10,9 +10,17 @@ HyperDbg support more than 100 registers and flags, you can see a complete list 
 
 For example,
 
-If you want to change **RAX **register to **0x55**.
+If you want to change **RAX** register to **0x55**.
 
 ```clike
 ? @rax = 0x55;
 ```
+
+Evaluationg a statement and changing **RBX** register by its result. 
+
+```clike
+? @rax = 0x55;
+```
+
+
 
