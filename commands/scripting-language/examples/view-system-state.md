@@ -47,13 +47,12 @@ Print value pointed by `$proc+@rdx` which **$proc** is equivalent to current `_E
 ? print(poi(@rax+a0));
 ```
 
-
-
-`? print(poi(@rax+a0));`
-
 Print value of an address, which first, **rax** register is added with **0xa0** constant then a dereference occurs and the target is shown as a QWORD hex.
 
-`? print("Result : %ws", poi($proc+10)); printf("Result : %s", poi($proc+10));`
+```clike
+? print("Result : %ws", poi($proc+10));
+? printf("Result : %s", poi($proc+10));
+```
 
 Two values, first is **$proc** (current `_EPROCESS`) added with **0x10**, then a dereference occurs, and the target pointer in the dereferenced location is shown as a wide-char string.
 
