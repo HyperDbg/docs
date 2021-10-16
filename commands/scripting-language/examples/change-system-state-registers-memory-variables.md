@@ -46,6 +46,8 @@ You can even change the program's flow by modifying the program counter (PC) and
 
 You can change the local and global variables exactly the same as changing registers.
 
+The following statement is used to change a global variable.
+
 ```clike
 ? .my_global_var =  @rax + @edx;
 ```
@@ -77,3 +79,5 @@ You can also use these functions without checking for the return value.
 ```clike
 eq(fffff8031d44fde0, 0x12345678deadbeef);
 ```
+
+### Check
