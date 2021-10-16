@@ -25,13 +25,13 @@ description: An example of valid expressions to read the state of the system
 
 Print data as an ASCII string pointed by **rcx** register.
 
+```clike
+? printf("Process name: %s", $pname);
 ```
-// Some code
-```
-
-`? printf("Process name: %s", $pname);`
 
 Print the process name.
+
+
 
 `? print(dq(@rcx));`
 
