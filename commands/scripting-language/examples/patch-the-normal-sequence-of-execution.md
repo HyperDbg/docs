@@ -28,7 +28,7 @@ int main()
 }
 ```
 
-You can use your favorite static analyzer like IDA Pro, or Ghidra to see the source code, but in the example, I used [x64dbg](https://x64dbg.com) to show you what exactly we want to patch. As
+You can use your favorite static analyzer like IDA Pro, or Ghidra to see the source code, but in the example, I used [x64dbg](https://x64dbg.com) to show you what exactly we want to patch. As you can see the above code is converted to the following assembly codes and our condition if (test_bool == true) d
 
 ![](../../../.gitbook/assets/find-the-target-patch-address-x64dbg.PNG)
 
