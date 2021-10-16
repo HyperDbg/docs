@@ -9,16 +9,16 @@ Changing the system state is a crucial task for the debuggers. You can change th
 In this example, we'll describe general examples that can be used to modify different registers, memory, and variables.
 
 {% hint style="success" %}
-You can use all of the script engine statements either in script section of events or running them using the '[?](https://docs.hyperdbg.org/commands/debugging-commands/eval)' command.
+You can use all of the script engine statements either in the script section of events or running them using the '[?](https://docs.hyperdbg.org/commands/debugging-commands/eval)' command.
 {% endhint %}
 
 ### Changing registers
 
-HyperDbg support more than 100 registers and flags, you can see a complete list of these registers [here](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations). Changing registers is as easy as assigning new values to them.
+HyperDbg supports more than 100 registers and flags. You can see a complete list of these registers [here](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations). Changing registers is as easy as assigning new values to them.
 
 For example,
 
-If you want to change **RAX** register to **0x55**.
+If you want to change the **RAX** register to **0x55**.
 
 ```clike
 ? @rax = 0x55;
