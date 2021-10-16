@@ -58,7 +58,15 @@ Modifying memory is possible through '[memory](https://docs.hyperdbg.org/command
 
 The following code changes a **byte** to 0x90 at the location that the **rcx** register is pointing to, then adds **0x8** to it.
 
-`IsEditApplied = eb(poi(@rcx)+8, 0x90);`
+```clike
+IsEditApplied = eb(poi(@rcx)+8, 0x90);
+```
+
+The following code edits memory (**quad-word**) at `fffff8031d44fde0` and change it to `0x12345678deadbeef`.
+
+```clike
+IsEditApplied = eq(fffff8031d44fde0, 0x12345678deadbeef);
+```
 
 
 
