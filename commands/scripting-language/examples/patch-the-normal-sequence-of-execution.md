@@ -32,7 +32,7 @@ You can use your favorite static analyzer like IDA Pro, or Ghidra to see the sou
 
 ![](../../../.gitbook/assets/find-the-target-patch-address-x64dbg.PNG)
 
-As you might know, **JNE** instruction decide whether to perform the jump or not based on **Zero Flag**. Thus, if we change the t
+As you might know, **JNE** instruction decide whether to perform the jump or not based on **Zero Flag**. Thus, if we change the @zf register then the jump is performed and we should see the second message ("test_bool is FALSE !\n").
 
 ```clike
 !epthook 004C5A1C pid 225c script {
