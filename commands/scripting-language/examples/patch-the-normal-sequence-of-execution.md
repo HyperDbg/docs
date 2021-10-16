@@ -28,7 +28,7 @@ int main()
 }
 ```
 
-You can use your favorite static analyzer like IDA Pro, or Ghidra to see the source code, but in the example, I used x64dbg to show how we can attach to the process an
+You can use your favorite static analyzer like IDA Pro, or Ghidra to see the source code, but in the example, I used [x64dbg](https://x64dbg.com) to show you what exactly we want to patch
 
 ![](../../../.gitbook/assets/find-the-target-patch-address-x64dbg.PNG)
 
