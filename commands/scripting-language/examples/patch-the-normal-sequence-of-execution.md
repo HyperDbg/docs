@@ -58,6 +58,6 @@ Now, let's test our theory. If we run the above HyperDbg script, we can see that
 
 If we clear the event, we can see that the results are returned to the previous form.
 
-![Clearing the pa](../../../.gitbook/assets/clearing-the-patch-events.PNG)
+![Clearing the patch](../../../.gitbook/assets/clearing-the-patch-events.PNG)
 
 This was an example of changing the program's flow without attaching to the target process. You can also change the memory using [eb, ed, eq](https://docs.hyperdbg.org/commands/scripting-language/functions/memory/eb-ed-eq) functions.

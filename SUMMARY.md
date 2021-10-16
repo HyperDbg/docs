@@ -151,7 +151,7 @@
 ## Tips & Tricks
 
 * [Considerations](tips-and-tricks/considerations/README.md)
-  * [Basic Concepts in Intel VT-x](tips-and-tricks/considerations/basic-concepts-in-intel-vt-x.md)
+  * [Basic concepts in Intel VT-x](tips-and-tricks/considerations/basic-concepts-in-intel-vt-x.md)
   * [VMX root-mode vs VMX non-root mode](tips-and-tricks/considerations/vmx-root-mode-vs-vmx-non-root-mode.md)
   * [The "unsafe" behavior](tips-and-tricks/considerations/the-unsafe-behavior.md)
   * [Script engine in VMX non-root mode](tips-and-tricks/considerations/script-engine-in-vmx-non-root-mode.md)
@@ -162,17 +162,17 @@
   * [Supporting VMware/Hyper-V](tips-and-tricks/nested-virtualization-environments/supporting-vmware-hyper-v.md)
   * [VMware backdoor I/O ports](tips-and-tricks/nested-virtualization-environments/vmware-backdoor-io-ports.md)
 * [Misc](tips-and-tricks/misc/README.md)
-  * [Event Forwarding](tips-and-tricks/misc/event-forwarding.md)
-  * [Message Overflow](tips-and-tricks/misc/message-overflow.md)
-  * [Customize Build](tips-and-tricks/misc/customize-build.md)
-  * [Enable and Disable Events in Debugger Mode](tips-and-tricks/misc/enable-and-disable-events-in-debugger-mode.md)
+  * [Event forwarding](tips-and-tricks/misc/event-forwarding.md)
+  * [Message overflow](tips-and-tricks/misc/message-overflow.md)
+  * [Customize build](tips-and-tricks/misc/customize-build.md)
+  * [Enable and disable events in Debugger Mode](tips-and-tricks/misc/enable-and-disable-events-in-debugger-mode.md)
 
 ## Contribution
 
 * [Style Guide](contribution/style-guide/README.md)
-  * [Coding Style](contribution/style-guide/coding-style.md)
-  * [Command Style](contribution/style-guide/command-style.md)
-  * [Doxygen Style](contribution/style-guide/doxygen-style.md)
+  * [Coding style](contribution/style-guide/coding-style.md)
+  * [Command style](contribution/style-guide/command-style.md)
+  * [Doxygen style](contribution/style-guide/doxygen-style.md)
 * [Logo & Artworks](contribution/logo.md)
 
 ## Design
@@ -180,7 +180,7 @@
 * [Features](design/features/README.md)
   * [VMM (Module)](design/features/vmm-module/README.md)
     * [Control over NMIs](design/features/vmm-module/control-over-nmis.md)
-    * [VMX root-mode Compatible Message Tracing](design/features/vmm-module/vmx-root-mode-compatible-message-tracing.md)
+    * [VMX root-mode compatible message tracing](design/features/vmm-module/vmx-root-mode-compatible-message-tracing.md)
     * [Design of !epthook](design/features/vmm-module/design-of-epthook.md)
     * [Design of !epthook2](design/features/vmm-module/design-of-epthook2.md)
     * [Design of !monitor](design/features/vmm-module/design-of-monitor.md)
@@ -190,13 +190,13 @@
   * [Events](design/debugger-internals/events.md)
   * [Conditions](design/debugger-internals/conditions.md)
   * [Actions](design/debugger-internals/actions.md)
-  * [IOCTL Requests for Events](design/debugger-internals/ioctl-requests-for-events.md)
+  * [IOCTL requests for events](design/debugger-internals/ioctl-requests-for-events.md)
   * [Kernel Debugger](design/debugger-internals/kernel-debugger/README.md)
-    * [Design Prospective](design/debugger-internals/kernel-debugger/design-prospective.md)
+    * [Design perspective](design/debugger-internals/kernel-debugger/design-perspective.md)
     * [Connection](design/debugger-internals/kernel-debugger/connection.md)
 * [Script Engine](design/script-engine/README.md)
-  * [Language Grammar](design/script-engine/language-grammar.md)
-  * [Boolean Expression Grammar](design/script-engine/boolean-expression-grammar.md)
+  * [Language grammar](design/script-engine/language-grammar.md)
+  * [Boolean expression grammar](design/script-engine/boolean-expression-grammar.md)
 
 ## Links
 
