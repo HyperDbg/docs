@@ -6,7 +6,7 @@ description: An example of valid expressions to read the state of the system
 
 ### Examples
 
-```
+```clike
 ? printf("Result : %s", @rcx));
 ? printf("Process name: %s", $pname);
 ? print(dq(@rcx));
@@ -58,11 +58,15 @@ Two values, first is **$proc** (current `_EPROCESS`) added with **0x10**, then a
 
 Second is **$proc** (current `_EPROCESS`) added with **0x10**, then a dereference occurs, and the target pointer in the dereferenced location is shown as an ASCII string.
 
-`? print(dw(NtCreateFile+10));`
+```clike
+? print(dw(NtCreateFile+10));
+```
 
 One value, which is **NtCreateFile** location that added with **0x10**, then a DWORD value from the target address (**NtCreateFile+10**) is shown.
 
-`? print(dw(NtCreateFile+@rcx+($proc|3+poi(poi(@rax)))));`
+```clike
+? print(dw(NtCreateFile+@rcx+($proc|3+poi(poi(@rax)))));
+```
 
 Print the DWORD data located at **NtCreateFile** added to **rcx** register, then all of them are added to the result of **rax** register dereferenced twice and added to the **$proc** which is bitwise **OR (|)** by **3**.
 
