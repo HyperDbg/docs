@@ -42,8 +42,10 @@ As you might know, **JNE** instruction decide whether to perform the jump or not
 
 Note that in our case, the process id is **225c**.
 
-
+Now, let's test our theory, if we run the above HyperDbg script, we can see that the message is changed.
 
 ![](../../../.gitbook/assets/patch-the-target-address.PNG)
+
+If 
 
 ![](../../../.gitbook/assets/clearing-the-patch-events.PNG)
