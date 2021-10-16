@@ -6,5 +6,11 @@ In this example, we'll describe about general examples that can be used to modif
 
 ### Changing registers
 
-HyperDbg support more than 100 registers and flags, you can see a com
+HyperDbg support more than 100 registers and flags, you can see a complete list of these registers [here](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations). Changing registers is as easy as assigning new values to them.
+
+For example,
+
+```
+// Some code
+```
 
