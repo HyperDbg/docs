@@ -52,9 +52,13 @@ Or for the local variable:
 ? my_local_var =  @rax + @edx;
 ```
 
-Changing memory
+### Changing memory
 
-###
+Modifying memory is possible through '[memory](https://docs.hyperdbg.org/commands/scripting-language/functions/memory)' functions.
+
+The following code changes a **byte** to 0x90 at the location that the **rcx** register is pointing to, then adds **0x8** to it.
+
+`IsEditApplied = eb(poi(@rcx)+8, 0x90);`
 
 
 
