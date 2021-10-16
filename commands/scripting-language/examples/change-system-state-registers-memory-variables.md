@@ -34,13 +34,9 @@ You can also change the control registers, debug register, etc.
 
 You can even change the program's flow by modifying program counter (PC) and stack pointer.
 
-
-
 ```clike
-? @rip =  0xff00ee;
+? @rip =  0xfffff8003ad6f010; @rsp = fffff800`5b660000;
 ```
-
-
 
 
 
