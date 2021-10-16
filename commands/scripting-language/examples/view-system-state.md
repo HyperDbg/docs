@@ -19,9 +19,15 @@ description: An example of valid expressions to read the state of the system
 
 ### Description
 
-`? printf("Result : %s", @rcx);`
+```clike
+? printf("Result : %s", @rcx);
+```
 
 Print data as an ASCII string pointed by **rcx** register.
+
+```
+// Some code
+```
 
 `? printf("Process name: %s", $pname);`
 
