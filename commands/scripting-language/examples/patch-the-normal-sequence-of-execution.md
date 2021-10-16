@@ -1,6 +1,8 @@
 # patch the normal sequence of execution
 
-One of the powerful features of HyperDbg is its ability to change the target programs fl
+One of the powerful features of HyperDbg is its ability to change the target program's normal execution flow. These changes are applied from the hypervisor so it's hidden from the view of the application.
+
+
 
 ```clike
 #include <iostream>
