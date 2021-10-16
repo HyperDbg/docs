@@ -1,8 +1,8 @@
 # patch the normal sequence of execution
 
-One of the powerful features of HyperDbg's script engine is its ability to change the target program's normal execution flow. These changes are applied from the hypervisor level so it's hidden from the program's layer.
+One of the powerful features of HyperDbg's script engine is its ability to change the target program's normal execution flow. These changes are applied from the hypervisor level, so it's hidden from the program's layer.
 
-To demonstrate an example of this method, we compiled the following C++ program, which is a simple infinite loop that always shows a message (`"test_bool is TRUE !\n"`). It's because the `test_bool` variable is filled with `ture`.
+To demonstrate an example of this method, we compiled the following C++ program. A simple infinite loop that always shows a message (`"test_bool is TRUE !\n"`). It's because the `test_bool` variable is filled with `ture`.
 
 ```clike
 #include <iostream>
@@ -52,7 +52,7 @@ Now, let's test our theory, if we run the above HyperDbg script, we can see that
 
 ![](../../../.gitbook/assets/patch-the-target-address.PNG)
 
-If we clear the event, then we can see that the results are returned to the previous form.
+If we clear the event, we can see that the results are returned to the previous form.
 
 ![](../../../.gitbook/assets/clearing-the-patch-events.PNG)
 
