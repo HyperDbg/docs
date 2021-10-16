@@ -1,8 +1,8 @@
 # patch the normal sequence of execution
 
-One of the powerful features of HyperDbg is its ability to change the target program's normal execution flow. These changes are applied from the hypervisor so it's hidden from the view of the application.
+One of the powerful features of HyperDbg's script engine is its ability to change the target program's normal execution flow . These changes are applied from the hypervisor so it's hidden from the view of the application.
 
-
+To demonstrate an example of 
 
 ```clike
 #include <iostream>
