@@ -34,13 +34,19 @@ You can use your favorite static analyzer like IDA Pro, or Ghidra to see the sou
 
 As you might know, **JNE** instruction decides whether to perform the jump or not based on the **Zero Flag**. Thus, if we change the `@zf` register then the jump is performed and we should see the second message (`"test_bool is FALSE !\n"`).
 
+Note that in our case, the process id is **225c**.
+
+So, we use the following hidden breakpoint to change the **@zf** flag.
+
 ```clike
 !epthook 004C5A1C pid 225c script {
 	@zf = 0;
 }
 ```
 
-Note that in our case, the process id is **225c**.
+{% hint style="info" %}
+You can change al
+{% endhint %}
 
 Now, let's test our theory, if we run the above HyperDbg script, we can see that the message is changed.
 
