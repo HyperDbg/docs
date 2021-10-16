@@ -45,13 +45,15 @@ So, we use the following hidden breakpoint to change the **@zf** flag.
 ```
 
 {% hint style="success" %}
-In the aboYou can change all of the registers that are supported by HyperDbg, like general-purpose register, RFLAGS, etc.
+In the above script, you can change all of the registers that are supported by HyperDbg, like general-purpose register, RFLAGS, etc.
 {% endhint %}
 
 Now, let's test our theory, if we run the above HyperDbg script, we can see that the message is changed.
 
 ![](../../../.gitbook/assets/patch-the-target-address.PNG)
 
-If we clear the event, then you'll see that the results are returned to the previous form.
+If we clear the event, then we can see that the results are returned to the previous form.
 
 ![](../../../.gitbook/assets/clearing-the-patch-events.PNG)
+
+This i
