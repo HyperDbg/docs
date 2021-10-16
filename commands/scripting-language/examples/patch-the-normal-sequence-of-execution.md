@@ -1,3 +1,7 @@
+---
+description: An example of patching eflags of the target program
+---
+
 # patch the normal sequence of execution
 
 One of the powerful features of HyperDbg's script engine is its ability to change the target program's normal execution flow. These changes are applied from the hypervisor level, so it's hidden from the program's layer.
@@ -30,7 +34,7 @@ int main()
 
 You can use your favorite static analyzer like IDA Pro, or Ghidra to see the source code, but in this example, I used [x64dbg](https://x64dbg.com) to show you what exactly we want to patch. As you can see, the above code is converted to the following assembly codes, and our condition `if (test_bool == true)` is assembled at `004C5A1C` with a **JNE** instruction.
 
-![](../../../.gitbook/assets/find-the-target-patch-address-x64dbg.PNG)
+![A](../../../.gitbook/assets/find-the-target-patch-address-x64dbg.PNG)
 
 As you might know, **JNE** instruction decides whether to perform the jump or not based on the **Zero Flag**. Thus, if we change the `@zf` register, the jump is performed, and we should see the second message (`"test_bool is FALSE !\n"`).
 
