@@ -46,6 +46,6 @@ Now, let's test our theory, if we run the above HyperDbg script, we can see that
 
 ![](../../../.gitbook/assets/patch-the-target-address.PNG)
 
-If 
+If we cl
 
 ![](../../../.gitbook/assets/clearing-the-patch-events.PNG)
