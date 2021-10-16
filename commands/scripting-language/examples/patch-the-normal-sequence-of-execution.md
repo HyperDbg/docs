@@ -46,6 +46,6 @@ Now, let's test our theory, if we run the above HyperDbg script, we can see that
 
 ![](../../../.gitbook/assets/patch-the-target-address.PNG)
 
-If we cl
+If we clear the event, then you
 
 ![](../../../.gitbook/assets/clearing-the-patch-events.PNG)
