@@ -12,7 +12,8 @@ description: An example of valid expressions to read the state of the system
 ? print(dq(@rcx));
 ? print($proc+@rdx);
 ? print(poi(@rax+a0));
-? printf("Result : %ws", poi($proc+10)); printf("Result : %s", poi($proc+10));
+? printf("Result : %ws", poi($proc+10));
+? printf("Result : %s", poi($proc+10));
 ? print(dw(NtCreateFile+10));
 ? print(dw(NtCreateFile+@rcx+($proc|3+poi(poi(@rax)))));
 ```
