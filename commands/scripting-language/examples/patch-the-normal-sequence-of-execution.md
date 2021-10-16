@@ -1,6 +1,6 @@
 # patch the normal sequence of execution
 
-One of the powerful features of H
+One of the powerful features of HyperDbg is its ability to change the target programs fl
 
 ```clike
 #include <iostream>
