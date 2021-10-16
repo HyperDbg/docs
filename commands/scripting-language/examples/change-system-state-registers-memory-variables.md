@@ -1,3 +1,7 @@
+---
+description: An example of changing system state
+---
+
 # change system state (registers, memory, variables)
 
 Changing the system state is a crucial task for the debuggers. You can change the system's state by using different commands in the debugger. It's also possible to change the system state by using script engine.
