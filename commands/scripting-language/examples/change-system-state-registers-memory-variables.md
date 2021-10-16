@@ -80,4 +80,6 @@ You can also use these functions without checking for the return value.
 eq(fffff8031d44fde0, 0x12345678deadbeef);
 ```
 
-### Check
+### Checking Address Validity
+
+In HyperDbg [check_address](https://docs.hyperdbg.org/commands/scripting-language/functions/memory/check_address) function is us
