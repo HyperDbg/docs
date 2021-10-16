@@ -37,9 +37,17 @@ Print the process name.
 
 Print data as an 8-byte hex, pointed by **rcx** register.
 
-``
+```clike
+? print($proc+@rdx);
+```
 
 Print value pointed by `$proc+@rdx` which **$proc** is equivalent to current `_EPROCESS` added to the **rdx** register.
+
+```clike
+? print(poi(@rax+a0));
+```
+
+
 
 `? print(poi(@rax+a0));`
 
