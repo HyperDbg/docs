@@ -5,7 +5,7 @@ Changing the system state is a crucial task for the debuggers. You can change th
 In this example, we'll describe about general examples that can be used to modify different registers, memory, and variables.
 
 {% hint style="success" %}
-You can use all of the script engine example either in scr
+You can use all of the script engine statements either in script section of events or running them using the '[?](https://docs.hyperdbg.org/commands/debugging-commands/eval)' command.
 {% endhint %}
 
 ### Changing registers
@@ -32,7 +32,7 @@ You can also change the control registers, debug register, etc.
 ? @cr3 =  0xff00ee;
 ```
 
-You can even change the program's flow by modifying program counter
+You can even change the program's flow by modifying program counter.
 
 
 
