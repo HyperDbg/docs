@@ -4,9 +4,9 @@ description: An example of changing system state
 
 # change system state (registers, memory, variables)
 
-Changing the system state is a crucial task for the debuggers. You can change the system's state by using different commands in the debugger. It's also possible to change the system state by using script engine.
+Changing the system state is a crucial task for the debuggers. You can change the system's state by using different commands in the debugger. It's also possible to change the system state by using the script engine.
 
-In this example, we'll describe about general examples that can be used to modify different registers, memory, and variables.
+In this example, we'll describe general examples that can be used to modify different registers, memory, and variables.
 
 {% hint style="success" %}
 You can use all of the script engine statements either in script section of events or running them using the '[?](https://docs.hyperdbg.org/commands/debugging-commands/eval)' command.
