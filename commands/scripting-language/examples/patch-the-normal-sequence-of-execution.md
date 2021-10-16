@@ -28,6 +28,8 @@ int main()
 }
 ```
 
+You can use your favorite static analyzer like IDA Pro, or Ghidra to see the source code, but in the example, I used x64dbg to show how we can attach to the 
+
 ![](../../../.gitbook/assets/find-the-target-patch-address-x64dbg.PNG)
 
 ```clike
