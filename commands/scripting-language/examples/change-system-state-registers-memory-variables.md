@@ -102,5 +102,3 @@ Or assign the results to a variable.
 ```clike
 IsValid = check_address(@rcx + 10);
 ```
-
-###
