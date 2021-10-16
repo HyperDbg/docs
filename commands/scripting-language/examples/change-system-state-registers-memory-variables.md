@@ -4,6 +4,10 @@ Changing the system state is a crucial task for the debuggers. You can change th
 
 In this example, we'll describe about general examples that can be used to modify different registers, memory, and variables.
 
+{% hint style="success" %}
+You can use all of the script engine example either in scr
+{% endhint %}
+
 ### Changing registers
 
 HyperDbg support more than 100 registers and flags, you can see a complete list of these registers [here](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations). Changing registers is as easy as assigning new values to them.
@@ -28,7 +32,7 @@ You can also change the control registers, debug register, etc.
 ? @cr3 =  0xff00ee;
 ```
 
-Or 
+You can even change the program's flow by modifying program counter
 
 
 
