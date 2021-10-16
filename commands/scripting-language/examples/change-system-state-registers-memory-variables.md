@@ -68,5 +68,8 @@ The following code edits memory (**quad-word**) at `fffff8031d44fde0` and change
 IsEditApplied = eq(fffff8031d44fde0, 0x12345678deadbeef);
 ```
 
+You can also use these functions without checking for the return value.
 
-
+```clike
+eq(fffff8031d44fde0, 0x12345678deadbeef);
+```
