@@ -56,4 +56,4 @@ If we clear the event, then we can see that the results are returned to the prev
 
 ![](../../../.gitbook/assets/clearing-the-patch-events.PNG)
 
-This i
+This was an example of changing the program's flow without attaching to the target process. You can also change the memory using memory modification f
