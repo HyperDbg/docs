@@ -82,4 +82,25 @@ eq(fffff8031d44fde0, 0x12345678deadbeef);
 
 ### Checking Address Validity
 
-In HyperDbg [check_address](https://docs.hyperdbg.org/commands/scripting-language/functions/memory/check_address) function is us
+In HyperDbg [check_address](https://docs.hyperdbg.org/commands/scripting-language/functions/memory/check_address) function is used to check an address to see if the address is **valid** and **safe to access** from or not.
+
+You can use this function with an **if** statement.
+
+```c
+if (check_address(@r11) == 1) 
+{ 
+    printf("address is valid.\n");
+}
+else 
+{
+    printf("address is invalid.\n");
+}
+```
+
+Or assign the results to a variable.
+
+```clike
+IsValid = check_address(@rcx + 10);
+```
+
+###
