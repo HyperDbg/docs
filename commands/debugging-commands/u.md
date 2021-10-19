@@ -196,6 +196,7 @@ BOOLEAN KdSendReadMemoryPacketToDebuggee(PDEBUGGER_READ_MEMORY ReadMem);
 ### Remarks
 
 * If you don't specify the length, the default length for HyperDbg is 0x40 Bytes.
+* By default, HyperDbg converts addresses to the object names (if symbol for that address is available), if you want to see address in hex format, you can turn add.
 
 {% hint style="warning" %}
 Please note that you should specify a space between 'l' and the length for HyperDbg. For example, 'l10' is invalid, but 'l 10' is valid. (It's opposed to windbg).
