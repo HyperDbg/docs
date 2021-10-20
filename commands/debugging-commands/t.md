@@ -2,7 +2,7 @@
 description: Description of 't' command in HyperDbg.
 ---
 
-# t \(step-in\)
+# t (step-in)
 
 ### Command
 
@@ -12,11 +12,11 @@ description: Description of 't' command in HyperDbg.
 
 ### Syntax
 
-> t\[r\] \[count \(hex value\)\]
+> t\[r] \[count (hex value)]
 
 ### Description
 
-Executes a single instruction \(step-in\) and optionally displays the resulting values of all registers and flags.
+Executes a single instruction (step-in) and optionally displays the resulting values of all registers and flags.
 
 {% hint style="success" %}
 The difference between this command and the '[i](https://docs.hyperdbg.org/commands/debugging-commands/i)' command is that, in the '[i](https://docs.hyperdbg.org/commands/debugging-commands/i)' command, no other cores and other threads find a chance to be executed during the stepping process; the system is fully halted, and only the current core will execute just one instruction and halts again. However, in this command, all the threads and cores are continued until an instruction in the target thread is executed. This command won't follow the execution between different rings.
@@ -24,15 +24,15 @@ The difference between this command and the '[i](https://docs.hyperdbg.org/comma
 
 ### Parameters
 
-**\[count\] \(optional\)**
+**\[count] (optional)**
 
-Count of step\(s\), or how many times perform the stepping operation. If you don't set this argument, then by default, the **count** is `1`.
+Count of step(s), or how many times perform the stepping operation. If you don't set this argument, then by default, the **count** is `1`.
 
 ### Examples
 
 If you want to step-in one instruction.
 
-```text
+```
 0: kHyperDbg> t
 fffff801`68d91267    41 5B                               pop r11
 ```
@@ -69,7 +69,7 @@ fffff801`63a12b00    F6 44 24 10 01                      test byte ptr ss:[rsp+0
 
 This commands works over serial by sending the serial packets to the remote computer.
 
-First of all, you should fill the following structure, set the `StepType` to the type of step that you want to perform \(e.g., _step-in_, _step-over_, and _instrumentation step-in_\), and if it's a step-over \(only step-over\), then if the currently executing instruction is a **call** instruction, set the `IsCurrentInstructionACall` to `TRUE` and also set the length of the current call instruction \(if it's a call instruction\) to `CallLength`, so you can hint the debuggee to find the next instruction. In step-over and instrumentation step-over, just set the `StepType` and set all the other members to **null**.
+First of all, you should fill the following structure, set the `StepType` to the type of step that you want to perform (e.g., _step-in_, _step-over_, and _instrumentation step-in_), and if it's a step-over (only step-over), then if the currently executing instruction is a **call** instruction, set the `IsCurrentInstructionACall` to `TRUE` and also set the length of the current call instruction (if it's a call instruction) to `CallLength`, so you can hint the debuggee to find the next instruction. In step-over and instrumentation step-over, just set the `StepType` and set all the other members to **null**.
 
 ```c
 typedef struct _DEBUGGEE_STEP_PACKET {
@@ -120,7 +120,9 @@ This command will set a **trap flag** in debuggee and continue all the cores. Af
 
 If the currently executing instruction is a **call** instruction, it will follow and enter the call instruction.
 
-All cores and threads \(except the currently executing thread\) find a chance to be executed between each step in this type of stepping.
+All cores and threads (except the currently executing thread) find a chance to be executed between each step in this type of stepping.
+
+If you load symbols and you don't want to see function names, you turn **addressconversion** off in the '[settings](https://docs.hyperdbg.org/commands/debugging-commands/settings)' command.
 
 ### Requirements
 
@@ -128,7 +130,6 @@ None
 
 ### Related
 
-[p \(step-over\)](https://docs.hyperdbg.org/commands/debugging-commands/p)
+[p (step-over)](https://docs.hyperdbg.org/commands/debugging-commands/p)
 
-[i \(instrumentation step-in\)](https://docs.hyperdbg.org/commands/debugging-commands/i)
-
+[i (instrumentation step-in)](https://docs.hyperdbg.org/commands/debugging-commands/i)

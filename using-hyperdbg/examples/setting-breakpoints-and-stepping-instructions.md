@@ -1,5 +1,5 @@
 ---
-description: 'Set breakpoint, Step-over, and Step-in'
+description: Set breakpoint, Step-over, and Step-in
 ---
 
 # Setting Breakpoints & Stepping Instructions
@@ -16,7 +16,13 @@ Many game anti-cheat solutions use this function to monitor processes to prevent
 
 In order to bypass this mechanism, we use the following command in HyperDbg to set a breakpoint on this function.
 
-```text
+```
+0: kHyperDbg> bp nt!ObRegisterCallbacks
+```
+
+or,
+
+```
 0: kHyperDbg> bp fffff805`5cbac610
 ```
 
@@ -26,14 +32,14 @@ If the breakpoint is triggered, then the system is halt and we are able to contr
 
 After that, we can use the ['p' command](https://docs.hyperdbg.org/commands/debugging-commands/p) to step-over the instructions.
 
-```text
+```
 0: kHyperDbg> p 
 fffff805`5cbac610    48 81 EC 50 01 00 00                sub rsp, 0x150
 ```
 
 You can also add a number to run multiple instructions.
 
-```text
+```
 0: kHyperDbg> p 3
 fffff805`5cbac610    48 81 EC 50 01 00 00                sub rsp, 0x150
 fffff805`5cbac617    48 8D AC 24 80 00 00 00             lea rbp, ss:[rsp+0x80]
@@ -42,8 +48,7 @@ fffff805`5cbac620    C6 45 AB 00                         mov byte ptr ss:[rbp-0x
 
 If you want to step-in, you can use the ['t' command](https://docs.hyperdbg.org/commands/debugging-commands/t).
 
-```text
+```
 0: kHyperDbg> t
 fffff805`5cbac610    48 81 EC 50 01 00 00                sub rsp, 0x150
 ```
-

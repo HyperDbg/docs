@@ -2,7 +2,7 @@
 description: Description of 'p' command in HyperDbg.
 ---
 
-# p \(step-over\)
+# p (step-over)
 
 ### Command
 
@@ -12,23 +12,23 @@ description: Description of 'p' command in HyperDbg.
 
 ### Syntax
 
-> p\[r\] \[count \(hex value\)\]
+> p\[r] \[count (hex value)]
 
 ### Description
 
-Executes a single instruction \(step-over\) and optionally displays the resulting values of all registers and flags.
+Executes a single instruction (step-over) and optionally displays the resulting values of all registers and flags.
 
 ### Parameters
 
-**\[count\] \(optional\)**
+**\[count] (optional)**
 
-Count of step\(s\), or how many times perform the stepping operation. If you don't set this argument, then by default, the **count** is `1`.
+Count of step(s), or how many times perform the stepping operation. If you don't set this argument, then by default, the **count** is `1`.
 
 ### Examples
 
 If you want to step-over one instruction.
 
-```text
+```
 0: kHyperDbg> p
 fffff801`68d91267    41 5B                               pop r11
 ```
@@ -65,7 +65,7 @@ fffff801`63a12b00    F6 44 24 10 01                      test byte ptr ss:[rsp+0
 
 This commands works over serial by sending the serial packets to the remote computer.
 
-First of all, you should fill the following structure, set the `StepType` to the type of step that you want to perform \(e.g., _step-in_, _step-over_, and _instrumentation step-in_\), and if it's a step-over \(only step-over\), then if the currently executing instruction is a **call** instruction, set the `IsCurrentInstructionACall` to `TRUE` and also set the length of the current call instruction \(if it's a call instruction\) to `CallLength`, so you can hint the debuggee to find the next instruction. In step-over, just set the `StepType` and set all the other members to **null**.
+First of all, you should fill the following structure, set the `StepType` to the type of step that you want to perform (e.g., _step-in_, _step-over_, and _instrumentation step-in_), and if it's a step-over (only step-over), then if the currently executing instruction is a **call** instruction, set the `IsCurrentInstructionACall` to `TRUE` and also set the length of the current call instruction (if it's a call instruction) to `CallLength`, so you can hint the debuggee to find the next instruction. In step-over, just set the `StepType` and set all the other members to **null**.
 
 ```c
 typedef struct _DEBUGGEE_STEP_PACKET {
@@ -114,9 +114,11 @@ BOOLEAN KdSendStepPacketToDebuggee(DEBUGGER_REMOTE_STEPPING_REQUEST StepRequestT
 
 This command will set a **trap flag** in debuggee and continue all the cores. After executing one instruction, it halts the debuggee again.
 
-If the target instruction is a call instruction, it configures the first hardware debug register breakpoint to the instruction after that call. After that, it continues the debuggee and waits for the call to be returned and the next instruction \(after the call\) to be executed.
+If the target instruction is a call instruction, it configures the first hardware debug register breakpoint to the instruction after that call. After that, it continues the debuggee and waits for the call to be returned and the next instruction (after the call) to be executed.
 
-All cores and threads \(except the currently executing thread\) find a chance to be executed between each step in this type of stepping.
+All cores and threads (except the currently executing thread) find a chance to be executed between each step in this type of stepping.
+
+If you load symbols and you don't want to see function names, you turn **addressconversion** off in the '[settings](https://docs.hyperdbg.org/commands/debugging-commands/settings)' command.
 
 ### Requirements
 
@@ -124,7 +126,6 @@ None
 
 ### Related
 
-[t \(step-in\)](https://docs.hyperdbg.org/commands/debugging-commands/t)
+[t (step-in)](https://docs.hyperdbg.org/commands/debugging-commands/t)
 
-[i \(instrumentation step-in\)](https://docs.hyperdbg.org/commands/debugging-commands/i)
-
+[i (instrumentation step-in)](https://docs.hyperdbg.org/commands/debugging-commands/i)

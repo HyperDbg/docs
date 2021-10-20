@@ -2,7 +2,7 @@
 description: Description of 'i' command in HyperDbg.
 ---
 
-# i \(instrumentation step-in\)
+# i (instrumentation step-in)
 
 ### Command
 
@@ -12,31 +12,31 @@ description: Description of 'i' command in HyperDbg.
 
 ### Syntax
 
-> i\[r\] \[count \(hex value\)\]
+> i\[r] \[count (hex value)]
 
 ### Description
 
-Executes a single instruction \(step-in\) and optionally displays the resulting values of all registers and flags.
+Executes a single instruction (step-in) and optionally displays the resulting values of all registers and flags.
 
 {% hint style="success" %}
 The difference between this command and the '[t](https://docs.hyperdbg.org/commands/debugging-commands/t)' command is that no other cores and other threads find a chance to be executed during the stepping process; the system is fully halted, and only the current core will execute just one instruction and halts again.
 {% endhint %}
 
 {% hint style="info" %}
-This command gives you the ability to follow system-calls \(SYSCALLs\) and all the exceptions \(including **page-faults**\) from user-mode to kernel-mode and from kernel-mode to user-mode. For example, in the middle of executing one instruction in user-mode, a page-fault might happen, then if you use this command, the next instruction is in the kernel-mode **page-fault** handler. Another example, you can follow a _syscall_ from user-mode, then the next instruction is in kernel-mode **syscall handler**, and this way, you can trace the execution between different rings.
+This command gives you the ability to follow system-calls (SYSCALLs) and all the exceptions (including **page-faults**) from user-mode to kernel-mode and from kernel-mode to user-mode. For example, in the middle of executing one instruction in user-mode, a page-fault might happen, then if you use this command, the next instruction is in the kernel-mode **page-fault** handler. Another example, you can follow a _syscall_ from user-mode, then the next instruction is in kernel-mode **syscall handler**, and this way, you can trace the execution between different rings.
 {% endhint %}
 
 ### Parameters
 
-**\[count\] \(optional\)**
+**\[count] (optional)**
 
-Count of step\(s\), or how many times perform the stepping operation. If you don't set this argument, then by default, the **count** is `1`.
+Count of step(s), or how many times perform the stepping operation. If you don't set this argument, then by default, the **count** is `1`.
 
 ### Examples
 
 If you want to instrumentation step-in one instruction.
 
-```text
+```
 0: kHyperDbg> i
 fffff801`68d91267    41 5B                               pop r11
 ```
@@ -73,7 +73,7 @@ fffff801`63a12b00    F6 44 24 10 01                      test byte ptr ss:[rsp+0
 
 This commands works over serial by sending the serial packets to the remote computer.
 
-First of all, you should fill the following structure, set the `StepType` to the type of step that you want to perform \(e.g., _step-in_, _step-over_, and _instrumentation step-in_\), and if it's a step-over \(only step-over\), then if the currently executing instruction is a **call** instruction, set the `IsCurrentInstructionACall` to `TRUE` and also set the length of the current call instruction \(if it's a call instruction\) to `CallLength`, so you can hint the debuggee to find the next instruction. In step-over, just set the `StepType` and set all the other members to **null**.
+First of all, you should fill the following structure, set the `StepType` to the type of step that you want to perform (e.g., _step-in_, _step-over_, and _instrumentation step-in_), and if it's a step-over (only step-over), then if the currently executing instruction is a **call** instruction, set the `IsCurrentInstructionACall` to `TRUE` and also set the length of the current call instruction (if it's a call instruction) to `CallLength`, so you can hint the debuggee to find the next instruction. In step-over, just set the `StepType` and set all the other members to **null**.
 
 ```c
 typedef struct _DEBUGGEE_STEP_PACKET {
@@ -126,13 +126,14 @@ If the currently executing instruction is a **call** instruction, it will follow
 
 HyperDbg guarantees that all cores and threads won't find a chance to be executed between each step in this type of stepping.
 
+If you load symbols and you don't want to see function names, you turn **addressconversion** off in the '[settings](https://docs.hyperdbg.org/commands/debugging-commands/settings)' command.
+
 ### Requirements
 
 None
 
 ### Related
 
-[p \(step-over\)](https://docs.hyperdbg.org/commands/debugging-commands/p)
+[p (step-over)](https://docs.hyperdbg.org/commands/debugging-commands/p)
 
-[t \(step-in\)](https://docs.hyperdbg.org/commands/debugging-commands/t)
-
+[t (step-in)](https://docs.hyperdbg.org/commands/debugging-commands/t)

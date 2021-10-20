@@ -73,6 +73,7 @@ The following example shows the assembly content (x64) of memory at `nt!ExAlloca
 
 ```diff
 HyperDbg> u nt!ExAllocatePoolWithTag
+nt!ExAllocatePoolWithTag:
 fffff801`639b1030    48 89 5C 24 08                      mov qword ptr ss:[rsp+0x08], rbx
 fffff801`639b1035    48 89 6C 24 10                      mov qword ptr ss:[rsp+0x10], rbp
 fffff801`639b103a    48 89 74 24 18                      mov qword ptr ss:[rsp+0x18], rsi
@@ -93,6 +94,7 @@ The following example shows the assembly content (x64) of memory at `nt!ExAlloca
 
 ```diff
 HyperDbg> u nt!ExAllocatePoolWithTag+5
+nt!ExAllocatePoolWithTag+0x5:
 fffff801`639b1035    48 89 6C 24 10                      mov qword ptr ss:[rsp+0x10], rbp
 fffff801`639b103a    48 89 74 24 18                      mov qword ptr ss:[rsp+0x18], rsi
 fffff801`639b103f    57                                  push rdi
