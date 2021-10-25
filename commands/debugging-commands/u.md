@@ -198,7 +198,8 @@ BOOLEAN KdSendReadMemoryPacketToDebuggee(PDEBUGGER_READ_MEMORY ReadMem);
 ### Remarks
 
 * If you don't specify the length, the default length for HyperDbg is 0x40 Bytes.
-* By default, HyperDbg converts addresses to the object names (if symbol for that address is available), if you want to see address in hex format, you can turn add.
+* By default, HyperDbg converts addresses to the object names (if the symbol for that address is available). If you want to see the address in hex format, you can turn `addressconversion` to **off** using the '[settings](https://docs.hyperdbg.org/commands/debugging-commands/settings)' command.
+* If you've ever seen any object name with two additions like `ExAllocatePoolWithTag+0x8f+0x2`, it means that the address is outside the function size that we've parsed from the symbol PDB files. Compilers often put some junk codes at the end of functions to create an alignment, and HyperDbg will notify you about these situations with two additions. Also, if the function is from a stripped symbol (or, in other words, the function size is not available), we set the function size to a maximum length of `0xffff`.
 
 {% hint style="warning" %}
 Please note that you should specify a space between 'l' and the length for HyperDbg. For example, 'l10' is invalid, but 'l 10' is valid. (It's opposed to windbg).
