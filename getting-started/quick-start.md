@@ -26,9 +26,13 @@ After that, you need to attach to an instance of HyperDbg.
 
 Finally, you can see many examples provided in the following link to use HyperDbg.
 
-{% content-ref url="../using-hyperdbg/examples/" %}
-[examples](../using-hyperdbg/examples/)
-{% endcontent-ref %}
+**Debugging examples:**
+
+{% embed url="https://docs.hyperdbg.org/using-hyperdbg/examples" %}
+
+**Script engine examples:**
+
+{% embed url="https://docs.hyperdbg.org/commands/scripting-language/examples" %}
 
 _**Done!** You successfully used HyperDbg Debugger._
 
