@@ -62,13 +62,15 @@ Also, you can assign the results of functions to the variables.
 my_variable = check_address(@rcx);
 ```
 
+Local variables won't be changed in the case of a core's context, which means you can save the variable and expect to reread it next time you access the variable from the same core. But of course, the local variables are not available in other cores.
+
 ## Global Variables Assignment
 
 Like local variables, all global variables are defined without **type**, and all of them are considered unsigned 64-bit integers.
 
 The variables can be used as an input to other functions or might be used in conditional statements or loops.
 
-You can also use global variables as [volatile](https://en.wikipedia.org/wiki/Volatile_\(computer_programming\)) variables to the [spinlocks](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks) or [interlocked](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked) functions.
+You can also use global variables as [volatile](https://en.wikipedia.org/wiki/Volatile\_\(computer\_programming\)) variables to the [spinlocks](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks) or [interlocked](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked) functions.
 
 The difference between local variables and global variables is that the global variables start with a `.` DOT.
 
@@ -119,7 +121,7 @@ spinlock_lock(.my_global_variable_lock);
 spinlock_unlock(.my_global_variable_lock);
 ```
 
-As another example, assume that we want to count the number of times a function is called. For this purpose, we need a global variable to hold this number. You can safely use [interlocked_increment](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_increment) for this purpose, and for other mathematical operations or [atomic](https://wiki.osdev.org/Atomic_operation) exchange operations, you can use other [**interlocked**](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/) functions.
+As another example, assume that we want to count the number of times a function is called. For this purpose, we need a global variable to hold this number. You can safely use [interlocked\_increment](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked\_increment) for this purpose, and for other mathematical operations or [atomic](https://wiki.osdev.org/Atomic\_operation) exchange operations, you can use other [**interlocked**](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/) functions.
 
 ```c
 interlocked_increment(.my_global_counter);
