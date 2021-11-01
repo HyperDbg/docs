@@ -40,7 +40,7 @@ Running HyperDbg has multiple stages. First, you should make sure to enable Inte
 
 On the rest of this page, you'll read a detailed explanation about performing the above stages.
 
-## Check for VMX support
+### Check for VMX support
 
 If you've ever run HyperDbg and encountered the below error, it means that **VT-x** is disabled from your BIOS.
 
@@ -48,7 +48,7 @@ If you've ever run HyperDbg and encountered the below error, it means that **VT-
 
 Enabling **VT-x** from BIOS is vendor-specific. Usually, if you press \[**F2**], or \[**Delete**], or \[**ESC**] during the boot time, you'll enter the BIOS, and there should be an option to **Support Virtualization** or something like that. You should enable it from BIOS, and after that, you're good to go.&#x20;
 
-## Disable Driver Signature Enforcement
+### Disable Driver Signature Enforcement
 
 The next step is disabling **Driver Signature Enforcement (DSE)**.
 
@@ -64,7 +64,7 @@ If you use other options, please keep in mind that you should be cautious as Pat
 * Temporarily Disable DSE
 * Putting Windows in Test Mode
 
-### Disable DSE by Attaching WinDbg
+#### Disable DSE by Attaching WinDbg
 
 If you choose the first option, you can use **kdnet.exe** from Windows SDK, which is described [here](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/setting-up-a-network-debugging-connection-automatically). After that, you'll get a key that can be used on a remote machine to debug this machine using WinDbg.
 
@@ -78,7 +78,7 @@ If your computer has the secure boot enabled, you'll see the following error.
 
 You can disable secure boot from the BIOS. Most of the time, you should change the **secure boot** option to "**Other OSes**" that are not Windows.
 
-### Temporarily Disable DSE
+#### Temporarily Disable DSE
 
 This is the simplest way to disable driver signature enforcement on Windows 10 but bear in mind that this method will temporarily disable driver signature enforcement.
 
@@ -93,7 +93,7 @@ To disable driver signature enforcement, do the following:
 
 Bear in mind that this method only temporarily disables driver signature enforcement, and after a restart, you have to re-disable it again.
 
-### Putting Windows in Test Mode
+#### Putting Windows in Test Mode
 
 In test mode, you can install any drivers you want without experiencing any problems. Don’t forget to go to normal Windows 10 mode after you solve your problem:
 
@@ -104,7 +104,7 @@ In test mode, you can install any drivers you want without experiencing any prob
 
 For more options, please visit [here](https://windowsreport.com/driver-signature-enforcement-windows-10/).
 
-## Disable VBS, HVCI, and Device Guard
+### Disable VBS, HVCI, and Device Guard
 
 The last step before running HyperDbg is disabling **Virtualization Based Security (VBS)**.
 
