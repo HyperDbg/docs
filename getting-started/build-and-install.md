@@ -36,27 +36,29 @@ For this purpose, you can **Disable Driver Signature Enforcement** or **Put Wind
 
 ## Running HyperDbg
 
-Running HyperDbg has multiple stages, first, you should make sure to enable Intel VT-x from the BIOS. Next, you have to disable driver signature enforcement and also turn off Virtualization Based Security (VBS). Then you can run HyperDbg.
+Running HyperDbg has multiple stages. First, you should make sure to enable Intel **VT-x** from the BIOS. Next, you have to disable **driver signature enforcement** and turn off **Virtualization Based Security (VBS)**. Then you can run HyperDbg.
 
 On the rest of this page, you'll read a detailed explanation about performing the above stages.
 
 ## Check for VMX support
 
-If you've ever run HyperDbg and encountered the below error, it means that VT-x is disabled from your BIOS.
+If you've ever run HyperDbg and encountered the below error, it means that **VT-x** is disabled from your BIOS.
 
 ![Disabled VT-x From BIOS](../.gitbook/assets/vmx-is-not-supported.PNG)
 
-Enabling VT-x from BIOS is vendor-specific. Usually, if you press \[F2] or \[Delete] or \[ESC] during the boot time, you'll enter the BIOS and there should be an option to Support Virtualization or something like this. You should enable it from BIOS and after that, you're good to go.&#x20;
+Enabling **VT-x** from BIOS is vendor-specific. Usually, if you press \[**F2**], or \[**Delete**], or \[**ESC**] during the boot time, you'll enter the BIOS, and there should be an option to **Support Virtualization** or something like that. You should enable it from BIOS, and after that, you're good to go.&#x20;
 
 ## Disable Driver Signature Enforcement
 
-The next step is disabling Driver Signature Enforcement (DSE).
+The next step is disabling **Driver Signature Enforcement (DSE)**.
 
-HyperDbg's driver is **NOT **digitally signed. It's because those who work on Microsoft believe that they are only allowed to sign drivers. As we see they shamelessly blocked [Process Hacker](https://borncity.com/win/2021/10/23/microsoft-signiert-windows-treiber-fr-process-hacker-nicht-mehr/). Meanwhile, they continue to sign Microsoft equivalent drivers with the same functionalities but when it comes to non-Microsoft drivers they do whatever they want which is really [ridiculous](https://twitter.com/processhacker/status/1442439527235153920). By the way, we don't want to mess with these guys.
+HyperDbg's driver is **NOT **digitally signed. It's because those who work on Windows believe that they are only allowed to sign drivers. As we see, they shamelessly blocked [Process Hacker](https://borncity.com/win/2021/10/23/microsoft-signiert-windows-treiber-fr-process-hacker-nicht-mehr/). Meanwhile, they continue to sign Microsoft equivalent drivers with the same functionalities, but they do whatever they want when it comes to non-Microsoft drivers, which is [ridiculous](https://twitter.com/processhacker/status/1442439527235153920). By the way, we don't want to mess with these guys. So, that's why we didn't sign this driver.
 
 Let's get down to business.
 
-In order to disable driver signature enforcement, we have plenty of options. However, we recommend the first option which is attaching** **WinDbg at the boot time. It's because this way, PatchGuard will not start and many of HyperDbg's commands like the '[!syscall](https://docs.hyperdbg.org/commands/extension-commands/syscall)' or the '[!sysret](https://docs.hyperdbg.org/commands/extension-commands/sysret)' are detectable by PatchGuard which makes them unusable. If you use other options, then please keep in mind that you should be cautious as PatchGuard will detect some of the modifications and will cause BSOD.
+In order to disable **driver signature enforcement**, we have plenty of options. However, we recommend the **first option**, which is **attaching WinDbg at the boot time**. It's because this way, PatchGuard will not start, and some of HyperDbg's commands like the '[!syscall](https://docs.hyperdbg.org/commands/extension-commands/syscall)' or the '[!sysret](https://docs.hyperdbg.org/commands/extension-commands/sysret)', which are PatchGuard detectable, will be usable.&#x20;
+
+If you use other options, please keep in mind that you should be cautious as PatchGuard will start and detect some of the modifications and might be problematic.
 
 * Disable DSE by Attaching WinDbg (**Recommended**)
 * Temporarily Disable DSE
@@ -64,17 +66,17 @@ In order to disable driver signature enforcement, we have plenty of options. How
 
 ### Disable DSE by Attaching WinDbg
 
-If you choose the first option, then you can use **kdnet.exe** from Windows SDK which is described [here](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/setting-up-a-network-debugging-connection-automatically). After that, you'll get a key that can be used on a remote machine to debug this machine using WinDbg.
+If you choose the first option, you can use **kdnet.exe** from Windows SDK, which is described [here](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/setting-up-a-network-debugging-connection-automatically). After that, you'll get a key that can be used on a remote machine to debug this machine using WinDbg.
 
 ![Kdnet.exe](../.gitbook/assets/configure-kdnet.PNG)
 
-When you load the HyperDbg's driver, you can close the WinDbg and everything is handled in HyperDbg and no need for WinDbg anymore. We want WinDbg to avoid starting PatchGuard and let us load or unsigned driver.
+When you load the HyperDbg's driver, you can close the WinDbg, and everything is handled in HyperDbg, and no need for WinDbg anymore. We want WinDbg to avoid starting PatchGuard and let us load or unsigned driver.
 
 If your computer has the secure boot enabled, you'll see the following error.
 
 ![Kdnet.exe (secure boot)](../.gitbook/assets/kdnet-secure-boot-error.PNG)
 
-You can disable secure boot from the BIOS. Most of the time you should change **the secure boot** option to "**Other OSes**" that are not Windows.
+You can disable secure boot from the BIOS. Most of the time, you should change the **secure boot** option to "**Other OSes**" that are not Windows.
 
 ### Temporarily Disable DSE
 
@@ -104,24 +106,45 @@ For more options, please visit [here](https://windowsreport.com/driver-signature
 
 ## Disable VBS, HVCI, and Device Guard
 
-The last step before running HyperDbg is disabling Virtualization Based Security (VBS).
+The last step before running HyperDbg is disabling **Virtualization Based Security (VBS)**.
 
-HyperDbg and VBS are both hypervisors running on Ring -1. These hypervisors are not compatible and you should disable VBS (and its sub-components like HVCI, Device Guard, etc.).
+HyperDbg and VBS are both hypervisors running on ring -1. These hypervisors are not compatible, and you should disable VBS (and its sub-components like HVCI, Device Guard, etc.).
+
+To check whether VBS is running on your system, type **System Information** on the start menu and click on the **System Information** app. After that, check whether the VBS is **running** or not like the below picture.&#x20;
 
 
 
-![](../.gitbook/assets/VBS-running.PNG)
+![VBS running](../.gitbook/assets/VBS-running.PNG)
 
-![](../.gitbook/assets/VBS-enabled-but-not-running.PNG) ![](../.gitbook/assets/VBS-not-enabled.PNG)
+If you see "**Enabled but not running**" or "**Not enabled**", you're good to go to the next step.
 
-![](../.gitbook/assets/Disable-core-isolation.PNG)
+![Enabled but not running](../.gitbook/assets/VBS-enabled-but-not-running.PNG) ![Not enabled](../.gitbook/assets/VBS-not-enabled.PNG)
+
+If the VBS is enabled, you can disable it by typing "**Core isolation**" on the start menu and turning off "**Memory integrity**".
+
+![Turn off core isolation](../.gitbook/assets/Disable-core-isolation.PNG)
+
+The above step is enough to disable the VBS. After that, you should restart your computer so that the VBS will be disabled on the next start.
+
+If the above method didn't work for you, open **Local Group Policy Editor (gpedit.msc)** and navigate to the following path:
+
+```
+Local Computer Policy\Computer Configuration\Administrative Templates\System\Device Guard
+```
+
+Click on **Turn on Virtualization Based Security**.\
+
 
 ![](../.gitbook/assets/local-group-policy-VBS.PNG)
 
+Then choose the '**Disabled**'** **option and click '**OK**'.
+
 ![](../.gitbook/assets/disable-VBS.PNG)
 
+After that, you should restart your computer and recheck System Information to see if it's still running or not.
 
+There are also other options to disable VBS as described [here](https://beebom.com/how-disable-virtualization-based-security-vbs-windows-11/).
 
 ## Run & Test
 
-Open **hyperdbg-cli.exe**, and visit [Quick Start](https://docs.hyperdbg.org/getting-started/quick-start) to start using **HyperDbg**.
+Congratulations, you're ready to run HyperDbg. Open **hyperdbg-cli.exe**, and visit [Quick Start](https://docs.hyperdbg.org/getting-started/quick-start) to start using **HyperDbg**.
