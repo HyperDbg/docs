@@ -22,7 +22,7 @@ To build HyperDbg, you need to install the following software.
 
 ## Build & Compile
 
-First, clone the project using **git** or download it [here](https://github.com/HyperDbg/HyperDbg/archive/master.zip).
+First, clone the project using **git** or download precompiled binaries from [here](https://github.com/HyperDbg/HyperDbg/releases).
 
 ```
 git clone --recursive https://github.com/HyperDbg/HyperDbg.git
@@ -52,9 +52,7 @@ Enabling **VT-x** from BIOS is vendor-specific. Usually, if you press \[**F2**],
 
 The next step is disabling **Driver Signature Enforcement (DSE)**.
 
-HyperDbg's driver is **NOT **digitally signed. It's because those who work on Windows believe that they are only allowed to sign drivers. As we see, they shamelessly blocked [Process Hacker](https://borncity.com/win/2021/10/23/microsoft-signiert-windows-treiber-fr-process-hacker-nicht-mehr/). Meanwhile, they continue to sign Microsoft equivalent drivers with the same functionalities, but they do whatever they want when it comes to non-Microsoft drivers, which is [ridiculous](https://twitter.com/processhacker/status/1442439527235153920). By the way, we don't want to mess with these guys. So, that's why we didn't sign the driver.
-
-Let's get down to business.
+HyperDbg's driver is **NOT **digitally signed.
 
 In order to disable **driver signature enforcement**, we have plenty of options. However, we recommend the **first option**, which is **attaching WinDbg at the boot time**. It's because this way, PatchGuard will not start, and some of HyperDbg's commands like the '[!syscall](https://docs.hyperdbg.org/commands/extension-commands/syscall)' or the '[!sysret](https://docs.hyperdbg.org/commands/extension-commands/sysret)', which are PatchGuard detectable, will be usable.&#x20;
 
