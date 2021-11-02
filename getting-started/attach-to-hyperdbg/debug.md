@@ -67,7 +67,7 @@ Make sure to enable **Yield CPU on poll**.
 Now it's time to create a kernel debug connection. First of all, run the following command on the host (debugger). You should change the named pipe address to whatever name you chose on the previous part.
 
 ```
-HyperDbg> .debug remote namedpipe \\\\.\\pipe\\HyperDbgPipe
+HyperDbg> .debug remote namedpipe \\.\pipe\HyperDbgPipe
 ```
 
 After you tell the debugger to listen on a COM port or a named pipe, now you can run the following command in the debuggee (guest).
