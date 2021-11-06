@@ -167,6 +167,7 @@
   * [Message overflow](tips-and-tricks/misc/message-overflow.md)
   * [Customize build](tips-and-tricks/misc/customize-build.md)
   * [Enable and disable events in Debugger Mode](tips-and-tricks/misc/enable-and-disable-events-in-debugger-mode.md)
+  * [Switch to new process layout](tips-and-tricks/misc/switch-to-new-process-layout.md)
 
 ## Contribution
 
