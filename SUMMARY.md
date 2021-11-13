@@ -65,6 +65,7 @@
   * [rdmsr (read model-specific register)](commands/debugging-commands/rdmsr.md)
   * [wrmsr (write model-specific register)](commands/debugging-commands/wrmsr.md)
   * [flush (remove pending kernel buffers and messages)](commands/debugging-commands/flush.md)
+  * [prealloc (reserve pre-allocated pools)](commands/debugging-commands/prealloc.md)
   * [output (create output source for event forwarding)](commands/debugging-commands/output.md)
   * [test (test functionalities)](commands/debugging-commands/test.md)
   * [settings (configures different options and preferences)](commands/debugging-commands/settings.md)
