@@ -93,7 +93,7 @@ typedef struct _DEBUGGER_READ_PAGE_TABLE_ENTRIES_DETAILS {
     *PDEBUGGER_READ_PAGE_TABLE_ENTRIES_DETAILS;
 ```
 
-You should only fill the VirtualAddress of the above structure when the IOCTL returns from the kernel. Other parts of this structure are filled with valid entry virtual addresses and the entry value itself.
+You should only fill the **VirtualAddress** of the above structure when the IOCTL returns from the kernel, other parts of this structure are filled with valid entry virtual addresses and the entry value itself.
 
 You can map the value to each entry's structure (Look at Intel SDM for more information).
 

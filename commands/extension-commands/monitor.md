@@ -172,6 +172,8 @@ You shouldn't use any of **!monitor**, **!epthook**, and **!epthook2** commands 
 You can use **!epthook** (just _**!epthook**_ not **!epthook2** and not **!monitor**) on two or more addresses on the same page (means that you can use the **!epthook** multiple times for addresses between a single page or putting multiple hidden breakpoints on a single page). But you can't use **!monitor** or **!epthook2** twice on the same page.
 {% endhint %}
 
+If you need to reserve more pre-allocated pools for this command, you can use the '[prealloc](https://docs.hyperdbg.org/commands/debugging-commands/prealloc)' command.
+
 This is an event command, but in the current version of HyperDbg (in Debugger Mode), this command will continue the debuggee for some time; however, you can use [this trick](https://docs.hyperdbg.org/tips-and-tricks/misc/enable-and-disable-events-in-debugger-mode) to make sure you won't lose any event.
 
 ### Requirements
@@ -180,4 +182,4 @@ Post-Nehalem Processor (EPT)
 
 ### Related
 
-None
+[prealloc (reserve pre-allocated pools)](https://docs.hyperdbg.org/commands/debugging-commands/prealloc)
