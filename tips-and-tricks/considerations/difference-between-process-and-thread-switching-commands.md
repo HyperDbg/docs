@@ -6,13 +6,25 @@ description: When to use '.process', '.process2', '.thread', and '.thread2' comm
 
 This command force all the cores to cause vm-exit in the case of any changes to the **CR3** register.&#x20;
 
-### When to use '.process'?
+## Process switching commands
 
-### When to use '.process2'?
+### Implementation
 
-### When to use '.thread'?
+### Use cases
 
-### When to use '.thread2'?
+#### When to use '.process'?
+
+#### When to use '.process2'?
+
+## Thread switching commands
+
+### Implementation
+
+### Use cases
+
+#### When to use '.thread'?
+
+#### When to use '.thread2'?
 
 
 
