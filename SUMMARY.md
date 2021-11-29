@@ -161,6 +161,7 @@
   * [VMX root-mode vs VMX non-root mode](tips-and-tricks/considerations/vmx-root-mode-vs-vmx-non-root-mode.md)
   * [The "unsafe" behavior](tips-and-tricks/considerations/the-unsafe-behavior.md)
   * [Script engine in VMX non-root mode](tips-and-tricks/considerations/script-engine-in-vmx-non-root-mode.md)
+  * [Difference between process and thread switching commands](tips-and-tricks/considerations/difference-between-process-and-thread-switching-commands.md)
   * [Transparent Mode](tips-and-tricks/considerations/transparent-mode.md)
 * [Nested-Virtualization Environments](tips-and-tricks/nested-virtualization-environments/README.md)
   * [Run HyperDbg on VMware](tips-and-tricks/nested-virtualization-environments/run-hyperdbg-on-vmware.md)
