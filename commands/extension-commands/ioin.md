@@ -14,7 +14,7 @@ description: Description of '!ioin' command in HyperDbg.
 
 ### Description
 
-Triggers when the debugging machine executes **IN **or **IN\*** instructions or, in other words, when Windows or a driver tries to use I/O ports.
+Triggers when the debugging machine executes **IN** or **IN\*** instructions or, in other words, when Windows or a driver tries to use I/O ports.
 
 {% hint style="info" %}
 When you enable this event, only your specific I/O port will be hooked, so this command won't trigger on all I/O ports, thus won't make your computer slow.
@@ -138,7 +138,7 @@ As **EventType** use `IN_INSTRUCTION_EXECUTION` and send the special I/O port (i
 
 Both **!ioin** and **!ioout** use the vm-exits caused by setting bits in the I/O Bitmap (I/O Bitmap A, I/O Bitmap B) field of the hypervisor VMCS.
 
-For emulating I/O ports, vm-exit with (**EXIT_REASON_IO_INSTRUCTION**) or exit-reason **30** is used.
+For emulating I/O ports, vm-exit with (**EXIT\_REASON\_IO\_INSTRUCTION**) or exit-reason **30** is used.
 
 ### Remarks
 

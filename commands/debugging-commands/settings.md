@@ -47,7 +47,7 @@ You can also perform the **autoflush** manually by running the '[flush](https://
 
 **syntax** : specifies the syntax of disassembler for '[!u and !u2](https://docs.hyperdbg.org/commands/extension-commands/u)' commands.
 
-**addressconverison **: if you turn **addressconversion **on, then in the case of disassembling memory, it converts addresses to object names (if the symbol is available for that address). Otherwise, it shows the address in hex format. This option also affects showing function names in stepping through the instructions.&#x20;
+**addressconverison** : if you turn **addressconversion** on, then in the case of disassembling memory, it converts addresses to object names (if the symbol is available for that address). Otherwise, it shows the address in hex format. This option also affects showing function names in stepping through the instructions.&#x20;
 
 ### Examples
 

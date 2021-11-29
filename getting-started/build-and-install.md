@@ -52,7 +52,7 @@ Enabling **VT-x** from BIOS is vendor-specific. Usually, if you press \[**F2**],
 
 The next step is disabling **Driver Signature Enforcement (DSE)**.
 
-HyperDbg's driver is **NOT **digitally signed.
+HyperDbg's driver is **NOT** digitally signed.
 
 In order to disable **driver signature enforcement**, we have plenty of options. However, we recommend the **first option**, which is **attaching WinDbg at the boot time**. It's because this way, PatchGuard will not start, and some of HyperDbg's commands like the '[!syscall](https://docs.hyperdbg.org/commands/extension-commands/syscall)' or the '[!sysret](https://docs.hyperdbg.org/commands/extension-commands/sysret)', which are PatchGuard detectable, will be usable.&#x20;
 
@@ -134,7 +134,7 @@ Click on **Turn on Virtualization Based Security**.
 
 ![](../.gitbook/assets/local-group-policy-VBS.PNG)
 
-Then choose the '**Disabled**'** **option and click '**OK**'.
+Then choose the '**Disabled**' **** option and click '**OK**'.
 
 ![](../.gitbook/assets/disable-VBS.PNG)
 
