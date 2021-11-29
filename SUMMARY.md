@@ -81,7 +81,7 @@
   * [.disconnect (disconnect from a session)](commands/meta-commands/.disconnect.md)
   * [.listen (listen on a port and wait for the debugger to connect)](commands/meta-commands/.listen.md)
   * [.status (show the debugger status)](commands/meta-commands/.status.md)
-  * [.process (show the current process and switch to another process)](commands/meta-commands/.process.md)
+  * [.process, .process2 (show the current process and switch to another process)](commands/meta-commands/.process.md)
   * [.formats (show number formats)](commands/meta-commands/.formats.md)
   * [.script (run batch script commands)](commands/meta-commands/.script.md)
   * [.sympath (set the symbol server)](commands/meta-commands/.sympath.md)
