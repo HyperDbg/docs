@@ -24,6 +24,8 @@
   * [basics](using-hyperdbg/examples/basics/README.md)
     * [Setting Breakpoints & Stepping Instructions](using-hyperdbg/examples/basics/setting-breakpoints-and-stepping-instructions.md)
     * [Displaying & Editing & Searching Memory](using-hyperdbg/examples/basics/displaying-and-editing-and-searching-memory.md)
+    * [Showing & Modifying Registers and Flags](using-hyperdbg/examples/basics/showing-and-modifying-registers-and-flags.md)
+    * [Switching To A Specific Process Or Thread](using-hyperdbg/examples/basics/switching-to-a-specific-process-or-thread.md)
   * [events](using-hyperdbg/examples/events/README.md)
     * [Managing Events](using-hyperdbg/examples/events/managing-events.md)
     * [Hooking Any Function](using-hyperdbg/examples/events/hooking-any-function.md)
@@ -31,9 +33,10 @@
     * [Monitoring Accesses To Structures](using-hyperdbg/examples/events/monitoring-accesses-to-structures.md)
     * [Triggering Special Instructions](using-hyperdbg/examples/events/triggering-special-instructions.md)
     * [Identifying System Behavior](using-hyperdbg/examples/events/identifying-system-behavior.md)
+  * [scripts](using-hyperdbg/examples/scripts/README.md)
+    * [Running HyperDbg Script](using-hyperdbg/examples/scripts/running-hyperdbg-script.md)
   * [misc](using-hyperdbg/examples/misc/README.md)
     * [Defeating Anti-Debug & Anti-Hypervisor Methods](using-hyperdbg/examples/misc/defeating-anti-debug-and-anti-hypervisor-methods.md)
-    * [Running HyperDbg Script](using-hyperdbg/examples/misc/running-hyperdbg-script.md)
   * [Scripting Language Examples](https://docs.hyperdbg.org/commands/scripting-language/examples)
 
 ## Commands
