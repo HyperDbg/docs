@@ -49,7 +49,7 @@ Note that it's a 32-bit program, so we use the '[u2](https://docs.hyperdbg.org/c
 
 ![Switch to a new thread](../../../.gitbook/assets/3-switch-to-the-target-thread.png)
 
-After analyzing the program, we find the in the assembly code. You can also see the calls that are probably a link to the `printf` function.
+After analyzing the program, we find the jumps in the assembly code. You can also see the calls that are probably a link to the `printf` function.
 
 ![Disassemble the target thread](../../../.gitbook/assets/4-disassembling-and-finding-jumps.png)
 
@@ -57,12 +57,12 @@ Then, we step through the instructions to better understand how this program wor
 
 ![Step through the instructions](../../../.gitbook/assets/5-stepping-and-investigate-the-test-program.png)
 
-After some investigation, we can conclude that the guilty if is located at `0xe24a31`, so we'll modify the memory and patch it by using nops (0x90).
+After some investigation, we can conclude that the guilty jump is located at `0xe24a31`, so we'll modify the memory and patch it by using nop instructions(0x90).
 
 ![Patch the program's execution flow](../../../.gitbook/assets/6-patch-the-target-jump.png)
 
-If we continue the debuggee again, you can see that the patched program jumps out of the infinite loop and show the 'thread is closed!' message.
+If we continue the debuggee again, you can see that the patched program jumps out of the infinite loop and show the '**thread is closed!**' message.
 
 ![The result of patched program](../../../.gitbook/assets/7-result-of-patching-target-program.png)
 
-It was a simple example of how to use thread and process switching commands in HyperDbg. You can think about different approaches that you can use to change the program's execution flow (like changing the RFLAGS) or analyze any other programs.
+It was a simple example of how to use thread and process switching commands in HyperDbg. You can think about different approaches that you can use to change the program's execution flow (like changing the RFLAGS, etc.) or analyze any other programs.
