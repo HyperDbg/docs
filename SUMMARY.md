@@ -34,7 +34,7 @@
     * [Triggering Special Instructions](using-hyperdbg/examples/events/triggering-special-instructions.md)
     * [Identifying System Behavior](using-hyperdbg/examples/events/identifying-system-behavior.md)
   * [scripts](using-hyperdbg/examples/scripts/README.md)
-    * [Running HyperDbg Script](using-hyperdbg/examples/scripts/running-hyperdbg-script.md)
+    * [Running HyperDbg Script](using-hyperdbg/examples/misc/running-hyperdbg-script.md)
   * [misc](using-hyperdbg/examples/misc/README.md)
     * [Defeating Anti-Debug & Anti-Hypervisor Methods](using-hyperdbg/examples/misc/defeating-anti-debug-and-anti-hypervisor-methods.md)
   * [Scripting Language Examples](https://docs.hyperdbg.org/commands/scripting-language/examples)
