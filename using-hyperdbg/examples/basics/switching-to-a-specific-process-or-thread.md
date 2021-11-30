@@ -49,11 +49,11 @@ Note that it's a 32-bit program, so we use the '[u2](https://docs.hyperdbg.org/c
 
 ![Switch to a new thread](../../../.gitbook/assets/3-switch-to-the-target-thread.png)
 
-After analyzing the program, we investigate the jumps and the calls in the assembly code. You can also see the calls that are probably a link to the `printf` function.
+After analyzing the program, we find the in the assembly code. You can also see the calls that are probably a link to the `printf` function.
 
 ![Disassemble the target thread](../../../.gitbook/assets/4-disassembling-and-finding-jumps.png)
 
-After that, we step through the instructions to better understand how this program works.
+Then, we step through the instructions to better understand how this program works.
 
 ![Step through the instructions](../../../.gitbook/assets/5-stepping-and-investigate-the-test-program.png)
 
