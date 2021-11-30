@@ -1,8 +1,8 @@
 ---
-description: Using the .process, and the .thread commands
+description: Using the '.process', and the '.thread' commands
 ---
 
-# Switching To A Specific Process Or Thread
+# Switching to a Specific Process or Thread
 
 ```clike
 #include <Windows.h>

@@ -25,7 +25,7 @@
     * [Setting Breakpoints & Stepping Instructions](using-hyperdbg/examples/basics/setting-breakpoints-and-stepping-instructions.md)
     * [Displaying & Editing & Searching Memory](using-hyperdbg/examples/basics/displaying-and-editing-and-searching-memory.md)
     * [Showing & Modifying Registers and Flags](using-hyperdbg/examples/basics/showing-and-modifying-registers-and-flags.md)
-    * [Switching To A Specific Process Or Thread](using-hyperdbg/examples/basics/switching-to-a-specific-process-or-thread.md)
+    * [Switching to a Specific Process or Thread](using-hyperdbg/examples/basics/switching-to-a-specific-process-or-thread.md)
   * [events](using-hyperdbg/examples/events/README.md)
     * [Managing Events](using-hyperdbg/examples/events/managing-events.md)
     * [Hooking Any Function](using-hyperdbg/examples/events/hooking-any-function.md)
