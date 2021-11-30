@@ -4,6 +4,12 @@ description: Using the '.process', and the '.thread' commands
 
 # Switching to a Specific Process or Thread
 
+Switching to new processes/threads is useful when debugging a special process or a user-mode application. These switchings are possible through the '[.process](https://docs.hyperdbg.org/commands/meta-commands/.process)' and '[.thread](https://docs.hyperdbg.org/commands/meta-commands/.thread)' commands.
+
+In HyperDbg, there are different implementations of these switchings. You can read more about these differences [here](https://docs.hyperdbg.org/tips-and-tricks/considerations/difference-between-process-and-thread-switching-commands).
+
+In this example, we walk through an example to show how to use these commands.
+
 ```clike
 #include <Windows.h>
 #include <conio.h>
