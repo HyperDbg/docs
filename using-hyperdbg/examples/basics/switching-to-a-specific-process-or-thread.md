@@ -37,9 +37,17 @@ int main() {
 
 After compiling and running the above code, we use the command shown in the picture to view the list of processes and other information about the processes running in the system.
 
+```
+3: kHyperDbg> .process list
+```
+
 ![View process list](../../../.gitbook/assets/1-process-list.png)
 
 We find our target program which its name is "**Test.exe**". Then, we see a list of running threads based on this process. For this purpose, we used the process object address (`nt!_EPROCESS`).
+
+```
+3: kHyperDbg> .thread list process ffff948cc16c3080
+```
 
 ![View list of threads of a process](../../../.gitbook/assets/2-find-threads-of-test-process.png)
 
@@ -47,9 +55,17 @@ Now, we can switch to the target thread and continue the debuggee. Whenever the 
 
 Note that it's a 32-bit program, so we use the '[u2](https://docs.hyperdbg.org/commands/debugging-commands/u)', which is the 32-bit version of the disassembler in this case.
 
+```
+3: kHyperDbg> .thread tid b10
+```
+
 ![Switch to a new thread](../../../.gitbook/assets/3-switch-to-the-target-thread.png)
 
 After analyzing the program, we find the jumps in the assembly code. You can also see the calls that are probably a link to the `printf` function.
+
+```
+2: kHyperDbg> u2 00e249f6
+```
 
 ![Disassemble the target thread](../../../.gitbook/assets/4-disassembling-and-finding-jumps.png)
 
@@ -58,6 +74,10 @@ Then, we step through the instructions to better understand how this program wor
 ![Step through the instructions](../../../.gitbook/assets/5-stepping-and-investigate-the-test-program.png)
 
 After some investigation, we can conclude that the guilty jump is located at `0xe24a31`, so we'll modify the memory and patch it by using nop instructions(0x90).
+
+```
+2: kHyperDbg> eb 00e24a31 90 90
+```
 
 ![Patch the program's execution flow](../../../.gitbook/assets/6-patch-the-target-jump.png)
 
