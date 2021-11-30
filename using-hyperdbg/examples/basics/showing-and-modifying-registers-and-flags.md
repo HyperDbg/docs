@@ -4,9 +4,9 @@ description: using the 'r' command
 
 # Showing & Modifying Registers and Flags
 
-You can view and modify registers only in Debugger Mode. It's possible using the 'r' command. HyperDbg supports wide list of registers and also support to view and modify each flag separately.
+You can view and modify registers only in Debugger Mode. It's possible to use the '[r](https://docs.hyperdbg.org/commands/debugging-commands/r)' command. HyperDbg supports a wide list of registers and also supports viewing and modifying each flag separately.
 
-A list of supported registers are available here.
+A list of supported registers is available [here](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations#registers).
 
 If you want to read all the registers, use the following command.
 
@@ -24,7 +24,7 @@ CS 0010 SS 0018 DS 002b ES 002b FS 0053 GS 002b
 RFLAGS=0000000000040246
 ```
 
-If you want to read a special register, use its name after the 'r' command.
+If you want to read a special register, use its name after the '[r](https://docs.hyperdbg.org/commands/debugging-commands/r)' command.
 
 ```clike
 0: kHyperDbg> r @rax
@@ -34,7 +34,7 @@ rax=ffff948cc1902d40
 rip=fffff80168d91312
 ```
 
-Also, you can modify the value of a register by using '=' and set it to a hex value.
+Also, you can modify the value of a register by using '=' and setting it to a **hex** value.
 
 ```clike
 0: kHyperDbg> r @rax = 55
@@ -43,9 +43,9 @@ Also, you can modify the value of a register by using '=' and set it to a hex va
 rax=0000000000000055
 ```
 
-It's also possible to modify the each flag of the RFLAGS.
+It's also possible to modify each flag of the **RFLAGS**.
 
-```
+```clike
 0: kHyperDbg> r @cf
 cf=0000000000000000
 
