@@ -26,20 +26,18 @@ The second method is guaranteed to get the execution if Windows tries to run the
 
 The first method lets the process run for at least one quantum time slice, while the second method halts the system without giving a chance to the program to run.
 
-Sometimes, you expect to get the execution when the process is running in the user-mode, but when you run the first command, you end up with the thread operating in the kernel-mode. The thread might be executing its life in the kernel-mode because of handling a system call or servicing an interrupt in the user-mode.
-
-Most of the time, if you run the '[.process](https://docs.hyperdbg.org/commands/meta-commands/.process)' + the '[g](https://docs.hyperdbg.org/commands/debugging-commands/g)' commands several times, you can get the thread in the user-mode.
+Sometimes, you expect to get the execution when the process is running in the user-mode, but when you run the first command, you end up with the thread operating in the kernel-mode. The thread might be executing its life in the kernel-mode because of handling a system call or servicing an interrupt in the user-mode. Most of the time, if you run the '[.process](https://docs.hyperdbg.org/commands/meta-commands/.process)' + the '[g](https://docs.hyperdbg.org/commands/debugging-commands/g)' commands several times, you can get the thread in the user-mode.
 
 #### When to use '.process'?
 
 * If you want to halt the debuggee when the process is in the user-mode.
-* If you want to see and modify the actual context of the thread in the user-mode and the kernel-mode.
+* If you want to see and modify the actual context of the thread in the user-mode and in the kernel-mode.
 * If you want to step through the instructions in the target thread directly.
 
 #### When to use '.process2'?
 
 * If your process is context switched as a result of early waiting for an object.
-* If you want to get notified about the process execution before it runs for a time slice.
+* If you want to get notified about the process execution before it runs again (even before a time slice).
 
 ## Thread switching commands
 
@@ -51,22 +49,22 @@ The implementation of the '[.thread](https://docs.hyperdbg.org/commands/meta-com
 
 HyperDbg gets the clock interrupts, and IPI interrupts for a limited amount of time. If the target thread was running when the interrupt has arrived, HyperDbg halts the system again waits for further commands from the user. If the Windows never tries to run the target thread, then HyperDbg keeps checking until the user halts the system again using CTRL+C or a breakpoint is triggered, or a break event is called.
 
-The second implementation of this command ([.thread2](https://docs.hyperdbg.org/commands/meta-commands/.thread)) sets a break on access (write) to `gs:[188]` on all the cores to cause a debug breakpoint (#DB), and also a VM-exit is configured to happen when a debug breakpoint arrived (using the exception bitmap for the #DB). As a result, a VM-exit occurs in the case of any changes to the `gs:[188]`. Whenever Windows tries to write on this address, it means that a thread is changed as it stores the information about the threads on this address. This way, we will be notified that a thread is changed.
+The second implementation of this command ([.thread2](https://docs.hyperdbg.org/commands/meta-commands/.thread)) sets a break on access (write) to `gs:[188]` address on all the cores to cause a debug breakpoint (#DB), and also a VM-exit is configured to happen when a debug breakpoint arrived (using the exception bitmap for the #DB). As a result, a VM-exit occurs in the case of any changes to the `gs:[188]`. Whenever Windows tries to write on this address, it means that a thread is changed as it stores the information about the threads on this address. This way, we will be notified that a thread is changed.
 
 ### Use cases
 
 In almost all cases, you need to use the first implementation. Sometimes using the first method is not possible because the target thread is context switched without a clock interrupt, and you can't get the thread's execution.
 
-When using the second method, the result of the '[.thread](https://docs.hyperdbg.org/commands/meta-commands/.thread)' or '[.prcoess](https://docs.hyperdbg.org/commands/meta-commands/.process)' showing the current thread or process might be wrong. It is because the target thread is about to be switched, and the switching is not finished yet. Also, the context of the debugger (registers) is based on kernel context switching routines, not based on the threads when executing in their normal execution.
+When using the second method, the result of the '[.thread](https://docs.hyperdbg.org/commands/meta-commands/.thread)' or '[.prcoess](https://docs.hyperdbg.org/commands/meta-commands/.process)' showing the current thread or process might be wrong. It is because the target thread is about to be switched, and the switching is not finished yet. Also, the context of the debugger (registers) is based on kernel context switching routines, not based on the threads when executing their normal tasks.
 
 #### When to use '.thread'?
 
 * If you want to switch to a particular thread.
 * If you have multiple threads and only want to debug one of them.
 * If you're going to halt the debuggee when the thread is in the user-mode.
-* If you want to see and modify the actual context of the thread in the user-mode and the kernel-mode.
+* If you want to see and modify the actual context of the thread in the user-mode and in the kernel-mode.
 * If you want to step through the instructions in the target thread directly.
-* If a thread is halted and a deadlock happens, and you want to debug it
+* If a thread is halted and a deadlock happens, and you want to debug it.
 
 #### When to use '.thread2'?
 
