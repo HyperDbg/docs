@@ -14,15 +14,15 @@ The first command is based on intercepting the clock interrupt. Whenever the qua
 
 HyperDbg intercepts these interrupts (clock interrupts and IPI interrupts) for a limited amount of time. If the target process was running when the interrupt has arrived, HyperDbg halts the system again waits for further commands from the user. If the Windows never tries to run the target process, then HyperDbg keeps checking until the user halts the system again using CTRL+C or a breakpoint is triggered, or a break event is called. The same checking applies to all the threads and process checks.
 
-The second implementation of this command ([.process2](https://docs.hyperdbg.org/commands/meta-commands/.process)) forces all the cores to cause VM-exit in the case of any changes to the CR3 register. As you might know, each process has its unique memory layout, and memory layout is managed through the different CR3 registers in x86 processors. Thus, whenever this register is changed, it means Windows tries to switch to the new process.
+The second implementation of this command ([.process2](https://docs.hyperdbg.org/commands/meta-commands/.process)) forces all the cores to cause VM-exit in the case of any changes to the **CR3** register. As you might know, each process has its unique memory layout, and memory layout is managed through the different **CR3** registers in x86 processors. Thus, whenever this register is changed, it means Windows tries to switch to a new process.
 
 ### Use cases
 
 Generally, the first implementation ([.process](https://docs.hyperdbg.org/commands/meta-commands/.process)) is better and works most of the time. It's because when the check is performed, you hold the context (registers and memory layout) of the target thread (process). You can modify its context or step through the instructions. However, this method might not always work.
 
-Sometimes, the thread might finish its works earlier than when the clock interrupt arrives (For example, by calling WaitForSingleObject). In these cases, Windows performs the context switch without using the clock interrupt as the thread is waiting for an object. Thus, we never get notified about the thread's execution, and HyperDbg won't halt again.
+Sometimes, the thread might finish its works earlier than when the clock interrupt arrives (For example, by calling **WaitForSingleObject**). In these cases, Windows performs the context switch without using the clock interrupt as the thread is waiting for an object. Thus, we never get notified about the thread's execution, and HyperDbg won't halt again.
 
-The second method is guaranteed to get the execution if Windows tries to run the target process. However, there is a caveat to this method. When this method halts the debugger, the context is in the kernel context switching of Windows; so, you don't have the context of the running thread when performing the user-mode or kernel-mode tasks.
+The second method is guaranteed to get the execution if Windows tries to run the target process. However, there is a caveat to this method. When this method halts the debugger, the context (registers) is in the kernel context switching routines of Windows; so, you don't have the context (registers) of the running thread when performing its normal user-mode or kernel-mode tasks.
 
 The first method lets the process run for at least one quantum time slice, while the second method halts the system without giving a chance to the program to run.
 
@@ -51,13 +51,13 @@ The implementation of the '[.thread](https://docs.hyperdbg.org/commands/meta-com
 
 HyperDbg gets the clock interrupts, and IPI interrupts for a limited amount of time. If the target thread was running when the interrupt has arrived, HyperDbg halts the system again waits for further commands from the user. If the Windows never tries to run the target thread, then HyperDbg keeps checking until the user halts the system again using CTRL+C or a breakpoint is triggered, or a break event is called.
 
-The second implementation of this command ([.thread2](https://docs.hyperdbg.org/commands/meta-commands/.thread)) sets a break on access (write) to gs:\[188] on all the cores to cause a debug breakpoint (#DB), and also a VM-exit is configured to happen when a debug breakpoint arrived (using the exception bitmap for the #DB). As a result, a VM-exit occurs in the case of any changes to the gs:\[188]. Whenever Windows tries to write on this address, it means that a thread is changed as it stores the information about the threads on this address. This way, we will be notified that a thread is changed.
+The second implementation of this command ([.thread2](https://docs.hyperdbg.org/commands/meta-commands/.thread)) sets a break on access (write) to `gs:[188]` on all the cores to cause a debug breakpoint (#DB), and also a VM-exit is configured to happen when a debug breakpoint arrived (using the exception bitmap for the #DB). As a result, a VM-exit occurs in the case of any changes to the `gs:[188]`. Whenever Windows tries to write on this address, it means that a thread is changed as it stores the information about the threads on this address. This way, we will be notified that a thread is changed.
 
 ### Use cases
 
 In almost all cases, you need to use the first implementation. Sometimes using the first method is not possible because the target thread is context switched without a clock interrupt, and you can't get the thread's execution.
 
-When using the second method, the result of the '[.thread](https://docs.hyperdbg.org/commands/meta-commands/.thread)' or '.prcoess' showing the current thread or process might be wrong. It is because the target thread is about to be switched, and the switching is not finished yet. Also, the context of the debugger (registers) is based on kernel context switching routines, not based on the threads when executing in their normal execution.
+When using the second method, the result of the '[.thread](https://docs.hyperdbg.org/commands/meta-commands/.thread)' or '[.prcoess](https://docs.hyperdbg.org/commands/meta-commands/.process)' showing the current thread or process might be wrong. It is because the target thread is about to be switched, and the switching is not finished yet. Also, the context of the debugger (registers) is based on kernel context switching routines, not based on the threads when executing in their normal execution.
 
 #### When to use '.thread'?
 
