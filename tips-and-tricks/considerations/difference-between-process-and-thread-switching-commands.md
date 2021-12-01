@@ -22,13 +22,13 @@ Generally, the first implementation ([.process](https://docs.hyperdbg.org/comman
 
 Sometimes, the thread might finish its works earlier than when the clock interrupt arrives (For example, by calling WaitForSingleObject). In these cases, Windows performs the context switch without using the clock interrupt as the thread is waiting for an object. Thus, we never get notified about the thread's execution, and HyperDbg won't halt again.
 
-The second method is guaranteed to get the execution if Windows tries to run the target process. However, there is a caveat to this method. When this method halts the debugger, the context is in the kernel context switching of Windows; thus, you don't have the context of the running thread when performing the user-mode or kernel-mode tasks.
+The second method is guaranteed to get the execution if Windows tries to run the target process. However, there is a caveat to this method. When this method halts the debugger, the context is in the kernel context switching of Windows; so, you don't have the context of the running thread when performing the user-mode or kernel-mode tasks.
 
 The first method lets the process run for at least one quantum time slice, while the second method halts the system without giving a chance to the program to run.
 
 Sometimes, you expect to get the execution when the process is running in the user-mode, but when you run the first command, you end up with the thread operating in the kernel-mode. The thread might be executing its life in the kernel-mode because of handling a system call or servicing an interrupt in the user-mode.
 
-Most of the time, if you run the '[.process](https://docs.hyperdbg.org/commands/meta-commands/.process)' + the 'g' commands several times, you can get the thread in the user-mode.
+Most of the time, if you run the '[.process](https://docs.hyperdbg.org/commands/meta-commands/.process)' + the '[g](https://docs.hyperdbg.org/commands/debugging-commands/g)' commands several times, you can get the thread in the user-mode.
 
 #### When to use '.process'?
 
