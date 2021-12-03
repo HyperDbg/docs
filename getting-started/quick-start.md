@@ -66,7 +66,9 @@ If you want to see more advanced topics about HyperDbg.
 * [**Script engine in VMX non-root mode**](https://docs.hyperdbg.org/tips-and-tricks/considerations/script-engine-in-vmx-non-root-mode)
 * [**Difference between process and thread switching commands**](https://docs.hyperdbg.org/tips-and-tricks/considerations/difference-between-process-and-thread-switching-commands)****
 * [**Transparent Mode**](https://docs.hyperdbg.org/tips-and-tricks/considerations/transparent-mode)
-* ## Miscellaneous topics...
+
+## Miscellaneous topics...
+
 * [**Event Forwarding Mechanism**](https://docs.hyperdbg.org/tips-and-tricks/misc/event-forwarding)
 * [**Message Overflow**](https://docs.hyperdbg.org/tips-and-tricks/misc/message-overflow)
 * ****[**Switch to New Process Layout**](https://docs.hyperdbg.org/tips-and-tricks/misc/switch-to-new-process-layout)****
