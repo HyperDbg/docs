@@ -14,7 +14,7 @@ description: Description of '!epthook2' command in HyperDbg.
 
 ### Description
 
-Puts an in-line, detours-style kernel EPT hidden hook (fast). 
+Puts an in-line, detours-style kernel EPT hidden hook (fast).&#x20;
 
 {% hint style="info" %}
 This implementation of the hidden hook won't cause vm-exit when it triggers. It's like detours, and everything is done in vmx non-root, so it's much faster than !epthook, but it some limitations. See **Remarks** for more information.
@@ -44,7 +44,7 @@ Regular event parameters that are used in HyperDbg events. (For more information
 
 ### Context
 
-As the **Context** (`r8` in custom code and `rdx` in condition code register) to the event trigger, **HyperDbg** sends the **physical** address of where put the hidden hook's breakpoint.
+As the **Context** (`$context` pseudo-register in the event's script, `r8` in custom code, and `rdx` in condition code register) to the event trigger, **HyperDbg** sends the **physical** address of where put the hidden hook's breakpoint.
 
 ### Debugger
 

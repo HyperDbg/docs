@@ -44,7 +44,7 @@ Regular event parameters that are used in HyperDbg events. (For more information
 
 ### Context
 
-As the **Context** (`r8` in custom code and `rdx` in condition code register) to the event trigger, **HyperDbg** sends the **port** number that the target tries to access.
+As the **Context** (`$context` pseudo-register in the event's script, `r8` in custom code, and `rdx` in condition code register) to the event trigger, **HyperDbg** sends the **port** number that the target tries to access.
 
 ### Debugger
 
@@ -138,7 +138,7 @@ As **EventType** use `OUT_INSTRUCTION_EXECUTION` and send the special I/O port (
 
 Both **!ioin** and **!ioout** use the vm-exits caused by setting bits in the I/O Bitmap (I/O Bitmap A, I/O Bitmap B) field of the hypervisor VMCS.
 
-For emulating I/O ports, vm-exit with (**EXIT_REASON_IO_INSTRUCTION**) or exit-reason **30** is used.
+For emulating I/O ports, vm-exit with (**EXIT\_REASON\_IO\_INSTRUCTION**) or exit-reason **30** is used.
 
 ### Remarks
 

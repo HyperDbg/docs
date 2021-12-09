@@ -40,7 +40,7 @@ Regular event parameters that are used in HyperDbg events. (For more information
 
 ### Context
 
-As the **Context** (`r8` in custom code and `rdx` in condition code register) to the event trigger, **HyperDbg** sends the `rax`register of the guest or CPUID index when the guest executed CPUID.
+As the **Context** (`$context` pseudo-register in the event's script, `r8` in custom code, and `rdx` in condition code register) to the event trigger, **HyperDbg** sends the `rax`register of the guest or CPUID index when the guest executed CPUID.
 
 ### Debugger
 
@@ -130,7 +130,7 @@ As **EventType** use `CPUID_INSTRUCTION_EXECUTION` in `DEBUGGER_GENERAL_EVENT_DE
 
 ### Design
 
-This command uses CPUID (**EXIT_REASON_CPUID**) vm-exits (**10**) to implement CPUID hooks.
+This command uses CPUID (**EXIT\_REASON\_CPUID**) vm-exits (**10**) to implement CPUID hooks.
 
 ### Remarks
 

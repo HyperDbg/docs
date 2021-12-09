@@ -40,7 +40,7 @@ Regular event parameters that are used in HyperDbg events. (For more information
 
 ### Context
 
-As the **Context** (`r8` in custom code and `rdx` in condition code register) to the event trigger, **HyperDbg** sends **FALSE (0)** in the case of **RDTSC** and **TRUE (1)** in the case of **RDTSCP**.
+As the **Context** (`$context` pseudo-register in the event's script, `r8` in custom code, and `rdx` in condition code register) to the event trigger, **HyperDbg** sends **FALSE (0)** in the case of **RDTSC** and **TRUE (1)** in the case of **RDTSCP**.
 
 ### Debugger
 
@@ -130,7 +130,7 @@ As **EventType** use `TSC_INSTRUCTION_EXECUTION` in `DEBUGGER_GENERAL_EVENT_DETA
 
 ### Design
 
-This command uses **RDTSC** (**EXIT_REASON_RDTSC - 16**) and **RDTSCP** (**EXIT_REASON_RDTSCP - 51**) vm-exits to implement **RDTSC/RDTSCP** hooks.
+This command uses **RDTSC** (**EXIT\_REASON\_RDTSC - 16**) and **RDTSCP** (**EXIT\_REASON\_RDTSCP - 51**) vm-exits to implement **RDTSC/RDTSCP** hooks.
 
 ### Remarks
 

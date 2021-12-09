@@ -36,7 +36,7 @@ Regular event parameters that are used in HyperDbg events. (For more information
 
 ### Context
 
-As the **Context** (`r8` in custom code and `rdx` in condition code register) to the event trigger, **HyperDbg** sends **NULL**.
+As the **Context** (`$context` pseudo-register in the event's script, `r8` in custom code, and `rdx` in condition code register) to the event trigger, **HyperDbg** sends **NULL**.
 
 ### Debugger
 
@@ -132,7 +132,7 @@ As **EventType** use `DEBUG_REGISTERS_ACCESSED` in `DEBUGGER_GENERAL_EVENT_DETAI
 
 ### Design
 
-This command uses Debug Register Access (**EXIT_REASON_DR_ACCESS**) vm-exits (**29**) to implement hardware debug registers hooks.
+This command uses Debug Register Access (**EXIT\_REASON\_DR\_ACCESS**) vm-exits (**29**) to implement hardware debug registers hooks.
 
 This is an event command, but in the current version of HyperDbg (in Debugger Mode), this command will continue the debuggee for some time; however, you can use [this trick](https://docs.hyperdbg.org/tips-and-tricks/misc/enable-and-disable-events-in-debugger-mode) to make sure you won't lose any event.
 

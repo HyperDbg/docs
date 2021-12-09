@@ -48,7 +48,7 @@ Regular event parameters are used in HyperDbg events. (For more information, rea
 
 ### Context
 
-As the **Context** (`r8` in custom code and `rdx` in condition code register) to the event trigger, **HyperDbg** sends the `rip` register of where executes the **sysret** instruction. Generally, it should be the same in value in Windows (just one **sysret** instruction is in Windows).
+As the **Context** (`$context` pseudo-register in the event's script, `r8` in custom code, and `rdx` in condition code register) to the event trigger, **HyperDbg** sends the `rip` register of where executes the **sysret** instruction. Generally, it should be the same in value in Windows (just one **sysret** instruction is in Windows).
 
 ### Debugger
 

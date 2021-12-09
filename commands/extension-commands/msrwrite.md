@@ -44,7 +44,7 @@ Regular event parameters that are used in HyperDbg events. (For more information
 
 ### Context
 
-As the **Context** (`r8` in custom code and `rdx` in condition code register) to the event trigger, **HyperDbg** sends the `rcx`register of when **WRMSR** is executed.
+As the **Context** (`$context` pseudo-register in the event's script, `r8` in custom code, and `rdx` in condition code register) to the event trigger, **HyperDbg** sends the `rcx`register of when **WRMSR** is executed.
 
 ### Debugger
 
@@ -136,9 +136,9 @@ As **EventType** use `WRMSR_INSTRUCTION_EXECUTION` and send the special MSR `rcx
 
 Both **!msrread** and **!msrwrite** use the vm-exits caused by setting bits in the MSR Bitmap field of the hypervisor VMCS.
 
-For **!msrread** vm-exit with (**EXIT_REASON_MSR_READ**) or exit-reason **31** is used.
+For **!msrread** vm-exit with (**EXIT\_REASON\_MSR\_READ**) or exit-reason **31** is used.
 
-For **!msrwrite** vm-exit with (**EXIT_REASON_MSR_WRITE**) or exit-reason **32** is used.
+For **!msrwrite** vm-exit with (**EXIT\_REASON\_MSR\_WRITE**) or exit-reason **32** is used.
 
 ### Remarks
 

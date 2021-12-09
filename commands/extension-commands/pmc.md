@@ -40,7 +40,7 @@ Regular event parameters that are used in HyperDbg events. (For more information
 
 ### Context
 
-As the **Context** (`r8` in custom code and `rdx` in condition code register) to the event trigger, **HyperDbg** sends **NULL**.
+As the **Context** (`$context` pseudo-register in the event's script, `r8` in custom code, and `rdx` in condition code register) to the event trigger, **HyperDbg** sends **NULL**.
 
 ### Debugger
 
@@ -130,7 +130,7 @@ As **EventType** use `PMC_INSTRUCTION_EXECUTION` in `DEBUGGER_GENERAL_EVENT_DETA
 
 ### Design
 
-This command uses **RDPMC** (**EXIT_REASON_RDPMC - 15**) vm-exit to implement RDPMC hooks.
+This command uses **RDPMC** (**EXIT\_REASON\_RDPMC - 15**) vm-exit to implement RDPMC hooks.
 
 ### Remarks
 

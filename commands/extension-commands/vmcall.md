@@ -40,7 +40,7 @@ Regular event parameters that are used in HyperDbg events. (For more information
 
 ### Context
 
-As the **Context** (`r8` in custom code and `rdx` in condition code register) to the event trigger, **HyperDbg** sends **NULL**.
+As the **Context** (`$context` pseudo-register in the event's script, `r8` in custom code, and `rdx` in condition code register) to the event trigger, **HyperDbg** sends **NULL**.
 
 ### Debugger
 
@@ -130,7 +130,7 @@ As **EventType** use `VMCALL_INSTRUCTION_EXECUTION` in `DEBUGGER_GENERAL_EVENT_D
 
 ### Design
 
-This command uses **VMCALL** (**EXIT_REASON_VMCALL - 18**) vm-exit to implement hypercall hooks.
+This command uses **VMCALL** (**EXIT\_REASON\_VMCALL - 18**) vm-exit to implement hypercall hooks.
 
 ### Remarks
 
