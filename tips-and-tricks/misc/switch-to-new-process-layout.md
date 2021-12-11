@@ -2,7 +2,15 @@
 description: Methods to switch to the target process's memory layout (CR3)
 ---
 
-# Switch to new process layout
+# Switch to New Process Layout
+
+### Please do not use this method until further notice.
+
+{% hint style="danger" %}
+HyperDbg has a design caveat of not relying on `GUEST_CR3` after the meltdown patch so we'll ignore modifying `cr3` on the debugger vmx-root side.
+
+A patch to solve this problem is available but as it's an essential functionality in HyperDbg, we leave it for future versions with more tests.
+{% endhint %}
 
 When you want to switch to a new process using the '[.process](https://docs.hyperdbg.org/commands/meta-commands/.process)' command, sometimes Windows will not load the target process in the running stage of Windows. Thus, it won't break again, and you won't end up in the target process.
 
@@ -32,7 +40,7 @@ We find our target process. As you can see in the above example, our target proc
 Now, we can switch to the target process using the '[r](https://docs.hyperdbg.org/commands/debugging-commands/r)' command. We'll change the current **CR3** register to the target processes' **DirBase (Kernel Cr3)**, which is `20e98e002` in this case.
 
 ```
-2: kHyperDbg> r cr3 20e98e002
+2: kHyperDbg> r cr3=20e98e002
 ```
 
 Done! Now we're in the memory layout of the target process, and whatever script or command you use is applied to the target process memory.
