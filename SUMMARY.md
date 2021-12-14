@@ -150,6 +150,8 @@
     * [memory](commands/scripting-language/functions/memory/README.md)
       * [check\_address](commands/scripting-language/functions/memory/check\_address.md)
       * [eb, ed, eq](commands/scripting-language/functions/memory/eb-ed-eq.md)
+      * [virtual\_to\_physical](commands/scripting-language/functions/memory/virtual\_to\_physical.md)
+      * [physical\_to\_virtual](commands/scripting-language/functions/memory/physical\_to\_virtual.md)
     * [spinlocks](commands/scripting-language/functions/spinlocks/README.md)
       * [spinlock\_lock](commands/scripting-language/functions/spinlocks/spinlock\_lock.md)
       * [spinlock\_lock\_custom\_wait](commands/scripting-language/functions/spinlocks/spinlock\_lock\_custom\_wait.md)
