@@ -48,7 +48,7 @@ Regular event parameters that are used in HyperDbg events. (For more information
 
 ### Context
 
-As the **Context** (`$context` pseudo-register in the event's script, `r8` in custom code, and `rdx` in condition code register) to the event trigger, **HyperDbg** sends the **virtual** address of where put the hidden hook's breakpoint, oppose to **!epthook2** all checks are based on **virtual** address, not based on **physical** address. See the **Remarks** for more information.
+As the **Context** (`$context` pseudo-register in the event's script, `r8` in custom code, and `rdx` in condition code register) to the event trigger, **HyperDbg** sends the **virtual address** of where put the hidden hook's breakpoint.
 
 ### Debugger
 
@@ -149,10 +149,6 @@ Take a look at "[Design of !epthook](https://docs.hyperdbg.org/design/features/v
 ### Remarks
 
 This command is much slower than **!epthook2**, because it cause vm-exits, but on the other hand, this implementation doesn't have any limitation. For example, you can use this command for hooking user-mode while you can't use **!epthook2** on user-mode.
-
-**Why don't we use a physical address to find this command?**
-
-Generally, it's better to use the physical address. Still, we don't use the physical address here (**!epthook2** uses physical address) because if we want to compare **physical** address, we have to flush TLB (change `Cr3`) to convert **GUEST\_RIP** to the physical address. As **HyperDbg** is designed to stick to the **System** process (pid = 4), this cr3 change is unavoidable. On the other hand, this command is designed to work on both user-mode and kernel-mode of random processes, and as you know, flushing TLB makes this command even slower. Hence, it's better to deal with the virtual address.
 
 {% hint style="danger" %}
 You shouldn't use any of **!monitor**, **!epthook**, and **!epthook2** commands on the same page (4KB) simultaneously. For example, when you put a hidden hook (**!epthook2**) on **0x10000005**, you shouldn't use any of **!monitor** or **!epthook** commands on the address starting from **0x10000000** to **0x10000fff**.

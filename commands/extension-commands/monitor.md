@@ -58,9 +58,9 @@ Regular event parameters that are used in HyperDbg events. (For more information
 
 ### Context
 
-As the **Context** (`$context` pseudo-register in the event's script, `r8` in custom code, and `rdx` in condition code register) to the event trigger, **HyperDbg** sends the **physical** address of where triggered this event.
+As the **Context** (`$context` pseudo-register in the event's script, `r8` in custom code, and `rdx` in condition code register) to the event trigger, **HyperDbg** sends the **virtual address** of the memory that has accessed and triggered this event.
 
-It's a physical address representation of what you entered as **\[from address]** and **\[to address],** so it's not a constant address and might be different in the range you entered (in a physical address format).
+It's a virtual address equal to or between **\[from address]** and **\[to address],** so it's not a constant address and might differ in the range you entered.
 
 ### Debugger
 
