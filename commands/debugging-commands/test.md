@@ -2,7 +2,7 @@
 description: Description of 'test' command in HyperDbg.
 ---
 
-# test \(test functionalities\)
+# test (test functionalities)
 
 ### Command
 
@@ -10,7 +10,7 @@ description: Description of 'test' command in HyperDbg.
 
 ### Syntax
 
-> test
+> test \[query]
 
 ### Description
 
@@ -18,7 +18,9 @@ Tests the functionalities of HyperDbg in the running system.
 
 ### Parameters
 
-None
+**\[query]**
+
+Different options are used mostly for debugging internal mechanisms of HyperDbg.
 
 ### Examples
 
@@ -43,4 +45,3 @@ None
 ### Related
 
 None
-
