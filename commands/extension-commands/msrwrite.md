@@ -16,15 +16,15 @@ description: Description of '!msrwrite' command in HyperDbg.
 
 Triggers when the debugging machine executes a **WRMSR** instruction or, in other words, when Windows or a driver tries to write on a Model-Specific Register (MSR).
 
-{% hint style="info" %}
-When you enable this event, only your specific MSR will be hooked, so this command won't trigger on all MSRs thus won't make your computer slow.
-{% endhint %}
-
 ### Parameters
 
 **\[msr (hex value)]**
 
 Trigger in the case of a special Model-Specific Register (MSR). If you don't specify this parameter, then it will be triggered for all **WRMSR** executions.
+
+{% hint style="danger" %}
+Generally, it's not a good practice to intercept all the MSR Reads (RDMSR) or MSR Writes (WRMSRs) because it makes your system substantially slower and undefined behavior in some cases. By the way, HyperDbg supports intercepting all the MSRs.
+{% endhint %}
 
 **\[pid (hex value)]**
 
@@ -141,6 +141,8 @@ For **!msrread** vm-exit with (**EXIT\_REASON\_MSR\_READ**) or exit-reason **31*
 For **!msrwrite** vm-exit with (**EXIT\_REASON\_MSR\_WRITE**) or exit-reason **32** is used.
 
 ### Remarks
+
+When you enable this event, only your specific MSR will be hooked, so this command won't trigger on all MSRs thus won't make your computer slow.
 
 This is an event command, but in the current version of HyperDbg (in Debugger Mode), this command will continue the debuggee for some time; however, you can use [this trick](https://docs.hyperdbg.org/tips-and-tricks/misc/enable-and-disable-events-in-debugger-mode) to make sure you won't lose any event.
 
