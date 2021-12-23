@@ -23,7 +23,7 @@ Triggers when the debugging machine executes an **RDMSR** instruction or, in oth
 Trigger in the case of a special Model-Specific Register (MSR). If you don't specify this parameter, then it will be triggered for all **RDMSR** executions.
 
 {% hint style="danger" %}
-Generally, it's not a good practice to intercept all the MSR Reads (RDMSR) or MSR Writes (WRMSRs) because it makes your system substantially slower and undefined behavior in some cases. By the way, HyperDbg supports intercepting all the MSRs. If you don't specify any parameters to intercept all the MSRs, HyperDbg automatically ignores `IA32_GS_BASE (0xC0000101)`, `IA32_KERNEL_GS_BASE (0xC0000102)`, `IA32_MPERF (0x000000e7)`, and `IA32_APERF (0x000000e8)`.&#x20;
+Generally, it's not a good practice to intercept all the MSR Reads (RDMSR) or MSR Writes (WRMSRs) because it makes your system substantially slower and undefined behavior in some cases. By the way, HyperDbg supports intercepting all the MSRs. If you don't specify any parameters to intercept all the MSRs, HyperDbg automatically  `IA32_KERNEL_GSBASE (0xC0000102)`, `IA32_MPERF (0x000000e7)` and `IA32_APERF (0x000000e8)`.&#x20;
 
 If you explicitly specify these MSRs, you'll get the events for these MSRs like other regular MSRs but only use the '**!msrread**' on these MSRs when you know what you want to do.
 {% endhint %}
