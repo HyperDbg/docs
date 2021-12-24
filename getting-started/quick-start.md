@@ -26,9 +26,17 @@ After that, you need to attach to an instance of HyperDbg.
 
 Finally, you can see many examples provided in the following link to use HyperDbg.
 
-**Debugging examples:**
+**User-mode Debugging examples:**
 
-{% embed url="https://docs.hyperdbg.org/using-hyperdbg/examples" %}
+{% content-ref url="../using-hyperdbg/user-mode-debugging/examples/" %}
+[examples](../using-hyperdbg/user-mode-debugging/examples/)
+{% endcontent-ref %}
+
+**Kernel-mode Debugging examples:**
+
+{% content-ref url="../using-hyperdbg/kernel-mode-debugging/examples/" %}
+[examples](../using-hyperdbg/kernel-mode-debugging/examples/)
+{% endcontent-ref %}
 
 **Script engine examples:**
 

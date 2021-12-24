@@ -55,7 +55,7 @@ Most of the time, if the serial port is the only serial device that you add to t
 After running the above command in guest, now you should see that the debuggee is connected to the debugger.
 
 {% hint style="info" %}
-If you see an error for driver signature enforcement, please visit [here](https://docs.hyperdbg.org/using-hyperdbg/examples/connecting-to-hyperdbg#driver-signature-enforcement-error).
+If you see an error for driver signature enforcement, please visit [here](https://docs.hyperdbg.org/using-hyperdbg/kernel-mode-debugging/examples/beginning/connecting-to-hyperdbg#driver-signature-enforcement-error).
 {% endhint %}
 
 You can press **CTRL+C** to pause the debuggee and step through the kernel codes using the ['p' command](https://docs.hyperdbg.org/commands/debugging-commands/p) and the ['t' command](https://docs.hyperdbg.org/commands/debugging-commands/t), and if you want to continue the normal execution of the debuggee, you can use the ['g' command](https://docs.hyperdbg.org/commands/debugging-commands/g).
