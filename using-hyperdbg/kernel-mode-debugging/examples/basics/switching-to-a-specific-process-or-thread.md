@@ -41,7 +41,7 @@ After compiling and running the above code, we use the command shown in the pict
 3: kHyperDbg> .process list
 ```
 
-![View process list](../../../.gitbook/assets/1-process-list.png)
+![View process list](../../../../.gitbook/assets/1-process-list.png)
 
 We find our target program which its name is "**Test.exe**". Then, we see a list of running threads based on this process. For this purpose, we used the process object address (`nt!_EPROCESS`).
 
@@ -49,7 +49,7 @@ We find our target program which its name is "**Test.exe**". Then, we see a list
 3: kHyperDbg> .thread list process ffff948cc16c3080
 ```
 
-![View list of threads of a process](../../../.gitbook/assets/2-find-threads-of-test-process.png)
+![View list of threads of a process](../../../../.gitbook/assets/2-find-threads-of-test-process.png)
 
 Now, we can switch to the target thread and continue the debuggee. Whenever the system reaches the target thread, it will be halted again and run new commands.
 
@@ -59,7 +59,7 @@ Note that it's a 32-bit program, so we use the '[u2](https://docs.hyperdbg.org/c
 3: kHyperDbg> .thread tid b10
 ```
 
-![Switch to a new thread](../../../.gitbook/assets/3-switch-to-the-target-thread.png)
+![Switch to a new thread](../../../../.gitbook/assets/3-switch-to-the-target-thread.png)
 
 After analyzing the program, we find the jumps in the assembly code. You can also see the calls that are probably a link to the `printf` function.
 
@@ -67,11 +67,11 @@ After analyzing the program, we find the jumps in the assembly code. You can als
 2: kHyperDbg> u2 00e249f6
 ```
 
-![Disassemble the target thread](../../../.gitbook/assets/4-disassembling-and-finding-jumps.png)
+![Disassemble the target thread](../../../../.gitbook/assets/4-disassembling-and-finding-jumps.png)
 
 Then, we step through the instructions to better understand how this program works.
 
-![Step through the instructions](../../../.gitbook/assets/5-stepping-and-investigate-the-test-program.png)
+![Step through the instructions](../../../../.gitbook/assets/5-stepping-and-investigate-the-test-program.png)
 
 After some investigation, we can conclude that the guilty jump is located at `0xe24a31`, so we'll modify the memory and patch it by using nop instructions(0x90).
 
@@ -79,10 +79,10 @@ After some investigation, we can conclude that the guilty jump is located at `0x
 2: kHyperDbg> eb 00e24a31 90 90
 ```
 
-![Patch the program's execution flow](../../../.gitbook/assets/6-patch-the-target-jump.png)
+![Patch the program's execution flow](../../../../.gitbook/assets/6-patch-the-target-jump.png)
 
 If we continue the debuggee again, you can see that the patched program jumps out of the infinite loop and show the '**thread is closed!**' message.
 
-![The result of patched program](../../../.gitbook/assets/7-result-of-patching-target-program.png)
+![The result of patched program](../../../../.gitbook/assets/7-result-of-patching-target-program.png)
 
 It was a simple example of how to use thread and process switching commands in HyperDbg. You can think about different approaches that you can use to change the program's execution flow (like changing the RFLAGS, etc.) or analyze any other programs.

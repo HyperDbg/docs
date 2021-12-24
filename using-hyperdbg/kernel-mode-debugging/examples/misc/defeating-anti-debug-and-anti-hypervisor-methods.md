@@ -18,7 +18,7 @@ For testing transparent-mode, we use [pafish](https://github.com/a0rtega/pafish)
 
 If we load HyperDbg and run **pafish**, we see the following results:
 
-![](../../../.gitbook/assets/regular-pafish.png)
+![](../../../../.gitbook/assets/regular-pafish.png)
 
 As you can see in the above picture, HyperDbg is detected by many factors. In fact, **pafish** checks for the hypervisor's presence, and as HyperDbg uses a hypervisor, then it shows that a debugger is present or the environment is not safe for malware to run.
 
@@ -54,7 +54,7 @@ HyperDbg> !hide name pafish.exe
 
 If we recheck the result of the **pafish** again, we see the following results.
 
-![](../../../.gitbook/assets/transparent-mode-pafish.png)
+![](../../../../.gitbook/assets/transparent-mode-pafish.png)
 
 Transparent-mode is under active development, and on each version, we add new methods to this mode to make sure that HyperDbg is transparent. However, this mode still needs a lot of contributions.
 
