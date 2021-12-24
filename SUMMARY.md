@@ -17,6 +17,8 @@
   * [Operation Modes](using-hyperdbg/prerequisites/operation-modes.md)
   * [How to create a condition?](using-hyperdbg/prerequisites/how-to-create-a-condition.md)
   * [How to create an action?](using-hyperdbg/prerequisites/how-to-create-an-action.md)
+* [User-mode Debugging](using-hyperdbg/user-mode-debugging.md)
+* [Kernel-mode Debugging](using-hyperdbg/kernel-mode-debugging.md)
 * [Examples](using-hyperdbg/examples/README.md)
   * [beginning](using-hyperdbg/examples/beginning/README.md)
     * [Connecting To HyperDbg](using-hyperdbg/examples/beginning/connecting-to-hyperdbg.md)
