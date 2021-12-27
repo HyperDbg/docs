@@ -95,7 +95,7 @@
   * [.script (run batch script commands)](commands/meta-commands/.script.md)
   * [.sympath (set the symbol server)](commands/meta-commands/.sympath.md)
   * [.sym (load pdb symbols)](commands/meta-commands/.sym.md)
-  * [.pe (parse PE file)](commands/meta-commands/.pe-parse-pe-file.md)
+  * [.pe (parse PE file)](commands/meta-commands/.pe.md)
   * [.logopen (open log file)](commands/meta-commands/.logopen.md)
   * [.logclose (close log file)](commands/meta-commands/.logclose.md)
   * [.cls (clear the screen)](commands/meta-commands/.cls.md)
