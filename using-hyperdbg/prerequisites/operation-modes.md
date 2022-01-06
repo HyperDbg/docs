@@ -18,13 +18,13 @@ Based on **HyperDbg** [actions](https://docs.hyperdbg.org/using-hyperdbg/prerequ
 
 You can use this mode in both **local debugging** and **remote debugging**.
 
-### Debugger Mode
+## Debugger Mode
 
 If you want to use **HyperDbg** to the kernel and halt the system to step in and step out through the kernel instructions, then you should use this mode of operation.
 
 It is obvious that you can't use this mode for **local debugging,** and you should provide a system with a **serial cable** or **virtual serial** device to enable it.
 
-If you are not trying to break and halt the system for stepping and instrumenting instructions, then use **VMI Mode** instead. It is because, in **VMI Mode,** the connection is over TCP, which substantially faster than using a serial device.
+If you are not trying to break and halt the system for stepping and instrumenting instructions, then use **VMI Mode** instead. It is because, in **VMI Mode,** the connection is over TCP, which is substantially faster than using a serial device.
 
 ## Transparent Mode
 
