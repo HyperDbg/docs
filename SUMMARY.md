@@ -10,8 +10,8 @@
 * [Attach to HyperDbg](getting-started/attach-to-hyperdbg/README.md)
   * [Attach to a remote machine](getting-started/attach-to-hyperdbg/debug.md)
   * [Attach to local machine](getting-started/attach-to-hyperdbg/attach-to-local-machine.md)
-  * [Start a new process](getting-started/attach-to-hyperdbg/start-process.md)
-  * [Attach to a running process](getting-started/attach-to-hyperdbg/attach-process.md)
+  * [Start a new process](getting-started/attach-to-hyperdbg/start.md)
+  * [Attach to a running process](getting-started/attach-to-hyperdbg/attach-to-a-running-process.md)
 
 ## Using HyperDbg
 
