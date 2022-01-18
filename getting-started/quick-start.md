@@ -19,7 +19,7 @@ If you want to build HyperDbg, follow the steps in the links below; you can also
 
 After that, you need to attach to an instance of HyperDbg.
 
-* [**Local Debugging (VMI Mode)**](https://docs.hyperdbg.org/getting-started/attach-to-hyperdbg/attach-to-local-machine)
+* ****[**Local Debugging (VMI Mode)**](https://docs.hyperdbg.org/getting-started/attach-to-hyperdbg/local-debugging)****
 * [**Debug a Physical Machine (Debugger Mode)**](https://docs.hyperdbg.org/getting-started/attach-to-hyperdbg/debug#physical-machine)
 * [**Debug a VMware Workstation Guest (Debugger Mode)**](https://docs.hyperdbg.org/getting-started/attach-to-hyperdbg/debug#vmware-workstation)
 * [**Connect to a Remote Machine (VMI Mode)**](https://docs.hyperdbg.org/getting-started/attach-to-hyperdbg/debug#connect-to-debuggee-vmi-mode)
