@@ -23,8 +23,8 @@ After that, you need to attach to an instance of HyperDbg.
 * [**Debug a Physical Machine (Debugger Mode)**](https://docs.hyperdbg.org/getting-started/attach-to-hyperdbg/debug#physical-machine)
 * [**Debug a VMware Workstation Guest (Debugger Mode)**](https://docs.hyperdbg.org/getting-started/attach-to-hyperdbg/debug#vmware-workstation)
 * [**Connect to a Remote Machine (VMI Mode)**](https://docs.hyperdbg.org/getting-started/attach-to-hyperdbg/debug#connect-to-debuggee-vmi-mode)
-* ****[**Start a new process**](https://docs.hyperdbg.org/getting-started/attach-to-hyperdbg/start-process)****
-* ****[**Attach to a running process**](https://docs.hyperdbg.org/getting-started/attach-to-hyperdbg/attach-process)****
+* ****[**Start a new process (VMI Mode and Debugger Mode)**](https://docs.hyperdbg.org/getting-started/attach-to-hyperdbg/start-process)****
+* ****[**Attach to a running process (VMI Mode)**](https://docs.hyperdbg.org/getting-started/attach-to-hyperdbg/attach-process)****
 
 Finally, you can see many examples provided in the following link to use HyperDbg.
 
