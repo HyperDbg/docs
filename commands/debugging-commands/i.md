@@ -16,7 +16,7 @@ description: Description of 'i' command in HyperDbg.
 
 ### Description
 
-Executes a single instruction (step-in) and optionally displays the resulting values of all registers and flags.
+Executes a single instruction (step-in) and optionally displays the resulting values of all registers and flags. This command only works in the [Debugger Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode).
 
 {% hint style="success" %}
 The difference between this command and the '[t](https://docs.hyperdbg.org/commands/debugging-commands/t)' command is that no other cores and other threads find a chance to be executed during the stepping process; the system is fully halted, and only the current core will execute just one instruction and halts again.
