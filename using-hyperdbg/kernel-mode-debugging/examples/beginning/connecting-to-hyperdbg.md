@@ -8,7 +8,7 @@ This article only describes the **Debugger Mode** of the HyperDbg in the VMware 
 
 You might want to :
 
-* [Attach to a local machine](https://docs.hyperdbg.org/getting-started/attach-to-hyperdbg/attach-to-local-machine)
+* [Attach to a local machine](https://docs.hyperdbg.org/getting-started/attach-to-hyperdbg/local-debugging)
 * [Connect to a physical machine](https://docs.hyperdbg.org/getting-started/attach-to-hyperdbg/debug#physical-machine)
 * [Connect to VMI Mode](https://docs.hyperdbg.org/getting-started/attach-to-hyperdbg/debug#connect-to-debuggee-vmi-mode)
 
