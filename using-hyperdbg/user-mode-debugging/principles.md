@@ -4,23 +4,23 @@ description: Principles of designing a standalone user-mode debugger
 
 # Principles
 
-HyperDbg is a unique debugger. The intention of creating this tool was, of course, not just debugging. Regardless of debugging components, it also aims to bring a framework to use the innovative feature of processors for debugging and analyzing binaries. Here we discuss some of the principles of this debugger.
+HyperDbg is a unique debugger. The intention of creating this tool was, of course, not just debugging. Regardless of debugging components, it also aims to bring a framework to use the innovative feature of processors for debugging and analyzing binaries. Here we discuss some of the principles of the user debugger.
 
 {% hint style="danger" %}
-The user debugger is still very basic and needs a lot of tests and improvements. We highly recommend not to run the user debugger in your bare metal system. Instead, run it on a supported virtual machine to won't end up with Blue Screen of Death in your primary device. Please keep reporting the issues to improve the user debugger.
+In contrast with the kernel debugger, the user debugger is still very basic and needs a lot of tests and improvements. We **highly recommend** not to run the user debugger in your bare metal system. Instead, run it on a supported virtual machine to won't end up with a Blue Screen of Death (BSOD) in your primary device. Please keep reporting the issues to improve the user debugger.
 {% endhint %}
 
 ### Design Goals
 
-In the user debugger, we aimed to make a lightweight debugger that integrates the different subsystems of the HyperDbg into a fast, reliable user-mode debugger.
+In the user debugger, we aimed to make a lightweight debugger that integrates the different subsystems of the HyperDbg into a fast, reliable user-mode debugging tool.
 
-There is no need to use kernel debugging facilities to debug a user-mode application. The entire debugging module is running on user mode, and the user doesn't care what is running on the kernel side and just needs to debug the user mode side of the binary. That's why HyperDbg is armed with a user debugger.
+There is no need to use kernel debugging facilities to debug a user-mode application when the entire debugging module runs on user mode. The user doesn't care what is running on the kernel side and just needs to debug the user mode side of the binary. That's why HyperDbg is armed with a user debugger.
 
 Although, the user debugger is primarily designed to use in the user-mode application. Still, it can change the kernel mode and monitor kernel events.
 
 ### What makes it different?
 
-&#x20;HyperDbg didn't use any debugging API in the debugging. Everything is handled at the hypervisor level. This brings a huge benefit as even Windows is unaware that the process is under debugging.
+&#x20;HyperDbg didn't use any debugging API in the debugging process. Everything is handled at the hypervisor level. This brings a huge benefit as even Windows is unaware that the process is under debugging.
 
 Moreover, all of the magical features of HyperDbg are integrated into the user debugger. You can debug a user-mode process with the capabilities of HyperDbg debugger.
 
