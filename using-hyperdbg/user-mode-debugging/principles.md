@@ -28,6 +28,8 @@ Additionally, you can simultaneously debug multiple processes with kernel-mode d
 
 ### What to know?
 
+The user debugger works in the [VMI Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#vmi-mode).
+
 Whenever you start a new process or attach to the target process, HyperDbg starts the "**Thread Interception**" phase.
 
 During this phase, HyperDbg will intercept every thread that tries to run an instruction from the user-mode (Not kernel mode). Thus, some threads might remain in kernel mode without returning to the user mode and be left unintercepted.
