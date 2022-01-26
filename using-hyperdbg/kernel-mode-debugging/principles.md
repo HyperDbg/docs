@@ -1,6 +1,8 @@
 # Principles
 
-The central part of the HyperDbg debugger is its kernel-mode debugger. It's almost two decades that kernel debuggers like WinDbg and GDB didn't change significantly.
+The central part of the HyperDbg debugger is its kernel-mode debugger.&#x20;
+
+It's almost two decades that kernel debuggers like WinDbg and GDB didn't change significantly. The HyperDbg contributors try to make a move toward advancing the kernel debugging and kernel debuggers.
 
 Moreover, we think kernel mode is not the best playground for a kernel-debugger. A debugger who wants to debug the kernel mode should be more privileged in terms of hardware layers (rings).
 
