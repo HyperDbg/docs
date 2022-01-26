@@ -1,10 +1,10 @@
 ---
-description: https://docs.hyperdbg.org/using-hyperdbg/kernel-mode-debugging/principles
+description: Principles of designing a fast and reliable kernel-mode debugger
 ---
 
 # Principles
 
-The central part of the HyperDbg debugger is its kernel-mode debugger.&#x20;
+The central part of the HyperDbg debugger is its kernel-mode debugger called **kHyperDbg**.&#x20;
 
 It's almost two decades that kernel debuggers like WinDbg and GDB didn't change significantly. The HyperDbg contributors try to make a move toward advancing the kernel debugging and kernel debuggers.
 
