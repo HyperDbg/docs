@@ -48,8 +48,6 @@ Note that pausing the target thread is only possible in user debugger, **not** k
 
 ![Pausing the target process](../../.gitbook/assets/attach-process-4.PNG)
 
-![Using the 'pause' command](../../.gitbook/assets/start-process-4.PNG)
-
 At last, when we finished our debugging procedure, we can use the '[.detach](https://docs.hyperdbg.org/commands/meta-commands/.detach)' command to detach from the target process. Detaching from the process only makes sense in the user debugger.
 
 ![Detaching from the process](../../.gitbook/assets/start-process-5.PNG)
