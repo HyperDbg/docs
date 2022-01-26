@@ -8,4 +8,14 @@ description: Attaching to an already running process
 In contrast with the kernel debugger, the user debugger is still very basic and needs a lot of tests and improvements. We **highly recommend** not to run the user debugger in your bare metal system. Instead, run it on a [supported virtual machine](https://docs.hyperdbg.org/tips-and-tricks/nested-virtualization-environments/supported-virtual-machines) to won't end up with a Blue Screen of Death (BSOD) in your primary device. Please keep reporting the issues to improve the user debugger.
 {% endhint %}
 
+![](../../.gitbook/assets/attach-process-1.PNG)
+
+![](../../.gitbook/assets/attach-process-2.PNG)
+
+![](../../.gitbook/assets/attach-process-3.PNG)
+
+![](../../.gitbook/assets/attach-process-4.PNG)
+
+![](../../.gitbook/assets/attach-process-5.PNG)
+
 ###

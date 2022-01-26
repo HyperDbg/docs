@@ -8,4 +8,14 @@ description: Starting a process from entrypoint
 In contrast with the kernel debugger, the user debugger is still very basic and needs a lot of tests and improvements. We **highly recommend** not to run the user debugger in your bare metal system. Instead, run it on a [supported virtual machine](https://docs.hyperdbg.org/tips-and-tricks/nested-virtualization-environments/supported-virtual-machines) to won't end up with a Blue Screen of Death (BSOD) in your primary device. Please keep reporting the issues to improve the user debugger.
 {% endhint %}
 
+![](../../.gitbook/assets/start-process-1.PNG)
+
+![](../../.gitbook/assets/start-process-2.PNG)
+
+![](../../.gitbook/assets/start-process-3.PNG)
+
+![](../../.gitbook/assets/start-process-4.PNG)
+
+![](../../.gitbook/assets/start-process-5.PNG)
+
 ###
