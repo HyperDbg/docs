@@ -19,22 +19,22 @@ First, you need to either [connect to the local debugger](https://docs.hyperdbg.
 After that, you should use the "[.start](https://docs.hyperdbg.org/commands/meta-commands/.start)" command to run the process from the path in the target machine.
 
 ```
-.start path c:\Windows\system32\notepad.exe
+HyperDbg> .start path c:\Windows\system32\notepad.exe
 ```
 
 You can also specify the parameters of the target executable.
 
 ```
-.start path c:\Windows\system32\notepad.exe c:\myfolder\myfile.txt
+HyperDbg> .start path c:\Windows\system32\notepad.exe c:\myfolder\myfile.txt
 ```
 
 HyperDbg will run the process and put a breakpoint on the entrypoint of the process. Once the process reaches the entrypoint (loading module is finished), the debugger is paused again and gives the control back to the user or kernel debugger.
 
 ![Starting an EXE and running until entrypoint](../../.gitbook/assets/start-process-1.PNG)
 
-If you're using a kernel debugger, everything (including the operating system) is paused, and you can debug the process normally.
+If you're using a **kernel debugger**, everything (including the operating system) is halted, and you can debug the process normally.
 
-&#x20;If you're using the user debugger, the thread is halted and waits for the commands from the debugger.&#x20;
+&#x20;If you're using the **user debugger**, the thread is paused and waits for the commands from the debugger.&#x20;
 
 For example, we used the '[t](https://docs.hyperdbg.org/commands/debugging-commands/t)' command to step through the instructions.
 
@@ -44,7 +44,9 @@ After running the '[g](https://docs.hyperdbg.org/commands/debugging-commands/g)'
 
 If you want to pause the debuggee again, you can use the '[pause](https://docs.hyperdbg.org/commands/debugging-commands/pause)' command or press **CTRL+C**.
 
-Note that pausing the target thread is only possible in user debugger, **not** kernel debugger.
+Note that pausing the target thread is only possible in user debugger, **not** kernel debugger. Also, you should keep interacting with the process to force the process to run its codes in user-mode so HyperDbg will intercept more threads.
+
+![Pausing the target process](../../.gitbook/assets/attach-process-4.PNG)
 
 ![Using the 'pause' command](../../.gitbook/assets/start-process-4.PNG)
 
@@ -52,4 +54,4 @@ At last, when we finished our debugging procedure, we can use the '[.detach](htt
 
 ![Detaching from the process](../../.gitbook/assets/start-process-5.PNG)
 
-In this article, we've learned how to start a process and halt at the entrypoint. You might want to attach to an already running process. For this purpose, please read [**here**](https://docs.hyperdbg.org/getting-started/attach-to-hyperdbg/attach-process).
+In this article, we've learned how to start a process and halt at the entrypoint. You might want to **attach** to an already running process. For this purpose, please read the article [**here**](https://docs.hyperdbg.org/getting-started/attach-to-hyperdbg/attach-process).
