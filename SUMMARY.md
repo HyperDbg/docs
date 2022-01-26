@@ -17,9 +17,9 @@
 
 * [Prerequisites](using-hyperdbg/prerequisites/README.md)
   * [Operation Modes](using-hyperdbg/prerequisites/operation-modes.md)
-  * [Signatures](using-hyperdbg/prerequisites/signatures.md)
   * [How to create a condition?](using-hyperdbg/prerequisites/how-to-create-a-condition.md)
   * [How to create an action?](using-hyperdbg/prerequisites/how-to-create-an-action.md)
+  * [Signatures](using-hyperdbg/prerequisites/signatures.md)
 * [User-mode Debugging](using-hyperdbg/user-mode-debugging/README.md)
   * [Principles](using-hyperdbg/user-mode-debugging/principles.md)
   * [Examples](using-hyperdbg/user-mode-debugging/examples/README.md)
