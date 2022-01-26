@@ -1,3 +1,7 @@
+---
+description: https://docs.hyperdbg.org/using-hyperdbg/kernel-mode-debugging/principles
+---
+
 # Principles
 
 The central part of the HyperDbg debugger is its kernel-mode debugger.&#x20;
