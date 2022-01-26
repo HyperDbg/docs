@@ -12,7 +12,7 @@ The HyperDbg is a hypervisor-level debugger designed to pursue these needs.
 
 ### Design Goals
 
-We aimed to make a powerful and fast debugger in the kernel debugger to bring new creative features into your debugging and analyzing journey.
+We aimed to make a powerful and fast debugger to bring new creative features into your debugging and analyzing journey.
 
 The complexity of new binaries that run on kernel mode of operating systems and its importance on security and reliability of the systems needs a debugger that follows these needs with new features.
 
@@ -34,6 +34,8 @@ The kernel debugger works on both VMI Mode and Debugger Mode.
 
 The difference between running in the [VMI Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#vmi-mode) and the [Debugger Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode) is that you can't halt (pause) the debugger to step through the instruction or use the "[break](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#break)" actions in the VMI Mode.
 
-In the **Debugger Mode**, HyperDbg sends the buffer and messages immediately, but these messages will be buffered first and delivered at a suitable time in the **VMI Mode**.
+In the Debugger Mode, HyperDbg sends the buffer and messages immediately, but these messages will be buffered first and delivered at a suitable time in the VMI Mode.
 
 Unlike WinDbg, some of the commands are implemented from user mode and will continue the debuggee for some time, and you'll lose the contexts (registers, memory). You need to consider that as described in the command's documentation.
+
+You need to follow some safety rules in accessing memory and avoid "[unsafe behavior](https://docs.hyperdbg.org/tips-and-tricks/considerations/the-unsafe-behavior)" in using HyperDbg.
