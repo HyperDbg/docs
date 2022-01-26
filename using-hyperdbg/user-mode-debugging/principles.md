@@ -7,7 +7,7 @@ description: Principles of designing a standalone user-mode debugger
 HyperDbg is a unique debugger. The intention of creating this tool was, of course, not just debugging. Regardless of debugging components, it also aims to bring a framework to use the innovative feature of processors for debugging and analyzing binaries. Here we discuss some of the principles of the user debugger.
 
 {% hint style="danger" %}
-In contrast with the kernel debugger, the user debugger is still very basic and needs a lot of tests and improvements. We **highly recommend** not to run the user debugger in your bare metal system. Instead, run it on a supported virtual machine to won't end up with a Blue Screen of Death (BSOD) in your primary device. Please keep reporting the issues to improve the user debugger.
+In contrast with the kernel debugger, the user debugger is still very basic and needs a lot of tests and improvements. We **highly recommend** not to run the user debugger in your bare metal system. Instead, run it on a [supported virtual machine](https://docs.hyperdbg.org/tips-and-tricks/nested-virtualization-environments/supported-virtual-machines) to won't end up with a Blue Screen of Death (BSOD) in your primary device. Please keep reporting the issues to improve the user debugger.
 {% endhint %}
 
 ### Design Goals
