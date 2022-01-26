@@ -186,6 +186,7 @@
   * [Difference between process and thread switching commands](tips-and-tricks/considerations/difference-between-process-and-thread-switching-commands.md)
   * [Transparent Mode](tips-and-tricks/considerations/transparent-mode.md)
 * [Nested-Virtualization Environments](tips-and-tricks/nested-virtualization-environments/README.md)
+  * [Supported Virtual Machines](tips-and-tricks/nested-virtualization-environments/supported-virtual-machines.md)
   * [Run HyperDbg on VMware](tips-and-tricks/nested-virtualization-environments/run-hyperdbg-on-vmware.md)
   * [Run HyperDbg on Hyper-V](tips-and-tricks/nested-virtualization-environments/run-hyperdbg-on-hyper-v.md)
   * [Supporting VMware/Hyper-V](tips-and-tricks/nested-virtualization-environments/supporting-vmware-hyper-v.md)
