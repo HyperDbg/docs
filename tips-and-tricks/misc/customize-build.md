@@ -2,7 +2,7 @@
 description: Description about customizing HyperDbg builds
 ---
 
-# Customize Build
+# Customize build
 
 You have different options to build **HyperDbg** in the way you want.
 
@@ -10,7 +10,7 @@ You have different options to build **HyperDbg** in the way you want.
 
 Before building, you can change the following options in the **Configuration.h** file.
 
-By default, **HyperDbg** sends the current time of the system with each message packet from kernel-mode to user-mode, if you set `ShowSystemTimeOnDebugMessages` to `FALSE` then it no longer sends date and time along with each message.
+By default, **HyperDbg** sends the current time of the system with each message packet from kernel-mode to user-mode, if you set `ShowSystemTimeOnDebugMessages` to `FALSE` then it no longer sends date and time along with each message (These messages along with time are used in internal logging functions, and it's not exposed to the script engine).
 
 ```c
 /**
@@ -174,3 +174,4 @@ The following option changes the speed at which HyperDbg reads kernel messages i
  */
 #define DefaultSpeedOfReadingKernelMessages 30
 ```
+
