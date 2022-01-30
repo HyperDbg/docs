@@ -24,9 +24,14 @@ HyperDbg tries to minimize the request for this command by allocating pools when
 
 ### Parameters
 
-**\[type (monitor)]**
+**\[type]**
 
 The type of pools to be reserved
+
+| Type                    |                                         |
+| ----------------------- | --------------------------------------- |
+| **monitor**             | for **!monitor** commands extra pages   |
+| **thread-interception** | for processes with thousands of threads |
 
 **\[count (hex value)]**
 
@@ -63,6 +68,7 @@ The **Type** can be from the following enum:
 typedef enum _DEBUGGER_PREALLOC_COMMAND_TYPE
 {
     DEBUGGER_PREALLOC_COMMAND_TYPE_MONITOR,
+    DEBUGGER_PREALLOC_COMMAND_TYPE_THREAD_INTERCEPTION,
 } DEBUGGER_PREALLOC_COMMAND_TYPE;
 ```
 
