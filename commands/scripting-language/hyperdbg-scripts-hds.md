@@ -18,7 +18,7 @@ You can use plain text files for batch scripts, but as the convention, HyperDbg 
 
 ### Arguments
 
-Arguments Arguments are passed to the scripts by using the `$arg0`, `$arg1`, `$arg2`, ..., `$arg100`, ..., `$arg1000`, and so on.
+Arguments are passed to the scripts by using the `$arg0`, `$arg1`, `$arg2`, ..., `$arg100`, ..., `$arg1000` and so on.
 
 The first argument (`$arg0`) is the script's **.hds** file path. Arguments can be both an expression, a constant, or a string. Constants are considered in **hex** format if no [prefix](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations#number-prefixes) is specified.
 
@@ -56,3 +56,16 @@ Result of rax + rbx is : 5
 
 #### Example 2
 
+Imagine we want to intercept syscall for a particular process, get the Process ID and the Syscall Number from the user, and print the details for each execution of the target system call. We'll use the following script.
+
+`.script "C:\My HyperDbg Scripts\Syscall Log.hds" 1ec0 0x55`
+
+```clike
+!syscall pid $arg1 script { 
+	if (@rax == $arg2) {
+			printf("[%llx:%llx] Syscall num: %llx, arg1: %llx, arg2: %llx, arg3: %llx, arg4: %llx\n", $pid, $tid, @rax, @rcx, @rdx, @r8, @r9);
+	}
+}
+```
+
+You can submit your scripts to the [scripts](https://github.com/HyperDbg/scripts) repo.
