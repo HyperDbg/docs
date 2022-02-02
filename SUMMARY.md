@@ -140,7 +140,7 @@
   * [Assumptions & Evaluations](commands/scripting-language/assumptions-and-evaluations.md)
   * [Variables & Assignments](commands/scripting-language/variables-and-assignments.md)
   * [Conditionals & Loops](commands/scripting-language/conditionals-and-loops.md)
-  * [HyperDbg Scripts](commands/scripting-language/hyperdbg-scripts.md)
+  * [HyperDbg Scripts (HDS)](commands/scripting-language/hyperdbg-scripts-hds.md)
   * [Examples](commands/scripting-language/examples/README.md)
     * [view system state (registers, memory, variables)](commands/scripting-language/examples/view-system-state.md)
     * [change system state (registers, memory, variables)](commands/scripting-language/examples/change-system-state-registers-memory-variables.md)
