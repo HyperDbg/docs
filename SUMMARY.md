@@ -95,7 +95,7 @@
   * [.restart (restart the process)](commands/meta-commands/.restart.md)
   * [.attach (attach to a process)](commands/meta-commands/.attach.md)
   * [.detach (detach from the process)](commands/meta-commands/.detach.md)
-  * [.switch (show the list and switch between active debugging threads)](commands/meta-commands/.switch.md)
+  * [.switch (show the list and switch between active debugging processes)](commands/meta-commands/.switch.md)
   * [.kill (terminate the process)](commands/meta-commands/.kill.md)
   * [.process, .process2 (show the current process and switch to another process)](commands/meta-commands/.process.md)
   * [.thread, .thread2 (show the current thread and switch to another thread)](commands/meta-commands/.thread.md)
