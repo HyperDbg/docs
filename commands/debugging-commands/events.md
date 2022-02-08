@@ -2,7 +2,7 @@
 description: Description of 'event' command in HyperDbg.
 ---
 
-# events \(show and modify active/disabled events\)
+# events (show and modify active/disabled events)
 
 ### Command
 
@@ -10,15 +10,17 @@ description: Description of 'event' command in HyperDbg.
 
 ### Syntax
 
-> events \[e\|d\|c\] \[event number \(hex value\) \| all\]
+> events
+>
+> events \[e|d|c all|EventNumber (hex)]
 
 ### Description
 
-Shows a list of active/disabled events and commands or disables or clears the event\(s\).
+Shows a list of active/disabled events and commands or disables or clears the event(s).
 
 ### Parameters
 
-**\[e\|d\|c\] \(optional\)**
+**\[e|d|c all|EventNumber (hex)] (optional)**
 
 Type of action can be one of the `e`, `d`, or `c`.
 
@@ -28,9 +30,7 @@ Type of action can be one of the `e`, `d`, or `c`.
 
 **c** : clears and removes the target event
 
-**\[event number \(hex value\) \| all\] \(optional\)**
-
-Specifies the target event \(you can see the list of events and their unique event numbers by running the '**events**' command\), you can specify `all` to apply your action to all active/disabled events.
+Specifies the target event (you can see the list of events and their unique event numbers by running the '**events**' command), you can specify `all` to apply your action to all active/disabled events.
 
 {% hint style="success" %}
 If you don't specify any parameters to the '**events**' command, it shows a list of events and their unique event numbers.
@@ -62,7 +62,7 @@ HyperDbg> events
 
 The following command enables all of the events and commands.
 
-```text
+```
 HyperDbg> event e all
 
 HyperDbg> events
@@ -74,7 +74,7 @@ HyperDbg> events
 
 The following command clears an event with event number `1`.
 
-```text
+```
 HyperDbg> event c 1
 
 HyperDbg> events
@@ -85,7 +85,7 @@ HyperDbg> events
 
 The following command clears and turns off every enabled and disabled event and commands.
 
-```text
+```
 0: kHyperDbg> event c all
 ```
 
@@ -107,10 +107,10 @@ typedef struct _DEBUGGER_MODIFY_EVENTS {
 Where `Tag` is the tag of the event that you want to modify, you should leave `KernelStatus` as it will be filled by the kernel and shows whether the request was successful or not.
 
 {% hint style="warning" %}
-Keep in mind, `Tag` is not the same as event number, tags start from **DebuggerEventTagStartSeed** \(by default **0x1000000**\); thus, you can add this value to form a `Tag` from event number.
+Keep in mind, `Tag` is not the same as event number, tags start from **DebuggerEventTagStartSeed** (by default **0x1000000**); thus, you can add this value to form a `Tag` from event number.
 {% endhint %}
 
-`TypeOfAction` shows what type of action you want the kernel to perform \(**enable**, **disable, or clear**\). It can be one of the following values.
+`TypeOfAction` shows what type of action you want the kernel to perform (**enable**, **disable, or clear**). It can be one of the following values.
 
 ```c
 typedef enum _DEBUGGER_MODIFY_EVENTS_TYPE {
@@ -156,4 +156,3 @@ None
 ### Related
 
 None
-

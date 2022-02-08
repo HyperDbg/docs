@@ -14,11 +14,11 @@ description: Description of 's*' command in HyperDbg.
 
 ### Syntax
 
-> sb \[search from address (hex)] l \[length (hex)] \[byte pattern (hex)] pid \[process id (hex)]
+> sb \[StartAddress (hex)] \[l Length (hex)] \[BytePattern (hex)] \[pid ProcessId (hex)]
 >
-> sd \[search from address (hex)] l \[length (hex)] \[byte pattern (hex)] pid \[process id (hex)]
+> sd \[StartAddress (hex)] \[l Length (hex)] \[BytePattern (hex)] \[pid ProcessId (hex)]
 >
-> sq \[search from address (hex)] l \[length (hex)] \[byte pattern (hex)] pid \[process id (hex)]
+> sq \[StartAddress (hex)] \[l Length (hex)] \[BytePattern (hex)] \[pid ProcessId (hex)]
 
 ### Description
 
@@ -26,21 +26,21 @@ Searches the **virtual** memory for a special byte(s).
 
 ### Parameters
 
-**\[search from address (hex)]**
+**\[StartAddress (hex)]**
 
 The **virtual** address of where we want to start searching from its address.
 
-**l \[length (hex)]**
+**\[l Length (hex)]**
 
 Length of the searching area.
 
-**\[byte pattern (hex)]**
+**\[BytePattern (hex)]**
 
 Search for these bytes (pattern).
 
-**pid \[process id (hex)] (optional)**
+**\[pid ProcessId (hex)] (optional)**
 
-The process ID in the hex format that we want to see the memory from its context (**cr3**).
+The Process ID in the hex format that we want to see the memory from its context (**cr3**).
 
 {% hint style="info" %}
 If you don't specify the **pid**, then the default **pid** is the current process (**HyperDbg**) process layout of memory.

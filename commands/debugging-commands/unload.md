@@ -10,7 +10,7 @@ description: Description of 'unload' command in HyperDbg.
 
 ### Syntax
 
-> unload \[module name]
+> unload \[remove] \[ModuleName (string)]
 
 ### Description
 
@@ -22,7 +22,7 @@ Unloads the HyperDbg drivers and kernel modules from the target system.
 
 If you want to remove the installed driver. (See **Remarks** for more information)
 
-**\[module name]**
+**\[ModuleName (string)]**
 
 The name of the module that you want to unload.
 

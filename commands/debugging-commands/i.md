@@ -12,7 +12,13 @@ description: Description of 'i' command in HyperDbg.
 
 ### Syntax
 
-> i\[r] \[count (hex value)]
+> i
+>
+> i \[Count (hex)]
+>
+> ir
+>
+> ir \[Count (hex)]
 
 ### Description
 
@@ -28,9 +34,9 @@ This command gives you the ability to follow system-calls (SYSCALLs) and all the
 
 ### Parameters
 
-**\[count] (optional)**
+**\[Count (hex)] (optional)**
 
-Count of step(s), or how many times perform the stepping operation. If you don't set this argument, then by default, the **count** is `1`.
+Count of step(s), or how many times perform the stepping operation. If you don't set this argument, then by default, the **Count** is `1`.
 
 ### Examples
 

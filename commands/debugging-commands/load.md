@@ -10,7 +10,7 @@ description: Description of 'load' command in HyperDbg.
 
 ### Syntax
 
-> load \[module name]
+> load \[ModuleName (string)]
 
 ### Description
 
@@ -18,7 +18,7 @@ Loads the HyperDbg's drivers and kernel modules into the target system.
 
 ### Parameters
 
-**\[module name]**
+**\[ModuleName (string)]**
 
 The name of the module that you want to load.
 

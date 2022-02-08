@@ -10,7 +10,9 @@ description: Description of 'r' command in HyperDbg.
 
 ### Syntax
 
-> r \[register] \[= expr]
+> r
+>
+> r \[Register (string)] \[= Expr (string)]
 
 ### Description
 
@@ -18,11 +20,11 @@ Reads or modifies registers when the debuggee is paused.
 
 ### Parameters
 
-**\[register]**
+**\[Register (string)] (optional)**
 
 The register that needs to be read or modified.
 
-**\[= expr]**
+**\[= Expr (string)] (optional)**
 
 The value or the expression that needs to be evaluated and modify the target register.
 

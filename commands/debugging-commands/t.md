@@ -12,7 +12,13 @@ description: Description of 't' command in HyperDbg.
 
 ### Syntax
 
-> t\[r] \[count (hex value)]
+> t
+>
+> t \[Count (hex)]
+>
+> tr
+>
+> tr \[Count (hex)]
 
 ### Description
 
@@ -24,9 +30,9 @@ The difference between this command and the '[i](https://docs.hyperdbg.org/comma
 
 ### Parameters
 
-**\[count] (optional)**
+**\[Count (hex)] (optional)**
 
-Count of step(s), or how many times perform the stepping operation. If you don't set this argument, then by default, the **count** is `1`.
+Count of step(s), or how many times perform the stepping operation. If you don't set this argument, then by default, the **Count** is `1`.
 
 ### Examples
 

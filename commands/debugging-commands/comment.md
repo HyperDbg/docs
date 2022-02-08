@@ -1,8 +1,8 @@
 ---
-description: 'Description of ''#'' command in HyperDbg.'
+description: Description of '#' command in HyperDbg.
 ---
 
-# \# \(comment in batch scripts\)
+# # (comment in batch scripts)
 
 ### Command
 
@@ -10,7 +10,9 @@ description: 'Description of ''#'' command in HyperDbg.'
 
 ### Syntax
 
-> \# ...
+> \#
+>
+> \# \[Comment (string)]
 
 ### Description
 
@@ -22,9 +24,9 @@ In HyperDbg's batch scripts '`#`' is used as the comment character. However, in 
 
 ### Parameters
 
-**\[...\]**
+**\[Comment (string)]**
 
-Everything after \# is interpreted as a comment.
+Everything after the '**#'** is interpreted as a comment.
 
 ### Examples
 
@@ -50,4 +52,3 @@ None
 ### Related
 
 None
-

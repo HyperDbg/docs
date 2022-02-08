@@ -10,7 +10,7 @@ description: Description of 'bp' command in HyperDbg.
 
 ### Syntax
 
-> bp \[address] \[ pid | tid | core (hex value)]
+> bp \[Address (hex)] \[pid ProcessId (hex)] \[tid ThreadId (hex)] \[core CoreId (hex)]
 
 ### Description
 
@@ -26,11 +26,11 @@ If you use the 'bp' command, **HyperDbg** won't hide your breakpoint for the app
 
 ### Parameters
 
-**\[address]**
+**\[Address (hex)]**
 
 The **Virtual** address of where we want to put a breakpoint.
 
-**\[pid | tid | core (hex value)] (optional)**
+**\[pid ProcessId (hex)] \[tid ThreadId (hex)] \[core CoreId (hex)] (optional)**
 
 Optional value to trigger breakpoint in just one special process or one special thread, or one special core. Add `pid xx` to your command or `tid yy` or `core zz`; thus, the command will be executed if the process id is equal to `xx` or the thread id is equal to `yy` or the core is equal to `zz` . If you don't specify these options, then by default, you receive breakpoints on all conditions. See the **Remarks** section for more information about **pid**.
 

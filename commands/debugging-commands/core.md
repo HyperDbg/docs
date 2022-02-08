@@ -2,15 +2,17 @@
 description: Description of '~' command in HyperDbg.
 ---
 
-# ~ \(display and change the current operating core\)
+# \~ (display and change the current operating core)
 
 ### Command
 
-> ~
+> \~
 
 ### Syntax
 
-> ~ \[core number \(hex value\)\]
+> \~
+>
+> \~ \[CoreNumber (hex)]
 
 ### Description
 
@@ -18,12 +20,12 @@ Shows or changes the current operating core. This command can only be used in **
 
 ### Parameters
 
-**\[core number \(hex value\)\] \(optional\)**
+**\[CoreNumber (hex)] (optional)**
 
-Target core number \(starts from zero\).
+Target core number (starts from zero).
 
 {% hint style="success" %}
-If you don't specify any parameters to the '~' command, it shows the current operating core.
+If you don't specify any parameters to the '\~' command, it shows the current operating core.
 {% endhint %}
 
 ### Examples
@@ -37,7 +39,7 @@ current processor : 0x2
 
 The following commands display and then change the current operating core to `0x1`.
 
-```text
+```
 0: kHyperDbg> ~
 current processor : 0x2
 
@@ -76,7 +78,7 @@ DEBUGGER_REMOTE_PACKET_REQUESTED_ACTION_DEBUGGEE_RESULT_OF_CHANGING_CORE
 
 In the returned structure, the `Result` is filled by the kernel.
 
-If the `Result` is `DEBUGEER_OPERATION_WAS_SUCCESSFULL`, then the operation was successful, and you should wait for a new pause packet from debuggee. Otherwise, the returned result is an error \(e.g., the core number is invalid\), and the current operating core is not changed.
+If the `Result` is `DEBUGEER_OPERATION_WAS_SUCCESSFULL`, then the operation was successful, and you should wait for a new pause packet from debuggee. Otherwise, the returned result is an error (e.g., the core number is invalid), and the current operating core is not changed.
 
 The following function is responsible for changing the core in the debugger.
 
@@ -88,9 +90,9 @@ BOOLEAN KdSendSwitchCorePacketToDebuggee(UINT32 NewCore);
 
 If the current core is equal to the target core, then it will not be changed.
 
-Another alias for the '**~**' command is '**core**'.
+Another alias for the '**\~**' command is '**core**'.
 
-This command is guaranteed to keep debuggee in a halt state \(in Debugger Mode\); thus, nothing will change during its execution.
+This command is guaranteed to keep debuggee in a halt state (in Debugger Mode); thus, nothing will change during its execution.
 
 ### Requirements
 
@@ -99,4 +101,3 @@ None
 ### Related
 
 None
-

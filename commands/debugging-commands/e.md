@@ -14,11 +14,11 @@ description: Description of 'e*' command in HyperDbg.
 
 ### Syntax
 
-> eb \[address] \[new value (hex)] pid \[process id (hex)]
+> eb \[Address (hex)] \[Contents (hex)] \[pid ProcessId (hex)]
 >
-> ed \[address] \[new value (hex)] pid \[process id (hex)]
+> ed \[Address (hex)] \[Contents (hex)] \[pid ProcessId (hex)]
 >
-> eq \[address] \[new value (hex)] pid \[process id (hex)]
+> eq \[Address (hex)] \[Contents (hex)] \[pid ProcessId (hex)]
 
 ### Description
 
@@ -26,15 +26,15 @@ Edits the **virtual** address memory contents.
 
 ### Parameters
 
-**\[Address]**
+**\[Address (hex)]**
 
 The **virtual** address of where we want to edit its memory.
 
-**\[new value (hex)]**
+**\[Contents (hex)]**
 
-The new contents in hex format.
+The new contents in hex format (it could be an array).
 
-**pid \[process id] (optional)**
+**\[pid ProcessId (hex)] (optional)**
 
 The process ID in the hex format that we want to see the memory from its context (**cr3**).
 

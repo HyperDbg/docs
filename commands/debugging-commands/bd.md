@@ -2,7 +2,7 @@
 description: Description of 'bd' command in HyperDbg.
 ---
 
-# bd \(disable breakpoints\)
+# bd (disable breakpoints)
 
 ### Command
 
@@ -10,15 +10,15 @@ description: Description of 'bd' command in HyperDbg.
 
 ### Syntax
 
-> bd \[breakpoint id \(hex value\)\]
+> bd \[BreakpointId (hex)]
 
 ### Description
 
-Disables a previously enabled breakpoint \(**0xcc**\).
+Disables a previously enabled breakpoint (**0xcc**).
 
 ### Parameters
 
-**\[breakpoint id \(hex value\)\]**
+**\[BreakpointId (hex)]**
 
 The **breakpoint id** of the target breakpoint. You can see a list of breakpoints and breakpoint ids using the '[bl](https://docs.hyperdbg.org/commands/debugging-commands/bl)' command.
 
@@ -26,7 +26,7 @@ The **breakpoint id** of the target breakpoint. You can see a list of breakpoint
 
 Imagine we have the following active breakpoints.
 
-```text
+```
 0: kHyperDbg> bl
 id   address           status
 --   ---------------   --------
@@ -38,13 +38,13 @@ id   address           status
 
 After executing the following command, it's now disabled.
 
-```text
+```
 0: kHyperDbg> bd 2
 ```
 
 If you see the list of active breakpoints again, you can see that it's disabled.
 
-```text
+```
 0: kHyperDbg> bl
 id   address           status
 --   ---------------   --------
@@ -114,7 +114,7 @@ BOOLEAN KdSendListOrModifyPacketToDebuggee(PDEBUGGEE_BP_LIST_OR_MODIFY_PACKET Li
 
 ### Remarks
 
-This command is guaranteed to keep debuggee in a halt state \(in Debugger Mode\); thus, nothing will change during its execution.
+This command is guaranteed to keep debuggee in a halt state (in Debugger Mode); thus, nothing will change during its execution.
 
 ### Requirements
 
@@ -122,11 +122,10 @@ None
 
 ### Related
 
-[bp \(set breakpoint\)](https://docs.hyperdbg.org/commands/debugging-commands/bp)
+[bp (set breakpoint)](https://docs.hyperdbg.org/commands/debugging-commands/bp)
 
-[bl \(list breakpoints\)](https://docs.hyperdbg.org/commands/debugging-commands/bl)
+[bl (list breakpoints)](https://docs.hyperdbg.org/commands/debugging-commands/bl)
 
-[be \(enable breakpoints\)](https://docs.hyperdbg.org/commands/debugging-commands/be)
+[be (enable breakpoints)](https://docs.hyperdbg.org/commands/debugging-commands/be)
 
-[bc \(clear and remove breakpoints\)](https://docs.hyperdbg.org/commands/debugging-commands/bc)
-
+[bc (clear and remove breakpoints)](https://docs.hyperdbg.org/commands/debugging-commands/bc)

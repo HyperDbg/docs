@@ -16,13 +16,13 @@ description: Description of 'd*' command in HyperDbg.
 
 ### Syntax
 
-> db \[address] l \[length (hex)] pid \[process id (hex)]
+> db \[Address (hex)] \[l Length (hex)] \[pid ProcessId (hex)]
 >
-> dc \[address] l \[length (hex)] pid \[process id (hex)]
+> dc \[Address (hex)] \[l Length (hex)] \[pid ProcessId (hex)]
 >
-> dd \[address] l \[length (hex)] pid \[process id (hex)]
+> dd \[Address (hex)] \[l Length (hex)] \[pid ProcessId (hex)]
 >
-> dq \[address] l \[length (hex)] pid \[process id (hex)]
+> dq \[Address (hex)] \[l Length (hex)] \[pid ProcessId (hex)]
 
 ### Description
 
@@ -30,17 +30,17 @@ Shows the **virtual** address memory content in hex form.
 
 ### Parameters
 
-**\[Address]**
+**\[Address (hex)]**
 
 The **virtual** address of where we want to read its memory.
 
-**l \[Length] (optional)**
+**\[l Length (hex)] (optional)**
 
 The length (byte) in hex format.
 
-**pid \[process id] (optional)**
+**\[pid ProcessId (hex)] (optional)**
 
-The process ID in hex format that we want to see the memory from its context (**cr3**).
+The Process ID in hex format that we want to see the memory from its context (**cr3**).
 
 {% hint style="info" %}
 If you don't specify the **pid**, then the default **pid** is the current process (HyperDbg) process layout of memory.

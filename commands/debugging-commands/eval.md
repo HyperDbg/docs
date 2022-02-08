@@ -10,7 +10,7 @@ description: Description of '?' command in HyperDbg.
 
 ### Syntax <a href="#syntax" id="syntax"></a>
 
-> ? \[expression]
+> ? \[Expression (string)]
 
 ### Description <a href="#description" id="description"></a>
 
@@ -34,7 +34,7 @@ For example,&#x20;
 
 ### Parameters <a href="#parameters" id="parameters"></a>
 
-**\[expression]**
+**\[Expression (string)]**
 
 The expression is based on HyperDbg's [scripting language](https://web.archive.org/web/20210228003007/https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations).
 

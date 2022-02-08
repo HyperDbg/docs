@@ -12,7 +12,13 @@ description: Description of 'p' command in HyperDbg.
 
 ### Syntax
 
-> p\[r] \[count (hex value)]
+> p
+>
+> p \[Count (hex)]
+>
+> pr
+>
+> pr \[Count (hex)]
 
 ### Description
 
@@ -20,9 +26,9 @@ Executes a single instruction (step-over) and optionally displays the resulting 
 
 ### Parameters
 
-**\[count] (optional)**
+**\[Count (hex)] (optional)**
 
-Count of step(s), or how many times perform the stepping operation. If you don't set this argument, then by default, the **count** is `1`.
+Count of step(s), or how many times perform the stepping operation. If you don't set this argument, then by default, the **Count** is `1`.
 
 ### Examples
 
