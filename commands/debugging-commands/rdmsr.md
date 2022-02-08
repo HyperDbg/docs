@@ -10,7 +10,7 @@ description: Description of 'rdmsr' command in HyperDbg.
 
 ### Syntax
 
-> rdmsr \[msr (hex) - ecx] core \[core number(hex)]
+> rdmsr \[Msr (hex)] \[core CoreNumber (hex)]
 
 ### Description
 
@@ -18,13 +18,13 @@ Reads the model-specific register using '**rdmsr**' instruction.
 
 ### Parameters
 
-**\[msr (hex) - ecx]**
+**\[Msr (hex)]**&#x20;
 
-The index of MSR (ECX Register for '**rdmsr**' instruction).
+The index of MSR (`ECX` Register for '**rdmsr**' instruction).
 
-**core \[core number(hex)] (optional)**
+**\[core CoreNumber (hex)] (optional)**
 
-The core that we want to read the 'rdmsr' from it.
+The core that we want to read the '**rdmsr**' from it.
 
 {% hint style="success" %}
 If you don't specify the 'core' by default, it shows the MSR for all cores.

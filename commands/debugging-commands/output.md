@@ -2,7 +2,7 @@
 description: Description of 'output' command in HyperDbg.
 ---
 
-# output \(create output source for event forwarding\)
+# output (create output source for event forwarding)
 
 ### Command
 
@@ -10,7 +10,9 @@ description: Description of 'output' command in HyperDbg.
 
 ### Syntax
 
-> output \[create \| open \| close\] \[type \(file \| namedpipe \| tcp\)\] \[name \| address\]
+> output \[create Name (string)] \[file|namedpipe|tcp Address (string)]&#x20;
+>
+> output \[open|close Name (string)]&#x20;
 
 ### Description
 
@@ -20,39 +22,39 @@ You can read more about **event forwarding** [here](https://docs.hyperdbg.org/ti
 
 ### Parameters
 
-**\[create \| open \| close\]**
+**\[create Name (string)]**
 
-The action of this command or whether this command tries to create a new output source or open an output source or close it.
+The name of the instance output to be created.
 
-**\[type \(file \| namedpipe \| tcp\)\]**
+**\[file|namedpipe|tcp Address (string)]**&#x20;
 
-In the case of creating an event, this parameter shows the type of the event.
+Type and address of the target resource.
 
-**\[name \| address\]**
+**\[open|close Name (string)]**
 
-In the case of "**create**", it shows the address of the remote source, and in the case of "**open**" or "**close**", it shows the name of the output source.
+The action of this command or whether this command tries to open an output source or close it combined with its name.
 
 ### Examples
 
-The following command creates an output source, which is a `file` and the results of the command \(script\) will be saved into the `c:\users\sina\desktop\output.txt`.
+The following command creates an output source, which is a `file` and the results of the command (script) will be saved into the `c:\users\sina\desktop\output.txt`.
 
 ```diff
 HyperDbg> output create MyOutputName1 file c:\users\sina\desktop\output.txt
 ```
 
-The following command creates an output source, which is a `tcp` and the results of the command \(script\) will be sent into the `192.168.1.10:8080`.
+The following command creates an output source, which is a `tcp` and the results of the command (script) will be sent into the `192.168.1.10:8080`.
 
 ```diff
 HyperDbg> output create MyOutputName2 tcp 192.168.1.10:8080
 ```
 
-The following command creates an output source, which is a `namedpipe` and the results of the command \(script\) will be sent into the `\\.\Pipe\HyperDbgOutput`.
+The following command creates an output source, which is a `namedpipe` and the results of the command (script) will be sent into the `\\.\Pipe\HyperDbgOutput`.
 
 ```diff
 HyperDbg> output create MyOutputName3 namedpipe \\.\Pipe\HyperDbgOutput
 ```
 
-You cannot use the above resources until you **open** them using the following command. This command opens an output source \(named "**MyOutputName1**"\) that was previously created by the output's **create** parameter.
+You cannot use the above resources until you **open** them using the following command. This command opens an output source (named "**MyOutputName1**") that was previously created by the output's **create** parameter.
 
 ```diff
 HyperDbg> output open MyOutputName1
@@ -89,7 +91,7 @@ None
 You can use this command to forward the results of the scripts from all the [events](https://docs.hyperdbg.org/design/debugger-internals/events).
 
 {% hint style="danger" %}
-You **cannot** use event forwarding in the immediate messaging mode in events \(`imm no`\).
+You **cannot** use event forwarding in the immediate messaging mode in events (`imm no`).
 {% endhint %}
 
 ### Requirements
@@ -99,4 +101,3 @@ None
 ### Related
 
 [Event Forwarding](https://docs.hyperdbg.org/tips-and-tricks/misc/event-forwarding)
-

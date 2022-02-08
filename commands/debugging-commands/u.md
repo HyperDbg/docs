@@ -12,9 +12,9 @@ description: Description of 'u, u2' command in HyperDbg.
 
 ### Syntax
 
-> u \[address] l \[length (hex)] pid \[process id (hex)]
+> u \[Address (hex)] \[l Length (hex)] \[pid ProcessId (hex)]
 >
-> u2 \[address] l \[length (hex)] pid \[process id (hex)]
+> u2 \[Address (hex)] \[l Length (hex)] \[pid ProcessId (hex)]
 
 {% hint style="info" %}
 **u** disassembles as x64, and **u2** disassembles as x86.
@@ -26,17 +26,17 @@ Shows the assembly regarding memory content at the **virtual** address hex form.
 
 ### Parameters
 
-**\[Address]**
+**\[Address (hex)]**
 
 The **virtual** address of where we want to start to disassemble its memory.
 
-**l \[Length] (optional)**
+**\[l Length (hex)] (optional)**
 
 The length (byte) in hex format.
 
-**pid \[process id] (optional)**
+**\[pid ProcessId (hex)] (optional)**
 
-The process ID that's in the hex format is what we want to see the memory from its context (**cr3**).
+The Process ID that's in the hex format is what we want to see the memory from its context (**cr3**).
 
 {% hint style="info" %}
 If you don't specify the pid, then the default pid is the current process (HyperDbg) process layout of memory.

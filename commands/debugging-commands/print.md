@@ -10,7 +10,7 @@ description: Description of 'print' command in HyperDbg.
 
 ### Syntax
 
-> print \[expression]
+> print \[Expression (string)]
 
 ### Description
 
@@ -18,7 +18,7 @@ Shows the result of an expression that will be executed in the remote debuggee.
 
 ### Parameters
 
-**\[expression]**
+**\[Expression (string)]**
 
 The expression is based on HyperDbg's [scripting language](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations).
 

@@ -2,7 +2,7 @@
 description: Description of 'lm' command in HyperDbg.
 ---
 
-# lm \(view loaded modules\)
+# lm (view loaded modules)
 
 ### Command
 
@@ -10,9 +10,9 @@ description: Description of 'lm' command in HyperDbg.
 
 ### Syntax
 
-> lm \[module name\]
->
 > lm
+>
+> lm \[m Name (string)] \[pid ProcessId (hex)]
 
 ### Description
 
@@ -20,9 +20,13 @@ Shows the loaded modules' base address, size, name, full path.
 
 ### Parameters
 
-**\[module name\] \(optional\)**
+**\[m Name (string)] (optional)**
 
 The name or a part of the name that will be searched through all the modules and only those which match will be showed.
+
+**\[pid ProcessId (hex)] (optional)**
+
+The Process Id of target process in which the user-mode modules in shown.
 
 ### Examples
 
@@ -73,7 +77,7 @@ This function work by calling **NtQuerySystemInformation** and does not gets the
 
 ### Remarks
 
-This command will continue the debuggee for some time \(in Debugger Mode\). This means that you lose the current context \(registers & memory\) after executing this command.
+This command will continue the debuggee for some time (in Debugger Mode). This means that you lose the current context (registers & memory) after executing this command.
 
 ### Requirements
 
@@ -82,4 +86,3 @@ None
 ### Related
 
 None
-

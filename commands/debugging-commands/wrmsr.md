@@ -10,25 +10,25 @@ description: Description of 'wrmsr' command in HyperDbg.
 
 ### Syntax
 
-> wrmsr \[msr (hex) - ecx] \[value (hex) - edx:eax] core \[core number(hex)]
+> wrmsr \[Msr (hex)] \[Value (hex)] \[core CoreNumber (hex)]
 
 ### Description
 
-Write on the model-specific register using 'wrmsr' instruction.
+Write on the model-specific register using '**wrmsr**' instruction.
 
 ### Parameters
 
-**\[msr (hex) - ecx]**
+**\[Msr (hex)]**
 
-The index of MSR (ECX Register for 'wrmsr' instruction).
+The index of MSR (`ECX` Register for '**wrmsr**' instruction).
 
-**\[value (hex) - edx:eax]**
+**\[Value (hex)]**
 
-The value to write on MSR (edx:eax for 'wrmsr' instruction).
+The value to write on MSR (`EDX:EAX` for '**wrmsr**' instruction).
 
-**core \[core number(hex)] (optional)**
+**\[core CoreNumber (hex)] (optional)**
 
-The core that we want to read the 'rdmsr' from it.
+The core that we want to write the MSR on it.
 
 {% hint style="success" %}
 If you don't specify the 'core' by default, it will be applied to all the cores.

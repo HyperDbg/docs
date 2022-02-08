@@ -2,7 +2,7 @@
 description: Description of 'sleep' command in HyperDbg.
 ---
 
-# sleep \(wait for specific time in the .script command\)
+# sleep (wait for specific time in the .script command)
 
 ### Command
 
@@ -10,15 +10,15 @@ description: Description of 'sleep' command in HyperDbg.
 
 ### Syntax
 
-> sleep \[time to wait \(milliseconds - hex value\)\]
+> sleep \[MillisecondsTime (hex)]
 
 ### Description
 
-Waits for the specified time \(in milliseconds\).
+Waits for the specified time (in milliseconds).
 
 ### Parameters
 
-**\[time to wait \(milliseconds - hex value\)\]**
+**\[MillisecondsTime (hex)]**
 
 The time that debugger should wait, in milliseconds.
 
@@ -36,9 +36,8 @@ None
 
 ### Related
 
-[pause \(break to the debugger and pause processing kernel packets\)](https://docs.hyperdbg.org/commands/debugging-commands/pause)
+[pause (break to the debugger and pause processing kernel packets)](https://docs.hyperdbg.org/commands/debugging-commands/pause)
 
-[unload \(unload the kernel modules\)](https://docs.hyperdbg.org/commands/debugging-commands/unload)
+[unload (unload the kernel modules)](https://docs.hyperdbg.org/commands/debugging-commands/unload)
 
-[.script \(run batch script commands\)](https://docs.hyperdbg.org/commands/meta-commands/.script)
-
+[.script (run batch script commands)](https://docs.hyperdbg.org/commands/meta-commands/.script)

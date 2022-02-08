@@ -10,7 +10,7 @@ description: Description of 'prealloc' command in HyperDbg.
 
 ### Syntax
 
-> prealloc \[type (monitor)] \[count (hex value)]
+> prealloc \[Type (string)] \[Count (hex)]
 
 ### Description
 
@@ -24,18 +24,18 @@ HyperDbg tries to minimize the request for this command by allocating pools when
 
 ### Parameters
 
-**\[type]**
+**\[Type (string)]**
 
-The type of pools to be reserved
+The type of pools to be reserved.
 
 | Type                    |                                         |
 | ----------------------- | --------------------------------------- |
 | **monitor**             | for **!monitor** commands extra pages   |
 | **thread-interception** | for processes with thousands of threads |
 
-**\[count (hex value)]**
+**\[Count (hex)]**
 
-Number of pools to be allocated and reserved
+Number of pools to be allocated and reserved.
 
 ### Examples
 
