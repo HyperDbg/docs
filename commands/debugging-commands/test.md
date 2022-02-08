@@ -10,7 +10,7 @@ description: Description of 'test' command in HyperDbg.
 
 ### Syntax
 
-> test \[query]
+> test \[Task (string)]
 
 ### Description
 
@@ -18,7 +18,7 @@ Tests the functionalities of HyperDbg in the running system.
 
 ### Parameters
 
-**\[query]**
+**\[Task (string)]**
 
 Different options are used mostly for debugging internal mechanisms of HyperDbg.
 

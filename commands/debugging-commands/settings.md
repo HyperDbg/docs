@@ -10,7 +10,13 @@ description: Description of 'settings' command in HyperDbg.
 
 ### Syntax
 
-> settings \[option name] \[value (name | hex value | on | off)]
+> settings \[OptionName (string)]
+>
+> settings \[OptionName (string)] \[Value (hex)]
+>
+> settings \[OptionName (string)] \[Value (string)]
+>
+> settings \[OptionName (string)] \[on|off]
 
 ### Description
 
@@ -18,13 +24,21 @@ This command queries or changes the value of options and preferences.
 
 ### Parameters
 
-**\[option name]**
+**\[OptionName (string)]**
 
 Name of the option.
 
-**\[value (name | hex value | on | off)] (optional)**
+**\[Value (hex)]**
 
-Target value to modify the option.
+Target value (hex) to modify the option.
+
+**\[Value (string)]**
+
+Target value (string) to modify the option.
+
+**\[on|off]**
+
+On or off value to modify the option.
 
 {% hint style="success" %}
 Each option has its own value; for example, some options might be on or off, and others might be custom numbers or names.
