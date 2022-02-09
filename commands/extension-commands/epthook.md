@@ -46,13 +46,13 @@ Optional value in which `yes` means the results (printed texts in scripts) shoul
 
 **\[buffer PreAllocatedBuffer (hex)] (optional)**
 
-_\[script { Script (string) }]_
+**\[script { Script (string) }]**
 
-\[condition { Condition (hex) }]&#x20;
+**\[condition { Condition (hex) }]**&#x20;
 
-\[code { Code (hex) }]
+**\[code { Code (hex) }]**
 
-\[event options]
+**\[event options]**
 
 Regular event parameters that are used in HyperDbg events. (For more information, read [this ](https://docs.hyperdbg.org/using-hyperdbg/prerequisites)topic)
 
