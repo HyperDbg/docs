@@ -14,11 +14,11 @@ description: Description of '!e*' command in HyperDbg.
 
 ### Syntax
 
-> !eb \[address] \[new value (hex)] pid \[process id (hex)]
+> !eb \[Address (hex)] \[Contents (hex)]
 >
-> !ed \[address] \[new value (hex)] pid \[process id (hex)]
+> !ed \[Address (hex)] \[Contents (hex)]
 >
-> !eq \[address] \[new value (hex)] pid \[process id (hex)]
+> !eq \[Address (hex)] \[Contents (hex)]
 
 ### Description
 
@@ -26,17 +26,13 @@ Edits the **physical** address memory contents.
 
 ### Parameters
 
-**\[Address]**
+**\[Address (hex)]**
 
 The **physical** address of where we want to edit its memory.
 
-**\[new value (hex)]**
+**\[Contents (hex)]**
 
 The new contents in hex format.
-
-**pid \[process id] (optional)**
-
-The process ID in the hex format that we want to see the memory from its context (**cr3**).
 
 {% hint style="danger" %}
 Process ID doesn't make sense in physical memory. If you specify **pid** for physical memory, it is ignored.

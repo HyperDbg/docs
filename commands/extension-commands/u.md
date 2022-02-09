@@ -12,9 +12,9 @@ description: Description of '!u, !u2' command in HyperDbg.
 
 ### Syntax
 
-> !u \[address] l \[length (hex)]
+> !u \[Address (hex)] \[l Length (hex)]
 >
-> !u2 \[address] l \[length (hex)]
+> !u2 \[Address (hex)] \[l Length (hex)]
 
 {% hint style="info" %}
 **!u** disassembles as x64 and **!u2** disassembles as x86.
@@ -26,11 +26,11 @@ Shows the assembly regarding memory content at the **physical** address hex form
 
 ### Parameters
 
-**\[Address]**
+**\[Address (hex)]**
 
 The **physical** address of where we want to start to disassemble its memory.
 
-**l \[Length] (optional)**
+**\[l Length (hex)] (optional)**
 
 The length (byte) in hex format.
 

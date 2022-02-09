@@ -16,13 +16,13 @@ description: Description of '!d*' command in HyperDbg.
 
 ### Syntax
 
-> !db \[address] l \[length (hex)]
+> !db \[Address (hex)] \[l Length (hex)]
 >
-> !dc \[address] l \[length (hex)]
+> !dc \[Address (hex)] \[l Length (hex)]
 >
-> !dd \[address] l \[length (hex)]
+> !dd \[Address (hex)] \[l Length (hex)]
 >
-> !dq \[address] l \[length (hex)]
+> !dq \[Address (hex)] \[l Length (hex)]
 
 ### Description
 
@@ -30,11 +30,11 @@ Shows the **physical** address memory content in hex form.
 
 ### Parameters
 
-**\[Address]**
+**\[Address (hex)]**
 
 The **physical** address of where we want to read its memory.
 
-**l \[Length] (optional)**
+**\[l Length (hex)] (optional)**
 
 The length (byte) in hex format.
 

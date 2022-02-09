@@ -10,7 +10,7 @@ description: Description of '!pte' command in HyperDbg.
 
 ### Syntax
 
-> !pte \[Virtual Address]
+> !pte \[VirtualAddress (hex)]
 
 ### Description
 
@@ -18,7 +18,7 @@ Displays the **PML4E**, **PDPTE**, **PDE**, **PTE** for the specified address.
 
 ### Parameters
 
-**\[Virtual Address]**
+**\[VirtualAddress (hex)]**
 
 The **virtual** address of where we want to read its page-level entries.
 
