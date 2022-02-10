@@ -10,7 +10,9 @@ description: Description of '!monitor' command in HyperDbg.
 
 ### Syntax
 
-> !monitor \[mode] \[from address] \[to address] \[pid ProcessId (hex)] \[core CoreId (hex)] \[imm IsImmediate (yesno)] \[buffer PreAllocatedBuffer (hex)] \[script { Script (string) }] \[condition { Condition (hex) }] \[code { Code (hex) }]Description
+> !monitor \[Mode (string)] \[FromAddress (hex)] \[ToAddress (hex)] \[pid ProcessId (hex)] \[core CoreId (hex)] \[imm IsImmediate (yesno)] \[buffer PreAllocatedBuffer (hex)] \[script { Script (string) }] \[condition { Condition (hex) }] \[code { Code (hex) }]
+
+### Description
 
 Monitors read or write or read/write to a range of addresses. If any read or write on your range address (memory), it will be triggered.
 
@@ -20,7 +22,7 @@ It is exactly like read/write of Hardware Debug Registers but without any size a
 
 ### Parameters
 
-**\[mode]**
+**\[Mode (string)]**
 
 Can be one of these values :
 
@@ -30,11 +32,11 @@ Can be one of these values :
 
 **w** : trigger in the case of writing.
 
-**\[from address]**
+**\[FromAddress (hex)]**
 
 The start **Virtual** address of where we want to monitor for reading or writing.
 
-**\[to address]**
+**\[ToAddress (hex)]**
 
 The end of **Virtual** address of where we want to monitor for reading or writing.
 

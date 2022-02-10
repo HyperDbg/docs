@@ -10,7 +10,7 @@ description: Description of '!msrread' command in HyperDbg.
 
 ### Syntax
 
-> !msrread \[msr (hex value)] \[pid ProcessId (hex)] \[core CoreId (hex)] \[imm IsImmediate (yesno)] \[buffer PreAllocatedBuffer (hex)] \[script { Script (string) }] \[condition { Condition (hex) }] \[code { Code (hex) }]
+> !msrread \[Msr (hex)] \[pid ProcessId (hex)] \[core CoreId (hex)] \[imm IsImmediate (yesno)] \[buffer PreAllocatedBuffer (hex)] \[script { Script (string) }] \[condition { Condition (hex) }] \[code { Code (hex) }]
 
 ### Description
 
@@ -18,7 +18,7 @@ Triggers when the debugging machine executes an **RDMSR** instruction or, in oth
 
 ### Parameters
 
-**\[msr (hex value)]**
+**\[Msr (hex)]**
 
 Trigger in the case of a special Model-Specific Register (MSR). If you don't specify this parameter, then it will be triggered for all **RDMSR** executions.
 

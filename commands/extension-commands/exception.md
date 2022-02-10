@@ -10,7 +10,7 @@ description: Description of '!exception' command in HyperDbg.
 
 ### Syntax
 
-> !exception \[IDT Index (hex value)] \[pid ProcessId (hex)] \[core CoreId (hex)] \[imm IsImmediate (yesno)] \[buffer PreAllocatedBuffer (hex)] \[script { Script (string) }] \[condition { Condition (hex) }] \[code { Code (hex) }]
+> !exception \[IdtIndex (hex)] \[pid ProcessId (hex)] \[core CoreId (hex)] \[imm IsImmediate (yesno)] \[buffer PreAllocatedBuffer (hex)] \[script { Script (string) }] \[condition { Condition (hex) }] \[code { Code (hex) }]
 
 ### Description
 
@@ -22,7 +22,7 @@ When you enable this event, only your specific entry will be hooked, so this com
 
 ### Parameters
 
-**\[IDT Index (hex value)]**
+**\[IdtIndex (hex)]**
 
 Trigger in the case of receiving an interrupt or exception. The value should be between **0x0** to **0x1f** (starting from zero). If you don't specify this parameter, it will be triggered for all first 32 exceptions/interrupts.
 

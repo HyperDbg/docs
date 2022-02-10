@@ -10,7 +10,7 @@ description: Description of '!msrwrite' command in HyperDbg.
 
 ### Syntax
 
-> !msrwrite \[msr (hex value)] \[pid ProcessId (hex)] \[core CoreId (hex)] \[imm IsImmediate (yesno)] \[buffer PreAllocatedBuffer (hex)] \[script { Script (string) }] \[condition { Condition (hex) }] \[code { Code (hex) }]
+> !msrwrite \[Msr (hex)] \[pid ProcessId (hex)] \[core CoreId (hex)] \[imm IsImmediate (yesno)] \[buffer PreAllocatedBuffer (hex)] \[script { Script (string) }] \[condition { Condition (hex) }] \[code { Code (hex) }]
 
 ### Description
 
@@ -18,7 +18,7 @@ Triggers when the debugging machine executes a **WRMSR** instruction or, in othe
 
 ### Parameters
 
-**\[msr (hex value)]**
+**\[Msr (hex)]**
 
 Trigger in the case of a special Model-Specific Register (MSR). If you don't specify this parameter, then it will be triggered for all **WRMSR** executions.
 

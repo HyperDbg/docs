@@ -12,9 +12,9 @@ description: Description of '!syscall' command in HyperDbg.
 
 ### Syntax
 
-> !syscall \[syscall-number (hex value)] \[pid ProcessId (hex)] \[core CoreId (hex)] \[imm IsImmediate (yesno)] \[buffer PreAllocatedBuffer (hex)] \[script { Script (string) }] \[condition { Condition (hex) }] \[code { Code (hex) }]
+> !syscall \[SyscallNumber (hex)] \[pid ProcessId (hex)] \[core CoreId (hex)] \[imm IsImmediate (yesno)] \[buffer PreAllocatedBuffer (hex)] \[script { Script (string) }] \[condition { Condition (hex) }] \[code { Code (hex) }]
 >
-> !syscall2 \[syscall-number (hex value)] \[pid ProcessId (hex)] \[core CoreId (hex)] \[imm IsImmediate (yesno)] \[buffer PreAllocatedBuffer (hex)] \[script { Script (string) }] \[condition { Condition (hex) }] \[code { Code (hex) }]
+> !syscall2 \[SyscallNumber (hex)] \[pid ProcessId (hex)] \[core CoreId (hex)] \[imm IsImmediate (yesno)] \[buffer PreAllocatedBuffer (hex)] \[script { Script (string) }] \[condition { Condition (hex) }] \[code { Code (hex) }]
 
 ### Description
 
@@ -30,7 +30,7 @@ The difference between **!syscall** and **!syscall2** is that we safely check th
 
 ### Parameters
 
-**\[syscall-number (hex value)]**
+**\[SyscallNumber (hex)]**
 
 Trigger in the case of a special system-call (system-call number). If you don't specify this parameter, then it will be triggered for all system-calls.
 
