@@ -14,17 +14,27 @@ You can have multiple "**Custom Codes**", "**Script**", and "**Break**".
 
 This document is a brief of how to create actions for an event.
 
-#### Break
+#### Pre-Allocated Buffers
+
+There are many limitations when your script is running in vmx-root. To address these limitations, HyperDbg employs pre-allocated buffers.
+
+**Pre-allocated buffers** are a buffer that HyperDbg previously allocated from the non-paged pool resource of the system as it is dedicated to being used within the events.&#x20;
+
+You can use these buffers safely from vmx-root to save your temporary variables or needed data. Keep in mind that there is only one pre-allocated buffer for an event, so if you want to access it from different cores, you should consider using spinlock functions to avoid concurrency.
+
+### Break
 
 Break to the debugger, works exactly like classic debuggers like Windbg.
 
-If you simply use a command without any extra parameters, it will be treated like classic debuggers, and HyperDbg gives the system control to the debugger.
+If you simply use the command without any extra parameters, it will be treated like classic debuggers, and HyperDbg gives the system control to the debugger.
 
-#### Script
+### Script
 
 Custom vmx-root mode compatible script engine is another feature for HyperDbg.
 
-## Custom Codes
+
+
+### Custom Codes
 
 **Run custom code** lets you run your custom assembly codes whenever a special event is triggered; this option is fast and powerful as you can customize the HyperDbg based on your needs.
 
