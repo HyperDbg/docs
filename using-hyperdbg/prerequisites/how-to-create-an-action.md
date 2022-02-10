@@ -30,11 +30,15 @@ If you simply use the command without any extra parameters, it will be treated l
 
 ### Script
 
-Custom vmx-root mode compatible script engine is another feature for HyperDbg.
+Custom vmx-root mode compatible [script engine](https://docs.hyperdbg.org/commands/scripting-language) is another feature for HyperDbg.
+
+You can use scripts within events by specifying your script within `script {` and `}` in the event's command.
+
+Note that when the event is triggered, you can modify memory and registers, and when each event is triggered, it has its own set of registers, context, and memory layout. You should keep in mind that each event might be triggered simultaneously within different cores.
 
 A pointer to the pre-allocated buffer for the target event is available in the `$buffer` pseudo-register.
 
-
+There are different examples of using the script engine effectively within events [here](https://docs.hyperdbg.org/commands/scripting-language/examples).
 
 ### Custom Codes
 
