@@ -32,6 +32,8 @@ If you simply use the command without any extra parameters, it will be treated l
 
 Custom vmx-root mode compatible script engine is another feature for HyperDbg.
 
+A pointer to the pre-allocated buffer for the target event is available in the `$buffer` pseudo-register.
+
 
 
 ### Custom Codes
