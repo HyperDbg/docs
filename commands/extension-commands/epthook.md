@@ -46,15 +46,19 @@ Optional value in which `yes` means the results (printed texts in scripts) shoul
 
 **\[buffer PreAllocatedBuffer (hex)] (optional)**
 
-**\[script { Script (string) }]**
+Optional value which reserves a safe [pre-allocated buffer](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#pre-allocated-buffers) to be accessed within the event codes.
 
-**\[condition { Condition (hex) }]**&#x20;
+**\[script { Script (string) }] (optional)**
 
-**\[code { Code (hex) }]**
+A HyperDbg [script](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#script) will be executed each time the event is triggered.
 
-**\[event options]**
+**\[condition { Condition (hex) }]  (optional)**
 
-Regular event parameters that are used in HyperDbg events. (For more information, read [this ](https://docs.hyperdbg.org/using-hyperdbg/prerequisites)topic)
+Optional hex assembly codes which check for [conditions](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-a-condition) in assembly.
+
+**\[code { Code (hex) }]  (optional)**
+
+Optional [hex assembly codes](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#custom-codes) will be executed each time the event is triggered.
 
 ### Context
 

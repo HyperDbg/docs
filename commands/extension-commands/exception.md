@@ -26,23 +26,35 @@ When you enable this event, only your specific entry will be hooked, so this com
 
 Trigger in the case of receiving an interrupt or exception. The value should be between **0x0** to **0x1f** (starting from zero). If you don't specify this parameter, it will be triggered for all first 32 exceptions/interrupts.
 
-**\[pid (hex value)]**
+**\[pid ProcessId (hex)] (optional)**
 
 Optional value to trigger the event in just a specific process. Add `pid xx` to your command; thus, the command will be executed if the process id is equal to `xx`. If you don't specify this option, then by default, you receive events on all processes.
 
 Still, in the case of user-mode debugging, HyperDbg will apply it only to the current active debugging process (not all the processes). In that case, you can specify `pid all` to intercept events from the entire system.
 
-**\[core (hex value)]**
+**\[core CoreId (hex)] (optional)**
 
 Optional value to trigger the event in just a specific core. Add `core xx` to your command thus command will be executed if core id is equal to `xx`. If you don't specify this option, then by default, you receive events on all cores.
 
-**\[imm (yes|no)]**
+**\[imm IsImmediate (yesno)] (optional)**
 
 Optional value in which `yes` means the results (printed texts in scripts) should be delivered immediately to the debugger. `no` means that the results can be accumulated and delivered as a couple of messages when the buffer is full; thus, it's substantially faster, but it's not real-time. By default, this value is set to `yes`.
 
-**\[event options]**
+**\[buffer PreAllocatedBuffer (hex)] (optional)**
 
-Regular event parameters that are used in HyperDbg events. (For more information, read [this ](https://docs.hyperdbg.org/using-hyperdbg/prerequisites)topic)
+Optional value which reserves a safe [pre-allocated buffer](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#pre-allocated-buffers) to be accessed within the event codes.
+
+**\[script { Script (string) }] (optional)**
+
+A HyperDbg [script](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#script) will be executed each time the event is triggered.
+
+**\[condition { Condition (hex) }]  (optional)**
+
+Optional hex assembly codes which check for [conditions](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-a-condition) in assembly.
+
+**\[code { Code (hex) }]  (optional)**
+
+Optional [hex assembly codes](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#custom-codes) will be executed each time the event is triggered.
 
 ### Context
 
