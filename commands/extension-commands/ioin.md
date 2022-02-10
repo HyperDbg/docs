@@ -10,7 +10,7 @@ description: Description of '!ioin' command in HyperDbg.
 
 ### Syntax
 
-> !ioin \[port (hex value)] \[pid ProcessId (hex)] \[core CoreId (hex)] \[imm IsImmediate (yesno)] \[buffer PreAllocatedBuffer (hex)] \[script { Script (string) }] \[condition { Condition (hex) }] \[code { Code (hex) }]
+> !ioin \[Port (hex)] \[pid ProcessId (hex)] \[core CoreId (hex)] \[imm IsImmediate (yesno)] \[buffer PreAllocatedBuffer (hex)] \[script { Script (string) }] \[condition { Condition (hex) }] \[code { Code (hex) }]
 
 ### Description
 
@@ -22,7 +22,7 @@ When you enable this event, only your specific I/O port will be hooked, so this 
 
 ### Parameters
 
-**\[port (hex value)]**
+**\[Port (hex)]**
 
 Trigger in the case of using a special I/O port. If you don't specify this parameter, then it will be triggered for all I/O ports.
 

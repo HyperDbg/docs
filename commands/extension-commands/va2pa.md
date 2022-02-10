@@ -10,7 +10,7 @@ description: Description of '!va2pa' command in HyperDbg.
 
 ### Syntax
 
-> !va2pa \[Virtual Address] pid \[Process Id (hex value)]
+> !va2pa \[VirtualAddress (hex)] \[pid ProcessId (hex)]
 
 ### Description
 
@@ -18,13 +18,13 @@ Converts the VIRTUAL address to the PHYSICAL address.
 
 ### Parameters
 
-**\[Virtual Address]**
+**\[VirtualAddress (hex)]**
 
 The target **virtual** address.
 
-**\[Process Id (hex value)]**
+**\[pid ProcessId (hex)] (optional)**
 
-The **process id** of where you want to convert the address based on it. If you don't specify this parameter, then the system process memory layout is used.
+The Process Id of where you want to convert the address based on it. If you don't specify this parameter, then the system process memory layout is used.
 
 ### Examples
 

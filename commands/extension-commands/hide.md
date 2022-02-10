@@ -10,7 +10,9 @@ description: Description of '!hide' command in HyperDbg.
 
 ### Syntax
 
-> !hide \[pid | name] \[process id (hex value) | name (string)]
+> !hide \[pid ProcessId (hex)]&#x20;
+>
+> !hide \[name ProcessName (string)]
 
 ### Description
 
@@ -28,13 +30,13 @@ This command is case-sensitive for the **`name`** parameter.
 
 ### Parameters
 
-**\[pid | name]**
+**\[pid ProcessId (hex)]**
 
-If you want to use the process ID, you should specify **pid**, and if you want to enter the process name, you should specify the **name** as this argument.
+Process Id of the process that you want to make **HyperDbg** transparent for it.
 
-**\[process id (hex value) | name (string)]**
+**\[name ProcessName (string)]**
 
-Name or process id of the process that you want to make **HyperDbg** transparent for it.
+Name of the process that you want to make **HyperDbg** transparent for it.
 
 {% hint style="info" %}
 You should append`.exe` to your process names.

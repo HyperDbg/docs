@@ -10,7 +10,7 @@ description: Description of '!interrupt' command in HyperDbg.
 
 ### Syntax
 
-> !interrupt \[IDT Index (hex value)] \[pid ProcessId (hex)] \[core CoreId (hex)] \[imm IsImmediate (yesno)] \[buffer PreAllocatedBuffer (hex)] \[script { Script (string) }] \[condition { Condition (hex) }] \[code { Code (hex) }]
+> !interrupt \[IdtIndex (hex)] \[pid ProcessId (hex)] \[core CoreId (hex)] \[imm IsImmediate (yesno)] \[buffer PreAllocatedBuffer (hex)] \[script { Script (string) }] \[condition { Condition (hex) }] \[code { Code (hex) }]
 
 ### Description
 
@@ -22,7 +22,7 @@ When you enable this event, all entries from **32** to **255** will cause vm-exi
 
 ### Parameters
 
-**\[IDT Index (hex value)]**
+**\[IdtIndex (hex)]**
 
 Trigger in the case of receiving an external-interrupt. The value should be between **0x20** to **0xff**. If you don't specify this parameter, then it will be triggered for all external-interrupts.
 

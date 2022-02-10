@@ -2,7 +2,7 @@
 description: Description of '!measure' command in HyperDbg.
 ---
 
-# !measure \(measuring and providing details for transparent-mode\)
+# !measure (measuring and providing details for transparent-mode)
 
 ### Command
 
@@ -10,7 +10,7 @@ description: Description of '!measure' command in HyperDbg.
 
 ### Syntax
 
-> !measure \[default\]
+> !measure \[default]
 
 ### Description
 
@@ -20,7 +20,7 @@ This command should be run before you '[load](https://docs.hyperdbg.org/commands
 
 ### Parameters
 
-**\[default\]**
+**\[default] (optional)**
 
 If you specify '**default**', then **HyperDbg** uses the hardcoded measurements from a not-running hypervisor machine; however, it's not recommended. See the **Remarks** for more information.
 
@@ -28,13 +28,13 @@ If you specify '**default**', then **HyperDbg** uses the hardcoded measurements 
 
 The following command measures and provides statistics for transparent-mode based on your machine.
 
-```text
+```
 HyperDbg> !measure
 ```
 
 The following command uses the hardcoded results and statistics for a not-running hypervisor machine.
 
-```text
+```
 HyperDbg> !measure default
 ```
 
@@ -46,7 +46,7 @@ None
 
 If you are running on a nested-virtualization environment, then the result of the measurements will not provide transparency for you. Instead, you can use the following command :
 
-```text
+```
 HyperDbg> !measure default
 ```
 
@@ -56,7 +56,7 @@ The above command uses hardcoded details from a not-running hypervisor, and this
 **IMPORTANT NOTE: USING DEFAULT MEASUREMENTS WON'T MAKE YOU 100% TRANSPARENT AS EACH VIRTUAL MACHINE SOFTWARE HAS ITS OWN TRACES, SO YOUR TARGET MIGHT CHECK FOR OTHER POSSIBLE TRACES AND FIGURE OUT THE PRESENCE OF THE VIRTUAL MACHINE.**
 {% endhint %}
 
-This command will continue the debuggee for some time \(in Debugger Mode\). This means that you lose the current context \(registers & memory\) after executing this command.
+This command will continue the debuggee for some time (in Debugger Mode). This means that you lose the current context (registers & memory) after executing this command.
 
 ### Requirements
 
@@ -64,5 +64,4 @@ None
 
 ### Related
 
-[!hide \(enable transparent-mode\)](https://docs.hyperdbg.org/commands/extension-commands/hide)
-
+[!hide (enable transparent-mode)](https://docs.hyperdbg.org/commands/extension-commands/hide)
