@@ -32,7 +32,9 @@ Each word which **lower case** should strictly come after the command. Each word
 
 If the **(optional)** word is mentioned after the parameter, it is optional, and you can omit it.
 
-`!test pid 1240`
+```
+!test pid 1240
+```
 
 Another example,
 
@@ -40,5 +42,6 @@ Another example,
 
 As you can see, the default is started with **lower case**, so we should use the command with the `default` keyword.
 
-`!test default`
-
+```
+!test default
+```
