@@ -2,7 +2,7 @@
 description: The command style of HyperDbg
 ---
 
-# Command Style
+# Command style
 
 For ease of use, HyperDbg uses the same command-style as Windbg, which means there are different kinds of commands in HyperDbg.
 
@@ -19,3 +19,26 @@ For ease of use, HyperDbg uses the same command-style as Windbg, which means the
 {% file src="../../.gitbook/assets/commandsdocstyle.pdf" %}
 Download Command Documentation Style
 {% endfile %}
+
+### Command Parameters
+
+HyperDbg uses a static approach for naming the parameter in the debugger help command and the documentation. Here's a brief of how to interpret each field.
+
+Imagine we have the following parameter:
+
+**\[pid ProcessId (hex)] (optional)**
+
+Each word which **lower case** should strictly come after the command. Each word with the **capital case** is the parameter's name in which its type is also mentioned between two parentheses.
+
+If the **(optional)** word is mentioned after the parameter, it is optional, and you can omit it.
+
+`!test pid 1240`
+
+Another example,
+
+**\[default]**
+
+As you can see, the default is started with **lower case**, so we should use the command with the `default` keyword.
+
+`!test default`
+
