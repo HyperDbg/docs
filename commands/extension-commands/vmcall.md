@@ -10,7 +10,7 @@ description: Description of '!vmcall' command in HyperDbg.
 
 ### Syntax
 
-> !vmcall \[pid (hex value)] \[core (hex value)] \[imm (yes|no)] \[event options]
+> !vmcall \[pid ProcessId (hex)] \[core CoreId (hex)] \[imm IsImmediate (yesno)] \[buffer PreAllocatedBuffer (hex)] \[script { Script (string) }] \[condition { Condition (hex) }] \[code { Code (hex) }]
 
 ### Description
 

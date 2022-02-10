@@ -10,9 +10,7 @@ description: Description of '!monitor' command in HyperDbg.
 
 ### Syntax
 
-> !monitor \[mode] \[from address] \[to address] \[pid (hex value)] \[core (hex value)] \[imm (yes|no)] \[event options]
-
-### Description
+> !monitor \[mode] \[from address] \[to address] \[pid ProcessId (hex)] \[core CoreId (hex)] \[imm IsImmediate (yesno)] \[buffer PreAllocatedBuffer (hex)] \[script { Script (string) }] \[condition { Condition (hex) }] \[code { Code (hex) }]Description
 
 Monitors read or write or read/write to a range of addresses. If any read or write on your range address (memory), it will be triggered.
 

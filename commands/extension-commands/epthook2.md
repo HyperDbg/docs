@@ -10,7 +10,7 @@ description: Description of '!epthook2' command in HyperDbg.
 
 ### Syntax
 
-> !epthook2 \[address] \[pid (hex value)] \[core (hex value)] \[imm (yes|no)] \[event options]
+> !epthook2 \[Address (hex)] \[pid ProcessId (hex)] \[core CoreId (hex)] \[imm IsImmediate (yesno)] \[buffer PreAllocatedBuffer (hex)] \[script { Script (string) }] \[condition { Condition (hex) }] \[code { Code (hex) }]
 
 ### Description
 
@@ -22,7 +22,7 @@ This implementation of the hidden hook won't cause vm-exit when it triggers. It'
 
 ### Parameters
 
-**\[address]**
+**\[Address (hex)]**
 
 The **Virtual** address of where we want to put the hook.
 

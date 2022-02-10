@@ -10,7 +10,7 @@ description: Description of '!msrread' command in HyperDbg.
 
 ### Syntax
 
-> !msrread \[msr (hex value)] \[pid (hex value)] \[core (hex value)] \[imm (yes|no)] \[event options]
+> !msrread \[msr (hex value)] \[pid ProcessId (hex)] \[core CoreId (hex)] \[imm IsImmediate (yesno)] \[buffer PreAllocatedBuffer (hex)] \[script { Script (string) }] \[condition { Condition (hex) }] \[code { Code (hex) }]
 
 ### Description
 

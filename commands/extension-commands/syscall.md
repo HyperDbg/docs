@@ -12,9 +12,9 @@ description: Description of '!syscall' command in HyperDbg.
 
 ### Syntax
 
-> !syscall \[syscall-number (hex value)] \[pid (hex value)] \[core (hex value)] \[imm (yes|no)] \[event options]
+> !syscall \[syscall-number (hex value)] \[pid ProcessId (hex)] \[core CoreId (hex)] \[imm IsImmediate (yesno)] \[buffer PreAllocatedBuffer (hex)] \[script { Script (string) }] \[condition { Condition (hex) }] \[code { Code (hex) }]
 >
-> !syscall2 \[syscall-number (hex value)] \[pid (hex value)] \[core (hex value)] \[imm (yes|no)] \[event options]
+> !syscall2 \[syscall-number (hex value)] \[pid ProcessId (hex)] \[core CoreId (hex)] \[imm IsImmediate (yesno)] \[buffer PreAllocatedBuffer (hex)] \[script { Script (string) }] \[condition { Condition (hex) }] \[code { Code (hex) }]
 
 ### Description
 

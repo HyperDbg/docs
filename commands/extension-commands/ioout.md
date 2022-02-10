@@ -10,7 +10,7 @@ description: Description of '!ioout' command in HyperDbg.
 
 ### Syntax
 
-> !ioout \[port (hex value)] \[pid (hex value)] \[core (hex value)] \[imm (yes|no)] \[event options]
+> !ioout \[port (hex value)] \[pid ProcessId (hex)] \[core CoreId (hex)] \[imm IsImmediate (yesno)] \[buffer PreAllocatedBuffer (hex)] \[script { Script (string) }] \[condition { Condition (hex) }] \[code { Code (hex) }]
 
 ### Description
 

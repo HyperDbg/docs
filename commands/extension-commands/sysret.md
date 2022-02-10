@@ -12,9 +12,9 @@ description: Description of '!sysret' command in HyperDbg.
 
 ### Syntax
 
-> !sysret \[pid (hex value)] \[core (hex value)] \[imm (yes|no)] \[event options]
+> !sysret \[pid ProcessId (hex)] \[core CoreId (hex)] \[imm IsImmediate (yesno)] \[buffer PreAllocatedBuffer (hex)] \[script { Script (string) }] \[condition { Condition (hex) }] \[code { Code (hex) }]
 >
-> !sysret2 \[pid (hex value)] \[core (hex value)] \[imm (yes|no)] \[event options]
+> !sysret2 \[pid ProcessId (hex)] \[core CoreId (hex)] \[imm IsImmediate (yesno)] \[buffer PreAllocatedBuffer (hex)] \[script { Script (string) }] \[condition { Condition (hex) }] \[code { Code (hex) }]
 
 ### Description
 
