@@ -119,3 +119,7 @@ After that, we run our script by using the below command.
 ```
 ? .script c:\users\sina\desktop\script.hds 1240 55
 ```
+
+You can see the results in the following picture.
+
+![](../../../../.gitbook/assets/sysret-syscall-interception.PNG)
