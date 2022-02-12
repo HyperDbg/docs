@@ -24,6 +24,8 @@
   * [Principles](using-hyperdbg/user-mode-debugging/principles.md)
   * [Examples](using-hyperdbg/user-mode-debugging/examples/README.md)
     * [basics](using-hyperdbg/user-mode-debugging/examples/basics.md)
+    * [events](using-hyperdbg/user-mode-debugging/examples/events/README.md)
+      * [Getting Results of a System-call](using-hyperdbg/user-mode-debugging/examples/events/getting-results-of-a-system-call.md)
 * [Kernel-mode Debugging](using-hyperdbg/kernel-mode-debugging/README.md)
   * [Principles](using-hyperdbg/kernel-mode-debugging/principles.md)
   * [Examples](using-hyperdbg/kernel-mode-debugging/examples/README.md)
