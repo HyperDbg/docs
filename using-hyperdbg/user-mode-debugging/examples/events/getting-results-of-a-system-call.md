@@ -1,3 +1,7 @@
+---
+description: Intercepting a SYSCALL and SYSRET result
+---
+
 # Getting Results of a System-call
 
 One of the exciting features of HyperDbg is its ability to trace and trigger events in the case of both SYSCALLs and SYSRETs. It's a straightforward task to intercept, monitor, or change syscall parameters; however, it's a bit challenging when it comes to SYSRETs.
@@ -64,7 +68,7 @@ There might be two or more threads that execute the system call. We only interce
 }
 ```
 
-As you might have noticed, we run the SYSRET event before running the syscall event. The reason for it came from the fact that if we set the SYSCALL event before the SYSRET event, a syscall might set the `.thread_id` to a thread id. As we're not configuring the SYSRET event yet, the thread might finish its execution (run SYSRET) before configuring the SYSCALL event, and thus, it never works properly.
+As you might have noticed, we run the SYSRET event before running the syscall event. The reason for it came from the fact that if we set the SYSCALL event before the SYSRET event, a syscall might set the `.thread_id` to a Thread Id. As we're not configuring the SYSRET event yet, the thread might finish its execution (run SYSRET) before configuring the SYSCALL event, and thus, it never works properly.
 
 All in all, putting everything together makes the following script, we'll create a file named `c:\users\sina\desktop\script.hds`.
 
