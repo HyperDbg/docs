@@ -121,7 +121,40 @@ fffff801`67c50000       40000   intelppm.sys                    \SystemRoot\Syst
 
 ### IOCTL
 
-This function work by calling **NtQuerySystemInformation** and does not gets the address from the kernel, so it doesn't have any IOCTL.
+For getting the information about user-mode modules, you should use **DeviceIoControl** with `IOCTL = IOCTL_GET_USER_MODE_MODULE_DETAILS`, you have to send it in the following structure.
+
+```clike
+typedef struct _USERMODE_LOADED_MODULE_DETAILS
+{
+    UINT32  ProcessId;
+    BOOLEAN OnlyCountModules;
+    UINT32  ModulesCount;
+    UINT32  Result;
+
+    //
+    // Here is a list of USERMODE_LOADED_MODULE_SYMBOLS (appended)
+    //
+
+} USERMODE_LOADED_MODULE_DETAILS, *PUSERMODE_LOADED_MODULE_DETAILS;
+```
+
+First, you need to fill the `ProcessId` and set the `OnlyCountModules` to **TRUE**. After that send the IOCTL and if the Result field of the above structure was equal to `DEBUGEER_OPERATION_WAS_SUCCESSFULL`, then you can see the number of modules at the `ModulesCount` field.
+
+After that, you need to send the above IOCTL one more time. First you need to allocate a buffer with the size of `ModulesCount * sizeof(USERMODE_LOADED_MODULE_SYMBOLS) + sizeof(USERMODE_LOADED_MODULE_DETAILS)`, fill the `ProcessId` and set the `OnlyCountModules` to **FALSE**.
+
+```clike
+typedef struct _USERMODE_LOADED_MODULE_SYMBOLS
+{
+    UINT64  BaseAddress;
+    UINT64  Entrypoint;
+    wchar_t FilePath[MAX_PATH];
+
+} USERMODE_LOADED_MODULE_SYMBOLS, *PUSERMODE_LOADED_MODULE_SYMBOLS;
+```
+
+When the above structure is returned, at the bottom of the `USERMODE_LOADED_MODULE_DETAILS` is filled with an array of `USERMODE_LOADED_MODULE_SYMBOLS`. The&#x20;
+
+Getting modules information for the kernel-mode modules are done by calling **NtQuerySystemInformation** and does not gets the address from the kernel, so it doesn't have any IOCTL.
 
 ### Remarks
 
