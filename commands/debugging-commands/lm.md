@@ -10,8 +10,6 @@ description: Description of 'lm' command in HyperDbg.
 
 ### Syntax
 
-> lm
->
 > lm \[m Name (string)] \[pid ProcessId (hex)] \[Filter (string)]
 
 ### Description
