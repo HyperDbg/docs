@@ -151,24 +151,4 @@ You can create a comment on a single line.
 
 ## Functions
 
-The following functions are supported in **Script Engine**.
-
-| Function                         | Description                                                                                                                                                                                        |
-| -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **print**                        | Print the result of an expression. [Read more...](https://docs.hyperdbg.org/commands/scripting-language/functions/exports/print)                                                                   |
-| **printf**                       | Print the result in a printf-style format. [Read more...](https://docs.hyperdbg.org/commands/scripting-language/functions/exports/printf)                                                          |
-| **eb, ed, eq**                   | Modify memory safely. [Read more...](https://docs.hyperdbg.org/commands/scripting-language/functions/memory/eb-ed-eq)                                                                              |
-| **pause**                        | Halt the system and give control to the debugger. [Read more...](https://docs.hyperdbg.org/commands/scripting-language/functions/debugger/pause)                                                   |
-| **enable_event**                 | Enable an event. [Read more...](https://docs.hyperdbg.org/commands/scripting-language/functions/events/enable_event)                                                                               |
-| **disable_event**                | Disable an event. [Read more...](https://docs.hyperdbg.org/commands/scripting-language/functions/events/disable_event)                                                                             |
-| **check_address**                | Check if an address is valid and safe to access or not. [Read more...](https://docs.hyperdbg.org/commands/scripting-language/functions/memory/check_address)                                       |
-| **strlen**                       | Count the length of ASCII strings. [Read more...](https://docs.hyperdbg.org/commands/scripting-language/functions/strings/strlen)                                                                  |
-| **wcslen**                       | Count the length of wide-char strings. [Read more...](https://docs.hyperdbg.org/commands/scripting-language/functions/strings/wcslen)                                                              |
-| **spinlock_lock**                | Lock an spinlock. [Read more...](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks/spinlock_lock)                                                                          |
-| **spinlock_lock_custom_wait**    | Lock an spinlock with a pause timer. [Read more...](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks/spinlock_lock_custom_wait)                                           |
-| **spinlock_unlock**              | Unlock an spinlock. [Read more...](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks/spinlock_unlock)                                                                      |
-| **interlocked_compare_exchange** | Perform an atomic compare-and-exchange operation on the specified values. [Read more...](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_compare_exchange) |
-| **interlocked_decrement**        | Decrement (decrease by one) the value of the variable as an atomic operation. [Read more...](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_decrement)    |
-| **interlocked_exchange**         | Sets a variable to the specified value as an atomic operation. [Read more...](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_exchange)                    |
-| **interlocked_exchange_add**     | Performs an atomic addition of two values. [Read more...](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_exchange_add)                                    |
-| **interlocked_increment**        | Increment (increase by one) the value of the variable as an atomic operation. [Read more...](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_increment)    |
+**HyperDbg** supports multiple pre-defined [functions](https://docs.hyperdbg.org/commands/scripting-language/functions).
