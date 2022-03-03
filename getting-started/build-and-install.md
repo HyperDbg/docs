@@ -34,6 +34,25 @@ After building, you need to disable driver signature enforcement. It is because 
 
 For this purpose, you can **Disable Driver Signature Enforcement** or **Put Windows in Test Mode**.
 
+## Activating User-Mode Debugger
+
+The user-mode debugger is still in the beta version and not stable. We decided to exclude it from this release and release it in future versions. If you want to test the user-mode debugger in **VMI Mode**, you should build HyperDbg with special instructions.&#x20;
+
+Open the following file:&#x20;
+
+`HyperDbg/hyperdbg/include/Configuration.h`
+
+Change the following constant from **FALSE** to **TRUE**.
+
+```
+/**
+ * @brief Activates the user-mode debugger
+ */
+#define ActivateUserModeDebugger FALSE
+```
+
+After that, compile HyperDbg, and the user-mode debugger is activated. (You can use the [.start](https://docs.hyperdbg.org/commands/meta-commands/.start) and the [.attach](https://docs.hyperdbg.org/commands/meta-commands/.attach) commands).
+
 ## Running HyperDbg
 
 Running HyperDbg has multiple stages. First, you should make sure to enable Intel **VT-x** from the BIOS. Next, you have to disable **driver signature enforcement** and turn off **Virtualization Based Security (VBS)**. Then you can run HyperDbg.
