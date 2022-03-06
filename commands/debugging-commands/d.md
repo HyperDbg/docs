@@ -1,5 +1,5 @@
 ---
-description: Description of 'd*' command in HyperDbg.
+description: Description of 'db, dc, dd, dq' commands in HyperDbg.
 ---
 
 # db, dc, dd, dq (read virtual memory)

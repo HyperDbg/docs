@@ -1,5 +1,5 @@
 ---
-description: Description of 'e*' command in HyperDbg.
+description: Description of 'eb, ed, eq' commands in HyperDbg.
 ---
 
 # eb, ed, eq (edit virtual memory)

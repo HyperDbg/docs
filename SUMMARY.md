@@ -73,6 +73,7 @@
   * [eb, ed, eq (edit virtual memory)](commands/debugging-commands/e.md)
   * [sb, sd, sq (search virtual memory)](commands/debugging-commands/s.md)
   * [u, u2 (disassemble virtual address)](commands/debugging-commands/u.md)
+  * [k, kd, kq (display stack backtrace)](commands/debugging-commands/k.md)
   * [sleep (wait for specific time in the .script command)](commands/debugging-commands/sleep.md)
   * [pause (break to the debugger and pause processing kernel packets)](commands/debugging-commands/pause.md)
   * [print (evaluate and print expression in debuggee)](commands/debugging-commands/print.md)

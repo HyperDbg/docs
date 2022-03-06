@@ -1,5 +1,5 @@
 ---
-description: Description of '!s*' command in HyperDbg.
+description: Description of '!sb, !sd, !sq' commands in HyperDbg.
 ---
 
 # !sb, !sd, !sq (search physical memory)

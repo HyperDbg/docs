@@ -1,5 +1,5 @@
 ---
-description: Description of 'u, u2' command in HyperDbg.
+description: Description of 'u, u2' commands in HyperDbg.
 ---
 
 # u, u2 (disassemble virtual address)

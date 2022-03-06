@@ -1,5 +1,5 @@
 ---
-description: Description of '!syscall' command in HyperDbg.
+description: Description of '!syscall' and '!syscall2' commands in HyperDbg.
 ---
 
 # !syscall, !syscall2 (hook system-calls)
