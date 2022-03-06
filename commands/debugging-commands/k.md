@@ -42,7 +42,7 @@ The length (byte) in hex format.
 
 ### Examples
 
-
+The following command shows the callstack of the current thread.
 
 ```diff
 2: kHyperDbg> k
@@ -54,7 +54,7 @@ The length (byte) in hex format.
 [$+1d0]   fffff801635fd513    (from nt!IopSynchronousServiceTail+0x1a3 <fffff801635fd513>)
 ```
 
-
+The following command shows the callstack of the current thread along with stack parameters.
 
 ```diff
 2: kHyperDbg> kq
@@ -84,7 +84,7 @@ The length (byte) in hex format.
 [$+1f8]      0000000000000001
 ```
 
-
+The following command shows the calls along with parameters (the base address is `@rbx-10`).
 
 ```diff
 2: kHyperDbg> kq base @rbx-10
@@ -101,7 +101,7 @@ The length (byte) in hex format.
 [$+050]      ffff948cc06a9790 (addr <ffff948cc06a9790>)
 ```
 
-
+The following command shows the callstack of the current thread in a 32-bit environment.
 
 ```diff
 0: kHyperDbg> k
@@ -111,7 +111,7 @@ The length (byte) in hex format.
 [$+074]   770775bf    (from <770775bf>)
 ```
 
-
+The following command shows the callstack of the current thread along with parameters in a 32-bit environment.
 
 ```diff
 0: kHyperDbg> kd
@@ -133,11 +133,83 @@ The length (byte) in hex format.
 
 ### IOCTL
 
+This commands works over serial by sending the serial packets to the remote computer.
 
+First of all, you should fill the following structure, set the `Is32Bit`to your target execution context, set the `Size` and count of frames `FrameCount`, the base address (setting `NULL` as based address indicates that debuggee needs the current `RSP` register as the base address).
+
+After allocating the below structure, you should also allocate as many frames structure (`DEBUGGER_SINGLE_CALLSTACK_FRAME`) that you want to read from the stack (`FrameCount * sizeof(DEBUGGER_SINGLE_CALLSTACK_FRAME)`).
+
+```c
+typedef struct _DEBUGGER_CALLSTACK_REQUEST
+{
+    BOOLEAN                           Is32Bit;
+    UINT32                            KernelStatus;
+    DEBUGGER_CALLSTACK_DISPLAY_METHOD DisplayMethod;
+    UINT32                            Size;
+    UINT32                            FrameCount;
+    UINT64                            BaseAddress;
+    UINT64                            BufferSize;
+
+    //
+    // Here is the size of stack frames
+    //
+
+} DEBUGGER_CALLSTACK_REQUEST, *PDEBUGGER_CALLSTACK_REQUEST;
+```
+
+The following structure shows the different fields of the frame structure.
+
+```clike
+typedef struct _DEBUGGER_SINGLE_CALLSTACK_FRAME
+{
+    BOOLEAN IsStackAddressValid;
+    BOOLEAN IsValidAddress;
+    BOOLEAN IsExecutable;
+    UINT64  Value;
+    BYTE    InstructionBytesOnRip[MAXIMUM_CALL_INSTR_SIZE];
+
+} DEBUGGER_SINGLE_CALLSTACK_FRAME, *PDEBUGGER_SINGLE_CALLSTACK_FRAME;
+```
+
+The `DisplayMethod` can be selected from the below enum:
+
+```clike
+typedef enum _DEBUGGER_CALLSTACK_DISPLAY_METHOD
+{
+    DEBUGGER_CALLSTACK_DISPLAY_METHOD_WITHOUT_PARAMS,
+    DEBUGGER_CALLSTACK_DISPLAY_METHOD_WITH_PARAMS,
+
+} DEBUGGER_CALLSTACK_DISPLAY_METHOD;
+```
+
+The next step is sending the above structure to the debuggee when debuggee is paused and waiting for new command on **vmx-root** mode.
+
+You should send the above structure with `DEBUGGER_REMOTE_PACKET_REQUESTED_ACTION_ON_VMX_ROOT_MODE_CALLSTACK` as `RequestedAction` and `DEBUGGER_REMOTE_PACKET_TYPE_DEBUGGER_TO_DEBUGGEE_EXECUTE_ON_VMX_ROOT` as `PacketType`.
+
+In return, the debuggee sends the above structure with the following type.
+
+```c
+DEBUGGER_REMOTE_PACKET_REQUESTED_ACTION_DEBUGGEE_RESULT_OF_CALLSTACK
+```
+
+In the returned structure, the `KernelStatus` and frames structures are filled by the kernel.
+
+If the `KernelStatus` is `DEBUGEER_OPERATION_WAS_SUCCESSFULL`, then the operation was successful. Otherwise, the returned result is an error.
+
+The following function is responsible for sending interpreting frames in the debugger.
+
+```clike
+VOID
+CallstackShowFrames(PDEBUGGER_SINGLE_CALLSTACK_FRAME  CallstackFrames,
+                    UINT32                            FrameCount,
+                    DEBUGGER_CALLSTACK_DISPLAY_METHOD DisplayMethod,
+                    BOOLEAN                           Is32Bit);
+```
 
 ### Remarks
 
 * If you don't specify the length, the default length for HyperDbg is `0x100` Bytes for 32-bit contexts and `0x200` for 64-bit contexts.
+* HyperDbg automatically switches between 32-bit and 64-bit environments based on the debuggee's execution context.
 
 {% hint style="warning" %}
 Please note that you should specify a space between 'l' and the length in HyperDbg. For example, 'l100' is invalid, but 'l 100' is valid. (It's opposed to windbg).
