@@ -2,15 +2,15 @@
 description: Description of 'interlocked_compare_exchange' function in HyperDbg Scripts
 ---
 
-# interlocked_compare_exchange
+# interlocked\_compare\_exchange
 
 ### Function
 
-> interlocked_compare_exchange
+> interlocked\_compare\_exchange
 
 ### Syntax
 
-> interlocked_compare_exchange( \*Variable, Expression, Expression );
+> interlocked\_compare\_exchange( \*Variable, Expression, Expression );
 
 ### Parameters
 
@@ -28,7 +28,7 @@ Specifies the value that is compared with the input value pointed to by **Destin
 
 ### Description
 
-Performs an atomic operation that compares the input value pointed to by **Destination** with the value of **Comperand**.
+Performs an atomic operation that compares the input value pointed to by **Destination** with the value of **Comperand**. If **Comperand** is equal to **Destination**, then **Destination** is set to equal **Exchange**. Otherwise, **Destination** is unchanged.
 
 ### Return value
 
@@ -44,10 +44,10 @@ None
 
 ### Related
 
-[interlocked_exchange_add](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_exchange_add)
+[interlocked\_exchange\_add](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked\_exchange\_add)
 
-[interlocked_increment](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_increment)
+[interlocked\_increment](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked\_increment)
 
-[interlocked_exchange](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_exchange)
+[interlocked\_exchange](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked\_exchange)
 
-[interlocked_decrement](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_decrement)
+[interlocked\_decrement](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked\_decrement)
