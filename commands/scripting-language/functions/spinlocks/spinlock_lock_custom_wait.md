@@ -2,15 +2,15 @@
 description: Description of 'spinlock_lock_custom_wait' function in HyperDbg Scripts
 ---
 
-# spinlock_lock_custom_wait
+# spinlock\_lock\_custom\_wait
 
 ### Function
 
-> spinlock_lock_custom_wait
+> spinlock\_lock\_custom\_wait
 
 ### Syntax
 
-> spinlock_lock_custom_wait( \*Variable, Expression );
+> spinlock\_lock\_custom\_wait( \*Variable, Expression );
 
 ### Parameters
 
@@ -20,15 +20,15 @@ A reference to a variable (most of the time a global variable), used as a [lock]
 
 **\[Expression]**
 
-A [MASM-like expression](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations) to evaluate which is the maximum wait time for the spinlock to re-check the lock.
+A [MASM-like expression](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations) to evaluate which is the maximum waiting check for the spinlock to re-check the lock.
 
 {% hint style="info" %}
-By default in [spinlock_lock](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks/spinlock_lock), the maximum waiting time is **`65536`**.
+By default in [spinlock\_lock](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks/spinlock\_lock), the maximum waiting check is **`65536`**.
 {% endhint %}
 
 ### Description
 
-Locks the spinlock referred to by lock and also uses the maximum wait time to re-check the lock. The lock can be unlocked by [spinlock_unlock](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks/spinlock_unlock).
+Locks the spinlock referred to by lock and also uses the maximum waiting check to re-check the lock. The lock can be unlocked by [spinlock\_unlock](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks/spinlock\_unlock).
 
 ### Return value
 
@@ -44,7 +44,7 @@ Then, you can use it like this:
 
 `spinlock_lock_custom_wait(&.my_lock, 500);`
 
-The above example locks the spinlock of a global variable (lock) which is called `.my_lock`. It uses **500** as the maximum wait time. Note that you should use the unary operator `&` to pass a reference of the global variable to this function.
+The above example locks the spinlock of a global variable (lock) which is called `.my_lock`. It uses **500** as the maximum waiting check. Note that you should use the unary operator `&` to pass a reference of the global variable to this function.
 
 ### Remarks
 
@@ -54,6 +54,6 @@ It's actually the number of times which the **PAUSE** instruction is executed.
 
 ### Related
 
-[spinlock_lock](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks/spinlock_lock)
+[spinlock\_lock](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks/spinlock\_lock)
 
-[spinlock_unlock](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks/spinlock_unlock)
+[spinlock\_unlock](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks/spinlock\_unlock)
