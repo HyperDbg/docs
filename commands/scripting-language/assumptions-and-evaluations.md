@@ -20,20 +20,20 @@ The following articles describe **HyperDbg**'s _Script Engine_.
 
 The following keywords are valid in **Script Engine**.
 
-| Keyword | Description                                   |
-| ------- | --------------------------------------------- |
-| **poi** | Pointer-sized data from the specified address |
-| **ref** | Reference address of the specified variable   |
-| **hi**  | High 16 bits                                  |
-| **low** | Low 16 bits                                   |
-| **db**  | Low 8 bits                                    |
-| **dd**  | Low 16 bits                                   |
-| **dw**  | Low 32 bits                                   |
-| **dq**  | 64 bits                                       |
-| **not** | Flip each and every bit                       |
-| **neg** | True/False logic flipping                     |
+| Keyword | Description                                                 |
+| ------- | ----------------------------------------------------------- |
+| **poi** | Pointer-sized data from the specified address (dereference) |
+| **ref** | Reference address of the specified variable                 |
+| **hi**  | High 16 bits (dereference)                                  |
+| **low** | Low 16 bits (dereference)                                   |
+| **db**  | Low 8 bits (dereference)                                    |
+| **dd**  | Low 16 bits (dereference)                                   |
+| **dw**  | Low 32 bits (dereference)                                   |
+| **dq**  | 64 bits (dereference)                                       |
+| **not** | Flip each and every bit                                     |
+| **neg** | True/False logic flipping                                   |
 
-If you want to read strings or wide-char strings, you can use [**printf**](https://docs.hyperdbg.org/commands/scripting-language/functions/printf) function.
+If you want to read strings or Unicode strings, you can use the [**printf**](https://docs.hyperdbg.org/commands/scripting-language/functions/printf) function.
 
 ## Operators
 
