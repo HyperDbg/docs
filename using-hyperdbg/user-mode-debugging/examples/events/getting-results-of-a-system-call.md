@@ -70,7 +70,7 @@ There might be two or more threads that execute the system call. We only interce
 
 As you might have noticed, we run the SYSRET event before running the syscall event. The reason for it came from the fact that if we set the SYSCALL event before the SYSRET event, a syscall might set the `.thread_id` to a Thread Id. As we're not configuring the SYSRET event yet, the thread might finish its execution (run SYSRET) before configuring the SYSCALL event, and thus, it never works properly.
 
-All in all, putting everything together makes the following script, we'll create a file named `c:\users\sina\desktop\script.hds`.
+All in all, putting everything together makes the following script, we'll create a file named `c:\users\sina\desktop\script.ds`.
 
 ```clike
 ? .thread_id = 0;
@@ -117,7 +117,7 @@ All in all, putting everything together makes the following script, we'll create
 After that, we run our script by using the below command.
 
 ```
-? .script c:\users\sina\desktop\script.hds 1240 55
+? .script c:\users\sina\desktop\script.ds 1240 55
 ```
 
 You can see the results in the following picture.

@@ -1,6 +1,5 @@
 ---
 description: A hypervisor-assisted debugger designed for analyzing, fuzzing and reversing
-coverY: 0
 ---
 
 # HyperDbg

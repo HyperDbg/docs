@@ -1,8 +1,8 @@
 ---
-description: Description of HyperDbg Batch Scripts
+description: Description of HyperDbg Debugger Scripts
 ---
 
-# HyperDbg Scripts (HDS)
+# Debugger Script (DS)
 
 Batch scripts are essential parts of the debugger and the script engine, mainly used to automate debugging tasks.
 
@@ -14,13 +14,13 @@ Generally, each functionality that is not called at a high rate and computation 
 
 ### Extensions
 
-You can use plain text files for batch scripts, but as the convention, HyperDbg uses (**.hds**) extensions, the abbreviation of **H**yper**D**bg **S**cripts.
+You can use plain text files for batch scripts, but as the convention, HyperDbg uses (**.ds**) extensions, the abbreviation of **D**ebugger **S**cript.
 
 ### Arguments
 
 Arguments are passed to the scripts by using the `$arg0`, `$arg1`, `$arg2`, ..., `$arg100`, ..., `$arg1000` and so on.
 
-The first argument (`$arg0`) is the script's **.hds** file path. Arguments can be both an expression, a constant, or a string. Constants are considered in **hex** format if no [prefix](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations#number-prefixes) is specified.
+The first argument (`$arg0`) is the script's **.ds** file path. Arguments can be both an expression, a constant, or a string. Constants are considered in **hex** format if no [prefix](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations#number-prefixes) is specified.
 
 ### Running Scripts
 
@@ -35,13 +35,13 @@ In HyperDbg's batch scripts '`#`' is used as the [comment character](https://doc
 For example, let's assume that we can use [.script](https://docs.hyperdbg.org/commands/meta-commands/.script) command like this:
 
 ```bash
-HyperDbg> .script c:\users\sina\desktop\script.hds
+HyperDbg> .script c:\users\sina\desktop\script.ds
 ```
 
 If we want to pass arguments to the script.
 
 ```bash
-HyperDbg> .script c:\users\sina\desktop\script.hds 0x55 @rax+@rbx 123
+HyperDbg> .script c:\users\sina\desktop\script.ds 0x55 @rax+@rbx 123
 ```
 
 The second case is when we want to run our script from the command-line directly; then you can run the **hyperdbg-cli.exe** like this :
@@ -50,7 +50,7 @@ The second case is when we want to run our script from the command-line directly
 Microsoft Windows [Version 10.0.18362.900]
 (c) 2019 Microsoft Corporation. All rights reserved.
 
-C:\Users\sina\Desktop\HyperDbg>hyperdbg-cli.exe --script c:\users\sina\desktop\script.hds
+C:\Users\sina\Desktop\HyperDbg>hyperdbg-cli.exe --script c:\users\sina\desktop\script.ds
 ```
 
 If we need to pass arguments to the script.
@@ -59,7 +59,7 @@ If we need to pass arguments to the script.
 Microsoft Windows [Version 10.0.18362.900]
 (c) 2019 Microsoft Corporation. All rights reserved.
 
-C:\Users\sina\Desktop\HyperDbg>hyperdbg-cli.exe --script c:\users\sina\desktop\script.hds 0x55 @rax+@rbx 123
+C:\Users\sina\Desktop\HyperDbg>hyperdbg-cli.exe --script c:\users\sina\desktop\script.ds 0x55 @rax+@rbx 123
 ```
 
 With these two ways, we can automate our scripts in **HyperDbg**.
@@ -70,11 +70,11 @@ Let's see some examples.
 
 #### Example 1
 
-Imagine we saved the following file at `C:\My HyperDbg Scripts\Hello World.hds"`. We want to pass two parameters, the first parameter (`$arg1`) as **0x55** and the second parameter (`$arg2`) as **@rax+@rbx**.
+Imagine we saved the following file at `C:\My HyperDbg Scripts\Hello World.ds"`. We want to pass two parameters, the first parameter (`$arg1`) as **0x55** and the second parameter (`$arg2`) as **@rax+@rbx**.
 
 You can use the following command.
 
-`.script "C:\My HyperDbg Scripts\Hello World.hds" 0x55 @rax+@rbx`
+`.script "C:\My HyperDbg Scripts\Hello World.ds" 0x55 @rax+@rbx`
 
 {% hint style="info" %}
 Please note that you should put a space in the script file path between two quotations if there is a space in the script file path.
@@ -100,7 +100,7 @@ Result of rax + rbx is : 5
 
 Imagine we want to intercept syscall for a particular process, get the Process ID and the Syscall Number from the user, and print the details for each execution of the target system call. We'll use the following script.
 
-`.script "C:\My HyperDbg Scripts\Syscall Log.hds" 1ec0 0x55`
+`.script "C:\My HyperDbg Scripts\Syscall Log.ds" 1ec0 0x55`
 
 ```clike
 !syscall pid $arg1 script { 
