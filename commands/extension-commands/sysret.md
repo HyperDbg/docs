@@ -1,5 +1,5 @@
 ---
-description: Description of '!sysret' and '!sysret2' commands in HyperDbg.
+description: Description of '!sysret, !sysret2' commands in HyperDbg.
 ---
 
 # !sysret, !sysret2 (hook SYSRET instruction execution)

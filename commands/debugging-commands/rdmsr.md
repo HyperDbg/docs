@@ -1,5 +1,5 @@
 ---
-description: Description of 'rdmsr' command in HyperDbg.
+description: Description of the 'rdmsr' command in HyperDbg.
 ---
 
 # rdmsr (read model-specific register)

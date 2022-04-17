@@ -1,5 +1,5 @@
 ---
-description: Description of '!exception' command in HyperDbg.
+description: Description of the '!exception' command in HyperDbg.
 ---
 
 # !exception (hook first 32 entries of IDT)

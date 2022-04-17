@@ -1,8 +1,8 @@
 ---
-description: Description of 'exit' command in HyperDbg.
+description: Description of the 'exit' command in HyperDbg.
 ---
 
-# exit \(exit from the debugger\)
+# exit (exit from the debugger)
 
 ### Command
 
@@ -38,5 +38,4 @@ None
 
 ### Related
 
-[ unload \(unload the kernel modules\)](https://docs.hyperdbg.org/commands/debugging-commands/unload)
-
+[unload (unload the kernel modules)](https://docs.hyperdbg.org/commands/debugging-commands/unload)

@@ -1,8 +1,8 @@
 ---
-description: Description of 'flush' command in HyperDbg.
+description: Description of the 'flush' command in HyperDbg.
 ---
 
-# flush \(remove pending kernel buffers and messages\)
+# flush (remove pending kernel buffers and messages)
 
 ### Command
 
@@ -14,7 +14,7 @@ description: Description of 'flush' command in HyperDbg.
 
 ### Description
 
-This command removes all the possible pending buffers and messages from **all the commands \(not just the command that you disabled or removed\)** that are stored to be received by the user-mode from the kernel-mode, and when you press '[g](https://docs.hyperdbg.org/commands/debugging-commands/g)', you no longer see any results from previous commands; however, some commands might continue generating new messages, and those new messages won't be removed.
+This command removes all the possible pending buffers and messages from **all the commands (not just the command that you disabled or removed)** that are stored to be received by the user-mode from the kernel-mode, and when you press '[g](https://docs.hyperdbg.org/commands/debugging-commands/g)', you no longer see any results from previous commands; however, some commands might continue generating new messages, and those new messages won't be removed.
 
 ### Parameters
 
@@ -60,7 +60,7 @@ BOOLEAN KdSendFlushPacketToDebuggee();
 
 You can configure **autoflush** mode in [settings](https://docs.hyperdbg.org/commands/debugging-commands/settings). This way, **HyperDbg** removes the pending messages automatically when you **disabled** or **cleared** an event.
 
-This command is guaranteed to keep debuggee in a halt state \(in Debugger Mode\); thus, nothing will change during its execution.
+This command is guaranteed to keep debuggee in a halt state (in Debugger Mode); thus, nothing will change during its execution.
 
 ### Requirements
 
@@ -68,5 +68,4 @@ None
 
 ### Related
 
-[settings \(configures different options and preferences\)](https://docs.hyperdbg.org/commands/debugging-commands/settings)
-
+[settings (configures different options and preferences)](https://docs.hyperdbg.org/commands/debugging-commands/settings)

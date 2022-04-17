@@ -1,5 +1,5 @@
 ---
-description: Description of 'cpu' command in HyperDbg.
+description: Description of the 'cpu' command in HyperDbg.
 ---
 
 # cpu (check cpu supported technologies)

@@ -1,5 +1,5 @@
 ---
-description: Description of '!hide' command in HyperDbg.
+description: Description of the '!hide' command in HyperDbg.
 ---
 
 # !hide (enable transparent-mode)

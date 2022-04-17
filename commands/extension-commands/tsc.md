@@ -1,5 +1,5 @@
 ---
-description: Description of '!tsc' command in HyperDbg.
+description: Description of the '!tsc' command in HyperDbg.
 ---
 
 # !tsc (hook RDTSC/RDTSCP instruction execution)

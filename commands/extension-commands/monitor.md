@@ -1,5 +1,5 @@
 ---
-description: Description of '!monitor' command in HyperDbg.
+description: Description of the '!monitor' command in HyperDbg.
 ---
 
 # !monitor (monitor read/write to a page)

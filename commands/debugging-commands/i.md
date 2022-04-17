@@ -1,5 +1,5 @@
 ---
-description: Description of 'i' command in HyperDbg.
+description: Description of the 'i' command in HyperDbg.
 ---
 
 # i (instrumentation step-in)

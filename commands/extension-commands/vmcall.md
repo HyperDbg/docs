@@ -1,5 +1,5 @@
 ---
-description: Description of '!vmcall' command in HyperDbg.
+description: Description of the '!vmcall' command in HyperDbg.
 ---
 
 # !vmcall (hook hypercalls)

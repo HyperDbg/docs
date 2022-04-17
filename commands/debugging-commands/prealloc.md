@@ -1,5 +1,5 @@
 ---
-description: Description of 'prealloc' command in HyperDbg.
+description: Description of the 'prealloc' command in HyperDbg.
 ---
 
 # prealloc (reserve pre-allocated pools)

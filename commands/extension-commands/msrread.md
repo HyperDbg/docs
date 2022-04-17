@@ -1,5 +1,5 @@
 ---
-description: Description of '!msrread' command in HyperDbg.
+description: Description of the '!msrread' command in HyperDbg.
 ---
 
 # !msrread (hook RDMSR instruction execution)

@@ -1,5 +1,5 @@
 ---
-description: Description of 'settings' command in HyperDbg.
+description: Description of the 'settings' command in HyperDbg.
 ---
 
 # settings (configures different options and preferences)

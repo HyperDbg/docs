@@ -1,5 +1,5 @@
 ---
-description: Description of '!msrwrite' command in HyperDbg.
+description: Description of the '!msrwrite' command in HyperDbg.
 ---
 
 # !msrwrite (hook WRMSR instruction execution)

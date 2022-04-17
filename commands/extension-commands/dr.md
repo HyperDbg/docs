@@ -1,5 +1,5 @@
 ---
-description: Description of '!dr' command in HyperDbg.
+description: Description of the '!dr' command in HyperDbg.
 ---
 
 # !dr (hook access to debug registers)

@@ -1,5 +1,5 @@
 ---
-description: Description of '!pte' command in HyperDbg.
+description: Description of the '!pte' command in HyperDbg.
 ---
 
 # !pte (display page-level address and entries)

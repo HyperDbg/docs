@@ -1,5 +1,5 @@
 ---
-description: Description of '?' command in HyperDbg.
+description: Description of the '?' command in HyperDbg.
 ---
 
 # ? (evaluate and execute expressions and scripts in debuggee)

@@ -1,5 +1,5 @@
 ---
-description: Description of '!pmc' command in HyperDbg.
+description: Description of the '!pmc' command in HyperDbg.
 ---
 
 # !pmc (hook RDPMC instruction execution)

@@ -1,8 +1,8 @@
 ---
-description: Description of '!unhide' command in HyperDbg.
+description: Description of the '!unhide' command in HyperDbg.
 ---
 
-# !unhide \(disable transparent-mode\)
+# !unhide (disable transparent-mode)
 
 ### Command
 
@@ -22,7 +22,7 @@ None
 
 ### Examples
 
-```text
+```
 HyperDbg> !unhide
 ```
 
@@ -62,11 +62,11 @@ typedef struct _DEBUGGER_HIDE_AND_TRANSPARENT_DEBUGGER_MODE {
     *PDEBUGGER_HIDE_AND_TRANSPARENT_DEBUGGER_MODE;
 ```
 
-If the results were successful, then the kernel sends `DEBUGEER_OPERATION_WAS_SUCCESSFULL` to user-mode \(as KernelStatus to the above structure\), and if it was unsuccessful, then `DEBUGEER_ERROR_DEBUGGER_ALREADY_UHIDE` which is an indicator that **HyperDbg** was not already in transparent-mode.
+If the results were successful, then the kernel sends `DEBUGEER_OPERATION_WAS_SUCCESSFULL` to user-mode (as KernelStatus to the above structure), and if it was unsuccessful, then `DEBUGEER_ERROR_DEBUGGER_ALREADY_UHIDE` which is an indicator that **HyperDbg** was not already in transparent-mode.
 
 ### Remarks
 
-This command will continue the debuggee for some time \(in Debugger Mode\). This means that you lose the current context \(registers & memory\) after executing this command.
+This command will continue the debuggee for some time (in Debugger Mode). This means that you lose the current context (registers & memory) after executing this command.
 
 ### Requirements
 
@@ -74,5 +74,4 @@ None
 
 ### Related
 
-[!hide \(enable transparent mode\)](https://docs.hyperdbg.org/commands/extension-commands/hide)
-
+[!hide (enable transparent mode)](https://docs.hyperdbg.org/commands/extension-commands/hide)

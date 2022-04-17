@@ -1,5 +1,5 @@
 ---
-description: Description of 'sleep' command in HyperDbg.
+description: Description of the 'sleep' command in HyperDbg.
 ---
 
 # sleep (wait for specific time in the .script command)

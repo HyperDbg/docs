@@ -1,5 +1,5 @@
 ---
-description: Description of 'print' command in HyperDbg.
+description: Description of the 'print' command in HyperDbg.
 ---
 
 # print (evaluate and print expression in debuggee)

@@ -1,5 +1,5 @@
 ---
-description: Description of '#' command in HyperDbg.
+description: Description of the '#' comments in HyperDbg.
 ---
 
 # # (comment in batch scripts)

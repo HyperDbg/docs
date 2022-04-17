@@ -1,5 +1,5 @@
 ---
-description: Description of '!va2pa' command in HyperDbg.
+description: Description of the '!va2pa' command in HyperDbg.
 ---
 
 # !va2pa (convert a virtual address to physical address)

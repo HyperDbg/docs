@@ -1,5 +1,5 @@
 ---
-description: Description of 'unload' command in HyperDbg.
+description: Description of the 'unload' command in HyperDbg.
 ---
 
 # unload (unload the kernel modules)

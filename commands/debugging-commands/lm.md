@@ -1,5 +1,5 @@
 ---
-description: Description of 'lm' command in HyperDbg.
+description: Description of the 'lm' command in HyperDbg.
 ---
 
 # lm (view loaded modules)

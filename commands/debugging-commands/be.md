@@ -1,5 +1,5 @@
 ---
-description: Description of 'be' command in HyperDbg.
+description: Description of the 'be' command in HyperDbg.
 ---
 
 # be (enable breakpoints)

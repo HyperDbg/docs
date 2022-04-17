@@ -1,5 +1,5 @@
 ---
-description: Description of 'bp' command in HyperDbg.
+description: Description of the 'bp' command in HyperDbg.
 ---
 
 # bp (set breakpoint)

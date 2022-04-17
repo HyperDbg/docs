@@ -1,5 +1,5 @@
 ---
-description: Description of '!measure' command in HyperDbg.
+description: Description of the '!measure' command in HyperDbg.
 ---
 
 # !measure (measuring and providing details for transparent-mode)

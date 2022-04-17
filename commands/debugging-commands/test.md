@@ -1,5 +1,5 @@
 ---
-description: Description of 'test' command in HyperDbg.
+description: Description of the 'test' command in HyperDbg.
 ---
 
 # test (test functionalities)

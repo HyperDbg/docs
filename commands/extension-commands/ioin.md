@@ -1,5 +1,5 @@
 ---
-description: Description of '!ioin' command in HyperDbg.
+description: Description of the '!ioin' command in HyperDbg.
 ---
 
 # !ioin (hook IN instruction execution)

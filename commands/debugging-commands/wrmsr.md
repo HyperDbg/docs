@@ -1,5 +1,5 @@
 ---
-description: Description of 'wrmsr' command in HyperDbg.
+description: Description of the 'wrmsr' command in HyperDbg.
 ---
 
 # wrmsr (write model-specific register)

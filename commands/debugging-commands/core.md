@@ -1,5 +1,5 @@
 ---
-description: Description of '~' command in HyperDbg.
+description: Description of the '~' command in HyperDbg.
 ---
 
 # \~ (display and change the current operating core)

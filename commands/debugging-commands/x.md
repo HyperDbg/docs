@@ -1,5 +1,5 @@
 ---
-description: Description of 'x' command in HyperDbg.
+description: Description of the 'x' command in HyperDbg.
 ---
 
 # x (examine symbols and find functions and variables address)

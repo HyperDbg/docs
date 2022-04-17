@@ -1,5 +1,5 @@
 ---
-description: Description of 'output' command in HyperDbg.
+description: Description of the 'output' command in HyperDbg.
 ---
 
 # output (create output source for event forwarding)

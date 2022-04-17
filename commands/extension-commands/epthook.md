@@ -1,5 +1,5 @@
 ---
-description: Description of '!epthook' command in HyperDbg.
+description: Description of the '!epthook' command in HyperDbg.
 ---
 
 # !epthook (hidden hook with EPT - stealth breakpoints)

@@ -1,5 +1,5 @@
 ---
-description: Description of '!ioout' command in HyperDbg.
+description: Description of the '!ioout' command in HyperDbg.
 ---
 
 # !ioout (hook OUT instruction execution)

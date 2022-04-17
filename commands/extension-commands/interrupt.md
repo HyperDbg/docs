@@ -1,5 +1,5 @@
 ---
-description: Description of '!interrupt' command in HyperDbg.
+description: Description of the '!interrupt' command in HyperDbg.
 ---
 
 # !interrupt (hook external device interrupts)

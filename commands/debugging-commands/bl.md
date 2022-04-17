@@ -1,8 +1,8 @@
 ---
-description: Description of 'bl' command in HyperDbg.
+description: Description of the 'bl' command in HyperDbg.
 ---
 
-# bl \(list breakpoints\)
+# bl (list breakpoints)
 
 ### Command
 
@@ -24,7 +24,7 @@ None
 
 The following command shows how you can use the 'bl' command.
 
-```text
+```
 0: kHyperDbg> bl
 id   address           status
 --   ---------------   --------
@@ -96,7 +96,7 @@ HyperDbg will send a list of all active breakpoints and their **status** includi
 
 ### Remarks
 
-This command is guaranteed to keep debuggee in a halt state \(in Debugger Mode\); thus, nothing will change during its execution.
+This command is guaranteed to keep debuggee in a halt state (in Debugger Mode); thus, nothing will change during its execution.
 
 ### Requirements
 
@@ -104,11 +104,10 @@ None
 
 ### Related
 
-[bp \(set breakpoint\)](https://docs.hyperdbg.org/commands/debugging-commands/bp)
+[bp (set breakpoint)](https://docs.hyperdbg.org/commands/debugging-commands/bp)
 
-[be \(enable breakpoints\)](https://docs.hyperdbg.org/commands/debugging-commands/be)
+[be (enable breakpoints)](https://docs.hyperdbg.org/commands/debugging-commands/be)
 
-[bd \(disable breakpoints\)](https://docs.hyperdbg.org/commands/debugging-commands/bd)
+[bd (disable breakpoints)](https://docs.hyperdbg.org/commands/debugging-commands/bd)
 
-[bc \(clear and remove breakpoints\)](https://docs.hyperdbg.org/commands/debugging-commands/bc)
-
+[bc (clear and remove breakpoints)](https://docs.hyperdbg.org/commands/debugging-commands/bc)

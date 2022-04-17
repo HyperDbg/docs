@@ -1,5 +1,5 @@
 ---
-description: Description of 'bd' command in HyperDbg.
+description: Description of the 'bd' command in HyperDbg.
 ---
 
 # bd (disable breakpoints)

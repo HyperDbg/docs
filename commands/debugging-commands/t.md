@@ -1,5 +1,5 @@
 ---
-description: Description of 't' command in HyperDbg.
+description: Description of the 't' command in HyperDbg.
 ---
 
 # t (step-in)

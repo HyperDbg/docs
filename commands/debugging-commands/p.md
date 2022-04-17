@@ -1,5 +1,5 @@
 ---
-description: Description of 'p' command in HyperDbg.
+description: Description of the 'p' command in HyperDbg.
 ---
 
 # p (step-over)

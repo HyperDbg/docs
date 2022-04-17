@@ -1,5 +1,5 @@
 ---
-description: Description of 'event' command in HyperDbg.
+description: Description of the 'event' command in HyperDbg.
 ---
 
 # events (show and modify active/disabled events)
