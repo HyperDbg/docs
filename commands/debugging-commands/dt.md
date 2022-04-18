@@ -36,35 +36,35 @@ The Process ID (in the hex format) that we want to see the memory from its conte
 
 **\[padding Padding (yesno)] (optional)**
 
-Create padding members.
+Create padding members. (default: **yes**)
 
 **\[offset Offset (yesno)] (optional)**
 
-Show offsets.
+Show offsets. (default: **yes**)
 
 **\[bitfield Bitfield (yesno)] (optional)**
 
-Allow bitfields in the union.
+Allow bitfields in the union. (default: **no**)
 
 **\[native Native (yesno)] (optional)**
 
-Use types from stdint.h instead of native types.
+Use types from stdint.h instead of native types. (default: **no**)
 
 **\[decl Declaration (yesno)] (optional)**
 
-Print declarations.
+Print declarations. (default: **yes**)
 
 **\[def Definitions (yesno)] (optional)**
 
-Print definitions.
+Print definitions. (default: **yes**)
 
 **\[func Functions (yesno)] (optional)**
 
-Print functions.
+Print functions. (default: **no**)
 
 **\[pragma Pragma (yesno)] (optional)**
 
-Print #pragma pack directives.
+Print #pragma pack directives. (default: **yes**)
 
 **\[prefix Prefix (string)] (optional)**
 
@@ -76,7 +76,7 @@ Suffix for all symbols.
 
 **\[inline Expantion (string)] (optional)**
 
-Specifies expansion of nested structures/unions.
+Specifies expansion of nested structures/unions. (default: **unnamed**)
 
 &#x20;  **none**: only the top-most type is printed.
 
@@ -86,7 +86,7 @@ Specifies expansion of nested structures/unions.
 
 **\[output FileName (string)] (optional)**
 
-Specifies the output file.
+Specifies the output file if the user wants to save the printed data.
 
 {% hint style="info" %}
 If you don't specify the pid, then the default pid is the current process (**HyperDbg**) process layout of memory.
