@@ -89,12 +89,16 @@ Specifies expansion of nested structures/unions. (default: **unnamed**)
 Specifies the output file if the user wants to save the printed data.
 
 {% hint style="info" %}
-If you don't specify the pid, then the default pid is the current process (**HyperDbg**) process layout of memory.
+If you don't specify the **pid**, then the default **pid** is the current process (**HyperDbg**) process layout of memory.
+{% endhint %}
+
+{% hint style="danger" %}
+In the [Debugger Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode), the **pid** (parameter) is ignored. If you want to view another process memory, use the '[.process](https://docs.hyperdbg.org/commands/meta-commands/.process)' command to switch to another process memory layout.
 {% endhint %}
 
 ### IOCTL
 
-The **IOCTL** for this command is implemented like [db, dc, dd, dq (read virtual memory)](https://docs.hyperdbg.org/commands/debugging-commands/d) command to read data from memory.
+The **IOCTL** for this command is implemented like [db, dc, dd, dq (read virtual memory)](https://docs.hyperdbg.org/commands/debugging-commands/d) commands to read data from memory.
 
 ### Remarks
 
