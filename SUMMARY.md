@@ -36,6 +36,7 @@
       * [Setting Breakpoints & Stepping Instructions](using-hyperdbg/kernel-mode-debugging/examples/basics/setting-breakpoints-and-stepping-instructions.md)
       * [Displaying & Editing & Searching Memory](using-hyperdbg/kernel-mode-debugging/examples/basics/displaying-and-editing-and-searching-memory.md)
       * [Showing & Modifying Registers and Flags](using-hyperdbg/kernel-mode-debugging/examples/basics/showing-and-modifying-registers-and-flags.md)
+      * [Mapping Data & Create Structures, and Enums From Symbols](using-hyperdbg/kernel-mode-debugging/examples/basics/mapping-data-and-create-structures-and-enums-from-symbols.md)
       * [Switching to a Specific Process or Thread](using-hyperdbg/kernel-mode-debugging/examples/basics/switching-to-a-specific-process-or-thread.md)
     * [events](using-hyperdbg/kernel-mode-debugging/examples/events/README.md)
       * [Managing Events](using-hyperdbg/kernel-mode-debugging/examples/events/managing-events.md)

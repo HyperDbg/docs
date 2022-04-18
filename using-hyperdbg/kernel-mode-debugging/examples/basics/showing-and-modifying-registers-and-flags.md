@@ -1,5 +1,5 @@
 ---
-description: using the 'r' command
+description: Using the 'r' command
 ---
 
 # Showing & Modifying Registers and Flags
