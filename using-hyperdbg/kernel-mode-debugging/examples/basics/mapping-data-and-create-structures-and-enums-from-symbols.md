@@ -4,6 +4,14 @@ description: Using the 'dt' and the 'struct' commands
 
 # Mapping Data & Create Structures, and Enums From Symbols
 
+&#x20;In this example, you'll see how to change the process name of the **notepad.exe** in the task manager by utilizing the '[dt](https://docs.hyperdbg.org/commands/debugging-commands/dt)' and the '[struct](https://docs.hyperdbg.org/commands/debugging-commands/struct)' commands of the HyperDbg.
+
+From our previous Windows internals knowledge, we know that the process name is available in the `SeAuditProcessCreationInfo` field of the process's `_EPROCESS`.
+
+Note that there is an `ImageFileName` field in the `_EPROCESS`. However, it's not what we're looking for as it's not the field shown in the Task Manager.
+
+After looking at the `_EPROCESS`, we see that the `SeAuditProcessCreationInfo` is of the `_SE_AUDIT_PROCESS_CREATION_INFO` type. Let's see this structure recursively to see how Windows stores the process name.
+
 ```clike
 HyperDbg> struct _SE_AUDIT_PROCESS_CREATION_INFO
 typedef struct _SE_AUDIT_PROCESS_CREATION_INFO
@@ -29,6 +37,12 @@ typedef struct _UNICODE_STRING
 } UNICODE_STRING, *PUNICODE_STRING; /* size: 0x0010 */
 ```
 
+As you can see, we've reached a `_UNICODE_STRING` structure, and this is where Windows stores the process name. Now let's open **notepad.exe**.
+
+![](../../../../.gitbook/assets/notepad-process-in-task-manager.PNG)
+
+As you can see, the Process ID is **5616** in decimal. We can convert it to the hex by using the '[.formats](https://docs.hyperdbg.org/commands/meta-commands/.formats)' command by adding a **0n** prefix which indicates that the value is in decimal format.
+
 ```clike
 1: kHyperDbg> .format 0n5616
 evaluate expression:
@@ -41,6 +55,8 @@ Time :       04/19/22 - 12:53AM
 Float :      0.00 +3e-320 2.774673E-320
 Double :     2.77467266704444059e-320
 ```
+
+Now, we need to find the `_EPROCESS` of our target process. It's possible by using the '[.process](https://docs.hyperdbg.org/commands/meta-commands/.process)' command.
 
 ```clike
 1: kHyperDbg> .process list
@@ -58,6 +74,8 @@ PROCESS ffff948cc06f6080
 ...
 ```
 
+After that, we'll map the `_EPROCESS` of the **notepad.exe** to find the location of `SeAuditProcessCreationInfo`. As you can see, it's located at `+0x05c0` from the start of the `_EPROCESS`.
+
 ```clike
 1: kHyperDbg> dt nt!_EPROCESS ffff948cc2393080
  _EPROCESS
@@ -71,12 +89,22 @@ PROCESS ffff948cc06f6080
 ...
 ```
 
-![](../../../../.gitbook/assets/notepad-process-in-task-manager.PNG)
+Now, we'll map it to `_SE_AUDIT_PROCESS_CREATION_INFO` to find the `ImageFileName`.
 
 ![](../../../../.gitbook/assets/Get-SeAuditProcessCreationInfo-data.PNG)
 
+Before that, we want to convert the **notepad.exe** to **HyperDbg.exe**. For this purpose, we need to convert "**HyperDbg.exe**" to the hex format and add **00** to each character because this field is in Unicode format.
+
 ![](../../../../.gitbook/assets/hyperdbg-ascii-to-hex.PNG)
+
+We read the pointer located at `_EPROCESS+5c0` and modify the **notepad.exe** in the target `_UNCODE_STRING` by using the '[eb](https://docs.hyperdbg.org/commands/debugging-commands/e)' command.
 
 ![](../../../../.gitbook/assets/chagne-the-process-name.PNG)
 
+It's time to continue the debuggee and see the results.
+
 ![](../../../../.gitbook/assets/result-of-changed-process-name.PNG)
+
+As you can see, it's changed to '**HyperDbg.ex**' because we didn't update the `Length` field of the `_UNICODE_STRING`. Changing this value is left as an exercise for the reader.
+
+That's it. In this example, we saw how we could use the structure mapping commands in HyperDbg to change the process names in the Task Manager.
