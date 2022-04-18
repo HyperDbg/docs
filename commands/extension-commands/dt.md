@@ -84,6 +84,46 @@ Specifies expansion of nested structures/unions. (default: **unnamed**)
 
 Specifies the output file if the user wants to save the printed data.
 
+### Examples
+
+```clike
+1: kHyperDbg> !dt nt!_EPROCESS ac09080
+ _EPROCESS
+  +0x0000 _KPROCESS Pcb : _KPROCESS
+  +0x0438 _EX_PUSH_LOCK ProcessLock : (null)
+  +0x0440 void* UniqueProcessId : 00000000`00000898
+  +0x0448 _LIST_ENTRY ActiveProcessLinks : _LIST_ENTRY [ ffff948c`bf8ea4c8 - ffff948c`c002a788 ]
+  +0x0458 _EX_RUNDOWN_REF RundownProtect : (null)
+  +0x0460 uint32_t Flags2 : 0x200d094
+  +0x0460 uint32_t JobNotReallyActive, Pos 0, 1 Bit : 0y0
+  +0x0460 uint32_t AccountingFolded, Pos 1, 1 Bit : 0y0
+  +0x0460 uint32_t NewProcessReported, Pos 2, 1 Bit : 0y1
+  +0x0460 uint32_t ExitProcessReported, Pos 3, 1 Bit : 0y0
+  +0x0460 uint32_t ReportCommitChanges, Pos 4, 1 Bit : 0y1
+  +0x0460 uint32_t LastReportMemory, Pos 5, 1 Bit : 0y0
+  +0x0460 uint32_t ForceWakeCharge, Pos 6, 1 Bit : 0y0
+  +0x0460 uint32_t CrossSessionCreate, Pos 7, 1 Bit : 0y1
+  +0x0460 uint32_t NeedsHandleRundown, Pos 8, 1 Bit : 0y0
+  +0x0460 uint32_t RefTraceEnabled, Pos 9, 1 Bit : 0y0
+  +0x0460 uint32_t PicoCreated, Pos 10, 1 Bit : 0y0
+  +0x0460 uint32_t EmptyJobEvaluated, Pos 11, 1 Bit : 0y0
+  +0x0460 uint32_t DefaultPagePriority, Pos 12, 3 Bit : 0y101
+  +0x0460 uint32_t PrimaryTokenFrozen, Pos 15, 1 Bit : 0y1
+  +0x0460 uint32_t ProcessVerifierTarget, Pos 16, 1 Bit : 0y0
+  +0x0460 uint32_t RestrictSetThreadContext, Pos 17, 1 Bit : 0y0
+  +0x0460 uint32_t AffinityPermanent, Pos 18, 1 Bit : 0y0
+  +0x0460 uint32_t AffinityUpdateEnable, Pos 19, 1 Bit : 0y0
+  +0x0460 uint32_t PropagateNode, Pos 20, 1 Bit : 0y0
+  +0x0460 uint32_t ExplicitAffinity, Pos 21, 1 Bit : 0y0
+  +0x0460 uint32_t ProcessExecutionState, Pos 22, 2 Bit : 0y00
+  +0x0460 uint32_t EnableReadVmLogging, Pos 24, 1 Bit : 0y0
+  +0x0460 uint32_t EnableWriteVmLogging, Pos 25, 1 Bit : 0y1
+  +0x0460 uint32_t FatalAccessTerminationRequested, Pos 26, 1 Bit : 0y0
+  +0x0460 uint32_t DisableSystemAllowedCpuSet, Pos 27, 1 Bit : 0y0
+  +0x0460 uint32_t ProcessStateChangeRequest, Pos 28, 2 Bit : 0y00
+  ...
+```
+
 ### IOCTL
 
 The **IOCTL** for this command is implemented like [!db, !dc, !dd, !dq (read physical memory)](https://docs.hyperdbg.org/commands/extension-commands/d) commands to read data from memory.

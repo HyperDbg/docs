@@ -96,6 +96,130 @@ If you don't specify the **pid**, then the default **pid** is the current proces
 In the [Debugger Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode), the **pid** (parameter) is ignored. If you want to view another process memory, use the '[.process](https://docs.hyperdbg.org/commands/meta-commands/.process)' command to switch to another process memory layout.
 {% endhint %}
 
+### Examples
+
+
+
+```clike
+HyperDbg> dt nt!_EPROCESS
+ _EPROCESS
+  +0x0000 _KPROCESS Pcb
+  +0x0438 _EX_PUSH_LOCK ProcessLock
+  +0x0440 void* UniqueProcessId
+  +0x0448 _LIST_ENTRY ActiveProcessLinks
+  +0x0458 _EX_RUNDOWN_REF RundownProtect
+  +0x0460 uint32_t Flags2
+  +0x0460 uint32_t JobNotReallyActive, Pos 0, 1 Bit
+  +0x0460 uint32_t AccountingFolded, Pos 1, 1 Bit
+  +0x0460 uint32_t NewProcessReported, Pos 2, 1 Bit
+  +0x0460 uint32_t ExitProcessReported, Pos 3, 1 Bit
+  +0x0460 uint32_t ReportCommitChanges, Pos 4, 1 Bit
+  +0x0460 uint32_t LastReportMemory, Pos 5, 1 Bit
+  +0x0460 uint32_t ForceWakeCharge, Pos 6, 1 Bit
+  +0x0460 uint32_t CrossSessionCreate, Pos 7, 1 Bit
+  +0x0460 uint32_t NeedsHandleRundown, Pos 8, 1 Bit
+  +0x0460 uint32_t RefTraceEnabled, Pos 9, 1 Bit
+  +0x0460 uint32_t PicoCreated, Pos 10, 1 Bit
+  +0x0460 uint32_t EmptyJobEvaluated, Pos 11, 1 Bit
+  +0x0460 uint32_t DefaultPagePriority, Pos 12, 3 Bit
+  +0x0460 uint32_t PrimaryTokenFrozen, Pos 15, 1 Bit
+  +0x0460 uint32_t ProcessVerifierTarget, Pos 16, 1 Bit
+  +0x0460 uint32_t RestrictSetThreadContext, Pos 17, 1 Bit
+  +0x0460 uint32_t AffinityPermanent, Pos 18, 1 Bit
+  +0x0460 uint32_t AffinityUpdateEnable, Pos 19, 1 Bit
+  +0x0460 uint32_t PropagateNode, Pos 20, 1 Bit
+  ...
+```
+
+
+
+```clike
+1: kHyperDbg> dt nt!_EPROCESS ffff948cc0b41080
+ _EPROCESS
+  +0x0000 _KPROCESS Pcb : _KPROCESS
+  +0x0438 _EX_PUSH_LOCK ProcessLock : (null)
+  +0x0440 void* UniqueProcessId : 00000000`00000898
+  +0x0448 _LIST_ENTRY ActiveProcessLinks : _LIST_ENTRY [ ffff948c`bf8ea4c8 - ffff948c`c002a788 ]
+  +0x0458 _EX_RUNDOWN_REF RundownProtect : (null)
+  +0x0460 uint32_t Flags2 : 0x200d094
+  +0x0460 uint32_t JobNotReallyActive, Pos 0, 1 Bit : 0y0
+  +0x0460 uint32_t AccountingFolded, Pos 1, 1 Bit : 0y0
+  +0x0460 uint32_t NewProcessReported, Pos 2, 1 Bit : 0y1
+  +0x0460 uint32_t ExitProcessReported, Pos 3, 1 Bit : 0y0
+  +0x0460 uint32_t ReportCommitChanges, Pos 4, 1 Bit : 0y1
+  +0x0460 uint32_t LastReportMemory, Pos 5, 1 Bit : 0y0
+  +0x0460 uint32_t ForceWakeCharge, Pos 6, 1 Bit : 0y0
+  +0x0460 uint32_t CrossSessionCreate, Pos 7, 1 Bit : 0y1
+  +0x0460 uint32_t NeedsHandleRundown, Pos 8, 1 Bit : 0y0
+  +0x0460 uint32_t RefTraceEnabled, Pos 9, 1 Bit : 0y0
+  +0x0460 uint32_t PicoCreated, Pos 10, 1 Bit : 0y0
+  +0x0460 uint32_t EmptyJobEvaluated, Pos 11, 1 Bit : 0y0
+  +0x0460 uint32_t DefaultPagePriority, Pos 12, 3 Bit : 0y101
+  +0x0460 uint32_t PrimaryTokenFrozen, Pos 15, 1 Bit : 0y1
+  +0x0460 uint32_t ProcessVerifierTarget, Pos 16, 1 Bit : 0y0
+  +0x0460 uint32_t RestrictSetThreadContext, Pos 17, 1 Bit : 0y0
+  +0x0460 uint32_t AffinityPermanent, Pos 18, 1 Bit : 0y0
+  +0x0460 uint32_t AffinityUpdateEnable, Pos 19, 1 Bit : 0y0
+  +0x0460 uint32_t PropagateNode, Pos 20, 1 Bit : 0y0
+  +0x0460 uint32_t ExplicitAffinity, Pos 21, 1 Bit : 0y0
+  +0x0460 uint32_t ProcessExecutionState, Pos 22, 2 Bit : 0y00
+  +0x0460 uint32_t EnableReadVmLogging, Pos 24, 1 Bit : 0y0
+  +0x0460 uint32_t EnableWriteVmLogging, Pos 25, 1 Bit : 0y1
+  +0x0460 uint32_t FatalAccessTerminationRequested, Pos 26, 1 Bit : 0y0
+  +0x0460 uint32_t DisableSystemAllowedCpuSet, Pos 27, 1 Bit : 0y0
+  +0x0460 uint32_t ProcessStateChangeRequest, Pos 28, 2 Bit : 0y00
+  ...
+```
+
+```clike
+1: kHyperDbg> dt nt!_EPROCESS @rcx+10
+ _EPROCESS
+  +0x0000 _KPROCESS Pcb : _KPROCESS
+  +0x0438 _EX_PUSH_LOCK ProcessLock : (null)
+  +0x0440 void* UniqueProcessId : 00000000`00000898
+  +0x0448 _LIST_ENTRY ActiveProcessLinks : _LIST_ENTRY [ ffff948c`bf8ea4c8 - ffff948c`c002a788 ]
+  +0x0458 _EX_RUNDOWN_REF RundownProtect : (null)
+  +0x0460 uint32_t Flags2 : 0x200d094
+  +0x0460 uint32_t JobNotReallyActive, Pos 0, 1 Bit : 0y0
+  +0x0460 uint32_t AccountingFolded, Pos 1, 1 Bit : 0y0
+  +0x0460 uint32_t NewProcessReported, Pos 2, 1 Bit : 0y1
+  +0x0460 uint32_t ExitProcessReported, Pos 3, 1 Bit : 0y0
+  +0x0460 uint32_t ReportCommitChanges, Pos 4, 1 Bit : 0y1
+  +0x0460 uint32_t LastReportMemory, Pos 5, 1 Bit : 0y0
+  +0x0460 uint32_t ForceWakeCharge, Pos 6, 1 Bit : 0y0
+  +0x0460 uint32_t CrossSessionCreate, Pos 7, 1 Bit : 0y1
+  +0x0460 uint32_t NeedsHandleRundown, Pos 8, 1 Bit : 0y0
+  +0x0460 uint32_t RefTraceEnabled, Pos 9, 1 Bit : 0y0
+  +0x0460 uint32_t PicoCreated, Pos 10, 1 Bit : 0y0
+  +0x0460 uint32_t EmptyJobEvaluated, Pos 11, 1 Bit : 0y0
+  +0x0460 uint32_t DefaultPagePriority, Pos 12, 3 Bit : 0y101
+  +0x0460 uint32_t PrimaryTokenFrozen, Pos 15, 1 Bit : 0y1
+  +0x0460 uint32_t ProcessVerifierTarget, Pos 16, 1 Bit : 0y0
+  +0x0460 uint32_t RestrictSetThreadContext, Pos 17, 1 Bit : 0y0
+  +0x0460 uint32_t AffinityPermanent, Pos 18, 1 Bit : 0y0
+  +0x0460 uint32_t AffinityUpdateEnable, Pos 19, 1 Bit : 0y0
+  +0x0460 uint32_t PropagateNode, Pos 20, 1 Bit : 0y0
+  +0x0460 uint32_t ExplicitAffinity, Pos 21, 1 Bit : 0y0
+  +0x0460 uint32_t ProcessExecutionState, Pos 22, 2 Bit : 0y00
+  +0x0460 uint32_t EnableReadVmLogging, Pos 24, 1 Bit : 0y0
+  +0x0460 uint32_t EnableWriteVmLogging, Pos 25, 1 Bit : 0y1
+  +0x0460 uint32_t FatalAccessTerminationRequested, Pos 26, 1 Bit : 0y0
+  +0x0460 uint32_t DisableSystemAllowedCpuSet, Pos 27, 1 Bit : 0y0
+  +0x0460 uint32_t ProcessStateChangeRequest, Pos 28, 2 Bit : 0y00
+  ...
+```
+
+```c
+HyperDbg> dt nt!_SID inline all
+ _SID
+  +0x0000 unsigned char Revision
+  +0x0001 unsigned char SubAuthorityCount
+ _SID_IDENTIFIER_AUTHORITY
+  +0x0002 unsigned char Value[6]
+ IdentifierAuthority
+  +0x0008 unsigned long SubAuthority[1]
+```
+
 ### IOCTL
 
 The **IOCTL** for this command is implemented like [db, dc, dd, dq (read virtual memory)](https://docs.hyperdbg.org/commands/debugging-commands/d) commands to read data from memory.
