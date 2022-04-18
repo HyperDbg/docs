@@ -98,7 +98,7 @@ In the [Debugger Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/op
 
 ### Examples
 
-
+The following command is used to show the `nt!_EPROCESS` in an offset format.
 
 ```clike
 HyperDbg> dt nt!_EPROCESS
@@ -131,7 +131,7 @@ HyperDbg> dt nt!_EPROCESS
   ...
 ```
 
-
+The following command is used to map the virtual address at `ffff948cc0b41080` to the `nt!_EPROCESS` structure.
 
 ```clike
 1: kHyperDbg> dt nt!_EPROCESS ffff948cc0b41080
@@ -171,6 +171,8 @@ HyperDbg> dt nt!_EPROCESS
   ...
 ```
 
+You can also use expressions to map to the structures.
+
 ```clike
 1: kHyperDbg> dt nt!_EPROCESS @rcx+10
  _EPROCESS
@@ -208,6 +210,8 @@ HyperDbg> dt nt!_EPROCESS
   +0x0460 uint32_t ProcessStateChangeRequest, Pos 28, 2 Bit : 0y00
   ...
 ```
+
+The following command is used to show all structures by inlining each structure in an offset format.
 
 ```c
 HyperDbg> dt nt!_SID inline all

@@ -86,6 +86,8 @@ Specifies the output file if the user wants to save the printed data.
 
 ### Examples
 
+The following command is used to map the physical address at `ac09080` to the `nt!_EPROCESS` structure.
+
 ```clike
 1: kHyperDbg> !dt nt!_EPROCESS ac09080
  _EPROCESS

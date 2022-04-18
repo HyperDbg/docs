@@ -16,6 +16,10 @@ description: Description of the 'struct' command in HyperDbg.
 
 Displays structures, enums, and data types in a **C** (header) format.
 
+{% hint style="info" %}
+You can use this command to create **C** (header) files from **all** of the symbols (structures, enums, data types) in the modules by using `module!*`. See [examples](https://docs.hyperdbg.org/commands/debugging-commands/struct#examples) for more information.
+{% endhint %}
+
 ### Parameters
 
 **\[Module!SymbolName (string)]**
@@ -78,6 +82,8 @@ Specifies the output file if the user wants to save the printed data.
 
 ### Examples
 
+The following command is used to convert `nt!_TOKEN` into a C format code.
+
 ```clike
 1: kHyperDbg> struct nt!_TOKEN
 typedef struct _TOKEN
@@ -137,6 +143,8 @@ typedef struct _TOKEN
 } TOKEN, *PTOKEN; /* size: 0x0498 */
 ```
 
+You can aslo use this command to rebuild enums.
+
 ```clike
 HyperDbg> struct nt!POWER_ACTION
 enum POWER_ACTION
@@ -153,6 +161,14 @@ enum POWER_ACTION
 };
 ```
 
+It's possible to dump all of the structures, enums, and data types into a header file.
+
+```
+1: kHyperDbg> struct nt!* output NtHeader.h
+```
+
+The following command is used to inline each structure into the parent structure.
+
 ```clike
 HyperDbg> struct nt!_SID inline all
 typedef struct _SID
@@ -166,6 +182,8 @@ typedef struct _SID
   /* 0x0008 */ unsigned long SubAuthority[1];
 } SID, *PSID; /* size: 0x000c */
 ```
+
+The following command is used to recursively dump the `nt!_TOKEN` structure and its sub-structures.
 
 ```clike
 1: kHyperDbg> struct nt!_TOKEN def yes
