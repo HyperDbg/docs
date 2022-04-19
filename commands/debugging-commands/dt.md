@@ -138,8 +138,8 @@ The following command is used to map the virtual address at `ffff948cc0b41080` t
  _EPROCESS
   +0x0000 _KPROCESS Pcb : _KPROCESS
   +0x0438 _EX_PUSH_LOCK ProcessLock : (null)
-  +0x0440 void* UniqueProcessId : 00000000`00000898
-  +0x0448 _LIST_ENTRY ActiveProcessLinks : _LIST_ENTRY [ ffff948c`bf8ea4c8 - ffff948c`c002a788 ]
+  +0x0440 void* UniqueProcessId : 00000000`00002240
+  +0x0448 _LIST_ENTRY ActiveProcessLinks : _LIST_ENTRY [ ffff948c`bfbd0708 - ffff948c`c1424508 ]
   +0x0458 _EX_RUNDOWN_REF RundownProtect : (null)
   +0x0460 uint32_t Flags2 : 0x200d094
   +0x0460 uint32_t JobNotReallyActive, Pos 0, 1 Bit : 0y0
@@ -154,7 +154,7 @@ The following command is used to map the virtual address at `ffff948cc0b41080` t
   +0x0460 uint32_t RefTraceEnabled, Pos 9, 1 Bit : 0y0
   +0x0460 uint32_t PicoCreated, Pos 10, 1 Bit : 0y0
   +0x0460 uint32_t EmptyJobEvaluated, Pos 11, 1 Bit : 0y0
-  +0x0460 uint32_t DefaultPagePriority, Pos 12, 3 Bit : 0y101
+  +0x0460 uint32_t DefaultPagePriority, Pos 12, 3 Bit : 0y101 (0x5)
   +0x0460 uint32_t PrimaryTokenFrozen, Pos 15, 1 Bit : 0y1
   +0x0460 uint32_t ProcessVerifierTarget, Pos 16, 1 Bit : 0y0
   +0x0460 uint32_t RestrictSetThreadContext, Pos 17, 1 Bit : 0y0
@@ -162,12 +162,20 @@ The following command is used to map the virtual address at `ffff948cc0b41080` t
   +0x0460 uint32_t AffinityUpdateEnable, Pos 19, 1 Bit : 0y0
   +0x0460 uint32_t PropagateNode, Pos 20, 1 Bit : 0y0
   +0x0460 uint32_t ExplicitAffinity, Pos 21, 1 Bit : 0y0
-  +0x0460 uint32_t ProcessExecutionState, Pos 22, 2 Bit : 0y00
+  +0x0460 uint32_t ProcessExecutionState, Pos 22, 2 Bit : 0y00 (0x0)
   +0x0460 uint32_t EnableReadVmLogging, Pos 24, 1 Bit : 0y0
   +0x0460 uint32_t EnableWriteVmLogging, Pos 25, 1 Bit : 0y1
   +0x0460 uint32_t FatalAccessTerminationRequested, Pos 26, 1 Bit : 0y0
   +0x0460 uint32_t DisableSystemAllowedCpuSet, Pos 27, 1 Bit : 0y0
-  +0x0460 uint32_t ProcessStateChangeRequest, Pos 28, 2 Bit : 0y00
+  +0x0460 uint32_t ProcessStateChangeRequest, Pos 28, 2 Bit : 0y00 (0x0)
+  +0x0460 uint32_t ProcessStateChangeInProgress, Pos 30, 1 Bit : 0y0
+  +0x0460 uint32_t InPrivate, Pos 31, 1 Bit : 0y0
+  +0x0464 uint32_t Flags : 0x144d0c01
+  +0x0464 uint32_t CreateReported, Pos 0, 1 Bit : 0y1
+  +0x0464 uint32_t NoDebugInherit, Pos 1, 1 Bit : 0y0
+  +0x0464 uint32_t ProcessExiting, Pos 2, 1 Bit : 0y0
+  +0x0464 uint32_t ProcessDelete, Pos 3, 1 Bit : 0y0
+  +0x0464 uint32_t ManageExecutableMemoryWrites, Pos 4, 1 Bit : 0y0
   ...
 ```
 
@@ -178,8 +186,8 @@ You can also use expressions to map to the structures.
  _EPROCESS
   +0x0000 _KPROCESS Pcb : _KPROCESS
   +0x0438 _EX_PUSH_LOCK ProcessLock : (null)
-  +0x0440 void* UniqueProcessId : 00000000`00000898
-  +0x0448 _LIST_ENTRY ActiveProcessLinks : _LIST_ENTRY [ ffff948c`bf8ea4c8 - ffff948c`c002a788 ]
+  +0x0440 void* UniqueProcessId : 00000000`00002240
+  +0x0448 _LIST_ENTRY ActiveProcessLinks : _LIST_ENTRY [ ffff948c`bfbd0708 - ffff948c`c1424508 ]
   +0x0458 _EX_RUNDOWN_REF RundownProtect : (null)
   +0x0460 uint32_t Flags2 : 0x200d094
   +0x0460 uint32_t JobNotReallyActive, Pos 0, 1 Bit : 0y0
@@ -194,7 +202,7 @@ You can also use expressions to map to the structures.
   +0x0460 uint32_t RefTraceEnabled, Pos 9, 1 Bit : 0y0
   +0x0460 uint32_t PicoCreated, Pos 10, 1 Bit : 0y0
   +0x0460 uint32_t EmptyJobEvaluated, Pos 11, 1 Bit : 0y0
-  +0x0460 uint32_t DefaultPagePriority, Pos 12, 3 Bit : 0y101
+  +0x0460 uint32_t DefaultPagePriority, Pos 12, 3 Bit : 0y101 (0x5)
   +0x0460 uint32_t PrimaryTokenFrozen, Pos 15, 1 Bit : 0y1
   +0x0460 uint32_t ProcessVerifierTarget, Pos 16, 1 Bit : 0y0
   +0x0460 uint32_t RestrictSetThreadContext, Pos 17, 1 Bit : 0y0
@@ -202,12 +210,20 @@ You can also use expressions to map to the structures.
   +0x0460 uint32_t AffinityUpdateEnable, Pos 19, 1 Bit : 0y0
   +0x0460 uint32_t PropagateNode, Pos 20, 1 Bit : 0y0
   +0x0460 uint32_t ExplicitAffinity, Pos 21, 1 Bit : 0y0
-  +0x0460 uint32_t ProcessExecutionState, Pos 22, 2 Bit : 0y00
+  +0x0460 uint32_t ProcessExecutionState, Pos 22, 2 Bit : 0y00 (0x0)
   +0x0460 uint32_t EnableReadVmLogging, Pos 24, 1 Bit : 0y0
   +0x0460 uint32_t EnableWriteVmLogging, Pos 25, 1 Bit : 0y1
   +0x0460 uint32_t FatalAccessTerminationRequested, Pos 26, 1 Bit : 0y0
   +0x0460 uint32_t DisableSystemAllowedCpuSet, Pos 27, 1 Bit : 0y0
-  +0x0460 uint32_t ProcessStateChangeRequest, Pos 28, 2 Bit : 0y00
+  +0x0460 uint32_t ProcessStateChangeRequest, Pos 28, 2 Bit : 0y00 (0x0)
+  +0x0460 uint32_t ProcessStateChangeInProgress, Pos 30, 1 Bit : 0y0
+  +0x0460 uint32_t InPrivate, Pos 31, 1 Bit : 0y0
+  +0x0464 uint32_t Flags : 0x144d0c01
+  +0x0464 uint32_t CreateReported, Pos 0, 1 Bit : 0y1
+  +0x0464 uint32_t NoDebugInherit, Pos 1, 1 Bit : 0y0
+  +0x0464 uint32_t ProcessExiting, Pos 2, 1 Bit : 0y0
+  +0x0464 uint32_t ProcessDelete, Pos 3, 1 Bit : 0y0
+  +0x0464 uint32_t ManageExecutableMemoryWrites, Pos 4, 1 Bit : 0y0
   ...
 ```
 
