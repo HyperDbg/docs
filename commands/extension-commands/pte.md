@@ -105,7 +105,7 @@ Also, the structures are available in `MemoryMapper.h` but they might be outdate
 If the **VirtualAddress** and Value of entry for PDE and PTE from the kernel IOCTL are the same, the entry has a LARGE PDE and doesn't have PTE.
 {% endhint %}
 
-This command will continue the debuggee for some time (in Debugger Mode). This means that you lose the current context (registers & memory) after executing this command.
+This command is guaranteed to keep debuggee in a halt state (in Debugger Mode); thus, nothing will change during its execution.
 
 ### Requirements
 
