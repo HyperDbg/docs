@@ -10,7 +10,7 @@ description: Description of the '!pte' command in HyperDbg.
 
 ### Syntax
 
-> !pte \[VirtualAddress (hex)]
+> !pte \[VirtualAddress (hex)] \[pid ProcessId (hex)]
 
 ### Description
 
@@ -21,6 +21,18 @@ Displays the **PML4E**, **PDPTE**, **PDE**, **PTE** for the specified address.
 **\[VirtualAddress (hex)]**
 
 The **virtual** address of where we want to read its page-level entries.
+
+**\[pid ProcessId (hex)] (optional)**
+
+The Process Id of where you want to convert the address based on it.
+
+{% hint style="info" %}
+If you don't specify the **pid**, then the default **pid** is the current process (**HyperDbg**) process layout of memory.
+{% endhint %}
+
+{% hint style="danger" %}
+In the [Debugger Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode), the **pid** (parameter) is ignored. If you want to view another process memory, use the '[.process](https://docs.hyperdbg.org/commands/meta-commands/.process)' command to switch to another process memory layout.
+{% endhint %}
 
 ### Examples
 
@@ -73,27 +85,32 @@ PDE is a large page, so it doesn't have a PTE
 This function works by calling **DeviceIoControl** with `IOCTL = IOCTL_DEBUGGER_READ_PAGE_TABLE_ENTRIES_DETAILS`, you have to send it in the following structure.
 
 ```c
-typedef struct _DEBUGGER_READ_PAGE_TABLE_ENTRIES_DETAILS {
+typedef struct _DEBUGGER_READ_PAGE_TABLE_ENTRIES_DETAILS
+{
+    UINT64 VirtualAddress;
+    UINT32 ProcessId;
 
-  UINT64 VirtualAddress;
+    UINT64 Pml4eVirtualAddress;
+    UINT64 Pml4eValue;
 
-  UINT64 Pml4eVirtualAddress;
-  UINT64 Pml4eValue;
+    UINT64 PdpteVirtualAddress;
+    UINT64 PdpteValue;
 
-  UINT64 PdpteVirtualAddress;
-  UINT64 PdpteValue;
+    UINT64 PdeVirtualAddress;
+    UINT64 PdeValue;
 
-  UINT64 PdeVirtualAddress;
-  UINT64 PdeValue;
+    UINT64 PteVirtualAddress;
+    UINT64 PteValue;
 
-  UINT64 PteVirtualAddress;
-  UINT64 PteValue;
+    UINT32 KernelStatus;
 
 } DEBUGGER_READ_PAGE_TABLE_ENTRIES_DETAILS,
     *PDEBUGGER_READ_PAGE_TABLE_ENTRIES_DETAILS;
 ```
 
 You should only fill the **VirtualAddress** of the above structure when the IOCTL returns from the kernel, other parts of this structure are filled with valid entry virtual addresses and the entry value itself.
+
+If you want to convert based on another process memory layout, then put its process ID. Otherwise, put the current process id on it. **ProcessId** is ignored in debugger mode.
 
 You can map the value to each entry's structure (Look at Intel SDM for more information).
 
