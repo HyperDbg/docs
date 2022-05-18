@@ -39,7 +39,7 @@ If you want to read strings or Unicode strings, you can use the [**printf**](htt
 
 The following operators are supported on the script engine.
 
-### Operator Precedence/Priority (Expressions)
+### Operators Precedence/Priority (Expressions)
 
 | Operator    | Description                                                                          |
 | ----------- | ------------------------------------------------------------------------------------ |
