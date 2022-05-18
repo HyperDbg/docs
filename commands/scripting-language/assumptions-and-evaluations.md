@@ -39,16 +39,34 @@ If you want to read strings or Unicode strings, you can use the [**printf**](htt
 
 The following operators are supported on the script engine.
 
-| Operator | Description                         |
-| -------- | ----------------------------------- |
-| ( )      | Parentheses                         |
-| \* &     | Unary Operators                     |
-| \* / %   | Arithmetic Operators                |
-| + -      | Arithmetic Operators                |
-| << >>    | Shift Operators                     |
-| &        | Bitwise AND Operator                |
-| ^        | Bitwise XOR Operator (exclusive OR) |
-| \|       | Bitwise OR Operator                 |
+### Operator Precedence/Priority (Expressions)
+
+| Operator    | Description                                                                          |
+| ----------- | ------------------------------------------------------------------------------------ |
+| ( )         | Parentheses                                                                          |
+| - + \~ \* & | Unary Operators (Unary negative, Unary positive, Bitwise not, Reference, Address of) |
+| / % \*      | Arithmetic Operators (Division, Modulo, Multiplication)                              |
+| + -         | Arithmetic Operators (Addition, Subtration)                                          |
+| << >>       | Shift Operators (Right shift, Left shift)                                            |
+| &           | Bitwise AND Operator                                                                 |
+| ^           | Bitwise XOR Operator (exclusive OR)                                                  |
+| \|          | Bitwise OR Operator                                                                  |
+
+### Operator Precedence/Priority (Boolean Expressions)
+
+| Operator         | Description                                                                          |
+| ---------------- | ------------------------------------------------------------------------------------ |
+| ( )              | Parentheses                                                                          |
+| - + \~ \* &      | Unary Operators (Unary negative, Unary positive, Bitwise not, Reference, Address of) |
+| / % \*           | Arithmetic Operators (Division, Modulo, Multiplication)                              |
+| + -              | Arithmetic Operators (Addition, Subtration)                                          |
+| << >>            | Shift Operators (Right shift, Left shift)                                            |
+| >= < > <= ==  != | Comparison operators                                                                 |
+| &                | Bitwise AND Operator                                                                 |
+| ^                | Bitwise XOR Operator (exclusive OR)                                                  |
+| \|               | Bitwise OR Operator                                                                  |
+| &&               | Logical AND                                                                          |
+| \|\|             | Logical OR                                                                           |
 
 ## Registers
 
