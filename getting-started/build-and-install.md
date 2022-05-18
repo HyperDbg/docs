@@ -77,7 +77,7 @@ In order to disable **driver signature enforcement**, we have plenty of options.
 
 If you use other options, please keep in mind that you should be cautious as PatchGuard will start and detect some of the modifications and might be problematic.
 
-* Disable DSE by Attaching WinDbg (**Recommended**)
+* Attaching WinDbg at the boot time (**Recommended**)
 * Temporarily Disable DSE
 * Putting Windows in Test Mode
 
