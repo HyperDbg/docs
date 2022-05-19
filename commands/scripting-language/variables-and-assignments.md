@@ -40,6 +40,8 @@ In HyperDbg's script engine, all the variables are defined without **Type**, and
 
 The variables can be used as an input to other functions or might be used in conditional statements or loops.
 
+If you want to assign a symbol name (e.g., address of a Windows function or a Windows global variable) to a script engine variable, you should specify the module name along with a bang '**!**' character; otherwise, it's interpreted as a variable name. For example, `x = ExAllocatePoolWithTag;` is equal to assigning the a script engine **variable** named _**ExAllocatePoolWithTag**_ to a variable named _**x**_. However, `x = nt!ExAllocatePoolWithTag;` means assigning the **function address** from the **nt** module to the _**x**_ variable.
+
 The following example shows the assigning `0` to a variable named `my_variable`.
 
 ```c
@@ -144,7 +146,7 @@ interlocked_increment(.my_global_counter);
 If you are running HyperDbg on a **single-core** machine, there is no need to use a **spinlock** or use **interlocked** functions for calculations; you can directly modify them without any problem.
 
 {% hint style="info" %}
-Both of the global variables and the local variables are initialized with `NULL`.
+Both global variables and local variables are initialized with `NULL`.
 {% endhint %}
 
 ## Modify Memory
