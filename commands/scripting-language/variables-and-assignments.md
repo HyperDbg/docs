@@ -62,6 +62,13 @@ Also, you can assign the results of functions to the variables.
 my_variable = check_address(@rcx);
 ```
 
+Or, you can decrement or increment variables by one.
+
+```clike
+my_variable++;      // equals to my_variable = my_variable + 1;
+my_variable--;      // equals to my_variable = my_variable - 1;
+```
+
 Local variables won't be changed in the case of a core's context, which means you can save the variable and expect to reread it next time you access the variable from the same core. But of course, the local variables are not available in other cores.
 
 ## Global Variables Assignment
@@ -94,6 +101,13 @@ Also, you can assign the results of functions to the global variables.
 
 ```c
 .my_variable = check_address(@rcx);
+```
+
+Or, you can decrement or increment variables by one.
+
+```clike
+.my_variable++;      // equals to my_variable = my_variable + 1;
+.my_variable--;      // equals to my_variable = my_variable - 1;
 ```
 
 ### Using global variables on multi-core systems
