@@ -4,9 +4,9 @@ description: >-
   using Doxygen
 ---
 
-# Doxygen Style
+# Doxygen style
 
-This guide introduces a consistent style for documenting HyperDbg using [Doxygen](http://www.doxygen.org).
+This guide introduces a consistent style for documenting HyperDbg using [Doxygen](http://www.doxygen.org/).
 
 If you want to create a pull request and contribute in HyperDbg, please follow the Doxygen guides in the source code.
 

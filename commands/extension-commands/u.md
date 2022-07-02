@@ -188,7 +188,7 @@ Please note that you should specify space between 'l' and the length in HyperDbg
 {% endhint %}
 
 {% hint style="success" %}
-HyperDbg uses [Zydis](https://zydis.re) as its core disassembler.
+HyperDbg uses [Zydis](https://zydis.re/) as its core disassembler.
 {% endhint %}
 
 {% hint style="info" %}
@@ -203,6 +203,6 @@ None
 
 ### Related
 
-[Zydis](https://zydis.re)
+[Zydis](https://zydis.re/)
 
 [u (disassemble virtual address)](https://docs.hyperdbg.org/commands/debugging-commands/u)

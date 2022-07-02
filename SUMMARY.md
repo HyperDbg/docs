@@ -233,9 +233,6 @@
   * [Kernel Debugger](design/debugger-internals/kernel-debugger/README.md)
     * [Design perspective](design/debugger-internals/kernel-debugger/design-perspective.md)
     * [Connection](design/debugger-internals/kernel-debugger/connection.md)
-* [Script Engine](design/script-engine/README.md)
-  * [Language grammar](design/script-engine/language-grammar.md)
-  * [Boolean expression grammar](design/script-engine/boolean-expression-grammar.md)
 
 ## Links
 

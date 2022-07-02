@@ -206,7 +206,7 @@ Please note that you should specify a space between 'l' and the length for Hyper
 {% endhint %}
 
 {% hint style="success" %}
-HyperDbg uses [Zydis](https://zydis.re) as its core disassembler.
+HyperDbg uses [Zydis](https://zydis.re/) as its core disassembler.
 {% endhint %}
 
 This command is guaranteed to keep debuggee in a halt state (in Debugger Mode); thus, nothing will change during its execution.
@@ -217,6 +217,6 @@ None
 
 ### Related
 
-[Zydis](https://zydis.re)
+[Zydis](https://zydis.re/)
 
 [!u (disassemble physical address)](https://docs.hyperdbg.org/commands/extension-commands/u)
