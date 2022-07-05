@@ -182,6 +182,7 @@
     * [strings](commands/scripting-language/functions/strings/README.md)
       * [strlen](commands/scripting-language/functions/strings/strlen.md)
       * [wcslen](commands/scripting-language/functions/strings/wcslen.md)
+* [Command Map](commands/map.md)
 
 ## Tips & Tricks
 
@@ -224,7 +225,6 @@
     * [Design of !monitor](design/features/vmm-module/design-of-monitor.md)
     * [Design of !syscall & !sysret](design/features/vmm-module/design-of-syscall-and-sysret.md)
     * [Design of !exception & !interrupt](design/features/vmm-module/design-of-exception-and-interrupt.md)
-  * [Roadmap](design/features/roadmap.md)
 * [Debugger Internals](design/debugger-internals/README.md)
   * [Events](design/debugger-internals/events.md)
   * [Conditions](design/debugger-internals/conditions.md)
