@@ -1,12 +1,11 @@
 ---
+description: GDB TO LLDB TO WINDBG TO HYPERDBG COMMAND MAP
 layout: landing
 ---
 
 # Command Map
 
-Native Debuggers Command Map
-
-## GDB TO LLDB TO WINDBG TO HYPERDBG COMMAND MAP
+## Native Debuggers Command Map
 
 Below is a table of equivalent debugger commands for the GDB, LLDB, WinDbg (CDB), and HyperDbg debuggers. The original GDB to LLDB page can be found at [http://lldb.llvm.org/lldb-gdb.html](http://lldb.llvm.org/lldb-gdb.html), and an extension to it is also available at [https://dbg.placinta.eu](https://dbg.placinta.eu).\
 \
