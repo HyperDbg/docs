@@ -182,7 +182,7 @@
     * [strings](commands/scripting-language/functions/strings/README.md)
       * [strlen](commands/scripting-language/functions/strings/strlen.md)
       * [wcslen](commands/scripting-language/functions/strings/wcslen.md)
-* [Command Map](commands/map.md)
+* [Commands Map](https://hyperdbg.github.io/commands-map/)
 
 ## Tips & Tricks
 
