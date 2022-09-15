@@ -1,20 +1,20 @@
 ---
-description: Description of 'disable_event' function in HyperDbg Scripts
+description: Description of 'event_disable' function in HyperDbg Scripts
 ---
 
-# disable\_event
+# event\_disable
 
 ### Function
 
-> disable\_event
+> event\_disable
 
 ### Syntax
 
-> disable\_event\( EventId \);
+> event\_disable( EventId );
 
 ### Parameters
 
-**\[Expression \(EventId\)\]**
+**\[Expression (EventId)]**
 
 Event ID of the event that needs to be deactivated.
 
@@ -24,7 +24,7 @@ Disables an event by its Event ID.
 
 ### Examples
 
-`disable_event(1);`
+`event_disable(1);`
 
 Disable an event with `EventId = 1`.
 
@@ -32,7 +32,7 @@ Disable an event with `EventId = 1`.
 
 You can see events' ID using the [event](https://docs.hyperdbg.org/commands/debugging-commands/events) command. The first column of [this command](https://docs.hyperdbg.org/commands/debugging-commands/events)'s results shows the event ID.
 
-### Related
+Starting from **v0.2**, this function is changed from `disable_event` to `event_disable`.
 
-[enable\_event](https://docs.hyperdbg.org/commands/scripting-language/functions/events/enable_event)
+### Related
 
