@@ -36,3 +36,4 @@ Starting from **v0.2**, this function is changed from `enable_event` to `event_e
 
 ### Related
 
+[event\_disable](https://docs.hyperdbg.org/commands/scripting-language/functions/events/event\_disable)
