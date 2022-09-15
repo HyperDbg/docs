@@ -46,7 +46,7 @@ HyperDbg> events
 0       (disabled)          !syscall 55 pid 490
 ```
 
-Now, we try to debug our target process, and when we halt the debuggee in our target process, we can use the '[events](https://docs.hyperdbg.org/commands/debugging-commands/events)' command or '[enable\_event](https://docs.hyperdbg.org/commands/scripting-language/functions/enable\_event)' function (from script-engine) to re-enable the event.
+Now, we try to debug our target process, and when we halt the debuggee in our target process, we can use the '[events](https://docs.hyperdbg.org/commands/debugging-commands/events)' command or '[event\_enable](https://docs.hyperdbg.org/commands/scripting-language/functions/events/event\_enable)' function (from script-engine) to re-enable the event.
 
 Note that `0` is the event number which we get from the '[events](https://docs.hyperdbg.org/commands/debugging-commands/events)' command.
 
