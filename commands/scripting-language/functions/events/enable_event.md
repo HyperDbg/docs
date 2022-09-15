@@ -1,20 +1,20 @@
 ---
-description: Description of 'event_enable' function in HyperDbg Scripts
+description: Description of 'enable_event' function in HyperDbg Scripts
 ---
 
-# event\_enable
+# enable\_event
 
 ### Function
 
-> event\_enable
+> enable\_event
 
 ### Syntax
 
-> event\_enable( EventId );
+> enable\_event\( EventId \);
 
 ### Parameters
 
-**\[ Expression (EventId)]**
+**\[ Expression \(EventId\)\]**
 
 Event ID of the event that needs to be activated.
 
@@ -24,7 +24,7 @@ Enables an event by its Event ID.
 
 ### Examples
 
-`event_enable(1);`
+`enable_event(1);`
 
 Enable an event with `EventId = 1`.
 
@@ -32,8 +32,7 @@ Enable an event with `EventId = 1`.
 
 You can see events' ID using the [event](https://docs.hyperdbg.org/commands/debugging-commands/events) command. The first column of [this command](https://docs.hyperdbg.org/commands/debugging-commands/events)'s results shows the event ID.
 
-Starting from **v0.2**, this function is changed from `enable_event` to `event_enable`.
-
 ### Related
 
-[event\_disable](https://docs.hyperdbg.org/commands/scripting-language/functions/events/event\_disable)
+[disable\_event](https://docs.hyperdbg.org/commands/scripting-language/functions/events/disable_event)
+
