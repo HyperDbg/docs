@@ -136,6 +136,8 @@ Here are the currently supported pseudo-registers supported by the script engine
 | **$ip**         | The instruction pointer register (rip).                                                                              |
 | **$buffer**     | The pre-allocated buffer if the user requests a safe buffer.                                                         |
 | **$context**    | The context of the triggered event (It has a different meaning in each event).                                       |
+| **$event\_id**  | The event ID of the triggered event (Only in the case of events). \[Added from **v0.2**]                             |
+| **$event\_tag** | The event tag of the triggered event (Only in the case of events). \[Added from **v0.2**]                            |
 
 Some of the above pseudo-registers are not supported either in kernel-mode or user-mode. If you use these registers, then it returns `NULL`.
 
