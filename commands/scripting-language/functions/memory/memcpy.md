@@ -52,6 +52,8 @@ Make sure to acquire a spinlock if the destination buffer might be accessed by d
 
 This function checks for the validity of both the source and the destination address before performing the copy.&#x20;
 
+The support for this function is added from **v0.2**.
+
 ### Related
 
 None
