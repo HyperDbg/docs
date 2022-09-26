@@ -232,7 +232,7 @@
   * [Actions](design/debugger-internals/actions.md)
   * [IOCTL requests for events](design/debugger-internals/ioctl-requests-for-events.md)
   * [Kernel Debugger](design/debugger-internals/kernel-debugger/README.md)
-    * [Design perspective](design/debugger-internals/kernel-debugger/design-perspective.md)
+    * [Design Perspective](design/debugger-internals/kernel-debugger/design-perspective.md)
     * [Connection](design/debugger-internals/kernel-debugger/connection.md)
 
 ## Links
