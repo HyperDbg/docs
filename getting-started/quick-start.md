@@ -85,6 +85,17 @@ If you want to see more advanced topics about HyperDbg.
 * ****[**Customize Build**](https://docs.hyperdbg.org/tips-and-tricks/misc/customize-build)
 * [**Enable and Disable Events in Debugger Mode**](https://docs.hyperdbg.org/tips-and-tricks/misc/enable-and-disable-events-in-debugger-mode)
 
+## HyperDbg Research and Design Internals
+
+* [**HyperDbg Research**](https://research.hyperdbg.org/)****
+* ****[**Kernel Debugger Design**](https://research.hyperdbg.org/debugger/kernel-debugger-design.html)****
+* ****[**Academic Paper (Reinventing Hardware-Assisted Debugging)**](https://arxiv.org/abs/2207.05676)****
+* ****[**VM-exit Transparency in HyperDbg**](https://research.hyperdbg.org/debugger/transparency.html)****
+* ****[**Awesome Resources About HyperDbg**](https://github.com/HyperDbg/awesome)****
+* ****[**Command Map (HyperDbg to Native Debuggers)**](https://hyperdbg.github.io/commands-map/)****
+* ****[**Logo & Graphics**](https://github.com/HyperDbg/graphics)****
+* ****[**Scripts**](https://github.com/HyperDbg/scripts)****
+
 ## If you want to participate in HyperDbg
 
 * [**Coding Style**](https://docs.hyperdbg.org/contribution/style-guide/coding-style)
@@ -96,4 +107,4 @@ You can also follow the [**contribution guide**](https://github.com/HyperDbg/Hyp
 
 ## **Any other questions**
 
-If you have any other questions, then it's probably addressed in the [**FAQ**](https://docs.hyperdbg.org/getting-started/faq) section. If your question remained unanswered or your problem is unsolved, then you can create an [**issue**](https://github.com/HyperDbg/HyperDbg/issues).
+If you have any other questions, then it's probably addressed in the [**FAQ**](https://docs.hyperdbg.org/getting-started/faq) section. If your question remains unanswered or your problem is unsolved, then you can create an [**issue**](https://github.com/HyperDbg/HyperDbg/issues).
