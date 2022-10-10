@@ -8,7 +8,7 @@ description: What is "unsafe" behavior in using HyperDbg
 
 The term “safe” and “safe” is used a lot in HyperDbg. By “safe,” we mean something that works all the time and won’t cause a system crash or system halt.
 
-It’s because it’s so tricky to manage codes in vmx root-mode. As HyperDbg gives you the ability to run your custom assembly codes in all modes of execution, you should avoid doing some “unsafe” behavior that leads to system instability.
+It’s because it’s so tricky to manage code in vmx root-mode. As HyperDbg gives you the ability to run your custom assembly code in all modes of execution, you should avoid doing some “unsafe” behavior that leads to system instability.
 
 It is because, in the vmx-root mode, interrupts are masked (disabled), or transfer buffer from vmx root-mode to vmx non-root mode needs extra effort, and we should be cautious and avoid executing some APIs to be safe.
 
