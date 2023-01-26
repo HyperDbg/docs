@@ -48,7 +48,8 @@
     * [misc](using-hyperdbg/kernel-mode-debugging/examples/misc/README.md)
       * [Defeating Anti-Debug & Anti-Hypervisor Methods](using-hyperdbg/kernel-mode-debugging/examples/misc/defeating-anti-debug-and-anti-hypervisor-methods.md)
     * [Scripting Language Examples](https://docs.hyperdbg.org/commands/scripting-language/examples)
-* [Software Development Kit (SDK)](using-hyperdbg/sdk.md)
+* [Software Development Kit (SDK)](using-hyperdbg/sdk/README.md)
+  * [Page 1](using-hyperdbg/sdk/page-1.md)
 
 ## Commands
 
