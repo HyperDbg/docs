@@ -19,12 +19,12 @@ If you want to build HyperDbg, follow the steps in the links below; you can also
 
 After that, you need to attach to an instance of HyperDbg.
 
-* ****[**Local Debugging (VMI Mode)**](https://docs.hyperdbg.org/getting-started/attach-to-hyperdbg/local-debugging)****
+* [**Local Debugging (VMI Mode)**](https://docs.hyperdbg.org/getting-started/attach-to-hyperdbg/local-debugging)
 * [**Debug a Physical Machine (Debugger Mode)**](https://docs.hyperdbg.org/getting-started/attach-to-hyperdbg/debug#physical-machine)
 * [**Debug a VMware Workstation Guest (Debugger Mode)**](https://docs.hyperdbg.org/getting-started/attach-to-hyperdbg/debug#vmware-workstation)
 * [**Connect to a Remote Machine (VMI Mode)**](https://docs.hyperdbg.org/getting-started/attach-to-hyperdbg/debug#connect-to-debuggee-vmi-mode)
-* ****[**Start a new process (VMI Mode and Debugger Mode)**](https://docs.hyperdbg.org/getting-started/attach-to-hyperdbg/start-process)****
-* ****[**Attach to a running process (VMI Mode)**](https://docs.hyperdbg.org/getting-started/attach-to-hyperdbg/attach-process)****
+* [**Start a new process (VMI Mode and Debugger Mode)**](https://docs.hyperdbg.org/getting-started/attach-to-hyperdbg/start-process)
+* [**Attach to a running process (VMI Mode)**](https://docs.hyperdbg.org/getting-started/attach-to-hyperdbg/attach-process)
 
 Finally, you can see many examples provided in the following link to use HyperDbg.
 
@@ -74,27 +74,27 @@ If you want to see more advanced topics about HyperDbg.
 * [**VMX root-mode vs VMX non-root mode**](https://docs.hyperdbg.org/tips-and-tricks/considerations/vmx-root-mode-vs-vmx-non-root-mode)
 * [**The "unsafe" behavior**](https://docs.hyperdbg.org/tips-and-tricks/considerations/the-unsafe-behavior)
 * [**Script engine in VMX non-root mode**](https://docs.hyperdbg.org/tips-and-tricks/considerations/script-engine-in-vmx-non-root-mode)
-* [**Difference between process and thread switching commands**](https://docs.hyperdbg.org/tips-and-tricks/considerations/difference-between-process-and-thread-switching-commands)****
+* [**Difference between process and thread switching commands**](https://docs.hyperdbg.org/tips-and-tricks/considerations/difference-between-process-and-thread-switching-commands)
 * [**Transparent Mode**](https://docs.hyperdbg.org/tips-and-tricks/considerations/transparent-mode)
 
 ## Miscellaneous topics...
 
 * [**Event Forwarding Mechanism**](https://docs.hyperdbg.org/tips-and-tricks/misc/event-forwarding)
 * [**Message Overflow**](https://docs.hyperdbg.org/tips-and-tricks/misc/message-overflow)
-* ****[**Switch to New Process Layout**](https://docs.hyperdbg.org/tips-and-tricks/misc/switch-to-new-process-layout)****
-* ****[**Customize Build**](https://docs.hyperdbg.org/tips-and-tricks/misc/customize-build)
+* [**Switch to New Process Layout**](https://docs.hyperdbg.org/tips-and-tricks/misc/switch-to-new-process-layout)
+* [**Customize Build**](https://docs.hyperdbg.org/tips-and-tricks/misc/customize-build)
 * [**Enable and Disable Events in Debugger Mode**](https://docs.hyperdbg.org/tips-and-tricks/misc/enable-and-disable-events-in-debugger-mode)
 
 ## HyperDbg Research and Design Internals
 
-* [**HyperDbg Research**](https://research.hyperdbg.org/)****
-* ****[**Kernel Debugger Design**](https://research.hyperdbg.org/debugger/kernel-debugger-design.html)****
-* ****[**Academic Paper (Reinventing Hardware-Assisted Debugging)**](https://arxiv.org/abs/2207.05676)****
-* ****[**VM-exit Transparency in HyperDbg**](https://research.hyperdbg.org/debugger/transparency.html)****
-* ****[**Awesome Resources About HyperDbg**](https://github.com/HyperDbg/awesome)****
-* ****[**Command Map (HyperDbg to Native Debuggers)**](https://hyperdbg.github.io/commands-map/)****
-* ****[**Logo & Graphics**](https://github.com/HyperDbg/graphics)****
-* ****[**Scripts**](https://github.com/HyperDbg/scripts)****
+* [**HyperDbg Research**](https://research.hyperdbg.org/)
+* [**Kernel Debugger Design**](https://research.hyperdbg.org/debugger/kernel-debugger-design.html)
+* [**Academic Paper (Reinventing Hardware-Assisted Debugging)**](https://arxiv.org/abs/2207.05676)
+* [**VM-exit Transparency in HyperDbg**](https://research.hyperdbg.org/debugger/transparency.html)
+* [**Awesome Resources About HyperDbg**](https://github.com/HyperDbg/awesome)
+* [**Command Map (HyperDbg to Native Debuggers)**](https://hyperdbg.github.io/commands-map/)
+* [**Logo & Graphics**](https://github.com/HyperDbg/graphics)
+* [**Scripts**](https://github.com/HyperDbg/scripts)
 
 ## If you want to participate in HyperDbg
 

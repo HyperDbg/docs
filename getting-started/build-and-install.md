@@ -153,7 +153,7 @@ Click on **Turn on Virtualization Based Security**.
 
 ![](../.gitbook/assets/local-group-policy-VBS.PNG)
 
-Then choose the '**Disabled**' **** option and click '**OK**'.
+Then choose the '**Disabled**' option and click '**OK**'.
 
 ![](../.gitbook/assets/disable-VBS.PNG)
 

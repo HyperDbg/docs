@@ -206,6 +206,7 @@
   * [Event forwarding](tips-and-tricks/misc/event-forwarding.md)
   * [Message overflow](tips-and-tricks/misc/message-overflow.md)
   * [Customize build](tips-and-tricks/misc/customize-build.md)
+  * [Increase Communication Buffer Size](tips-and-tricks/misc/increase-communication-buffer-size.md)
   * [Enable and disable events in Debugger Mode](tips-and-tricks/misc/enable-and-disable-events-in-debugger-mode.md)
   * [Switch to New Process Layout](tips-and-tricks/misc/switch-to-new-process-layout.md)
 

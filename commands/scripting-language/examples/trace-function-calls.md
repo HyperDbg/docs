@@ -51,7 +51,7 @@ From the relative-address point of view, this function is stored in the memory l
    +0x028 SecurityQualityOfService : Ptr64 Void
 ```
 
-We can see that there is a [**UNICODE\_STRING**](https://docs.microsoft.com/en-us/windows/win32/api/subauth/ns-subauth-unicode\_string) field named **ObjectName**. This is the name of the object that we're trying to open using **NtOpenFile**. This structure is also used in **** [**NtCreateFile**](https://docs.microsoft.com/en-us/windows/win32/api/winternl/nf-winternl-ntcreatefile).
+We can see that there is a [**UNICODE\_STRING**](https://docs.microsoft.com/en-us/windows/win32/api/subauth/ns-subauth-unicode\_string) field named **ObjectName**. This is the name of the object that we're trying to open using **NtOpenFile**. This structure is also used in [**NtCreateFile**](https://docs.microsoft.com/en-us/windows/win32/api/winternl/nf-winternl-ntcreatefile).
 
 If we look at the **UNICODE\_STRING** structure. It's defined like this:
 
