@@ -49,11 +49,12 @@
       * [Defeating Anti-Debug & Anti-Hypervisor Methods](using-hyperdbg/kernel-mode-debugging/examples/misc/defeating-anti-debug-and-anti-hypervisor-methods.md)
     * [Scripting Language Examples](https://docs.hyperdbg.org/commands/scripting-language/examples)
 * [Software Development Kit (SDK)](using-hyperdbg/sdk/README.md)
-  * [Events](using-hyperdbg/sdk/events/README.md)
+  * [Events](using-hyperdbg/sdk/page-1.md)
     * [Managing Events](using-hyperdbg/sdk/events/managing-events.md)
     * [Conditions](using-hyperdbg/sdk/events/conditions.md)
     * [Actions](using-hyperdbg/sdk/events/actions.md)
-  * [IOCTL](using-hyperdbg/sdk/ioctl-requests-for-events.md)
+  * [IOCTL](using-hyperdbg/sdk/ioctl/README.md)
+    * [Event Registration](using-hyperdbg/sdk/ioctl/event-registration.md)
 
 ## Commands
 

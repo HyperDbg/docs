@@ -2,7 +2,7 @@
 description: How to programmatically activate an event using IOCTLs?
 ---
 
-# IOCTL Requests for Events
+# Event Registration
 
 In order to send an IOCTL and enable an event programmatically, you should fill the following structure. This structure is used for tracing works in user mode and sending it to the kernel-mode. Keep in mind that this structure is not what we save for events in kernel-mode.
 
