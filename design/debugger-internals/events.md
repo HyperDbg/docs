@@ -13,10 +13,10 @@ Events are an essential concept in HyperDbg. Almost all of the HyperDbg features
 For example, hidden hooks are an event. When this event is triggered, your actions will be performed, or a syscall hook is an event. Whenever the system executes an **SYSRET** instruction or a **SYSCALL** instruction, then the event is triggered.
 
 {% hint style="success" %}
-Note that some of the structures might be changed in the future (means that some of the fields might be removed or new fields added to these structures) versions of HyperDbg, but these concepts remain the same.
+Note that some of the structures might be changed in the future (which means that some of the fields might be removed or new fields added to these structures) versions of HyperDbg, but these concepts remain the same.
 {% endhint %}
 
-Most of the basic debugger routines are implemented in **Debugger.c** in HyperDbg driver.
+Most of the basic debugger routines are implemented in **Debugger.c** in the HyperDbg driver.
 
 Generally, each event has a **condition** and might have zero or multiple **actions**. We'll describe conditions and actions in detail in later sections.
 
@@ -24,32 +24,39 @@ Now let's dig into the event internals.
 
 ### Event Structures and Design
 
-In the first version of HyperDbg, structures are saved into the kernel, like this :
+In the second version (v0.2.0.0) of HyperDbg, structures are saved into the kernel, like this :
 
 ```c
-typedef struct _DEBUGGER_EVENT {
-  UINT64 Tag;
-  LIST_ENTRY EventsOfSameTypeList; // Linked-list of events of a same type
-  DEBUGGER_EVENT_TYPE_ENUM EventType;
-  BOOLEAN Enabled;
-  UINT32 CoreId; // determines the core index to apply this event to, if it's
-                 // 0xffffffff means that we have to apply it to all cores
+typedef struct _DEBUGGER_EVENT
+{
+    UINT64              Tag;
+    LIST_ENTRY          EventsOfSameTypeList; // Linked-list of events of a same type
+    VMM_EVENT_TYPE_ENUM EventType;
+    BOOLEAN             Enabled;
+    UINT32              CoreId; // determines the core index to apply this event to, if it's
+                                // 0xffffffff means that we have to apply it to all cores
 
-  UINT32
-  ProcessId; // determines the pid to apply this event to, if it's
-             // 0xffffffff means that we have to apply it to all processes
+    UINT32
+    ProcessId; // determines the pid to apply this event to, if it's
+               // 0xffffffff means that we have to apply it to all processes
 
-  LIST_ENTRY ActionsListHead; // Each entry is in DEBUGGER_EVENT_ACTION struct
-  UINT32 CountOfActions;      // The total count of actions
+    LIST_ENTRY ActionsListHead; // Each entry is in DEBUGGER_EVENT_ACTION struct
+    UINT32     CountOfActions;  // The total count of actions
 
-  UINT64 OptionalParam1; // Optional parameter to be used differently by events
-  UINT64 OptionalParam2; // Optional parameter to be used differently by events
-  UINT64 OptionalParam3; // Optional parameter to be used differently by events
-  UINT64 OptionalParam4; // Optional parameter to be used differently by events
+    BOOLEAN EnableShortCircuiting; // indicates whether the short-circuiting event
+                                   // is enabled or not for this event
 
-  UINT32 ConditionsBufferSize;  // if null, means uncoditional
-  PVOID ConditionBufferAddress; // Address of the condition buffer (most of the
-                                // time at the end of this buffer)
+    VMM_CALLBACK_EVENT_CALLING_STAGE_TYPE EventMode; // reveals the execution mode
+    // of the event (whether it's a pre- or post- event)
+
+    UINT64 OptionalParam1; // Optional parameter to be used differently by events
+    UINT64 OptionalParam2; // Optional parameter to be used differently by events
+    UINT64 OptionalParam3; // Optional parameter to be used differently by events
+    UINT64 OptionalParam4; // Optional parameter to be used differently by events
+
+    UINT32 ConditionsBufferSize;   // if null, means uncoditional
+    PVOID  ConditionBufferAddress; // Address of the condition buffer (most of the
+                                   // time at the end of this buffer)
 
 } DEBUGGER_EVENT, *PDEBUGGER_EVENT;
 ```
@@ -75,6 +82,10 @@ If you specify `DEBUGGER_EVENT_APPLY_TO_ALL_PROCESSES= 0xffffffff` then the even
 `OptionalParam1`, `OptionalParam2`, `OptionalParam3`, `OptionalParam4` are optional parameters that are event specific. For example, a hidden hook r/w `OptionalParam1` specifies the hooked page's start physical address and `OptionalParam2` specifies the end of the hooked physical address. It is because EPT Violations happen for the entire page, not for a range. Other events have their special **Optional Parameters** too.
 
 `ConditionBufferAddress` holds the address of a buffer, which will be executed to check the condition. The size of this buffer is available in `ConditionsBufferSize` . If the `ConditionsBufferSize` is null, then it means that the event is unconditional.
+
+`EnableShortCircuiting` shows whether short-circuiting events are enabled for this event, or not. Short-circuiting event is a mechanism used to ignore the effects of some event, for example, emulation of **SYSCALL** instruction for this event will be ignored if this short-circuiting is enabled.
+
+**EventMode** shows whether this event should be called before/after the emulation.
 
 ### Creating a new event
 
