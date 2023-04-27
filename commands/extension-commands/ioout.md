@@ -144,7 +144,7 @@ Keep in mind that a conditional event can be used in **Breaking to Debugger** an
 
 ### IOCTL
 
-This command uses the same method to [send IOCTL for regular events](https://docs.hyperdbg.org/design/debugger-internals/ioctl-requests-for-events).
+This command uses the same method to [send IOCTL for regular events](https://docs.hyperdbg.org/using-hyperdbg/sdk/ioctl/event-registration).
 
 As **EventType** use `OUT_INSTRUCTION_EXECUTION` and send the special I/O port (if any) if you want to monitor just an I/O port in `OptionalParam1` in `DEBUGGER_GENERAL_EVENT_DETAIL`.
 

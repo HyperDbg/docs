@@ -54,7 +54,7 @@
     * [Conditions](using-hyperdbg/sdk/events/conditions.md)
     * [Actions](using-hyperdbg/sdk/events/actions.md)
   * [IOCTL](using-hyperdbg/sdk/ioctl/README.md)
-    * [Event Registration](using-hyperdbg/sdk/ioctl/event-registration.md)
+    * [Event Registration](design/debugger-internals/ioctl-requests-for-events.md)
 
 ## Commands
 

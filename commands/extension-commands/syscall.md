@@ -152,7 +152,7 @@ Keep in mind that a conditional event can be used in **Breaking to Debugger** an
 
 ### IOCTL
 
-This command uses the same method to [send IOCTL for regular events](https://docs.hyperdbg.org/design/debugger-internals/ioctl-requests-for-events).
+This command uses the same method to [send IOCTL for regular events](https://docs.hyperdbg.org/using-hyperdbg/sdk/ioctl/event-registration).
 
 As **EventType** use `SYSCALL_HOOK_EFER_SYSCALL`and send the start syscall-number (if any) if you want just a special system-call in `OptionalParam1` in `DEBUGGER_GENERAL_EVENT_DETAIL`.
 

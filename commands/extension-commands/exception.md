@@ -148,7 +148,7 @@ Keep in mind that a conditional event can be used in **Breaking to Debugger** an
 
 ### IOCTL
 
-This command uses the same method to [send IOCTL for regular events](https://docs.hyperdbg.org/design/debugger-internals/ioctl-requests-for-events).
+This command uses the same method to [send IOCTL for regular events](https://docs.hyperdbg.org/using-hyperdbg/sdk/ioctl/event-registration).
 
 As **EventType** use `EXCEPTION_OCCURRED` and send the special entry between **0x0** to **0x1f** (if any) if you want to monitor just a special exception or interrupt in `OptionalParam1` in `DEBUGGER_GENERAL_EVENT_DETAIL`.
 

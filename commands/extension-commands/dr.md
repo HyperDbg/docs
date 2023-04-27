@@ -140,7 +140,7 @@ Keep in mind that a conditional event can be used in **Breaking to Debugger** an
 
 ### IOCTL
 
-This command uses the same method to [send IOCTL for regular events](https://docs.hyperdbg.org/design/debugger-internals/ioctl-requests-for-events).
+This command uses the same method to [send IOCTL for regular events](https://docs.hyperdbg.org/using-hyperdbg/sdk/ioctl/event-registration).
 
 As **EventType** use `DEBUG_REGISTERS_ACCESSED` in `DEBUGGER_GENERAL_EVENT_DETAIL`.
 
