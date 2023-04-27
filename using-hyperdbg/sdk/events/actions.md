@@ -1,0 +1,176 @@
+# Actions
+
+Actions are defined in the following enumerations:&#x20;
+
+```
+typedef enum _DEBUGGER_EVENT_ACTION_TYPE_ENUM {
+  BREAK_TO_DEBUGGER,
+  RUN_SCRIPT,
+  RUN_CUSTOM_CODE
+​
+} DEBUGGER_EVENT_ACTION_TYPE_ENUM;
+
+```
+
+Script-engine is a different project in HyperDbg's solution. There is a file, called "**ScriptEngineCommon.h**". This file contains the HyperDbg script execution engine's implementation in both user-mode and kernel-mode, and it executes the scripts that were previously interpreted in user-mode.
+
+In order to call the execution engine, you should call `ScriptEngineExecute` function.
+
+If you want to interpret a script, you should call `ScriptEngineParseWrapper` which is a wrapper for `ScriptEngineParse`. This function gives a stack (memory) that can be executed in both user-mode and kernel-mode.
+
+By using the following structure, `ScriptBufferSize` and `ScriptBufferPointer` we pass the script buffer to the kernel.
+
+```c
+typedef struct _DEBUGGER_GENERAL_ACTION {
+  UINT64 EventTag;
+  DEBUGGER_EVENT_ACTION_TYPE_ENUM ActionType;
+  BOOLEAN ImmediateMessagePassing;
+  UINT32 PreAllocatedBuffer;
+
+  UINT32 CustomCodeBufferSize;
+  UINT32 ScriptBufferSize;
+  UINT32 ScriptBufferPointer;
+
+} DEBUGGER_GENERAL_ACTION, *PDEBUGGER_GENERAL_ACTION;
+```
+
+Read [Scripting Language](https://docs.hyperdbg.org/commands/scripting-language) for more information and examples about script-engine and read [here ](https://docs.hyperdbg.org/design/script-engine)for more information about the script engine's design and internals.
+
+### Custom Code
+
+Running custom codes gives you a fast and reliable way to execute your codes in the case of triggering events without breaking the whole system, so it's super fast.
+
+When you use `code { }` in your events, then you are using custom codes.
+
+This powerful feature can optionally give you a non-paged pool buffer with your specific size and gives the address of the buffer to your assembly code in `RCX`. You can safely use this buffer in your assembly code, and if you want, HyperDbg will safely transfer this buffer to user mode for you.
+
+First, you should create a buffer of bytes that performs your task. For example, the following code is some `nops` that a custom buffer provides to the debugger. You can change it to whatever assembly bytes that you want without any limitation in size.
+
+```c
+    char CustomCodeBuffer[8];
+    CustomCodeBuffer[0] = 0x90; //nop
+    CustomCodeBuffer[1] = 0x90; //nop
+    CustomCodeBuffer[2] = 0x90; //nop
+    CustomCodeBuffer[3] = 0x90; //nop
+    CustomCodeBuffer[4] = 0x90; //nop
+    CustomCodeBuffer[5] = 0x90; //nop
+    CustomCodeBuffer[6] = 0x90; //nop
+    CustomCodeBuffer[7] = 0xc3; //ret
+```
+
+{% hint style="warning" %}
+Don't forget to put a **0xc3** or **ret instruction** at the end of your custom code buffer. This way, you give the program's execution back to the debugger, and HyperDbg can continue normally. Otherwise, the HyperDbg won't get a chance to get back the execution and cause a crash.
+{% endhint %}
+
+You should fill the following structure, which gives the details of your custom code to the debugger.
+
+```c
+typedef struct _DEBUGGER_EVENT_REQUEST_CUSTOM_CODE {
+  UINT32 CustomCodeBufferSize;
+  PVOID CustomCodeBufferAddress;
+  UINT32 OptionalRequestedBufferSize;
+
+} DEBUGGER_EVENT_REQUEST_CUSTOM_CODE, *PDEBUGGER_EVENT_REQUEST_CUSTOM_CODE;
+```
+
+For example, the following code shows that we use `CustomCodeBuffer`as the custom assembly code, and also, we set the size of the buffer. `OptionalRequestedBufferSize`is used to request a non-paged pool buffer. If this field is zero, then it means that you don't need a non-paged buffer, but if it's not zero, then HyperDbg will allocate a non-paged pool for you and pass the address of the buffer each time as the `RCX` to you assembly code.
+
+```c
+    //
+    // Add action for RUN_CUSTOM_CODE
+    //
+
+    DEBUGGER_EVENT_REQUEST_CUSTOM_CODE CustomCode = {0};
+
+    CustomCode.CustomCodeBufferSize        = sizeof(CustomCodeBuffer);
+    CustomCode.CustomCodeBufferAddress     = CustomCodeBuffer;
+    CustomCode.OptionalRequestedBufferSize = 0x100;
+```
+
+Finally, you have to register the action to the event using `DebuggerAddActionToEvent`.
+
+Here's the prototype of **DebuggerAddActionToEvent**.
+
+```c
+BOOLEAN
+DebuggerAddActionToEvent(PDEBUGGER_EVENT Event, DEBUGGER_EVENT_ACTION_TYPE_ENUM ActionType, BOOLEAN SendTheResultsImmediately, PDEBUGGER_EVENT_REQUEST_CUSTOM_CODE InTheCaseOfCustomCode, PDEBUGGER_EVENT_ACTION_RUN_SCRIPT_CONFIGURATION InTheCaseOfRunScript)
+```
+
+**Event** is the event in which you want to register this action on it.
+
+**ActionType** is the type of action (described above).
+
+**SendTheResultsImmediately** this field shows whether the buffer should be sent immediately to the user-mode or not.
+
+It is because HyperDbg holds a queue of messages to be delivered to user mode. When the queue has multiple messages (the queue is full), it sends all of them in an IRP packet to the user mode (IRP Pending). This makes the HyperDbg messaging more efficient as we're not going to send each message separately in one IRP packet.
+
+If you set this field to `TRUE`, the buffer will be delivered to the user -ode immediately, and if you set it to `FALSE`, then the buffers will be accumulated and delivered when the queue has multiple messages.
+
+You should set it to `FALSE` in most cases, but if you need immediate results the choose `TRUE` and it makes your computer substantially slower in high rates of data delivery but at low rates `TRUE`makes more scene.
+
+**InTheCaseOfCustomCode :** you should fill it as described above.
+
+**InTheCaseOfRunScript :** is used for script engine, should be null in custom code.
+
+The following example shows how to use the `DebuggerAddActionToEvent`.
+
+```c
+    DebuggerAddActionToEvent(Event1, RUN_CUSTOM_CODE, TRUE, &CustomCode, NULL);
+```
+
+{% hint style="danger" %}
+Please note that **DebuggerAddActionToEvent** should not be called in vmx-root mode.
+{% endhint %}
+
+### How to send buffers back to user-mode?
+
+If you didn't request a safe buffer or even request a safe buffer, then your assembly will be called in the following form.
+
+```c
+typedef PVOID
+DebuggerRunCustomCodeFunc(PVOID PreAllocatedBufferAddress, PGUEST_REGS Regs, PVOID Context);
+```
+
+If you request a safe non-paged pool buffer, then your assembly will be called in the following form, and as we're calling it with **fastcall** calling convention, then you can expect buffer address in `RCX`.
+
+```c
+ReturnBufferToUsermodeAddress = Func(Action->RequestedBuffer.RequstBufferAddress, Regs, Context);
+```
+
+Otherwise, `RCX` is null (in the case, you didn't need a safe buffer).
+
+```c
+Func(NULL, Regs, Context);
+```
+
+In the above calls, `RDX`is the structure of the guest's general-purpose registers, you can modify them directly, and these registers will apply to the guest when it wants to continue its normal execution.
+
+`R8` (Context) is an optional parameter that describes the state, and it's different for each event. You have to check each event's documentation to see what it is in that event.
+
+The following structure shows the state of registers in `Regs` parameter. You can modify or read the general-purpose registers based on this structure as a pointer to this structure is available in `RDX`.
+
+```c
+typedef struct _GUEST_REGS
+{
+    ULONG64 rax; // 0x00
+    ULONG64 rcx;
+    ULONG64 rdx; // 0x10
+    ULONG64 rbx;
+    ULONG64 rsp; // 0x20 
+    ULONG64 rbp;
+    ULONG64 rsi; // 0x30
+    ULONG64 rdi;
+    ULONG64 r8; // 0x40
+    ULONG64 r9;
+    ULONG64 r10; // 0x50
+    ULONG64 r11;
+    ULONG64 r12; // 0x60
+    ULONG64 r13;
+    ULONG64 r14; // 0x70
+    ULONG64 r15;
+} GUEST_REGS, *PGUEST_REGS;
+```
+
+{% hint style="success" %}
+You can read other registers (non-general purpose registers) directly and modify them. We're not changing them or using them in debugger and hypervisor routines, so reading and changing them will directly apply to the guests' registers and apply to normal execution.
+{% endhint %}
