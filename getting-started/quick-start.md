@@ -105,6 +105,10 @@ If you want to see more advanced topics about HyperDbg.
 
 You can also follow the [**contribution guide**](https://github.com/HyperDbg/HyperDbg/blob/master/CONTRIBUTING.md).
 
+## Software Development Kit (SDK)
+
+{% embed url="https://docs.hyperdbg.org/using-hyperdbg/sdk" %}
+
 ## **Any other questions**
 
 If you have any other questions, then it's probably addressed in the [**FAQ**](https://docs.hyperdbg.org/getting-started/faq) section. If your question remains unanswered or your problem is unsolved, then you can create an [**issue**](https://github.com/HyperDbg/HyperDbg/issues).
