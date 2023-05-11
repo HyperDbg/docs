@@ -10,7 +10,7 @@ description: Description of the '!cpuid' command in HyperDbg.
 
 ### Syntax
 
-> !cpuid \[pid ProcessId (hex)] \[core CoreId (hex)] \[imm IsImmediate (yesno)] \[buffer PreAllocatedBuffer (hex)] \[script { Script (string) }] \[condition { Condition (hex) }] \[code { Code (hex) }]
+> !cpuid \[Eax (hex)] \[pid ProcessId (hex)] \[core CoreId (hex)] \[imm IsImmediate (yesno)] \[buffer PreAllocatedBuffer (hex)] \[script { Script (string) }] \[condition { Condition (hex) }] \[code { Code (hex) }]
 
 ### Description
 
@@ -21,6 +21,10 @@ You can check for a specific CPUID index with a [condition](https://docs.hyperdb
 {% endhint %}
 
 ### Parameters
+
+**\[Eax (hex)] (optional)**
+
+Trigger in the case of a special CPUID EAX index. If you don't specify this parameter, then it will be triggered for all **CPUID** executions.
 
 **\[pid ProcessId (hex)] (optional)**
 
@@ -140,7 +144,7 @@ Keep in mind that a conditional event can be used in **Breaking to Debugger** an
 
 This command uses the same method to [send IOCTL for regular events](https://docs.hyperdbg.org/using-hyperdbg/sdk/ioctl/event-registration).
 
-As **EventType** use `CPUID_INSTRUCTION_EXECUTION` in `DEBUGGER_GENERAL_EVENT_DETAIL`.
+As **EventType** use `CPUID_INSTRUCTION_EXECUTION` and set `OptionalParam1`  to zero (`FALSE`) value if you want to intercept all CPUIDs. In case of intercepting a special `eax` index, set `OptionalParam1` to a non-zero value and set `OptionalParam2` to the target `eax` value.
 
 ### Design
 
