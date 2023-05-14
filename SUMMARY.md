@@ -245,6 +245,7 @@
 ## Links
 
 * [Twitter](https://twitter.com/HyperDbg)
+* [Telegram](https://t.me/HyperDbg)
 * [YouTube](https://youtube.com/c/HyperDbg)
 * [Doxygen](https://doxygen.hyperdbg.org)
 * [Contribution](https://github.com/HyperDbg/HyperDbg/blob/master/CONTRIBUTING.md)
