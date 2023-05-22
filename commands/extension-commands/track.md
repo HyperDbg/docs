@@ -6,7 +6,7 @@ description: Description of the '!track' command in HyperDbg.
 
 ### Command
 
-> !track : track function calls and return adderesses and map them to the symbosl
+> !track : track function calls and return adderesses and map them to the symbols
 
 ### Syntax
 
@@ -16,7 +16,7 @@ description: Description of the '!track' command in HyperDbg.
 
 ### Description
 
-Creates tracking records of functions and return addresses by instrumenting instructions.
+Creates tracking records of function calls and return addresses by instrumenting instructions.
 
 ### Parameters
 
@@ -38,7 +38,7 @@ If you run this command without any parameter, it tries to run instructions in '
 
 ### Examples
 
-The following command example shows the tracking results (function calls and return addresses) of this command for an unlimited number of instructions.
+The following example shows the tracking results (function calls and return addresses) for an unlimited number of instructions.
 
 ```diff
 2: kHyperDbg> !track
