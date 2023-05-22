@@ -127,6 +127,7 @@
   * [!sb, !sd, !sq (search physical memory)](commands/extension-commands/s.md)
   * [!u, !u2 (disassemble physical address)](commands/extension-commands/u.md)
   * [!dt (display and map physical memory to structures)](commands/extension-commands/dt.md)
+  * [!track (track and map function calls and returns to the symbols)](commands/extension-commands/track.md)
   * [!epthook (hidden hook with EPT - stealth breakpoints)](commands/extension-commands/epthook.md)
   * [!epthook2 (hidden hook with EPT - detours)](commands/extension-commands/epthook2.md)
   * [!monitor (monitor read/write to a page)](commands/extension-commands/monitor.md)
