@@ -172,7 +172,7 @@ This is an event command, but in the current version of HyperDbg (in Debugger Mo
 
 #### Alternative Method For SYSCALL Interception
 
-If the syscall command triggered some weird behavior in your system, you could alternatively use the EPT hook on the SYSCALL handler. For example, you can use the following approach (script).
+If the **!syscall** command triggered some weird behavior in your system, you could alternatively use the EPT hook on the SYSCALL handler. For example, you can use the following approach (script).
 
 ```clike
 !epthook nt!KiSystemCall64+3 script {
