@@ -170,9 +170,25 @@ This command makes your computer substantially slower.
 
 This is an event command, but in the current version of HyperDbg (in Debugger Mode), this command will continue the debuggee for some time; however, you can use [this trick](https://docs.hyperdbg.org/tips-and-tricks/misc/enable-and-disable-events-in-debugger-mode) to make sure you won't lose any event.
 
+#### Alternative Method For SYSCALL Interception
+
+If the syscall command triggered some weird behavior in your system, you could alternatively use the EPT hook on the SYSCALL handler. For example, you can use the following approach (script).
+
+```clike
+!epthook nt!KiSystemCall64+3 script {
+    //
+    // Your target script here
+    //
+}
+```
+
+The above code sets a breakpoint on the Windows System-call handler and `+3` is added because normally the first instruction in the SYSCALL handler is `SWAPGS`, which we want to be changed because the interception is done in the kernel.
+
+In case you don't have access to Windows symbols, you can read the address of `nt!KiSystemCall64` from MSR `0xc0000082` using the '[rdmsr](https://docs.hyperdbg.org/commands/debugging-commands/rdmsr)' command. After that, add `+3` to the target MSR and run the above code without the function name.
+
 ### Requirements
 
-Post-Nehalem Processor (EPT)
+None
 
 ### Related
 
