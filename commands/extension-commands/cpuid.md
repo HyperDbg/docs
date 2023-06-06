@@ -4,6 +4,10 @@ description: Description of the '!cpuid' command in HyperDbg.
 
 # !cpuid (hook CPUID instruction execution)
 
+###
+
+###
+
 ### Command
 
 > !cpuid
@@ -59,6 +63,10 @@ Optional [hex assembly codes](https://docs.hyperdbg.org/using-hyperdbg/prerequis
 ### Context
 
 As the **Context** (`$context` pseudo-register in the event's script, `r8` in custom code, and `rdx` in condition code register) to the event trigger, **HyperDbg** sends the `rax`register of the guest or CPUID index when the guest executed CPUID.
+
+### Short-circuiting
+
+This event supports **'**[**event short-circuiting**](https://docs.hyperdbg.org/tips-and-tricks/misc/event-short-circuiting)', which means that you can configure HyperDbg to ignore its execution and its effects. For additional details, please refer to the article provided [here](https://docs.hyperdbg.org/tips-and-tricks/misc/event-short-circuiting).
 
 ### Debugger
 

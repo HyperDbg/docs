@@ -76,6 +76,10 @@ As the **Context** (`$context` pseudo-register in the event's script, `r8` in cu
 
 It's a virtual address equal to or between **\[from address]** and **\[to address],** so it's not a constant address and might differ in the range you entered.
 
+### Short-circuiting
+
+This event supports **'**[**event short-circuiting**](https://docs.hyperdbg.org/tips-and-tricks/misc/event-short-circuiting)', which means that you can configure HyperDbg to ignore its execution and its effects. For additional details, please refer to the article provided [here](https://docs.hyperdbg.org/tips-and-tricks/misc/event-short-circuiting).
+
 ### Debugger
 
 This event supports three debugging mechanisms.

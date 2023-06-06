@@ -60,6 +60,10 @@ Optional [hex assembly codes](https://docs.hyperdbg.org/using-hyperdbg/prerequis
 
 As the **Context** (`$context` pseudo-register in the event's script, `r8` in custom code, and `rdx` in condition code register) to the event trigger, **HyperDbg** sends the **port** number that the target tries to access.
 
+### Short-circuiting
+
+This event supports **'**[**event short-circuiting**](https://docs.hyperdbg.org/tips-and-tricks/misc/event-short-circuiting)', which means that you can configure HyperDbg to ignore its execution and its effects. For additional details, please refer to the article provided [here](https://docs.hyperdbg.org/tips-and-tricks/misc/event-short-circuiting).
+
 ### Debugger
 
 This event supports three debugging mechanisms.

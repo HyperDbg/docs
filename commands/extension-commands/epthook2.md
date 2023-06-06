@@ -60,6 +60,10 @@ Optional [hex assembly codes](https://docs.hyperdbg.org/using-hyperdbg/prerequis
 
 As the **Context** (`$context` pseudo-register in the event's script, `r8` in custom code, and `rdx` in condition code register) to the event trigger, **HyperDbg** sends the **virtual address** of where you put the hidden hook's breakpoint.
 
+### Short-circuiting
+
+This event does not support **'**[**event short-circuiting**](https://docs.hyperdbg.org/tips-and-tricks/misc/event-short-circuiting)', as the mechanism won't make sense for the function hooks.
+
 ### Debugger
 
 This event supports three debugging mechanisms.
