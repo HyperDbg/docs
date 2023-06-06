@@ -20,7 +20,7 @@ A [MASM-like expression](https://docs.hyperdbg.org/commands/scripting-language/a
 
 ### Description
 
-Returns the **length** of the instruction (Length Disassembler Engine) at the target `Address`.
+Returns the **length** of the instruction (Length Disassembler Engine) at the target `Address` using a  **32-bit assembler**.
 
 ### Return value
 
@@ -36,7 +36,7 @@ Adds 0x10 to the **eip** register and returns the instruction length result into
 
 ### Remarks
 
-This function visits the memory as a 32-bit assembler. You can use [disassemble\_len](https://docs.hyperdbg.org/commands/scripting-language/functions/diassembler/disassemble\_len) for the 64-bit version of this function.
+This function visits the memory as a **32-bit assembler**. You can use [disassemble\_len](https://docs.hyperdbg.org/commands/scripting-language/functions/diassembler/disassemble\_len) for the 64-bit version of this function.
 
 ### Related
 

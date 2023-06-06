@@ -20,7 +20,7 @@ A [MASM-like expression](https://docs.hyperdbg.org/commands/scripting-language/a
 
 ### Description
 
-Returns the **length** of the instruction (Length Disassembler Engine) at the target `Address`.
+Returns the **length** of the instruction (Length Disassembler Engine) at the target `Address` using a **64-bit assembler**.
 
 ### Return value
 
