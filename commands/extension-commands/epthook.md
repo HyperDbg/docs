@@ -66,7 +66,7 @@ As the **Context** (`$context` pseudo-register in the event's script, `r8` in cu
 
 ### Short-circuiting
 
-This event does not support **'**[**event short-circuiting**](https://docs.hyperdbg.org/tips-and-tricks/misc/event-short-circuiting)', as the mechanism won't make sense for the function hooks. If you want to change the execution path (e.g., ignoring a function call), you can directly manipulate the **RIP** register.
+This event does not support **'**[**event short-circuiting**](https://docs.hyperdbg.org/tips-and-tricks/misc/event-short-circuiting)', as this mechanism won't make sense for the function hooks. If you want to change the execution path (e.g., ignoring a function call), you can directly manipulate the **RIP** register.
 
 <pre class="language-clike"><code class="lang-clike">!epthook nt!ExAllocatePoolWithTag script {
 <strong>    @rip = poi(@rsp); // return to the stack

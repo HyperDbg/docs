@@ -62,7 +62,7 @@ As the **Context** (`$context` pseudo-register in the event's script, `r8` in cu
 
 ### Short-circuiting
 
-This event does not support **'**[**event short-circuiting**](https://docs.hyperdbg.org/tips-and-tricks/misc/event-short-circuiting)', as the mechanism won't make sense for the function hooks.
+This event does not support **'**[**event short-circuiting**](https://docs.hyperdbg.org/tips-and-tricks/misc/event-short-circuiting)', as this mechanism won't make sense for the function hooks.
 
 ### Debugger
 
