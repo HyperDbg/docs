@@ -4,10 +4,6 @@ description: Description of the '!cpuid' command in HyperDbg.
 
 # !cpuid (hook CPUID instruction execution)
 
-###
-
-###
-
 ### Command
 
 > !cpuid
