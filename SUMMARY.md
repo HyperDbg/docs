@@ -186,6 +186,7 @@
       * [physical\_to\_virtual](commands/scripting-language/functions/memory/physical\_to\_virtual.md)
     * [diassembler](commands/scripting-language/functions/diassembler/README.md)
       * [disassemble\_len](commands/scripting-language/functions/diassembler/disassemble\_len.md)
+      * [disassemble\_len32](commands/scripting-language/functions/diassembler/disassemble\_len32.md)
     * [spinlocks](commands/scripting-language/functions/spinlocks/README.md)
       * [spinlock\_lock](commands/scripting-language/functions/spinlocks/spinlock\_lock.md)
       * [spinlock\_lock\_custom\_wait](commands/scripting-language/functions/spinlocks/spinlock\_lock\_custom\_wait.md)

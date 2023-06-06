@@ -36,8 +36,8 @@ Adds 0x10 to the **rip** register and returns the instruction length result into
 
 ### Remarks
 
-None
+This function visits the memory as a 64-bit assembler. You can use [disassemble\_len32](https://docs.hyperdbg.org/commands/scripting-language/functions/diassembler/disassemble\_len32) for the 32-bit version of this function.
 
 ### Related
 
-None
+[disassemble\_len32](https://docs.hyperdbg.org/commands/scripting-language/functions/diassembler/disassemble\_len32)
