@@ -13,10 +13,12 @@ description: Description of the 'event' command in HyperDbg.
 > events
 >
 > events \[e|d|c all|EventNumber (hex)]
+>
+> events \[sc State (on|off)]
 
 ### Description
 
-Shows a list of active/disabled events and commands or disables or clears the event(s).
+Shows a list of active/disabled events and commands or disables or clears the event(s). This command is also able to change the '[short-circuiting](https://docs.hyperdbg.org/tips-and-tricks/misc/event-short-circuiting)' state of the corresponding execution of the event.
 
 ### Parameters
 
@@ -51,7 +53,7 @@ HyperDbg> events
 The following command disables an event with event number `1` and then we see the list of all events.
 
 ```diff
-HyperDbg> event d 1
+HyperDbg> events d 1
 
 HyperDbg> events
 0       (enabled)           !syscall 80
@@ -63,7 +65,7 @@ HyperDbg> events
 The following command enables all of the events and commands.
 
 ```
-HyperDbg> event e all
+HyperDbg> events e all
 
 HyperDbg> events
 0       (enabled)           !syscall 80
@@ -75,7 +77,7 @@ HyperDbg> events
 The following command clears an event with event number `1`.
 
 ```
-HyperDbg> event c 1
+HyperDbg> events c 1
 
 HyperDbg> events
 0       (enabled)           !syscall 80
@@ -86,7 +88,13 @@ HyperDbg> events
 The following command clears and turns off every enabled and disabled event and commands.
 
 ```
-0: kHyperDbg> event c all
+0: kHyperDbg> events c all
+```
+
+The following function short-circuits the corresponding execution of the event. It **only** applies to the current execution of the event and will reset to the default short-circuiting state in the next execution of the event.&#x20;
+
+```
+0: kHyperDbg> events sc on
 ```
 
 ### IOCTL
@@ -141,6 +149,21 @@ In the case of error :
 #define DEBUGGER_ERROR_DEBUGGER_MODIFY_EVENTS_INVALID_TYPE_OF_ACTION 0xc000000f
 ```
 
+For event short-circuiting, you should send the following structure to the kernel.&#x20;
+
+```clike
+typedef struct _DEBUGGER_SHORT_CIRCUITING_EVENT
+{
+    UINT64  KernelStatus;      // Kerenl put the status in this field
+    BOOLEAN IsShortCircuiting; // Determines whether to perform short circuting (on | off)
+
+} DEBUGGER_SHORT_CIRCUITING_EVENT, *PDEBUGGER_SHORT_CIRCUITING_EVENT;
+```
+
+The above structure should be sent to the debugger by the following `RequestedAction`,
+
+`DEBUGGER_REMOTE_PACKET_REQUESTED_ACTION_ON_VMX_ROOT_SET_SHORT_CIRCUITING_STATE`.
+
 ### Remarks
 
 {% hint style="danger" %}
@@ -155,4 +178,4 @@ None
 
 ### Related
 
-None
+[Event short-circuiting](https://docs.hyperdbg.org/tips-and-tricks/misc/event-short-circuiting)
