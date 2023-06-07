@@ -28,6 +28,8 @@ Enables an event by its Event ID.
 
 Enable an event with `EventId = 1`.
 
+When an event is executed, the `$id` pseudo-register contains the target event's ID.
+
 ### Remarks
 
 You can see events' ID using the [event](https://docs.hyperdbg.org/commands/debugging-commands/events) command. The first column of [this command](https://docs.hyperdbg.org/commands/debugging-commands/events)'s results shows the event ID.

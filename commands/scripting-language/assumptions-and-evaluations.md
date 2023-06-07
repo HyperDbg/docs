@@ -41,32 +41,11 @@ The following operators are supported on the script engine.
 
 ### Operators Precedence/Priority (Expressions)
 
-| Operator    | Description                                                                          |
-| ----------- | ------------------------------------------------------------------------------------ |
-| ( )         | Parentheses                                                                          |
-| - + \~ \* & | Unary Operators (Unary negative, Unary positive, Bitwise not, Reference, Address of) |
-| / % \*      | Arithmetic Operators (Division, Modulo, Multiplication)                              |
-| + -         | Arithmetic Operators (Addition, Subtration)                                          |
-| << >>       | Shift Operators (Right shift, Left shift)                                            |
-| &           | Bitwise AND Operator                                                                 |
-| ^           | Bitwise XOR Operator (exclusive OR)                                                  |
-| \|          | Bitwise OR Operator                                                                  |
+<table><thead><tr><th width="213">Operator</th><th>Description</th></tr></thead><tbody><tr><td>( )</td><td>Parentheses</td></tr><tr><td>- + ~ * &#x26;</td><td>Unary Operators (Unary negative, Unary positive, Bitwise not, Reference, Address of)</td></tr><tr><td>/ % *</td><td>Arithmetic Operators (Division, Modulo, Multiplication)</td></tr><tr><td>+ -</td><td>Arithmetic Operators (Addition, Subtration)</td></tr><tr><td>&#x3C;&#x3C; >></td><td>Shift Operators (Right shift, Left shift)</td></tr><tr><td>&#x26;</td><td>Bitwise AND Operator</td></tr><tr><td>^</td><td>Bitwise XOR Operator (exclusive OR)</td></tr><tr><td>|</td><td>Bitwise OR Operator</td></tr></tbody></table>
 
 ### Operator Precedence/Priority (Boolean Expressions)
 
-| Operator         | Description                                                                          |
-| ---------------- | ------------------------------------------------------------------------------------ |
-| ( )              | Parentheses                                                                          |
-| - + \~ \* &      | Unary Operators (Unary negative, Unary positive, Bitwise not, Reference, Address of) |
-| / % \*           | Arithmetic Operators (Division, Modulo, Multiplication)                              |
-| + -              | Arithmetic Operators (Addition, Subtration)                                          |
-| << >>            | Shift Operators (Right shift, Left shift)                                            |
-| >= < > <= ==  != | Comparison operators                                                                 |
-| &                | Bitwise AND Operator                                                                 |
-| ^                | Bitwise XOR Operator (exclusive OR)                                                  |
-| \|               | Bitwise OR Operator                                                                  |
-| &&               | Logical AND                                                                          |
-| \|\|             | Logical OR                                                                           |
+<table><thead><tr><th width="213">Operator</th><th>Description</th></tr></thead><tbody><tr><td>( )</td><td>Parentheses</td></tr><tr><td>- + ~ * &#x26;</td><td>Unary Operators (Unary negative, Unary positive, Bitwise not, Reference, Address of)</td></tr><tr><td>/ % *</td><td>Arithmetic Operators (Division, Modulo, Multiplication)</td></tr><tr><td>+ -</td><td>Arithmetic Operators (Addition, Subtration)</td></tr><tr><td>&#x3C;&#x3C; >></td><td>Shift Operators (Right shift, Left shift)</td></tr><tr><td>>= &#x3C; > &#x3C;= ==  !=</td><td>Comparison operators</td></tr><tr><td>&#x26;</td><td>Bitwise AND Operator</td></tr><tr><td>^</td><td>Bitwise XOR Operator (exclusive OR)</td></tr><tr><td>|</td><td>Bitwise OR Operator</td></tr><tr><td>&#x26;&#x26;</td><td>Logical AND</td></tr><tr><td>||</td><td>Logical OR</td></tr></tbody></table>
 
 ## Registers
 
@@ -136,8 +115,8 @@ Here are the currently supported pseudo-registers supported by the script engine
 | **$ip**         | The instruction pointer register (rip).                                                                              |
 | **$buffer**     | The pre-allocated buffer if the user requests a safe buffer.                                                         |
 | **$context**    | The context of the triggered event (It has a different meaning in each event).                                       |
-| **$event\_id**  | The event ID of the triggered event (Only in the case of events). \[Added from **v0.2**]                             |
-| **$event\_tag** | The event tag of the triggered event (Only in the case of events). \[Added from **v0.2**]                            |
+| **$id**         | The event ID of the triggered event (Only in the case of events). \[Added from **v0.3**]                             |
+| **$tag**        | The event tag of the triggered event (Only in the case of events). \[Added from **v0.3**]                            |
 
 Some of the above pseudo-registers are not supported either in kernel-mode or user-mode. If you use these registers, then it returns `NULL`.
 

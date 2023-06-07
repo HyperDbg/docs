@@ -28,6 +28,18 @@ Disables an event by its Event ID.
 
 Disable an event with `EventId = 1`.
 
+When an event is executed, the `$id` pseudo-register contains the target event's ID.
+
+For example, you can force an event to be disabled immediately:
+
+```
+!epthook nt!ExAllocatePoolWithTag script {
+ event_disable($id);
+}
+```
+
+The above example, won't guarantee that only one event will be executed, as multiple cores might reach to the above code simultaneously. If you want to avoid multiple runs, you can use [interlocked](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked) functions.
+
 ### Remarks
 
 You can see events' ID using the [event](https://docs.hyperdbg.org/commands/debugging-commands/events) command. The first column of [this command](https://docs.hyperdbg.org/commands/debugging-commands/events)'s results shows the event ID.
