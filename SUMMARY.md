@@ -168,6 +168,7 @@
     * [events](commands/scripting-language/functions/events/README.md)
       * [event\_disable](commands/scripting-language/functions/events/disable\_event.md)
       * [event\_enable](commands/scripting-language/functions/events/enable\_event.md)
+      * [event\_sc](commands/scripting-language/functions/events/event\_sc.md)
       * [flush](commands/scripting-language/functions/events/flush.md)
     * [exports](commands/scripting-language/functions/exports/README.md)
       * [print](commands/scripting-language/functions/exports/print.md)
