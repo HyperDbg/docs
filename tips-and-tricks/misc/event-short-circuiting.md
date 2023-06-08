@@ -30,6 +30,66 @@ The same 'sc on' can also be applied to other events like [!syscall](https://doc
 
 By default, the '**sc**' state of the event is set to **off**, which means the event will be triggered while the target instruction also will be executed.
 
+### Manually Changing The Short-circuiting State&#x20;
+
+Using the '[events](https://docs.hyperdbg.org/commands/debugging-commands/events)' command, you can change the short-circuiting state of the event for the **corresponding** execution.&#x20;
+
+For example, the following event is triggered and paused by the debugger.
+
+```clike
+!syscall 0x55 pid 1c0
+```
+
+Now, you conclude that the execution of SYSCALL for the current event (only for the current execution) should be ignored. Thus, you can use the following command to short-circuit the event.
+
+```
+0: kHyperDbg> events sc on
+```
+
+{% hint style="info" %}
+Please note that the default short-circuiting state of the above event is '**off**' which means that the next execution of the event will **execute** the **syscall**. In other words, short-circuiting by using the '[events](https://docs.hyperdbg.org/commands/debugging-commands/events)' command will ignore the execution (emulation) of the event only for **ONE** time.
+{% endhint %}
+
+### Using Scripts To Change The Short-circuiting State
+
+The mostly used scenario is applying conditions and ignoring events in certain conditions by using the scripts. This can be done by using the '[event\_sc](https://docs.hyperdbg.org/commands/scripting-language/functions/events/event\_sc)' function.
+
+This function gets `1` or `0` as the input while `1` means the short-circuiting is ON and the event should be ignored and `0` means the event is not short-circuited and should be executed (emulated).
+
+Same as the '[events](https://docs.hyperdbg.org/commands/debugging-commands/events)' command, this function only applies to the current execution (one-time) of the event.
+
+Using this function you can have two approaches: **Blocklisting** and **whitelisting**.&#x20;
+
+#### Blocklisting Approach
+
+In the blocklisting approach, you only short-circuit certain events that met a special condition while the default short-circuiting state is **off**.
+
+For example,
+
+```clike
+!syscall script {
+
+	if (@rcx == 0xf000 && @rdx == 0x55) {
+		event_sc(1);
+	}
+}
+```
+
+#### Whitelisting Approach
+
+In the whitelisting approach, you allow certain events that met a special condition while the default short-circuiting state is **on** and all other events will be short-circuited.
+
+For example,
+
+```clike
+!syscall 0x55 sc on script {
+	
+	if (@rcx == 0xf0) {
+		event_sc(0);
+	}
+}
+```
+
 ### Examples
 
 There are plenty of scenarios
