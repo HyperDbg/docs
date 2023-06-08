@@ -1,5 +1,5 @@
 ---
-description: The event short-circuiting and ignoring
+description: The event short-circuiting and ignoring mechanism in HyperDbg
 ---
 
 # Event short-circuiting
