@@ -36,13 +36,15 @@ For this purpose, you can **Disable Driver Signature Enforcement** or **Put Wind
 
 ## Activating User-Mode Debugger
 
-The user-mode debugger is still in the beta version and not stable. We decided to exclude it from this release and release it in future versions. If you want to test the user-mode debugger in **VMI Mode**, you should build HyperDbg with special instructions.&#x20;
+The user-mode debugger is deprecated and merged into the kernel debugger.
 
-Open the following file:&#x20;
+~~The user-mode debugger is still in the beta version and not stable. We decided to exclude it from this release and release it in future versions. If you want to test the user-mode debugger in **VMI Mode**, you should build HyperDbg with special instructions.~~&#x20;
 
-`HyperDbg/hyperdbg/include/Configuration.h`
+`Open the following file:`&#x20;
 
-Change the following constant from **FALSE** to **TRUE**.
+~~`HyperDbg/hyperdbg/include/Configuration.h`~~
+
+~~Change the following constant from **FALSE** to **TRUE**.~~
 
 ```
 /**
@@ -51,7 +53,7 @@ Change the following constant from **FALSE** to **TRUE**.
 #define ActivateUserModeDebugger FALSE
 ```
 
-After that, compile HyperDbg, and the user-mode debugger is activated. (You can use the [.start](https://docs.hyperdbg.org/commands/meta-commands/.start) and the [.attach](https://docs.hyperdbg.org/commands/meta-commands/.attach) commands).
+~~After that, compile HyperDbg, and the user-mode debugger is activated. (You can use the~~ [~~.start~~](https://docs.hyperdbg.org/commands/meta-commands/.start) ~~and the~~ [~~.attach~~](https://docs.hyperdbg.org/commands/meta-commands/.attach) ~~commands).~~
 
 ## Running HyperDbg
 
