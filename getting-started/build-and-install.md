@@ -6,9 +6,11 @@ description: This document helps you to build and install HyperDbg
 
 ## Download & Install
 
-To build HyperDbg, you need to install the following software.
+In order to use HyperDbg, you have two options. You can download the [**latest compiled binaries**](https://github.com/HyperDbg/HyperDbg/releases/latest), or manually download the source code and compile the binaries from the source code.
 
-**Visual Studio Community, Enterprise or Professional 2015 or later.**
+If you download compiled binary files, you can skip the **Build & Compile** section and move to the next section, otherwise, to **build** HyperDbg, you need to install the following software.
+
+**Visual Studio Community, Enterprise, or Professional 2022 or later.**
 
 * You can download it at: \[[https://www.visualstudio.com/downloads](https://www.visualstudio.com/downloads/)]
 
@@ -20,7 +22,11 @@ To build HyperDbg, you need to install the following software.
 
 * You can download it at: \[[https://developer.microsoft.com/en-us/windows/hardware/windows-driver-kit](https://developer.microsoft.com/en-us/windows/hardware/windows-driver-kit)]
 
-## Build & Compile
+{% hint style="warning" %}
+HyperDbg is currently compiled with the latest version of **SDK** and **WDK**. If you encounter any problems compiling with previous versions of **SDK**, or **WDK**, you have to update it before compiling HyperDbg.
+{% endhint %}
+
+### Build & Compile
 
 First, clone the project using **git** or download precompiled binaries from [here](https://github.com/HyperDbg/HyperDbg/releases).
 
@@ -33,27 +39,6 @@ Open the visual studio and **build** the solution.
 After building, you need to disable driver signature enforcement. It is because the current versions of **HyperDbg** are not digitally signed.
 
 For this purpose, you can **Disable Driver Signature Enforcement** or **Put Windows in Test Mode**.
-
-## Activating User-Mode Debugger
-
-The user-mode debugger is deprecated and merged into the kernel debugger.
-
-~~The user-mode debugger is still in the beta version and not stable. We decided to exclude it from this release and release it in future versions. If you want to test the user-mode debugger in **VMI Mode**, you should build HyperDbg with special instructions.~~&#x20;
-
-`Open the following file:`&#x20;
-
-~~`HyperDbg/hyperdbg/include/Configuration.h`~~
-
-~~Change the following constant from **FALSE** to **TRUE**.~~
-
-```
-/**
- * @brief Activates the user-mode debugger
- */
-#define ActivateUserModeDebugger FALSE
-```
-
-~~After that, compile HyperDbg, and the user-mode debugger is activated. (You can use the~~ [~~.start~~](https://docs.hyperdbg.org/commands/meta-commands/.start) ~~and the~~ [~~.attach~~](https://docs.hyperdbg.org/commands/meta-commands/.attach) ~~commands).~~
 
 ## Running HyperDbg
 
