@@ -44,16 +44,16 @@ For this purpose, you can **Disable Driver Signature Enforcement** or **Put Wind
 
 Running HyperDbg has multiple stages. First, you should make sure to enable Intel **VT-x** from the BIOS. Next, you have to disable **Driver Signature Enforcement (DSE)** and turn off **Virtualization Based Security (VBS)**. Then you can run HyperDbg.
 
-If you want to use HyperDbg on your own computer (host), for example for local kernel debugging, you need to disable **Driver Signature Enforcement (DSE**) on your local machine. Disabling DSE allows you to use HyperDbg on your own computer.
+If you want to use HyperDbg on your own computer (**host**), for example for local kernel debugging, you need to disable **Driver Signature Enforcement (DSE**) on your local machine. Disabling DSE allows you to use HyperDbg on your own computer.
 
-But if you want to debug a different computer (a **Guest Virtual Machine**), you don't need to disable any protections on your own computer (host). Instead, you only need to make the necessary changes on the guest machine itself. So you don't have to worry about disabling anything on your own computer when debugging a guest machine.
+But if you want to debug a different computer (a **Guest Virtual Machine**), you don't need to disable any protections on your own computer (**host**). Instead, you only need to make the necessary changes on the guest machine itself. So you don't have to worry about disabling anything on your own computer when debugging a **guest** machine.
 
 In short:
 
-* Disable Driver Signature Enforcement on your own computer (host) if you want to run HyperDbg on it for local kernel debugging.
+* Disable Driver Signature Enforcement on your own computer (**host**) if you want to run HyperDbg on it for local kernel debugging.
 * When debugging a remote guest machine, make the required changes only on the guest machine, without disabling any protections on your own computer.
 
-Remember, when attaching to a **guest** virtual machine using HyperDbg, it's important to note that HyperDbg **does not** load any **drivers** or **hypervisors** on your **host** machine. Instead, it functions as a simple application that connects to the **guest** machine through the serial port and allows you to control it. In other words, HyperDbg acts as a simple bridge between your host machine and the target guest machine. It establishes a connection through the serial port without making any modifications or loading additional software on your host machine.
+Remember, when attaching to a **guest** virtual machine, HyperDbg **does not** load any **drivers** or **hypervisors** on your **host** machine. Instead, it functions as a simple application that connects to the **guest** machine through the serial port and allows you to control it. In other words, HyperDbg acts as a simple bridge between your host machine and the target guest machine. It establishes a connection through the serial port without making any modifications or loading additional software on your host machine. Instead, the drivers and hypervisor will be loaded on the target guest machine.
 
 On the rest of this page, you'll read a detailed explanation of performing the above stages.
 
@@ -177,4 +177,11 @@ There are also other options to disable **VBS** as described [here](https://beeb
 
 ## Run & Test
 
-Congratulations, you're ready to run HyperDbg. Open **hyperdbg-cli.exe**, and visit [Quick Start](https://docs.hyperdbg.org/getting-started/quick-start) to start using **HyperDbg**.
+Congratulations, you're ready to run HyperDbg.&#x20;
+
+From now, you can either,
+
+* [**Attach to a remote machine**](https://docs.hyperdbg.org/getting-started/attach-to-hyperdbg/debug)
+* [**Attach to the local machine**](https://docs.hyperdbg.org/getting-started/attach-to-hyperdbg/local-debugging)
+
+or visit [Quick Start](https://docs.hyperdbg.org/getting-started/quick-start) to start using **HyperDbg**.
