@@ -61,6 +61,8 @@ On the rest of this page, you'll read a detailed explanation of performing the a
 
 This check should be done in the **HOST** machine.
 
+Please note that HyperDbg is currently available only for [Intel](https://docs.hyperdbg.org/getting-started/faq#is-it-only-for-a-special-processor-or-can-i-run-it-on-amd-or-arm-processors) processors.
+
 If you've ever run HyperDbg and encountered the below error, it means that **VT-x** is disabled from your BIOS.
 
 ![Disabled VT-x From BIOS](../.gitbook/assets/vmx-is-not-supported.PNG)
