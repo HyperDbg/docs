@@ -82,6 +82,10 @@ Most of the time, if the serial port is the only serial device that you add to t
 If you see an error for driver signature enforcement, please visit [here](https://docs.hyperdbg.org/using-hyperdbg/kernel-mode-debugging/examples/beginning/connecting-to-hyperdbg#driver-signature-enforcement-error).
 {% endhint %}
 
+Please note that HyperDbg differs from WinDbg as it requires installation in both the target virtual machine and the host. Unlike WinDbg, which only needs to be installed on the host.&#x20;
+
+To use HyperDbg, the debugger should be started and listening on the host before connecting to it from the guest. Therefore, it is important to execute the commands on the debugger (**host**) first, and then connect to it from the debuggee (**guest**).
+
 ## Connect to Debuggee (VMI Mode)
 
 First, make sure you have access to the remote machine by pinging its IP address and check firewall rules. After that, run the following command in **debuggee (guest)**.
