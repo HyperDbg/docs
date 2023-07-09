@@ -24,7 +24,7 @@ HyperDbg has a unique architecture. The principles of designing HyperDbg are mak
 
 ## What's the difference between HyperDbg and Windbg?
 
-HyperDbg has a completely different architecture. Windbg operates on ring 0 \(kernel\) while HyperDbg is running on ring -1 \(hypervisor\); thus, HyperDbg provides unique features that are not available on Windbg \(OS-Level\).
+HyperDbg has a completely different architecture. Windbg operates on ring 0 (kernel) while HyperDbg is running on ring -1 (hypervisor); thus, HyperDbg provides unique features that are not available on Windbg (OS-Level).
 
 Besides that, HyperDbg is not just a simple debugger. It comes up with modern reverse engineering methods by using vt-x and other modern processor facilities to ease the reverse engineering, analyzing, and fuzzing.
 
@@ -34,7 +34,7 @@ The current version of HyperDbg only supports Intel x64 processors. You cannot r
 
 ## What generation of Intel Processors supports HyperDbg?
 
-Your processor should support Intel Extended Page Table \(A.K.A. EPT\), which is introduced on Nehalem Microarchitecture, but some functionalities only work on Intel's 4th or later generation; so, the previous processors might have undefined behaviors with some of the functionalities of HyperDbg. It's recommended to use a **Skylake** \(6th generation\) processor or newer processors.
+Your processor should at least support Intel Extended Page Table (A.K.A. EPT), which is introduced on Nehalem Microarchitecture, but most of the functionalities are working on Intel's 4th or later generation; so, the previous processors might have undefined behaviors with some of the functionalities of HyperDbg. Even though most of the functionalities are supported on the 4th generation of Intel Processors but still some minor functionalities need newer processors. It's recommended to use a Skylake (6th generation) processor or newer processors to support all functionalities.
 
 ## Can I use it on Linux or macOS?
 
@@ -42,11 +42,11 @@ No, the current version is only limited to Windows 10; however, one of our top p
 
 ## Should I have a separate machine to use HyperDbg?
 
-Of course not! The only problem with not having a separate machine is that you can only operate on [VMI mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#vmi-mode), and you can't pause \(halt\) the system with breakpoint or for stepping. You can also use VMware Workstation to debug in [debugger mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode) with all of the features, including stepping and pausing the debuggee.
+Of course not! The only problem with not having a separate machine is that you can only operate on [VMI mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#vmi-mode), and you can't pause (halt) the system with breakpoint or for stepping. You can also use VMware Workstation to debug in [debugger mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode) with all of the features, including stepping and pausing the debuggee.
 
-## Can I use it on a nested-virtualization environment \(VMware, VirtualBox, Hyper-V\)?
+## Can I use it on a nested-virtualization environment (VMware, VirtualBox, Hyper-V)?
 
-The current versions of HyperDbg are only tested on VMware Workstation \(Not VMware player\), but in the future versions, we will support all the virtualization platforms with nested-virtualization.
+The current versions of HyperDbg are only tested on VMware Workstation (Not VMware player), but in the future versions, we will support all the virtualization platforms with nested-virtualization.
 
 ## How can I start reading about HyperDbg internals? How does it work? Can I contribute to HyperDbg?
 
@@ -55,4 +55,3 @@ The source for reading about Hypervisors and HyperDbg internals is [Hypervisor F
 For contribution, you can follow the [contribution guide](https://github.com/HyperDbg/HyperDbg/blob/master/CONTRIBUTING.md).
 
 You can visit [here ](https://docs.hyperdbg.org/design)to know more about HyperDbg [design ](https://docs.hyperdbg.org/design)internals.
-
