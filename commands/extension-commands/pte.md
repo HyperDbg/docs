@@ -42,7 +42,7 @@ The following command shows the page-level entries `nt!ExAllocatePoolWithTag`.
 HyperDbg> !pte nt!ExAllocatePoolWithTag
 VA fffff801639b1030
 PML4E (PXE) at ffffeaf57abd5f80 contains 0000000005109063
-PDPT (PPE) at ffffeaf57abf0028  contains 000000000510a063
+PDPTE (PPE) at ffffeaf57abf0028 contains 000000000510a063
 PDE at ffffeaf57e0058e0 contains 0a000000034000a1
 PDE is a large page, so it doesn't have a PTE
 ```
@@ -53,7 +53,7 @@ The following command shows the page-level entries `nt!ExAllocatePoolWithTag+5`.
 HyperDbg> !pte nt!ExAllocatePoolWithTag+5
 VA fffff801639b1035
 PML4E (PXE) at ffffeaf57abd5f80 contains 0000000005109063
-PDPT (PPE) at ffffeaf57abf0028  contains 000000000510a063
+PDPTE (PPE) at ffffeaf57abf0028 contains 000000000510a063
 PDE at ffffeaf57e0058e0 contains 0a000000034000a1
 PDE is a large page, so it doesn't have a PTE
 ```
@@ -64,7 +64,7 @@ The following command shows the page-level entries `fffff80040f00c28`.
 HyperDbg> !pte fffff80040f00c28
 VA fffff80040f00c28
 PML4E (PXE) at ffff83c1e0f07f80 contains 0000000004108063
-PDPT (PPE) at ffff83c1e0ff0008  contains 000000000411c063
+PDPTE (PPE) at ffff83c1e0ff0008 contains 000000000411c063
 PDE at ffff83c1fe001038 contains 0000000004124063
 PTE at ffff83fc00207800 contains 8900000006470863
 ```
@@ -75,7 +75,7 @@ The following command shows the page-level entries `fffff8003ad6f010`. Note that
 HyperDbg> !pte fffff8003ad6f010
 VA fffff8003ad6f010
 PML4E (PXE) at ffff83c1e0f07f80 contains 0000000004108063
-PDPT (PPE) at ffff83c1e0ff0000  contains 0000000004109063
+PDPTE (PPE) at ffff83c1e0ff0000 contains 0000000004109063
 PDE at ffff83c1fe000eb0 contains 00000000028008e3
 PDE is a large page, so it doesn't have a PTE
 ```
