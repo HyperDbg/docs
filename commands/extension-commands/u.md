@@ -1,23 +1,31 @@
 ---
-description: Description of '!u, !u2' commands in HyperDbg.
+description: Description of '!u, !u64, !u2 !u32' commands in HyperDbg.
 ---
 
-# !u, !u2 (disassemble physical address)
+# !u, !u64, !u2, !u32 (disassemble physical address)
 
 ### Command
 
 > !u
 >
+> !u64
+>
 > !u2
+>
+> !u32
 
 ### Syntax
 
 > !u \[Address (hex)] \[l Length (hex)]
 >
+> !u64 \[Address (hex)] \[l Length (hex)]
+>
 > !u2 \[Address (hex)] \[l Length (hex)]
+>
+> !u32 \[Address (hex)] \[l Length (hex)]
 
 {% hint style="info" %}
-**!u** disassembles as x64 and **!u2** disassembles as x86.
+**!u** and **!u64** disassembles as x64 while **!u2** and **!u32** adisassembles as x86. **!u** and **!u64** are the same commands while **!u2** and **!u32** are the same.
 {% endhint %}
 
 ### Description
