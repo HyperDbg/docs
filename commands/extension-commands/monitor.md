@@ -84,6 +84,24 @@ It's a virtual address equal to or between **\[from address]** and **\[to addres
 
 This event supports **'**[**event short-circuiting**](https://docs.hyperdbg.org/tips-and-tricks/misc/event-short-circuiting)', which means that you can configure HyperDbg to ignore its execution and its effects. For additional details, please refer to the article provided [here](https://docs.hyperdbg.org/tips-and-tricks/misc/event-short-circuiting).
 
+#### Short-Circuiting Behavior in Read/Write vs. Execution Events
+
+When it comes to short-circuiting events, there are distinct behaviors for reads/writes and executions.
+
+1. Short-circuiting for **Reads**/**Writes**: In this scenario, short-circuiting involves disregarding the execution of commands that read from or write to memory, such as MOV instructions. It is as if these instructions were never executed, and memory modifications are not performed.
+2. Short-circuiting for **Execution**: Short-circuiting events for execution operate differently. It involves blocking the execution at the target address. For instance, if you wish to prevent execution on a specific page, you can achieve this by short-circuiting the event. Here is an example:
+
+```clike
+!monitor x 7e0000 7e0999 pid 3a4c script {
+  event_sc(1);
+  printf("target address execution is blocked: %llx\n", $context);
+}
+```
+
+By adding `event_sc(1);`, HyperDbg is instructed to **block** execution, preventing any code within the target page from running.
+
+If `event_sc(1);` is not used, HyperDbg will allow the target to execute normally for just one instruction before triggering again. The event will then be triggered for the next instruction, and so on. In essence, without `event_sc(1);`, it is like stepping through the instructions one by one, with each instruction in the target address range triggering the event. Conversely, specifying `event_sc(1);` will effectively block execution, preventing the target code on the target page from running.
+
 ### Debugger
 
 This event supports three debugging mechanisms.
