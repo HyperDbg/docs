@@ -2,7 +2,7 @@
 description: Description of the '!monitor' command in HyperDbg.
 ---
 
-# !monitor (monitor read/write to a page)
+# !monitor (monitor read/write/execute to a range of memory)
 
 ### Command
 
@@ -14,31 +14,31 @@ description: Description of the '!monitor' command in HyperDbg.
 
 ### Description
 
-Monitors read or write or read/write to a range of addresses. If any read or write on your range address (memory), it will be triggered.
+Monitors read or write or execute (or a combination of these operations) to a range of addresses. If any read or write or execute happens on the specified address range (memory), it will be triggered.
 
 {% hint style="info" %}
-It is exactly like read/write of Hardware Debug Registers but without any size and count limitation.
+It is exactly like read/write/execute of Hardware Debug Registers but without any size and count limitation.
 {% endhint %}
 
 ### Parameters
 
 **\[Mode (string)]**
 
-Can be one of these values :
-
-**rw** : trigger in the case of reading and writing.
+Can be one of these values (or a combination of these attributes like 'rw', 'rx', 'wx', 'rwx', etc.) :
 
 **r** : trigger in the case of reading.
 
 **w** : trigger in the case of writing.
 
+**x** : trigger in the case of executing.
+
 **\[FromAddress (hex)]**
 
-The start **Virtual** address of where we want to monitor for reading or writing.
+The start **Virtual** address of where we want to monitor for reading or writing or executing (or a custom combination of these attributes).
 
 **\[ToAddress (hex)]**
 
-The end of **Virtual** address of where we want to monitor for reading or writing.
+The end of **Virtual** address of where we want to monitor for reading or writing or executing (or a custom combination of these attributes).
 
 **\[pid ProcessId (hex)] (optional)**
 
@@ -122,6 +122,18 @@ Alternatively, you can use `nt!Kd_DEFAULT_Mask` too.
 HyperDbg> !monitor rw nt!Kd_DEFAULT_Mask nt!Kd_DEFAULT_Mask+4
 ```
 
+If we want to monitor any execution of instructions from this range, you can use the following command.
+
+```c
+HyperDbg> !monitor x fffff800`7bd40000 fffff800`7bd40100
+```
+
+If we want to monitor any reads, writes or executions of instructions from a PE section in the user-mode, you can use the following command.
+
+```c
+HyperDbg> !monitor rwx 00007ff8`349f2000 00007ff8`349f8000
+```
+
 #### Script
 
 Using the following command, you can use HyperDbg's Script Engine. You should replace the string between braces (`HyperDbg Script Here`) with your script. You can find script examples [here](https://docs.hyperdbg.org/commands/scripting-language/examples).
@@ -130,7 +142,7 @@ Using the following command, you can use HyperDbg's Script Engine. You should re
 HyperDbg> !monitor w fffff800`4ed60000 fffff800`4ed60100 script { HyperDbg Script Here }
 ```
 
-The above command when messages don't need to be delivered immediately.
+The above command is used when messages don't need to be delivered immediately.
 
 ```
 HyperDbg> !monitor w fffff800`4ed60000 fffff800`4ed60100 script { HyperDbg Script Here } imm no
@@ -158,7 +170,7 @@ Your custom code will be executed in vmx-root mode. Take a look at [this topic](
 
 **Run Custom Code (Unconditional)**
 
-Monitoring reads and writes on address from ``fffff800`4ed60000`` to ``fffff800`4ed60100`` and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) for more information.
+Monitoring reads and writes on an address range starting from ``fffff800`4ed60000`` to ``fffff800`4ed60100`` and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) for more information.
 
 ```c
 HyperDbg> !monitor rw fffff800`4ed60000 fffff800`4ed60100 code {90 90 90}
@@ -166,10 +178,10 @@ HyperDbg> !monitor rw fffff800`4ed60000 fffff800`4ed60100 code {90 90 90}
 
 **Run Custom Code (Conditional)**
 
-Monitoring reads and writes on address from ``fffff800`4ed60000`` to ``fffff800`4ed60100`` and run 3 nops whenever the event condition is triggered and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) and [how to create a condition](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-a-condition) for more information.
+Monitoring reads and executions on an address range starting from ``fffff800`4ed60000`` to ``fffff800`4ed60100`` and run 3 nops whenever the event condition is triggered and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) and [how to create a condition](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-a-condition) for more information.
 
 ```c
-HyperDbg> !monitor rw fffff800`4ed60000 fffff800`4ed60100 code {90 90 90} condition {90 90 90}
+HyperDbg> !monitor rx fffff800`4ed60000 fffff800`4ed60100 code {90 90 90} condition {90 90 90}
 ```
 
 {% hint style="success" %}
@@ -180,13 +192,27 @@ Keep in mind that a conditional event can be used in **Breaking to Debugger** an
 
 This command uses the same method to [send IOCTL for regular events](https://docs.hyperdbg.org/using-hyperdbg/sdk/ioctl/event-registration).
 
-As **EventType** use `HIDDEN_HOOK_READ` in the case you want just reads, use `HIDDEN_HOOK_WRITE` in the case you want just writes and use `HIDDEN_HOOK_READ_AND_WRITE` in the case you want both reads and writes and send the start address (**from address**) of where you want to monitor in `OptionalParam1`and end address (**to address**) of where you want to monitor in `OptionalParam2`address `DEBUGGER_GENERAL_EVENT_DETAIL`.
+As **EventType** you can use one of the following events:
+
+```
+HIDDEN_HOOK_READ_AND_WRITE_AND_EXECUTE
+HIDDEN_HOOK_READ_AND_WRITE
+HIDDEN_HOOK_READ_AND_EXECUTE
+HIDDEN_HOOK_WRITE_AND_EXECUTE
+HIDDEN_HOOK_READ
+HIDDEN_HOOK_WRITE
+HIDDEN_HOOK_EXECUTE
+```
+
+After that, you can send the start address (**from address**) of where you want to monitor in `OptionalParam1`and end address (**to address**) of where you want to monitor in `OptionalParam2`address `DEBUGGER_GENERAL_EVENT_DETAIL`.
 
 ### Design
 
-Take a look at "[Design of !monitor](https://docs.hyperdbg.org/design/features/vmm-module/design-of-monitor)" to see how does it work.
+Take a look at "[Design of !monitor](https://docs.hyperdbg.org/design/features/vmm-module/design-of-monitor)" to see how it works.
 
 ### Remarks
+
+Starting from **v0.4**, the support for **execution** interception or the '`x`' mode string is added to the HyperDbg debugger.
 
 {% hint style="danger" %}
 You shouldn't use any of **!monitor**, **!epthook**, and **!epthook2** commands on the same page (4KB) simultaneously. For example, when you put a hidden hook (**!epthook2**) on **0x10000005**, you shouldn't use any of **!monitor** or **!epthook** commands on the address starting from **0x10000000** to **0x10000fff**.
