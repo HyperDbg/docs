@@ -104,7 +104,7 @@ Imagine we want to put a monitor writes but not reads/executes on address from `
 HyperDbg> !monitor w fffff800`4ed60000 fffff800`4ed60100
 ```
 
-If we want reads but not writes and executes.
+If we want reads but not writes/executes.
 
 ```c
 HyperDbg> !monitor r fffff800`4ed60000 fffff800`4ed60100
