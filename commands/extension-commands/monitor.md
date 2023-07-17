@@ -24,7 +24,7 @@ It is exactly like read/write/execute of Hardware Debug Registers but without an
 
 **\[Mode (string)]**
 
-Can be one of these values (or a combination of these attributes like 'rw', 'rx', 'wx', 'rwx', etc.) :
+Can be one of these values (or a combination of these attributes like '**rw**', '**rx**', '**wx**', '**rwx**', etc.) :
 
 **r** : trigger in the case of reading.
 
@@ -34,11 +34,11 @@ Can be one of these values (or a combination of these attributes like 'rw', 'rx'
 
 **\[FromAddress (hex)]**
 
-The start **Virtual** address of where we want to monitor for reading or writing or executing (or a custom combination of these attributes).
+The start **Virtual** address of where it needs to be monitored for reading or writing or executing (or a custom combination of these attributes).
 
 **\[ToAddress (hex)]**
 
-The end of **Virtual** address of where we want to monitor for reading or writing or executing (or a custom combination of these attributes).
+The end of **Virtual** address of where it needs to be monitored for reading or writing or executing (or a custom combination of these attributes).
 
 **\[pid ProcessId (hex)] (optional)**
 
@@ -98,37 +98,37 @@ Please read "[How to create a condition?](https://docs.hyperdbg.org/using-hyperd
 
 #### Break
 
-Imagine we want to put a monitor writes but not reads on address from ``fffff800`4ed60000`` to ``fffff800`4ed60100`` , this will break to the debugger and gives the control back to you.
+Imagine we want to put a monitor writes but not reads/executes on address from ``fffff800`4ed60000`` to ``fffff800`4ed60100`` , this will break to the debugger and gives the control back to us.
 
 ```c
 HyperDbg> !monitor w fffff800`4ed60000 fffff800`4ed60100
 ```
 
-If we want reads but not writes.
+If we want reads but not writes and executes.
 
 ```c
 HyperDbg> !monitor r fffff800`4ed60000 fffff800`4ed60100
 ```
 
-If we want both reads and writes.
+If we want both reads and writes but not the executes.
 
 ```c
 HyperDbg> !monitor rw fffff800`4ed60000 fffff800`4ed60100
 ```
 
-Alternatively, you can use `nt!Kd_DEFAULT_Mask` too.
+Alternatively, we can use `nt!Kd_DEFAULT_Mask` too.
 
 ```c
 HyperDbg> !monitor rw nt!Kd_DEFAULT_Mask nt!Kd_DEFAULT_Mask+4
 ```
 
-If we want to monitor any execution of instructions from this range, you can use the following command.
+If we want to monitor any execution of instructions from this range, we can use the following command.
 
 ```c
 HyperDbg> !monitor x fffff800`7bd40000 fffff800`7bd40100
 ```
 
-If we want to monitor any reads, writes or executions of instructions from a PE section in the user-mode, you can use the following command.
+If we want to monitor any reads, writes, or executions of instructions from a PE section in the user-mode, we can use the following command.
 
 ```c
 HyperDbg> !monitor rwx 00007ff8`349f2000 00007ff8`349f8000
@@ -165,7 +165,7 @@ You can use [**event forwarding**](https://docs.hyperdbg.org/tips-and-tricks/mis
 Please read "[How to create an action?](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action)" to get an idea about how to run a custom buffer code in **HyperDbg**.
 
 {% hint style="warning" %}
-Your custom code will be executed in vmx-root mode. Take a look at [this topic](https://docs.hyperdbg.org/tips-and-tricks/considerations/vmx-root-mode-vs-vmx-non-root-mode) for more information. Running code in vmx-root is considered "[unsafe](https://docs.hyperdbg.org/tips-and-tricks/considerations/the-unsafe-behavior)".
+Your custom code will be executed in vmx-root mode. Take a look at [this topic](https://docs.hyperdbg.org/tips-and-tricks/considerations/vmx-root-mode-vs-vmx-non-root-mode) for more information. Running code in the VMX-root is considered "[unsafe](https://docs.hyperdbg.org/tips-and-tricks/considerations/the-unsafe-behavior)".
 {% endhint %}
 
 **Run Custom Code (Unconditional)**
@@ -222,7 +222,7 @@ You can use **!epthook** (just _**!epthook**_ not **!epthook2** and not **!monit
 
 If you need to reserve more pre-allocated pools for this command, you can use the '[prealloc](https://docs.hyperdbg.org/commands/debugging-commands/prealloc)' command.
 
-This is an event command, but in the current version of HyperDbg (in Debugger Mode), this command will continue the debuggee for some time; however, you can use [this trick](https://docs.hyperdbg.org/tips-and-tricks/misc/enable-and-disable-events-in-debugger-mode) to make sure you won't lose any event.
+This is an event command, but in the current version of HyperDbg (in [Debugger Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode)), this command will continue the debuggee for some time; however, you can use [this trick](https://docs.hyperdbg.org/tips-and-tricks/misc/enable-and-disable-events-in-debugger-mode) to make sure you won't lose any event.
 
 ### Requirements
 
