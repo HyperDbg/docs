@@ -79,11 +79,12 @@ In order to disable **driver signature enforcement**, we have plenty of options.
 
 If you use other options, please keep in mind that you should be cautious as PatchGuard will start and detect some of the modifications and might be problematic.
 
-Disabling **DSE** can be done in three ways (you have to choose one of them):
+Disabling **DSE** can be done in four ways (you have to choose one of them):
 
 * Attaching WinDbg at the boot time (**Recommended**)
 * Temporarily Disable DSE
 * Putting Windows in Test Mode
+* Using [EfiGuard](https://github.com/Mattiwatti/EfiGuard)
 
 #### Disable DSE by Attaching WinDbg
 
@@ -134,6 +135,12 @@ The following actions should be done in the **guest** if you want to debug a Vir
 4. Install your drivers.
 
 For more options, please visit [here](https://windowsreport.com/driver-signature-enforcement-windows-10/).
+
+#### Using EfiGuard
+
+You can use [EfiGuard](https://github.com/Mattiwatti/EfiGuard) to disable both Driver Signature Enforcement (**DSE**) and PatchGuard.
+
+For more information, please visit the main [repo](https://github.com/Mattiwatti/EfiGuard).
 
 ### Disable VBS, HVCI, and Device Guard
 

@@ -118,3 +118,23 @@ connected to : 127.0.0.1:52830
 ```
 
 You can see the state of the debugger by using the '[.status](https://docs.hyperdbg.org/commands/meta-commands/.status)' command.
+
+### Disable VBS, Hyper-V on Host
+
+If you see the error "**Virtualized Intel VT-x/EPT is not supported on this platform.**", you can perform the following instructions to solve it.
+
+<figure><img src="../../.gitbook/assets/hyper-v-and-vmware-nested-error.jpg" alt="" width="375"><figcaption></figcaption></figure>
+
+To utilize HyperDbg in a nested-virtualization setup like VMware Workstation, ensure that it is disabled on both the host and the guest machine. Although VMware Workstation and Hyper-V have become compatible, as of the document's current version, VMware Workstation's nested-virtualization feature is not supported when Hyper-V is enabled. Therefore, even if you are running two virtual machines, the **primary host** must have Hyper-V disabled.
+
+For this purpose, you can run the following command (as administrator) and restart your computer to disable hypervisor auto-launch.
+
+```
+bcdedit /set hypervisorlaunchtype off
+```
+
+Once you're done with using HyperDbg, if you want to re-enable Hyper-V, you can run the following command (as administrator) and restart your computer.
+
+```
+bcdedit /set hypervisorlaunchtype auto
+```
