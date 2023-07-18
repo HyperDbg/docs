@@ -125,7 +125,7 @@ Bear in mind that this method only temporarily disables driver signature enforce
 
 #### Putting Windows in Test Mode
 
-If you couldn't use the first two options, you could put the Windows in test mode. In test mode, you can install any drivers you want without experiencing any problems.
+If you couldn't use the first two options, you could put Windows in test mode. In test mode, you can install any drivers you want without experiencing any problems.
 
 The following actions should be done in the **guest** if you want to debug a Virtual Machine (VM).
 
@@ -146,7 +146,9 @@ For more information, please visit the main [repo](https://github.com/Mattiwatti
 
 The last step before running HyperDbg is disabling **Virtualization Based Security (VBS)**.
 
-This step should be performed in the target debugging machine. If you want to debug a guest Virtual Machine (VM), then it should be performed on the **guest** side. If you want to use HyperDbg to perform local kernel debugging, then you should perform it on your target physical machine.
+This step should be performed in the target debugging machine.
+
+Please note that to utilize HyperDbg in a nested-virtualization setup like VMware Workstation, ensure that VBS, Hyper-V is disabled on **both** the **host** and the **guest** machine. Although VMware Workstation and Hyper-V have become compatible, as of the document's current version, VMware Workstation's nested-virtualization feature is not supported when Hyper-V is enabled. Therefore, even if you are running two virtual machines, the **primary host** must have Hyper-V disabled.
 
 **HyperDbg** and **VBS** are both hypervisors running on ring -1. These hypervisors are not compatible, and you should disable VBS (and its sub-components like HVCI, Device Guard, etc.).
 
