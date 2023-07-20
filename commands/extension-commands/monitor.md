@@ -24,13 +24,13 @@ It is exactly like read/write/execute of Hardware Debug Registers but without an
 
 **\[Mode (string)]**
 
-Can be one of these values (or a combination of these attributes like '**rw**', '**rx**', '**wx**', '**rwx**', etc.) :
+Can be one of these values (or a combination of these attributes like '**rw**', '**rx**', '**wx**', '**rwx**', etc.):
 
-**r** : trigger in the case of reading.
+**r**: trigger in the case of reading.
 
-**w** : trigger in the case of writing.
+**w**: trigger in the case of writing.
 
-**x** : trigger in the case of executing.
+**x**: trigger in the case of executing.
 
 **\[FromAddress (hex)]**
 
