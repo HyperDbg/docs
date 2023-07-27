@@ -112,6 +112,8 @@ To configure the **debuggee** VM, follow these steps:
 
 <figure><img src="../../.gitbook/assets/two-vms-debuggee-VMware.png" alt=""><figcaption></figcaption></figure>
 
+Once you've done configuring the serial ports, the next step is attaching to HyperDbg. Follow the steps outlined in the next section to establish a connection between the two VMs.
+
 #### Connecting from VMs
 
 On the **debugger** side, open HyperDbg and run the following command to listen on the serial port (ensure to replace "**COM2**" with the specific COM port assigned to your connection, most of the time it is **COM1**, **COM2**, or **COM3**):
