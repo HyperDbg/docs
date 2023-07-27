@@ -86,6 +86,50 @@ Please note that HyperDbg differs from WinDbg as it requires installation in bot
 
 To use HyperDbg, the debugger should be started and listening on the host before connecting to it from the guest. Therefore, it is important to execute the commands on the debugger (**host**) first, and then connect to it from the debuggee (**guest**).
 
+### **VMware Workstation (Two VMs)**
+
+To run HyperDbg on two different guest virtual machines (rather than running it on the host), you can use the following instructions.
+
+First of all, use the instructions provided [above](https://docs.hyperdbg.org/getting-started/attach-to-hyperdbg/debug#vmware-workstation), to create a serial port on both the **debugger** VM and the **debuggee** VM.
+
+#### Serial Port Configuration – Debugger
+
+To configure the **debugger** VM, follow these steps:
+
+1. Enable the option 'Used named pipe' and assign a custom name to the named pipe, such as `\.\pipe\HyperDbgDebug`.
+2. Select 'This end is the **server**' and 'The other end is an application.'
+3. Ensure that 'Yield CPU on poll' is enabled.
+
+<figure><img src="../../.gitbook/assets/two-vms-debugger-VMware.png" alt=""><figcaption></figcaption></figure>
+
+#### Serial Port Configuration – Debuggee
+
+To configure the **debuggee** VM, follow these steps:
+
+1. Enable the option 'Used named pipe' and use the same name you previously selected for the debugger (e.g., `\.\pipe\HyperDbgDebug`).
+2. Select 'This end is the **client**' and 'The other end is an application.'
+3. Ensure that 'Yield CPU on poll' is enabled.
+
+<figure><img src="../../.gitbook/assets/two-vms-debuggee-VMware.png" alt=""><figcaption></figcaption></figure>
+
+#### Connecting from VMs
+
+On the **debugger** side, open HyperDbg and run the following command to listen on the serial port (ensure to replace "**COM2**" with the specific COM port assigned to your connection, most of the time it is **COM1**, **COM2**, or **COM3**):
+
+```
+HyperDbg> .debug remote serial 115200 com2
+```
+
+On the **debuggee** side, run the following command.
+
+```
+HyperDbg> .debug prepare serial 115200 com2
+```
+
+Note that there is a possibility that the COM port assigned to the debuggee and the debugger could be different. For instance, the debugger may be configured to use **COM2**, while the debuggee could be using **COM1**. It is important to take note of this potential difference and ensure that you consider the correct COM port assignments for both the debugger and the debuggee.
+
+Done! You can use HyperDbg and control your debuggee from the debugger.
+
 ## Connect to Debuggee (VMI Mode)
 
 First, make sure you have access to the remote machine by pinging its IP address and check firewall rules. After that, run the following command in **debuggee (guest)**.
