@@ -117,6 +117,7 @@ Here are the currently supported pseudo-registers supported by the script engine
 | **$context**    | The context of the triggered event (It has a different meaning in each event).                                       |
 | **$id**         | The event ID of the triggered event (Only in the case of events). \[Added from **v0.3**]                             |
 | **$tag**        | The event tag of the triggered event (Only in the case of events). \[Added from **v0.3**]                            |
+| **$stage**      | The calling stage of the triggered event (Only in the case of events). \[Added from **v0.5**]                        |
 
 Some of the above pseudo-registers are not supported either in kernel-mode or user-mode. If you use these registers, then it returns `NULL`.
 
