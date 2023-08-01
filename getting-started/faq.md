@@ -30,7 +30,7 @@ Besides that, HyperDbg is not just a simple debugger. It comes up with modern re
 
 ## Is it only for a special processor? Or can I run it on AMD or ARM processors?
 
-The current version of HyperDbg only supports Intel x64 processors. You cannot run it on an AMD processor or an ARM processor, but future versions will support other processors.
+The current version of HyperDbg only supports Intel x64 processors. You cannot run it on an AMD processor or an ARM processor. This is mainly because HyperDbg heavily uses VT-x which is an Intel-based technology, but future versions will support other processors as well.
 
 ## What generation of Intel Processors supports HyperDbg?
 
