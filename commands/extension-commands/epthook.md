@@ -75,6 +75,10 @@ This event does not support **'**[**event short-circuiting**](https://docs.hyper
 </strong>}
 </code></pre>
 
+### Calling Stages
+
+This event does not support [calling stages](https://docs.hyperdbg.org/tips-and-tricks/misc/event-short-circuiting). Due to the nature of function hooking implementing calling stages in this context wouldn't be meaningful.
+
 ### Debugger
 
 This event supports three debugging mechanisms.
