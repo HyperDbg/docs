@@ -68,6 +68,10 @@ As the **Context** (`$context` pseudo-register in the event's script, `r8` in cu
 
 This event supports **'**[**event short-circuiting**](https://docs.hyperdbg.org/tips-and-tricks/misc/event-short-circuiting)', which means that you can configure HyperDbg to ignore its execution and its effects. For additional details, please refer to the article provided [here](https://docs.hyperdbg.org/tips-and-tricks/misc/event-short-circuiting).
 
+### Calling Stages
+
+This event supports different [calling stages](https://docs.hyperdbg.org/tips-and-tricks/misc/event-short-circuiting). The '**pre**' calling stage is triggered prior to running the **RDPMC** instruction, whereas the '**post**' calling stage is triggered subsequent to running the **RDPMC** instruction; thus, you can read/modify the **ECX** register or [ignore](https://docs.hyperdbg.org/tips-and-tricks/misc/event-short-circuiting) the event in the '**pre**' stage, and view/modify the results (**EDX**:**EAX**) in the '**post**' stage. In addition, the '**all**' calling stage will trigger the event in both cases. For more information, please refer to the article provided [here](https://docs.hyperdbg.org/tips-and-tricks/misc/event-short-circuiting).
+
 ### Debugger
 
 This event supports three debugging mechanisms.

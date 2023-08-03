@@ -74,7 +74,7 @@ This event supports **'**[**event short-circuiting**](https://docs.hyperdbg.org/
 
 ### Calling Stages
 
-This event supports different [calling stages](https://docs.hyperdbg.org/tips-and-tricks/misc/event-short-circuiting). The '**pre**' calling stage is triggered prior to running the **CPUID** instruction, whereas the '**post**' calling stage is triggered subsequent to running the **CPUID** instruction; thus, you can read/modify the **EAX** register in the '**pre**' stage, and view/modify the results in the '**post**' stage. In addition, the '**all**' calling stage will trigger the event in both cases. For more information, please refer to the article provided [here](https://docs.hyperdbg.org/tips-and-tricks/misc/event-short-circuiting).
+This event supports different [calling stages](https://docs.hyperdbg.org/tips-and-tricks/misc/event-short-circuiting). The '**pre**' calling stage is triggered prior to running the **CPUID** instruction, whereas the '**post**' calling stage is triggered subsequent to running the **CPUID** instruction; thus, you can read/modify the **EAX** (or sometimes the **ECX**) register or [ignore](https://docs.hyperdbg.org/tips-and-tricks/misc/event-short-circuiting) the event in the '**pre**' stage, and view/modify the results (**EAX**, **EBX**, **ECX**, and **EDX**) in the '**post**' stage. In addition, the '**all**' calling stage will trigger the event in both cases. For more information, please refer to the article provided [here](https://docs.hyperdbg.org/tips-and-tricks/misc/event-short-circuiting).
 
 ### Debugger
 

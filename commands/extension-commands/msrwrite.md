@@ -76,7 +76,7 @@ This event supports **'**[**event short-circuiting**](https://docs.hyperdbg.org/
 
 ### Calling Stages
 
-This event supports different [calling stages](https://docs.hyperdbg.org/tips-and-tricks/misc/event-short-circuiting). The '**pre**' calling stage is triggered prior to running the **WRMSR** instruction, whereas the '**post**' calling stage is triggered subsequent to running the **WRMSR** instruction; thus, you can read/modify the **ECX** or the **EDX**:**EAX** registers in the '**pre**' stage, and once the execution of **WRMSR** instruction is finished, the '**post**' stage will be triggered. In addition, the '**all**' calling stage will trigger the event in both cases. For more information, please refer to the article provided [here](https://docs.hyperdbg.org/tips-and-tricks/misc/event-short-circuiting).
+This event supports different [calling stages](https://docs.hyperdbg.org/tips-and-tricks/misc/event-short-circuiting). The '**pre**' calling stage is triggered prior to running the **WRMSR** instruction, whereas the '**post**' calling stage is triggered subsequent to running the **WRMSR** instruction; thus, you can read/modify the **ECX** or the **EDX**:**EAX** registers or [ignore](https://docs.hyperdbg.org/tips-and-tricks/misc/event-short-circuiting) the event in the '**pre**' stage, and once the execution of **WRMSR** instruction is finished, the '**post**' stage will be triggered. In addition, the '**all**' calling stage will trigger the event in both cases. For more information, please refer to the article provided [here](https://docs.hyperdbg.org/tips-and-tricks/misc/event-short-circuiting).
 
 ### Debugger
 

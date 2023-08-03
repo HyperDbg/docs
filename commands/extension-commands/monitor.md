@@ -106,6 +106,14 @@ By adding `event_sc(1);`, HyperDbg is instructed to **block** execution, prevent
 
 If `event_sc(1);` is not used, HyperDbg will allow the target to execute normally for just one instruction before triggering again. The event will then be triggered for the next instruction, and so on. In essence, without `event_sc(1);`, it is like stepping through the instructions one by one, with each instruction in the target address range triggering the event. Conversely, specifying `event_sc(1);` will effectively block execution, preventing the target code on the target page from running.
 
+### Calling Stages
+
+This event supports different [calling stages](https://docs.hyperdbg.org/tips-and-tricks/misc/event-short-circuiting). For the **Read**/**Write** calling stage, the '**pre**' calling stage is triggered prior to the memory modification, whereas the '**post**' calling stage is triggered subsequent to the memory modification. In addition, the '**all**' calling stage will trigger the event in both cases. Using this mechanism you can see the memory **before and after the modification** (e.g., the **MOV** instruction modification).&#x20;
+
+For the **Execute** calling stage, the '**pre**' calling stage is triggered prior to running the instruction that its execution leads to triggering the event, whereas the '**post**' calling stage is triggered subsequent to running the target instruction. In addition, the '**all**' calling stage will trigger the event in both cases.&#x20;
+
+You can [ignore](https://docs.hyperdbg.org/tips-and-tricks/misc/event-short-circuiting) the event in the '**pre**' stage. For more information, please refer to the article provided [here](https://docs.hyperdbg.org/tips-and-tricks/misc/event-short-circuiting).
+
 ### Debugger
 
 This event supports three debugging mechanisms.
