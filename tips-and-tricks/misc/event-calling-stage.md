@@ -6,7 +6,7 @@ description: The event calling stage in HyperDbg
 
 Starting from HyperDbg **v0.5**, the event calling stages mechanism is added to the debugger.
 
-This mechanism enables us to specify the exact stage at which HyperDbg will trigger the event. For instance, we can choose whether the event should be called before or after the emulation process takes place.
+This mechanism enables us to specify the exact stage at which HyperDbg will trigger the [event](https://docs.hyperdbg.org/using-hyperdbg/sdk/events). For instance, we can choose whether the event should be called before or after the emulation process takes place.
 
 Most of the events in HyperDbg are based on emulation. For example, before or after modifying the memory (as a result of the '[!monitor](https://docs.hyperdbg.org/commands/extension-commands/monitor)' command). Another example is for different special instructions like **RDMSR**, **WRMSR**, **CPUID**, etc. These stages will notify HyperDbg whether the event should be triggered before the execution of these instructions or after the execution of these instructions.
 
@@ -32,32 +32,38 @@ Another note is that short-circuiting events are not permitted in the 'post' sta
 
 ### Using Calling Stages in Events
 
+Event calling stages are determined by using the '**stage pre**', '**stage post**', or '**stage all**' in the definition of events.&#x20;
 
+For example, you can specify the '**post**' stage for the following event commands:
+
+```
+0: kHyperDbg> !monitor rw nt!kd_default_mask nt!kd_default_mask+8 stage post
+```
+
+Or you can specify the '**all**' stage for them.
+
+```
+0: kHyperDbg> !msrwrite c0000082 stage all
+```
 
 ### Finding Calling Stages in Scripts
 
+a new $stage pseudo-register is added.
 
 
 
+### Examples
 
+Below are various examples demonstrating the usage of the event calling stages mechanism. You can apply this mechanism to events that support calling stages. Please refer to the documentation for each specific event to determine whether it supports calling stages or not.
 
+#### Example 1
 
-a new $stage pseudo-register is added/
+#### Example 2
+
+#### Example 3
 
 ### Miscellaneous
 
 Commands like '[!epthook](https://docs.hyperdbg.org/commands/extension-commands/epthook)' or '[!epthook2](https://docs.hyperdbg.org/commands/extension-commands/epthook2)' don't support calling stages. Due to the nature of function hooking implementing calling stages in this context wouldn't be meaningful.
 
 If only one event short-circuits a special EPT hook or a special MSR read/write, or any other events, the emulation won't be performed and the '**post**' mode will be ignored for all of the same events.
-
-
-
-
-
-
-
-
-
-
-
-\

@@ -10,6 +10,8 @@ The same scenario happens to most of the events. For example, certain **IN**/**O
 
 Event short-circuiting is also handy in the '[!monitor](https://docs.hyperdbg.org/commands/extension-commands/monitor)' command. Imagine, you want to ignore memory writes to the certain field of a structure. You can simply ignore the memory write and write something else in the target location.
 
+Once you short-circuit an event, the 'post' calling stage will no longer be called. Please refer to the documentation for more information about [using event-short circuiting and the event calling stages](https://docs.hyperdbg.org/tips-and-tricks/misc/event-calling-stage#calling-stages-and-event-short-circuiting).
+
 This mechanism is mainly handled by utilizing commands and functions.
 
 ### Default Short-circuiting State
