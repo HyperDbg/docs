@@ -22,7 +22,7 @@ Tests the functionalities of HyperDbg in the running system.
 
 Different options are used mostly for debugging internal mechanisms of HyperDbg.
 
-<table><thead><tr><th>Option</th><th>Description</th><th data-hidden></th></tr></thead><tbody><tr><td><strong>query</strong></td><td>Shows the state of each core (e.g., halted or not)</td><td></td></tr><tr><td><strong>pool</strong></td><td>Shows the state of memory pool allocation and pre-allocation</td><td></td></tr><tr><td><strong>breakpoint</strong></td><td>Turns the interception of breakpoints ON/OFF.</td><td></td></tr></tbody></table>
+<table><thead><tr><th>Option</th><th>Description</th><th data-hidden></th></tr></thead><tbody><tr><td><strong>query</strong></td><td>Shows the state of each core (e.g., halted or not)</td><td></td></tr><tr><td><strong>pool</strong></td><td>Shows the state of memory pool allocation and pre-allocation</td><td></td></tr><tr><td><strong>breakpoint</strong></td><td>Turns the interception of breakpoints ON/OFF.</td><td></td></tr><tr><td>trap</td><td>Shows the state of simultaneously debugging threads that HyperDbg sets the trap flag on them</td><td></td></tr></tbody></table>
 
 ### Examples
 
@@ -74,6 +74,21 @@ breakpoint interception is activated
 0: kHyperDbg> test breakpoint off
 breakpoint interception is deactivated
 from now, the breakpoints will be re-injected into the guest debuggee
+```
+
+The following command shows the state of simultaneously debugging threads that HyperDbg sets the trap flag on them.
+
+```
+0: kHyperDbg> test trap
+(01:14:17.385 - core : 0 - vmx-root? yes)        [+] Information (KdQueryRflagTrapState:1568) | Number of valid entries: 0x0
+(Please be aware that only top 0x0 items are considered valid. There could be other items present in the array, but they are not valid.)
+(01:14:17.385 - core : 0 - vmx-root? yes)        [+] Information (KdQueryRflagTrapState:1575) | g_TrapFlagState.ThreadInformation[0].ProcessId = 0 | ThreadId = 0
+(01:14:17.385 - core : 0 - vmx-root? yes)        [+] Information (KdQueryRflagTrapState:1575) | g_TrapFlagState.ThreadInformation[1].ProcessId = 0 | ThreadId = 0
+(01:14:17.385 - core : 0 - vmx-root? yes)        [+] Information (KdQueryRflagTrapState:1575) | g_TrapFlagState.ThreadInformation[2].ProcessId = 0 | ThreadId = 0
+(01:14:17.385 - core : 0 - vmx-root? yes)        [+] Information (KdQueryRflagTrapState:1575) | g_TrapFlagState.ThreadInformation[3].ProcessId = 0 | ThreadId = 0
+(01:14:17.385 - core : 0 - vmx-root? yes)        [+] Information (KdQueryRflagTrapState:1575) | g_TrapFlagState.ThreadInformation[4].ProcessId = 0 | ThreadId = 0
+(01:14:17.385 - core : 0 - vmx-root? yes)        [+] Information (KdQueryRflagTrapState:1575) | g_TrapFlagState.ThreadInformation[5].ProcessId = 0 | ThreadId = 0
+(01:14:17.385 - core : 0 - vmx-root? yes)        [+] Information (KdQueryRflagTrapState:1575) | g_TrapFlagState.ThreadInformation[6].ProcessId = 0 | ThreadId = 0
 ```
 
 ### IOCTL
