@@ -6,7 +6,7 @@ description: The event calling stage in HyperDbg
 
 Starting from HyperDbg **v0.5**, the event calling stages mechanism is added to the debugger.
 
-This mechanism enables us to specify the exact stage at which HyperDbg will trigger the [event](https://docs.hyperdbg.org/using-hyperdbg/sdk/events). For instance, we can choose whether the event should be called before or after the emulation process takes place.
+This mechanism enables us to specify the exact stage at which HyperDbg will trigger the [event](https://docs.hyperdbg.org/using-hyperdbg/sdk/events). For instance, we can choose whether the event should be called **before** or **after** the emulation process takes place.
 
 Most of the events in HyperDbg are based on emulation. For example, before or after modifying the memory (as a result of the '[!monitor](https://docs.hyperdbg.org/commands/extension-commands/monitor)' command). Another example is for different special instructions like **RDMSR**, **WRMSR**, **CPUID**, etc. These stages will notify HyperDbg whether the event should be triggered before the execution of these instructions or after the execution of these instructions.
 
@@ -28,7 +28,7 @@ One of the primary applications of these calling stages is seen in the '[!monito
 
 An important note is, once you [short-circuit or ignore an event](https://docs.hyperdbg.org/tips-and-tricks/misc/event-short-circuiting), the '**post**' calling stage will not be triggered as the emulation is completely ignored and in reality, there is no '**post**' stage.&#x20;
 
-Another note is that short-circuiting events are not permitted in the 'post' stage. This is because, by the time the 'post' stage is reached, the emulation has already been performed, and there is nothing left to be ignored, making it illogical to apply short-circuiting at this point.
+Another note is that short-circuiting events are not permitted in the '**post**' stage. This is because, by the time the '**post**' stage is reached, the emulation has already been performed, and there is nothing left to be ignored, making it illogical to apply short-circuiting at this point.
 
 ### Using Calling Stages in Events
 
@@ -48,7 +48,7 @@ Or you can specify the '**all**' stage for them.
 
 ### Finding Calling Stages in Scripts
 
-In order to determine the calling stage, a new [pseudo-register](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations#pseudo-registers) called `$stage` is added. This pseudo-register can be either **0** which shows that the event is called in the '**pre**' calling stage or **1** which shows it's called in the '**post**' calling stage.&#x20;
+In order to determine the calling stage, a new [pseudo-register](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations#pseudo-registers) called '**$stage**' is added. This pseudo-register can be either **0** which shows that the event is called in the '**pre**' calling stage or **1** which shows it's called in the '**post**' calling stage.&#x20;
 
 Please be aware that the event invocation stage cannot be '**all**' since the event occurs either in the '**pre**' or '**post**' calling stage, and it cannot occupy both simultaneously.
 
@@ -101,7 +101,7 @@ The following example shows how we can view the memory **before** and **after** 
 
 #### Example 2
 
-The following example shows how can we view (or possibly modify the registers) after running a **CPUID** instruction.
+The following example shows how we can view (or possibly modify the registers) after running a **CPUID** instruction.
 
 In this example, we checked whether the '**$context**' or the **EAX** register is equal to **1** and if it's equal to it, we mask the **ECX** register's **5th bit** (which is the [indicator of support for Intel VT-x](https://en.wikipedia.org/wiki/CPUID)). As a result, if you use a program like [CPU-Z](https://www.cpuid.com/), it no longer shows support for VT-x (just for the **CPUID** instruction, not disabling it completely).
 
@@ -139,4 +139,6 @@ The following example shows how we can use the '**post**' calling stage to view 
 
 Commands like '[!epthook](https://docs.hyperdbg.org/commands/extension-commands/epthook)' or '[!epthook2](https://docs.hyperdbg.org/commands/extension-commands/epthook2)' don't support calling stages. Due to the nature of function hooking implementing calling stages in this context wouldn't be meaningful.
 
-If only one event short-circuits a special EPT hook or a special MSR read/write, or any other events, the emulation won't be performed and the '**post**' mode will be ignored for all of the same events.
+If a singular event causes a special EPT hook, special MSR read/write, or any other event to short-circuit, the emulation process will not take place. Consequently, the '**post**' mode will be disregarded for all similar events sharing the same conditions. To illustrate, consider a scenario where multiple events are associated with a single CPUID instruction. One event resides in the '**pre**' start stage, while the remaining events (with identical conditions) are situated in the '**post**' stage. If the '**pre**' stage event leads to a short-circuit, all subsequent '**post**' events will fail to trigger.
+
+\
