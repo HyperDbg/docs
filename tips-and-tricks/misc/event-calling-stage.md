@@ -115,6 +115,18 @@ In this example, we checked whether the '**$context**' or the **EAX** register i
 
 #### Example 3
 
+As described [here](https://www.felixcloutier.com/x86/syscall.html), **SYSCALL** saves **RFLAGS** into **R11** and then masks **RFLAGS** using the **IA32\_FMASK** MSR (MSR address **0xC0000084**); specifically, the processor clears in **RFLAGS** every bit corresponding to a bit that is set in the **IA32\_FMASK** MSR.
+
+Using the following example we would be sure that if somewhere in the drivers, rootkits, or Windows, some codes try to modify this MSR register, the **9th** flag ([Interrupt Flag](https://en.wikipedia.org/wiki/FLAGS\_register)) will remain untouched.
+
+```clike
+!msrwrite 0xc000084 stage pre script {
+    @eax = @eax | (1 << 9);
+}
+```
+
+#### Example 4
+
 The following example shows how we can use the '**post**' calling stage to view the **CR2** register as a result of a [page-fault](https://en.wikipedia.org/wiki/Page\_fault). Note that, the value of the `@cr2` is not valid in the '**pre**' calling stage.
 
 ```clike
