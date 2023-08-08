@@ -12,6 +12,14 @@ In **Debugger Mode**, you can break the kernel mode and step through the kernel 
 
 If you don't want to break and step kernel-mode instructions, then use VMI Mode instead. It is because the serial cable is slow, so transferring high rates of data are substantially slower.
 
+## Downloading VMware
+
+HyperDbg works best with VMware Workstation Player/Pro.
+
+You can download VMware Workstation Player (Free Non-commercial License) at: \[[https://www.vmware.com/products/workstation-player/workstation-player-evaluation.html](https://www.vmware.com/products/workstation-player/workstation-player-evaluation.html)]
+
+After that, you should install your desired operating system (Windows 10, or 11) on your VMware as a guest. Once, you finished installing your virtual machine, you can continue the rest of this article.
+
 ## Connect to Debuggee (Debugger Mode)
 
 For connecting in debugger mode, first, you need to provide a serial device.

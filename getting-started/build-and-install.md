@@ -40,6 +40,14 @@ After building, you need to disable driver signature enforcement. It is because 
 
 For this purpose, you can **Disable Driver Signature Enforcement** or **Put Windows in Test Mode**.
 
+## Choosing Environment
+
+You can run HyperDbg on your physical machine in the [VMI Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#vmi-mode) (local debugging), but you can't pause or step through the instruction in this execution mode. If you want to thoroughly use HyperDbg as a debugger (not as a system-log generator), you should use it with a virtual machine in the [Debugger Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#vmi-mode).
+
+HyperDbg works best with VMWare Workstation Player/Pro.
+
+You can download VMware Workstation Player (Free Non-commercial License) at: \[[https://www.vmware.com/products/workstation-player/workstation-player-evaluation.html](https://www.vmware.com/products/workstation-player/workstation-player-evaluation.html)]
+
 ## Running HyperDbg
 
 Running HyperDbg has multiple stages. First, you should make sure to enable Intel **VT-x** from the BIOS. Next, you have to disable **Driver Signature Enforcement (DSE)** and turn off **Virtualization Based Security (VBS)**. Then you can run HyperDbg.
