@@ -11,4 +11,4 @@ Current versions of **HyperDbg** are tested and confirmed it's working on the fo
 
 We're working on adding the support for Hyper-V's nested virtualization, but it's not supported yet.
 
-**Note:** VMware player doesn't support nested virtualization. Thus, it's not supported.
+You can use both VMware Workstation pro as well as VMware Workstation Player (Free for non-commercial use).

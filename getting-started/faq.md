@@ -46,7 +46,7 @@ Of course not! The only problem with not having a separate machine is that you c
 
 ## Can I use it on a nested-virtualization environment (VMware, VirtualBox, Hyper-V)?
 
-The current versions of HyperDbg are only tested on VMware Workstation (Not VMware player), but in the future versions, we will support all the virtualization platforms with nested-virtualization.
+The current versions of HyperDbg are only tested on VMware Workstation Player (free for non-commercial use) and VMware Workstation Pro, but in the future versions, we will support all the virtualization platforms with nested-virtualization.
 
 ## How can I start reading about HyperDbg internals? How does it work? Can I contribute to HyperDbg?
 

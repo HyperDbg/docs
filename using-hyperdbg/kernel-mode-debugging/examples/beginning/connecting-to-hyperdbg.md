@@ -4,7 +4,7 @@ description: Connecting & Debugging Using HyperDbg
 
 # Connecting To HyperDbg
 
-This article only describes the **Debugger Mode** of the HyperDbg in the VMware workstation and **cannot** be applied to the VMware player.
+This article only describes the **Debugger Mode** of the HyperDbg in the VMware Workstation Player (free for non-commercial use) and Pro.
 
 You might want to :
 
@@ -13,8 +13,6 @@ You might want to :
 * [Connect to VMI Mode](https://docs.hyperdbg.org/getting-started/attach-to-hyperdbg/debug#connect-to-debuggee-vmi-mode)
 
 In order to run HyperDbg on a VMware Workstation machine, first, turn off your guest machine then, you need to enable **Nested Virtualization**. Open your virtual machine and click on Edit **virtual machine settings**.
-
-VMware Player doesn't have nested virtualization, so it cannot be used for HyperDbg debugging.
 
 ![Editing VM Settings](../../../../.gitbook/assets/vmware-debug1.png)
 

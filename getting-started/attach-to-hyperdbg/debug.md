@@ -52,7 +52,7 @@ HyperDbg> .debug prepare serial 115200 com2
 
 In order to run HyperDbg on a VMware Workstation machine, first, turn off your guest machine then, you need to enable **Nested Virtualization**. Open your virtual machine and click on Edit **virtual machine settings**.
 
-VMware Player doesn't have nested virtualization, so it cannot be used for HyperDbg debugging.
+You can use both VMware Workstation pro as well as VMware Workstation Player (Free for non-commercial use).
 
 ![Editing VM Settings](../../.gitbook/assets/vmware-debug1.png)
 
