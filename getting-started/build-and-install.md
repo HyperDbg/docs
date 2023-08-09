@@ -166,7 +166,7 @@ After that, go to "**Turn Windows features on or off**", and disable "**Virtual 
 
 <figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption><p>Disabling Windows Features</p></figcaption></figure>
 
-The above step is enough to disable the VBS. After that, you should restart your computer so that VBS will be disabled on the next start. Once the computer started, check the **System Information** app again to see whether **Virtualization-based security** is disabled or not.
+The above steps is enough to disable the VBS. After that, you should restart your computer so that VBS will be disabled on the next start. Once the computer started, check the **System Information** app again to see whether **Virtualization-based security** is disabled or not.
 
 **Done!** The rest of this section describes other methods for disabling VBS, you don't need to follow it if you successfully disabled **VBS**.
 
