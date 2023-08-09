@@ -10,8 +10,6 @@ In **VMI Mode**, you can't break the kernel mode and step through the kernel ins
 
 In **Debugger Mode**, you can break the kernel mode and step through the kernel instructions. It needs a serial (cable or virtual device) to connect to the target machine.
 
-If you don't want to break and step kernel-mode instructions, then use VMI Mode instead. It is because the serial cable is slow, so transferring high rates of data are substantially slower.
-
 ## Downloading VMware
 
 HyperDbg works best with VMware Workstation Player/Pro.
@@ -24,7 +22,7 @@ After that, you should install your desired operating system (Windows 10, or 11)
 
 For connecting in debugger mode, first, you need to provide a serial device.
 
-### **Physical Machine**
+### **Physical Machine (Host)**
 
 In order to connect to a physical machine in debugger mode, you need a physical serial port. After that, connect your target machine (debuggee) to another machine.
 
@@ -48,7 +46,7 @@ After you tell the debugger to listen on a COM port or a named pipe, now you can
 HyperDbg> .debug prepare serial 115200 com2
 ```
 
-### **VMware Workstation**
+### **VMware Workstation Player or Pro (Guest)**
 
 In order to run HyperDbg on a VMware Workstation machine, first, turn off your guest machine then, you need to enable **Nested Virtualization**. Open your virtual machine and click on Edit **virtual machine settings**.
 
@@ -60,7 +58,11 @@ After that, click on **Virtualize Intel VT-x/EPT or AMD-V/RVI** and **Virtualize
 
 ![Enabling Nested-Virtualization](../../.gitbook/assets/vmware-debug2.png)
 
-Next, click on **Add...** then choose **Serial Port** and click on **Finish**.
+{% hint style="danger" %}
+Please be aware that if you encounter an error indicating that 'nested virtualization is not supported' when attempting to launch the virtual machine at a later time, it could be due to the presence of VBS or Hyper-V running on the host system. It's important to note that VMware Workstation does not offer support for nested virtualization while Hyper-V is active. In order to address this, you must first disable Hyper-V, following the instructions provided [here](https://docs.hyperdbg.org/getting-started/build-and-install).
+{% endhint %}
+
+Okay, let's continue to the next step. You should create a serial port here. Click on **Add...** then choose **Serial Port** and click on **Finish**.
 
 ![Adding a serial device](../../.gitbook/assets/vmware-debug3.png)
 
@@ -93,6 +95,10 @@ If you see an error for driver signature enforcement, please visit [here](https:
 Please note that HyperDbg differs from WinDbg as it requires installation in both the target virtual machine and the host. Unlike WinDbg, which only needs to be installed on the host.&#x20;
 
 To use HyperDbg, the debugger should be started and listening on the host before connecting to it from the guest. Therefore, it is important to execute the commands on the debugger (**host**) first, and then connect to it from the debuggee (**guest**).
+
+**Done!** You successfully connected to the HyperDbg.&#x20;
+
+The rest of this topic is for special cases like if you want to connect HyperDbg from two VMs (without running HyperDbg on the Host), possible errors that you might encounter during the setup, and solutions.&#x20;
 
 ### **VMware Workstation (Two VMs)**
 
@@ -138,11 +144,13 @@ HyperDbg> .debug prepare serial 115200 com2
 
 Note that there is a possibility that the COM port assigned to the debuggee and the debugger could be different. For instance, the debugger may be configured to use **COM2**, while the debuggee could be using **COM1**. It is important to take note of this potential difference and ensure that you consider the correct COM port assignments for both the debugger and the debuggee.
 
-Done! You can use HyperDbg and control your debuggee from the debugger.
+**Done!** You can use HyperDbg and control your debuggee from the debugger.
 
 ## Connect to Debuggee (VMI Mode)
 
-First, make sure you have access to the remote machine by pinging its IP address and check firewall rules. After that, run the following command in **debuggee (guest)**.
+If you want to run HyperDbg in VMI Mode, you can follow the below steps.
+
+First, make sure you have access to the remote machine by pinging its IP address and checking firewall rules. After that, run the following command in **debuggee (guest)**.
 
 ```
 HyperDbg> listen
@@ -163,7 +171,7 @@ HyperDbg> .connect 192.168.1.10 50000
 connected to 192.168.1.10:50000
 ```
 
-After that, you see a connected message with an IP address of debugger (host) in debuggee (guest).
+After that, you see a connected message with an IP address of the debugger (host) in debuggee (guest).
 
 ```
 HyperDbg> listen
@@ -177,7 +185,7 @@ You can see the state of the debugger by using the '[.status](https://docs.hyper
 **Important note:** To utilize HyperDbg in a nested-virtualization setup like VMware Workstation, ensure that Hyper-V it is disabled on **both** the **host** and the **guest** machine. Although VMware Workstation and Hyper-V have become compatible, as of the document's current version, VMware Workstation's nested-virtualization feature is not supported when Hyper-V is enabled. Therefore, even if you are running two virtual machines, the **primary host** must have Hyper-V disabled. For more instructions, please visit [here](https://docs.hyperdbg.org/getting-started/build-and-install).
 {% endhint %}
 
-### Disable VBS, Hyper-V on Host
+## Disable VBS, and Hyper-V on Host
 
 If you see the error "**Virtualized Intel VT-x/EPT is not supported on this platform.**", you can perform the following instructions to solve it.
 
