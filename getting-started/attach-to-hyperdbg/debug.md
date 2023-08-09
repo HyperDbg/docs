@@ -11,7 +11,7 @@ In **VMI Mode**, you can't break the kernel mode and step through the kernel ins
 In **Debugger Mode**, you can break the kernel mode and step through the kernel instructions. It needs a serial (cable or virtual device) to connect to the target machine.
 
 {% hint style="success" %}
-If you've attempted all the provided instructions without success, we encourage you to initiate a '[discussion](https://github.com/orgs/HyperDbg/discussions)' in this [here](https://github.com/orgs/HyperDbg/discussions). Outline your issue comprehensively, and we'll be more than happy to assist you in getting started with HyperDbg :)
+If you've attempted all the provided instructions without success, we encourage you to initiate a '[discussion](https://github.com/orgs/HyperDbg/discussions)'. Outline your issue comprehensively, and we'll be more than happy to assist you in getting started with HyperDbg :)
 {% endhint %}
 
 ## Downloading VMware

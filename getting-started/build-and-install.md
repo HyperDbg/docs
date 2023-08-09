@@ -53,7 +53,7 @@ You can download VMware Workstation Player (Free Non-commercial License) at: \[[
 Running HyperDbg has multiple stages. First, you should make sure to enable Intel **VT-x** from the BIOS. Next, you have to disable **Driver Signature Enforcement (DSE)** and turn off **Virtualization Based Security (VBS)**. Then you can run HyperDbg.
 
 {% hint style="success" %}
-If you've attempted all the provided instructions without success, we encourage you to initiate a '[discussion](https://github.com/orgs/HyperDbg/discussions)' in this [here](https://github.com/orgs/HyperDbg/discussions). Outline your issue comprehensively, and we'll be more than happy to assist you in getting started with HyperDbg :)
+If you've attempted all the provided instructions without success, we encourage you to initiate a '[discussion](https://github.com/orgs/HyperDbg/discussions)'. Outline your issue comprehensively, and we'll be more than happy to assist you in getting started with HyperDbg :)
 {% endhint %}
 
 If you want to use HyperDbg on your own computer (**host**), for example for local kernel debugging, you need to disable **Driver Signature Enforcement (DSE**) on your local machine. Disabling DSE allows you to use HyperDbg on your own computer.
