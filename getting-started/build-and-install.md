@@ -56,14 +56,14 @@ Running HyperDbg has multiple stages. First, you should make sure to enable Inte
 If you've attempted all the provided instructions without success, we encourage you to initiate a '[discussion](https://github.com/orgs/HyperDbg/discussions)'. Outline your issue comprehensively, and we'll be more than happy to assist you in getting started with HyperDbg :)
 {% endhint %}
 
-If you want to use HyperDbg on your own computer (**host**), for example for local kernel debugging, you need to disable **Driver Signature Enforcement (DSE**) on your local machine. Disabling DSE allows you to use HyperDbg on your own computer.
+If you want to use HyperDbg on your own computer (**host**), for example for local kernel debugging, you need to disable **Driver Signature Enforcement (DSE**) on your local machine. Disabling DSE allows you to use HyperDbg (load drivers) on your own computer.
 
-But if you want to debug a different computer (a **Guest Virtual Machine**), you don't need to disable any protections on your own computer (**host**). Instead, you only need to make the necessary changes on the guest machine itself. So you don't have to worry about disabling anything on your own computer when debugging a **guest** machine.
+But if you want to debug a different computer (a **Guest Virtual Machine**), you don't need to disable it on your own computer (**host**). Instead, you only need to make the necessary changes on the guest machine itself.
 
 In short:
 
 * Disable Driver Signature Enforcement on your own computer (**host**) if you want to run HyperDbg on it for local kernel debugging.
-* When debugging a remote guest machine, make the required changes only on the guest machine, without disabling any protections on your own computer.
+* When debugging a remote guest machine, make the required changes on the guest machine, without disabling Driver Signature Enforcement (DSE) on your own host computer.
 
 Remember, when attaching to a **guest** virtual machine, HyperDbg **does not** load any **drivers** or **hypervisors** on your **host** machine. Instead, it functions as a simple application that connects to the **guest** machine through the serial port and allows you to control it. In other words, HyperDbg acts as a simple bridge between your host machine and the target guest machine. It establishes a connection through the serial port without making any modifications or loading additional software on your host machine. Instead, the drivers and hypervisor will be loaded on the target guest machine.
 
@@ -87,9 +87,9 @@ The next step is disabling **Driver Signature Enforcement (DSE)**.
 
 HyperDbg's driver is **NOT** digitally signed.
 
-In order to disable **driver signature enforcement**, we have plenty of options. However, we recommend the **first option**, which is **attaching WinDbg at the boot time**. It's because this way, PatchGuard will not start, and some of HyperDbg's commands like the '[!syscall](https://docs.hyperdbg.org/commands/extension-commands/syscall)' or the '[!sysret](https://docs.hyperdbg.org/commands/extension-commands/sysret)', which are PatchGuard detectable, will be usable.&#x20;
+In order to disable **driver signature enforcement**, we have plenty of options. However, we recommend the **first option**, which is **attaching WinDbg at the boot time**. It's because this way, PatchGuard will not start, and some of HyperDbg's commands like the '[!syscall](https://docs.hyperdbg.org/commands/extension-commands/syscall)' or the '[!sysret](https://docs.hyperdbg.org/commands/extension-commands/sysret)', which are PatchGuard detectable, will be usable. Alternatively, you can use [EfiGuard](https://github.com/Mattiwatti/EfiGuard) to use bypass both PatchGuard and DSE without using WinDbg.
 
-If you use other options, please keep in mind that you should be cautious as PatchGuard will start and detect some of the modifications and might be problematic.
+If you use other options, please keep in mind that you should be cautious as PatchGuard will start and detect some of the modifications that might be problematic.
 
 Disabling **DSE** can be done in three ways (you have to choose one of them):
 
@@ -113,7 +113,7 @@ If your computer has the secure boot enabled, you'll see the following error.
 
 ![Kdnet.exe (secure boot)](../.gitbook/assets/kdnet-secure-boot-error.PNG)
 
-You can disable secure boot from the BIOS. Most of the time, you should change the **secure boot** option to "**Other OSes**" that are not Windows.
+You can disable secure boot from the BIOS. Most of the time, you should change the **secure boot** option to "**Other OSes**" that are not Windows, alternatively you [disable secure boot in VMware](https://www.youtube.com/watch?v=y3o\_-AKkf-s\&ab\_channel=HowToBasic).
 
 That's it all. We're good to go to the next section.&#x20;
 
@@ -132,7 +132,7 @@ To disable driver signature enforcement, do the following:
 3. When your computer restarts, you’ll see a list of options. Press **F7** on your keyboard to select **Disable driver signature enforcement**.
 4. Your computer will now restart, and you’ll be able to install unsigned drivers.
 
-Bear in mind that this method only temporarily disables driver signature enforcement, and after a restart, you have to re-disable it again.
+Keep in mind that this method only temporarily disables driver signature enforcement, and after a restart, you have to re-disable it again, and also it won't disable the PatchGuard, so, some of the commands that are not PatchGuard compatible **won't** work when you use this method.
 
 #### Using EfiGuard
 
@@ -144,9 +144,7 @@ For more information, please visit the main [repo](https://github.com/Mattiwatti
 
 The last step before running HyperDbg is disabling **Virtualization Based Security (VBS)**.
 
-This step should be performed in the target debugging machine.
-
-Please note that to utilize HyperDbg in a nested-virtualization setup like VMware Workstation, ensure that VBS, Hyper-V is disabled on **both** the **host** and the **guest** machine. Although VMware Workstation and Hyper-V have become compatible, as of the document's current version, VMware Workstation's nested-virtualization feature is not supported when Hyper-V is enabled. Therefore, even if you are running two virtual machines, the **primary host** must have Hyper-V disabled.
+Please note that to utilize HyperDbg in a nested-virtualization setup like VMware Workstation, ensure that VBS, Hyper-V is disabled on **both** the **host** and the **guest** machine. Although VMware Workstation and Hyper-V have become compatible, as of the document's current version, VMware Workstation's nested-virtualization feature is not supported when Hyper-V is enabled. Therefore, even if you are running two virtual machines, the **primary host** and the target **guest** debuggee must have Hyper-V disabled.
 
 **HyperDbg** and **VBS** are both hypervisors running on ring -1. These hypervisors are not compatible, and you should disable VBS (and its sub-components like HVCI, Device Guard, etc.).
 
@@ -164,13 +162,13 @@ If the VBS is **enabled**, you can disable it by typing "**Core isolation**" on 
 
 ![Turn off core isolation](../.gitbook/assets/Disable-core-isolation.PNG)
 
-After that, go to "Turn Windows features on or off", and disable "**Virtual Machine Platform**" and "**Windows Hypervisor Platform**".
+After that, go to "**Turn Windows features on or off**", and disable "**Virtual Machine Platform**" and "**Windows Hypervisor Platform**".
 
 <figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption><p>Disabling Windows Features</p></figcaption></figure>
 
 The above step is enough to disable the VBS. After that, you should restart your computer so that VBS will be disabled on the next start. Once the computer started, check the **System Information** app again to see whether **Virtualization-based security** is disabled or not.
 
-**Done!** The rest of this section describes other methods for disabling VBS.
+**Done!** The rest of this section describes other methods for disabling VBS, you don't need to follow it if you successfully disabled **VBS**.
 
 If the above method didn't work for you, open **Local Group Policy Editor (gpedit.msc)** and navigate to the following path:
 
