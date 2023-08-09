@@ -10,6 +10,10 @@ In **VMI Mode**, you can't break the kernel mode and step through the kernel ins
 
 In **Debugger Mode**, you can break the kernel mode and step through the kernel instructions. It needs a serial (cable or virtual device) to connect to the target machine.
 
+{% hint style="success" %}
+If you've attempted all the provided instructions without success, we encourage you to initiate a '[discussion](https://github.com/orgs/HyperDbg/discussions)' in this [here](https://github.com/orgs/HyperDbg/discussions). Outline your issue comprehensively, and we'll be more than happy to assist you in getting started with HyperDbg :)
+{% endhint %}
+
 ## Downloading VMware
 
 HyperDbg works best with VMware Workstation Player/Pro.
@@ -98,7 +102,7 @@ To use HyperDbg, the debugger should be started and listening on the host before
 
 **Done!** You successfully connected to the HyperDbg.&#x20;
 
-The rest of this topic is for special cases like if you want to connect HyperDbg from two VMs (without running HyperDbg on the Host), possible errors that you might encounter during the setup, and solutions.&#x20;
+The rest of this section is for special cases like if you want to connect HyperDbg from two VMs (without running HyperDbg on the Host), possible errors that you might encounter during the setup, and solutions.&#x20;
 
 ### **VMware Workstation (Two VMs)**
 
@@ -191,7 +195,7 @@ If you see the error "**Virtualized Intel VT-x/EPT is not supported on this plat
 
 <figure><img src="../../.gitbook/assets/hyper-v-and-vmware-nested-error.jpg" alt="" width="375"><figcaption></figcaption></figure>
 
-For this purpose, you can run the following command (as administrator) and restart your computer to disable hypervisor auto-launch.
+First, make sure the VBS, HVCI, or Hyper-V is disabled in the Host as described [here](https://docs.hyperdbg.org/getting-started/build-and-install). If it didn't solve the problem, you can run the following command (as administrator) and restart your computer to disable hypervisor auto-launch.
 
 ```
 bcdedit /set hypervisorlaunchtype off

@@ -38,7 +38,7 @@ Open the visual studio and **build** the solution.
 
 After building, you need to disable driver signature enforcement. It is because the current versions of **HyperDbg** are not digitally signed.
 
-For this purpose, you can **Disable Driver Signature Enforcement** or **Put Windows in Test Mode**.
+For this purpose, you can **Disable Driver Signature Enforcement**.
 
 ## Choosing Environment
 
@@ -51,6 +51,10 @@ You can download VMware Workstation Player (Free Non-commercial License) at: \[[
 ## Running HyperDbg
 
 Running HyperDbg has multiple stages. First, you should make sure to enable Intel **VT-x** from the BIOS. Next, you have to disable **Driver Signature Enforcement (DSE)** and turn off **Virtualization Based Security (VBS)**. Then you can run HyperDbg.
+
+{% hint style="success" %}
+If you've attempted all the provided instructions without success, we encourage you to initiate a '[discussion](https://github.com/orgs/HyperDbg/discussions)' in this [here](https://github.com/orgs/HyperDbg/discussions). Outline your issue comprehensively, and we'll be more than happy to assist you in getting started with HyperDbg :)
+{% endhint %}
 
 If you want to use HyperDbg on your own computer (**host**), for example for local kernel debugging, you need to disable **Driver Signature Enforcement (DSE**) on your local machine. Disabling DSE allows you to use HyperDbg on your own computer.
 
@@ -87,11 +91,10 @@ In order to disable **driver signature enforcement**, we have plenty of options.
 
 If you use other options, please keep in mind that you should be cautious as PatchGuard will start and detect some of the modifications and might be problematic.
 
-Disabling **DSE** can be done in four ways (you have to choose one of them):
+Disabling **DSE** can be done in three ways (you have to choose one of them):
 
 * Attaching WinDbg at the boot time (**Recommended**)
 * Temporarily Disable DSE
-* Putting Windows in Test Mode
 * Using [EfiGuard](https://github.com/Mattiwatti/EfiGuard)
 
 #### Disable DSE by Attaching WinDbg
@@ -131,24 +134,11 @@ To disable driver signature enforcement, do the following:
 
 Bear in mind that this method only temporarily disables driver signature enforcement, and after a restart, you have to re-disable it again.
 
-#### Putting Windows in Test Mode
-
-If you couldn't use the first two options, you could put Windows in test mode. In test mode, you can install any drivers you want without experiencing any problems.
-
-The following actions should be done in the **guest** if you want to debug a Virtual Machine (VM).
-
-1. Open an elevated command prompt window on your PC: right-click on the Windows Start icon and select **Command prompt (Admin)**.
-2. In cmd type:`bcdedit /set TESTSIGNING ON`
-3. Close the cmd window and restart your computer.
-4. Install your drivers.
-
-For more options, please visit [here](https://windowsreport.com/driver-signature-enforcement-windows-10/).
-
 #### Using EfiGuard
 
 You can use [EfiGuard](https://github.com/Mattiwatti/EfiGuard) to disable both Driver Signature Enforcement (**DSE**) and PatchGuard.
 
-For more information, please visit the main [repo](https://github.com/Mattiwatti/EfiGuard).
+For more information, please visit the main [repo](https://github.com/Mattiwatti/EfiGuard). or if you want to use VMware, you can visit [here](https://muffsec.com/blog/how-to-use-efiguard-to-disable-patchguard/).
 
 ### Disable VBS, HVCI, and Device Guard
 
@@ -170,11 +160,17 @@ If you see "**Enabled but not running**" or "**Not enabled**", you're good to go
 
 ![Enabled but not running](../.gitbook/assets/VBS-enabled-but-not-running.PNG) ![Not enabled](../.gitbook/assets/VBS-not-enabled.PNG)
 
-If the VBS is enabled, you can disable it by typing "**Core isolation**" on the start menu and turning off "**Memory integrity**".
+If the VBS is **enabled**, you can disable it by typing "**Core isolation**" on the start menu and turning off "**Memory integrity**".
 
 ![Turn off core isolation](../.gitbook/assets/Disable-core-isolation.PNG)
 
-The above step is enough to disable the VBS. After that, you should restart your computer so that VBS will be disabled on the next start.
+After that, go to "Turn Windows features on or off", and disable "**Virtual Machine Platform**" and "**Windows Hypervisor Platform**".
+
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption><p>Disabling Windows Features</p></figcaption></figure>
+
+The above step is enough to disable the VBS. After that, you should restart your computer so that VBS will be disabled on the next start. Once the computer started, check the **System Information** app again to see whether **Virtualization-based security** is disabled or not.
+
+**Done!** The rest of this section describes other methods for disabling VBS.
 
 If the above method didn't work for you, open **Local Group Policy Editor (gpedit.msc)** and navigate to the following path:
 
