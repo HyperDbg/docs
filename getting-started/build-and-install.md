@@ -136,9 +136,9 @@ Keep in mind that this method only temporarily disables driver signature enforce
 
 #### Using EfiGuard
 
-You can use [EfiGuard](https://github.com/Mattiwatti/EfiGuard) to disable both Driver Signature Enforcement (**DSE**) and PatchGuard.
+You can use [EfiGuard](https://github.com/Mattiwatti/EfiGuard) to disable both Driver Signature Enforcement (**DSE**) and PatchGuard. This way, you don't need to use WinDbg!
 
-For more information, please visit the main [repo](https://github.com/Mattiwatti/EfiGuard). or if you want to use VMware, you can visit [here](https://muffsec.com/blog/how-to-use-efiguard-to-disable-patchguard/).
+For more information, please visit the main [repo](https://github.com/Mattiwatti/EfiGuard), or if you want to use it on VMware, you can visit [here](https://muffsec.com/blog/how-to-use-efiguard-to-disable-patchguard/) or this [demo](https://www.youtube.com/watch?v=EJGuJp2fqpM\&ab\_channel=ScriptDaddy).
 
 ### Disable VBS, HVCI, and Device Guard
 
