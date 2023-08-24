@@ -22,6 +22,12 @@ You can download VMware Workstation Player (Free Non-commercial License) at: \[[
 
 After that, you should install your desired operating system (Windows 10, or 11) on your VMware as a guest. Once, you finished installing your virtual machine, you can continue the rest of this article.
 
+Here is a quick video that describes how to set up HyperDbg with VMware Workstation Pro/Player.
+
+{% embed url="https://www.youtube.com/watch?v=MDZ9zYfqo50" %}
+Getting Started with HyperDbg
+{% endembed %}
+
 ## Connect to Debuggee (Debugger Mode)
 
 For connecting in debugger mode, first, you need to provide a serial device.

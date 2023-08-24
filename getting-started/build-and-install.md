@@ -40,6 +40,14 @@ After building, you need to disable driver signature enforcement. It is because 
 
 For this purpose, you can **Disable Driver Signature Enforcement**.
 
+## Starting with HyperDbg
+
+The rest of this article focuses on the process of installing and setting up HyperDbg. If you prefer a visual guide, you can watch a corresponding video instead of reading through this section.
+
+{% embed url="https://www.youtube.com/watch?v=MDZ9zYfqo50" %}
+Starting with HyperDbg
+{% endembed %}
+
 ## Choosing Environment
 
 You can run HyperDbg on your physical machine in the [VMI Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#vmi-mode) (local debugging), but you can't pause or step through the instruction in this execution mode. If you want to thoroughly use HyperDbg as a debugger (not as a system-log generator), you should use it with a virtual machine in the [Debugger Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#vmi-mode).
