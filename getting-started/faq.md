@@ -36,9 +36,9 @@ The current version of HyperDbg only supports Intel x64 processors. You cannot r
 
 Your processor should at least support Intel Extended Page Table (A.K.A. EPT), which is introduced on Nehalem Microarchitecture, but most of the functionalities are working on Intel's 4th or later generation; so, the previous processors might have undefined behaviors with some of the functionalities of HyperDbg. Even though most of the functionalities are supported on the 4th generation of Intel Processors but still some minor functionalities need newer processors. It's recommended to use a Skylake (6th generation) processor or newer processors to support all functionalities.
 
-## Can I use it on Linux or macOS?
+## Can I use it on Linux, FreeBSD or macOS?
 
-No, the current version is only limited to Windows 10; however, one of our top priorities is to port HyperDbg on Linux, but currently, it's only usable on Windows.
+No, the current version is only limited to Windows; however, one of our top priorities is to port HyperDbg on **Linux**, but currently, it's only usable on Windows.
 
 ## Should I have a separate machine to use HyperDbg?
 
