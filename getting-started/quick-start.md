@@ -12,8 +12,13 @@ First of all, you should know about different [**Operation Modes**](https://docs
 * [**Debugger Mode**](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode)
 * [**Transparent Mode**](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#transparent-mode)
 
+If you want to learn how to use HyperDbg along with practical and real-world examples visit the following tutorial.
+
+* &#x20;[**OpenSecurityTraining2's "Reversing with HyperDbg (Dbg3301)"**](https://ost2.fyi/Dbg3301)
+
 If you want to build HyperDbg, follow the steps in the links below; you can also download compiled binaries instead of building HyperDbg.
 
+* [**Transparent Mode**](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#transparent-mode)
 * [**Build & Install**](https://docs.hyperdbg.org/getting-started/build-and-install)
 * [**Download Releases**](https://github.com/HyperDbg/HyperDbg/releases)
 
