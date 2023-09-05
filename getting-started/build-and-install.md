@@ -209,4 +209,4 @@ or visit [Quick Start](https://docs.hyperdbg.org/getting-started/quick-start) to
 
 ## Next Step
 
-The [**OpenSecurityTraining2's "Reversing with HyperDbg (Dbg3301)"**](https://ost2.fyi/Dbg3301) tutorial is the recommended way to get started with and learn HyperDbg. This tutorial will guide you through the initial steps of using HyperDbg, covering essential concepts, principles, and debugging functionalities as well as numerous reverse engineering methods achievable by using HyperDbg, along with practical and real-world examples.
+The [**OpenSecurityTraining2's "Reversing with HyperDbg (Dbg3301)"**](https://ost2.fyi/Dbg3301) tutorial is the recommended way to get started with and learn HyperDbg, guiding you through the initial steps of using HyperDbg, covering essential concepts, principles, debugging functionalities, along with practical examples and numerous reverse engineering methods that are unique to HyperDbg.
