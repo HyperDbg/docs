@@ -29,8 +29,9 @@ The number of **instructions** to perform the instrument (The execution might no
 If you want to step-out or go up from the current function.
 
 ```
-0: kHyperDbg> p
-fffff801`68d91267    41 5B                               pop r11
+4: kHyperDbg> gu
+ntkrnlmp!KiSystemServiceCopyEnd+0x25:
+fffff802`2d045fe5    0F 1F 00                            nop dword ptr ds:[rax], eax
 ```
 
 ### IOCTL
@@ -48,6 +49,8 @@ All cores and threads (except the currently executing thread) find a chance to b
 None
 
 ### Related
+
+[k, kd, kq (display stack backtrace)](https://docs.hyperdbg.org/commands/debugging-commands/k)
 
 [p (step-over)](https://docs.hyperdbg.org/commands/debugging-commands/p)
 
