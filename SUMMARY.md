@@ -114,6 +114,7 @@
   * [.process, .process2 (show the current process and switch to another process)](commands/meta-commands/.process.md)
   * [.thread, .thread2 (show the current thread and switch to another thread)](commands/meta-commands/.thread.md)
   * [.pagein (bring the page into the RAM)](commands/meta-commands/.pagein-bring-the-page-into-the-ram.md)
+  * [.dump (save the virtual memory into a file)](commands/meta-commands/.dump.md)
   * [.formats (show number formats)](commands/meta-commands/.formats.md)
   * [.script (run batch script commands)](commands/meta-commands/.script.md)
   * [.sympath (set the symbol server)](commands/meta-commands/.sympath.md)

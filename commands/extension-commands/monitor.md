@@ -34,11 +34,11 @@ Can be one of these values (or a combination of these attributes like '**rw**', 
 
 **\[FromAddress (hex)]**
 
-The start **Virtual** address of where it needs to be monitored for reading or writing or executing (or a custom combination of these attributes).
+The start **virtual** address of where it needs to be monitored for reading or writing or executing (or a custom combination of these attributes).
 
 **\[ToAddress (hex)]**
 
-The end of **Virtual** address of where it needs to be monitored for reading or writing or executing (or a custom combination of these attributes).
+The end of the **virtual** address of where it needs to be monitored for reading or writing or executing (or a custom combination of these attributes).
 
 **\[pid ProcessId (hex)] (optional)**
 
