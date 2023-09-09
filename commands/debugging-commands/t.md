@@ -144,3 +144,5 @@ None
 [p (step-over)](https://docs.hyperdbg.org/commands/debugging-commands/p)
 
 [i (instrumentation step-in)](https://docs.hyperdbg.org/commands/debugging-commands/i)
+
+[gu (step-out or go up)](https://docs.hyperdbg.org/commands/debugging-commands/gu)

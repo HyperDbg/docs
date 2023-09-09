@@ -148,3 +148,5 @@ None
 [p (step-over)](https://docs.hyperdbg.org/commands/debugging-commands/p)
 
 [t (step-in)](https://docs.hyperdbg.org/commands/debugging-commands/t)
+
+[gu (step-out or go up)](https://docs.hyperdbg.org/commands/debugging-commands/gu)

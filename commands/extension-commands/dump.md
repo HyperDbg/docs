@@ -48,6 +48,8 @@ the dump file is saved at: c:\rev\dump2.dmp
 
 ### IOCTL
 
+The '[.dump](https://docs.hyperdbg.org/commands/meta-commands/.dump)' command is used for dumping the **virtual** memory.
+
 This command reads the memory in the 4KB chunks and is the same as [this](https://docs.hyperdbg.org/commands/extension-commands/d#ioctl) command, just you have to set the memory reading `Style` to `DEBUGGER_SHOW_COMMAND_DUMP`.
 
 ### Remarks
