@@ -173,6 +173,8 @@
       * [event\_disable](commands/scripting-language/functions/events/disable\_event.md)
       * [event\_enable](commands/scripting-language/functions/events/enable\_event.md)
       * [event\_sc](commands/scripting-language/functions/events/event\_sc.md)
+      * [event\_inject](commands/scripting-language/functions/events/event\_inject.md)
+      * [event\_inject\_error\_code](commands/scripting-language/functions/events/event\_inject\_error\_code.md)
       * [flush](commands/scripting-language/functions/events/flush.md)
     * [exports](commands/scripting-language/functions/exports/README.md)
       * [print](commands/scripting-language/functions/exports/print.md)
