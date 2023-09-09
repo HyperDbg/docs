@@ -52,6 +52,8 @@ This command reads the memory in the 4KB chunks and is the same as [this](https:
 
 ### Remarks
 
+Starting from **v0.6**, this command was added to the HyperDbg debugger.
+
 This command is guaranteed to keep debuggee in a halt state (in Debugger Mode); thus, nothing will change during its execution.
 
 ### Requirements

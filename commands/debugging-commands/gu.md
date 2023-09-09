@@ -36,13 +36,15 @@ fffff802`2d045fe5    0F 1F 00                            nop dword ptr ds:[rax],
 
 ### IOCTL
 
-The instruction for this command is the same as the ['p' command's IOCTL](https://docs.hyperdbg.org/commands/debugging-commands/p#ioctl) except it checks whether the instruction is equal to **RET** or not.
+The instruction for this command is the same as the ['p' command's IOCTL](https://docs.hyperdbg.org/commands/debugging-commands/p#ioctl) except it checks whether the instruction is equal to **RET** or not and sets the `StepRequestType` to `DEBUGGER_REMOTE_STEPPING_REQUEST_STEP_OVER_FOR_GU`.
 
 ### Remarks
 
+Starting from **v0.6**, this command was added to the HyperDbg debugger.
+
 This command is the same as the '[p (step-over)](https://docs.hyperdbg.org/commands/debugging-commands/p)' except it checks whether the instruction is equal to **RET** or not.
 
-All cores and threads (except the currently executing thread) find a chance to be executed between each step in this type of stepping.
+All cores and threads (except the currently executing thread) find a chance to be executed between each step in this command.
 
 ### Requirements
 
