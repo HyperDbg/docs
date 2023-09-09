@@ -16,65 +16,39 @@ description: Description of 'event_inject' function in HyperDbg Scripts
 
 **\[ Expression (InterruptionType)]**
 
-Type of the target interrupt. Can be selected from the following table:
+Type of the target interrupt (see the **Remarks** section for more information). Can be selected from the following table:
 
 <table><thead><tr><th width="217">Interruption Type</th><th>Description</th></tr></thead><tbody><tr><td>0</td><td>External interrupt</td></tr><tr><td>1</td><td>Reserved</td></tr><tr><td>2</td><td>Non-maskable interrupt (NMI)</td></tr><tr><td>3</td><td>Hardware exception (e.g,. #PF)</td></tr><tr><td>4</td><td>Software interrupt (INT n)</td></tr><tr><td>5</td><td>Privileged software exception (INT1)</td></tr><tr><td>6</td><td>Software exception (INT3 or INTO)</td></tr><tr><td>7</td><td>Other event</td></tr></tbody></table>
 
 **\[ Expression (Vector)]**
 
-Whether the short-circuiting should be enabled or disabled for the corresponding execution of the event.
+The vector number (interrupt IDT vector number) of the target interrupt. Can be selected from the following table:
 
-| Name                          | Vector nr.        | Type       | Mnemonic | Error code? |
-| ----------------------------- | ----------------- | ---------- | -------- | ----------- |
-| Divide-by-zero Error          | 0 (0x0)           | Fault      | #DE      | No          |
-| Debug                         | 1 (0x1)           | Fault/Trap | #DB      | No          |
-| Non-maskable Interrupt        | 2 (0x2)           | Interrupt  | -        | No          |
-| Breakpoint                    | 3 (0x3)           | Trap       | #BP      | No          |
-| Overflow                      | 4 (0x4)           | Trap       | #OF      | No          |
-| Bound Range Exceeded          | 5 (0x5)           | Fault      | #BR      | No          |
-| Invalid Opcode                | 6 (0x6)           | Fault      | #UD      | No          |
-| Device Not Available          | 7 (0x7)           | Fault      | #NM      | No          |
-| Double Fault                  | 8 (0x8)           | Abort      | #DF      | Yes (Zero)  |
-| Coprocessor Segment Overrun   | 9 (0x9)           | Fault      | -        | No          |
-| Invalid TSS                   | 10 (0xA)          | Fault      | #TS      | Yes         |
-| Segment Not Present           | 11 (0xB)          | Fault      | #NP      | Yes         |
-| Stack-Segment Fault           | 12 (0xC)          | Fault      | #SS      | Yes         |
-| General Protection Fault      | 13 (0xD)          | Fault      | #GP      | Yes         |
-| Page Fault                    | 14 (0xE)          | Fault      | #PF      | Yes         |
-| Reserved                      | 15 (0xF)          | -          | -        | No          |
-| x87 Floating-Point Exception  | 16 (0x10)         | Fault      | #MF      | No          |
-| Alignment Check               | 17 (0x11)         | Fault      | #AC      | Yes         |
-| Machine Check                 | 18 (0x12)         | Abort      | #MC      | No          |
-| SIMD Floating-Point Exception | 19 (0x13)         | Fault      | #XM/#XF  | No          |
-| Virtualization Exception      | 20 (0x14)         | Fault      | #VE      | No          |
-| Reserved                      | 21-29 (0x15-0x1D) | -          | -        | No          |
-| Security Exception            | 30 (0x1E)         | -          | #SX      | Yes         |
-| Reserved                      | 31 (0x1F)         | -          | -        | No          |
-| Triple Fault                  | -                 | -          | -        | No          |
-| FPU Error Interrupt           | IRQ 13            | Interrupt  | #FERR    | No          |
+<table><thead><tr><th width="228">Name</th><th>Vector nr.</th><th>Type</th><th>Mnemonic</th><th>Error code?</th></tr></thead><tbody><tr><td>Divide-by-zero Error</td><td>0 (0x0)</td><td>Fault</td><td>#DE</td><td>No</td></tr><tr><td>Debug</td><td>1 (0x1)</td><td>Fault/Trap</td><td>#DB</td><td>No</td></tr><tr><td>Non-maskable Interrupt</td><td>2 (0x2)</td><td>Interrupt</td><td>-</td><td>No</td></tr><tr><td>Breakpoint</td><td>3 (0x3)</td><td>Trap</td><td>#BP</td><td>No</td></tr><tr><td>Overflow</td><td>4 (0x4)</td><td>Trap</td><td>#OF</td><td>No</td></tr><tr><td>Bound Range Exceeded</td><td>5 (0x5)</td><td>Fault</td><td>#BR</td><td>No</td></tr><tr><td>Invalid Opcode</td><td>6 (0x6)</td><td>Fault</td><td>#UD</td><td>No</td></tr><tr><td>Device Not Available</td><td>7 (0x7)</td><td>Fault</td><td>#NM</td><td>No</td></tr><tr><td>Double Fault</td><td>8 (0x8)</td><td>Abort</td><td>#DF</td><td>Yes (Zero)</td></tr><tr><td>Coprocessor Segment Overrun</td><td>9 (0x9)</td><td>Fault</td><td>-</td><td>No</td></tr><tr><td>Invalid TSS</td><td>10 (0xA)</td><td>Fault</td><td>#TS</td><td>Yes</td></tr><tr><td>Segment Not Present</td><td>11 (0xB)</td><td>Fault</td><td>#NP</td><td>Yes</td></tr><tr><td>Stack-Segment Fault</td><td>12 (0xC)</td><td>Fault</td><td>#SS</td><td>Yes</td></tr><tr><td>General Protection Fault</td><td>13 (0xD)</td><td>Fault</td><td>#GP</td><td>Yes</td></tr><tr><td>Page Fault</td><td>14 (0xE)</td><td>Fault</td><td>#PF</td><td>Yes</td></tr><tr><td>Reserved</td><td>15 (0xF)</td><td>-</td><td>-</td><td>No</td></tr><tr><td>x87 Floating-Point Exception</td><td>16 (0x10)</td><td>Fault</td><td>#MF</td><td>No</td></tr><tr><td>Alignment Check</td><td>17 (0x11)</td><td>Fault</td><td>#AC</td><td>Yes</td></tr><tr><td>Machine Check</td><td>18 (0x12)</td><td>Abort</td><td>#MC</td><td>No</td></tr><tr><td>SIMD Floating-Point Exception</td><td>19 (0x13)</td><td>Fault</td><td>#XM/#XF</td><td>No</td></tr><tr><td>Virtualization Exception</td><td>20 (0x14)</td><td>Fault</td><td>#VE</td><td>No</td></tr><tr><td>Reserved</td><td>21-29 (0x15-0x1D)</td><td>-</td><td>-</td><td>No</td></tr><tr><td>Security Exception</td><td>30 (0x1E)</td><td>-</td><td>#SX</td><td>Yes</td></tr><tr><td>Reserved</td><td>31 (0x1F)</td><td>-</td><td>-</td><td>No</td></tr><tr><td>Triple Fault</td><td>-</td><td>-</td><td>-</td><td>No</td></tr><tr><td>FPU Error Interrupt</td><td>IRQ 13</td><td>Interrupt</td><td>#FERR</td><td>No</td></tr></tbody></table>
 
 ### Description
 
-Enables or disables the '[event short-circuiting](https://docs.hyperdbg.org/tips-and-tricks/misc/event-short-circuiting)', only for the **corresponding** execution of the event.
+Injects an interrupt/exception/fault which will be delivered once you continue the debuggee.
 
 ### Examples
 
-`event_sc(1);`
+`event_inject(6, 3);`
 
-Enables short-circuiting for the event; thus, the **corresponding execution** of the event will be **ignored**.
-
-`event_sc(0);`
-
-Disables short-circuiting for the event; thus, the **corresponding execution** of the event **WON'T** be **ignored**.
+Injects a breakpoint (**Software Exception** = 6 and Vector equal to **Breakpoint** = 3) to the target debuggee.
 
 ### Remarks
 
-{% hint style="info" %}
-Please keep in mind, **disabling** means that the event will be **executed** while **enabling** means the event emulation will be **ignored** or **short-circuited**.
-{% endhint %}
+This function **won't** set the error code. If the target interrupt/exception/fault needs an error code (see the table above), you should use the [event\_inject\_error\_code](https://docs.hyperdbg.org/commands/scripting-language/functions/events/event\_inject\_error\_code).&#x20;
 
-Starting from **v0.3**, this feature was added to the HyperDbg debugger.
+The interruption type determines the details of how the injection is performed. In general, a VMM should use the type hardware exception for all exceptions other than the following:
+
+* breakpoint exceptions (#BP; a VMM should use the type software exception);&#x20;
+* overflow exceptions (#OF a VMM should use the use type software exception); and&#x20;
+* those debug exceptions (#DB) that are generated by INT1 (a VMM should use the use type privileged software exception).
+* The type of other event is used for the injection of events that are not delivered through the IDT.
+
+Starting from **v0.6**, this function was added to the HyperDbg debugger.
 
 ### Related
 
-[Event short-circuiting](https://docs.hyperdbg.org/tips-and-tricks/misc/event-short-circuiting)
+[event\_inject\_error\_code](https://docs.hyperdbg.org/commands/scripting-language/functions/events/event\_inject\_error\_code)
