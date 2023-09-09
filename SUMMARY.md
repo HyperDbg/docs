@@ -152,6 +152,7 @@
   * [!measure (measuring and providing details for transparent-mode)](commands/extension-commands/measure.md)
   * [!va2pa (convert a virtual address to physical address)](commands/extension-commands/va2pa.md)
   * [!pa2va (convert physical address to virtual address)](commands/extension-commands/pa2va.md)
+  * [!dump (save the physical memory into a file)](commands/extension-commands/dump.md)
 * [Scripting Language](commands/scripting-language/README.md)
   * [Assumptions & Evaluations](commands/scripting-language/assumptions-and-evaluations.md)
   * [Variables & Assignments](commands/scripting-language/variables-and-assignments.md)
