@@ -10,7 +10,7 @@ description: Description of the '!monitor' command in HyperDbg.
 
 ### Syntax
 
-> !monitor \[Mode (string)] \[FromAddress (hex)] \[ToAddress (hex)] \[pid ProcessId (hex)] \[core CoreId (hex)] \[imm IsImmediate (yesno)] \[sc EnableShortCircuiting (onoff)] \[stage CallingStage (prepostall)] \[buffer PreAllocatedBuffer (hex)] \[script { Script (string) }] \[condition { Condition (hex) }] \[code { Code (hex) }]
+> !monitor \[Attribute (string)] \[FromAddress (hex)] \[ToAddress (hex)] \[pid ProcessId (hex)] \[core CoreId (hex)] \[imm IsImmediate (yesno)] \[sc EnableShortCircuiting (onoff)] \[stage CallingStage (prepostall)] \[buffer PreAllocatedBuffer (hex)] \[script { Script (string) }] \[condition { Condition (hex) }] \[code { Code (hex) }]
 
 ### Description
 
@@ -22,7 +22,7 @@ It is exactly like read/write/execute of Hardware Debug Registers but without an
 
 ### Parameters
 
-**\[Mode (string)]**
+**\[**Attribute **(string)]**
 
 Can be one of these values (or a combination of these attributes like '**rw**', '**rx**', '**wx**', '**rwx**', etc.):
 
