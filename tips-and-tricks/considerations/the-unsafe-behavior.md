@@ -24,4 +24,9 @@ HyperDbg provides you a way of safely accessing a non-paged pool in user, kernel
 ### How can we access the memory?
 
 * We can access the memory safely by using the functions provided by HyperDbg commands and HyperDbg's script engine. For example, if we want to read memory from the current process, we can use the regular [db, dc, dd, dq (read virtual memory)](https://docs.hyperdbg.org/commands/debugging-commands/d), and modify the memory using the [eb, ed, eq (edit virtual memory)](https://docs.hyperdbg.org/commands/debugging-commands/e) commands. On the other hand, in the script engine, you can use different memory reading [keywords](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations#keywords) to read the memory or use the [eb, ed, eq](https://docs.hyperdbg.org/commands/scripting-language/functions/memory/eb-ed-eq) functions to modify the memory.
-* Other than that, you can use [check\_address](https://docs.hyperdbg.org/commands/scripting-language/functions/memory/check\_address) function to make sure whether an address is valid and safe to access or not.
+* Other than that, you can use the [check\_address](https://docs.hyperdbg.org/commands/scripting-language/functions/memory/check\_address) function to make sure whether an address is valid and safe to access or not.
+
+### The address is valid, but HyperDbg can't read it!
+
+* Sometimes, addresses that you try to access are valid but HyperDbg is not able to read or modify the address and keeps showing a message that the address is invalid. This is mainly because the address is paged out and is not available in RAM. Or in some cases, the address is actually available in the RAM but the operating system didn't make it present for the current process's memory layout. The second case happens mostly when you start a new process.
+* In order to solve that, we could use the '[.pagein](https://docs.hyperdbg.org/commands/meta-commands/.pagein)' command to bring the pages into the RAM and make it available for both the process and HyperDbg.
