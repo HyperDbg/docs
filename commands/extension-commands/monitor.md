@@ -10,7 +10,7 @@ description: Description of the '!monitor' command in HyperDbg.
 
 ### Syntax
 
-> !monitor \[Attribute (string)] \[FromAddress (hex)] \[ToAddress (hex)] \[pid ProcessId (hex)] \[core CoreId (hex)] \[imm IsImmediate (yesno)] \[sc EnableShortCircuiting (onoff)] \[stage CallingStage (prepostall)] \[buffer PreAllocatedBuffer (hex)] \[script { Script (string) }] \[condition { Condition (hex) }] \[code { Code (hex) }]
+> !monitor \[Attribute (string)] \[FromAddress (hex)] \[ToAddress (hex)] \[pid ProcessId (hex)] \[core CoreId (hex)] \[imm IsImmediate (yesno)] \[sc EnableShortCircuiting (onoff)] \[stage CallingStage (prepostall)] \[buffer PreAllocatedBuffer (hex)] \[script { Script (string) }] \[condition { Condition (hex) }] \[code { Code (hex) }] \[output {OutputName (string)}]
 
 ### Description
 
@@ -77,6 +77,10 @@ Optional hex assembly codes which check for [conditions](https://docs.hyperdbg.o
 **\[code { Code (hex) }]  (optional)**
 
 Optional [hex assembly codes](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#custom-codes) will be executed each time the event is triggered.
+
+**\[output {OutputName (string)}]  (optional)**
+
+Optional output resource name for [forwarding events](https://docs.hyperdbg.org/tips-and-tricks/misc/event-forwarding).
 
 ### Context
 
