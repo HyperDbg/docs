@@ -222,6 +222,7 @@
   * [Event forwarding](tips-and-tricks/misc/event-forwarding.md)
   * [Event short-circuiting](tips-and-tricks/misc/event-short-circuiting.md)
   * [Event calling stage](tips-and-tricks/misc/event-calling-stage.md)
+  * [Instant events](tips-and-tricks/misc/instant-events.md)
   * [Message overflow](tips-and-tricks/misc/message-overflow.md)
   * [Customize build](tips-and-tricks/misc/customize-build.md)
   * [Increase Communication Buffer Size](tips-and-tricks/misc/increase-communication-buffer-size.md)
