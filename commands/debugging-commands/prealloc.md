@@ -28,16 +28,16 @@ HyperDbg tries to minimize the request for this command by allocating pools when
 
 The type of pools to be reserved.
 
-| Type                    |                                                                                                                          |
-| ----------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| **thread-interception** | Used for storing details of processes with thousands of threads                                                          |
-| **monitor**             | **!monitor** command's extra pages                                                                                       |
-| **epthook**             | **!ephook** command's extra pages                                                                                        |
-| **epthook2**            | **!ephook2** command's extra pages                                                                                       |
-| **regular-event**       | Regular [instant events](https://docs.hyperdbg.org/tips-and-tricks/misc/instant-events)                                  |
-| **big-event**           | Big [instant events](https://docs.hyperdbg.org/tips-and-tricks/misc/instant-events)                                      |
-| **regular-safe-buffer** | Regular event safe buffers ($buffer) for [instant events](https://docs.hyperdbg.org/tips-and-tricks/misc/instant-events) |
-| **big-safe-buffer**     | Big event safe buffers ($buffer) for [instant events](https://docs.hyperdbg.org/tips-and-tricks/misc/instant-events)     |
+| Type                    |                                                                                                                                                                                                                                |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **thread-interception** | Used for storing details of processes with thousands of threads                                                                                                                                                                |
+| **monitor**             | **!monitor** command's extra pages                                                                                                                                                                                             |
+| **epthook**             | **!ephook** command's extra pages                                                                                                                                                                                              |
+| **epthook2**            | **!ephook2** command's extra pages                                                                                                                                                                                             |
+| **regular-event**       | Regular [instant events](https://docs.hyperdbg.org/tips-and-tricks/misc/instant-events)                                                                                                                                        |
+| **big-event**           | Big [instant events](https://docs.hyperdbg.org/tips-and-tricks/misc/instant-events)                                                                                                                                            |
+| **regular-safe-buffer** | Regular event safe buffers ([$buffer](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations#pseudo-registers)) for [instant events](https://docs.hyperdbg.org/tips-and-tricks/misc/instant-events) |
+| **big-safe-buffer**     | Big event safe buffers ([$buffer](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations#pseudo-registers)) for [instant events](https://docs.hyperdbg.org/tips-and-tricks/misc/instant-events)     |
 
 **\[Count (hex)]**
 
