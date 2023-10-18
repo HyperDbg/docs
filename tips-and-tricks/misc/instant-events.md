@@ -12,7 +12,7 @@ Instant events addressed this issue by providing two types of events, **regular 
 
 If you've previously used HyperDbg, you probably noticed that events (e.g., EPT hooks, syscall hooks, memory monitors, etc.) continue the debugger for a short time and then break the debugger again. Thus, the target process might find a chance to continue its execution and you'll lose the current context (registers, memory). This was a fundamental problem in HyperDbg and the new instant event mechanism solves this issue.
 
-Starting from v0.7, HyperDbg guarantees to keep debuggee in a halt state (in Debugger Mode); thus, nothing will change during its execution and the context is preserved.
+By employing instant events, now HyperDbg guarantees to keep debuggee in a halt state (in Debugger Mode); thus, nothing will change during its execution and the context is preserved.
 
 ## Regular Events
 
