@@ -6,7 +6,7 @@ description: The instant event mechanism in HyperDbg
 
 Starting from **v0.7** HyperDbg supports the "**instant event**" mechanism. This mechanism is mainly introduced to fix a fundamental problem of immediately applying events in the [Debugger Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode).
 
-Instant events addressed this issue by providing two types of events, **regular events**, and **big events**.
+Instant events addressed this issue by providing two types of events, **regular events**, and **big events**. Here we describe each of them in detail.
 
 ## What was the problem?
 
