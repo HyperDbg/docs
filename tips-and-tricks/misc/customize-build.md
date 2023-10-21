@@ -101,6 +101,17 @@ The following option enables or disables debug-mode which determines whether the
 #define DebugMode FALSE
 ```
 
+The following option enables or disables the [instant event](https://docs.hyperdbg.org/tips-and-tricks/misc/instant-events) mechanism. If disabled, the debugger will continue the debuggee to apply events or [clear the events](https://docs.hyperdbg.org/commands/debugging-commands/events) in the [Debugger Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode). Otherwise, events are applied immediately.
+
+```clike
+/**
+ * @brief Enable or disable the instant event mechanism
+ * @details for more information: https://docs.hyperdbg.org/tips-and-tricks/misc/instant-events
+ *
+ */
+#define EnableInstantEventMechanism TRUE
+```
+
 ## Definitions
 
 Before building, you can change the following options in the **Definition.h** file.
