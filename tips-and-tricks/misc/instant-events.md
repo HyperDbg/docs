@@ -20,6 +20,21 @@ By employing instant events, now HyperDbg guarantees to keep debuggee in a halt 
 
 ## Big Events
 
+## Enable or Disable Events
+
+```clike
+/**
+ * @brief Enable or disable the instant event mechanism
+ * @details for more information: https://docs.hyperdbg.org/tips-and-tricks/misc/instant-events
+ *
+ */
+#define EnableInstantEventMechanism TRUE
+```
+
+## Clearing Events
+
+[event\_clear](https://docs.hyperdbg.org/commands/scripting-language/functions/events/event\_clear)
+
 
 
 ## Pools & Preallocations
