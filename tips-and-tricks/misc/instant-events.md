@@ -61,7 +61,14 @@ By default, instant events won't support event preallocated pools that are accce
 
 ## Changing Design Constants
 
+```clike
+/**
+ * @brief Default buffer count of packets for message tracing
+ * @details number of packets storage for priority buffers
+ */
+#define MaximumPacketsCapacityPriority 50
 
+```
 
 ## Instant Event Errors
 
@@ -182,3 +189,11 @@ This error states that you specified a very big [safe](https://docs.hyperdbg.org
 #### 0xc000004c
 
 This error indicates that the system doesn't have enough resources (RAM) to allocate the safe buffers ([$buffer](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations#pseudo-registers)) in the [VMI Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#vmi-mode).&#x20;
+
+#### 0xc000004f
+
+This error typically occurs when attempting to clear a substantial number of events while the debugger is paused in Debugger Mode, and the user hasn't resumed the debuggee for an extended period. When this error happens, the targeted event(s) become disabled but are not completely removed. This is due to HyperDbg's inability to clear them during the subsequent run, as the user-mode priority buffers are already filled to capacity. Since these unserviced events remained in the queue, HyperDbg cannot eliminate them. To resolve this issue, you can continue the debuggee and wait until all queued events are cleared (usually 2 to 10 seconds). Afterward, pause the debuggee once more and request the removal of new events.
+
+If you want to extend this capacity, you can refer to the "**Changing Design Constants**" on this page.
+
+\
