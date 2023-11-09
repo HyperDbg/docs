@@ -172,7 +172,7 @@ This command uses CPUID (**EXIT\_REASON\_CPUID**) vm-exits (**10**) to implement
 
 ### Remarks
 
-This is an event command, but in the current version of HyperDbg (in [Debugger Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode)), this command will continue the debuggee for some time; however, you can use [this trick](https://docs.hyperdbg.org/tips-and-tricks/misc/enable-and-disable-events-in-debugger-mode) to make sure you won't lose any event.
+This is an event command. Starting from **v0.7**, events are guaranteed to keep debuggee in a halt state (in [Debugger Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode)); thus, nothing will change during its execution and the context (registers and memory) remain untouched. You can visit [instant events](https://docs.hyperdbg.org/tips-and-tricks/misc/instant-events) for more information.
 
 ### Requirements
 
