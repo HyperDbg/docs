@@ -169,7 +169,7 @@ The above structure should be sent to the debugger by the following `RequestedAc
 {% hint style="danger" %}
 **Important note**
 
-If you are operating in [Debugger Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode), you can enable or disable events while the debuggee is in a halt state. However, if you want to clear an event or all events then you lose the context as the debuggee is continued for some time to process the **clear** operation.
+If you are operating in [Debugger Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode), you can enable, disable, clear events or change short-circuiting state while the debuggee is in a halt state and the context (memory and registers) remains untouched. However, once you **clear** an event or all events, HyperDbg just disables the event(s). Immediately after you continue the debuggee, HyperDbg tries to process the **clear** operation and removes the effect of the event in the system.
 {% endhint %}
 
 ### Requirements
