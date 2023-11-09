@@ -44,6 +44,8 @@ The above example, won't guarantee that only one event will be executed, as mult
 
 You can see events' ID using the [event](https://docs.hyperdbg.org/commands/debugging-commands/events) command. The first column of [this command](https://docs.hyperdbg.org/commands/debugging-commands/events)'s results shows the event ID.
 
+Like the '[events](https://docs.hyperdbg.org/commands/scripting-language/functions/events)' command, using this function won't immediately remove the event effect on the system, instead, it **disables** the event and once the system is continued, the event will be **cleared**.
+
 Starting from **v0.7**, this function is added to HyperDbg as a result of implementing the [instant event](https://docs.hyperdbg.org/tips-and-tricks/misc/instant-events) mechanism.
 
 ### Related
