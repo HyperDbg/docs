@@ -190,6 +190,7 @@
       * [check\_address](commands/scripting-language/functions/memory/check\_address.md)
       * [eb, ed, eq](commands/scripting-language/functions/memory/eb-ed-eq.md)
       * [memcpy](commands/scripting-language/functions/memory/memcpy.md)
+      * [memcmp](commands/scripting-language/functions/memory/memcmp.md)
       * [virtual\_to\_physical](commands/scripting-language/functions/memory/virtual\_to\_physical.md)
       * [physical\_to\_virtual](commands/scripting-language/functions/memory/physical\_to\_virtual.md)
     * [diassembler](commands/scripting-language/functions/diassembler/README.md)
@@ -202,6 +203,8 @@
     * [strings](commands/scripting-language/functions/strings/README.md)
       * [strlen](commands/scripting-language/functions/strings/strlen.md)
       * [wcslen](commands/scripting-language/functions/strings/wcslen.md)
+      * [strcmp](commands/scripting-language/functions/strings/strcmp.md)
+      * [wcscmp](commands/scripting-language/functions/strings/wcscmp.md)
 * [Commands Map](https://hyperdbg.github.io/commands-map/)
 
 ## Tips & Tricks

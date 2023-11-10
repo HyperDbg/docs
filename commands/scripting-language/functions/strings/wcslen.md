@@ -16,7 +16,7 @@ description: Description of 'wcslen' function in HyperDbg Scripts
 
 **\[Expression (Address)]**
 
-A [MASM-like expression](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations) to evaluate which is the address of the target location to compute the string length.
+A [MASM-like expression](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations) or a string to evaluate which is the address of the target location to compute the string length.
 
 ### Description
 
@@ -39,6 +39,10 @@ Counts wide-character string length as an 8-byte hex address, pointed by **rcx**
 `StringLen = wcslen(0xffff83811f265040);`
 
 Counts wide-character string length located at `0xffff83811f265040` address and saves the result into `StringLen` variable.
+
+`StringLen = wcslen(L"ABCD");`
+
+Counts wide-character string length of the "**ABCD**" string and saves the result into `StringLen` variable.
 
 ### Remarks
 
