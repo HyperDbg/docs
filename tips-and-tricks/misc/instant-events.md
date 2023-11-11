@@ -113,13 +113,49 @@ EPT hooks need extra pre-allocated buffers. If you want to use EPT hook events (
 
 By default, if you use EPT hooks and continue the debuggee after applying events, HyperDbg tries to re-allocate more buffers for the next EPT hooks but if you want to apply all of them without continuing the debuggee, then you need to use the '[prealloc](https://docs.hyperdbg.org/commands/debugging-commands/prealloc)' command.
 
-Please note that EPT hooks are events, so first you need to preallocate event buffers (explained above) and EPT hook buffers.
+Please note that EPT hooks are events, so first you need to preallocate event buffers (explained [above](https://docs.hyperdbg.org/tips-and-tricks/misc/instant-events#event-regular-buffers)) and EPT hook buffers.
 
 ### Memory Monitor Hooks
 
+If you want to use memory monitor hooks, you can preallocate buffers for them. For example, assume that we want to apply **15** '[!monitor](https://docs.hyperdbg.org/commands/extension-commands/monitor)' events, first, we allocate `15` events buffer.
+
+```
+ prealloc regular-event 15
+```
+
+Then, we preallocate buffers for this specific event.
+
+```
+prealloc monitor 15
+```
+
 ### EPT Hooks (Hidden Breakpoints)
 
+If you want to use classic hidden hooks, you can preallocate buffers for them. For example, assume that we want to apply **15** '[!epthook](https://docs.hyperdbg.org/commands/extension-commands/epthook)' events, first, we allocate `15` events buffer.
+
+```
+ prealloc regular-event 15
+```
+
+Then, we preallocate buffers for this specific event.
+
+```
+prealloc epthook 15
+```
+
 ### EPT Hooks (Detours Hooks)
+
+If you want to use detours EPT hooks, you can preallocate buffers for them. For example, assume that we want to apply **15** '[!epthook2](https://docs.hyperdbg.org/commands/extension-commands/epthook2)' events, first, we allocate `15` events buffer.
+
+```
+ prealloc regular-event 15
+```
+
+Then, we preallocate buffers for this specific event.
+
+```
+prealloc epthook2 15
+```
 
 ## Changing Design Constants
 
