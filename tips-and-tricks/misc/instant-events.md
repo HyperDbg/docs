@@ -14,15 +14,23 @@ If you've previously used HyperDbg, you probably noticed that events (e.g., EPT 
 
 By employing instant events, now HyperDbg guarantees to keep debuggee in a halt state (in Debugger Mode); thus, nothing will change during its execution and the context is preserved.
 
+The implementation of this mechanism involves broadcasting events to the halted cores (in the VMX root-mode), and as you might know, allocating memory is not possible in the VMX-root mode as paging is not working. Because of that, HyperDbg is not able to allocate memory to store the details of each event in the debugger, and as a result, we use a couple of pre-allocated pools to use them to store the event details on the VMX root-mode.
+
+Two types of events refer to the size of the buffer needed for each event.
+
 ## Regular Events
 
-
+Regular events are those events that need a small number of bytes for the pre-allocated buffer and once you start HyperDbg, it allocates a tens of events. HyperDbg will store buffers (for [scripts](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#script) and event [custom code](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#custom-codes)) with small sizes in these events.&#x20;
 
 ## Big Events
 
+Big events are those events that need a bigger number of bytes (size). For example, the [script](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#script) buffer or the [custom code](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#custom-codes) buffer is bigger than normal events. In these cases, HyperDbg needs to allocate bigger buffers for the debuggee to use in the VMX-root mode. By default, HyperDbg won't allocate any buffers for Big Event, because these events are not regularly used, thus, to save memory HyperDbg won't allocate them.
+
 ## Enable or Disable Events
 
-```clike
+If you don't want to encounter these limitations, you can disable the instant event mechanism by using the following [constant](https://docs.hyperdbg.org/tips-and-tricks/misc/customize-build) and [compiling](https://docs.hyperdbg.org/getting-started/build-and-install#build-and-compile) HyperDbg. If you disable this mechanism, then the context (registers and memory) will be lost (changed) when you're applying events.
+
+```c
 /**
  * @brief Enable or disable the instant event mechanism
  * @details for more information: https://docs.hyperdbg.org/tips-and-tricks/misc/instant-events
@@ -33,9 +41,9 @@ By employing instant events, now HyperDbg guarantees to keep debuggee in a halt 
 
 ## Clearing Events
 
-[event\_clear](https://docs.hyperdbg.org/commands/scripting-language/functions/events/event\_clear)
+As a result of the instant events, clearing and terminating events are also applied immediately. However, once you **clear** an event or all events, HyperDbg just disables the event(s). Immediately after you continue the debuggee, HyperDbg tries to process the **clear** operation and removes the effect of the event in the system.
 
-
+Events are also able to call the '[event\_clear](https://docs.hyperdbg.org/commands/scripting-language/functions/events/event\_clear)' function directly to remove other events or the current event.
 
 ## Pools & Preallocations
 
@@ -46,8 +54,6 @@ By default, instant events won't support event preallocated pools that are accce
 ### Regular Safe Event Buffers
 
 ### Big Safe Event Buffers
-
-
 
 ## Instant Events For EPT Hooks
 
@@ -61,7 +67,7 @@ By default, instant events won't support event preallocated pools that are accce
 
 ## Changing Design Constants
 
-```clike
+```c
 /**
  * @brief Default buffer count of packets for message tracing
  * @details number of packets storage for priority buffers
@@ -195,5 +201,3 @@ This error indicates that the system doesn't have enough resources (RAM) to allo
 This error typically occurs when attempting to clear a substantial number of events while the debugger is paused in Debugger Mode, and the user hasn't resumed the debuggee for an extended period. When this error happens, the targeted event(s) become disabled but are not completely removed. This is due to HyperDbg's inability to clear them during the subsequent run, as the user-mode priority buffers are already filled to capacity. Since these unserviced events remained in the queue, HyperDbg cannot eliminate them. To resolve this issue, you can continue the debuggee and wait until all queued events are cleared (usually 2 to 10 seconds). Afterward, pause the debuggee once more and request the removal of new events.
 
 If you want to extend this capacity, you can refer to the "**Changing Design Constants**" on this page.
-
-\

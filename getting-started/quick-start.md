@@ -85,11 +85,13 @@ If you want to see more advanced topics about HyperDbg.
 ## Miscellaneous topics...
 
 * [**Event Forwarding Mechanism**](https://docs.hyperdbg.org/tips-and-tricks/misc/event-forwarding)
+* [**Event short-circuiting Mechanism**](https://docs.hyperdbg.org/tips-and-tricks/misc/event-short-circuiting)
+* [**Event calling stages**](https://docs.hyperdbg.org/tips-and-tricks/misc/event-calling-stage)
+* [**Instant events**](https://docs.hyperdbg.org/tips-and-tricks/misc/instant-events)
 * [**Message Overflow**](https://docs.hyperdbg.org/tips-and-tricks/misc/message-overflow)
 * [**Switch to New Process Layout**](https://docs.hyperdbg.org/tips-and-tricks/misc/switch-to-new-process-layout)
 * [**Customize Build**](https://docs.hyperdbg.org/tips-and-tricks/misc/customize-build)
 * [**Enable and Disable Events in Debugger Mode**](https://docs.hyperdbg.org/tips-and-tricks/misc/enable-and-disable-events-in-debugger-mode)
-* [**Event short-circuiting**](https://docs.hyperdbg.org/tips-and-tricks/misc/event-short-circuiting)
 
 ## HyperDbg Research and Design Internals
 
