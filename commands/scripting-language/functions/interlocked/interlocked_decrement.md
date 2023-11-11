@@ -1,16 +1,16 @@
 ---
-description: Description of 'interlocked_decrement' function in HyperDbg Scripts
+description: Description of the 'interlocked_decrement' function in HyperDbg Scripts
 ---
 
-# interlocked_decrement
+# interlocked\_decrement
 
 ### Function
 
-> interlocked_decrement
+> interlocked\_decrement
 
 ### Syntax
 
-> interlocked_decrement( \*Variable );
+> interlocked\_decrement( \*Variable );
 
 ### Parameters
 
@@ -38,10 +38,10 @@ None
 
 ### Related
 
-[interlocked_compare_exchange](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_compare_exchange)
+[interlocked\_compare\_exchange](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked\_compare\_exchange)
 
-[interlocked_increment](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_increment)
+[interlocked\_increment](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked\_increment)
 
-[interlocked_exchange](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_exchange)
+[interlocked\_exchange](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked\_exchange)
 
-[interlocked_exchange_add](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_exchange_add)
+[interlocked\_exchange\_add](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked\_exchange\_add)

@@ -1,5 +1,5 @@
 ---
-description: Description of 'disassemble_len32' function in HyperDbg Scripts
+description: Description of the 'disassemble_len32' function in HyperDbg Scripts
 ---
 
 # disassemble\_len32

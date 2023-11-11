@@ -1,5 +1,5 @@
 ---
-description: Description of 'wcscmp' function in HyperDbg Scripts
+description: Description of the 'wcscmp' function in HyperDbg Scripts
 ---
 
 # wcscmp

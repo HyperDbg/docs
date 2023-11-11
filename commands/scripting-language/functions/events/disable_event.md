@@ -1,5 +1,5 @@
 ---
-description: Description of 'event_disable' function in HyperDbg Scripts
+description: Description of the 'event_disable' function in HyperDbg Scripts
 ---
 
 # event\_disable

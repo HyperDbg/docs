@@ -1,16 +1,16 @@
 ---
-description: Description of 'check_address' function in HyperDbg Scripts
+description: Description of the 'check_address' function in HyperDbg Scripts
 ---
 
-# check_address
+# check\_address
 
 ### Function
 
-> check_address
+> check\_address
 
 ### Syntax
 
-> check_address( Expression );
+> check\_address( Expression );
 
 ### Parameters
 

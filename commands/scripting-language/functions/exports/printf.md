@@ -1,5 +1,5 @@
 ---
-description: Description of 'printf' function in HyperDbg Scripts
+description: Description of the 'printf' function in HyperDbg Scripts
 ---
 
 # printf

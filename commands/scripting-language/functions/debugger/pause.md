@@ -1,5 +1,5 @@
 ---
-description: Description of 'pause' function in HyperDbg Scripts
+description: Description of the 'pause' function in HyperDbg Scripts
 ---
 
 # pause
@@ -10,7 +10,7 @@ description: Description of 'pause' function in HyperDbg Scripts
 
 ### Syntax
 
-> pause\( \);
+> pause( );
 
 ### Parameters
 
@@ -37,4 +37,3 @@ This command must be used in [events](https://docs.hyperdbg.org/design/debugger-
 ### Related
 
 None
-

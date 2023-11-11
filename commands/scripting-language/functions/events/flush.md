@@ -1,5 +1,5 @@
 ---
-description: Description of 'flush' function in HyperDbg Scripts
+description: Description of the 'flush' function in HyperDbg Scripts
 ---
 
 # flush

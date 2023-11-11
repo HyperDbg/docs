@@ -1,5 +1,5 @@
 ---
-description: Description of 'print' function in HyperDbg Scripts
+description: Description of the 'print' function in HyperDbg Scripts
 ---
 
 # print
@@ -10,11 +10,11 @@ description: Description of 'print' function in HyperDbg Scripts
 
 ### Syntax
 
-> print\( Expression \);
+> print( Expression );
 
 ### Parameters
 
-**\[Expression\]**
+**\[Expression]**
 
 A [MASM-like expression](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations) to evaluate.
 
@@ -47,4 +47,3 @@ You should consider avoiding ["unsafe" behavior](https://docs.hyperdbg.org/tips-
 ### Related
 
 [printf](https://docs.hyperdbg.org/commands/scripting-language/functions/exports/printf)
-

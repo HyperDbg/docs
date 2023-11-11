@@ -1,5 +1,5 @@
 ---
-description: Description of 'event_inject' function in HyperDbg Scripts
+description: Description of the 'event_inject' function in HyperDbg Scripts
 ---
 
 # event\_inject

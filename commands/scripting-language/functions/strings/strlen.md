@@ -1,5 +1,5 @@
 ---
-description: Description of 'strlen' function in HyperDbg Scripts
+description: Description of the 'strlen' function in HyperDbg Scripts
 ---
 
 # strlen
@@ -30,19 +30,19 @@ The return value is the length of the strings which is located at the target add
 
 `StringLen = strlen(@rcx + 10);`
 
-Adds 0x10 to the **rcx** register and counts the length of the ASCII string, which is determined by the terminating null-character and saves the result into `StringLen` variable.
+Adds 0x10 to the **rcx** register and counts the length of the ASCII string, which is determined by the terminating null-character and saves the result into the `StringLen` variable.
 
 `StringLen = strlen(dq(@rcx));`
 
-Counts ASCII string length as an 8-byte hex address, pointed by **rcx** register and saves the result into `StringLen` variable.
+Counts the ASCII string length as an 8-byte hex address, pointed by the **rcx** register, and saves the result into the `StringLen` variable.
 
 `StringLen = strlen(0xffff83811f265040);`
 
-Counts ASCII string length located at `0xffff83811f265040` address and saves the result into `StringLen` variable.
+Counts the ASCII string length located at `0xffff83811f265040` address and saves the result into the `StringLen` variable.
 
 `StringLen = strlen("ABCD");`
 
-Counts ASCII string length of the "**ABCD**" string and saves the result into `StringLen` variable.
+Counts ASCII the string length of the "**ABCD**" string and saves the result into the `StringLen` variable.
 
 ### Remarks
 

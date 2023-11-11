@@ -1,5 +1,5 @@
 ---
-description: Description of 'memcmp' function in HyperDbg Scripts
+description: Description of the 'memcmp' function in HyperDbg Scripts
 ---
 
 # memcmp

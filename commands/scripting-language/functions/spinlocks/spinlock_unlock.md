@@ -1,22 +1,22 @@
 ---
-description: Description of 'spinlock_unlock' function in HyperDbg Scripts
+description: Description of the 'spinlock_unlock' function in HyperDbg Scripts
 ---
 
-# spinlock_unlock
+# spinlock\_unlock
 
 ### Function
 
-> spinlock_unlock
+> spinlock\_unlock
 
 ### Syntax
 
-> spinlock_unlock( \*Variable );
+> spinlock\_unlock( \*Variable );
 
 ### Parameters
 
 **\[\*Variable (Lock)]**
 
-A reference to a variable (most of the time a global variable), used as a [lock](https://en.wikipedia.org/wiki/Spinlock). The lock can be locked by [spinlock_lock](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks/spinlock_lock).
+A reference to a variable (most of the time a global variable), used as a [lock](https://en.wikipedia.org/wiki/Spinlock). The lock can be locked by [spinlock\_lock](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks/spinlock\_lock).
 
 ### Description
 
@@ -38,6 +38,6 @@ None
 
 ### Related
 
-[spinlock_lock](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks/spinlock_lock)
+[spinlock\_lock](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks/spinlock\_lock)
 
-[spinlock_lock_custom_wait](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks/spinlock_lock_custom_wait)
+[spinlock\_lock\_custom\_wait](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks/spinlock\_lock\_custom\_wait)

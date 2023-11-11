@@ -1,5 +1,5 @@
 ---
-description: Description of 'memcpy' function in HyperDbg Scripts
+description: Description of the 'memcpy' function in HyperDbg Scripts
 ---
 
 # memcpy

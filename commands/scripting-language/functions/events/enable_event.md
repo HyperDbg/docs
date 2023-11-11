@@ -1,5 +1,5 @@
 ---
-description: Description of 'event_enable' function in HyperDbg Scripts
+description: Description of the 'event_enable' function in HyperDbg Scripts
 ---
 
 # event\_enable

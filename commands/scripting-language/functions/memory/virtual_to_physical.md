@@ -1,5 +1,5 @@
 ---
-description: Description of 'virtual_to_physical' function in HyperDbg Scripts
+description: Description of the 'virtual_to_physical' function in HyperDbg Scripts
 ---
 
 # virtual\_to\_physical

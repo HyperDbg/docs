@@ -1,5 +1,5 @@
 ---
-description: Description of 'strcmp' function in HyperDbg Scripts
+description: Description of the 'strcmp' function in HyperDbg Scripts
 ---
 
 # strcmp
