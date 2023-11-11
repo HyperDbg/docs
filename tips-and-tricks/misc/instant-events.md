@@ -53,6 +53,28 @@ As explained earlier, it's not possible to allocate buffers in the VMX-root mode
 
 Note that, the '[prealloc](https://docs.hyperdbg.org/commands/debugging-commands/prealloc)' command will continue the debuggee for some time (in [Debugger Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode)). This means that you lose the current context (registers & memory) after executing this command. So, you need to use this command before applying events.
 
+### Event Regular Buffers
+
+By default, HyperDbg allocates a couple of buffers for storing events. If you continue the debugger after applying events, then HyperDbg re-allocates more buffer to replace previously used buffers but if you want to apply many events instantly, you need to tell HyperDbg beforehand to allocate more buffers for your events.&#x20;
+
+The following command is used to tell HyperDbg to allocate buffers to store **regular** events.&#x20;
+
+```
+ prealloc regular-event 10
+```
+
+In the above example, HyperDbg preallocates `10` buffers for **10** regular events.
+
+### Event Big Buffers
+
+If you have a very long [script](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#script) or [custom code](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#custom-codes) buffer, then you can use the **big** events instead.
+
+```
+prealloc big-event 12
+```
+
+In the above example, HyperDbg preallocates `12` buffers for **12** big events.
+
 ### Safe Event Buffers
 
 By default, instant events won't support preallocated safe buffers that are accessible as `$buffer` pseudo-registers but you can preallocate two types of buffers (**big event-peallocation**) and (**regular event-preallocation**) buffers.
@@ -86,6 +108,12 @@ After that, you'll be able to use the events with the `$buffer` parameter. (Note
 ```
 
 ## Instant Events For EPT Hooks
+
+EPT hooks need extra pre-allocated buffers. If you want to use EPT hook events ([!epthook](https://docs.hyperdbg.org/commands/extension-commands/epthook), [!epthook2](https://docs.hyperdbg.org/commands/extension-commands/epthook2), and [!monitor](https://docs.hyperdbg.org/commands/extension-commands/monitor)), then you need to preallocate buffers for them.
+
+By default, if you use EPT hooks and continue the debuggee after applying events, HyperDbg tries to re-allocate more buffers for the next EPT hooks but if you want to apply all of them without continuing the debuggee, then you need to use the '[prealloc](https://docs.hyperdbg.org/commands/debugging-commands/prealloc)' command.
+
+Please note that EPT hooks are events, so first you need to preallocate event buffers (explained above) and EPT hook buffers.
 
 ### Memory Monitor Hooks
 
