@@ -8,13 +8,13 @@ Starting from **v0.7** HyperDbg supports the "**instant event**" mechanism. This
 
 Instant events addressed this issue by providing two types of events, **regular events**, and **big events**.&#x20;
 
-Through the implementation of the instant event mechanism, our aim was to make the design complexities transparent to the user by preallocating buffers and considering some pre-defined limitations. Nevertheless, if you encounter errors or limitations, this documentation is designed to assist you in resolving them. If clarification is needed, feel free to ask [questions](https://t.me/HyperDbg) or engage in [discussions](https://github.com/orgs/HyperDbg/discussions).
+Through the implementation of the instant event mechanism, our aim was to make the design complexities transparent to the user by preallocating buffers and considering some pre-defined limitations. Nevertheless, if you encounter errors or limitations, this documentation is here to assist you in resolving them. If clarification is needed, feel free to ask [questions](https://t.me/HyperDbg) or engage in [discussions](https://github.com/orgs/HyperDbg/discussions).
 
 ## What was the problem?
 
-If you've previously used HyperDbg, you probably noticed that events (e.g., EPT hooks, syscall hooks, memory monitors, etc.) continue the debugger for a short time and then break the debugger again. Thus, the target process might find a chance to continue its execution and you'll lose the current context (registers, memory). This was a fundamental problem in HyperDbg and the new instant event mechanism solves this issue.
+If you've previously used HyperDbg, you've probably noticed that events (e.g., EPT hooks, syscall hooks, memory monitors, etc.) continue the debugger for a short time and then break the debugger again. Thus, the target process might find a chance to continue its execution and you'll lose the current context (registers, memory). This was a fundamental problem in HyperDbg and the instant event mechanism solves this issue.
 
-By employing instant events, now HyperDbg guarantees to keep debuggee in a halt state (in Debugger Mode); thus, nothing will change during its execution and the context is preserved.
+By employing instant events, now HyperDbg guarantees to keep debuggee in a halt state (in [Debugger Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode)); thus, nothing will change during its execution and the context is preserved.
 
 The implementation of this mechanism involves broadcasting events to the halted cores (in the VMX root-mode), and as you might know, allocating memory is not possible in the VMX-root mode as paging is not working. Because of that, HyperDbg is not able to allocate memory to store the details of each event in the debugger, and as a result, we use a couple of pre-allocated pools to use them to store the event details on the VMX root-mode.
 
@@ -26,7 +26,7 @@ Regular events are those events that need a small number of bytes for the pre-al
 
 ## Big Events
 
-Big events are those events that need a bigger number of bytes (size). For example, the [script](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#script) buffer or the [custom code](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#custom-codes) buffer is bigger than normal events. In these cases, HyperDbg needs to allocate bigger buffers for the debuggee to use in the VMX-root mode. By default, HyperDbg won't allocate any buffers for Big Event, because these events are not regularly used, thus, to save memory HyperDbg won't allocate them.
+Big events are those events that need a bigger number of bytes (size). For example, the [script](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#script) buffer or the [custom code](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#custom-codes) buffer is bigger than normal events. In these cases, HyperDbg needs to allocate bigger buffers for the debuggee to use in the VMX-root mode. By default, HyperDbg won't allocate any buffers for big events, because these events are not regularly used, thus, to save memory HyperDbg won't allocate them.
 
 ## Enable or Disable Events
 
@@ -45,7 +45,7 @@ If you don't want to encounter these limitations, you can disable the instant ev
 
 As a result of the instant events, clearing and terminating events are also applied immediately. However, once you **clear** an event or all events, HyperDbg just disables the event(s). Immediately after you continue the debuggee, HyperDbg tries to process the **clear** operation and removes the effect of the event in the system.
 
-Events are also able to call the '[event\_clear](https://docs.hyperdbg.org/commands/scripting-language/functions/events/event\_clear)' function directly to remove other events or the current event.
+Events are also able to call the '[event\_clear](https://docs.hyperdbg.org/commands/scripting-language/functions/events/event\_clear)' function directly from the scripts to remove other events or even the current event.
 
 ## Pools & Preallocations
 
@@ -55,7 +55,7 @@ Note that, the '[prealloc](https://docs.hyperdbg.org/commands/debugging-commands
 
 ### Event Regular Buffers
 
-By default, HyperDbg allocates a couple of buffers for storing events. If you continue the debugger after applying events, then HyperDbg re-allocates more buffer to replace previously used buffers but if you want to apply many events instantly, you need to tell HyperDbg beforehand to allocate more buffers for your events.&#x20;
+By default, HyperDbg allocates a couple of buffers for storing events. If you continue the debugger after applying events, then HyperDbg re-allocates more buffers to replace previously used buffers but if you want to apply many events instantly, you need to tell HyperDbg beforehand to allocate more buffers for your events.&#x20;
 
 The following command is used to tell HyperDbg to allocate buffers to store **regular** events.&#x20;
 
@@ -73,15 +73,15 @@ If you have a very long [script](https://docs.hyperdbg.org/using-hyperdbg/prereq
 prealloc big-event 12
 ```
 
-In the above example, HyperDbg preallocates `12` buffers for **12** big events.
+In the above example, HyperDbg preallocates `12` buffers for **12** big events. Usually, you need to use the regular events and if HyperDbg shows an error and indicates that the size of the buffer is too big and it's not able to store the action buffer, then you can use a big event.
 
 ### Safe Event Buffers
 
-By default, instant events won't support preallocated safe buffers that are accessible as `$buffer` pseudo-registers but you can preallocate two types of buffers (**big event-peallocation**) and (**regular event-preallocation**) buffers.
+By default, instant events won't support preallocated safe buffers that are accessible as `$buffer` [pseudo-registers](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations#pseudo-registers) but you can preallocate two types of buffers (**big event-peallocation**) and (**regular event-preallocation**) buffers.
 
 ### Regular Safe Event Buffers
 
-If you need a small buffer (explained later in the **Changing Design Constants** section), then you can use the following command. You can also specify the number of events that you need a regular safe buffer for them.
+If you need a small buffer (explained later in the [Changing Design Constants](https://docs.hyperdbg.org/tips-and-tricks/misc/instant-events#changing-design-constants) section), then you can use the following command. You can also specify the number of events that you need a regular safe buffer for them.
 
 ```
 prealloc regular-safe-buffer 10
@@ -95,7 +95,7 @@ After that, you'll be able to use the events with the `$buffer` parameter.
 
 ### Big Safe Event Buffers
 
-If you need a bigger buffer (explained later in the **Changing Design Constants** section), then you can use the following command. You can also specify the number of events that you need a big safe buffer for them.
+If you need a bigger buffer (explained later in the [Changing Design Constants](https://docs.hyperdbg.org/tips-and-tricks/misc/instant-events#changing-design-constants) section), then you can use the following command. You can also specify the number of events that you need a big safe buffer for them.
 
 ```
 prealloc big-safe-buffer 10
@@ -117,13 +117,13 @@ Please note that EPT hooks are events, so first you need to preallocate event bu
 
 ### Memory Monitor Hooks
 
-If you want to use memory monitor hooks, you can preallocate buffers for them. For example, assume that we want to apply **15** '[!monitor](https://docs.hyperdbg.org/commands/extension-commands/monitor)' events, first, we allocate `15` events buffer.
+If you want to use [memory monitor hooks](https://docs.hyperdbg.org/design/features/vmm-module/design-of-monitor), you can preallocate buffers for them. For example, assume that we want to apply fifteen '[!monitor](https://docs.hyperdbg.org/commands/extension-commands/monitor)' events, first, we allocate `15` events buffer.
 
 ```
  prealloc regular-event 15
 ```
 
-Then, we preallocate buffers for this specific event.
+Then, we preallocate buffers for this specific EPT monitor event.
 
 ```
 prealloc monitor 15
@@ -131,13 +131,13 @@ prealloc monitor 15
 
 ### EPT Hooks (Hidden Breakpoints)
 
-If you want to use classic hidden hooks, you can preallocate buffers for them. For example, assume that we want to apply **15** '[!epthook](https://docs.hyperdbg.org/commands/extension-commands/epthook)' events, first, we allocate `15` events buffer.
+If you want to use [classic hidden hooks](https://docs.hyperdbg.org/design/features/vmm-module/design-of-epthook), you can preallocate buffers for them. For example, assume that we want to apply fifteen '[!epthook](https://docs.hyperdbg.org/commands/extension-commands/epthook)' events, first, we allocate `15` events buffer.
 
 ```
  prealloc regular-event 15
 ```
 
-Then, we preallocate buffers for this specific event.
+Then, we preallocate buffers for this specific EPT hook event.
 
 ```
 prealloc epthook 15
@@ -145,13 +145,13 @@ prealloc epthook 15
 
 ### EPT Hooks (Detours Hooks)
 
-If you want to use detours EPT hooks, you can preallocate buffers for them. For example, assume that we want to apply **15** '[!epthook2](https://docs.hyperdbg.org/commands/extension-commands/epthook2)' events, first, we allocate `15` events buffer.
+If you want to use [detours EPT hooks](https://docs.hyperdbg.org/design/features/vmm-module/design-of-epthook2), you can preallocate buffers for them. For example, assume that we want to apply fifteen '[!epthook2](https://docs.hyperdbg.org/commands/extension-commands/epthook2)' events, first, we allocate `15` events buffer.
 
 ```
  prealloc regular-event 15
 ```
 
-Then, we preallocate buffers for this specific event.
+Then, we preallocate buffers for this specific event EPT hook event.
 
 ```
 prealloc epthook2 15
