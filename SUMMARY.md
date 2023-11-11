@@ -162,6 +162,7 @@
     * [view system state (registers, memory, variables)](commands/scripting-language/examples/view-system-state.md)
     * [change system state (registers, memory, variables)](commands/scripting-language/examples/change-system-state-registers-memory-variables.md)
     * [trace function calls](commands/scripting-language/examples/trace-function-calls.md)
+    * [pause the debugger conditionally](commands/scripting-language/examples/pause-the-debugger-conditionally.md)
     * [conditional breakpoints and events](commands/scripting-language/examples/conditional-breakpoints-and-events.md)
     * [patch the normal sequence of execution](commands/scripting-language/examples/patch-the-normal-sequence-of-execution.md)
     * [access to a shared variable from different cores](commands/scripting-language/examples/access-to-a-shared-variable-from-different-cores.md)
