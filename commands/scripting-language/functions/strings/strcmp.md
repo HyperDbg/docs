@@ -31,11 +31,11 @@ Compares the string _**Str1**_ to the string _**Str2**_.
 Returns an integer value indicating the relationship between the strings:\
 
 
-| Return Value | Indicates                                                                            |
-| ------------ | ------------------------------------------------------------------------------------ |
-| <0           | The first character that does not match has a lower value in _Str1_ than in _Str2_   |
-| 0            | The contents of both strings are equal                                               |
-| >0           | The first character that does not match has a greater value in _Str1_ than in _Str2_ |
+| Return Value | Indicates                                                                                     |
+| ------------ | --------------------------------------------------------------------------------------------- |
+| <0           | The first character that does not match has a lower value in _**Str1**_ than in _**Str2**._   |
+| 0            | The contents of both strings are equal.                                                       |
+| >0           | The first character that does not match has a greater value in _**Str1**_ than in _**Str2**._ |
 
 ### Examples
 

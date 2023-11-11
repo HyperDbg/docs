@@ -35,11 +35,11 @@ Wide-character strings are started with an **L** character before the quotations
 Returns an integer value indicating the relationship between the strings:\
 
 
-| Return Value | Indicates                                                                                   |
-| ------------ | ------------------------------------------------------------------------------------------- |
-| <0           | The first wide-character that does not match has a lower value in _WStr1_ than in _WStr2_   |
-| 0            | The contents of both wide-character strings are equal                                       |
-| >0           | The first wide-character that does not match has a greater value in _WStr1_ than in _WStr2_ |
+| Return Value | Indicates                                                                                    |
+| ------------ | -------------------------------------------------------------------------------------------- |
+| <0           | The first wide-character that does not match has a lower value in _WStr1_ than in _WStr2._   |
+| 0            | The contents of both wide-character strings are equal.                                       |
+| >0           | The first wide-character that does not match has a greater value in _WStr1_ than in _WStr2._ |
 
 ### Examples
 
