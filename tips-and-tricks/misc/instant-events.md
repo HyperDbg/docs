@@ -6,7 +6,9 @@ description: The instant event mechanism in HyperDbg
 
 Starting from **v0.7** HyperDbg supports the "**instant event**" mechanism. This mechanism is mainly introduced to fix a fundamental problem of immediately applying events in the [Debugger Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode).
 
-Instant events addressed this issue by providing two types of events, **regular events**, and **big events**. Here we describe each of them in detail.
+Instant events addressed this issue by providing two types of events, **regular events**, and **big events**.&#x20;
+
+Through the implementation of the instant event mechanism, our aim was to make the design complexities transparent to the user by preallocating buffers and considering some pre-defined limitations. Nevertheless, if you encounter errors or limitations, this documentation is designed to assist you in resolving them. If clarification is needed, feel free to ask [questions](https://t.me/HyperDbg) or engage in [discussions](https://github.com/orgs/HyperDbg/discussions).
 
 ## What was the problem?
 
@@ -47,13 +49,41 @@ Events are also able to call the '[event\_clear](https://docs.hyperdbg.org/comma
 
 ## Pools & Preallocations
 
-## Safe Event Buffers
+As explained earlier, it's not possible to allocate buffers in the VMX-root mode. HyperDbg tries to allocate buffers whenever possible but if you're applying a large number of events all of them without continuing the debuggee, the '[prealloc](https://docs.hyperdbg.org/commands/debugging-commands/prealloc)' command is designed to make HyperDbg able to support these scenarios.
 
-By default, instant events won't support event preallocated pools that are acccessible as $buffer but you can preallocate two types of buffers (big event-peallocation) and (regular event-preallocation) buffers.
+Note that, the '[prealloc](https://docs.hyperdbg.org/commands/debugging-commands/prealloc)' command will continue the debuggee for some time (in [Debugger Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode)). This means that you lose the current context (registers & memory) after executing this command. So, you need to use this command before applying events.
+
+### Safe Event Buffers
+
+By default, instant events won't support preallocated safe buffers that are accessible as `$buffer` pseudo-registers but you can preallocate two types of buffers (**big event-peallocation**) and (**regular event-preallocation**) buffers.
 
 ### Regular Safe Event Buffers
 
+If you need a small buffer (explained later in the **Changing Design Constants** section), then you can use the following command. You can also specify the number of events that you need a regular safe buffer for them.
+
+```
+prealloc regular-safe-buffer 10
+```
+
+After that, you'll be able to use the events with the `$buffer` parameter.
+
+```
+!epthook nt!ExAllocatePoolWithTag buffer 100 script { ... }
+```
+
 ### Big Safe Event Buffers
+
+If you need a bigger buffer (explained later in the **Changing Design Constants** section), then you can use the following command. You can also specify the number of events that you need a big safe buffer for them.
+
+```
+prealloc big-safe-buffer 10
+```
+
+After that, you'll be able to use the events with the `$buffer` parameter. (Note the size of the buffer is bigger than the regular events)
+
+```
+!epthook nt!ExAllocatePoolWithTag buffer 2000 script { ... }
+```
 
 ## Instant Events For EPT Hooks
 
@@ -63,17 +93,68 @@ By default, instant events won't support event preallocated pools that are accce
 
 ### EPT Hooks (Detours Hooks)
 
-
-
 ## Changing Design Constants
 
-```c
-/**
- * @brief Default buffer count of packets for message tracing
- * @details number of packets storage for priority buffers
- */
-#define MaximumPacketsCapacityPriority 50
+Here are a couple of design constants and their descriptions. If you want to customize HyperDbg (and compile it), you can change the following constants.
 
+The following constant shows the maximum number of packets that can be delivered to the user-mode. For example, if you want to clear tens of events and HyperDbg shows an error message indicating that the user-mode priority buffers are full, you can increase the following constant to fix the problem.
+
+```c
+#define MaximumPacketsCapacityPriority 50
+```
+
+The following constant shows the maximum number of EPT hooks that HyperDbg allocates pre-allocated buffers for them. If you want to apply more EPT hooks without continuing the debuggee, you can increase the following constant.
+
+```c
+#define MAXIMUM_NUMBER_OF_INITIAL_PREALLOCATED_EPT_HOOKS 5
+```
+
+The following constant shows the maximum number of **regular** events that you can apply immediately without continuing the debuggee. If you want to apply tens of events without using the '[prealloc](https://docs.hyperdbg.org/commands/debugging-commands/prealloc)' command, you can increase the value of this constant.
+
+```c
+#define MAXIMUM_REGULAR_INSTANT_EVENTS 20
+```
+
+The following constant shows the maximum number of **big** events that you can apply immediately without continuing the debuggee. If you want to apply tens of events without using the '[prealloc](https://docs.hyperdbg.org/commands/debugging-commands/prealloc)' command, you can increase the value of this constant.
+
+```c
+#define MAXIMUM_BIG_INSTANT_EVENTS 0
+```
+
+The following constant shows the maximum number of bytes to store the details of a **regular** event. If you're using a very big [condition](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-a-condition) buffer, you can increase this constant.
+
+```c
+#define REGULAR_INSTANT_EVENT_CONDITIONAL_BUFFER sizeof(DEBUGGER_EVENT) + 100
+```
+
+The following constant shows the maximum number of bytes to store the details of a **big** event. If you're using a very big [condition](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-a-condition) buffer, you can increase this constant.
+
+```c
+#define BIG_INSTANT_EVENT_CONDITIONAL_BUFFER sizeof(DEBUGGER_EVENT) + PAGE_SIZE 
+```
+
+The following constant shows the maximum number of bytes that an action ([script](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#script) and [custom codes](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#custom-codes)) can be for the **regular** event. If you want to apply bigger scripts or custom codes, you can increase this constant.
+
+```c
+#define REGULAR_INSTANT_EVENT_ACTION_BUFFER sizeof(DEBUGGER_EVENT_ACTION) + (PAGE_SIZE * 2)
+```
+
+The following constant shows the maximum number of bytes that an action ([script](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#script) and [custom codes](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#custom-codes)) can be for the **big** event. If you want to apply bigger scripts or custom codes, you can increase this constant.
+
+```c
+#define BIG_INSTANT_EVENT_ACTION_BUFFER sizeof(DEBUGGER_EVENT_ACTION) + MaxSerialPacketSize
+```
+
+The following constant shows the maximum number of bytes allocated for the safe pre-allocated buffer of the **regular** events. This is mainly used if you pass the `buffer` parameter to events. By default, HyperDbg won't allocate safe buffers and you need to use the '[prealloc](https://docs.hyperdbg.org/commands/debugging-commands/prealloc)' command to allocate them. You can increase the size of these buffers by changing this constant.
+
+```c
+#define REGULAR_INSTANT_EVENT_REQUESTED_SAFE_BUFFER PAGE_SIZE
+```
+
+The following constant shows the maximum number of bytes allocated for the safe pre-allocated buffer of the **regular** events. This is mainly used if you pass the `buffer` parameter to events. By default, HyperDbg won't allocate safe buffers and you need to use the '[prealloc](https://docs.hyperdbg.org/commands/debugging-commands/prealloc)' command to allocate them. You can increase the size of these buffers by changing this constant.
+
+```c
+#define BIG_INSTANT_EVENT_REQUESTED_SAFE_BUFFER MaxSerialPacketSize
 ```
 
 ## Instant Event Errors
