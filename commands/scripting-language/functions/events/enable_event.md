@@ -28,7 +28,7 @@ Enables an event by its Event ID.
 
 Enable an event with `EventId = 1`.
 
-When an event is executed, the `$id` pseudo-register contains the target event's ID.
+When an event is executed, the `$event_id` pseudo-register contains the target event's ID.
 
 ### Remarks
 

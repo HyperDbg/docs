@@ -28,13 +28,13 @@ Disables an event by its Event ID.
 
 Disable an event with `EventId = 1`.
 
-When an event is executed, the `$id` pseudo-register contains the target event's ID.
+When an event is executed, the `$event_id` pseudo-register contains the target event's ID.
 
 For example, you can force an event to be disabled immediately:
 
 ```
 !epthook nt!ExAllocatePoolWithTag script {
- event_disable($id);
+ event_disable($event_id);
 }
 ```
 
