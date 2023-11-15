@@ -102,22 +102,22 @@ Each flag of **RFLAGS** is also supported in HyperDbg.
 
 Here are the currently supported pseudo-registers supported by the script engine.
 
-| Pseudo-register | Description                                                                                                          |
-| --------------- | -------------------------------------------------------------------------------------------------------------------- |
-| **$pid**        | The process ID (PID) of the current process.                                                                         |
-| **$proc**       | The address of the current process (that is, the address of the `nt!_EPROCESS` block).                               |
-| **$pname**      | A pointer to the character array of the process name. (It is a 16-byte long array in kernel-mode).                   |
-| **$tid**        | The thread ID for the current thread.                                                                                |
-| **$core**       | The core ID for the current core.                                                                                    |
-| **$thread**     | The address of the current thread. In kernel-mode debugging, this address is the address of the `nt!_ETHREAD` block. |
-| **$peb**        | The address of the process environment block (PEB) of the current process.                                           |
-| **$teb**        | The address of the thread environment block (TEB) of the current thread.                                             |
-| **$ip**         | The instruction pointer register (rip).                                                                              |
-| **$buffer**     | The pre-allocated buffer if the user requests a safe buffer.                                                         |
-| **$context**    | The context of the triggered event (It has a different meaning in each event).                                       |
-| **$id**         | The event ID of the triggered event (Only in the case of events). \[Added from **v0.3**]                             |
-| **$tag**        | The event tag of the triggered event (Only in the case of events). \[Added from **v0.3**]                            |
-| **$stage**      | The calling stage of the triggered event (Only in the case of events). \[Added from **v0.5**]                        |
+| Pseudo-register   | Description                                                                                                          |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------- |
+| **$pid**          | The process ID (PID) of the current process.                                                                         |
+| **$proc**         | The address of the current process (that is, the address of the `nt!_EPROCESS` block).                               |
+| **$pname**        | A pointer to the character array of the process name. (It is a 16-byte long array in kernel-mode).                   |
+| **$tid**          | The thread ID for the current thread.                                                                                |
+| **$core**         | The core ID for the current core.                                                                                    |
+| **$thread**       | The address of the current thread. In kernel-mode debugging, this address is the address of the `nt!_ETHREAD` block. |
+| **$peb**          | The address of the process environment block (PEB) of the current process.                                           |
+| **$teb**          | The address of the thread environment block (TEB) of the current thread.                                             |
+| **$ip**           | The instruction pointer register (rip).                                                                              |
+| **$buffer**       | The pre-allocated buffer if the user requests a safe buffer.                                                         |
+| **$context**      | The context of the triggered event (It has a different meaning in each event).                                       |
+| **$event\_id**    | The event ID of the triggered event (Only in the case of events). \[Added from **v0.3**]                             |
+| **$event\_tag**   | The event tag of the triggered event (Only in the case of events). \[Added from **v0.3**]                            |
+| **$event\_stage** | The calling stage of the triggered event (Only in the case of events). \[Added from **v0.5**]                        |
 
 Some of the above pseudo-registers are not supported either in kernel-mode or user-mode. If you use these registers, then it returns `NULL`.
 

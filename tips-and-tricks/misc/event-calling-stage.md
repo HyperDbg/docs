@@ -48,18 +48,18 @@ Or you can specify the '**all**' stage for them.
 
 ### Finding Calling Stages in Scripts
 
-In order to determine the calling stage, a new [pseudo-register](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations#pseudo-registers) called '**$stage**' is added. This pseudo-register can be either **0** which shows that the event is called in the '**pre**' calling stage or **1** which shows it's called in the '**post**' calling stage.&#x20;
+In order to determine the calling stage, a new [pseudo-register](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations#pseudo-registers) called '**$event\_stage**' is added. This pseudo-register can be either **0** which shows that the event is called in the '**pre**' calling stage or **1** which shows it's called in the '**post**' calling stage.&#x20;
 
 Please be aware that the event invocation stage cannot be '**all**' since the event occurs either in the '**pre**' or '**post**' calling stage, and it cannot occupy both simultaneously.
 
-The following example reads the '**$stage**' pseudo-register in case of an event and as the result is **1**, it means the event is called in the '**post**' calling stage.
+The following example reads the '**$event\_stage**' pseudo-register in case of an event and as the result is **1**, it means the event is called in the '**post**' calling stage.
 
 ```
-HyperDbg> ? print($stage);
+HyperDbg> ? print($event_stage);
 1
 ```
 
-In cases where the debugger is halted without being triggered by an event (such as through a breakpoint, CTRL+C, stepping, etc.), the pseudo-register '**$stage**' will display a value of 0. However, it's important not to misinterpret this as a '**pre**' stage, as this pause isn't prompted by an actual event.
+In cases where the debugger is halted without being triggered by an event (such as through a breakpoint, CTRL+C, stepping, etc.), the pseudo-register '**$event\_stage**' will display a value of 0. However, it's important not to misinterpret this as a '**pre**' stage, as this pause isn't prompted by an actual event.
 
 ### Finding Calling Stages in Event Breaks
 
@@ -84,11 +84,11 @@ Below are various examples demonstrating the usage of the event calling stages m
 
 #### Example 1
 
-The following example shows how we can view the memory **before** and **after** modification by using the '**all**' calling stage and how the '**$stage**' pseudo-register is used to check for different stages.
+The following example shows how we can view the memory **before** and **after** modification by using the '**all**' calling stage and how the '**$event\_stage**' pseudo-register is used to check for different stages.
 
 ```clike
 !monitor w 7 ff71f118210 7 ff71f118210 + 4 stage all script {
-  if ($stage == 1) {
+  if ($event_stage == 1) {
     curr_memory = dq($context);
     printf("current memory: %llx\n", curr_memory);
   } else {
