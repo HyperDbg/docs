@@ -265,6 +265,7 @@
 
 * [Twitter](https://twitter.com/HyperDbg)
 * [Telegram](https://t.me/HyperDbg)
+* [Mastodon](https://infosec.exchange/@hyperdbg)
 * [YouTube](https://youtube.com/c/HyperDbg)
 * [Doxygen](https://doxygen.hyperdbg.org)
 * [Contribution](https://github.com/HyperDbg/HyperDbg/blob/master/CONTRIBUTING.md)
