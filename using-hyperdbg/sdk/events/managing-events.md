@@ -237,7 +237,7 @@ You can specify whether the event is enabled or disabled when you create the eve
 
 ### Enabling an event
 
-In order to enable an event, you can call the following function using the `tag`.
+To enable an event, you can call the following function using the `tag`.
 
 ```c
 BOOLEAN
