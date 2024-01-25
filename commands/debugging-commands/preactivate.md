@@ -1,3 +1,7 @@
+---
+description: Description of the 'prealloc' command in HyperDbg.
+---
+
 # preactivate (pre-activate special functionalities)
 
 ### Command
