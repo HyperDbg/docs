@@ -221,4 +221,4 @@ This command requires [**Kaby Lake**](https://en.wikipedia.org/wiki/Kaby\_Lake) 
 
 ### Related
 
-None
+[preactivate (pre-activate special functionalities)](https://docs.hyperdbg.org/commands/debugging-commands/preactivate)
