@@ -258,4 +258,23 @@ In this example, we decode the details of the system-call related to [connecting
 }
 ```
 
+#### Example 4
+
+The fourth example is event short-circuiting for transitions of the '[!mode](https://docs.hyperdbg.org/commands/extension-commands/mode)' command.
+
+In this example, we blocked (paused) the execution of a process with the process ID equal to `0x1c0`. After running the below command, **only** the target process is halted and cannot execute any user-mode instruction while the entire system is running properly. Once you clear this event, the process will continue its normal execution.
+
+```clike
+!mode u pid 0x1c0 script {
+
+	//
+	// The user-mode execution of the process is paused and
+	// instruction fetches in the user-mode is prevented
+	//
+	event_sc(1);
+}
+```
+
+***
+
 Here are some cases, where event short-circuiting can be useful. Event short-circuiting can prove highly advantageous in various cases due to its ability to selectively bypass events based on certain conditions. This technique finds utility in numerous scenarios, offering flexibility and control over program execution.
