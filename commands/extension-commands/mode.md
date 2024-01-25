@@ -121,38 +121,44 @@ Please read "[How to create a condition?](https://docs.hyperdbg.org/using-hyperd
 
 #### Break
 
-We want to break and get control over all **CPUID** execution in our system.
+We want to break on the **user-mode** execution of a process with the process ID equal to `0x1c0`.
 
 ```c
-HyperDbg> !cpuid
+HyperDbg> !mode u pid 0x1c0
 ```
 
-Imagine we want to break on all **CPUID** executions of a process id **0x490**.
+We want to break on the **kernel-mode** execution of a process with the process ID equal to `0x1c0`.
 
 ```c
-HyperDbg> !cpuid pid 490
+HyperDbg> !mode k pid 0x1c0
+```
+
+We want to break on the **kernel-mode** and the **user-mode** execution of a process with the process ID equal to `0x1c0`.
+
+```c
+HyperDbg> !mode ku pid 0x1c0
 ```
 
 #### Script
 
 Using the following command, you can use HyperDbg's Script Engine. You should replace the string between braces (`HyperDbg Script Here`) with your script. You can find script examples [here](https://docs.hyperdbg.org/commands/scripting-language/examples).
 
-```
-HyperDbg> !cpuid script { HyperDbg Script Here }
+```clike
+HyperDbg> !mode ku pid 0x1c0 script { HyperDbg Script Here }
 ```
 
 The above command when messages don't need to be delivered immediately.
 
-```
-HyperDbg> !cpuid script { HyperDbg Script Here } imm no
+```clike
+HyperDbg> !mode ku pid 0x1c0 script { HyperDbg Script Here } imm no
 ```
 
 **Script (From File)**
 
 If you saved your script into a file, then you can add `file:` instead of a script and append the file path to it. For example, the following examples show how you can run a script from `file:c:\users\sina\desktop\script.txt`.
 
-```
-HyperDbg> !cpuid script {file:c:\users\sina\desktop\script.txt}
+```clike
+HyperDbg> !mode ku pid 0x1c0 script {file:c:\users\sina\desktop\script.txt}
 ```
 
 {% hint style="success" %}
@@ -169,18 +175,18 @@ Your custom code will be executed in vmx-root mode. Take a look at [this topic](
 
 **Run Custom Code (Unconditional)**
 
-Monitoring process id **0x490** for **CPUID** instruction execution and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) for more information.
+Monitoring transitions of process id **0x490** from user-mode to kernel-mode and kernel-mode to user-mode and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) for more information.
 
 ```c
-HyperDbg> !cpuid pid 490 code {90 90 90}
+HyperDbg> !mode ku pid 490 code {90 90 90}
 ```
 
 **Run Custom Code (Conditional)**
 
-Monitoring process id **0x490** for **CPUID** instruction execution and run 3 nops whenever the event condition is triggered and runs 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) and [how to create a condition](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-a-condition) for more information.
+Monitoring transitions of process id **0x490** from user-mode to kernel-mode and kernel-mode to user-mode and run 3 nops whenever the event condition is triggered and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) and [how to create a condition](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-a-condition) for more information.
 
 ```c
-HyperDbg> !cpuid pid 490 code {90 90 90} condition {90 90 90}
+HyperDbg> !mode ku pid 490 code {90 90 90} condition {90 90 90}
 ```
 
 {% hint style="success" %}
@@ -191,21 +197,27 @@ Keep in mind that a conditional event can be used in **Breaking to Debugger** an
 
 This command uses the same method to [send IOCTL for regular events](https://docs.hyperdbg.org/using-hyperdbg/sdk/ioctl/event-registration).
 
-As **EventType** use `CPUID_INSTRUCTION_EXECUTION` and set `OptionalParam1`  to zero (`FALSE`) value if you want to intercept all CPUIDs. In case of intercepting a special `eax` index, set `OptionalParam1` to a non-zero value and set `OptionalParam2` to the target `eax` value.
+As **EventType** use `TRAP_EXECUTION_MODE_CHANGED` and set `OptionalParam1`  to one of the following values based on your need (user-mode transition or kernel-mode transition or both of them):
+
+```
+DEBUGGER_EVENT_MODE_TYPE_USER_MODE_AND_KERNEL_MODE = 1
+DEBUGGER_EVENT_MODE_TYPE_USER_MODE                 = 3
+DEBUGGER_EVENT_MODE_TYPE_KERNEL_MODE               = 0
+```
 
 ### Design
 
-This command uses CPUID (**EXIT\_REASON\_CPUID**) vm-exits (**10**) to implement CPUID hooks.
+This command uses the **Mode-Based Execution Control (MBEC)** feature of Intel processors by allocating and adjusting two separate EPT tables (one **Kernel** execution is **disabled** and one **User** execution is **disabled**) and once the target process is identified (using MOV-to-CR3 exiting VM-exits), exchanges the newly allocated EPT page-tables and trigger events once EPT violation happened in the target process.
 
 ### Remarks
 
-This command creates an [event](https://docs.hyperdbg.org/design/debugger-internals/events). Starting from HyperDbg **v0.7**, events are guaranteed to keep the debuggee in a halt state (in the [Debugger Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode)); thus, nothing will change during its execution and the context (registers and memory) remain untouched. You can visit [instant events](https://docs.hyperdbg.org/tips-and-tricks/misc/instant-events) for more information.
+This command creates an [event](https://docs.hyperdbg.org/design/debugger-internals/events). Starting from HyperDbg **v0.7**, events are guaranteed to keep the debuggee in a halt state (in the [Debugger Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode)); thus, nothing will change during its execution and the context (registers and memory) remain untouched. You can visit [instant events](https://docs.hyperdbg.org/tips-and-tricks/misc/instant-events) for more information. Please note that in the Debugger Mode, this event is not initialized by default, you need to use the '[preactivate](https://docs.hyperdbg.org/commands/debugging-commands/preactivate)' command (only one time) to initial this event. The '[preactivate](https://docs.hyperdbg.org/commands/debugging-commands/preactivate)' command will continue the debuggee but this event won't continue the debuggee, so you need to make sure to execute the '[preactivate](https://docs.hyperdbg.org/commands/debugging-commands/preactivate)' command before using it to avoid losing the context.
 
-The support for this command is added from **v0.8**.
+The support for this command is added starting from **v0.8**.
 
 ### Requirements
 
-None
+This command requires [**Kaby Lake**](https://en.wikipedia.org/wiki/Kaby\_Lake) (7th generation) or a newer Intel processor that supports **Mode-Based Execution Control** (a.k.a., **MBEC**).
 
 ### Related
 
