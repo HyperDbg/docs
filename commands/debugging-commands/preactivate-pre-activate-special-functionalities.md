@@ -1,5 +1,5 @@
 ---
-description: Description of the 'prealloc' command in HyperDbg.
+description: Description of the 'preactivate' command in HyperDbg.
 ---
 
 # preactivate (pre-activate special functionalities)
@@ -39,7 +39,7 @@ If you use the '[!mode](https://docs.hyperdbg.org/commands/extension-commands/mo
 err, the '!mode' event command cannot be directly initialized in the Debugger Mode. To avoid wasting system resources and performance issues we decided to use another command to initialize it first then use it. You can use the 'preactivate mode' command to preactivate this mechanism after that, you can use the '!mode' event (c000004e)
 ```
 
-In order to solve this issue, the following command can be used:
+To solve this issue, the following command can be used:
 
 ```
 0: kHyperDbg> preactivate mode
