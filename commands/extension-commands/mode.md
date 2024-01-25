@@ -17,7 +17,7 @@ description: Description of the '!mode' command in HyperDbg.
 Triggers when there is a transition from the user-mode to the kernel-mode (e.g., as the result of an interrupt/fault/exception or a system-call) and from kernel-mode to user-mode (e.g., as the result of `IRET` or `SYSRET`) on the **target process**.
 
 {% hint style="danger" %}
-If you use this event, you can no longer use other EPT hook commands like the '[!epthook](https://docs.hyperdbg.org/commands/extension-commands/epthook)' and the '[!epthook2](https://docs.hyperdbg.org/commands/extension-commands/epthook2)' as well as the '[!monitor](https://docs.hyperdbg.org/commands/extension-commands/monitor)' commands.
+Using this event disables the use of other EPT hook commands, including '[!epthook](https://docs.hyperdbg.org/commands/extension-commands/epthook)' and '[!epthook2](https://docs.hyperdbg.org/commands/extension-commands/epthook2)', as well as the '[!monitor](https://docs.hyperdbg.org/commands/extension-commands/monitor)' commands.
 {% endhint %}
 
 {% hint style="info" %}
@@ -211,7 +211,7 @@ This command uses the **Mode-Based Execution Control (MBEC)** feature of Intel p
 
 ### Remarks
 
-This command creates an [event](https://docs.hyperdbg.org/design/debugger-internals/events). Starting from HyperDbg **v0.7**, events are guaranteed to keep the debuggee in a halt state (in the [Debugger Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode)); thus, nothing will change during its execution and the context (registers and memory) remain untouched. You can visit [instant events](https://docs.hyperdbg.org/tips-and-tricks/misc/instant-events) for more information. Please note that in the Debugger Mode, this event is not initialized by default, you need to use the '[preactivate](https://docs.hyperdbg.org/commands/debugging-commands/preactivate)' command (only one time) to initial this event. The '[preactivate](https://docs.hyperdbg.org/commands/debugging-commands/preactivate)' command will continue the debuggee but this event won't continue the debuggee, so you need to make sure to execute the '[preactivate](https://docs.hyperdbg.org/commands/debugging-commands/preactivate)' command before using it to avoid losing the context.
+This command creates an [event](https://docs.hyperdbg.org/design/debugger-internals/events). Starting from HyperDbg **v0.7**, events are guaranteed to keep the debuggee in a halt state (in the [Debugger Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode)); thus, nothing will change during its execution and the context (registers and memory) remain untouched. You can visit [instant events](https://docs.hyperdbg.org/tips-and-tricks/misc/instant-events) for more information. Please note that in the [Debugger Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode), this event is not initialized by default, you need to use the '[preactivate](https://docs.hyperdbg.org/commands/debugging-commands/preactivate)' command (only one time) to initial this event. The '[preactivate](https://docs.hyperdbg.org/commands/debugging-commands/preactivate)' command will continue the debuggee but this event won't continue the debuggee, so you need to make sure to execute the '[preactivate](https://docs.hyperdbg.org/commands/debugging-commands/preactivate)' command before using it to avoid losing the context.
 
 The support for this command is added starting from **v0.8**.
 
