@@ -20,7 +20,7 @@ This command is only used in the [Debugger Mode](https://docs.hyperdbg.org/using
 
 **\[Type (string)]**
 
-The type of pools to be reserved.
+The type of functionality to be initialized.
 
 | Type     |                                                                                                                     |
 | -------- | ------------------------------------------------------------------------------------------------------------------- |
@@ -43,32 +43,32 @@ the requested service is activated successfully!
 fffff807`9b9f8e62    0F 01 C1
 ```
 
-Once you pre-activate&#x20;
+Once you pre-activate the above functionality, it remains active until the next load of the debugger.
 
 ### IOCTL
 
-This function works by calling **DeviceIoControl** with `IOCTL = IOCTL_RESERVE_PRE_ALLOCATED_POOLS`, you have to send it in the following structure.
+This function works by calling **DeviceIoControl** with `IOCTL = IOCTL_PREACTIVATE_FUNCTIONALITY`, you have to send it in the following structure.
 
 ```c
-typedef struct _DEBUGGER_PREALLOC_COMMAND
+typedef struct _DEBUGGER_PREACTIVATE_COMMAND
 {
-    DEBUGGER_PREALLOC_COMMAND_TYPE Type;
-    UINT64                         Count;
-    UINT32                         KernelStatus;
+    DEBUGGER_PREACTIVATE_COMMAND_TYPE Type;
+    UINT32                            KernelStatus;
 
-} DEBUGGER_PREALLOC_COMMAND, *PDEBUGGER_PREALLOC_COMMAND;
+} DEBUGGER_PREACTIVATE_COMMAND, *PDEBUGGER_PREACTIVATE_COMMAND;
+
 ```
 
-You should only fill the **Type** and **Count** of the above structure when the IOCTL returns from the kernel, other parts of this structure are filled with appropriate **KernelStatus**.
+You should only fill the **Type** of the above structure when the IOCTL returns from the kernel, other parts of this structure are filled with appropriate **KernelStatus**.
 
 The **Type** can be from the following enum:
 
 ```
-typedef enum _DEBUGGER_PREALLOC_COMMAND_TYPE
+typedef enum _DEBUGGER_PREACTIVATE_COMMAND_TYPE
 {
-    DEBUGGER_PREALLOC_COMMAND_TYPE_MONITOR,
-    DEBUGGER_PREALLOC_COMMAND_TYPE_THREAD_INTERCEPTION,
-} DEBUGGER_PREALLOC_COMMAND_TYPE;
+    DEBUGGER_PREACTIVATE_COMMAND_TYPE_MODE,
+
+} DEBUGGER_PREACTIVATE_COMMAND_TYPE;
 ```
 
 ### Remarks

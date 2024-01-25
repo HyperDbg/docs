@@ -26,7 +26,7 @@ HyperDbg tries to minimize the request for this command by allocating pools when
 
 **\[Type (string)]**
 
-The type of pools to be reserved.
+The type of pool(s) to be reserved.
 
 | Type                    |                                                                                                                                                                                                                                |
 | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -41,7 +41,7 @@ The type of pools to be reserved.
 
 **\[Count (hex)]**
 
-Number of pools to be allocated and reserved.
+Number of pool(s) to be allocated and reserved.
 
 ### Examples
 
