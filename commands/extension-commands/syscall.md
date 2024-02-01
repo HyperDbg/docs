@@ -20,12 +20,12 @@ description: Description of '!syscall, !syscall2' commands in HyperDbg.
 
 Triggers when the debugging machine executes a **syscall** instruction or, in other words, when Windows tries to run a system call, this event will be triggered.
 
-{% hint style="info" %}
-When you enable this event, all **syscall** instructions from all processes will be monitored, and due to the limitation in hardware, you can't expect it to trigger for just one process. Still, you can configure the debugger to trigger the event for you in the case of a special process by adding `pid xx`to the command.
+{% hint style="danger" %}
+If this command produces weird behavior in your system, you can use the [alternative](https://docs.hyperdbg.org/commands/extension-commands/syscall#alternative-method-for-syscall-interception) method.
 {% endhint %}
 
-{% hint style="success" %}
-The difference between **!syscall** and **!syscall2** is that we safely check the memory in the first command to see if the instruction that caused **#UD** is really an **SYSRET** or a **SYSCALL**. So, we access the memory in this command. However, we realized that older systems have problems with this way of memory access. In the second command, we just check for the RIP to see if it's a kernel address or a user address. Usually, this method works without error for several hours, but if one application generates a **#UD**, then a BSOD will happen. The second method is generally faster in speed, but we encourage you to use the first command and if your computer doesn't support the first command, then use the second command.
+{% hint style="info" %}
+When you enable this event, all **syscall** instructions from all processes will be monitored, and due to the limitation in hardware, you can't expect it to trigger for just one process. Still, you can configure the debugger to trigger the event for you in the case of a special process by adding `pid xx`to the command.
 {% endhint %}
 
 ### Parameters
@@ -187,6 +187,8 @@ This command is not PatchGurad compatible, which means that PatchGuard detects t
 {% endhint %}
 
 This command makes your computer substantially slower.
+
+The difference between **!syscall** and **!syscall2** is that we safely check the memory in the first command to see if the instruction that caused **#UD** is really an **SYSRET** or a **SYSCALL**. So, we access the memory in this command. However, we realized that older systems have problems with this way of memory access. In the second command, we just check for the RIP to see if it's a kernel address or a user address. Usually, this method works without error for several hours, but if one application generates a **#UD**, then a BSOD will happen. The second method is generally faster in speed, but we encourage you to use the first command and if your computer doesn't support the first command, then use the second command.
 
 This command creates an [event](https://docs.hyperdbg.org/design/debugger-internals/events). Starting from HyperDbg **v0.7**, events are guaranteed to keep the debuggee in a halt state (in the [Debugger Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode)); thus, nothing will change during its execution and the context (registers and memory) remain untouched. You can visit [instant events](https://docs.hyperdbg.org/tips-and-tricks/misc/instant-events) for more information.
 
