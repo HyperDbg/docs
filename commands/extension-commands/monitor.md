@@ -11,6 +11,8 @@ description: Description of the '!monitor' command in HyperDbg.
 ### Syntax
 
 > !monitor \[Attribute (string)] \[FromAddress (hex)] \[ToAddress (hex)] \[pid ProcessId (hex)] \[core CoreId (hex)] \[imm IsImmediate (yesno)] \[sc EnableShortCircuiting (onoff)] \[stage CallingStage (prepostall)] \[buffer PreAllocatedBuffer (hex)] \[script { Script (string) }] \[condition { Condition (hex) }] \[code { Code (hex) }] \[output {OutputName (string)}]
+>
+> !monitor \[Attribute (string)] \[FromAddress (hex)] \[l Length (hex)] \[pid ProcessId (hex)] \[core CoreId (hex)] \[imm IsImmediate (yesno)] \[sc EnableShortCircuiting (onoff)] \[stage CallingStage (prepostall)] \[buffer PreAllocatedBuffer (hex)] \[script { Script (string) }] \[condition { Condition (hex) }] \[code { Code (hex) }] \[output {OutputName (string)}]
 
 ### Description
 
@@ -34,7 +36,11 @@ Can be one of these values (or a combination of these attributes like '**rw**', 
 
 **\[FromAddress (hex)]**
 
-The start **virtual** address of where it needs to be monitored for reading or writing or executing (or a custom combination of these attributes).
+The start **virtual** address of where it needs to be monitored for reading or writing or executing (or a custom combination of these attributes). You have the option to utilize this parameter for either requesting the last address of the range or specifying the length (next parameter).
+
+**\[l Length (hex)]**
+
+The start **virtual** address of where it needs to be monitored for reading or writing or executing (or a custom combination of these attributes). You have the option to utilize this parameter for either requesting the length of monitoring memory or specifying the last address (previous parameter).
 
 **\[ToAddress (hex)]**
 
@@ -138,6 +144,12 @@ Imagine we want to put a monitor writes but not reads/executes on address from `
 HyperDbg> !monitor w fffff800`4ed60000 fffff800`4ed60100
 ```
 
+If we want reads but not writes/executes the memory with the length of `500` bytes.
+
+```c
+HyperDbg> !monitor r fffff800`4ed60000 l 500
+```
+
 If we want reads but not writes/executes.
 
 ```c
@@ -160,6 +172,12 @@ If we want to monitor any execution of instructions from this range, we can use 
 
 ```c
 HyperDbg> !monitor x fffff800`7bd40000 fffff800`7bd40100
+```
+
+If we want to monitor any execution of instructions from the start address plus `0x7560` bytes, we can use the following command.
+
+```c
+HyperDbg> !monitor x fffff800`7bd40000 l 7560
 ```
 
 If we want to monitor any reads, writes, or executions of instructions from a PE section in the user-mode, we can use the following command.
