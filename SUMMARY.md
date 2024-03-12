@@ -158,6 +158,7 @@
 * [Scripting Language](commands/scripting-language/README.md)
   * [Assumptions & Evaluations](commands/scripting-language/assumptions-and-evaluations.md)
   * [Variables & Assignments](commands/scripting-language/variables-and-assignments.md)
+  * [Casting & Type-awareness](commands/scripting-language/casting-and-type-awareness.md)
   * [Conditionals & Loops](commands/scripting-language/conditionals-and-loops.md)
   * [Constants & Functions](commands/scripting-language/constants-and-functions.md)
   * [Debugger Script (DS)](commands/scripting-language/debugger-script.md)
