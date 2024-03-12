@@ -14,7 +14,7 @@ HyperDbg functions are defined using the same syntax as the C programming langua
 
 ### Function: void
 
-This function defines `my_func` which prints two integers. It's called three times with arguments (**1**, **2**). Then, it prints the hexadecimal value of variable `my_var`, which is `79`.
+This is an example of a function that does not return any value (void). This code defines `my_func` which prints two integers. It's called three times with arguments (**1**, **2**). Then, it prints the hexadecimal value of variable `my_var`, which is `79`.
 
 ```clike
 ? {
@@ -34,9 +34,9 @@ This function defines `my_func` which prints two integers. It's called three tim
 }
 ```
 
-### Function: Integer
+### Function: int
 
-This function defines four functions: `my_func1`, `my_func2`, `my_func3`, and `my_func4`.
+This is an example of functions that return an integer. This code defines four functions: `my_func1`, `my_func2`, `my_func3`, and `my_func4`.
 
 `my_func1` adds **1** to its argument and prints the result.
 
