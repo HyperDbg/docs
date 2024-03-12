@@ -159,6 +159,7 @@
   * [Assumptions & Evaluations](commands/scripting-language/assumptions-and-evaluations.md)
   * [Variables & Assignments](commands/scripting-language/variables-and-assignments.md)
   * [Conditionals & Loops](commands/scripting-language/conditionals-and-loops.md)
+  * [Constants & Functions](commands/scripting-language/constants-and-functions.md)
   * [Debugger Script (DS)](commands/scripting-language/debugger-script.md)
   * [Examples](commands/scripting-language/examples/README.md)
     * [view system state (registers, memory, variables)](commands/scripting-language/examples/view-system-state.md)
