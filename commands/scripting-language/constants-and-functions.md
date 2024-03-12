@@ -4,87 +4,113 @@ description: Description of constants and functions
 
 # Constants & Functions
 
+## Naming convention
+
+We suggest using [**snake\_case**](https://en.wikipedia.org/wiki/Snake\_case) as the [naming convention](https://en.wikipedia.org/wiki/Naming\_convention\_\(programming\)). However, you can use any other naming conventions as well.
+
 ## Functions
 
-### Void Function
+HyperDbg functions are defined using the same syntax as the C programming language.
+
+### Function: void
+
+This function defines `my_func` which prints two integers. It's called three times with arguments (**1**, **2**). Then, it prints the hexadecimal value of variable `my_var`, which is `79`.
 
 ```clike
 ? {
     
-  void myfun(int var, int var2) {
+  void my_func(int var, int var2) {
     printf("var = %d, var2 = %d\n", var, var2);
     return;
-    printf("222\n");
+    printf("this statement is never shown!\n");
   }
   
   for (int i = 0; i < 3; i++) {
-    myfun(1, 2);
+    my_func(1, 2);
   }
 
-  int myvar = 79;
-  printf("%x\n", myvar);
+  int my_var = 79;
+  printf("%x\n", my_var);
 }
 ```
 
-### Int Function
+### Function: Integer
+
+This function defines four functions: `my_func1`, `my_func2`, `my_func3`, and `my_func4`.
+
+`my_func1` adds **1** to its argument and prints the result.
+
+`my_func2` multiplies its argument by **2** and prints the result.
+
+`my_func3` also multiplies its argument by **2** and prints the result.
+
+`my_func4` calls `my_func1`, `my_func2`, and `my_func3`, then sums their results and prints the total.&#x20;
+
+Finally, it calls `my_func4` with an argument of **2** and prints the result.
 
 ```clike
 ? {
     
-  int myfun1(int var1) {
+  int my_func1(int var1) {
     result = var1 + 1;
-    printf("myfun1 %d\n", result);
+    printf("my_func1 %d\n", result);
     return result;
   }
   
-  int myfun2(int var1) {
+  int my_func2(int var1) {
     result = var1 * 2;
-    printf("myfun2 %d\n", result);
+    printf("my_func2 %d\n", result);
     return result;
   }
   
-  int myfun3(int var1) {
+  int my_func3(int var1) {
     result = var1 * 2;
-    printf("myfun3 %d\n", result);
+    printf("my_func3 %d\n", result);
     return result;
   }
   
-  int myfun4(int var1) {
-    result = myfun1(var1) + myfun2(var1) + myfun3(var1);
-    printf("myfun4 %d\n", result);
+  int my_func4(int var1) {
+    result = my_func1(var1) + my_func2(var1) + my_func3(var1);
+    printf("my_func4 %d\n", result);
     return result;
   }
 
-  printf("%d\n", myfun4(2));
+  printf("%d\n", my_func4(2));
 }
 ```
 
+### Examples
+
 #### Example 1: Recursive Fibonacci
+
+The following function calculates the nth Fibonacci number recursively.
 
 ```clike
 ? {
 
-  int myfun(int var1) {
+  int my_func(int var1) {
     if (var1 == 0) {
       return 0;
     }
     if (var1 == 1) {
       return 1;
     }
-    return myfun(var1 - 1) + myfun(var1 - 2);
+    return my_func(var1 - 1) + my_func(var1 - 2);
   }
   
-  var = myfun(9);
+  var = my_func(9);
   printf("%d", var);
 }
 ```
 
 #### Example 2: Iterative Fibonacci
 
+This function calculates the nth Fibonacci number iteratively using a loop.
+
 ```clike
 ? {
 
-  int myfun(int varn) {
+  int my_func(int varn) {
       
     int varf0 = 0;
     int varf1 = 1;
@@ -107,7 +133,7 @@ description: Description of constants and functions
     return varfn;
   }
   
-  printf("%d", myfun(9));
+  printf("%d", my_func(9));
 }
 ```
 
