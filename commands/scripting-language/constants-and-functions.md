@@ -4,6 +4,8 @@ description: Description of constants and functions
 
 # Constants & Functions
 
+Starting from **v0.8.2**, HyperDbg supports functions in the script engine. Here's a description of how function can be defined within scripts.
+
 ## Naming convention
 
 We suggest using [**snake\_case**](https://en.wikipedia.org/wiki/Snake\_case) as the [naming convention](https://en.wikipedia.org/wiki/Naming\_convention\_\(programming\)). However, you can use any other naming conventions as well.
