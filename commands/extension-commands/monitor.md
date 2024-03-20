@@ -18,8 +18,10 @@ description: Description of the '!monitor' command in HyperDbg.
 
 Monitors read or write or execute (or a combination of these operations) to a range of addresses. If any read or write or execute happens on the specified address range (memory), it will be triggered.
 
-{% hint style="info" %}
 It is exactly like read/write/execute of Hardware Debug Registers but without any size and count limitation.
+
+{% hint style="warning" %}
+Please note that if you encounter an invalid address error when applying monitor hooks to a **valid** range, it is likely due to the page being paged-out or inaccessible in memory, often as a result of [demand paging](https://en.wikipedia.org/wiki/Demand\_paging). This situation occurs because EPT hooks primarily work based on physical addresses, not virtual addresses. To resolve this issue, you can use the '[.pagein](https://docs.hyperdbg.org/commands/meta-commands/.pagein)' command.
 {% endhint %}
 
 ### Parameters
