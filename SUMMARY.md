@@ -10,8 +10,8 @@
 * [Attach to HyperDbg](getting-started/attach-to-hyperdbg/README.md)
   * [Attach to a remote machine](getting-started/attach-to-hyperdbg/debug.md)
   * [Attach to local machine](getting-started/attach-to-hyperdbg/local-debugging.md)
-  * [Start a new process](getting-started/attach-to-hyperdbg/start.md)
-  * [Attach to a running process](getting-started/attach-to-hyperdbg/attach-to-a-running-process.md)
+  * [Start a new process](getting-started/attach-to-hyperdbg/start-process.md)
+  * [Attach to a running process](getting-started/attach-to-hyperdbg/attach-process.md)
 
 ## Using HyperDbg
 
@@ -49,12 +49,12 @@
       * [Defeating Anti-Debug & Anti-Hypervisor Methods](using-hyperdbg/kernel-mode-debugging/examples/misc/defeating-anti-debug-and-anti-hypervisor-methods.md)
     * [Scripting Language Examples](https://docs.hyperdbg.org/commands/scripting-language/examples)
 * [Software Development Kit (SDK)](using-hyperdbg/sdk/README.md)
-  * [Events](using-hyperdbg/sdk/page-1.md)
+  * [Events](using-hyperdbg/sdk/events/README.md)
     * [Managing Events](using-hyperdbg/sdk/events/managing-events.md)
     * [Conditions](using-hyperdbg/sdk/events/conditions.md)
     * [Actions](using-hyperdbg/sdk/events/actions.md)
   * [IOCTL](using-hyperdbg/sdk/ioctl/README.md)
-    * [Event Registration](design/debugger-internals/ioctl-requests-for-events.md)
+    * [Event Registration](using-hyperdbg/sdk/ioctl/event-registration.md)
 
 ## Commands
 
@@ -94,7 +94,7 @@
   * [wrmsr (write model-specific register)](commands/debugging-commands/wrmsr.md)
   * [flush (remove pending kernel buffers and messages)](commands/debugging-commands/flush.md)
   * [prealloc (reserve pre-allocated pools)](commands/debugging-commands/prealloc.md)
-  * [preactivate (pre-activate special functionalities)](commands/debugging-commands/preactivate-pre-activate-special-functionalities.md)
+  * [preactivate (pre-activate special functionalities)](commands/debugging-commands/preactivate.md)
   * [output (create output source for event forwarding)](commands/debugging-commands/output.md)
   * [test (test functionalities)](commands/debugging-commands/test.md)
   * [settings (configures different options and preferences)](commands/debugging-commands/settings.md)
@@ -114,7 +114,7 @@
   * [.kill (terminate the process)](commands/meta-commands/.kill.md)
   * [.process, .process2 (show the current process and switch to another process)](commands/meta-commands/.process.md)
   * [.thread, .thread2 (show the current thread and switch to another thread)](commands/meta-commands/.thread.md)
-  * [.pagein (bring the page into the RAM)](commands/meta-commands/.pagein-bring-the-page-into-the-ram.md)
+  * [.pagein (bring the page into the RAM)](commands/meta-commands/.pagein.md)
   * [.dump (save the virtual memory into a file)](commands/meta-commands/.dump.md)
   * [.formats (show number formats)](commands/meta-commands/.formats.md)
   * [.script (run batch script commands)](commands/meta-commands/.script.md)
@@ -175,8 +175,8 @@
     * [debugger](commands/scripting-language/functions/debugger/README.md)
       * [pause](commands/scripting-language/functions/debugger/pause.md)
     * [events](commands/scripting-language/functions/events/README.md)
-      * [event\_enable](commands/scripting-language/functions/events/enable\_event.md)
-      * [event\_disable](commands/scripting-language/functions/events/disable\_event.md)
+      * [event\_enable](commands/scripting-language/functions/events/event\_enable.md)
+      * [event\_disable](commands/scripting-language/functions/events/event\_disable.md)
       * [event\_clear](commands/scripting-language/functions/events/event\_clear.md)
       * [event\_sc](commands/scripting-language/functions/events/event\_sc.md)
       * [event\_inject](commands/scripting-language/functions/events/event\_inject.md)

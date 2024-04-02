@@ -99,7 +99,7 @@ Before that, we want to convert the **notepad.exe** to **HyperDbg.exe**. For thi
 
 We read the pointer located at `_EPROCESS+0x05c0` and modify the **notepad.exe** in the target `_UNCODE_STRING` by using the '[eb](https://docs.hyperdbg.org/commands/debugging-commands/e)' command.
 
-![](../../../../.gitbook/assets/chagne-the-process-name.PNG)
+![](<../../../../.gitbook/assets/chagne-the-process-name (1).PNG>)
 
 It's time to continue the debuggee and see the results.
 
