@@ -271,5 +271,6 @@
 * [Telegram](https://t.me/HyperDbg)
 * [Mastodon](https://infosec.exchange/@hyperdbg)
 * [YouTube](https://youtube.com/c/HyperDbg)
+* [hwdbg (Chip Debugger)](https://hwdbg.hyperdbg.org)
 * [Doxygen](https://doxygen.hyperdbg.org)
 * [Contribution](https://github.com/HyperDbg/HyperDbg/blob/master/CONTRIBUTING.md)
