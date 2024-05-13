@@ -14,7 +14,7 @@ First of all, you should know about different [**Operation Modes**](https://docs
 
 If you want to learn how to use HyperDbg along with practical and real-world examples visit the following tutorial.
 
-* &#x20;[**OpenSecurityTraining2's "Reversing with HyperDbg (Dbg3301)"**](https://ost2.fyi/Dbg3301)
+* &#x20;[**OpenSecurityTraining2's Reversing with HyperDbg (Dbg3301)**](https://ost2.fyi/Dbg3301) **\[**[**YouTube**](https://www.youtube.com/playlist?list=PLUFkSN0XLZ-kF1f143wlw8ujlH2A45nZY)**]**
 
 If you want to build HyperDbg, follow the steps in the links below; you can also download compiled binaries instead of building HyperDbg.
 

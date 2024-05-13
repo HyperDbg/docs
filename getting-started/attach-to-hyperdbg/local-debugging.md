@@ -32,4 +32,4 @@ vmm module is running...
 
 ## Next Step
 
-The [**OpenSecurityTraining2's "Reversing with HyperDbg (Dbg3301)"**](https://ost2.fyi/Dbg3301) tutorial is the recommended way to get started with and learn HyperDbg, guiding you through the initial steps of using HyperDbg, covering essential concepts, principles, debugging functionalities, along with practical examples and numerous reverse engineering methods that are unique to HyperDbg.
+The **OpenSecurityTraining2's "Reversing with HyperDbg (Dbg3301)**" tutorial series, available on [**OST2's website**](https://ost2.fyi/Dbg3301) (_preferred_) and [**YouTube**](https://www.youtube.com/playlist?list=PLUFkSN0XLZ-kF1f143wlw8ujlH2A45nZY) is the recommended way to get started with and learn HyperDbg. It guides you through the initial steps of using HyperDbg, covering essential concepts, principles, and debugging functionalities, along with practical examples and numerous reverse engineering methods that are unique to HyperDbg.
