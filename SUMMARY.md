@@ -220,6 +220,7 @@
   * [The "unsafe" behavior](tips-and-tricks/considerations/the-unsafe-behavior.md)
   * [Script engine in VMX non-root mode](tips-and-tricks/considerations/script-engine-in-vmx-non-root-mode.md)
   * [Difference between process and thread switching commands](tips-and-tricks/considerations/difference-between-process-and-thread-switching-commands.md)
+  * [Accessing Invalid Address](tips-and-tricks/considerations/accessing-invalid-address.md)
   * [Transparent Mode](tips-and-tricks/considerations/transparent-mode.md)
 * [Nested-Virtualization Environments](tips-and-tricks/nested-virtualization-environments/README.md)
   * [Supported Virtual Machines](tips-and-tricks/nested-virtualization-environments/supported-virtual-machines.md)
