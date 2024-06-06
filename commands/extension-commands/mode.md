@@ -215,6 +215,8 @@ This command creates an [event](https://docs.hyperdbg.org/design/debugger-intern
 
 The support for this command is added starting from **v0.8**.
 
+This command cannot be used simultaneously with regular EPT hook commands ([!epthook](https://docs.hyperdbg.org/commands/extension-commands/epthook), [!epthook2](https://docs.hyperdbg.org/commands/extension-commands/epthook2), and [!monitor](https://docs.hyperdbg.org/commands/extension-commands/monitor)) and the '[.start](https://docs.hyperdbg.org/commands/meta-commands/.start)', or the '[.restart](https://docs.hyperdbg.org/commands/meta-commands/.restart)' commands.
+
 ### Requirements
 
 This command requires [**Kaby Lake**](https://en.wikipedia.org/wiki/Kaby\_Lake) (7th generation) or a newer Intel processor that supports **Mode-Based Execution Control** (a.k.a., **MBEC**).
