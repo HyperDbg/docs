@@ -29,9 +29,9 @@ In the second scenario, you have two options forcing the operating system to bri
 
 ### Access invalid address from VMI Mode
 
-In this mode, virtual memory reading commands like [db, dc, dd, and dq](https://docs.hyperdbg.org/commands/debugging-commands/d) all access the memory from VMX non-root mode.  This means that accessing the memory will trigger a page-fault and if the address is actually valid, the OS either brings it to the RAM or makes it present to the process.
+In this mode, virtual memory reading commands like [db, dc, dd, and dq](https://docs.hyperdbg.org/commands/debugging-commands/d) or assembler commands like [u, and u2](https://docs.hyperdbg.org/commands/debugging-commands/u), all access the memory from VMX non-root mode.  This means that accessing the memory will trigger a page-fault and if the address is actually valid, the OS either brings it to the RAM or makes it present to the process.
 
-For example, assume that we want to apply the following EPT hook.
+For example, assume that we want to apply the following EPT hook (e.g., by using the '[!epthook](https://docs.hyperdbg.org/commands/extension-commands/epthook)').
 
 ```
 HyperDbg> !epthook kernel32!LoadLibraryW script {
@@ -69,7 +69,7 @@ LoadLibrary called!
 
 ## Access invalid address from Debugger Mode
 
-If you are in the debugger mode, the debuggee cannot switch between processes. At this point, you can use the '[.pagein](https://docs.hyperdbg.org/commands/meta-commands/.pagein)' command to inject a page-fault and force the operating system to bring the page into the memory or make it present in the paging tables of the current process.
+If you are in the debugger mode, the debuggee cannot switch between processes. At this point, you can use the '[.pagein](https://docs.hyperdbg.org/commands/meta-commands/.pagein)' command to inject a page-fault (#PF) and force the operating system to bring the page into the memory or make it present in the paging tables of the current process.
 
 ```
 0: kHyperDbg> !epthook kernel32!LoadLibraryW script {
@@ -90,7 +90,7 @@ press 'g' to continue debuggee (the current thread will execute ONLY one instruc
 0: kHyperDbg> g
 ```
 
-Once you run the '[g](https://docs.hyperdbg.org/commands/debugging-commands/g)' command the OS finds a chance to bring the page into the memory or make it present, then you can apply your EPT hook.
+Once you run the '[g](https://docs.hyperdbg.org/commands/debugging-commands/g)' command the OS finds a chance to bring the page into the memory or make it present in the memory and it immediately pauses the debuggee again, then you can apply your EPT hook.
 
 ```
 0: kHyperDbg> !epthook kernel32!LoadLibraryW script {
@@ -105,4 +105,4 @@ LoadLibrary called!
 ...
 ```
 
-Please remember that these techniques only apply when the address is actually valid, if the address is not allocated and invalid, then it does not make sense to access them.
+Please remember that these techniques only apply when the **address is actually valid**, if the address is not allocated and invalid, then it does not make sense to access them!
