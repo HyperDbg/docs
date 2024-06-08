@@ -10,9 +10,9 @@ description: Description of the '!monitor' command in HyperDbg.
 
 ### Syntax
 
-> !monitor \[Attribute (string)] \[FromAddress (hex)] \[ToAddress (hex)] \[pid ProcessId (hex)] \[core CoreId (hex)] \[imm IsImmediate (yesno)] \[sc EnableShortCircuiting (onoff)] \[stage CallingStage (prepostall)] \[buffer PreAllocatedBuffer (hex)] \[script { Script (string) }] \[condition { Condition (hex) }] \[code { Code (hex) }] \[output {OutputName (string)}]
+> !monitor \[Attribute (string)] \[FromAddress (hex)] \[ToAddress (hex)] \[MemoryType (vapa)] \[pid ProcessId (hex)] \[core CoreId (hex)] \[imm IsImmediate (yesno)] \[sc EnableShortCircuiting (onoff)] \[stage CallingStage (prepostall)] \[buffer PreAllocatedBuffer (hex)] \[script { Script (string) }] \[condition { Condition (hex) }] \[code { Code (hex) }] \[output {OutputName (string)}]
 >
-> !monitor \[Attribute (string)] \[FromAddress (hex)] \[l Length (hex)] \[pid ProcessId (hex)] \[core CoreId (hex)] \[imm IsImmediate (yesno)] \[sc EnableShortCircuiting (onoff)] \[stage CallingStage (prepostall)] \[buffer PreAllocatedBuffer (hex)] \[script { Script (string) }] \[condition { Condition (hex) }] \[code { Code (hex) }] \[output {OutputName (string)}]
+> !monitor \[MemoryType (vapa)] \[Attribute (string)] \[FromAddress (hex)] \[l Length (hex)] \[MemoryType (vapa)] \[pid ProcessId (hex)] \[core CoreId (hex)] \[imm IsImmediate (yesno)] \[sc EnableShortCircuiting (onoff)] \[stage CallingStage (prepostall)] \[buffer PreAllocatedBuffer (hex)] \[script { Script (string) }] \[condition { Condition (hex) }] \[code { Code (hex) }] \[output {OutputName (string)}]
 
 ### Description
 
@@ -21,7 +21,7 @@ Monitors read or write or execute (or a combination of these operations) to a ra
 It is exactly like read/write/execute of Hardware Debug Registers but without any size and count limitation.
 
 {% hint style="warning" %}
-Please note that if you encounter an invalid address error when applying monitor hooks to a **valid** range, it is likely due to the page being paged-out or inaccessible in memory, often as a result of [demand paging](https://en.wikipedia.org/wiki/Demand\_paging). This situation occurs because EPT hooks primarily work based on physical addresses, not virtual addresses. To resolve this issue, you can use the '[.pagein](https://docs.hyperdbg.org/commands/meta-commands/.pagein)' command.
+Please note that if you encounter an invalid address error when applying monitor hooks to a **valid** range, it is likely due to the page being paged-out or inaccessible in memory, often as a result of [demand paging](https://en.wikipedia.org/wiki/Demand\_paging). This situation occurs because EPT hooks primarily work based on physical addresses, not virtual addresses. To resolve this issue, you can use the '[.pagein](https://docs.hyperdbg.org/commands/meta-commands/.pagein)' command. [Read more](https://docs.hyperdbg.org/tips-and-tricks/considerations/accessing-invalid-address) about tricks to make addresses available.
 {% endhint %}
 
 ### Parameters
@@ -38,15 +38,25 @@ Can be one of these values (or a combination of these attributes like '**rw**', 
 
 **\[FromAddress (hex)]**
 
-The start **virtual** address of where it needs to be monitored for reading or writing or executing (or a custom combination of these attributes). You have the option to utilize this parameter for either requesting the last address of the range or specifying the length (next parameter).
+The start **virtual/physical** address of where it needs to be monitored for reading or writing or executing (or a custom combination of these attributes). You have the option to utilize this parameter for either requesting the last address of the range or specifying the length (next parameter).
 
 **\[l Length (hex)]**
 
-The start **virtual** address of where it needs to be monitored for reading or writing or executing (or a custom combination of these attributes). You have the option to utilize this parameter for either requesting the length of monitoring memory or specifying the last address (previous parameter).
+The start **virtual/physical** address of where it needs to be monitored for reading or writing or executing (or a custom combination of these attributes). You have the option to utilize this parameter for either requesting the length of monitoring memory or specifying the last address (previous parameter).
 
 **\[ToAddress (hex)]**
 
-The end of the **virtual** address of where it needs to be monitored for reading or writing or executing (or a custom combination of these attributes).
+The end of the **virtual/physical** address of where it needs to be monitored for reading or writing or executing (or a custom combination of these attributes).
+
+**\[MemoryType (vapa)] (optional)**
+
+Can be one of these values depending on whether the **FromAddress** and **ToAddress** are virtual addresses or physical addresses.
+
+**va**: the address is a virtual address
+
+**pa**: the address is a physical address
+
+If you do not specify this event, it assumes that the address is a virtual address.
 
 **\[pid ProcessId (hex)] (optional)**
 
@@ -92,9 +102,9 @@ Optional output resource name for [forwarding events](https://docs.hyperdbg.org/
 
 ### Context
 
-As the **Context** (`$context` pseudo-register in the event's script, `r8` in custom code, and `rdx` in condition code register) to the event trigger, **HyperDbg** sends the **virtual address** of the memory that has accessed and triggered this event.
+As the **Context** (`$context` pseudo-register in the event's script, `r8` in custom code, and `rdx` in condition code register) to the event trigger, **HyperDbg** sends the **virtual address** (or physical address depending on the '**MemoryType**' parameter) of the memory that has accessed and triggered this event.
 
-It's a virtual address equal to or between **\[from address]** and **\[to address],** so it's not a constant address and might differ in the range you entered.
+It's a virtual address (or physical address depending on the '**MemoryType**' parameter) equal to or between **\[from address]** and **\[to address],** so it's not a constant address and might differ in the range you entered.
 
 ### Short-circuiting
 
@@ -188,6 +198,12 @@ If we want to monitor any reads, writes, or executions of instructions from a PE
 HyperDbg> !monitor rwx 00007ff8`349f2000 00007ff8`349f8000
 ```
 
+If we want to monitor any reads, or writes, from a physical address, we can use the following command.
+
+```c
+HyperDbg> !monitor pa rw fc010000 l 00004000
+```
+
 #### Script
 
 Using the following command, you can use HyperDbg's Script Engine. You should replace the string between braces (`HyperDbg Script Here`) with your script. You can find script examples [here](https://docs.hyperdbg.org/commands/scripting-language/examples).
@@ -258,7 +274,15 @@ HIDDEN_HOOK_WRITE
 HIDDEN_HOOK_EXECUTE
 ```
 
-After that, you can send the start address (**from address**) of where you want to monitor in `OptionalParam1`and end address (**to address**) of where you want to monitor in `OptionalParam2`address `DEBUGGER_GENERAL_EVENT_DETAIL`.
+After that, you can send the start address (**from address**) of where you want to monitor in `OptionalParam1`and end address (**to address**) of where you want to monitor in `OptionalParam2`address `DEBUGGER_GENERAL_EVENT_DETAIL`. and `OptionalParam3` can be either a **virtual address** or a **physical address** depending on the following enum:
+
+```clike
+typedef enum _DEBUGGER_HOOK_MEMORY_TYPE
+{
+    DEBUGGER_MEMORY_HOOK_VIRTUAL_ADDRESS,
+    DEBUGGER_MEMORY_HOOK_PHYSICAL_ADDRESS
+} DEBUGGER_HOOK_MEMORY_TYPE;
+```
 
 ### Design
 
@@ -267,6 +291,8 @@ Take a look at "[Design of !monitor](https://docs.hyperdbg.org/design/features/v
 ### Remarks
 
 Starting from **v0.4**, the support for **execution** interception or the '`x`' attribute string is added to the HyperDbg debugger.
+
+Starting from **v0.9** the support for monitor physical memory is added to this command.
 
 {% hint style="danger" %}
 You shouldn't use any of **!monitor**, **!epthook**, and **!epthook2** commands on the same page (4KB) simultaneously. For example, when you put a hidden hook (**!epthook2**) on **0x10000005**, you shouldn't use any of **!monitor** or **!epthook** commands on the address starting from **0x10000000** to **0x10000fff**.
@@ -277,6 +303,8 @@ You can use **!epthook** (just _**!epthook**_ not **!epthook2** and not **!monit
 If you need to reserve more pre-allocated pools for this command, you can use the '[prealloc](https://docs.hyperdbg.org/commands/debugging-commands/prealloc)' command.
 
 This command cannot be used simultaneously with the '[!mode](https://docs.hyperdbg.org/commands/extension-commands/mode)' command.
+
+Using the '**pid**' parameter does not make sense if you specify a physical address as the '**MemoryType**' and it is ignored.
 
 This command creates an [event](https://docs.hyperdbg.org/design/debugger-internals/events). Starting from HyperDbg **v0.7**, events are guaranteed to keep the debuggee in a halt state (in the [Debugger Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode)); thus, nothing will change during its execution and the context (registers and memory) remain untouched. You can visit [instant events](https://docs.hyperdbg.org/tips-and-tricks/misc/instant-events) for more information.
 
