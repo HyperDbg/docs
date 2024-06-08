@@ -26,7 +26,7 @@ Please note that if you encounter an invalid address error when applying monitor
 
 ### Parameters
 
-**\[**Attribute **(string)]**
+**\[Attribute (string)]**
 
 Can be one of these values (or a combination of these attributes like '**rw**', '**rx**', '**wx**', '**rwx**', etc.):
 
