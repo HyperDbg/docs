@@ -50,7 +50,6 @@
     * [Scripting Language Examples](https://docs.hyperdbg.org/commands/scripting-language/examples)
 * [Software Development Kit (SDK)](using-hyperdbg/sdk/README.md)
   * [Events](using-hyperdbg/sdk/events/README.md)
-    * [Managing Events](using-hyperdbg/sdk/events/managing-events.md)
     * [Conditions](using-hyperdbg/sdk/events/conditions.md)
     * [Actions](using-hyperdbg/sdk/events/actions.md)
   * [IOCTL](using-hyperdbg/sdk/ioctl/README.md)
