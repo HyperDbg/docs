@@ -1,16 +1,16 @@
 ---
-description: Description of the 'strcmp' function in HyperDbg Scripts
+description: Description of the 'strncmp' function in HyperDbg Scripts
 ---
 
-# strcmp
+# strncmp
 
 ### Function
 
-> strcmp
+> strncmp
 
 ### Syntax
 
-> strcmp( Str1, Str2 );
+> strncmp( Str1, Str2, Num );
 
 ### Parameters
 
@@ -22,9 +22,15 @@ A [MASM-like expression](https://docs.hyperdbg.org/commands/scripting-language/a
 
 A [MASM-like expression](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations) or a string to compare with **Str1**.
 
+**\[Num]**
+
+Maximum number of characters to compare.
+
 ### Description
 
-Compares the string _**Str1**_ to the string _**Str2**_.
+Compares up to _**Num**_ characters of the string _**Str1**_ to the string _**Str2**_.
+
+If the characters are equal, the comparison continues with the next pair of characters. This process repeats until the characters differ, a terminating null character is encountered, or _**Num**_ characters have been compared in both strings, whichever occurs first.
 
 ### Return value
 
@@ -39,27 +45,25 @@ Returns an integer value indicating the relationship between the strings:\
 
 ### Examples
 
-``strcmp(fffff806`6de00000, @rax+c0);``
+``strncmp(fffff806`6de00000, @rax+c0, 0n12);``
 
-Compare the string located at ``fffff806`6de00000`` with the string located at `@rax+c0`.
+Compare the the first 12 (decimal) characters of the string located at ``fffff806`6de00000`` with the string located at `@rax+c0`.
 
-`strcmp(@rcx, "Test String");`
+`strncmp(@rcx, "Test String", b);`
 
-Compare the string located at `@rcx` with the string `"Test String"`.
+Compare the first 0xb (hexadecimal) characters of the string located at `@rcx` with the string `"Test String"`.
 
-`strcmp("Test String1", "Test String2");`
+`strncmp("Test String1", "Test String2", 0n7);`
 
-Compare the string `"Test String1"` with the string `"Test String2"`.
+Compare the first 7 (decimal) characters of the string `"Test String1"` with the string `"Test String2"`.
 
 ### Remarks
 
 This function checks for the validity of both the source and the destination address before the comparison.&#x20;
 
-The support for this function is added from **v0.7**.
+The support for this function is added from **v0.9**.
 
 ### Related
-
-[strncmp](https://docs.hyperdbg.org/commands/scripting-language/functions/strings/strncmp)
 
 [wcscmp](https://docs.hyperdbg.org/commands/scripting-language/functions/strings/wcscmp)
 

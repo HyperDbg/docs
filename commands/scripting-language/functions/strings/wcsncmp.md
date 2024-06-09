@@ -1,16 +1,16 @@
 ---
-description: Description of the 'wcscmp' function in HyperDbg Scripts
+description: Description of the 'wcsncmp' function in HyperDbg Scripts
 ---
 
-# wcscmp
+# wcsncmp
 
 ### Function
 
-> wcscmp
+> wcsncmp
 
 ### Syntax
 
-> wcscmp( WStr1, WStr2 );
+> wcsncmp( WStr1, WStr2, Num );
 
 ### Parameters
 
@@ -22,9 +22,15 @@ A [MASM-like expression](https://docs.hyperdbg.org/commands/scripting-language/a
 
 A [MASM-like expression](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations) or a wide-character string to compare with **WStr1**.
 
+**\[Num]**
+
+Maximum number of characters to compare.
+
 ### Description
 
-Compares the wide-character string _**WStr1**_ to the wide-character string _**WStr2**_.
+Compares up to _**Num**_ characters of the wide-character string _**WStr1**_ to the wide-character string _**WStr2**_.
+
+If the characters are equal, the comparison continues with the next pair of characters. This process repeats until the characters differ, a terminating null character is encountered, or _**Num**_ characters have been compared in both strings, whichever occurs first.
 
 {% hint style="info" %}
 Wide-character strings are started with an **L** character before the quotations. For example **L"This is a wide-character string"**.
@@ -43,30 +49,28 @@ Returns an integer value indicating the relationship between the strings:\
 
 ### Examples
 
-``wcscmp(fffff806`6de00000, @rax+c0);``
+``wcsncmp(fffff806`6de00000, @rax+c0, 0n12);``
 
-Compare the wide-character string located at ``fffff806`6de00000`` with the wide-character string located at `@rax+c0`.
+Compare the the first 12 (decimal) characters of  the wide-character string located at ``fffff806`6de00000`` with the wide-character string located at `@rax+c0`.
 
-`wcscmp(@rcx, L"Test WString");`
+`wcsncmp(@rcx, L"Test WString", 12);`
 
-Compare the wide-character string located at `@rcx` with the wide-character string `L"Test WString"`.
+Compare the first 0x12 (hexadecimal) characters of the wide-character string located at `@rcx` with the wide-character string `L"Test WString"`.
 
-`wcscmp(L"Test WString1", L"Test WString2");`
+`wcsncmp(L"Test WString1", L"Test WString2", 0n10);`
 
-Compare the wide-character string `L"Test WString1"` with the wide-character string `L"Test WString2"`.
+Compare the first 10 (decimal) characters of the wide-character string `L"Test WString1"` with the wide-character string `L"Test WString2"`.
 
 ### Remarks
 
 This function checks for the validity of both the source and the destination address before the comparison.&#x20;
 
-The support for this function is added from **v0.7**.
+The support for this function is added from **v0.9**.
 
 ### Related
 
 [strcmp](https://docs.hyperdbg.org/commands/scripting-language/functions/strings/strcmp)
 
 [strncmp](https://docs.hyperdbg.org/commands/scripting-language/functions/strings/strncmp)
-
-[wcsncmp](https://docs.hyperdbg.org/commands/scripting-language/functions/strings/wcsncmp)
 
 [memcmp](https://docs.hyperdbg.org/commands/scripting-language/functions/memory/memcmp)
