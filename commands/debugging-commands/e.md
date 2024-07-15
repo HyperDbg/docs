@@ -39,7 +39,7 @@ The new contents in hex format (it could be an array).
 The process ID in the hex format that we want to see the memory from its context (**cr3**).
 
 {% hint style="info" %}
-If you don't specify the pid, then the default pid is the current process (**HyperDbg**) process layout of memory.
+If you don't specify the `pid`, then the default `pid` is the current process (**HyperDbg**) process layout of memory.
 {% endhint %}
 
 {% hint style="danger" %}

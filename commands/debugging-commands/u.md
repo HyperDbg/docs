@@ -47,7 +47,7 @@ The length (byte) in hex format.
 The Process ID that's in the hex format is what we want to see the memory from its context (**cr3**).
 
 {% hint style="info" %}
-If you don't specify the pid, then the default pid is the current process (HyperDbg) process layout of memory.
+If you don't specify the **pid**, then the default **pid** is the current process (HyperDbg) process layout of memory.
 {% endhint %}
 
 ### Examples
