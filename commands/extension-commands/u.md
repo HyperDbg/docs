@@ -214,3 +214,7 @@ None
 [Zydis](https://zydis.re/)
 
 [u (disassemble virtual address)](https://docs.hyperdbg.org/commands/debugging-commands/u)
+
+[a (assemble virtual address)](https://docs.hyperdbg.org/commands/debugging-commands/a)
+
+[!a (assemble physical address)](https://docs.hyperdbg.org/commands/extension-commands/a)
