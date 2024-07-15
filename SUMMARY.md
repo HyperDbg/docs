@@ -125,6 +125,7 @@
   * [.logclose (close log file)](commands/meta-commands/.logclose.md)
   * [.cls (clear the screen)](commands/meta-commands/.cls.md)
 * [Extension Commands](commands/extension-commands/README.md)
+  * [!a (assemble physical address)](commands/extension-commands/a.md)
   * [!pte (display page-level address and entries)](commands/extension-commands/pte.md)
   * [!db, !dc, !dd, !dq (read physical memory)](commands/extension-commands/d.md)
   * [!eb, !ed, !eq (edit physical memory)](commands/extension-commands/e.md)
