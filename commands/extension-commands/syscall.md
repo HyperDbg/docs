@@ -161,7 +161,7 @@ HyperDbg> !syscall 55 pid 490 code {90 90 90}
 Or if you want to use assembly codes directly, you can add an `asm` before the `code`.
 
 ```clike
-HyperDbg> !syscall 55 pid 490 asm code {nop; nop; nop
+HyperDbg> !syscall 55 pid 490 asm code {nop; nop; nop}
 ```
 
 **Run Custom Code (Conditional)**
