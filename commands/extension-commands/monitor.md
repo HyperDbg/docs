@@ -10,9 +10,9 @@ description: Description of the '!monitor' command in HyperDbg.
 
 ### Syntax
 
-> !monitor \[Attribute (string)] \[FromAddress (hex)] \[ToAddress (hex)] \[MemoryType (vapa)] \[pid ProcessId (hex)] \[core CoreId (hex)] \[imm IsImmediate (yesno)] \[sc EnableShortCircuiting (onoff)] \[stage CallingStage (prepostall)] \[buffer PreAllocatedBuffer (hex)] \[script { Script (string) }] \[condition { Condition (hex) }] \[asm code { Code (assembly/hex) }] \[output {OutputName (string)}]
+> !monitor \[Attribute (string)] \[FromAddress (hex)] \[ToAddress (hex)] \[MemoryType (vapa)] \[pid ProcessId (hex)] \[core CoreId (hex)] \[imm IsImmediate (yesno)] \[sc EnableShortCircuiting (onoff)] \[stage CallingStage (prepostall)] \[buffer PreAllocatedBuffer (hex)] \[script { Script (string) }] \[asm condition { Condition (assembly/hex) }] \[asm code { Code (assembly/hex) }] \[output {OutputName (string)}]
 >
-> !monitor \[MemoryType (vapa)] \[Attribute (string)] \[FromAddress (hex)] \[l Length (hex)] \[MemoryType (vapa)] \[pid ProcessId (hex)] \[core CoreId (hex)] \[imm IsImmediate (yesno)] \[sc EnableShortCircuiting (onoff)] \[stage CallingStage (prepostall)] \[buffer PreAllocatedBuffer (hex)] \[script { Script (string) }] \[condition { Condition (hex) }] \[asm code { Code (assembly/hex) }] \[output {OutputName (string)}]
+> !monitor \[MemoryType (vapa)] \[Attribute (string)] \[FromAddress (hex)] \[l Length (hex)] \[MemoryType (vapa)] \[pid ProcessId (hex)] \[core CoreId (hex)] \[imm IsImmediate (yesno)] \[sc EnableShortCircuiting (onoff)] \[stage CallingStage (prepostall)] \[buffer PreAllocatedBuffer (hex)] \[script { Script (string) }] \[asm condition { Condition (assembly/hex) }] \[asm code { Code (assembly/hex) }] \[output {OutputName (string)}]
 
 ### Description
 
@@ -88,7 +88,7 @@ Optional value which reserves a safe [pre-allocated buffer](https://docs.hyperdb
 
 A HyperDbg [script](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#script) will be executed each time the event is triggered.
 
-**\[condition { Condition (hex) }]  (optional)**
+**\[asm condition { Condition (assembly/hex) }]  (optional)**
 
 Optional hex assembly codes which check for [conditions](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-a-condition) in assembly.
 
