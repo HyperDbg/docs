@@ -24,7 +24,7 @@ When you enable this event, all entries from **32** to **255** will cause vm-exi
 
 **\[IdtIndex (hex)]**
 
-Trigger in the case of receiving an external-interrupt. The value should be between **0x20** to **0xff**. If you don't specify this parameter, then it will be triggered for all external-interrupts.
+Trigger in the case of receiving an external-interrupt. The value should be between **0x20** to **0xff**.
 
 **\[pid ProcessId (hex)] (optional)**
 
@@ -186,7 +186,7 @@ Take a look at "[Design of !exception & !interrupt](https://docs.hyperdbg.org/de
 
 ### Remarks
 
-You should avoid monitoring all external-interrupt because it is generally impossible. For example, thousands of clock-interrupts will be received, and if you want to handle all of them, it makes your system unresponsive. By the way, you can monitor just one external-interrupt without any problem.
+It is generally possible to monitor all external interrupts but HyperDbg disables this feature to avoid making the system unresponsive. For example, thousands of clock-interrupts will be received, and if HyperDbg wants to handle all of them, it makes your system unresponsive.
 
 This command creates an [event](https://docs.hyperdbg.org/design/debugger-internals/events). Starting from HyperDbg **v0.7**, events are guaranteed to keep the debuggee in a halt state (in the [Debugger Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode)); thus, nothing will change during its execution and the context (registers and memory) remain untouched. You can visit [instant events](https://docs.hyperdbg.org/tips-and-tricks/misc/instant-events) for more information.
 

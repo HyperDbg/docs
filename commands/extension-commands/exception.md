@@ -22,7 +22,7 @@ When you enable this event, only your specific entry will be hooked, so this com
 
 ### Parameters
 
-**\[IdtIndex (hex)]**
+**\[IdtIndex (hex)] (optional)**
 
 Trigger in the case of receiving an interrupt or exception. The value should be between **0x0** to **0x1f** (starting from zero). If you don't specify this parameter, it will be triggered for all first 32 exceptions/interrupts.
 
