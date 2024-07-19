@@ -130,6 +130,12 @@ If you saved your script into a file, then you can add `file:` instead of a scri
 HyperDbg> !msrread 0xc0000082 script {file:c:\users\sina\desktop\script.txt}
 ```
 
+Or if you want to use assembly codes directly, you can add an `asm` before the `condition` and also before the `code`.
+
+```clike
+HyperDbg> !msrread 0xc0000082 asm code {nop; nop; nop} asm condition {nop; nop; nop}
+```
+
 {% hint style="success" %}
 You can use [**event forwarding**](https://docs.hyperdbg.org/tips-and-tricks/misc/event-forwarding) to forward the event monitoring results from this event and other events to an external source, e.g., **File**, **NamedPipe**, or **TCP Socket**. This way, you can use **HyperDbg** as a monitoring tool and gather your target system's behavior and use it later or analyze it on other systems.
 {% endhint %}

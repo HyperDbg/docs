@@ -172,6 +172,12 @@ Monitoring process id **0x490** for syscall-number **0x55** and run 3 nops whene
 HyperDbg> !syscall 55 pid 490 code {90 90 90} condition {90 90 90}
 ```
 
+Or if you want to use assembly codes directly, you can add an `asm` before the `condition` and also before the `code`.
+
+```clike
+HyperDbg> !syscall 55 pid 490 asm code {nop; nop; nop} asm condition {nop; nop; nop}
+```
+
 {% hint style="success" %}
 Keep in mind that a conditional event can be used in **Breaking to Debugger** and **Running Script** too.
 {% endhint %}

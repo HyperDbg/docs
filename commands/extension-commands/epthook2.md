@@ -164,6 +164,12 @@ Putting a hook on `fffff801deadbeef` and run 3 nops whenever the hook is trigger
 HyperDbg> !epthook2 fffff801deadbeef code {90 90 90} condition {90 90 90}
 ```
 
+Or if you want to use assembly codes directly, you can add an `asm` before the `condition` and also before the `code`.
+
+```clike
+HyperDbg> !epthook2 fffff801deadbeef asm code {nop; nop; nop} asm condition {nop; nop; nop}
+```
+
 {% hint style="success" %}
 Keep in mind that a conditional event can be used in **Breaking to Debugger** and **Running Script** too.
 {% endhint %}

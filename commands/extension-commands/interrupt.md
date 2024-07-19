@@ -162,6 +162,12 @@ Monitoring the external-interrupts occurrence and run 3 nops whenever the event 
 HyperDbg> !interrupt 0x25 code {90 90 90} condition {90 90 90}
 ```
 
+Or if you want to use assembly codes directly, you can add an `asm` before the `condition` and also before the `code`.
+
+```clike
+HyperDbg> !interrupt 0x25 asm code {nop; nop; nop} asm condition {nop; nop; nop}
+```
+
 {% hint style="success" %}
 Keep in mind that a conditional event can be used in **Breaking to Debugger** and **Running Script** too.
 {% endhint %}

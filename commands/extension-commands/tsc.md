@@ -158,6 +158,12 @@ Monitoring process id **0x490** for **RDTSC/RDTSCP** instruction execution and r
 HyperDbg> !tsc pid 490 code {90 90 90} condition {90 90 90}
 ```
 
+Or if you want to use assembly codes directly, you can add an `asm` before the `condition` and also before the `code`.
+
+```clike
+HyperDbg> !tsc asm code {nop; nop; nop} asm condition {nop; nop; nop}
+```
+
 {% hint style="success" %}
 Keep in mind that a conditional event can be used in **Breaking to Debugger** and **Running Script** too.
 {% endhint %}
