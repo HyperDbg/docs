@@ -70,11 +70,11 @@ A HyperDbg [script](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-t
 
 **\[asm condition { Condition (assembly/hex) }]  (optional)**
 
-Optional hex assembly codes which check for [conditions](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-a-condition) in assembly.
+Optional assembly codes which check for [conditions](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-a-condition) in assembly.
 
 **\[asm code { Code (assembly/hex) }]  (optional)**
 
-Optional [hex assembly codes](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#custom-codes) will be executed each time the event is triggered.
+Optional [assembly codes](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#custom-codes) will be executed each time the event is triggered.
 
 **\[output {OutputName (string)}]  (optional)**
 
