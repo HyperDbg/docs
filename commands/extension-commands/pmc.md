@@ -10,7 +10,7 @@ description: Description of the '!pmc' command in HyperDbg.
 
 ### Syntax
 
-> !pmc \[pid ProcessId (hex)] \[core CoreId (hex)] \[imm IsImmediate (yesno)] \[sc EnableShortCircuiting (onoff)] \[stage CallingStage (prepostall)] \[buffer PreAllocatedBuffer (hex)] \[script { Script (string) }] \[condition { Condition (hex) }] \[code { Code (hex) }] \[output {OutputName (string)}]
+> !pmc \[pid ProcessId (hex)] \[core CoreId (hex)] \[imm IsImmediate (yesno)] \[sc EnableShortCircuiting (onoff)] \[stage CallingStage (prepostall)] \[buffer PreAllocatedBuffer (hex)] \[script { Script (string) }] \[condition { Condition (hex) }] \[asm code { Code (assembly/hex) }] \[output {OutputName (string)}]
 
 ### Description
 
@@ -56,7 +56,7 @@ A HyperDbg [script](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-t
 
 Optional hex assembly codes which check for [conditions](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-a-condition) in assembly.
 
-**\[code { Code (hex) }]  (optional)**
+\[asm code { Code (assembly/hex) }]  **(optional)**
 
 Optional [hex assembly codes](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#custom-codes) will be executed each time the event is triggered.
 
