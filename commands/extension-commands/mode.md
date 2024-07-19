@@ -181,6 +181,12 @@ Monitoring transitions of process id **0x490** from user-mode to kernel-mode and
 HyperDbg> !mode ku pid 490 code {90 90 90}
 ```
 
+Or if you want to use assembly codes directly, you can add an `asm` before the `code`.
+
+```clike
+HyperDbg> !mode ku pid 490 asm code {nop; nop; nop}
+```
+
 **Run Custom Code (Conditional)**
 
 Monitoring transitions of process id **0x490** from user-mode to kernel-mode and kernel-mode to user-mode and run 3 nops whenever the event condition is triggered and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) and [how to create a condition](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-a-condition) for more information.

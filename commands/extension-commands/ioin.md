@@ -150,6 +150,12 @@ Monitoring execution of **IN/IN\*** instructions for I/O port **0x3f8** and run 
 HyperDbg> !ioin 0x3f8 code {90 90 90}
 ```
 
+Or if you want to use assembly codes directly, you can add an `asm` before the `code`.
+
+```clike
+HyperDbg> !ioin 0x3f8 asm code {nop; nop; nop}
+```
+
 **Run Custom Code (Conditional)**
 
 Monitoring execution of **IN/IN\*** instructions for I/O port **0x3f8** and run 3 nops whenever the event condition is triggered and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) and [how to create a condition](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-a-condition) for more information.

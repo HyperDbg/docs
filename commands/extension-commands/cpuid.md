@@ -148,6 +148,12 @@ Monitoring process id **0x490** for **CPUID** instruction execution and run 3 no
 HyperDbg> !cpuid pid 490 code {90 90 90}
 ```
 
+Or if you want to use assembly codes directly, you can add an `asm` before the `code`.
+
+```clike
+HyperDbg> !cpuid pid 490 asm code {nop; nop; nop}
+```
+
 **Run Custom Code (Conditional)**
 
 Monitoring process id **0x490** for **CPUID** instruction execution and run 3 nops whenever the event condition is triggered and runs 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) and [how to create a condition](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-a-condition) for more information.

@@ -246,6 +246,12 @@ Monitoring reads and writes on an address range starting from ``fffff800`4ed6000
 HyperDbg> !monitor rw fffff800`4ed60000 fffff800`4ed60100 code {90 90 90}
 ```
 
+Or if you want to use assembly codes directly, you can add an `asm` before the `code`.
+
+```clike
+HyperDbg> !monitor rw fffff800`4ed60000 fffff800`4ed60100 asm code {nop; nop; nop}
+```
+
 **Run Custom Code (Conditional)**
 
 Monitoring reads and executions on an address range starting from ``fffff800`4ed60000`` to ``fffff800`4ed60100`` and run 3 nops whenever the event condition is triggered and run 3 nops whenever the event is triggered. Take a look at [Run Custom Code](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#run-custom-codes) and [how to create a condition](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-a-condition) for more information.
