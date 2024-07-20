@@ -133,6 +133,25 @@ Imagine, the **ExAllocatePoolWithTag** is located at ``fffff800`4ed6f010``. We c
 HyperDbg> !epthook2 fffff800`4ed6f010 code {488B5A404881FB484442477402EB0848C7424048444232C3}
 ```
 
+### Run custom code using assembler
+
+Instead of using hexadecimal codes, you can directly use HyperDbg's [assembler](https://www.keystone-engine.org/). The following command is the same as the above command but uses HyperDbg's internal assembler.
+
+```wasm
+HyperDbg> !epthook2 fffff800`4ed6f010 asm condition {
+		mov    rbx,QWORD PTR [rdx+0x40]
+		cmp    rbx,0x47424448
+		je     ChangeIt
+		jmp    Return
+		
+		ChangeIt:
+		mov    QWORD PTR [rdx+0x40],0x32424448
+		
+		Return:
+		ret
+}
+```
+
 ### Run custom code with a safe buffer
 
 The difference between "**Run custom code without a safe buffer**" and "**Run custom code without a safe buffer**" is that you have an extra parameter, called `buffer xx` where `xx` is the hex length of the buffer.
