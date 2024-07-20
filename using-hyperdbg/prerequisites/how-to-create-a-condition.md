@@ -208,7 +208,26 @@ One important note is that if you want to create a condition for **!syscall** co
 
 ## Example 3
 
+Now, let's run the above code by using the assembly code directly without converting them to hexadecimal by using HyperDbg's [assembler](https://www.keystone-engine.org/):
 
+```wasm
+HyperDbg> !epthook2 fffff800`4ed6f010 asm condition {
+		mov rbx , [rcx+0x10];
+		cmp rbx, 0x1000;
+		je ReturnTrue;
+
+		xor rax,rax;
+		jmp Return;
+
+		ReturnTrue:
+		mov rax, 0x1;
+
+		Return:
+		ret;
+}
+```
+
+The above code uses the internal assembler of HyperDbg.
 
 {% hint style="danger" %}
 Accessing random memory in **custom code** and **condition code** in vmx root-mode is considered "[unsafe](https://docs.hyperdbg.org/tips-and-tricks/considerations/the-unsafe-behavior)". You have some limitations on accessing memory on some special events.
