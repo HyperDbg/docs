@@ -52,6 +52,8 @@ Accessing random memory in **custom code** and **condition code** is considered 
 
 Each command in HyperDbg that are tagged as "**event**" in the document follows the same structure described [here](https://docs.hyperdbg.org/design/debugger-internals/events). At the time you execute a command, you can add a `code { xx xx xx xx }` where `xx` is the assembly (hex) of what you want to be executed in the case of that event.
 
+Starting from **v0.10**, HyperDbg supports direct assembly code in the code sections. You can add `asm code { asm1; asm2; asm3; asm4}` where you can add any assembly code to be executed in the case of that event.
+
 Generally, the assembly `code` in the code block will be called in the following form.
 
 ```c
@@ -111,7 +113,7 @@ As you know, if you want to change a register in the target OS, you have to find
 
 Take a look at the following assembly code. It first checks whether the _Tag_ (**r8**) is **HDBG**, and if it's **HDBG**, then we change it to **HDB2**.
 
-![](../../.gitbook/assets/actioncodeexample2.png)
+<figure><img src="../../.gitbook/assets/code-event-asm.png" alt=""><figcaption></figcaption></figure>
 
 When we convert the above code to assembly, then we have the following code :
 
@@ -137,20 +139,20 @@ HyperDbg> !epthook2 fffff800`4ed6f010 code {488B5A404881FB484442477402EB0848C742
 
 Instead of using hexadecimal codes, you can directly use HyperDbg's [assembler](https://www.keystone-engine.org/). The following command is the same as the above command but uses HyperDbg's internal assembler.
 
-```wasm
-HyperDbg> !epthook2 fffff800`4ed6f010 asm condition {
-		mov    rbx,QWORD PTR [rdx+0x40]
-		cmp    rbx,0x47424448
-		je     ChangeIt
-		jmp    Return
+<pre class="language-wasm"><code class="lang-wasm"><strong>HyperDbg> !epthook2 fffff800`4ed6f010 asm code {
+</strong>		mov    rbx, QWORD PTR [rdx+0x40];
+		cmp    rbx, 0x47424448;
+		
+		je     ChangeIt;
+		jmp    Return;
 		
 		ChangeIt:
-		mov    QWORD PTR [rdx+0x40],0x32424448
+		mov    QWORD PTR [rdx+0x40], 0x32424448;
 		
 		Return:
-		ret
+		ret;
 }
-```
+</code></pre>
 
 ### Run custom code with a safe buffer
 

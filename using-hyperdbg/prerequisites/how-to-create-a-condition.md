@@ -10,7 +10,7 @@ An unconditional event is an event that all its actions will be executed without
 
 Each command in HyperDbg that are tagged as an "**event**" in the document follows the same structure described [here](https://docs.hyperdbg.org/design/debugger-internals/events). At the time you execute a command, you can add a `condition { xx xx xx xx }` where `xx` is the assembly (hex) of what you want to be executed in the case of that event.
 
-Starting from **v0.10**, HyperDbg supports direct assembly code in the condition. You can add `asm condition { asm1; asm2; asm3; asm4}` where you can add any assembly code to be executed in the case of that event.
+Starting from **v0.10**, HyperDbg supports direct assembly code in the condition section. You can add `asm condition { asm1; asm2; asm3; asm4}` where you can add any assembly code to be executed in the case of that event.
 
 For example, let's imagine we want to create a condition for a command like "**!epthook**".
 
