@@ -20,6 +20,10 @@ Create, open, or close a source output for event forwarding.
 
 You can read more about **event forwarding** [here](https://docs.hyperdbg.org/tips-and-tricks/misc/event-forwarding).
 
+Examples of using this mechanism in different programming languages are available here:
+
+{% embed url="https://github.com/HyperDbg/event-forwarding-examples" %}
+
 ### Parameters
 
 **\[create Name (string)]**
