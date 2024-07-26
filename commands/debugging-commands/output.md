@@ -10,7 +10,7 @@ description: Description of the 'output' command in HyperDbg.
 
 ### Syntax
 
-> output \[create Name (string)] \[file|namedpipe|tcp Address (string)]&#x20;
+> output \[create Name (string)] \[file|namedpipe|tcp|module Address (string)]&#x20;
 >
 > output \[open|close Name (string)]&#x20;
 
@@ -26,7 +26,7 @@ You can read more about **event forwarding** [here](https://docs.hyperdbg.org/ti
 
 The name of the instance output to be created.
 
-**\[file|namedpipe|tcp Address (string)]**&#x20;
+**\[file|namedpipe|tcp|module Address (string)]**&#x20;
 
 Type and address of the target resource.
 
@@ -82,13 +82,41 @@ HyperDbg> !syscall script { print(@rax); } output {MyOutputName1 , MyOutputName2
 
 You can specify up to `5` output sources in the default build of HyperDbg, but if you need more output sources for a single event, then you should compile HyperDbg with different configurations as described on [Customize Build](https://docs.hyperdbg.org/tips-and-tricks/misc/customize-build) and change the `DebuggerOutputSourceMaximumRemoteSourceForSingleEvent`.
 
+Starting from v0.10, HyperDbg supports modules (DLLs) as functions directly load DLLs and have the ability to forward events to functions. Note that, DLLs should be compiled into 64-bit binaries (32-bit binaries are not supported). Examples of DLLs are available in [Rust](https://github.com/HyperDbg/event-forwarding-examples/tree/main/Rust/module) and [C++](https://github.com/HyperDbg/event-forwarding-examples/tree/main/C%2B%2B/module).
+
+Generally, DLLs (in all low-level languages) should export a function with the name `hyperdbg_event_forwarding` with the first parameter as a pointer to the buffer message and the second parameter as an integer with the size that will be called by HyperDbg's event forwarding module once an event is triggered. The following example is the definition of the function in C/C++ (You can do the same in Rust, GO, etc.).
+
+```cpp
+hyperdbg_event_forwarding(const char* buffer_message, unsigned int buffer_length);
+```
+
+After compiling the above function and exporting the above function (e.g., by using `__declspec(dllexport)`), you can open a `module` using the following command:
+
+```
+output create MyOutputName1 module C:\module\event_forwarding_module.dll
+```
+
+and after that, open it using the following command:
+
+```
+output open MyOutputName1
+```
+
+and then (same as above examples) you can pass the events using the following event:
+
+```c
+!epthook nt!ExAllocatePoolWithTag script {
+	printf("Pool allocation called!");
+} output { MyOutputName1 }
+```
+
 ### IOCTL
 
 None
 
 ### Remarks
 
-You can use this command to forward the results of the scripts from all the [events](https://docs.hyperdbg.org/design/debugger-internals/events).
+You can use this command to forward the scripts' results from all the [events](https://docs.hyperdbg.org/design/debugger-internals/events).
 
 {% hint style="danger" %}
 You **cannot** use event forwarding in the immediate messaging mode in events (`imm no`).

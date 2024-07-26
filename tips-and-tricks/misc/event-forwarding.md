@@ -2,13 +2,15 @@
 description: Brief explanation about Event Forwarding Mechanism
 ---
 
-# Event Forwarding
+# Event forwarding
 
 Event forwarding is a feature designed to make HyperDbg a tool for log gathering and analyzing system behavior. This way, you can use HyperDbg for [#DFIR](https://twitter.com/search?q=%23dfir) purposes.
 
-You can use event forwarding to forward the event monitoring result from your internal system to an external source, e.g., **File**, **NamedPipe**, or **TCP Socket**.
+You can use event forwarding to forward the event monitoring result from your internal system to an external source, e.g., **File**, **NamedPipe**, **TCP Socket**, or **DLL (binary) module**.
 
 Thanks a lot to [Samir](https://twitter.com/SBousseaden) for his valuable suggestions that make this feature available.
+
+Starting from HyperDbg **v0.10**, support for DLL modules is added to HyperDbg.
 
 ## Output command
 
