@@ -10,6 +10,8 @@ description: Description of the 'output' command in HyperDbg.
 
 ### Syntax
 
+> output
+>
 > output \[create Name (string)] \[file|namedpipe|tcp|module Address (string)]&#x20;
 >
 > output \[open|close Name (string)]&#x20;
@@ -37,6 +39,10 @@ Type and address of the target resource.
 **\[open|close Name (string)]**
 
 The action of this command or whether this command tries to open an output source or close it combined with its name.
+
+{% hint style="success" %}
+If you don't specify any parameters to the '**output**' command, it shows a list of output sources and their status.
+{% endhint %}
 
 ### Examples
 
@@ -112,6 +118,15 @@ and then (same as above examples) you can pass the events using the following ev
 !epthook nt!ExAllocatePoolWithTag script {
 	printf("Pool allocation called!");
 } output { MyOutputName1 }
+```
+
+In case, you want to see a list of sources, you can use the '**output**' command without any parameter.
+
+```
+HyperDbg> output
+1  file        not opened       MyOutputName1
+2  file        opened           MyOutputName2
+3  file        not opened       MyOutputName3
 ```
 
 ### IOCTL
