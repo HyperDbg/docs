@@ -273,6 +273,8 @@
 
 * [Twitter](https://twitter.com/HyperDbg)
 * [Telegram](https://t.me/HyperDbg)
+* [Discord](https://discord.gg/anSPsGUtzN)
+* [Matrix](https://matrix.to/#/#hyperdbg-discussion:matrix.org)
 * [Mastodon](https://infosec.exchange/@hyperdbg)
 * [YouTube](https://youtube.com/c/HyperDbg)
 * [hwdbg (Chip Debugger)](https://hwdbg.hyperdbg.org)
