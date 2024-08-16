@@ -6,7 +6,7 @@ description: Description of HyperDbg Debugger Scripts
 
 Batch scripts are essential parts of the debugger and the script engine, mainly used to automate debugging tasks.
 
-Based on the complexity of developing different parts of the debugger and the fact that there are tens of [considerations](https://docs.hyperdbg.org/tips-and-tricks/considerations) on developing automated tasks in HyperDbg, we prefer to use the script engine to implement many features and commands. That's why HyperDbg came with a set of pre-defined [scripts](https://github.com/HyperDbg/scripts).&#x20;
+Based on the complexity of developing different parts of the debugger and the fact that there are tens of [considerations](https://docs.hyperdbg.org/tips-and-tricks/considerations) for developing automated tasks in HyperDbg, we prefer to use the script engine to implement many features and commands. That's why HyperDbg came with a set of pre-defined [scripts](https://github.com/HyperDbg/scripts).&#x20;
 
 You can write your scripts to automate your debugging routines without worrying about HyperDbg internals, as most limitations are checked through the script functions.
 
@@ -29,7 +29,7 @@ There are two ways to run batch-script like commands in **HyperDbg**.
 First, we can save our command(s) in a file and then use the [.script](https://docs.hyperdbg.org/commands/meta-commands/.script) command, and the second way is to pass the `--script` argument to the **hyperdbg-cli.exe**.
 
 {% hint style="success" %}
-In HyperDbg's batch scripts '`#`' is used as the [comment character](https://docs.hyperdbg.org/commands/debugging-commands/comment). However, in the script engine, it uses a C-like [commenting style](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations#comments).
+In HyperDbg, both batch scripts and the script engine use a C-like [commenting style](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations#comments).
 {% endhint %}
 
 For example, let's assume that we can use [.script](https://docs.hyperdbg.org/commands/meta-commands/.script) command like this:
@@ -83,7 +83,7 @@ Please note that you should put a space in the script file path between two quot
 ```clike
 ? {	
 	printf("Hello World\n");
-	printf("First argument is : %llx\n", $arg1);
+	printf("The first argument is : %llx\n", $arg1);
 	printf("Result of rax + rbx is : %llx\n", $arg2);
 }
 ```
@@ -92,7 +92,7 @@ The result would be:
 
 ```
 Hello World
-First argument is : 55
+The first argument is : 55
 Result of rax + rbx is : 5
 ```
 
