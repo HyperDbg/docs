@@ -106,3 +106,5 @@ LoadLibrary called!
 ```
 
 Please remember that these techniques only apply when the **address is actually valid**, if the address is not allocated and invalid, then it does not make sense to access them!
+
+Please note that technically, you could use the '[.pagein](https://docs.hyperdbg.org/commands/meta-commands/.pagein)' command on a large range of memory. However, in large memory ranges, there are often page entries that are already valid (paged in or never paged out by the OS). In those cases, if you bring them into memory (force the OS to page them in) using the '[.pagein](https://docs.hyperdbg.org/commands/meta-commands/.pagein)' command, it will disrupt the OS semantics. This command injects a #PF (page fault) into the OS, and if the address is already valid, the operating system does not expect to receive a page fault for an available page, which might or will cause a triple fault and consequently a system restart or crash.

@@ -318,6 +318,8 @@ This command cannot be used simultaneously with the '[!mode](https://docs.hyperd
 
 Using the '**pid**' parameter does not make sense if you specify a physical address as the '**MemoryType**' and it is ignored.
 
+If you want to monitor a large amount of memory, you have to consider tricks for [accessing invalid addresses](https://docs.hyperdbg.org/tips-and-tricks/considerations/accessing-invalid-address). Please note that technically, you could use an unlimited amount of memory, but usually, in large memory ranges, there are page entries that are not available (paged out or never brought into memory by the OS). In those cases, you need to bring them into memory (force the OS to page them in) using the '[.pagein](https://docs.hyperdbg.org/commands/meta-commands/.pagein)' command. However, please consider that this command will inject a #PF (page fault) into the OS, and if the address is already valid, it disrupts OS semantics. The operating system does not expect to receive a page fault for a page that is already available, which might cause a triple fault and consequently a system restart or crash.
+
 This command creates an [event](https://docs.hyperdbg.org/design/debugger-internals/events). Starting from HyperDbg **v0.7**, events are guaranteed to keep the debuggee in a halt state (in the [Debugger Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode)); thus, nothing will change during its execution and the context (registers and memory) remain untouched. You can visit [instant events](https://docs.hyperdbg.org/tips-and-tricks/misc/instant-events) for more information.
 
 ### Requirements
