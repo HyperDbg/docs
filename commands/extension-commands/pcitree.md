@@ -2,7 +2,7 @@
 description: Description of '!pcitree' command in HyperDbg.
 ---
 
-# !pcitree (show PCI Express device tree)
+# !pcitree (show PCI express device tree)
 
 > !pcitree
 
@@ -46,7 +46,7 @@ DBDF         | VID:DID   | Vendor Name       | Device Name
 0000:02:00:0 | 10ec:b852 | Realtek Semiconductor Co., Ltd. | RTL8852BE PCIe 802.11ax Wireless Network Controller
 ```
 
-Another example of using this command in a VMware Workstation machine.
+Another example of using this command in a VMware Workstation guest.
 
 ```clike
 0: kHyperDbg> !pcitree
