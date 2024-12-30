@@ -42,14 +42,20 @@ The following example loads `vmm` module.
 HyperDbg> load vmm
 ```
 
-### IOCTL
+### SDK
 
-This command causes to run a `CreateFile` in the target system, in `IRP_MJ_CREATE`, the driver loads the modules like vt-x and debugger and all other kernel modules, so it doesn't have an IOCTL. You can call `CreateFile` to the driver's device and get a handle.
+To load the HyperDbg driver on the local machine, you need to use the following function in `libhyperdbg`:
 
-If you're using APIs, the following export in **hprdbgctrl** can be used.
-
+```clike
+INT
+hyperdbg_u_load_vmm();
 ```
-HPRDBGCTRL_API int HyperdbgLoadVmm();
+
+Make sure to install drivers before loading the driver.
+
+```clike
+INT
+hyperdbg_u_install_vmm_driver();
 ```
 
 ### Remarks

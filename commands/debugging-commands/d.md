@@ -120,67 +120,19 @@ fffff800`3ad6f070  8B480000`0038840F 8B485824`6C8B48D8
 fffff800`3ad6f080  8B485024`5C8B48C3 4130C483`48602474
 ```
 
-### IOCTL
+### SDK
 
-This function works by calling **DeviceIoControl** with `IOCTL = IOCTL_DEBUGGER_READ_MEMORY` , you have to send it in the following structure.
+To read the memory in the target debuggee, you need to use the following function in `libhyperdbg`:
 
-```c
-typedef struct _DEBUGGER_READ_MEMORY {
-
-    UINT32 Pid; // Read from cr3 of what process
-    UINT64 Address;
-    UINT32 Size;
-    DEBUGGER_READ_MEMORY_TYPE MemoryType;
-    DEBUGGER_READ_READING_TYPE ReadingType;
-
-} DEBUGGER_READ_MEMORY, * PDEBUGGER_READ_MEMORY;
-```
-
-Where `Pid` is the process id, `Address` is the target location address and `size` is the length of the byte(s) that you need to read.
-
-`MemoryType`is either **virtual** or **physical**.
-
-```c
-typedef enum _DEBUGGER_READ_MEMORY_TYPE { DEBUGGER_READ_PHYSICAL_ADDRESS, DEBUGGER_READ_VIRTUAL_ADDRESS } DEBUGGER_READ_MEMORY_TYPE;
-```
-
-`ReadingType` is either from the **kernel** or from the **vmx-root**. Currently, only the reading from the kernel is implemented.
-
-```c
-typedef enum _DEBUGGER_READ_READING_TYPE { READ_FROM_KERNEL, READ_FROM_VMX_ROOT } DEBUGGER_READ_READING_TYPE;
-```
-
-If you don't want to read from the kernel directly, use the following **HyperDbg Routine**.
-
-```c
-void HyperDbgReadMemoryAndDisassemble(DEBUGGER_SHOW_MEMORY_STYLE Style, UINT64 Address,
-                        DEBUGGER_READ_MEMORY_TYPE MemoryType,
-                        DEBUGGER_READ_READING_TYPE ReadingType, UINT32 Pid,
-                        UINT Size);
-```
-
-The above function fills the IOCTL structure and shows the memory content. It is also able to disassemble the memory. You can specify one of the following `styles` to show the memory.
-
-```c
-typedef enum _DEBUGGER_SHOW_MEMORY_STYLE { DEBUGGER_SHOW_COMMAND_DISASSEMBLE, DEBUGGER_SHOW_COMMAND_DB, DEBUGGER_SHOW_COMMAND_DC, DEBUGGER_SHOW_COMMAND_DQ, DEBUGGER_SHOW_COMMAND_DD } DEBUGGER_SHOW_MEMORY_STYLE;
-```
-
-For disassembling, use the `DEBUGGER_SHOW_COMMAND_DISASSEMBLE` as the `Style`.
-
-In the debugger mode, HyperDbg uses the exact same structure, you should send the above structure over serial to the debuggee which is paused in **vmx-root** mode.
-
-You should send the above structure with `DEBUGGER_REMOTE_PACKET_REQUESTED_ACTION_ON_VMX_ROOT_READ_MEMORY` as `RequestedAction` and `DEBUGGER_REMOTE_PACKET_TYPE_DEBUGGER_TO_DEBUGGEE_EXECUTE_ON_VMX_ROOT` as `PacketType`.
-
-In return, the debuggee sends the above structure with the following type.
-
-```c
-DEBUGGER_REMOTE_PACKET_REQUESTED_ACTION_DEBUGGEE_RESULT_OF_READING_MEMORY
-```
-
-The following function is responsible for sending reading memory in the debugger.
-
-```c
-BOOLEAN KdSendReadMemoryPacketToDebuggee(PDEBUGGER_READ_MEMORY ReadMem);
+```clike
+VOID
+hyperdbg_u_show_memory_or_disassemble(DEBUGGER_SHOW_MEMORY_STYLE   style,
+                                      UINT64                       address,
+                                      DEBUGGER_READ_MEMORY_TYPE    memory_type,
+                                      DEBUGGER_READ_READING_TYPE   reading_type,
+                                      UINT32                       pid,
+                                      UINT32                       size,
+                                      PDEBUGGER_DT_COMMAND_OPTIONS dt_details);
 ```
 
 ### Remarks

@@ -79,7 +79,12 @@ IDT[0xe:14] : fffff801`4ce275c0 ntkrnlmp!KiPageFault
 
 ### SDK
 
-None
+To get the IDT details, you need to use the following function in `libhyperdbg`:
+
+```clike
+BOOLEAN
+hyperdbg_u_get_idt_entry(INTERRUPT_DESCRIPTOR_TABLE_ENTRIES_PACKETS * idt_packet);
+```
 
 ### Remarks
 

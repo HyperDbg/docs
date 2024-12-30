@@ -20,9 +20,14 @@ When the **HyperDbg** debugger is paused by [pause command](https://docs.hyperdb
 
 None
 
-### IOCTL
+### SDK
 
-None
+To continue the debuggee, you need to use the following function in `libhyperdbg`:
+
+```clike
+VOID
+hyperdbg_u_continue_debuggee();
+```
 
 ### Remarks
 

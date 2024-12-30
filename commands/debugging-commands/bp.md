@@ -80,44 +80,13 @@ id   address           status
 06  fffff801639b103f  enabled
 ```
 
-### IOCTL
+### SDK
 
-This commands works over serial by sending the serial packets to the remote computer.
+To set the breakpoint, you need to use the following function in `libhyperdbg`:
 
-First of all, you should fill the following structure, set the `Address` to your target virtual address that you want to put a breakpoint on it, and fill `Pid` to your special process id, and/or `Tid` to your special thread id, and/or `Core` to your special core.
-
-```c
-typedef struct _DEBUGGEE_BP_PACKET {
-
-  UINT64 Address;
-  UINT32 Pid;
-  UINT32 Tid;
-  UINT32 Core;
-  UINT32 Result;
-
-} DEBUGGEE_BP_PACKET, *PDEBUGGEE_BP_PACKET;
-```
-
-If you want your breakpoint to be triggered for all processes, threads, and cores, then choose `DEBUGGEE_BP_APPLY_TO_ALL_PROCESSES`, `DEBUGGEE_BP_APPLY_TO_ALL_THREADS`, `DEBUGGEE_BP_APPLY_TO_ALL_CORES`.
-
-The next step is sending the above structure to the debuggee when debuggee is paused and waiting for new command on **vmx-root** mode.
-
-You should send the above structure with `DEBUGGER_REMOTE_PACKET_REQUESTED_ACTION_ON_VMX_ROOT_BP` as `RequestedAction` and `DEBUGGER_REMOTE_PACKET_TYPE_DEBUGGER_TO_DEBUGGEE_EXECUTE_ON_VMX_ROOT` as `PacketType`.
-
-In return, the debuggee sends the above structure with the following type.
-
-```c
-DEBUGGER_REMOTE_PACKET_REQUESTED_ACTION_DEBUGGEE_RESULT_OF_BP
-```
-
-In the returned structure, the `Result` is filled by the kernel.
-
-If the `Result` is `DEBUGEER_OPERATION_WAS_SUCCESSFULL`, then the operation was successful. Otherwise, the returned result is an error.
-
-The following function is responsible for sending breakpoint buffers in the debugger.
-
-```c
-BOOLEAN KdSendBpPacketToDebuggee(PDEBUGGEE_BP_PACKET BpPacket);
+```clike
+VOID
+hyperdbg_u_set_breakpoint(UINT64 address, UINT32 pid, UINT32 tid, UINT32 core_numer);
 ```
 
 ### Remarks

@@ -24,9 +24,14 @@ You can unpause using the [g command](https://docs.hyperdbg.org/commands/debuggi
 
 None
 
-### IOCTL
+### SDK
 
-None
+To pause the debuggee, you need to use the following function in `libhyperdbg`:
+
+```clike
+VOID
+hyperdbg_u_pause_debuggee();
+```
 
 ### Remarks
 
