@@ -71,58 +71,13 @@ fffff801`63a1294a    E9 B1 00 00 00                      jmp 0xFFFFF80163A12A00
 fffff801`63a12b00    F6 44 24 10 01                      test byte ptr ss:[rsp+0x10], 0x01
 ```
 
-### IOCTL
+### SDK
 
-This commands works over serial by sending the serial packets to the remote computer.
+To step through the instruction (regular step-in), you need to use the following function in `libhyperdbg`:
 
-First of all, you should fill the following structure, set the `StepType` to the type of step that you want to perform (e.g., _step-in_, _step-over_, and _instrumentation step-in_), and if it's a step-over (only step-over), then if the currently executing instruction is a **call** instruction, set the `IsCurrentInstructionACall` to `TRUE` and also set the length of the current call instruction (if it's a call instruction) to `CallLength`, so you can hint the debuggee to find the next instruction. In step-over and instrumentation step-over, just set the `StepType` and set all the other members to **null**.
-
-```c
-typedef struct _DEBUGGEE_STEP_PACKET {
-
-  DEBUGGER_REMOTE_STEPPING_REQUEST StepType;
-
-  //
-  // Only in the case of call instructions
-  // the 'p' command
-  //
-  BOOLEAN IsCurrentInstructionACall;
-  UINT32 CallLength;
-
-} DEBUGGEE_STEP_PACKET, *PDEBUGGEE_STEP_PACKET;
-```
-
-`StepType` can be chosen from one of the following types.
-
-```c
-typedef enum _DEBUGGER_REMOTE_STEPPING_REQUEST
-{
-    DEBUGGER_REMOTE_STEPPING_REQUEST_STEP_IN,
-    DEBUGGER_REMOTE_STEPPING_REQUEST_INSTRUMENTATION_STEP_IN,
-    DEBUGGER_REMOTE_STEPPING_REQUEST_INSTRUMENTATION_STEP_IN_FOR_TRACKING,
-
-    DEBUGGER_REMOTE_STEPPING_REQUEST_STEP_OVER,
-    DEBUGGER_REMOTE_STEPPING_REQUEST_STEP_OVER_FOR_GU,
-    DEBUGGER_REMOTE_STEPPING_REQUEST_STEP_OVER_FOR_GU_LAST_INSTRUCTION,
-
-} DEBUGGER_REMOTE_STEPPING_REQUEST;
-
-```
-
-The next step is sending the above structure to the debuggee when debuggee is paused and waiting for new command on **vmx-root** mode.
-
-You should send the above structure with `DEBUGGER_REMOTE_PACKET_REQUESTED_ACTION_ON_VMX_ROOT_MODE_STEP` as `RequestedAction` and `DEBUGGER_REMOTE_PACKET_TYPE_DEBUGGER_TO_DEBUGGEE_EXECUTE_ON_VMX_ROOT` as `PacketType`.
-
-In return, the debuggee sends a pause packet with the following type.
-
-```c
-DEBUGGEE_PAUSING_REASON_DEBUGGEE_STEPPED
-```
-
-The following function is responsible for sending breakpoint buffers in the debugger.
-
-```c
-BOOLEAN KdSendStepPacketToDebuggee(DEBUGGER_REMOTE_STEPPING_REQUEST StepRequestType);
+```clike
+BOOLEAN
+hyperdbg_u_stepping_regular_step_in();
 ```
 
 ### Remarks

@@ -85,9 +85,21 @@ generated assembly: 12 bytes, 3 statements ==>>         add DWORD PTR [0xfffff80
 successfully assembled at 0xfffff804136acc80 address
 ```
 
-### IOCTL
+### SDK
 
-None
+To assemble a buffer, you need to use the following function in `libhyperdbg`:
+
+```clike
+BOOLEAN
+hyperdbg_u_assemble(const CHAR * assembly_code, UINT64 start_address, PVOID buffer_to_store_assembled_data, UINT32 buffer_size);
+```
+
+To get the length of the assembly code, you need to use the following function in `libhyperdbg`:
+
+```clike
+BOOLEAN
+hyperdbg_u_assemble_get_length(const CHAR * assembly_code, UINT64 start_address, UINT32 * length);
+```
 
 ### Remarks
 

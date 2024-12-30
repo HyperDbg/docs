@@ -34,9 +34,14 @@ ntkrnlmp!KiSystemServiceCopyEnd+0x25:
 fffff802`2d045fe5    0F 1F 00                            nop dword ptr ds:[rax], eax
 ```
 
-### IOCTL
+### SDK
 
-The instruction for this command is the same as the ['p' command's IOCTL](https://docs.hyperdbg.org/commands/debugging-commands/p#ioctl) except it checks whether the instruction is equal to **RET** or not and sets the `StepRequestType` to `DEBUGGER_REMOTE_STEPPING_REQUEST_STEP_OVER_FOR_GU`.
+To step-out or go up in the target debuggee, you need to use the following function in `libhyperdbg`:
+
+```clike
+BOOLEAN
+hyperdbg_u_stepping_step_over_for_gu(BOOLEAN last_instruction);
+```
 
 ### Remarks
 

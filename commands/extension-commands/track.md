@@ -129,9 +129,14 @@ RFLAGS=0000000000040246
 ...
 ```
 
-### IOCTL
+### SDK
 
-This command works the same as the [i (instrumentation step-in)](https://docs.hyperdbg.org/commands/debugging-commands/i) command, the only difference is to set the `DEBUGGER_REMOTE_STEPPING_REQUEST_INSTRUMENTATION_STEP_IN_FOR_TRACKING` as the `StepRequestType`. Please check the [IOCTL](https://docs.hyperdbg.org/commands/debugging-commands/i#ioctl) for this command.
+To track instructions, you need to use the following function in `libhyperdbg`:
+
+```clike
+BOOLEAN
+hyperdbg_u_stepping_instrumentation_step_in_for_tracking();
+```
 
 ### Remarks
 

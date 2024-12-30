@@ -64,77 +64,17 @@ The following example is used when we want to edit the contents of physical memo
 0: kHyperDbg> !dq 1000 88889898`85858686 92929393`97979898
 ```
 
-### IOCTL
+### SDK
 
-This function works by calling **DeviceIoControl** with `IOCTL = IOCTL_DEBUGGER_EDIT_MEMORY`, you have to send it in the following structure.
+To write the memory in the target debuggee, you need to use the following function in `libhyperdbg`:
 
-```c
-typedef struct _DEBUGGER_EDIT_MEMORY {
-
-  UINT32 Result;                           // Result from kernel
-  UINT64 Address;                          // Target adddress to modify
-  UINT32 ProcessId;                        // specifies the process id
-  DEBUGGER_EDIT_MEMORY_TYPE MemoryType;    // Type of memory
-  DEBUGGER_EDIT_MEMORY_BYTE_SIZE ByteSize; // Modification size
-  UINT32 CountOf64Chunks;
-  UINT32 FinalStructureSize;
-
-} DEBUGGER_EDIT_MEMORY, *PDEBUGGER_EDIT_MEMORY;
-```
-
-The `Result` will be filled by the kernel-mode driver when it returns from the kernel and shows whether the editing was successful or not. The following results can come from the kernel :
-
-```c
-#define DEBUGGER_ERROR_EDIT_MEMORY_STATUS_INVALID_PARAMETER 0xc000000b
-#define DEBUGGER_ERROR_EDIT_MEMORY_STATUS_INVALID_ADDRESS_BASED_ON_CURRENT_PROCESS \
-  0xc000000c
-#define DEBUGGER_ERROR_EDIT_MEMORY_STATUS_INVALID_ADDRESS_BASED_ON_OTHER_PROCESS \
-  0xc000000d
-```
-
-The `Address` is where we want to modify, and it can be both a **physical** address or a **virtual** address.
-
-`ProcessId` is the process that we want to modify based on its memory layout (**cr3**), it can't be `null` or zero.
-
-`MemoryType` shows whether the `Address` is a **physical** address or a **virtual** address.
-
-You can see its values in the following enum :
-
-```c
-typedef enum _DEBUGGER_EDIT_MEMORY_TYPE {
-  EDIT_PHYSICAL_MEMORY,
-  EDIT_VIRTUAL_MEMORY
-} DEBUGGER_EDIT_MEMORY_TYPE;
-```
-
-`ByteSize` shows whether we want to modify the target Address in a **byte**, **dword**, or **qword** format.
-
-```c
-typedef enum _DEBUGGER_EDIT_MEMORY_BYTE_SIZE {
-  EDIT_BYTE,
-  EDIT_DWORD,
-  EDIT_QWORD
-} DEBUGGER_EDIT_MEMORY_BYTE_SIZE;
-```
-
-The above structure is added on top of an array of 64-bit values, which is the new content to the memory.
-
-For example, if you want to change the memory address of the target to `0x90 0x90` then you should provide an array of `0x0000000000000090` and `0x0000000000000090` and append it to the end of the above structure. The count of these chunks is stored at `CountOf64Chunks` in the above structure and the final buffer that will be sent into the kernel has a size of `FinalStructureSize` bytes.
-
-In the debugger mode, HyperDbg uses the exact same structure, you should send the above structure over serial to the debuggee which is paused in **vmx-root** mode.
-
-You should send the above structure with `DEBUGGER_REMOTE_PACKET_REQUESTED_ACTION_ON_VMX_ROOT_EDIT_MEMORY` as `RequestedAction` and `DEBUGGER_REMOTE_PACKET_TYPE_DEBUGGER_TO_DEBUGGEE_EXECUTE_ON_VMX_ROOT` as `PacketType`.
-
-In return, the debuggee sends the above structure with the following type.
-
-```c
-DEBUGGER_REMOTE_PACKET_REQUESTED_ACTION_DEBUGGEE_RESULT_OF_EDITING_MEMORY
-```
-
-The following function is responsible for sending editing memory in the debugger.
-
-```c
-BOOLEAN KdSendEditMemoryPacketToDebuggee(PDEBUGGER_EDIT_MEMORY EditMem);
+```clike
+BOOLEAN
+hyperdbg_u_write_memory(PVOID                     destination_address,
+                        DEBUGGER_EDIT_MEMORY_TYPE memory_type,
+                        UINT32                    process_id,
+                        PVOID                     source_address,
+                        UINT32                    number_of_bytes);
 ```
 
 ### Remarks
