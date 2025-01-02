@@ -61,7 +61,7 @@ You can download VMware Workstation Player (Free Non-commercial License) at: \[[
 Running HyperDbg has multiple stages. First, you should make sure to enable Intel **VT-x** from the BIOS. Next, you have to disable **Driver Signature Enforcement (DSE)** and turn off **Virtualization Based Security (VBS)**. Then you can run HyperDbg.
 
 {% hint style="success" %}
-If you've attempted all the provided instructions without success, we encourage you to initiate a '[discussion](https://github.com/orgs/HyperDbg/discussions)'. Outline your issue comprehensively, and we'll be more than happy to assist you in getting started with HyperDbg :)
+If you've attempted all the provided instructions without success, we encourage you to initiate a '[discussion](https://github.com/orgs/HyperDbg/discussions)' or ask in one of HyperDbg groups ([Telegram](https://t.me/HyperDbg), [Discord](https://discord.gg/anSPsGUtzN), or [Matrix](https://matrix.to/#/#hyperdbg-discussion:matrix.org)). Outline your issue comprehensively, and we'll be more than happy to assist you in getting started with HyperDbg :)
 {% endhint %}
 
 If you want to use HyperDbg on your own computer (**host**), for example for local kernel debugging, you need to disable **Driver Signature Enforcement (DSE**) on your local machine. Disabling DSE allows you to use HyperDbg (load drivers) on your own computer.
@@ -121,7 +121,7 @@ If your computer has the secure boot enabled, you'll see the following error.
 
 ![Kdnet.exe (secure boot)](../.gitbook/assets/kdnet-secure-boot-error.PNG)
 
-You can disable secure boot from the BIOS. Most of the time, you should change the **secure boot** option to "**Other OSes**" that are not Windows, alternatively you [disable secure boot in VMware](https://www.youtube.com/watch?v=y3o\_-AKkf-s\&ab\_channel=HowToBasic).
+You can disable secure boot from the BIOS. Most of the time, you should change the **secure boot** option to "**Other OSes**" that are not Windows, alternatively you [disable secure boot in VMware](https://www.youtube.com/watch?v=y3o_-AKkf-s\&ab_channel=HowToBasic).
 
 That's it all. We're good to go to the next section.&#x20;
 
@@ -146,7 +146,7 @@ Keep in mind that this method only temporarily disables driver signature enforce
 
 You can use [EfiGuard](https://github.com/Mattiwatti/EfiGuard) to disable both Driver Signature Enforcement (**DSE**) and PatchGuard. This way, you don't need to use WinDbg.
 
-For more information, please visit the main [repo](https://github.com/Mattiwatti/EfiGuard), or if you want to use it on VMware, you can visit [here](https://muffsec.com/blog/how-to-use-efiguard-to-disable-patchguard/) or this [demo](https://www.youtube.com/watch?v=EJGuJp2fqpM\&ab\_channel=ScriptDaddy).
+For more information, please visit the main [repo](https://github.com/Mattiwatti/EfiGuard), or if you want to use it on VMware, you can visit [here](https://muffsec.com/blog/how-to-use-efiguard-to-disable-patchguard/) or this [demo](https://www.youtube.com/watch?v=EJGuJp2fqpM\&ab_channel=ScriptDaddy).
 
 ### Disable VBS, HVCI, and Device Guard
 
