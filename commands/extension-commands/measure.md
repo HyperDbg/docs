@@ -4,6 +4,10 @@ description: Description of the '!measure' command in HyperDbg.
 
 # !measure (measuring and providing details for transparent-mode)
 
+{% hint style="danger" %}
+This command is deprecated, you should not use it anymore!
+{% endhint %}
+
 ### Command
 
 > !measure

@@ -32,6 +32,6 @@ If you are not trying to break and halt the system for stepping and instrumentin
 
 If you enable this mode, then **HyperDbg** tries to make itself transparent from anti-debugging and anti-hypervisor methods and not reveal the hypervisor's presence on timing and microarchitectural attacks; however, it won't guarantee 100% transparency, but it makes it substantially harder for the anti-debugging methods.
 
-To enable this mode, you should use '[!measure](https://docs.hyperdbg.org/commands/extension-commands/measure)' and '[!hide](https://docs.hyperdbg.org/commands/extension-commands/hide)' commands.
+To enable this mode, you should use the '[!hide](https://docs.hyperdbg.org/commands/extension-commands/hide)' and '[!unhide](https://docs.hyperdbg.org/commands/extension-commands/unhide)' commands.
 
 You can use **Transparent Mode** in both **VMI Mode** and **Debugger Mode**.

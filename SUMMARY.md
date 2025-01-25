@@ -45,8 +45,6 @@
       * [Monitoring Accesses To Structures](using-hyperdbg/kernel-mode-debugging/examples/events/monitoring-accesses-to-structures.md)
       * [Triggering Special Instructions](using-hyperdbg/kernel-mode-debugging/examples/events/triggering-special-instructions.md)
       * [Identifying System Behavior](using-hyperdbg/kernel-mode-debugging/examples/events/identifying-system-behavior.md)
-    * [misc](using-hyperdbg/kernel-mode-debugging/examples/misc/README.md)
-      * [Defeating Anti-Debug & Anti-Hypervisor Methods](using-hyperdbg/kernel-mode-debugging/examples/misc/defeating-anti-debug-and-anti-hypervisor-methods.md)
     * [Scripting Language Examples](https://docs.hyperdbg.org/commands/scripting-language/examples)
 * [Software Development Kit (SDK)](using-hyperdbg/sdk/README.md)
   * [Events](using-hyperdbg/sdk/events/README.md)
