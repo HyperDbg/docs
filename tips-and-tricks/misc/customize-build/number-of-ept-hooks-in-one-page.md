@@ -18,4 +18,6 @@ Navigate to the source code and locate the following macro. In the header files,
 #define MaximumHiddenBreakpointsOnPage 40
 ```
 
-The above macro defines the default number of breakpoints that are possible to put on a single page (4096 bytes). You must increase it according to your estimation. After that, [rebuild](https://docs.hyperdbg.org/getting-started/build-and-install) HyperDbg, and use your custom-made version of the debugger.
+The above macro defines the default number of breakpoints that are possible to put on a single page (4096 bytes). You must increase it according to your estimation.
+
+After that, [rebuild](https://docs.hyperdbg.org/getting-started/build-and-install) HyperDbg, and use your custom-made version of the debugger.

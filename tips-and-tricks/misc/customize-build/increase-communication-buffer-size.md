@@ -21,4 +21,6 @@ Navigate to the source code and locate the **SDK** and Headers folders. In the h
 #define MaxSerialPacketSize 10 * NORMAL_PAGE_SIZE
 ```
 
-The above macro defines the default buffer size. You must increase it according to your buffer size estimation provided in the error message. After that, [rebuild](https://docs.hyperdbg.org/getting-started/build-and-install) HyperDbg, and use your custom-made version of the debugger.
+The above macro defines the default buffer size. You must increase it according to your buffer size estimation provided in the error message.
+
+After that, [rebuild](https://docs.hyperdbg.org/getting-started/build-and-install) HyperDbg, and use your custom-made version of the debugger.

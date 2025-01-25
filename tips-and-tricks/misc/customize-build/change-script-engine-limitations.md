@@ -4,7 +4,7 @@ description: Changing the execution constants of the script engine
 
 # Change Script Engine Limitations
 
-If HyperDng displays an error message such as "**err, exceeding the max execution count**" indicating that the maximum number of script engine executions has been reached, you can resolve this issue by increasing the execution limit.
+If HyperDbg displays an error message such as "**err, exceeding the max execution count**" indicating that the maximum number of script engine executions has been reached, you can resolve this issue by increasing the execution limit.
 
 To fix this problem, you must build a customized version of HyperDbg that uses the most suitable number for your requirements.
 
@@ -19,7 +19,7 @@ Navigate to the source code and locate the following macro. In the header files,
 
 The above macro defines the maximum number of operations that are possible to run in a single round of script execution. You must increase it according to your estimation.&#x20;
 
-If HyperDng displays an error message such as "**err, stack buffer overflow**" indicating that the maximum number of stack variables has been pushed and the stack is full, you can resolve this issue by increasing the execution limit.
+If HyperDbg displays an error message such as "**err, stack buffer overflow**" indicating that the maximum number of stack variables has been pushed and the stack is full, you can resolve this issue by increasing the execution limit.
 
 Navigate to the source code and locate the following macro. In the header files, search for `MAX_STACK_BUFFER_COUNT` and you will see the following code:
 
