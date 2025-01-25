@@ -241,6 +241,7 @@
   * [Customize build](tips-and-tricks/misc/customize-build/README.md)
     * [Increase Communication Buffer Size](tips-and-tricks/misc/customize-build/increase-communication-buffer-size.md)
     * [Number of EPT Hooks in One Page](tips-and-tricks/misc/customize-build/number-of-ept-hooks-in-one-page.md)
+    * [Change Script Engine Limitations](tips-and-tricks/misc/customize-build/change-script-engine-limitations.md)
   * [Enable and disable events in Debugger Mode](tips-and-tricks/misc/enable-and-disable-events-in-debugger-mode.md)
   * [Switch to New Process Layout](tips-and-tricks/misc/switch-to-new-process-layout.md)
 
