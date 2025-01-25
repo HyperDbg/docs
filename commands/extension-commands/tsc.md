@@ -16,10 +16,6 @@ description: Description of the '!tsc' command in HyperDbg.
 
 Triggers when the debugging machine executes **RDTSC** or **RDTSCP** instructions in any execution level (kernel-mode or user-mode).
 
-{% hint style="danger" %}
-Using this command is not allowed in **transparent-mode**. You should not use this command in [transparent-mode](https://docs.hyperdbg.org/tips-and-tricks/considerations/transparent-mode) as it won't trigger any event.
-{% endhint %}
-
 ### Parameters
 
 **\[pid ProcessId (hex)] (optional)**
