@@ -6,7 +6,7 @@ description: What is "unsafe" behavior in using HyperDbg
 
 ### What do we mean by "safe" and "unsafe"?
 
-The term “safe” and “safe” is used a lot in HyperDbg. By “safe,” we mean something that works all the time and won’t cause a system crash or system halt.
+The term “safe” and “unsafe” is used a lot in HyperDbg. By “safe,” we mean something that works all the time and won’t cause a system crash or system halt.
 
 It’s so tricky to manage code in the VMX root-mode. As HyperDbg gives you the ability to run your custom assembly code in all modes of execution, you should avoid doing some “**unsafe**” behavior that leads to system instability.
 
@@ -24,7 +24,7 @@ HyperDbg provides you a way of safely accessing a non-paged pool in user, kernel
 ### How can we access the memory?
 
 * We can access the memory safely by using the functions provided by HyperDbg commands and HyperDbg's script engine. For example, if we want to read memory from the current process, we can use the regular [db, dc, dd, dq (read virtual memory)](https://docs.hyperdbg.org/commands/debugging-commands/d), and modify the memory using the [eb, ed, eq (edit virtual memory)](https://docs.hyperdbg.org/commands/debugging-commands/e) commands. On the other hand, in the script engine, you can use different memory reading [keywords](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations#keywords) to read the memory or use the [eb, ed, eq](https://docs.hyperdbg.org/commands/scripting-language/functions/memory/eb-ed-eq) functions to modify the memory.
-* Other than that, you can use the [check\_address](https://docs.hyperdbg.org/commands/scripting-language/functions/memory/check\_address) function to make sure whether an address is valid and safe to access or not.
+* Other than that, you can use the [check\_address](https://docs.hyperdbg.org/commands/scripting-language/functions/memory/check_address) function to make sure whether an address is valid and safe to access or not.
 
 ### The address is valid, but HyperDbg can't read it!
 
