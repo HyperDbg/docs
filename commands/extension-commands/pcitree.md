@@ -2,7 +2,7 @@
 description: Description of '!pcitree' command in HyperDbg.
 ---
 
-# !pcitree (show PCI express device tree)
+# !pcitree (show PCI/PCI-e device tree)
 
 > !pcitree
 
@@ -117,4 +117,4 @@ None
 
 ### Related
 
-None
+[!pcicam (dump the PCI/PCI-e configuration space)](https://docs.hyperdbg.org/commands/extension-commands/pcicam)
