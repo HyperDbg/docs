@@ -154,7 +154,7 @@
   * [!pa2va (convert physical address to virtual address)](commands/extension-commands/pa2va.md)
   * [!dump (save the physical memory into a file)](commands/extension-commands/dump.md)
   * [!pcitree (show PCI/PCI-e device tree)](commands/extension-commands/pcitree.md)
-  * [!pcicam (dump the PCI/PCI-e configuration space)](commands/extension-commands/pcicam-dump-the-pci-pci-e-configuration-space.md)
+  * [!pcicam (dump the PCI/PCI-e configuration space)](commands/extension-commands/pcicam.md)
   * [!idt (show Interrupt Descriptor Table entries)](commands/extension-commands/idt.md)
   * [!apic (dump local APIC entries in XAPIC and X2APIC modes)](commands/extension-commands/apic.md)
   * [!ioapic (dump I/O APIC)](commands/extension-commands/ioapic.md)

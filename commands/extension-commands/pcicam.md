@@ -65,14 +65,12 @@ BAR0
  BAR (actual): fea00000
  Prefetchable: False
  Addressable range: 0-00000000
- Size: 0
 BAR1
  BAR Type: MMIO
  BAR: fea20000
  BAR (actual): fea20000
  Prefetchable: False
  Addressable range: 0-00000000
- Size: 0
 BAR2
  BAR Type: Port IO
  BAR: 00004001
@@ -84,14 +82,12 @@ BAR3
  BAR (actual): fea40000
  Prefetchable: False
  Addressable range: 0-00000000
- Size: 0
 BAR4 [disabled]
  BAR Type: MMIO
  BAR: 00000000
  BAR (actual): 00000000
  Prefetchable: False
  Addressable range: 0-00000000
- Size: 0
 Cardbus CIS Pointer: 00000000
 Subsystem Vendor ID: 15ad
 Subsystem ID: 07d0
