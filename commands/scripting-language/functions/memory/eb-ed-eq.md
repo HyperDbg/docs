@@ -75,4 +75,4 @@ None
 
 ### Related
 
-None
+[eb\_pa, ed\_pa, eq\_pa](https://docs.hyperdbg.org/commands/scripting-language/functions/memory/eb_pa-ed_pa-eq_pa)
