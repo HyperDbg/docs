@@ -36,3 +36,5 @@ None
 
 ### Related
 
+[rdtscp](https://docs.hyperdbg.org/commands/scripting-language/functions/timings/rdtscp)
+

@@ -35,3 +35,5 @@ The following code executes and returns the TSC value.
 None
 
 ### Related
+
+[rdtsc](https://docs.hyperdbg.org/commands/scripting-language/functions/timings/rdtsc)
