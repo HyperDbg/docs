@@ -20,10 +20,6 @@ Puts a breakpoint (**0xcc**) on the target function in user-mode and kernel-mode
 In **HyperDbg**, the 'bp' breakpoints are **NOT** [events](https://docs.hyperdbg.org/design/debugger-internals/events). If you want to use breakpoint in an event-like form (e.g., if you want to create logs using script-engine), you should use [!epthook](https://docs.hyperdbg.org/commands/extension-commands/epthook) command instead.
 {% endhint %}
 
-{% hint style="info" %}
-If you use the 'bp' command, **HyperDbg** won't hide your breakpoint for the applications that read the memory. The only reason to use '**bp**' instead of [!epthook](https://docs.hyperdbg.org/commands/extension-commands/epthook) is that '**bp**' is guaranteed to keep debuggee in a halt state (in Debugger Mode); thus, nothing will change during its execution. However, the in [!epthook](https://docs.hyperdbg.org/commands/extension-commands/epthook) the guest will be continued for some time, and you lose the current context.
-{% endhint %}
-
 ### Parameters
 
 **\[Address (hex)]**
