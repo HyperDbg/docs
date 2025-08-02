@@ -156,6 +156,7 @@
   * [!pcitree (show PCI/PCIe device tree)](commands/extension-commands/pcitree.md)
   * [!pcicam (dump the PCI/PCIe configuration space)](commands/extension-commands/pcicam.md)
   * [!idt (show Interrupt Descriptor Table entries)](commands/extension-commands/idt.md)
+  * [!smi (trigger and show System Management Interrupt functionalities)](commands/extension-commands/smi.md)
   * [!apic (dump local APIC entries in XAPIC and X2APIC modes)](commands/extension-commands/apic.md)
   * [!ioapic (dump I/O APIC)](commands/extension-commands/ioapic.md)
 * [Scripting Language](commands/scripting-language/README.md)
