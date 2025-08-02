@@ -27,7 +27,7 @@ The target functionality.
 
 ### Examples
 
-The following command triggers a power SMI.
+The following command triggers a power SMI (using **APM I/O Decode Registers**).
 
 ```c
 HyperDbg> !smi trigger
@@ -54,9 +54,9 @@ hyperdbg_u_perform_smi_operation(SMI_OPERATION_PACKETS * SmiOperation);
 
 Starting from **v0.15**, this command was added to the HyperDbg debugger.
 
-This command is guaranteed to keep debuggee in a halt state (in Debugger Mode); thus, nothing will change during its execution.
-
 HyperDbg reads the number of SMIs from `MSR_SMI_COUNT` MSR (**0x34**) and triggers SMIs using **APM I/O Decode Registers**. For more information, please refer to this [post](https://nixhacker.com/digging-into-smm/).
+
+This command is guaranteed to keep debuggee in a halt state (in Debugger Mode); thus, nothing will change during its execution.
 
 ### Requirements
 
