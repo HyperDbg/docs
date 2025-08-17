@@ -178,6 +178,10 @@ The above steps is enough to disable the VBS. After that, you should restart you
 
 **Done!** The rest of this section describes other methods for disabling VBS, you don't need to follow it if you successfully disabled **VBS**.
 
+You should be able to run HyperDbg now. If HyperDbg is still unable to load, you can manually disable VBS as described in the following section.
+
+### Manually Disable Virtualization-Based Security
+
 If the above method didn't work for you, open **Local Group Policy Editor (gpedit.msc)** and navigate to the following path:
 
 ```
