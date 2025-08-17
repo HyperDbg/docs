@@ -44,6 +44,10 @@ For this purpose, you can **Disable Driver Signature Enforcement**.
 
 The rest of this article focuses on the process of installing and setting up HyperDbg. If you prefer a visual guide, you can watch a corresponding video instead of reading through this section.
 
+{% hint style="warning" %}
+If, after watching this video and following all the steps, HyperDbg still doesn’t run (for example, if VBS shows as "_**Enabled but not running**_"), you can [manually disable VBS](https://docs.hyperdbg.org/getting-started/build-and-install#manually-disable-virtualization-based-security).
+{% endhint %}
+
 {% embed url="https://www.youtube.com/watch?v=MDZ9zYfqo50" %}
 Starting with HyperDbg
 {% endembed %}
@@ -164,9 +168,11 @@ To check whether VBS is running on your system, type **System Information** on t
 
 If you see "**Enabled but not running**" or "**Not enabled**", you're good to go to the next step.
 
+In some versions of Windows, VBS may still show as "**Enabled but not running**_**"**_, yet HyperDbg will not run. In this case, you need to [manually disable Virtualization-Based Security](https://docs.hyperdbg.org/getting-started/build-and-install#manually-disable-virtualization-based-security).
+
 ![Enabled but not running](../.gitbook/assets/VBS-enabled-but-not-running.PNG) ![Not enabled](../.gitbook/assets/VBS-not-enabled.PNG)
 
-If the VBS is **enabled**, you can disable it by typing "**Core isolation**" on the start menu and turning off "**Memory integrity**".
+If the VBS is "**Enabled**_**"**_, you can disable it by typing "**Core isolation**" on the start menu and turning off "**Memory integrity**".
 
 ![Turn off core isolation](../.gitbook/assets/Disable-core-isolation.PNG)
 
