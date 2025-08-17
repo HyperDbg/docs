@@ -20,8 +20,8 @@ description: Description of '!syscall, !syscall2' commands in HyperDbg.
 
 Triggers when the debugging machine executes a **syscall** instruction or, in other words, when Windows tries to run a system call, this event will be triggered.
 
-{% hint style="danger" %}
-If this command produces weird behavior in your system, you can use the [alternative](https://docs.hyperdbg.org/commands/extension-commands/syscall#alternative-method-for-syscall-interception) method.
+{% hint style="warning" %}
+This command hooks both SYSCALL and SYSRET at once, so it is resource-intensive and slows down the target system; if you just want SYSCALL hooking, you can also use the [alternative](https://docs.hyperdbg.org/commands/extension-commands/syscall#alternative-method-for-syscall-interception) method.
 {% endhint %}
 
 {% hint style="info" %}
@@ -206,7 +206,7 @@ This command creates an [event](https://docs.hyperdbg.org/design/debugger-intern
 
 #### Alternative Method For SYSCALL Interception
 
-If the **!syscall** command triggered some weird behavior in your system, you could alternatively use the EPT hook on the SYSCALL handler. For example, you can use the following approach (script).
+Since using this command is resource-intensive and slows down your computer, you could alternatively use the EPT hook on the SYSCALL handler. For example, you can use the following approach (script).
 
 ```clike
 !epthook nt!KiSystemCall64+3 script {
