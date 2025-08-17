@@ -21,7 +21,7 @@ Monitors read or write or execute (or a combination of these operations) to a ra
 It is exactly like read/write/execute of Hardware Debug Registers but without any size and count limitation.
 
 {% hint style="warning" %}
-Please note that if you encounter an invalid address error when applying monitor hooks to a **valid** range, it is likely due to the page being paged-out or inaccessible in memory, often as a result of [demand paging](https://en.wikipedia.org/wiki/Demand\_paging). This situation occurs because EPT hooks primarily work based on physical addresses, not virtual addresses. To resolve this issue, you can use the '[.pagein](https://docs.hyperdbg.org/commands/meta-commands/.pagein)' command. [Read more](https://docs.hyperdbg.org/tips-and-tricks/considerations/accessing-invalid-address) about tricks to make addresses available.
+Please note that if you encounter an invalid address error when applying monitor hooks to a **valid** range, it is likely due to the page being paged-out or inaccessible in memory, often as a result of [demand paging](https://en.wikipedia.org/wiki/Demand_paging). This situation occurs because EPT hooks primarily work based on physical addresses, not virtual addresses. To resolve this issue, you can use the '[.pagein](https://docs.hyperdbg.org/commands/meta-commands/.pagein)' command. [Read more](https://docs.hyperdbg.org/tips-and-tricks/considerations/accessing-invalid-address) about tricks to make addresses available.
 {% endhint %}
 
 ### Parameters
@@ -313,8 +313,6 @@ You can use **!epthook** (just _**!epthook**_ not **!epthook2** and not **!monit
 {% endhint %}
 
 If you need to reserve more pre-allocated pools for this command, you can use the '[prealloc](https://docs.hyperdbg.org/commands/debugging-commands/prealloc)' command.
-
-This command cannot be used simultaneously with the '[!mode](https://docs.hyperdbg.org/commands/extension-commands/mode)' command.
 
 Using the '**pid**' parameter does not make sense if you specify a physical address as the '**MemoryType**' and it is ignored.
 
