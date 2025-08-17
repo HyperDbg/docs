@@ -14,7 +14,7 @@ description: Description of the 'preactivate' command in HyperDbg.
 
 ### Description
 
-Initializes and pre-activates a specified functionality. This command is mainly used to optimize the pre-allocation of pools for [**instant events**](https://docs.hyperdbg.org/tips-and-tricks/misc/instant-events).
+Initializes and pre-activates a specified functionality. This command is mainly used to optimize the overall performance of HyperDbg to avoid unnecessary operations.
 
 {% hint style="info" %}
 This command is only used in the [Debugger Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode). In the [VMI Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#vmi-mode), the initialization is done automatically.
@@ -36,7 +36,7 @@ If you use the '[!mode](https://docs.hyperdbg.org/commands/extension-commands/mo
 
 ```
 0: kHyperDbg> !mode u pid 1c0 
-err, the '!mode' event command cannot be directly initialized in the Debugger Mode. To avoid wasting system resources and performance issues we decided to use another command to initialize it first then use it. You can use the 'preactivate mode' command to preactivate this mechanism after that, you can use the '!mode' event (c000004e)
+err, for performance reasons, the '!mode' event command cannot be directly initialized in the Debugger Mode. You can use the 'preactivate mode' command to preactivate this mechanism after that, you can use the '!mode' event (c000004e)
 ```
 
 To solve this issue, the following command can be used:
@@ -63,7 +63,7 @@ typedef struct _DEBUGGER_PREACTIVATE_COMMAND
 
 ```
 
-You should only fill the **Type** of the above structure when the IOCTL returns from the kernel, other parts of this structure are filled with appropriate **KernelStatus**.
+You should only fill in the **Type** of the above structure when the IOCTL returns from the kernel; other parts of this structure are filled with the appropriate **KernelStatus**.
 
 The **Type** can be from the following enum:
 

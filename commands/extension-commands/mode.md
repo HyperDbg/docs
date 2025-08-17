@@ -21,7 +21,7 @@ This event only applies to a selected process; thus, you need to provide a proce
 {% endhint %}
 
 {% hint style="warning" %}
-For reducing memory usage, this feature is not automatically initialized in HyperDbg. Before using this command in the [Debugger Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode), you should use the '[preactivate](https://docs.hyperdbg.org/commands/debugging-commands/preactivate)' command. There is no need for pre-activation in the [VMI Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#vmi-mode).
+For optimizing performance and avoiding unnecessary operations, this feature is not automatically initialized in HyperDbg. Before using this command in the [Debugger Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode), you should use the '[preactivate](https://docs.hyperdbg.org/commands/debugging-commands/preactivate)' command. There is no need for pre-activation in the [VMI Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#vmi-mode).
 {% endhint %}
 
 ### Parameters
@@ -215,13 +215,13 @@ DEBUGGER_EVENT_MODE_TYPE_KERNEL_MODE               = 0
 
 ### Design
 
-This command uses the **Mode-Based Execution Control (MBEC)** feature of Intel processors by allocating and adjusting two separate EPT tables (one **Kernel** execution is **disabled** and one **User** execution is **disabled**) and once the target process is identified (using MOV-to-CR3 exiting VM-exits), exchanges the newly allocated EPT page-tables and trigger events once EPT violation happened in the target process.
+This command uses the **Mode-Based Execution Control (MBEC)** feature of Intel processors by adjusting EPT tables, and once the target process is identified (using MOV-to-CR3 exiting VM-exits), it changes the EPT page-tables access bits and triggers events once an EPT violation happens in the target process.
 
 ### Remarks
 
-This command creates an [event](https://docs.hyperdbg.org/design/debugger-internals/events). Starting from HyperDbg **v0.7**, events are guaranteed to keep the debuggee in a halt state (in the [Debugger Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode)); thus, nothing will change during its execution and the context (registers and memory) remain untouched. You can visit [instant events](https://docs.hyperdbg.org/tips-and-tricks/misc/instant-events) for more information. Please note that in the [Debugger Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode), this event is not initialized by default, you need to use the '[preactivate](https://docs.hyperdbg.org/commands/debugging-commands/preactivate)' command (only one time) to initial this event. The '[preactivate](https://docs.hyperdbg.org/commands/debugging-commands/preactivate)' command will continue the debuggee but this event won't continue the debuggee, so you need to make sure to execute the '[preactivate](https://docs.hyperdbg.org/commands/debugging-commands/preactivate)' command before using it to avoid losing the context.
+This command creates an [event](https://docs.hyperdbg.org/design/debugger-internals/events). Starting from HyperDbg **v0.7**, events are guaranteed to keep the debuggee in a halt state (in the [Debugger Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode)); thus, nothing will change during its execution and the context (registers and memory) remain untouched. You can visit [instant events](https://docs.hyperdbg.org/tips-and-tricks/misc/instant-events) for more information. Please note that in the [Debugger Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode), this event is not initialized by default; you need to use the '[preactivate](https://docs.hyperdbg.org/commands/debugging-commands/preactivate)' command to initialize this event. The '[preactivate](https://docs.hyperdbg.org/commands/debugging-commands/preactivate)' command will continue the debuggee, but this event won't continue the debuggee, so you need to make sure to execute the '[preactivate](https://docs.hyperdbg.org/commands/debugging-commands/preactivate)' command before using it to avoid losing the context.
 
-The support for this command is added starting from **v0.8**.
+The support for this command is added starting from **v0.8**. Starting with **v0.14**, this event is compatible with other EPT hook commands, and the need to allocate additional EPT page tables has been removed.
 
 ### Requirements
 
