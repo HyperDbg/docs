@@ -147,6 +147,7 @@
   * [!dr (hook access to debug registers)](commands/extension-commands/dr.md)
   * [!ioin (hook IN instruction execution)](commands/extension-commands/ioin.md)
   * [!ioout (hook OUT instruction execution)](commands/extension-commands/ioout.md)
+  * [!xsetbv (hook XSETBV instruction execution)](commands/extension-commands/xsetbv.md)
   * [!hide (enable transparent-mode)](commands/extension-commands/hide.md)
   * [!unhide (disable transparent-mode)](commands/extension-commands/unhide.md)
   * [!measure (measuring and providing details for transparent-mode)](commands/extension-commands/measure.md)

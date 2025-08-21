@@ -221,7 +221,7 @@ This command uses the **Mode-Based Execution Control (MBEC)** feature of Intel p
 
 This command creates an [event](https://docs.hyperdbg.org/design/debugger-internals/events). Starting from HyperDbg **v0.7**, events are guaranteed to keep the debuggee in a halt state (in the [Debugger Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode)); thus, nothing will change during its execution and the context (registers and memory) remain untouched. You can visit [instant events](https://docs.hyperdbg.org/tips-and-tricks/misc/instant-events) for more information. Please note that in the [Debugger Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode), this event is not initialized by default; you need to use the '[preactivate](https://docs.hyperdbg.org/commands/debugging-commands/preactivate)' command to initialize this event. The '[preactivate](https://docs.hyperdbg.org/commands/debugging-commands/preactivate)' command will continue the debuggee, but this event won't continue the debuggee, so you need to make sure to execute the '[preactivate](https://docs.hyperdbg.org/commands/debugging-commands/preactivate)' command before using it to avoid losing the context.
 
-The support for this command is added starting from **v0.8**. Starting with **v0.14**, this event is compatible with other EPT hook commands, and the need to allocate additional EPT page tables has been removed.
+The support for this command is added starting from HyperDbg **v0.8**. Starting with **v0.14**, this event is compatible with other EPT hook commands, and the need to allocate additional EPT page tables has been removed.
 
 ### Requirements
 
