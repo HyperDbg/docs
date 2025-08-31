@@ -146,6 +146,8 @@ hyperdbg_u_run_script(CHAR * Expr, BOOLEAN ShowErrorMessageIfAny);
 
 Other aliases for this command are '**eval**' and '**evaluate**'.
 
+To use this command, you must either be in [debugger mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode), or in [VMI mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#vmi-mode) with the user debugger attached to a thread. Otherwise, the command runs in test mode (register and system state are not valid in the test mode since you are not connected to any debuggee).
+
 This command is guaranteed to keep debuggee in a halt state (in Debugger Mode); thus, nothing will change during its execution.
 
 ### Requirements <a href="#requirements" id="requirements"></a>
