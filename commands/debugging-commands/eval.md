@@ -40,10 +40,10 @@ The expression is based on HyperDbg's [scripting language](https://web.archive.o
 
 ### Examples <a href="#examples" id="examples"></a>
 
-The following command shows the `@rax` register in the debuggee by calling the [print](https://web.archive.org/web/20210228003007/https://docs.hyperdbg.org/commands/scripting-language/functions/print) function.
+The following command shows the `@rax` register along with the process name and process ID in the debuggee by calling the [printf](https://docs.hyperdbg.org/commands/scripting-language/functions/exports/printf) function.
 
 ```clike
-0: kHyperDbg> ? print(@rax);
+0: kHyperDbg> ? printf("The RAX register is: %llx at Process Name: %s (pid: %x)", @rax, $pname, $pid);
 ```
 
 You can use register assignment within scripts (You can change the value of registers).
@@ -110,7 +110,7 @@ If you want to change memory, you can use [eq, ed, eb](https://docs.hyperdbg.org
 }
 ```
 
-There are many functions and examples available for HyperDbg’s script engine [here](https://docs.hyperdbg.org/commands/scripting-language/functions).
+There are many [functions](https://docs.hyperdbg.org/commands/scripting-language/functions) and [examples](https://docs.hyperdbg.org/commands/scripting-language/examples) available for HyperDbg’s script engine.
 
 ### Arguments <a href="#examples" id="examples"></a>
 
@@ -145,6 +145,8 @@ hyperdbg_u_run_script(CHAR * Expr, BOOLEAN ShowErrorMessageIfAny);
 ### Remarks <a href="#remarks" id="remarks"></a>
 
 Other aliases for this command are '**eval**' and '**evaluate**'.
+
+You can check the definition and examples of [script engine functions](https://docs.hyperdbg.org/commands/scripting-language/functions), as well as [examples for using scripts](https://docs.hyperdbg.org/commands/scripting-language/examples).
 
 To use this command, you must either be in [debugger mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode), or in [VMI mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#vmi-mode) with the user debugger attached to a thread. Otherwise, the command runs in test mode (register and system state are not valid in the test mode since you are not connected to any debuggee).
 
