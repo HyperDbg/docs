@@ -14,7 +14,7 @@ description: Description of the '?' command in HyperDbg.
 
 ### Description <a href="#description" id="description"></a>
 
-Evaluates and executes an expression in the remote debuggee.
+Evaluates and executes an expression in the remote debuggee or in the user debugger.
 
 {% hint style="success" %}
 You can write multiline scripts by putting the scripts between two curly brackets.
@@ -23,7 +23,7 @@ For example,&#x20;
 
 `? {`&#x20;
 
-`printf("first line");`
+&#x20;    `printf("first line");`
 
 `printf("second line");`
 
@@ -42,40 +42,104 @@ The expression is based on HyperDbg's [scripting language](https://web.archive.o
 
 The following command shows the `@rax` register in the debuggee by calling the [print](https://web.archive.org/web/20210228003007/https://docs.hyperdbg.org/commands/scripting-language/functions/print) function.
 
+```clike
+0: kHyperDbg> ? print(@rax);
 ```
-HyperDbg> ? print(@rax);
+
+You can use register assignment within scripts (You can change the value of registers).
+
+```clike
+0: kHyperDbg> ? @rax = 0x55;	        // change the RAX register value
+
+0: kHyperDbg> ? @cr0 = @cr0 | 0x4;        // set the third bit of CR0 register
+
+0: kHyperDbg> ? @zf = 1;   	        // set the Zero Flag
+
+0: kHyperDbg> ? @ebx = @ecx + 10 + @ax;   // set the value of EBX register
+```
+
+HyperDbg supports [conditional statements](https://docs.hyperdbg.org/commands/scripting-language/conditionals-and-loops) like **if**, **elsif**, and **else**. You can use any expressions, registers, pseudo-registers, variables, or results of functions in the **if**, **elsif** statements.
+
+```clike
+0: kHyperDbg> ? {
+    if (@rax == 55) {
+    	     printf("rax is equal to 0x55");
+    }
+}
+
+0: kHyperDbg> ? {
+    if (poi(@rcx + 0x10) == ffff7080deadbeef && @rdx != 55 || $pid == 4) {
+    	     printf("condition is met\n");
+    }
+}
+
+0: kHyperDbg> ? {
+    if (check_address(@r11) == 1) { 
+    	     printf("address is valid.\n");
+    }
+    else
+    {
+	     printf("address is invalid.\n");
+    }
+}
+```
+
+For loops and nested loops are supported.
+
+```clike
+0: kHyperDbg> ? {
+for (i = 0; i < 10 ; i++) {
+       for (j = 0; j < 10; j++) {
+       	  printf("%d, %d\n", i, j); 
+       }
+    }
+ }
+```
+
+If you want to change memory, you can use [eq, ed, eb](https://docs.hyperdbg.org/commands/scripting-language/functions/memory/eb-ed-eq) functions.
+
+```css
+0: kHyperDbg> ? {
+
+	if (eq(@r11, 0x12345678deadbeef) == 1) { 
+	    printf("changes are applied.\n");
+	}
+	else {
+            printf("changes are NOT applied.\n");
+	}
+}
+```
+
+There are many functions and examples available for HyperDbg’s script engine [here](https://docs.hyperdbg.org/commands/scripting-language/functions).
+
+### Arguments <a href="#examples" id="examples"></a>
+
+Arguments to the script are passed to the script by using the `$arg0`, `$arg1`, `$arg2`, ..., `$arg100`, ..., `$arg1000` and so on. HyperDbg uses the ‘**.ds**’ extension for the script files.
+
+The first argument (`$arg0`) is the script's **.ds** file path. Arguments can be both an expression, a constant, or a string. Constants are considered in hex format if no prefix is specified.
+
+#### Example
+
+```clike
+? { 
+      printf("First argument is : %llx\n", $arg1);
+      printf("Result of rax + rbx is : %llx\n", $arg2);
+}
+```
+
+We run the above script like by using the “[.script](https://docs.hyperdbg.org/commands/meta-commands/.script)” command.
+
+```clike
+0: kHyperDbg> .script "C:\path to script\script.ds" 55 @rax+@rbx
 ```
 
 ### IOCTL <a href="#ioctl" id="ioctl"></a>
 
-This commands works over serial by sending the serial packets to the remote computer.
+To run a script on the target process (thread) in the user debugger or in the target debuggee in the kernel debugger, you need to use the following function in `libhyperdbg`:
 
-First of all, you should fill the following structure, set the `ScriptBufferSize` and `ScriptBufferPointer` to buffers you got from the script engine interpreter, and leave the `Result`and set the `IsFormat` to **false**.
-
-After that, you should move the interpreted buffer to the end of the structure (this structure is a header for the interpreted buffer).
-
-```
-typedef struct _DEBUGGEE_SCRIPT_PACKET {​  UINT32 ScriptBufferSize;  UINT32 ScriptBufferPointer;  BOOLEAN IsFormat;  UINT32 Result;​  //  // The script buffer is here  //​} DEBUGGEE_SCRIPT_PACKET, *PDEBUGGEE_SCRIPT_PACKET;
-```
-
-The next step is sending the above structure to the debuggee when debuggee is paused and waiting for new command on **vmx-root** mode.
-
-You should send the above structure with `DEBUGGER_REMOTE_PACKET_REQUESTED_ACTION_ON_VMX_ROOT_RUN_SCRIPT` as `RequestedAction` and `DEBUGGER_REMOTE_PACKET_TYPE_DEBUGGER_TO_DEBUGGEE_EXECUTE_ON_VMX_ROOT` as `PacketType`.
-
-In return, the debuggee sends the above structure with the following type.
-
-```
-DEBUGGER_REMOTE_PACKET_REQUESTED_ACTION_DEBUGGEE_RESULT_OF_RUNNING_SCRIPT
-```
-
-In the returned structure, the `Result` is filled by the kernel.
-
-If the `Result` is `DEBUGEER_OPERATION_WAS_SUCCESSFULL`, then the operation was successful. Otherwise, the returned result is an error.
-
-The following function is responsible for sending script buffers in the debugger.
-
-```
-BOOLEAN KdSendScriptPacketToDebuggee(UINT64 BufferAddress, UINT32 BufferLength, UINT32 Pointer, BOOLEAN IsFormat);
+```clike
+BOOLEAN
+hyperdbg_u_run_script(CHAR * Expr, BOOLEAN ShowErrorMessageIfAny);
 ```
 
 ### Remarks <a href="#remarks" id="remarks"></a>
