@@ -30,16 +30,32 @@ User-mode debugging has two different signatures, the first signature is for 32-
 
 The signature for 32-bit debugging is `u86HyperDbg` while the first number shows the active **Process Id** and the second number is the **Thread Id**. For example, the following signature is a 32-bit debugging for a process with Process Id equal to `0x228c` and Thread Id equal to `0x13fc`. The Process Id and the Thread Id are in **hex** format.
 
+For a **paused** thread:
+
 ```
-228c:13fc u86HyperDbg>
+228c:13fc (paused) u86HyperDbg>
+```
+
+For a **running** thread:
+
+```
+228c:13fc (running) u86HyperDbg>
 ```
 
 #### Debugging a 64-bit Module
 
-The signature for 64-bit debugging is `u64HyperDbg` . The numbers are exactly like 32-bit debugging. The first number shows the active **Process Id** and the second number is the **Thread Id**. For example, the following signature is a 64-bit debugging for Process Id equal to `0x2300` and Thread Id equal to `0x1620`. The Process Id and the Thread ID are in **hex** format.
+The signature for 64-bit debugging is `u64HyperDbg` . The numbers are exactly like 32-bit debugging. The first number shows the active **Process ID**, and the second number is the **Thread ID**. For example, the following signature is a 64-bit debugging for Process Id equal to `0x2300` and Thread Id equal to `0x1620`. The Process ID and the Thread ID are in **hex** format.
+
+For a **paused** thread:
 
 ```
-2300:1620 u64HyperDbg>
+2300:1620 (paused) u64HyperDbg>
+```
+
+For a **running** thread:
+
+```
+2300:1620 (running) u64HyperDbg>
 ```
 
 ### Remote Debugging (VMI Mode)
