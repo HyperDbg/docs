@@ -272,6 +272,14 @@ printf("%d\n",t1[2][1]); // prints 8
 printf("%d\n",t1[2][2]); // prints 9
 ```
 
+or another example with more dimensions:
+
+```clike
+int t1 [3][3][3] = {{1,2,3,4},{4,5,6,4},{7,8,9,4}};
+
+printf("%d\n",t1[0][0][3]); // prints 4
+```
+
 ## Modify Memory
 
 Modifying memory is possible using '[eb, ed, eq](https://docs.hyperdbg.org/commands/scripting-language/functions/eb-ed-eq)' functions.
