@@ -79,7 +79,7 @@ Like local variables, all global variables are defined without **type**, and all
 
 The variables can be used as an input to other functions or might be used in conditional statements or loops.
 
-You can also use global variables as [volatile](https://en.wikipedia.org/wiki/Volatile\_\(computer\_programming\)) variables to the [spinlocks](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks) or [interlocked](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked) functions.
+You can also use global variables as [volatile](https://en.wikipedia.org/wiki/Volatile_\(computer_programming\)) variables to the [spinlocks](https://docs.hyperdbg.org/commands/scripting-language/functions/spinlocks) or [interlocked](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked) functions.
 
 The difference between local variables and global variables is that the global variables start with a `.` DOT.
 
@@ -137,7 +137,7 @@ spinlock_lock(.my_global_variable_lock);
 spinlock_unlock(.my_global_variable_lock);
 ```
 
-As another example, assume that we want to count the number of times a function is called. For this purpose, we need a global variable to hold this number. You can safely use [interlocked\_increment](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked\_increment) for this purpose, and for other mathematical operations or [atomic](https://wiki.osdev.org/Atomic\_operation) exchange operations, you can use other [**interlocked**](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/) functions.
+As another example, assume that we want to count the number of times a function is called. For this purpose, we need a global variable to hold this number. You can safely use [interlocked\_increment](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/interlocked_increment) for this purpose, and for other mathematical operations or [atomic](https://wiki.osdev.org/Atomic_operation) exchange operations, you can use other [**interlocked**](https://docs.hyperdbg.org/commands/scripting-language/functions/interlocked/) functions.
 
 ```c
 interlocked_increment(.my_global_counter);
@@ -148,6 +148,37 @@ If you are running HyperDbg on a **single-core** machine, there is no need to us
 {% hint style="info" %}
 Both global variables and local variables are initialized with `NULL`.
 {% endhint %}
+
+## Compound Assignment
+
+The following compound assignments are supported in HyperDbg's script engine.
+
+| Operator | Description               | Equivalent Expression    | Meaning                                                                     |
+| -------- | ------------------------- | ------------------------ | --------------------------------------------------------------------------- |
+| +=       | Addition assignment       | `a += b` → `a = a + b`   | Adds the value of `b` to `a` and stores the result in `a`.                  |
+| -=       | Subtraction assignment    | `a -= b` → `a = a - b`   | Subtracts the value of `b` from `a` and stores the result in `a`.           |
+| \*=      | Multiplication assignment | `a *= b` → `a = a * b`   | Multiplies `a` by `b` and stores the result in `a`.                         |
+| /=       | Division assignment       | `a /= b` → `a = a / b`   | Divides `a` by `b` and stores the quotient in `a`.                          |
+| %=       | Modulus assignment        | `a %= b` → `a = a % b`   | Stores the remainder of `a` divided by `b` in `a`.                          |
+| <<=      | Left shift assignment     | `a <<= b` → `a = a << b` | Shifts the bits of `a` left by `b` positions and stores the result in `a`.  |
+| >>=      | Right shift assignment    | `a >>= b` → `a = a >> b` | Shifts the bits of `a` right by `b` positions and stores the result in `a`. |
+| &=       | Bitwise AND assignment    | `a &= b` → `a = a & b`   | Performs a bitwise AND between `a` and `b`, storing the result in `a`.      |
+| ^=       | Bitwise XOR assignment    | `a ^= b` → `a = a ^ b`   | Performs a bitwise XOR between `a` and `b`, storing the result in `a`.      |
+| \|=      | Bitwise OR assignment     | `a \|= b` → `a = a \| b` | Performs a bitwise OR between `a` and `b`, storing the result in `a`.       |
+
+### Compound Assignment Example
+
+Here is an example for the compound assignment.
+
+```
+t1 = 1;
+t1 +=5;
+	
+printf("t1 is: %x\n", t1); // prints 6 (in Hex)
+	
+t1 <<=5;
+printf("t1 is: %d\n", t1); // prints 192 (in Decimal)
+```
 
 ## Modify Memory
 
