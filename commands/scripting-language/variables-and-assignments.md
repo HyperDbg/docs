@@ -151,7 +151,7 @@ Both global variables and local variables are initialized with `NULL`.
 
 ## Compound Assignment
 
-The following compound assignments are supported in HyperDbg's script engine.
+The following compound assignments are supported.
 
 | Operator | Description               | Equivalent Expression    | Meaning                                                                     |
 | -------- | ------------------------- | ------------------------ | --------------------------------------------------------------------------- |
@@ -166,11 +166,9 @@ The following compound assignments are supported in HyperDbg's script engine.
 | ^=       | Bitwise XOR assignment    | `a ^= b` → `a = a ^ b`   | Performs a bitwise XOR between `a` and `b`, storing the result in `a`.      |
 | \|=      | Bitwise OR assignment     | `a \|= b` → `a = a \| b` | Performs a bitwise OR between `a` and `b`, storing the result in `a`.       |
 
-### Compound Assignment Example
-
 Here is an example for the compound assignment.
 
-```
+```clike
 t1 = 1;
 t1 +=5;
 	
@@ -178,6 +176,29 @@ printf("t1 is: %x\n", t1); // prints 6 (in Hex)
 	
 t1 <<=5;
 printf("t1 is: %d\n", t1); // prints 192 (in Decimal)
+```
+
+## Multiple Assignment
+
+Multiple assignments are described as follows.
+
+For local variables:
+
+```clike
+t1 = t2 = 85;
+
+printf("t1 equals to: 0x%x\n", t1); // prints 0x85
+printf("t2 equals to: 0x%x\n", t2); // prints 0x85
+```
+
+Similarly, for global variables:
+
+```clike
+.gv1 = .gv2 = .gv3 = 85;
+
+printf("global variable gv1 equals to: 0x%x\n", .gv1); // prints 0x85
+printf("global variable gv2 equals to: 0x%x\n", .gv2); // prints 0x85
+printf("global variable gv3 equals to: 0x%x\n", .gv3); // prints 0x85
 ```
 
 ## Modify Memory
