@@ -70,6 +70,15 @@ Similarly, the `test.ds` file defines a simple function that prints its input ar
 
 After including these files using the `#include` directive, the functions `myfibonacci` and `my_func` can be called directly from the main script as if they were defined in the same file.
 
+In this case, the following results will be shown for the above example:
+
+```
+var = 1, var2 = 2
+var = 1, var2 = 2
+var = 1, var2 = 2
+34
+```
+
 #### Example: Including a Script Using an Absolute Path
 
 The `#include` directive also supports absolute paths:
@@ -82,6 +91,14 @@ The `#include` directive also supports absolute paths:
         my_func(1, 2);
     }
 }
+```
+
+In this example, the result of the above script would be:
+
+```
+var = 1, var2 = 2
+var = 1, var2 = 2
+var = 1, var2 = 2
 ```
 
 #### Notes
