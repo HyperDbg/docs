@@ -1,7 +1,60 @@
 ---
-description: Description of conditional casting and type-awareness
+description: Description of casting (type-awareness) and file (library) inclusion
 ---
 
-# Casting & Type-awareness
+# Casting & Inclusion
+
+### Importing External Code
+
+Starting from **HyperDbg v0.18**, the scripting language supports importing external script files using the `#include` directive. This feature allows users to split large scripts into multiple files, reuse common logic, and organize code in a more modular way.
+
+The `#include` directive works similarly to the `#include` statement in C/C++ or the `import` keyword in Python. When a script is parsed, the contents of the included file are inserted into the current script before execution, or in other words, the `#include` directive behaves as if the contents of the specified file are appended to the top of the current script before execution.
+
+#### Syntax
+
+```c
+#include "path/to/script.ds"
+```
+
+The path can be either **relative** or **absolute**, and the included file must be a valid HyperDbg script file.
+
+#### Example: Including Multiple Script Files
+
+In the following example, two external scripts are included. Functions defined in those files can then be used directly in the main script.
+
+```c
+? { 
+    #include "script/test.ds";
+    #include "script/fibonacci.ds";
+
+    for (int i = 0; i < 3; i++) {
+        my_func(1, 2);
+    }
+
+    var = myfibonacci(9);
+    printf("%d", var);
+}
+```
+
+#### Example: Including a Script Using an Absolute Path
+
+The `#include` directive also supports absolute paths:
+
+```c
+? {
+    #include "C:\Users\xmaple555\CodeLibrary\HyperDbg\hyperdbg\hyperdbg-cli\test.ds";
+
+    for (int i = 0; i < 3; i++) {
+        my_func(1, 2);
+    }
+}
+```
+
+#### Notes
+
+* Included scripts are processed **at parse time**, not at runtime.
+* Functions, variables, and definitions from included files become available in the current script scope.
+
+### Casting & type-awareness
 
 At the moment, **dslang** does not support type-casting but the support for the types will be added to the script-engine in future versions!
