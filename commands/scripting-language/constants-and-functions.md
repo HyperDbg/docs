@@ -8,7 +8,7 @@ Starting from **v0.8.2**, HyperDbg supports functions in the script engine. Here
 
 ## Naming convention
 
-We suggest using [**snake\_case**](https://en.wikipedia.org/wiki/Snake\_case) as the [naming convention](https://en.wikipedia.org/wiki/Naming\_convention\_\(programming\)). However, you can use any other naming conventions as well.
+We suggest using [**snake\_case**](https://en.wikipedia.org/wiki/Snake_case) as the [naming convention](https://en.wikipedia.org/wiki/Naming_convention_\(programming\)). However, you can use any other naming conventions as well.
 
 ## Functions
 
@@ -18,7 +18,7 @@ HyperDbg functions are defined using the same syntax as the C programming langua
 
 This is an example of a function that does not return any value (void). This code defines `my_func` which prints two integers. It's called three times with arguments (**1**, **2**). Then, it prints the hexadecimal value of variable `my_var`, which is `79`.
 
-```clike
+```c
 ? {
     
   void my_func(int var, int var2) {
@@ -50,7 +50,7 @@ This is an example of functions that return an integer. This code defines four f
 
 Finally, it calls `my_func4` with an argument of **2** and prints the result.
 
-```clike
+```c
 ? {
     
   int my_func1(int var1) {
@@ -87,7 +87,7 @@ Finally, it calls `my_func4` with an argument of **2** and prints the result.
 
 The following function calculates the nth Fibonacci number recursively.
 
-```clike
+```c
 ? {
 
   int my_func(int var1) {
@@ -109,7 +109,7 @@ The following function calculates the nth Fibonacci number recursively.
 
 This function calculates the nth Fibonacci number iteratively using a loop.
 
-```clike
+```c
 ? {
 
   int my_func(int varn) {
