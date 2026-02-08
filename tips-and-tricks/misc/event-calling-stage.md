@@ -117,7 +117,7 @@ In this example, we checked whether the '**$context**' or the **EAX** register i
 
 As described [here](https://www.felixcloutier.com/x86/syscall.html), **SYSCALL** saves **RFLAGS** into **R11** and then masks **RFLAGS** using the **IA32\_FMASK** MSR (MSR address **0xC0000084**); specifically, the processor clears in **RFLAGS** every bit corresponding to a bit that is set in the **IA32\_FMASK** MSR.
 
-Using the following example we would be sure that if somewhere in the drivers, rootkits, or Windows, some codes try to modify this MSR register, the **9th** flag ([Interrupt Flag](https://en.wikipedia.org/wiki/FLAGS\_register)) will remain untouched.
+Using the following example we would be sure that if somewhere in the drivers, rootkits, or Windows, some codes try to modify this MSR register, the **9th** flag ([Interrupt Flag](https://en.wikipedia.org/wiki/FLAGS_register)) will remain untouched.
 
 ```clike
 !msrwrite 0xc000084 stage pre script {
@@ -127,7 +127,7 @@ Using the following example we would be sure that if somewhere in the drivers, r
 
 #### Example 4
 
-The following example shows how we can use the '**post**' calling stage to view the **CR2** register as a result of a [page-fault](https://en.wikipedia.org/wiki/Page\_fault). Note that, the value of the `@cr2` is not valid in the '**pre**' calling stage.
+The following example shows how we can use the '**post**' calling stage to view the **CR2** register as a result of a [page-fault](https://en.wikipedia.org/wiki/Page_fault). Note that, the value of the `@cr2` is not valid in the '**pre**' calling stage.
 
 ```clike
 !exception e stage post script {
@@ -141,4 +141,4 @@ Commands like '[!epthook](https://docs.hyperdbg.org/commands/extension-commands/
 
 If a singular event causes a special EPT hook, special MSR read/write, or any other event to short-circuit, the emulation process will not take place. Consequently, the '**post**' mode will be disregarded for all similar events sharing the same conditions. To illustrate, consider a scenario where multiple events are associated with a single CPUID instruction. One event resides in the '**pre**' start stage, while the remaining events (with identical conditions) are situated in the '**post**' stage. If the '**pre**' stage event leads to a short-circuit, all subsequent '**post**' events will fail to trigger.
 
-\
+<br>

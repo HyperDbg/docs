@@ -34,8 +34,7 @@ If the characters are equal, the comparison continues with the next pair of char
 
 ### Return value
 
-Returns an integer value indicating the relationship between the strings:\
-
+Returns an integer value indicating the relationship between the strings:<br>
 
 | Return Value | Indicates                                                                                     |
 | ------------ | --------------------------------------------------------------------------------------------- |

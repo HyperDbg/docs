@@ -28,8 +28,7 @@ Compares the string _**Str1**_ to the string _**Str2**_.
 
 ### Return value
 
-Returns an integer value indicating the relationship between the strings:\
-
+Returns an integer value indicating the relationship between the strings:<br>
 
 | Return Value | Indicates                                                                                     |
 | ------------ | --------------------------------------------------------------------------------------------- |

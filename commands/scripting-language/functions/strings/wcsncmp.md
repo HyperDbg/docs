@@ -38,8 +38,7 @@ Wide-character strings are started with an **L** character before the quotations
 
 ### Return value
 
-Returns an integer value indicating the relationship between the strings:\
-
+Returns an integer value indicating the relationship between the strings:<br>
 
 | Return Value | Indicates                                                                                    |
 | ------------ | -------------------------------------------------------------------------------------------- |

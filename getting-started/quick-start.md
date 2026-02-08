@@ -35,14 +35,14 @@ Finally, you can see many examples provided in the following link to use HyperDb
 
 **User-mode Debugging examples:**
 
-{% content-ref url="../using-hyperdbg/user-mode-debugging/examples/" %}
-[examples](../using-hyperdbg/user-mode-debugging/examples/)
+{% content-ref url="../using-hyperdbg/kernel-mode-debugging/examples/" %}
+[examples](../using-hyperdbg/kernel-mode-debugging/examples/)
 {% endcontent-ref %}
 
 **Kernel-mode Debugging examples:**
 
-{% content-ref url="../using-hyperdbg/kernel-mode-debugging/examples/" %}
-[examples](../using-hyperdbg/kernel-mode-debugging/examples/)
+{% content-ref url="../using-hyperdbg/user-mode-debugging/examples/" %}
+[examples](../using-hyperdbg/user-mode-debugging/examples/)
 {% endcontent-ref %}
 
 **Script engine examples:**

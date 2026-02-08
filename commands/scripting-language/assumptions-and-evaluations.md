@@ -18,18 +18,25 @@ description: >-
 
 The following keywords are valid in **Script Engine**.
 
-| Keyword | Description                                                 |
-| ------- | ----------------------------------------------------------- |
-| **poi** | Pointer-sized data from the specified address (dereference) |
-| **ref** | Reference address of the specified variable                 |
-| **db**  | Low 8 bits (dereference)                                    |
-| **hi**  | High 16 bits (dereference)                                  |
-| **low** | Low 16 bits (dereference)                                   |
-| **dw**  | Low 16 bits (dereference)                                   |
-| **dd**  | Low 32 bits (dereference)                                   |
-| **dq**  | 64 bits (dereference)                                       |
-| **not** | Flip each and every bit                                     |
-| **neg** | True/False logic flipping                                   |
+| Keyword     | Description                                                                                                           |
+| ----------- | --------------------------------------------------------------------------------------------------------------------- |
+| **poi**     | Pointer-sized data from the specified address (dereference)                                                           |
+| **poi\_pa** | Pointer-sized data from the specified address (dereference) from the physical address (added starting from **v0.13**) |
+| **ref**     | Reference address of the specified variable                                                                           |
+| **db**      | Low 8 bits (dereference)                                                                                              |
+| **db\_pa**  | Low 8 bits (dereference) from the physical address (added starting from **v0.13**)                                    |
+| **hi**      | High 16 bits (dereference)                                                                                            |
+| **hi\_pa**  | High 16 bits (dereference) from the physical address (added starting from **v0.13**)                                  |
+| **low**     | Low 16 bits (dereference)                                                                                             |
+| **low\_pa** | Low 16 bits (dereference) from the physical address (added starting from **v0.13**)                                   |
+| **dw**      | Low 16 bits (dereference)                                                                                             |
+| **dw\_pa**  | Low 16 bits (dereference) from the physical address (added starting from **v0.13**)                                   |
+| **dd**      | Low 32 bits (dereference)                                                                                             |
+| **dd\_pa**  | Low 32 bits (dereference) from the physical address (added starting from **v0.13**)                                   |
+| **dq**      | 64 bits (dereference)                                                                                                 |
+| **dq\_pa**  | 64 bits (dereference) from the physical address (added starting from **v0.13**)                                       |
+| **not**     | Flip each and every bit                                                                                               |
+| **neg**     | True/False logic flipping                                                                                             |
 
 If you want to read strings or Unicode strings, you can use the [**printf**](https://docs.hyperdbg.org/commands/scripting-language/functions/printf) function.
 
