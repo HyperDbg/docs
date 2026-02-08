@@ -36,6 +36,40 @@ In the following example, two external scripts are included. Functions defined i
 }
 ```
 
+#### Included Script Contents
+
+In the previous examples, the included files contain function definitions that become available to the main script after inclusion.
+
+For example, the `fibonacci.ds` file defines a recursive Fibonacci function:
+
+```c
+? {
+    int myfibonacci(int var1) {
+        if (var1 == 0) {
+            return 0;
+        }
+        if (var1 == 1) {
+            return 1;
+        }
+        return myfibonacci(var1 - 1) + myfibonacci(var1 - 2);
+    }
+}
+```
+
+Similarly, the `test.ds` file defines a simple function that prints its input arguments:
+
+```c
+? {
+    void my_func(int var, int var2) {
+        printf("var = %d, var2 = %d\n", var, var2);
+        return;
+        printf("this statement is never shown!\n");
+    }
+}
+```
+
+After including these files using the `#include` directive, the functions `myfibonacci` and `my_func` can be called directly from the main script as if they were defined in the same file.
+
 #### Example: Including a Script Using an Absolute Path
 
 The `#include` directive also supports absolute paths:
