@@ -10,7 +10,7 @@ In order to use HyperDbg, you have two options. You can download the [**latest c
 
 If you download compiled binary files, you can skip the **Build & Compile** section and move to the next section, otherwise, to **build** HyperDbg, you need to install the following software.
 
-**Visual Studio Community, Enterprise, or Professional 2022 or later.**
+**Visual Studio Community, Enterprise, or Professional 2022&#x20;**~~**or later**~~**&#x20;(Visual Studio 2026 does not yet support WDK; therefore, use VS 2022).**
 
 * You can download it at: \[[https://www.visualstudio.com/downloads](https://www.visualstudio.com/downloads/)]
 
