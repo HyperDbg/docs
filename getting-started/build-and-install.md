@@ -168,11 +168,11 @@ To check whether VBS is running on your system, type **System Information** on t
 
 If you see "**Enabled but not running**" or "**Not enabled**", you're good to go to the next step.
 
-In some versions of Windows, VBS may still show as "**Enabled but not running**_**"**_, yet HyperDbg will not run. In this case, you need to [manually disable Virtualization-Based Security](https://docs.hyperdbg.org/getting-started/build-and-install#manually-disable-virtualization-based-security).
+In some versions of Windows, VBS may still show as "**Enabled but not running**_**"**_, yet HyperDbg will not run. In this case, follow the steps in the rest of this article.
 
 ![Enabled but not running](../.gitbook/assets/VBS-enabled-but-not-running.PNG) ![Not enabled](../.gitbook/assets/VBS-not-enabled.PNG)
 
-If the VBS is "**Enabled**_**"**_, you can disable it by typing "**Core isolation**" on the start menu and turning off "**Memory integrity**".
+If the VBS is still enabled, you can disable it by typing "**Core isolation**" on the start menu and turning off "**Memory integrity**".
 
 ![Turn off core isolation](../.gitbook/assets/Disable-core-isolation.PNG)
 
