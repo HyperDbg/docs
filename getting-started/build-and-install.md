@@ -45,7 +45,7 @@ For this purpose, you can **Disable Driver Signature Enforcement**.
 The rest of this article focuses on the process of installing and setting up HyperDbg. If you prefer a visual guide, you can watch a corresponding video instead of reading through this section.
 
 {% hint style="warning" %}
-If, after watching this video and following all the steps, HyperDbg still doesn’t run (for example, if VBS shows as "_**Enabled but not running**_"), you can [manually disable VBS](https://docs.hyperdbg.org/getting-started/build-and-install#manually-disable-virtualization-based-security).
+If, after watching this video and following all the steps, HyperDbg still doesn’t run (for example, if VBS shows as "_**Enabled but not running**_") or is still "_**Running**_", you can [manually disable VBS](https://docs.hyperdbg.org/getting-started/build-and-install#disable-vbs-hvci-and-device-guard).
 {% endhint %}
 
 {% embed url="https://www.youtube.com/watch?v=MDZ9zYfqo50" %}
@@ -222,7 +222,7 @@ Now you need to follow the next step to disable **system guard**.
 
 ### Disabling System Guard
 
-To disable
+To **disable** the system guard, you need to create a **DWORD** registry value called "**Enabled**" at `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\SystemGuard`, or simply copy and paste the following script into a `.reg` file and run it as administrator or you can even download it from [here](https://github.com/HyperDbg/starting-hyperdbg-scripts/blob/main/device-guard/disable-system-guard.reg) and run it.
 
 ```reg
 Windows Registry Editor Version 5.00
@@ -231,13 +231,9 @@ Windows Registry Editor Version 5.00
 "Enabled"=dword:00000000
 ```
 
-**Steps**
+Later when you are no longer using HyperDbg and wish to re-enable it, you can apply [this](https://github.com/HyperDbg/starting-hyperdbg-scripts/blob/main/device-guard/enable-system-guard.reg) registry file.
 
-1. Save the above content as a `.reg` file on your desktop.
-2. Double-click the saved `.reg` file to merge it into the registry.
-3. When prompted, click **Run**, then **Yes** (UAC), followed by **Yes**, and **OK** to confirm.
-4. Restart your system for the changes to take effect.
-5. After rebooting, you may delete the `.reg` file if it is no longer needed.
+Now, restart your computer again, then check **System Information** to verify whether VBS is still running. If VBS is still enabled and running, your system may have additional protections implemented by your device manufacturer. In that case, review your BIOS (UEFI firmware) settings for any vendor-specific security features, or consider reaching out to the HyperDbg community groups ([Telegram](https://t.me/HyperDbg), [Discord](https://discord.gg/anSPsGUtzN), or [Matrix](https://matrix.to/#/#hyperdbg-discussion:matrix.org)) for assistance.
 
 ## Run & Test
 
