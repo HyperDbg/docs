@@ -56,9 +56,9 @@ Starting with HyperDbg
 
 You can run HyperDbg on your physical machine in the [VMI Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#vmi-mode) (local debugging), but you can't pause or step through the instruction in this execution mode. If you want to thoroughly use HyperDbg as a debugger (not as a system-log generator), you should use it with a virtual machine in the [Debugger Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#vmi-mode).
 
-HyperDbg works best with VMware Workstation Player/Pro.
+HyperDbg works best with VMware Workstation Pro/Player, or VMware ESXi. VMware Workstation Pro is free to download and use.
 
-You can download VMware Workstation Player (Free Non-commercial License) at: \[[https://www.vmware.com/products/workstation-player/workstation-player-evaluation.html](https://www.vmware.com/products/workstation-player/workstation-player-evaluation.html)]
+You can download VMware Workstation at: \[[https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion](https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion)]
 
 ## Running HyperDbg
 
