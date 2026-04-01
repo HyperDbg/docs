@@ -180,6 +180,8 @@ If your system supports '**Firmware protection**' you need to also **disable** i
 
 <figure><img src="../.gitbook/assets/disable_firmware_protection.jpg" alt="Turn off firmware protection"><figcaption><p>Turn off firmware protection</p></figcaption></figure>
 
+If the **Firmware protection** option is disabled and shows the message _“**This setting is managed by your administrator**,”_ you can follow [this instruction](https://docs.hyperdbg.org/getting-started/build-and-install#disabling-system-guard). After making this change, close and reopen **Windows Security** to check whether the update takes effect or not.
+
 After that, go to "**Turn Windows features on or off**", and disable "**Virtual Machine Platform**" and "**Windows Hypervisor Platform**".
 
 <figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption><p>Disabling Windows Features</p></figcaption></figure>
