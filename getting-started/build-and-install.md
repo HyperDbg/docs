@@ -176,13 +176,17 @@ If the VBS is "**Enabled**_**"**_, you can disable it by typing "**Core isolatio
 
 ![Turn off core isolation](../.gitbook/assets/Disable-core-isolation.PNG)
 
+If your system supports '**Firmware protection**' you need to also **disable** it.
+
+<figure><img src="../.gitbook/assets/disable_firmware_protection.jpg" alt="Turn off firmware protection"><figcaption><p>Turn off firmware protection</p></figcaption></figure>
+
 After that, go to "**Turn Windows features on or off**", and disable "**Virtual Machine Platform**" and "**Windows Hypervisor Platform**".
 
 <figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption><p>Disabling Windows Features</p></figcaption></figure>
 
-The above steps is enough to disable the VBS. After that, you should restart your computer so that VBS will be disabled on the next start. Once the computer started, check the **System Information** app again to see whether **Virtualization-based security** is disabled or not.
+The above steps is enough to disable the VBS for older system but if you still have problems, you could follow the rest of this guide. After that, you should restart your computer so that VBS will be disabled on the next start. Once the computer started, check the **System Information** app again to see whether **Virtualization-based security** is disabled or not.
 
-**Done!** The rest of this section describes other methods for disabling VBS, you don't need to follow it if you successfully disabled **VBS**.
+**Done!** The rest of this section describes other methods for disabling VBS, you don't need to follow it if you successfully disabled **VBS**, but if not, please follow the rest of this article.
 
 You should be able to run HyperDbg now. If HyperDbg is still unable to load, you can manually disable VBS as described in the following section.
 
@@ -202,9 +206,38 @@ Then choose the '**Disabled**' option and click '**OK**'.
 
 ![](../.gitbook/assets/disable-VBS.PNG)
 
-After that, you should restart your computer and recheck **System Information** to see if it's still running or not.
-
 There are also other options to disable **VBS** as described [here](https://beebom.com/how-disable-virtualization-based-security-vbs-windows-11/).
+
+After that, you should restart your computer and recheck **System Information** to see if it's still running or not. If it is still running then check the next step.
+
+### Disable Hypervisor Launch Type
+
+If HyperDbg still fails to run because VBS is enabled ("**running**"), execute the following command in Command Prompt with administrator privileges.
+
+```
+bcdedit /set hypervisorlaunchtype off
+```
+
+Now you need to follow the next step to disable **system guard**.
+
+### Disabling System Guard
+
+To disable
+
+```reg
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\DeviceGuard\Scenarios\SystemGuard]
+"Enabled"=dword:00000000
+```
+
+**Steps**
+
+1. Save the above content as a `.reg` file on your desktop.
+2. Double-click the saved `.reg` file to merge it into the registry.
+3. When prompted, click **Run**, then **Yes** (UAC), followed by **Yes**, and **OK** to confirm.
+4. Restart your system for the changes to take effect.
+5. After rebooting, you may delete the `.reg` file if it is no longer needed.
 
 ## Run & Test
 
