@@ -197,7 +197,7 @@ Take a look at "[Design of !syscall & !sysret](https://docs.hyperdbg.org/design/
 ### Remarks
 
 {% hint style="danger" %}
-This command is not PatchGurad compatible, which means that PatchGuard detects this command and will cause BSOD; thus, make sure to turn it off (e.g., attaching a kernel-mode WinDbg debugger at the start of the Windows) before using this command. Disabling Driver Signature Enforcement alone won't turn off the PatchGuard.
+This command is not PatchGurad compatible, which means that PatchGuard detects this command and will cause BSOD; thus, make sure to turn it off (e.g., by using the [EfiGuard](https://github.com/mattiwatti/efiguard) project or attaching a kernel-mode WinDbg debugger at the start of the Windows) before using this command. Disabling Driver Signature Enforcement alone won't turn off the PatchGuard.
 {% endhint %}
 
 This command makes your computer substantially slower.
