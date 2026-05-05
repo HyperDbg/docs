@@ -2,7 +2,7 @@
 description: Description of '!lbr' command in HyperDbg.
 ---
 
-# !lbr (enable, disable, and configure Last Branch Record)
+# !lbr (tracing branches using Last Branch Record)
 
 ### Command
 
@@ -28,28 +28,28 @@ To dump the LBR entries after enabling them, use the '[!lbrdump](https://docs.hy
 
 The target functionality. Can be one of the following values:
 
-| Function | Description                              |
-| -------- | ---------------------------------------- |
-| enable   | Enable the Last Branch Record            |
-| disable  | Disable the Last Branch Record           |
-| flush    | Flush (clear) the Last Branch Record     |
-| filter   | Configure the LBR filter options         |
+| Function | Description                          |
+| -------- | ------------------------------------ |
+| enable   | Enable the Last Branch Record        |
+| disable  | Disable the Last Branch Record       |
+| flush    | Flush (clear) the Last Branch Record |
+| filter   | Configure the LBR filter options     |
 
 **\[FilterOptions (string)] (optional)**
 
 One or more filter options to configure which branch types are **not** captured. If no option is specified, everything is captured (default). Can be a combination of the following values:
 
-| Option   | Description                          |
-| -------- | ------------------------------------ |
-| kernel   | Do not capture at ring 0             |
-| user     | Do not capture at ring > 0           |
-| jcc      | Do not capture conditional branches  |
-| rel_call | Do not capture relative calls        |
-| ind_call | Do not capture indirect calls        |
-| return   | Do not capture near returns          |
-| ind_jmp  | Do not capture indirect jumps        |
-| rel_jmp  | Do not capture relative jumps        |
-| far      | Do not capture far branches          |
+| Option    | Description                         |
+| --------- | ----------------------------------- |
+| kernel    | Do not capture at ring 0            |
+| user      | Do not capture at ring > 0          |
+| jcc       | Do not capture conditional branches |
+| rel\_call | Do not capture relative calls       |
+| ind\_call | Do not capture indirect calls       |
+| return    | Do not capture near returns         |
+| ind\_jmp  | Do not capture indirect jumps       |
+| rel\_jmp  | Do not capture relative jumps       |
+| far       | Do not capture far branches         |
 
 ### Examples
 
@@ -71,7 +71,7 @@ The following command flushes (clears) the Last Branch Record.
 HyperDbg> !lbr flush
 ```
 
-The following command shows the current LBR filter configuration.
+The following command applies the default LBR configuration in which all types of branches are shown or in other words, it just resets the filter options to include all branches.
 
 ```c
 HyperDbg> !lbr filter
@@ -117,4 +117,9 @@ None
 
 ### Related
 
+[lbr\_save](https://docs.hyperdbg.org/commands/scripting-language/functions/tracing/lbr_save)
+
+[lbr\_print](https://docs.hyperdbg.org/commands/scripting-language/functions/tracing/lbr_print)
+
 [!lbrdump (dump Last Branch Record entries)](https://docs.hyperdbg.org/commands/extension-commands/lbrdump)
+

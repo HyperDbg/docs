@@ -28,7 +28,7 @@ None
 
 First, enable the LBR using the '[!lbr](https://docs.hyperdbg.org/commands/extension-commands/lbr)' command, then use `lbr_print()` in a script (e.g., inside an EPT hook), and finally disable the LBR.
 
-```clike
+```c
 !lbr enable
 
 !epthook 7ff7393a2fd7 pid 3274 script {
@@ -48,7 +48,7 @@ Before calling this function, you need to enable the Last Branch Record using th
 
 ### Related
 
-[lbr\_save](https://docs.hyperdbg.org/commands/scripting-language/functions/tracing/lbr\_save)
+[lbr\_save](https://docs.hyperdbg.org/commands/scripting-language/functions/tracing/lbr_save)
 
 [!lbr (enable, disable, and configure Last Branch Record)](https://docs.hyperdbg.org/commands/extension-commands/lbr)
 

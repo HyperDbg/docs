@@ -24,17 +24,17 @@ Before using this command, you need to enable the LBR using the '[!lbr](https://
 
 **\[core CoreId (hex)] (optional)**
 
-Optional value to dump the LBR entries from a specific core. Add `core xx` to your command; thus, the LBR entries from core `xx` will be dumped. If you don't specify this option, then by default, the LBR entries from the current core are dumped.
+Optional value to dump the LBR entries from a specific core. Add `core xx` to your command; thus, the LBR entries from core `xx` will be dumped. If you don't specify this option, then by default, the LBR entries from all cores are dumped.
 
 ### Examples
 
-The following command dumps LBR entries from the current core.
+The following command dumps LBR entries from the all cores.
 
 ```c
 HyperDbg> !lbrdump
 ```
 
-The following command dumps LBR entries from core **1**.
+The following command dumps LBR entries from core **0x1**.
 
 ```c
 HyperDbg> !lbrdump core 1
@@ -55,5 +55,9 @@ This command is guaranteed to keep debuggee in a halt state (in Debugger Mode); 
 None
 
 ### Related
+
+[lbr\_save](https://docs.hyperdbg.org/commands/scripting-language/functions/tracing/lbr_save)
+
+[lbr\_print](https://docs.hyperdbg.org/commands/scripting-language/functions/tracing/lbr_print)
 
 [!lbr (enable, disable, and configure Last Branch Record)](https://docs.hyperdbg.org/commands/extension-commands/lbr)

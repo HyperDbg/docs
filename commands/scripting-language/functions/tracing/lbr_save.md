@@ -32,7 +32,7 @@ None
 
 First, enable the LBR using the '[!lbr](https://docs.hyperdbg.org/commands/extension-commands/lbr)' command, then use `lbr_save()` in a script (e.g., inside an EPT hook), and finally disable the LBR.
 
-```clike
+```c
 !lbr enable
 
 !epthook 7ff7393a2fd7 pid 3274 script {
@@ -42,7 +42,7 @@ First, enable the LBR using the '[!lbr](https://docs.hyperdbg.org/commands/exten
 !lbr disable
 ```
 
-The above example enables LBR, hooks the target address in process with PID **3274**, and each time execution reaches that address, the captured branch entries are saved. You can then use '[!lbrdump](https://docs.hyperdbg.org/commands/extension-commands/lbrdump)' to inspect them.
+The above example enables LBR, hooks the target address in process with PID **0x3274**, and each time execution reaches that address, the captured branch entries are saved. You can then use '[!lbrdump](https://docs.hyperdbg.org/commands/extension-commands/lbrdump)' to inspect them.
 
 ### Remarks
 
@@ -52,7 +52,7 @@ Before calling this function, you need to enable the Last Branch Record using th
 
 ### Related
 
-[lbr\_print](https://docs.hyperdbg.org/commands/scripting-language/functions/tracing/lbr\_print)
+[lbr\_print](https://docs.hyperdbg.org/commands/scripting-language/functions/tracing/lbr_print)
 
 [!lbr (enable, disable, and configure Last Branch Record)](https://docs.hyperdbg.org/commands/extension-commands/lbr)
 
