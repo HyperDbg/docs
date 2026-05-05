@@ -31,7 +31,7 @@ fffff801`639b1054    44 0F B7 3D A4 8F 34 00             movzx r15d, word ptr ds
 fffff801`639b105c    48 8B EA                            mov rbp, rdx
 ```
 
-The assebly code for `nt!CmpAllocatePoolWithTag` :
+The assembly code for `nt!CmpAllocatePoolWithTag` :
 
 ```
 2: kHyperDbg> u nt!CmpAllocatePoolWithTag

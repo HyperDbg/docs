@@ -25,7 +25,7 @@ description: Description of 'u, u64, u2, u32' commands in HyperDbg.
 > u32 \[Address (hex)] \[l Length (hex)] \[pid ProcessId (hex)]
 
 {% hint style="info" %}
-**u** and **u64** disassembles as x64 while **u2** and **u32** adisassembles as x86. **u** and **u64** are the same commands while **u2** and **u32** are the same.
+**u** and **u64** disassemble as x64 while **u2** and **u32** disassemble as x86. **u** and **u64** are the same commands while **u2** and **u32** are the same.
 {% endhint %}
 
 ### Description

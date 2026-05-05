@@ -106,7 +106,7 @@ It is because HyperDbg holds a queue of messages to be delivered to user mode. W
 
 If you set this field to `TRUE`, the buffer will be delivered to the user -ode immediately, and if you set it to `FALSE`, then the buffers will be accumulated and delivered when the queue has multiple messages.
 
-You should set it to `FALSE` in most cases, but if you need immediate results the choose `TRUE` and it makes your computer substantially slower in high rates of data delivery but at low rates `TRUE`makes more scene.
+You should set it to `FALSE` in most cases, but if you need immediate results the choose `TRUE` and it makes your computer substantially slower in high rates of data delivery but at low rates `TRUE`makes more sense.
 
 **InTheCaseOfCustomCode :** you should fill it as described above.
 

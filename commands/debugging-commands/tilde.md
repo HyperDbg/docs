@@ -51,7 +51,7 @@ current processor : 0x1
 
 ### IOCTL
 
-This commands works over serial by sending the serial packets to the remote computer.
+This command works over serial by sending the serial packets to the remote computer.
 
 First of all, you should fill the following structure, set the `NewCore` to your target core, and leave the `Result`.
 

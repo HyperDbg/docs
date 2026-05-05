@@ -193,7 +193,7 @@ Take a look at "[Design of !epthook](https://docs.hyperdbg.org/design/features/v
 
 ### Remarks
 
-This command is much slower than **!epthook2**, because it cause vm-exits, but on the other hand, this implementation doesn't have any limitation. For example, you can use this command for hooking user-mode while you can't use **!epthook2** on user-mode.
+This command is much slower than **!epthook2**, because it causes vm-exits, but on the other hand, this implementation doesn't have any limitation. For example, you can use this command for hooking user-mode while you can't use **!epthook2** on user-mode.
 
 {% hint style="danger" %}
 You shouldn't use any of **!monitor**, **!epthook**, and **!epthook2** commands on the same page (4KB) simultaneously. For example, when you put a hidden hook (**!epthook2**) on **0x10000005**, you shouldn't use any of **!monitor** or **!epthook** commands on the address starting from **0x10000000** to **0x10000fff**.

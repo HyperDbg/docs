@@ -6,7 +6,7 @@ description: Description of the '!track' command in HyperDbg.
 
 ### Command
 
-> !track : track function calls and return adderesses and map them to the symbols
+> !track : track function calls and return addresses and map them to the symbols
 
 ### Syntax
 
@@ -144,7 +144,7 @@ This command will set a **Monitor Trap Flag** in debuggee and continue just the 
 
 If the currently executing instruction is a **call** instruction, it will follow and enter the **call** instruction to find the recursive calls and returns (**ret** instructions).
 
-If you load symbols and you don't want to see function names, you turn **addressconversion** off in the '[settings](https://docs.hyperdbg.org/commands/debugging-commands/settings)' command.
+If you load symbols and you don't want to see function names, you can turn **addressconversion** off in the '[settings](https://docs.hyperdbg.org/commands/debugging-commands/settings)' command.
 
 This command is able to track from user-mode to kernel-mode and kernel-mode to user-mode.
 

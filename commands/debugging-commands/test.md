@@ -79,7 +79,7 @@ from now, the breakpoints will be re-injected into the guest debuggee
 The following command is used to turn OFF/ON the debug break (#DB) interception.
 
 ```
-0: kHyperDbg> test breakpoint on
+0: kHyperDbg> test trap on
 debug break interception (#DB) is activated
 
 4: kHyperDbg> test trap off

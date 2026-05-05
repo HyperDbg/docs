@@ -24,7 +24,7 @@ If you want to change the **RAX** register to **0x55**.
 ? @rax = 0x55;
 ```
 
-Evaluationg a statement and changing **EBX** register by its result. 
+Evaluating a statement and changing **EBX** register by its result. 
 
 ```clike
 ? @ebx = @rdx | 0xfffff550 + @edx;

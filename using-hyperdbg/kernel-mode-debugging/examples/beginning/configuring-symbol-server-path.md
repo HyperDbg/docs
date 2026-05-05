@@ -14,7 +14,7 @@ Firstly, we need a symbol path. We often set a local symbol path combined with a
 
 In the above path, first, it checks if the symbol exists in `c:\symbols`. If not, then it checks `https://msdl.microsoft.com/download/symbols`.
 
-All the paths strings should be started with `SRV*`.
+All the path strings should start with `SRV*`.
 
 Now, the following command sets the symbol path to `SRV*c:\symbols*https://msdl.microsoft.com/download/symbols`.
 

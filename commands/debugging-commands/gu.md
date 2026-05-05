@@ -22,7 +22,7 @@ Executes instructions one by one until one **RET** instruction is executed (step
 
 **\[Count (hex)] (optional)**
 
-The number of **instructions** to perform the instrument (The execution might not meet a RET instruction if not enough number is specified).
+The number of **instructions** to perform the instrumentation (The execution might not meet a RET instruction if not enough number is specified).
 
 ### Examples
 

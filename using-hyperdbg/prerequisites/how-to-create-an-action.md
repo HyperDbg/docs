@@ -50,7 +50,7 @@ Accessing random memory in **custom code** and **condition code** is considered 
 
 ### Run custom code without a safe buffer
 
-Each command in HyperDbg that are tagged as "**event**" in the document follows the same structure described [here](https://docs.hyperdbg.org/design/debugger-internals/events). At the time you execute a command, you can add a `code { xx xx xx xx }` where `xx` is the assembly (hex) of what you want to be executed in the case of that event.
+Each command in HyperDbg that is tagged as "**event**" in the document follows the same structure described [here](https://docs.hyperdbg.org/design/debugger-internals/events). At the time you execute a command, you can add a `code { xx xx xx xx }` where `xx` is the assembly (hex) of what you want to be executed in the case of that event.
 
 Starting from **v0.10**, HyperDbg supports direct assembly code in the code sections. You can add `asm code { asm1; asm2; asm3; asm4}` where you can add any assembly code to be executed in the case of that event.
 
@@ -156,7 +156,7 @@ Instead of using hexadecimal codes, you can directly use HyperDbg's [assembler](
 
 ### Run custom code with a safe buffer
 
-The difference between "**Run custom code without a safe buffer**" and "**Run custom code without a safe buffer**" is that you have an extra parameter, called `buffer xx` where `xx` is the hex length of the buffer.
+The difference between "**Run custom code without a safe buffer**" and "**Run custom code with a safe buffer**" is that you have an extra parameter, called `buffer xx` where `xx` is the hex length of the buffer.
 
 {% hint style="danger" %}
 The **PreAllocatedBufferAddress** is just one buffer. You have to know how many cores you have. If there are two or more cores that might use the buffer simultaneously, you have to use a special location (offset from the top of the buffer) for each core to avoid race conditions and unintended behavior.

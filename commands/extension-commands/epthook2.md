@@ -17,7 +17,7 @@ description: Description of the '!epthook2' command in HyperDbg.
 Puts an in-line, detours-style kernel EPT hidden hook (fast).&#x20;
 
 {% hint style="info" %}
-This implementation of the hidden hook won't cause vm-exit when it triggers. It's like detours, and everything is done in vmx non-root, so it's much faster than !epthook, but it some limitations. See **Remarks** for more information.
+This implementation of the hidden hook won't cause vm-exit when it triggers. It's like detours, and everything is done in vmx non-root, so it's much faster than !epthook, but it has some limitations. See **Remarks** for more information.
 {% endhint %}
 
 ### Parameters

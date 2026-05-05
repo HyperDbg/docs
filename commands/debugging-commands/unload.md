@@ -18,7 +18,7 @@ Unloads the HyperDbg drivers and kernel modules from the target system.
 
 ### Parameters
 
-**\[remove]\(optional)**
+**\[remove] (optional)**
 
 If you want to remove the installed driver. (See **Remarks** for more information)
 

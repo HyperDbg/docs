@@ -127,7 +127,7 @@ The first argument (`$arg0`) is the script's **.ds** file path. Arguments can be
 }
 ```
 
-We run the above script like by using the “[.script](https://docs.hyperdbg.org/commands/meta-commands/.script)” command.
+We run the above script by using the “[.script](https://docs.hyperdbg.org/commands/meta-commands/.script)” command.
 
 ```clike
 0: kHyperDbg> .script "C:\path to script\script.ds" 55 @rax+@rbx

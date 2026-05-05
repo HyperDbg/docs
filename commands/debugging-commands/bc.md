@@ -55,7 +55,7 @@ id   address           status
 
 ### IOCTL
 
-This commands works over serial by sending the serial packets to the remote computer.
+This command works over serial by sending the serial packets to the remote computer.
 
 First of all, you should fill the following structure, set the `BreakpointId` to your special breakpoint id, which is derived from the '[bl](https://docs.hyperdbg.org/commands/debugging-commands/bl)' command.
 
@@ -87,7 +87,7 @@ In the case of `Request`:
 * If you want to list all the active breakpoint, then choose `DEBUGGEE_BREAKPOINT_MODIFICATION_REQUEST_LIST_BREAKPOINTS`.
 * If you want to enable a breakpoint, then choose `DEBUGGEE_BREAKPOINT_MODIFICATION_REQUEST_ENABLE`.
 * If you want to disable a breakpoint, then choose `DEBUGGEE_BREAKPOINT_MODIFICATION_REQUEST_DISABLE`.
-* If you want to list clear and remove a breakpoint, then choose `DEBUGGEE_BREAKPOINT_MODIFICATION_REQUEST_CLEAR`.
+* If you want to clear and remove a breakpoint, then choose `DEBUGGEE_BREAKPOINT_MODIFICATION_REQUEST_CLEAR`.
 
 Note that if you want to list breakpoints, there is no need to fill `BreakpointId`and HyperDbg will ignore it.
 

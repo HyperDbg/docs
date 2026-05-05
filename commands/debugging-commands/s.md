@@ -85,7 +85,7 @@ This function works by calling **DeviceIoControl** with `IOCTL = IOCTL_DEBUGGER_
 ```c
 typedef struct _DEBUGGER_SEARCH_MEMORY {
 
-  UINT64 Address;                            // Target adddress to start searching
+  UINT64 Address;                            // Target address to start searching
   UINT64 Length;                             // Length of bytes to search
   UINT32 ProcessId;                          // specifies the process id
   DEBUGGER_SEARCH_MEMORY_TYPE MemoryType;    // Type of memory

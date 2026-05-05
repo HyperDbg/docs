@@ -34,7 +34,7 @@ The value that needs to be replaced on the target address.
 
 `eb` modifies a single `byte`.
 
-`ed` modifies a `dwrod`.
+`ed` modifies a `dword`.
 
 `eq` modifies a `qword` value.
 

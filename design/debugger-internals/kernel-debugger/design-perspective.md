@@ -2,7 +2,7 @@
 description: Description of high-level design of kernel debugger
 ---
 
-# Design Prospective
+# Design Perspective
 
 The following diagram illustrates how HyperDbg works on its kernel debugging mechanism.
 
@@ -19,5 +19,5 @@ There are two scenarios in which the kernel debugger is paused.
 
 In order to notify all the other cores, we send NMIs to all the cores using XAPIC or X2APIC. All the cores are configured to cause vm-exit in the case of NMIs \(PIN-Based VM-Exec controls are set to 1\).
 
-All the cores are in vmx-root mode are spinning and waiting for a new command from the debugger.
+All the cores in vmx-root mode are spinning and waiting for a new command from the debugger.
 

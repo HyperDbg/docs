@@ -10,7 +10,7 @@ description: Description of the 'struct' command in HyperDbg.
 
 ### Syntax
 
-> struct \[Module!SymbolName (string)] \[padding Padding (yesno)] \[offset Offset (yesno)] \[bitfield Bitfield (yesno)] \[native Native (yesno)] \[decl Declaration (yesno)] \[def Definitions (yesno)] \[func Functions (yesno)] \[pragma Pragma (yesno)] \[prefix Prefix (string)] \[suffix Suffix (string)] \[inline Expantion (string)] \[output FileName (string)]
+> struct \[Module!SymbolName (string)] \[padding Padding (yesno)] \[offset Offset (yesno)] \[bitfield Bitfield (yesno)] \[native Native (yesno)] \[decl Declaration (yesno)] \[def Definitions (yesno)] \[func Functions (yesno)] \[pragma Pragma (yesno)] \[prefix Prefix (string)] \[suffix Suffix (string)] \[inline Expansion (string)] \[output FileName (string)]
 
 ### Description
 
@@ -66,7 +66,7 @@ Prefix for all symbols.
 
 Suffix for all symbols.
 
-**\[inline Expantion (string)] (optional)**
+**\[inline Expansion (string)] (optional)**
 
 Specifies expansion of nested structures/unions. (default: **unnamed**)
 
@@ -143,7 +143,7 @@ typedef struct _TOKEN
 } TOKEN, *PTOKEN; /* size: 0x0498 */
 ```
 
-You can aslo use this command to rebuild enums.
+You can also use this command to rebuild enums.
 
 ```clike
 HyperDbg> struct nt!POWER_ACTION

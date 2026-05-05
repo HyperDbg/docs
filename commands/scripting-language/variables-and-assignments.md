@@ -286,7 +286,7 @@ Modifying memory is possible using '[eb, ed, eq](https://docs.hyperdbg.org/comma
 
 `eb` modifies a single `byte`.
 
-`ed` modifies a `dwrod`.
+`ed` modifies a `dword`.
 
 `eq` modifies a `qword` value.
 

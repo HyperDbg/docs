@@ -58,7 +58,7 @@ BOOLEAN KdSendFlushPacketToDebuggee();
 
 ### Remarks
 
-You can configure **autoflush** mode in [settings](https://docs.hyperdbg.org/commands/debugging-commands/settings). This way, **HyperDbg** removes the pending messages automatically when you **disabled** or **cleared** an event.
+You can configure **autoflush** mode in [settings](https://docs.hyperdbg.org/commands/debugging-commands/settings). This way, **HyperDbg** removes the pending messages automatically when you **disable** or **clear** an event.
 
 This command is guaranteed to keep debuggee in a halt state (in Debugger Mode); thus, nothing will change during its execution.
 

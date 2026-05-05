@@ -152,7 +152,7 @@ typedef struct _USERMODE_LOADED_MODULE_SYMBOLS
 
 When the above structure is returned, at the bottom of the `USERMODE_LOADED_MODULE_DETAILS` is filled with an array of `USERMODE_LOADED_MODULE_SYMBOLS`. This array contains information about the module's `BaseAddress`, `Entrypoint`, and the `FilePath`.&#x20;
 
-Getting modules information for the kernel-mode modules are done by calling **NtQuerySystemInformation** and does not gets the address from the kernel, so it doesn't have any IOCTL.
+Getting modules information for the kernel-mode modules is done by calling **NtQuerySystemInformation** and does not gets the address from the kernel, so it doesn't have any IOCTL.
 
 ### Remarks
 

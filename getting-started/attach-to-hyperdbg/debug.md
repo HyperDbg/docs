@@ -20,7 +20,7 @@ HyperDbg works best with VMware Workstation Player/Pro.
 
 You can download VMware Workstation Player (Free Non-commercial License) at: \[[https://www.vmware.com/products/workstation-player/workstation-player-evaluation.html](https://www.vmware.com/products/workstation-player/workstation-player-evaluation.html)]
 
-After that, you should install your desired operating system (Windows 10, or 11) on your VMware as a guest. Once, you finished installing your virtual machine, you can continue the rest of this article.
+After that, you should install your desired operating system (Windows 10, or 11) on your VMware as a guest. Once you have finished installing your virtual machine, you can continue the rest of this article.
 
 Here is a quick video that describes how to set up HyperDbg with VMware Workstation Pro/Player.
 

@@ -28,7 +28,7 @@ description: Description of 'k, kd, kq' commands in HyperDbg.
 
 ### Description
 
-Displays stack backtrace and optionally show the parameter in the stack.
+Displays stack backtrace and optionally shows the parameters in the stack.
 
 ### Parameters
 
@@ -133,7 +133,7 @@ The following command shows the callstack of the current thread along with param
 
 ### IOCTL
 
-This commands works over serial by sending the serial packets to the remote computer.
+This command works over serial by sending the serial packets to the remote computer.
 
 First of all, you should fill the following structure, set the `Is32Bit`to your target execution context, set the `Size` and count of frames `FrameCount`, the base address (setting `NULL` as based address indicates that debuggee needs the current `rsp` register as the base address).
 

@@ -33,7 +33,7 @@ The following command shows the `@rax` register in the debuggee.
 The following command shows the data as an 8-byte hex, pointed by the `@rcx` register.
 
 ```diff
-0: kHyperDbg> print dq(@rcx))
+0: kHyperDbg> print dq(@rcx)
 ```
 
 The following command shows the value pointed by `$proc+@rdx` which **$proc** is equivalent to current `_EPROCESS` added to the **rdx** register.

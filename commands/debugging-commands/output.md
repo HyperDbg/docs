@@ -92,7 +92,7 @@ HyperDbg> !syscall script { print(@rax); } output {MyOutputName1 , MyOutputName2
 
 You can specify up to `5` output sources in the default build of HyperDbg, but if you need more output sources for a single event, then you should compile HyperDbg with different configurations as described on [Customize Build](https://docs.hyperdbg.org/tips-and-tricks/misc/customize-build) and change the `DebuggerOutputSourceMaximumRemoteSourceForSingleEvent`.
 
-Starting from v0.10, HyperDbg supports modules (DLLs) as functions directly load DLLs and have the ability to forward events to functions. Note that, DLLs should be compiled into 64-bit binaries (32-bit binaries are not supported). Examples of DLLs are available in [Rust](https://github.com/HyperDbg/event-forwarding-examples/tree/main/Rust/module) and [C++](https://github.com/HyperDbg/event-forwarding-examples/tree/main/C%2B%2B/module).
+Starting from v0.10, HyperDbg supports modules (DLLs) as functions that directly load DLLs and have the ability to forward events to functions. Note that, DLLs should be compiled into 64-bit binaries (32-bit binaries are not supported). Examples of DLLs are available in [Rust](https://github.com/HyperDbg/event-forwarding-examples/tree/main/Rust/module) and [C++](https://github.com/HyperDbg/event-forwarding-examples/tree/main/C%2B%2B/module).
 
 Generally, DLLs (in all low-level languages) should export a function with the name `hyperdbg_event_forwarding` with the first parameter as a pointer to the buffer message and the second parameter as an integer with the size that will be called by HyperDbg's event forwarding module once an event is triggered. The following example is the definition of the function in C/C++ (You can do the same in Rust, GO, etc.).
 

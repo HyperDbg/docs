@@ -20,7 +20,7 @@ The time to sleep (pause the execution) in microseconds.
 
 ### Description
 
-Sleeps (pauses the execution) the core execution for a specified duration in microseconds..
+Sleeps (pauses the execution) the core execution for a specified duration in microseconds.
 
 ### Return value
 

@@ -28,7 +28,7 @@ or,
 
 Then, we will run our game and see if the breakpoint is triggered or not.
 
-If the breakpoint is triggered, then the system is halt and we are able to control the debuggee.
+If the breakpoint is triggered, then the system is halted and we are able to control the debuggee.
 
 After that, we can use the ['p' command](https://docs.hyperdbg.org/commands/debugging-commands/p) to step-over the instructions.
 

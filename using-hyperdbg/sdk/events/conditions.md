@@ -2,7 +2,7 @@
 
 ### Creating a Condition
 
-You can create a buffer that holds a few bytes that will be do anything you want. For example, you might want to check if the current thread is a special thread or check the privilege level of the requesting user or whatever you can do anything you want in your assembly code then at the end of the code, you can decide whether the actions of this event should be executed or not.
+You can create a buffer that holds a few bytes that will do anything you want. For example, you might want to check if the current thread is a special thread or check the privilege level of the requesting user or whatever you can do anything you want in your assembly code then at the end of the code, you can decide whether the actions of this event should be executed or not.
 
 This is done by using `RAX`register. If you zero the `RAX`register, then return (`ret`), it means that you don't want the event actions to be executed (or in other words, you returned `FALSE`).
 

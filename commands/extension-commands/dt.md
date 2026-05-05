@@ -10,7 +10,7 @@ description: Description of the '!dt' command in HyperDbg.
 
 ### Syntax
 
-> !dt \[Module!SymbolName (string)] \[AddressExpression (string)] \[padding Padding (yesno)] \[offset Offset (yesno)] \[bitfield Bitfield (yesno)] \[native Native (yesno)] \[decl Declaration (yesno)] \[def Definitions (yesno)] \[func Functions (yesno)] \[pragma Pragma (yesno)] \[prefix Prefix (string)] \[suffix Suffix (string)] \[inline Expantion (string)] \[output FileName (string)]
+> !dt \[Module!SymbolName (string)] \[AddressExpression (string)] \[padding Padding (yesno)] \[offset Offset (yesno)] \[bitfield Bitfield (yesno)] \[native Native (yesno)] \[decl Declaration (yesno)] \[def Definitions (yesno)] \[func Functions (yesno)] \[pragma Pragma (yesno)] \[prefix Prefix (string)] \[suffix Suffix (string)] \[inline Expansion (string)] \[output FileName (string)]
 
 ### Description
 
@@ -70,7 +70,7 @@ Prefix for all symbols.
 
 Suffix for all symbols.
 
-**\[inline Expantion (string)] (optional)**
+**\[inline Expansion (string)] (optional)**
 
 Specifies expansion of nested structures/unions. (default: **unnamed**)
 

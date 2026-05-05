@@ -12,7 +12,7 @@ The message tracing is derived from our [Hypervisor From Scratch 8](https://raya
 
 Without any doubt, one of the hardest parts of designing a hypervisor is sending a message from Vmx root-mode to Vmx non-root mode. This is because you have lots of limitations like you can’t access non-paged buffer, and of course, most of the NT functions are not \(ANY IRQL\) compatible as they might access the buffers that reside in paged pool.
 
-The things are ending here, there are plenty of other limitation to deal with.
+Things don't end there, there are plenty of other limitations to deal with.
 
 This section is inspired by Chapter 6: Kernel Mechanisms \(High IRQL Synchronization\) from the Windows Kernel Programming book by Pavel Yosifovich which is a really amazing book if you want to start with kernel programming.
 
@@ -46,7 +46,7 @@ There are two posts about DPCs [here ](https://repnz.github.io/posts/practical-r
 
 ## **Challenges**
 
-For example, Vmx-root mode is not a HIGH\_IRQL interrupt \(with discussing it in **Discussion** Section\), but as it disables all of the interrupts, we can think like it’s a HIGH\_IRQL state. The problem is that must of synchronization functions are designed to be worked on IRQL less than DISPATCH\_LEVEL.
+For example, Vmx-root mode is not a HIGH\_IRQL interrupt \(with discussing it in **Discussion** Section\), but as it disables all of the interrupts, we can think like it’s a HIGH\_IRQL state. the problem is that most of synchronization functions are designed to be worked on IRQL less than DISPATCH\_LEVEL.
 
 Why is it problematic? Imagine you have a one-core processor, and your function requires a spinlock \(let say it’s merely a buffer that needs to be accessed\). The function raises the IRQL to **DISPATCH\_LEVEL**. Now the Windows Scheduler can’t interrupt the function until it releases the spinlock and lowers the IRQL to **PASSIVE\_LEVEL** or **APC\_LEVEL**. During the execution of the function, a vm-exit occurs; thus, we’re in vmx root-mode now. It’s because, as I told you, vm-exit happens as if it’s a HIGH\_IRQL interrupt.
 

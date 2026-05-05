@@ -11,7 +11,7 @@ After sending this structure to the kernel, if it's valid, then the kernel creat
 ```c
 /**
  * @brief Each command is like the following struct, it also used for
- * tracing works in user mode and sending it to the kernl mode
+ * tracing works in user mode and sending it to the kernel mode
  * @details THIS IS NOT WHAT HYPERDBG SAVES FOR EVENTS IN KERNEL MODE
  */
 typedef struct _DEBUGGER_GENERAL_EVENT_DETAIL {
@@ -116,7 +116,7 @@ If you want to use the debugger features, you should connect the `CommandsEventL
 
 **CommandStringBuffer** is the string of the command. You can ignore it.
 
-If your event contains a condition buffer (`ConditionBufferSize != 0`), you can use set the size if `ConditionBufferSize` and append the buffer to the end of the above structure, and when you send the buffer to the kernel, you should send the `sizeof(DEBUGGER_GENERAL_EVENT_DETAIL)+ ConditionBufferSize (if any)`.
+If your event contains a condition buffer (`ConditionBufferSize != 0`), you can set the size of `ConditionBufferSize` and append the buffer to the end of the above structure, and when you send the buffer to the kernel, you should send the `sizeof(DEBUGGER_GENERAL_EVENT_DETAIL)+ ConditionBufferSize (if any)`.
 
 Finally, you can send it to the kernel by using the following function.
 
@@ -144,7 +144,7 @@ Also, **EventTag** is the unique ID that we sent previously in the event.
 
 ```c
 //
-// Each event can have mulitple actions
+// Each event can have multiple actions
 // THIS STRUCTURE IS ONLY USED IN USER MODE
 // WE USE SEPARATE STRUCTURE FOR ACTIONS IN
 // KERNEL MODE

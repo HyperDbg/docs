@@ -46,7 +46,7 @@ Returns an integer value indicating the relationship between the strings:<br>
 
 ``strncmp(fffff806`6de00000, @rax+c0, 0n12);``
 
-Compare the the first 12 (decimal) characters of the string located at ``fffff806`6de00000`` with the string located at `@rax+c0`.
+Compare the first 12 (decimal) characters of the string located at ``fffff806`6de00000`` with the string located at `@rax+c0`.
 
 `strncmp(@rcx, "Test String", b);`
 

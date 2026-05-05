@@ -14,7 +14,7 @@ description: Description of the 'wrmsr' command in HyperDbg.
 
 ### Description
 
-Write on the model-specific register using '**wrmsr**' instruction.
+Writes to the model-specific register using the '**wrmsr**' instruction.
 
 ### Parameters
 

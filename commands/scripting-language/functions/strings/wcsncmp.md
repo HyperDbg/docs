@@ -50,7 +50,7 @@ Returns an integer value indicating the relationship between the strings:<br>
 
 ``wcsncmp(fffff806`6de00000, @rax+c0, 0n12);``
 
-Compare the the first 12 (decimal) characters of  the wide-character string located at ``fffff806`6de00000`` with the wide-character string located at `@rax+c0`.
+Compare the first 12 (decimal) characters of the wide-character string located at ``fffff806`6de00000`` with the wide-character string located at `@rax+c0`.
 
 `wcsncmp(@rcx, L"Test WString", 12);`
 

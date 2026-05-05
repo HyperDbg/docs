@@ -92,7 +92,7 @@ If the currently executing instruction is a **call** instruction, it will follow
 
 HyperDbg guarantees that all cores and threads won't find a chance to be executed between each step in this type of stepping.
 
-If you load symbols and you don't want to see function names, you turn **addressconversion** off in the '[settings](https://docs.hyperdbg.org/commands/debugging-commands/settings)' command.
+If you load symbols and you don't want to see function names, you can turn **addressconversion** off in the '[settings](https://docs.hyperdbg.org/commands/debugging-commands/settings)' command.
 
 ### Requirements
 

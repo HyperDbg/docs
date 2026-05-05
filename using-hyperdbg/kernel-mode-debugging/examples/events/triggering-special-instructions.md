@@ -12,7 +12,7 @@ For example, we might be interested in the execution of I/O instructions (IN & O
 Do not try to monitor all I/O ports or the I/O port for the serial device connected to the debugger if you are operating on **Debugger Mode**.
 {% endhint %}
 
-Using these commands, we can monitor I/O ports. For examples, let say we want to monitor the I/O port `0x3f8` for `IN`instruction.
+Using these commands, we can monitor I/O ports. For example, let's say we want to monitor the I/O port `0x3f8` for `IN`instruction.
 
 ```c
 HyperDbg> !ioin 0x3f8

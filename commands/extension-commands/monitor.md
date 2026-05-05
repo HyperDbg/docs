@@ -56,7 +56,7 @@ Can be one of these values depending on whether the **FromAddress** and **ToAddr
 
 **pa**: the address is a physical address
 
-If you do not specify this event, it assumes that the address is a virtual address.
+If you do not specify this option, it assumes that the address is a virtual address.
 
 **\[pid ProcessId (hex)] (optional)**
 

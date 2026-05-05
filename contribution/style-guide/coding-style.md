@@ -1,5 +1,5 @@
 ---
-description: This guide introduces a consistent style for writing codes for HypedDbg.
+description: This guide introduces a consistent style for writing codes for HyperDbg.
 ---
 
 # Coding Style

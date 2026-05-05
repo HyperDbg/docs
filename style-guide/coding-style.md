@@ -1,12 +1,12 @@
 ---
-description: This guide introduces a consistent style for writing codes for HypedDbg.
+description: This guide introduces a consistent style for writing codes for HyperDbg.
 ---
 
 # Coding Style
 
 ### Naming Style
 
-For functions and variables, you should start with capital case character and for each word you should start with capital characters. You should not use underline `_` on these names.
+For functions and variables, you should start with a capital case character, and for each word you should start with capital characters. You should not use underline `_` on these names.
 
 For structures and enum names you should write them all in capital characters and separate each word by one underline `_` .
 

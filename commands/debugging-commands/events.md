@@ -105,7 +105,7 @@ This function works by calling **DeviceIoControl** with `IOCTL = IOCTL_DEBUGGER_
 typedef struct _DEBUGGER_MODIFY_EVENTS {
 
   UINT64 Tag;          // Tag of the target event that we want to modify
-  UINT64 KernelStatus; // Kerenl put the status in this field
+  UINT64 KernelStatus; // Kernel put the status in this field
   DEBUGGER_MODIFY_EVENTS_TYPE
   TypeOfAction; // Determines what's the action (enable | disable | clear)
 
@@ -154,7 +154,7 @@ For event short-circuiting, you should send the following structure to the kerne
 ```clike
 typedef struct _DEBUGGER_SHORT_CIRCUITING_EVENT
 {
-    UINT64  KernelStatus;      // Kerenl put the status in this field
+    UINT64  KernelStatus;      // Kernel put the status in this field
     BOOLEAN IsShortCircuiting; // Determines whether to perform short circuting (on | off)
 
 } DEBUGGER_SHORT_CIRCUITING_EVENT, *PDEBUGGER_SHORT_CIRCUITING_EVENT;

@@ -82,7 +82,7 @@ To set the breakpoint, you need to use the following function in `libhyperdbg`:
 
 ```clike
 VOID
-hyperdbg_u_set_breakpoint(UINT64 address, UINT32 pid, UINT32 tid, UINT32 core_numer);
+hyperdbg_u_set_breakpoint(UINT64 address, UINT32 pid, UINT32 tid, UINT32 core_number);
 ```
 
 ### Remarks

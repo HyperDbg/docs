@@ -34,7 +34,7 @@ The value that needs to be replaced on the target physical address.
 
 `eb_pa` modifies a single `byte`.
 
-`ed_pa` modifies a `dwrod`.
+`ed_pa` modifies a `dword`.
 
 `eq_pa` modifies a `qword` value.
 

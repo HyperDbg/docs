@@ -14,7 +14,7 @@ description: Description of the '!dr' command in HyperDbg.
 
 ### Description
 
-Triggers, when the debugging machine accesses one of the hardware debug registers.
+Triggers when the debugging machine accesses one of the hardware debug registers.
 
 ### Parameters
 

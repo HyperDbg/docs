@@ -12,11 +12,11 @@ It's clear that only those entries that you want will cause a vm-exit and not al
 
 It works on the first 32 entries of IDT or entries between **0x0** to **0x1f**.
 
-All vm-exits are handled in the same way, but page-faults \(**\#PF**\) are different. In those cases, **HyperDbg** also the **cr2** register too.
+All vm-exits are handled in the same way, but page-faults \(**\#PF**\) are different. In those cases, **HyperDbg** also saves the **cr2** register.
 
 **!interrupt**, on the other hand, is different. There is a bit in **pin-based vmx controls**, which cause vm-exit on all external-interrupts \(starting from 0x20 to 0xff\); thus, if you want just an entry above the **0x1f**, then all of the external-interrupts cause vm-exit and **HyperDbg** manages them, so it's substantially slower.
 
-There also other considerations for emulating external-interrupts. For example, the target guest might not be in an **interruptible-state** \(e.g., **RFLAG.IF** bit is not set\), so we have to save the interrupt details somewhere else and wait for a window to open \(**interrupt-window exiting**\).
+There are also other considerations for emulating external-interrupts. For example, the target guest might not be in an **interruptible-state** \(e.g., **RFLAG.IF** bit is not set\), so we have to save the interrupt details somewhere else and wait for a window to open \(**interrupt-window exiting**\).
 
 Whenever the guest is in an **interruptible-state**, it causes vm-exit \(because of **interrupt-window exiting** bit\), and we re-inject all the accumulated interrupts.
 

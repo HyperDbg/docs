@@ -1,6 +1,6 @@
 ---
 description: >-
-  This guide introduces a consistent style for documenting HypedDbg source code
+  This guide introduces a consistent style for documenting HyperDbg source code
   using Doxygen
 ---
 
@@ -8,7 +8,7 @@ description: >-
 
  This guide introduces a consistent style for documenting HyperDbg using [Doxygen](http://www.doxygen.org/).
 
-If you want to create a pull request and contribute in HyperDbg, please follow the doxygen guides in source code.
+If you want to create a pull request and contribute to HyperDbg, please follow the doxygen guides in source code.
 
 We follow the Javadoc syntax to mark comment blocks. 
 

@@ -44,7 +44,7 @@ AVX512ER not supported
 
 ### IOCTL
 
-This function is completely a user-mode function. There is not kernel IOCTL for it.
+This function is completely a user-mode function. There is no kernel IOCTL for it.
 
 ### Remarks
 
