@@ -26,7 +26,7 @@ If `lbr_save()` is called more than once on the same core, the previously saved 
 
 ### Return value
 
-None
+Returns **1** if the LBR entries were saved successfully, or **0** if the operation failed (e.g., LBR was not initialized using the '[!lbr enable](https://docs.hyperdbg.org/commands/extension-commands/lbr)' command or was already disabled using '[!lbr disable](https://docs.hyperdbg.org/commands/extension-commands/lbr)').
 
 ### Examples
 
@@ -48,11 +48,17 @@ The above example enables LBR, hooks the target address in process with PID **0x
 
 The support for this function is added from **v0.19**.
 
-Before calling this function, you need to enable the Last Branch Record using the '[!lbr](https://docs.hyperdbg.org/commands/extension-commands/lbr)' command.
+This function requires LBR to be active. It will return **0** and perform no operation if LBR was never started with '[!lbr enable](https://docs.hyperdbg.org/commands/extension-commands/lbr)' or has already been stopped with '[!lbr disable](https://docs.hyperdbg.org/commands/extension-commands/lbr)'.
 
 ### Related
 
-[lbr\_print](https://docs.hyperdbg.org/commands/scripting-language/functions/tracing/lbr_print)
+[lbr\_print](https://docs.hyperdbg.org/commands/scripting-language/functions/tracing/lbr/lbr_print)
+
+[lbr\_check](https://docs.hyperdbg.org/commands/scripting-language/functions/tracing/lbr/lbr_check)
+
+[lbr\_restore](https://docs.hyperdbg.org/commands/scripting-language/functions/tracing/lbr/lbr_restore)
+
+[lbr\_restore\_by\_filter](https://docs.hyperdbg.org/commands/scripting-language/functions/tracing/lbr/lbr_restore_by_filter)
 
 [!lbr (enable, disable, and configure Last Branch Record)](https://docs.hyperdbg.org/commands/extension-commands/lbr)
 
