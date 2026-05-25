@@ -179,9 +179,14 @@ HyperDbg> !lbrdump core 9
          [31] Branch Mispredicted: false, Branch type: RET          , Cycle Count (Decimal): 0075 (is valid? true ) - From: fffff802ec6a8634  To: fffff802ec2e0900
 ```
 
-### IOCTL
+### SDK
 
-None
+To perform LBR dump functionality, you need to use the following function in `libhyperdbg`:
+
+```clike
+BOOLEAN
+hyperdbg_u_lbr_dump(HYPERTRACE_LBR_DUMP_PACKETS * LbrdumpRequest);
+```
 
 ### Remarks
 

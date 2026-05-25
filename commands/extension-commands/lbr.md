@@ -39,19 +39,19 @@ The target functionality. Can be one of the following values:
 
 One or more filter options to configure which branch types are **not** captured. If no option is specified, everything is captured (default). Can be a combination of the following values:
 
-| Option           | Description                                                                                                                                                                                                                                                    |
-| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| kernel           | Do not capture at ring 0                                                                                                                                                                                                                                       |
-| user             | Do not capture at ring > 0                                                                                                                                                                                                                                     |
-| jcc              | Do not capture conditional branches                                                                                                                                                                                                                            |
-| rel\_call        | Do not capture relative calls                                                                                                                                                                                                                                  |
-| ind\_call        | Do not capture indirect calls                                                                                                                                                                                                                                  |
-| return           | Do not capture near returns                                                                                                                                                                                                                                    |
-| ind\_jmp         | Do not capture indirect jumps                                                                                                                                                                                                                                  |
-| rel\_jmp         | Do not capture relative jumps                                                                                                                                                                                                                                  |
-| far              | Do not capture far branches (only in legacy LBR, check docs for details)                                                                                                                                                                                       |
-| other\_branches  | Do not capture jmp/call ptr\*, jmp/call m\*, ret (0c8h), sys\*, interrupts, exceptions (other than debug exceptions), iret, int3, intn, into, tsx abort, eenter, eresume, eexit, aex, init, sipi, rsm (only in ARCH LBR, check docs for details)               |
-| call\_stack      | Enable LBR stack to use LIFO filtering to capture call stack profile. Not available on CPUs older than Haswell. For this option, you can only additionally specify `user` or `kernel`. It prevents all types of branches except calls and returns               |
+| Option          | Description                                                                                                                                                                                                                                       |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| kernel          | Do not capture at ring 0                                                                                                                                                                                                                          |
+| user            | Do not capture at ring > 0                                                                                                                                                                                                                        |
+| jcc             | Do not capture conditional branches                                                                                                                                                                                                               |
+| rel\_call       | Do not capture relative calls                                                                                                                                                                                                                     |
+| ind\_call       | Do not capture indirect calls                                                                                                                                                                                                                     |
+| return          | Do not capture near returns                                                                                                                                                                                                                       |
+| ind\_jmp        | Do not capture indirect jumps                                                                                                                                                                                                                     |
+| rel\_jmp        | Do not capture relative jumps                                                                                                                                                                                                                     |
+| far             | Do not capture far branches (only in legacy LBR)                                                                                                                                                                                                  |
+| other\_branches | Do not capture jmp/call ptr\*, jmp/call m\*, ret (0c8h), sys\*, interrupts, exceptions (other than debug exceptions), iret, int3, intn, into, tsx abort, eenter, eresume, eexit, aex, init, sipi, rsm (only in ARCH LBR)                          |
+| call\_stack     | Enable LBR stack to use LIFO filtering to capture call stack profile. Not available on CPUs older than Haswell. For this option, you can only additionally specify `user` or `kernel`. It prevents all types of branches except calls and returns |
 
 ### Examples
 
@@ -115,7 +115,7 @@ The following command enables the call stack profile mode for kernel-mode branch
 HyperDbg> !lbr filter call_stack kernel
 ```
 
-### IOCTL
+### SDK
 
 None
 
@@ -133,13 +133,13 @@ When using the `call_stack` option, it is recommended to also specify either `us
 
 On a machine that supports Architectural LBR, there is additional information available for each branch entry, such as the branch type and whether the cycle count is valid. See the '[!lbrdump](https://docs.hyperdbg.org/commands/extension-commands/lbrdump)' command for an example of these differences.
 
-Be aware that a Debug Break (\#DB) exception can disable LBR on the affected core. This can happen when using stepping commands such as '[t](https://docs.hyperdbg.org/commands/debugging-commands/t)' (step-in), or '[p](https://docs.hyperdbg.org/commands/debugging-commands/p)', or other commands that internally rely on the trap flag (TF) or hardware debug registers (DR0–DR3). If LBR is disabled on a core as a result, you can use '[lbr\_check](https://docs.hyperdbg.org/commands/scripting-language/functions/tracing/lbr/lbr_check)' to detect the condition and '[lbr\_restore](https://docs.hyperdbg.org/commands/scripting-language/functions/tracing/lbr/lbr_restore)' or '[lbr\_restore\_by\_filter](https://docs.hyperdbg.org/commands/scripting-language/functions/tracing/lbr/lbr_restore_by_filter)' to re-enable it from within a script.
+Be aware that a Debug Break (#DB) exception can disable LBR on the affected core. This can happen when using stepping commands such as '[t](https://docs.hyperdbg.org/commands/debugging-commands/t)' (step-in), or '[p](https://docs.hyperdbg.org/commands/debugging-commands/p)', or other commands that internally rely on the trap flag (TF) or hardware debug registers (DR0–DR3). If LBR is disabled on a core as a result, you can use '[lbr\_check](https://docs.hyperdbg.org/commands/scripting-language/functions/tracing/lbr/lbr_check)' to detect the condition and '[lbr\_restore](https://docs.hyperdbg.org/commands/scripting-language/functions/tracing/lbr/lbr_restore)' or '[lbr\_restore\_by\_filter](https://docs.hyperdbg.org/commands/scripting-language/functions/tracing/lbr/lbr_restore_by_filter)' to re-enable it from within a script.
 
-If you want to prevent LBR from being masked and disabled by the processor automatically (e.g., by a \#DB), and you are using the VMM module, you can use the '[!exception](https://docs.hyperdbg.org/commands/extension-commands/exception)' command to intercept Debug Breaks (\#DB). Simply intercepting them is sufficient as the CPU will not mask LBR again. For example, the following event command prevents LBR from being disabled:
+If you want to prevent LBR from being masked and disabled by the processor automatically (e.g., by a #DB), and you are using the VMM module, you can use the '[!exception](https://docs.hyperdbg.org/commands/extension-commands/exception)' command to intercept Debug Breaks (#DB). Simply intercepting them is sufficient as the CPU will not mask LBR again. For example, the following event command prevents LBR from being disabled:
 
-```
+```c
 !exception 1 script {
-	printf("- process id: %x (name: %s) tried to disable LBR using a #DB at: %llx (core id: %x) and it is ignored\n", $pid, $pname, @rip, $core);
+	printf("Process ID: %x (name: %s) tried to disable LBR using a #DB at: %llx (core id: %x) and it is ignored\n", $pid, $pname, @rip, $core);
 }
 ```
 
