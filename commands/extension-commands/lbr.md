@@ -123,7 +123,11 @@ None
 
 Starting from **v0.19**, this command was added to the HyperDbg debugger.
 
-Intel processors support two LBR implementations. **Legacy LBR** uses model-specific registers (MSRs) and is available on processors up to and including the **11th generation**. **Architectural LBR (ARCH LBR)** was introduced starting from the **12th generation** and exposes LBR as a standardized set of architectural registers.
+Check [requirements](https://docs.hyperdbg.org/commands/extension-commands/lbr#requirements) to know the differences between Legacy LBRs and Architectural (ARCH)-based LBRs.
+
+{% hint style="info" %}
+Virtual machines (nested virtualization environments) usually do not support or emulate LBR. As a result, you need a physical (bare-metal) machine to use this command.
+{% endhint %}
 
 Some filter options (e.g., `far`) are only available in Legacy LBR, while others (e.g., `other_branches`) are only available in ARCH LBR.
 
@@ -147,7 +151,9 @@ This command will continue the debuggee for some time (in Debugger Mode). This m
 
 ### Requirements
 
-None
+Intel processors support two LBR implementations. **Legacy LBR** uses model-specific registers (MSRs) and is available on processors up to and including the **11th generation**. **Architectural LBR (ARCH LBR)** was introduced starting from the **12th generation** and exposes LBR as a standardized set of architectural registers. Depending on the generation of your processor, you have different features in LBR.
+
+The `call_stack` option is not available on processors older than Haswell (4th generation).
 
 ### Related
 
