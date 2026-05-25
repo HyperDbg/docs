@@ -32,7 +32,7 @@ The following command dumps LBR entries from all cores. Note that in this case, 
 
 ```c
 HyperDbg> !lbrdump
-LBR Chronological Trace on core (decimal): 0
+LBR Chronological Trace on core: 0x0
 
          no LBR entries found for this core
          you can use the 'lbr_save();' function in the script engine
@@ -40,7 +40,7 @@ LBR Chronological Trace on core (decimal): 0
 
          ===========================================================
 
-LBR Chronological Trace on core (decimal): 1
+LBR Chronological Trace on core: 0x1
 
          no LBR entries found for this core
          you can use the 'lbr_save();' function in the script engine
@@ -48,41 +48,44 @@ LBR Chronological Trace on core (decimal): 1
 
          ===========================================================
 
-LBR Chronological Trace on core (decimal): 2
+LBR Chronological Trace on core: 0x2
 
-         [29] Branch Mispredicted: false, Cycle Count (Decimal): 001 - From: 00007ff76c3a8eea  To: 00007ff76c3a8d44
-         [30] Branch Mispredicted: false, Cycle Count (Decimal): 002 - From: 00007ff76c3a8d6a  To: 00007ff76c3a8de5
-         [31] Branch Mispredicted: false, Cycle Count (Decimal): 002 - From: 00007ff76c3a8df5  To: 00007ff76c3a8e13
-         [ 0] Branch Mispredicted: false, Cycle Count (Decimal): 005 - From: 00007ff76c3a8e25  To: 00007ff76c3a8e46
-         [ 1] Branch Mispredicted: false, Cycle Count (Decimal): 002 - From: 00007ff76c3a8e61  To: 00007ff76c3a8e8a
-         [ 2] Branch Mispredicted: false, Cycle Count (Decimal): 005 - From: 00007ff76c3a8e9f  To: 00007ff76c3a8eb1
-         [ 3] Branch Mispredicted: false, Cycle Count (Decimal): 001 - From: 00007ff76c3a8eba  To: 00007ff76c3a8eea
-         [ 4] Branch Mispredicted: false, Cycle Count (Decimal): 001 - From: 00007ff76c3a8eea  To: 00007ff76c3a8d44
-         [ 5] Branch Mispredicted: false, Cycle Count (Decimal): 002 - From: 00007ff76c3a8d6a  To: 00007ff76c3a8de5
-         [ 6] Branch Mispredicted: false, Cycle Count (Decimal): 002 - From: 00007ff76c3a8df5  To: 00007ff76c3a8e13
-         [ 7] Branch Mispredicted: false, Cycle Count (Decimal): 005 - From: 00007ff76c3a8e25  To: 00007ff76c3a8e46
-         [ 8] Branch Mispredicted: false, Cycle Count (Decimal): 002 - From: 00007ff76c3a8e61  To: 00007ff76c3a8e8a
-         [ 9] Branch Mispredicted: false, Cycle Count (Decimal): 008 - From: 00007ff76c3a8e9f  To: 00007ff76c3a8eb1
-         [10] Branch Mispredicted: false, Cycle Count (Decimal): 001 - From: 00007ff76c3a8eba  To: 00007ff76c3a8eea
-         [11] Branch Mispredicted: false, Cycle Count (Decimal): 001 - From: 00007ff76c3a8eea  To: 00007ff76c3a8d44
-         [12] Branch Mispredicted: false, Cycle Count (Decimal): 002 - From: 00007ff76c3a8d6a  To: 00007ff76c3a8de5
-         [13] Branch Mispredicted: false, Cycle Count (Decimal): 002 - From: 00007ff76c3a8df5  To: 00007ff76c3a8e13
-         [14] Branch Mispredicted: false, Cycle Count (Decimal): 008 - From: 00007ff76c3a8e25  To: 00007ff76c3a8e46
-         [15] Branch Mispredicted: false, Cycle Count (Decimal): 002 - From: 00007ff76c3a8e61  To: 00007ff76c3a8e8a
-         [16] Branch Mispredicted: false, Cycle Count (Decimal): 013 - From: 00007ff76c3a8e9f  To: 00007ff76c3a8eb1
-         [17] Branch Mispredicted: false, Cycle Count (Decimal): 001 - From: 00007ff76c3a8eba  To: 00007ff76c3a8eea
-         [18] Branch Mispredicted: false, Cycle Count (Decimal): 001 - From: 00007ff76c3a8eea  To: 00007ff76c3a8d44
-         [19] Branch Mispredicted: false, Cycle Count (Decimal): 002 - From: 00007ff76c3a8d6a  To: 00007ff76c3a8de5
-         [20] Branch Mispredicted: false, Cycle Count (Decimal): 002 - From: 00007ff76c3a8df5  To: 00007ff76c3a8e13
-         [21] Branch Mispredicted: false, Cycle Count (Decimal): 004 - From: 00007ff76c3a8e25  To: 00007ff76c3a8e46
-         [22] Branch Mispredicted: false, Cycle Count (Decimal): 002 - From: 00007ff76c3a8e61  To: 00007ff76c3a8e8a
-         [23] Branch Mispredicted: false, Cycle Count (Decimal): 004 - From: 00007ff76c3a8e9f  To: 00007ff76c3a8eb1
-         [24] Branch Mispredicted: false, Cycle Count (Decimal): 001 - From: 00007ff76c3a8eba  To: 00007ff76c3a8eea
-         [25] Branch Mispredicted: false, Cycle Count (Decimal): 001 - From: 00007ff76c3a8eea  To: 00007ff76c3a8d44
-         [26] Branch Mispredicted: true , Cycle Count (Decimal): 001 - From: 00007ff76c3a8d54  To: 00007ff76c3a8eef
-         [27] Branch Mispredicted: false, Cycle Count (Decimal): 007 - From: 00007ff76c3a8efb  To: 00007ff76c3a913e
-         [28] Branch Mispredicted: false, Cycle Count (Decimal): 015 - From: 00007ff76c3a9144  To: 00007ff76c3a2fd7
-LBR Chronological Trace on core (decimal): 3
+         [20] Branch Mispredicted: false, Cycle Count (Decimal): 0001 - From: 00007ff7808c8eba  To: 00007ff7808c8eea
+         [21] Branch Mispredicted: false, Cycle Count (Decimal): 0001 - From: 00007ff7808c8eea  To: 00007ff7808c8d44
+         [22] Branch Mispredicted: false, Cycle Count (Decimal): 0002 - From: 00007ff7808c8d6a  To: 00007ff7808c8de5
+         [23] Branch Mispredicted: false, Cycle Count (Decimal): 0004 - From: 00007ff7808c8e11  To: 00007ff7808c8e5d
+         [24] Branch Mispredicted: false, Cycle Count (Decimal): 0001 - From: 00007ff7808c8e61  To: 00007ff7808c8e8a
+         [25] Branch Mispredicted: false, Cycle Count (Decimal): 0001 - From: 00007ff7808c8e8e  To: 00007ff7808c8ebc
+         [26] Branch Mispredicted: false, Cycle Count (Decimal): 0001 - From: 00007ff7808c8ec0  To: 00007ff7808c8ecb
+         [27] Branch Mispredicted: false, Cycle Count (Decimal): 0001 - From: 00007ff7808c8ecf  To: 00007ff7808c8ee1
+         [28] Branch Mispredicted: false, Cycle Count (Decimal): 0001 - From: 00007ff7808c8eea  To: 00007ff7808c8d44
+         [29] Branch Mispredicted: false, Cycle Count (Decimal): 0002 - From: 00007ff7808c8d6a  To: 00007ff7808c8de5
+         [30] Branch Mispredicted: false, Cycle Count (Decimal): 0004 - From: 00007ff7808c8e11  To: 00007ff7808c8e5d
+         [31] Branch Mispredicted: false, Cycle Count (Decimal): 0001 - From: 00007ff7808c8e61  To: 00007ff7808c8e8a
+         [ 0] Branch Mispredicted: false, Cycle Count (Decimal): 0001 - From: 00007ff7808c8e8e  To: 00007ff7808c8ebc
+         [ 1] Branch Mispredicted: false, Cycle Count (Decimal): 0001 - From: 00007ff7808c8ec0  To: 00007ff7808c8ecb
+         [ 2] Branch Mispredicted: false, Cycle Count (Decimal): 0001 - From: 00007ff7808c8ecf  To: 00007ff7808c8ee1
+         [ 3] Branch Mispredicted: false, Cycle Count (Decimal): 0001 - From: 00007ff7808c8eea  To: 00007ff7808c8d44
+         [ 4] Branch Mispredicted: false, Cycle Count (Decimal): 0002 - From: 00007ff7808c8d6a  To: 00007ff7808c8de5
+         [ 5] Branch Mispredicted: false, Cycle Count (Decimal): 0004 - From: 00007ff7808c8e11  To: 00007ff7808c8e5d
+         [ 6] Branch Mispredicted: false, Cycle Count (Decimal): 0001 - From: 00007ff7808c8e61  To: 00007ff7808c8e8a
+         [ 7] Branch Mispredicted: false, Cycle Count (Decimal): 0001 - From: 00007ff7808c8e8e  To: 00007ff7808c8ebc
+         [ 8] Branch Mispredicted: false, Cycle Count (Decimal): 0001 - From: 00007ff7808c8ec0  To: 00007ff7808c8ecb
+         [ 9] Branch Mispredicted: false, Cycle Count (Decimal): 0001 - From: 00007ff7808c8ecf  To: 00007ff7808c8ee1
+         [10] Branch Mispredicted: false, Cycle Count (Decimal): 0001 - From: 00007ff7808c8eea  To: 00007ff7808c8d44
+         [11] Branch Mispredicted: false, Cycle Count (Decimal): 0002 - From: 00007ff7808c8d6a  To: 00007ff7808c8de5
+         [12] Branch Mispredicted: false, Cycle Count (Decimal): 0004 - From: 00007ff7808c8e11  To: 00007ff7808c8e5d
+         [13] Branch Mispredicted: false, Cycle Count (Decimal): 0001 - From: 00007ff7808c8e61  To: 00007ff7808c8e8a
+         [14] Branch Mispredicted: false, Cycle Count (Decimal): 0023 - From: 00007ff7808c8e9f  To: 00007ff7808c8eb1
+         [15] Branch Mispredicted: false, Cycle Count (Decimal): 0001 - From: 00007ff7808c8eba  To: 00007ff7808c8eea
+         [16] Branch Mispredicted: false, Cycle Count (Decimal): 0001 - From: 00007ff7808c8eea  To: 00007ff7808c8d44
+         [17] Branch Mispredicted: true , Cycle Count (Decimal): 0001 - From: 00007ff7808c8d54  To: 00007ff7808c8eef
+         [18] Branch Mispredicted: false, Cycle Count (Decimal): 0001 - From: 00007ff7808c8efb  To: 00007ff7808c913e
+         [19] Branch Mispredicted: false, Cycle Count (Decimal): 0015 - From: 00007ff7808c9144  To: 00007ff7808c2fd7
+
+         ===========================================================
+
+LBR Chronological Trace on core: 0x3
 
          no LBR entries found for this core
          you can use the 'lbr_save();' function in the script engine
@@ -90,7 +93,7 @@ LBR Chronological Trace on core (decimal): 3
 
          ===========================================================
 
-LBR Chronological Trace on core (decimal): 4
+LBR Chronological Trace on core: 0x4
 
          no LBR entries found for this core
          you can use the 'lbr_save();' function in the script engine
@@ -104,47 +107,50 @@ The following command dumps LBR entries from core **0x2**.
 
 ```c
 HyperDbg> !lbrdump core 2
-LBR Chronological Trace on core (decimal): 2
+LBR Chronological Trace on core: 0x2
 
-         [29] Branch Mispredicted: false, Cycle Count (Decimal): 001 - From: 00007ff76c3a8eea  To: 00007ff76c3a8d44
-         [30] Branch Mispredicted: false, Cycle Count (Decimal): 002 - From: 00007ff76c3a8d6a  To: 00007ff76c3a8de5
-         [31] Branch Mispredicted: false, Cycle Count (Decimal): 002 - From: 00007ff76c3a8df5  To: 00007ff76c3a8e13
-         [ 0] Branch Mispredicted: false, Cycle Count (Decimal): 005 - From: 00007ff76c3a8e25  To: 00007ff76c3a8e46
-         [ 1] Branch Mispredicted: false, Cycle Count (Decimal): 002 - From: 00007ff76c3a8e61  To: 00007ff76c3a8e8a
-         [ 2] Branch Mispredicted: false, Cycle Count (Decimal): 005 - From: 00007ff76c3a8e9f  To: 00007ff76c3a8eb1
-         [ 3] Branch Mispredicted: false, Cycle Count (Decimal): 001 - From: 00007ff76c3a8eba  To: 00007ff76c3a8eea
-         [ 4] Branch Mispredicted: false, Cycle Count (Decimal): 001 - From: 00007ff76c3a8eea  To: 00007ff76c3a8d44
-         [ 5] Branch Mispredicted: false, Cycle Count (Decimal): 002 - From: 00007ff76c3a8d6a  To: 00007ff76c3a8de5
-         [ 6] Branch Mispredicted: false, Cycle Count (Decimal): 002 - From: 00007ff76c3a8df5  To: 00007ff76c3a8e13
-         [ 7] Branch Mispredicted: false, Cycle Count (Decimal): 005 - From: 00007ff76c3a8e25  To: 00007ff76c3a8e46
-         [ 8] Branch Mispredicted: false, Cycle Count (Decimal): 002 - From: 00007ff76c3a8e61  To: 00007ff76c3a8e8a
-         [ 9] Branch Mispredicted: false, Cycle Count (Decimal): 008 - From: 00007ff76c3a8e9f  To: 00007ff76c3a8eb1
-         [10] Branch Mispredicted: false, Cycle Count (Decimal): 001 - From: 00007ff76c3a8eba  To: 00007ff76c3a8eea
-         [11] Branch Mispredicted: false, Cycle Count (Decimal): 001 - From: 00007ff76c3a8eea  To: 00007ff76c3a8d44
-         [12] Branch Mispredicted: false, Cycle Count (Decimal): 002 - From: 00007ff76c3a8d6a  To: 00007ff76c3a8de5
-         [13] Branch Mispredicted: false, Cycle Count (Decimal): 002 - From: 00007ff76c3a8df5  To: 00007ff76c3a8e13
-         [14] Branch Mispredicted: false, Cycle Count (Decimal): 008 - From: 00007ff76c3a8e25  To: 00007ff76c3a8e46
-         [15] Branch Mispredicted: false, Cycle Count (Decimal): 002 - From: 00007ff76c3a8e61  To: 00007ff76c3a8e8a
-         [16] Branch Mispredicted: false, Cycle Count (Decimal): 013 - From: 00007ff76c3a8e9f  To: 00007ff76c3a8eb1
-         [17] Branch Mispredicted: false, Cycle Count (Decimal): 001 - From: 00007ff76c3a8eba  To: 00007ff76c3a8eea
-         [18] Branch Mispredicted: false, Cycle Count (Decimal): 001 - From: 00007ff76c3a8eea  To: 00007ff76c3a8d44
-         [19] Branch Mispredicted: false, Cycle Count (Decimal): 002 - From: 00007ff76c3a8d6a  To: 00007ff76c3a8de5
-         [20] Branch Mispredicted: false, Cycle Count (Decimal): 002 - From: 00007ff76c3a8df5  To: 00007ff76c3a8e13
-         [21] Branch Mispredicted: false, Cycle Count (Decimal): 004 - From: 00007ff76c3a8e25  To: 00007ff76c3a8e46
-         [22] Branch Mispredicted: false, Cycle Count (Decimal): 002 - From: 00007ff76c3a8e61  To: 00007ff76c3a8e8a
-         [23] Branch Mispredicted: false, Cycle Count (Decimal): 004 - From: 00007ff76c3a8e9f  To: 00007ff76c3a8eb1
-         [24] Branch Mispredicted: false, Cycle Count (Decimal): 001 - From: 00007ff76c3a8eba  To: 00007ff76c3a8eea
-         [25] Branch Mispredicted: false, Cycle Count (Decimal): 001 - From: 00007ff76c3a8eea  To: 00007ff76c3a8d44
-         [26] Branch Mispredicted: true , Cycle Count (Decimal): 001 - From: 00007ff76c3a8d54  To: 00007ff76c3a8eef
-         [27] Branch Mispredicted: false, Cycle Count (Decimal): 007 - From: 00007ff76c3a8efb  To: 00007ff76c3a913e
-         [28] Branch Mispredicted: false, Cycle Count (Decimal): 015 - From: 00007ff76c3a9144  To: 00007ff76c3a2fd7
+         [20] Branch Mispredicted: false, Cycle Count (Decimal): 0001 - From: 00007ff7808c8eba  To: 00007ff7808c8eea
+         [21] Branch Mispredicted: false, Cycle Count (Decimal): 0001 - From: 00007ff7808c8eea  To: 00007ff7808c8d44
+         [22] Branch Mispredicted: false, Cycle Count (Decimal): 0002 - From: 00007ff7808c8d6a  To: 00007ff7808c8de5
+         [23] Branch Mispredicted: false, Cycle Count (Decimal): 0004 - From: 00007ff7808c8e11  To: 00007ff7808c8e5d
+         [24] Branch Mispredicted: false, Cycle Count (Decimal): 0001 - From: 00007ff7808c8e61  To: 00007ff7808c8e8a
+         [25] Branch Mispredicted: false, Cycle Count (Decimal): 0001 - From: 00007ff7808c8e8e  To: 00007ff7808c8ebc
+         [26] Branch Mispredicted: false, Cycle Count (Decimal): 0001 - From: 00007ff7808c8ec0  To: 00007ff7808c8ecb
+         [27] Branch Mispredicted: false, Cycle Count (Decimal): 0001 - From: 00007ff7808c8ecf  To: 00007ff7808c8ee1
+         [28] Branch Mispredicted: false, Cycle Count (Decimal): 0001 - From: 00007ff7808c8eea  To: 00007ff7808c8d44
+         [29] Branch Mispredicted: false, Cycle Count (Decimal): 0002 - From: 00007ff7808c8d6a  To: 00007ff7808c8de5
+         [30] Branch Mispredicted: false, Cycle Count (Decimal): 0004 - From: 00007ff7808c8e11  To: 00007ff7808c8e5d
+         [31] Branch Mispredicted: true , Cycle Count (Decimal): 0001 - From: 00007ff7808c8e61  To: 00007ff7808c8e8a
+         [ 0] Branch Mispredicted: false, Cycle Count (Decimal): 0001 - From: 00007ff7808c8e8e  To: 00007ff7808c8ebc
+         [ 1] Branch Mispredicted: false, Cycle Count (Decimal): 0001 - From: 00007ff7808c8ec0  To: 00007ff7808c8ecb
+         [ 2] Branch Mispredicted: false, Cycle Count (Decimal): 0001 - From: 00007ff7808c8ecf  To: 00007ff7808c8ee1
+         [ 3] Branch Mispredicted: false, Cycle Count (Decimal): 0001 - From: 00007ff7808c8eea  To: 00007ff7808c8d44
+         [ 4] Branch Mispredicted: false, Cycle Count (Decimal): 0002 - From: 00007ff7808c8d6a  To: 00007ff7808c8de5
+         [ 5] Branch Mispredicted: false, Cycle Count (Decimal): 0004 - From: 00007ff7808c8e11  To: 00007ff7808c8e5d
+         [ 6] Branch Mispredicted: false, Cycle Count (Decimal): 0001 - From: 00007ff7808c8e61  To: 00007ff7808c8e8a
+         [ 7] Branch Mispredicted: false, Cycle Count (Decimal): 0001 - From: 00007ff7808c8e8e  To: 00007ff7808c8ebc
+         [ 8] Branch Mispredicted: false, Cycle Count (Decimal): 0001 - From: 00007ff7808c8ec0  To: 00007ff7808c8ecb
+         [ 9] Branch Mispredicted: false, Cycle Count (Decimal): 0001 - From: 00007ff7808c8ecf  To: 00007ff7808c8ee1
+         [10] Branch Mispredicted: false, Cycle Count (Decimal): 0001 - From: 00007ff7808c8eea  To: 00007ff7808c8d44
+         [11] Branch Mispredicted: false, Cycle Count (Decimal): 0002 - From: 00007ff7808c8d6a  To: 00007ff7808c8de5
+         [12] Branch Mispredicted: false, Cycle Count (Decimal): 0004 - From: 00007ff7808c8e11  To: 00007ff7808c8e5d
+         [13] Branch Mispredicted: false, Cycle Count (Decimal): 0001 - From: 00007ff7808c8e61  To: 00007ff7808c8e8a
+         [14] Branch Mispredicted: false, Cycle Count (Decimal): 0023 - From: 00007ff7808c8e9f  To: 00007ff7808c8eb1
+         [15] Branch Mispredicted: false, Cycle Count (Decimal): 0001 - From: 00007ff7808c8eba  To: 00007ff7808c8eea
+         [16] Branch Mispredicted: false, Cycle Count (Decimal): 0001 - From: 00007ff7808c8eea  To: 00007ff7808c8d44
+         [17] Branch Mispredicted: true , Cycle Count (Decimal): 0001 - From: 00007ff7808c8d54  To: 00007ff7808c8eef
+         [18] Branch Mispredicted: false, Cycle Count (Decimal): 0001 - From: 00007ff7808c8efb  To: 00007ff7808c913e
+         [19] Branch Mispredicted: false, Cycle Count (Decimal): 0015 - From: 00007ff7808c9144  To: 00007ff7808c2fd7
+
+         ===========================================================
 ```
 
-On a machine that supports Architectural LBR, there is additional information available for each branch entry, such as the branch type and whether the cycle count is valid. For example, on an Architectural LBR machine:
+On a machine that supports **Architectural** LBR, there is additional information available for each branch entry, such as the branch type and whether the cycle count is valid. For example, on an Architectural LBR machine:
 
 ```c
 HyperDbg> !lbrdump core 9
- LBR Chronological Trace on core (decimal): 9
+LBR Chronological Trace on core: 0x9
+ 
          [ 0] Branch Mispredicted: false, Branch type: RET          , Cycle Count (Decimal): 1442 (is valid? true ) - From: fffff802ec3ef7c1  To: fffff802ec6b3126
          [ 1] Branch Mispredicted: false, Branch type: CALL Direct  , Cycle Count (Decimal): 0084 (is valid? true ) - From: fffff802ec6b3121  To: fffff802ec3ef6c0
          [ 2] Branch Mispredicted: true , Branch type: RET          , Cycle Count (Decimal): 0075 (is valid? true ) - From: fffff802ec8c3ac2  To: fffff802ec6b3055
@@ -177,13 +183,15 @@ HyperDbg> !lbrdump core 9
          [29] Branch Mispredicted: false, Branch type: RET          , Cycle Count (Decimal): 0005 (is valid? true ) - From: fffff802ecb634ab  To: fffff802ec250c8c
          [30] Branch Mispredicted: false, Branch type: RET          , Cycle Count (Decimal): 0001 (is valid? true ) - From: fffff802ec2e091c  To: fffff802ecb63528
          [31] Branch Mispredicted: false, Branch type: RET          , Cycle Count (Decimal): 0075 (is valid? true ) - From: fffff802ec6a8634  To: fffff802ec2e0900
+  
+         ===========================================================
 ```
 
 ### SDK
 
 To perform LBR dump functionality, you need to use the following function in `libhyperdbg`:
 
-```clike
+```c
 BOOLEAN
 hyperdbg_u_lbr_dump(HYPERTRACE_LBR_DUMP_PACKETS * LbrdumpRequest);
 ```
