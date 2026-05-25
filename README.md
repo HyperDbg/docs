@@ -8,7 +8,7 @@ description: A hypervisor-assisted debugger designed for analyzing, fuzzing and 
 
 HyperDbg debugger is an open-source, user-mode, and kernel-mode debugger focusing on using hardware technologies to provide new features to the debuggers’ world.
 
-![](.gitbook/assets/artboard-2.png)
+![](<.gitbook/assets/Artboard 2.png>)
 
 It is designed on top of Windows by virtualizing an already running system using Intel VT-x and Intel PT. This debugger aims not to use any APIs and software debugging mechanisms, but instead, it uses Second Layer Page Table (a.k.a. Extended Page Table or EPT) extensively to monitor both kernel and user executions.
 

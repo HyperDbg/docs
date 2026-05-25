@@ -6,7 +6,7 @@ description: The instant event mechanism in HyperDbg
 
 Starting from **v0.7** HyperDbg supports the "**instant event**" mechanism. This mechanism is mainly introduced to fix a fundamental problem of immediately applying events in the [Debugger Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#debugger-mode).
 
-Instant events addressed this issue by providing two types of events, **regular events**, and **big events**.&#x20;
+Instant events addressed this issue by providing two types of events, **regular events**, and **big events**.
 
 Through the implementation of the instant event mechanism, our aim was to make the design complexities transparent to the user by preallocating buffers and considering some pre-defined limitations. Nevertheless, if you encounter errors or limitations, this documentation is here to assist you in resolving them. If clarification is needed, feel free to ask [questions](https://t.me/HyperDbg) or engage in [discussions](https://github.com/orgs/HyperDbg/discussions).
 
@@ -22,7 +22,7 @@ Two types of events refer to the size of the buffer needed for each event.
 
 ## Regular Events
 
-Regular events are those events that need a small number of bytes for the pre-allocated buffer and once you start HyperDbg, it allocates a tens of events. HyperDbg will store buffers (for [scripts](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#script) and event [custom code](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#custom-codes)) with small sizes in these events.&#x20;
+Regular events are those events that need a small number of bytes for the pre-allocated buffer and once you start HyperDbg, it allocates a tens of events. HyperDbg will store buffers (for [scripts](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#script) and event [custom code](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#custom-codes)) with small sizes in these events.
 
 ## Big Events
 
@@ -45,7 +45,7 @@ If you don't want to encounter these limitations, you can disable the instant ev
 
 As a result of the instant events, clearing and terminating events are also applied immediately. However, once you **clear** an event or all events, HyperDbg just disables the event(s). Immediately after you continue the debuggee, HyperDbg tries to process the **clear** operation and removes the effect of the event in the system.
 
-Events are also able to call the '[event\_clear](https://docs.hyperdbg.org/commands/scripting-language/functions/events/event\_clear)' function directly from the scripts to remove other events or even the current event.
+Events are also able to call the '[event\_clear](https://docs.hyperdbg.org/commands/scripting-language/functions/events/event_clear)' function directly from the scripts to remove other events or even the current event.
 
 ## Pools & Preallocations
 
@@ -55,9 +55,9 @@ Note that, the '[prealloc](https://docs.hyperdbg.org/commands/debugging-commands
 
 ### Event Regular Buffers
 
-By default, HyperDbg allocates a couple of buffers for storing events. If you continue the debugger after applying events, then HyperDbg re-allocates more buffers to replace previously used buffers but if you want to apply many events instantly, you need to tell HyperDbg beforehand to allocate more buffers for your events.&#x20;
+By default, HyperDbg allocates a couple of buffers for storing events. If you continue the debugger after applying events, then HyperDbg re-allocates more buffers to replace previously used buffers but if you want to apply many events instantly, you need to tell HyperDbg beforehand to allocate more buffers for your events.
 
-The following command is used to tell HyperDbg to allocate buffers to store **regular** events.&#x20;
+The following command is used to tell HyperDbg to allocate buffers to store **regular** events.
 
 ```
  prealloc regular-event 10
@@ -228,7 +228,7 @@ HyperDbg cannot allocate an infinite amount of preallocated buffers and because 
 {% hint style="warning" %}
 Please note that the '[prealloc](https://docs.hyperdbg.org/commands/debugging-commands/prealloc)' command will continue the debuggee for some time (in Debugger Mode). This means that you lose the current context (registers & memory) after executing this command. So, you need to keep in mind that in case of errors, first run the '[prealloc](https://docs.hyperdbg.org/commands/debugging-commands/prealloc)' command and once you have enough buffers for your events, then apply all of your events instantly.
 
-###
+####
 {% endhint %}
 
 #### 0xc0000040
@@ -270,7 +270,7 @@ The above command tells HyperDbg to reserve big pools for 5 events.
 
 #### 0xc0000044
 
-This error indicates that the system doesn't have enough resources (RAM) to allocate the target action in the [VMI Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#vmi-mode).&#x20;
+This error indicates that the system doesn't have enough resources (RAM) to allocate the target action in the [VMI Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#vmi-mode).
 
 #### 0xc0000045
 
@@ -335,11 +335,11 @@ the requested pools are allocated and reserved
 
 #### 0xc000004b
 
-This error states that you specified a very big [safe](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#pre-allocated-buffers) buffer and HyperDbg cannot store it in the memory.  In order to fix that, you need to customize and rebuild HyperDbg. Please refer to the "**Changing Design Constants**" on this page.
+This error states that you specified a very big [safe](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/how-to-create-an-action#pre-allocated-buffers) buffer and HyperDbg cannot store it in the memory. In order to fix that, you need to customize and rebuild HyperDbg. Please refer to the "**Changing Design Constants**" on this page.
 
 #### 0xc000004c
 
-This error indicates that the system doesn't have enough resources (RAM) to allocate the safe buffers ([$buffer](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations#pseudo-registers)) in the [VMI Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#vmi-mode).&#x20;
+This error indicates that the system doesn't have enough resources (RAM) to allocate the safe buffers ([$buffer](https://docs.hyperdbg.org/commands/scripting-language/assumptions-and-evaluations#pseudo-registers)) in the [VMI Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#vmi-mode).
 
 #### 0xc000004f
 
