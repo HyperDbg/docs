@@ -10,7 +10,7 @@ In order to use HyperDbg, you have two options. You can download the [**latest c
 
 If you download compiled binary files, you can skip the **Build & Compile** section and move to the next section, otherwise, to **build** HyperDbg, you need to install the following software.
 
-**Visual Studio Community, Enterprise, or Professional 2022&#x20;**~~**or later**~~**&#x20;(Visual Studio 2026 does not yet support WDK; therefore, use VS 2022).**
+**Visual Studio Community, Enterprise, or Professional 2026**
 
 * You can download it at: \[[https://www.visualstudio.com/downloads](https://www.visualstudio.com/downloads/)]
 
@@ -127,7 +127,7 @@ If your computer has the secure boot enabled, you'll see the following error.
 
 You can disable secure boot from the BIOS. Most of the time, you should change the **secure boot** option to "**Other OSes**" that are not Windows, alternatively you [disable secure boot in VMware](https://www.youtube.com/watch?v=y3o_-AKkf-s\&ab_channel=HowToBasic).
 
-That's it all. We're good to go to the next section.&#x20;
+That's it all. We're good to go to the next section.
 
 #### Temporarily Disable DSE
 
@@ -160,9 +160,7 @@ Please note that to utilize HyperDbg in a nested-virtualization setup like VMwar
 
 **HyperDbg** and **VBS** are both hypervisors running on ring -1. These hypervisors are not compatible, and you should disable VBS (and its sub-components like HVCI, Device Guard, etc.).
 
-To check whether VBS is running on your system, type **System Information** on the start menu and click on the **System Information** app. After that, check whether the VBS is **running** or not like the below picture.&#x20;
-
-
+To check whether VBS is running on your system, type **System Information** on the start menu and click on the **System Information** app. After that, check whether the VBS is **running** or not like the below picture.
 
 ![VBS running](../.gitbook/assets/VBS-running.PNG)
 
@@ -237,7 +235,7 @@ Now, restart your computer again, then check **System Information** to verify wh
 
 ## Run & Test
 
-Congratulations, you're ready to run HyperDbg.&#x20;
+Congratulations, you're ready to run HyperDbg.
 
 From now on, you can either,
 
