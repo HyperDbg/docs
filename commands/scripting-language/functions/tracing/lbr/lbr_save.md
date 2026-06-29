@@ -48,6 +48,8 @@ The above example enables LBR, hooks the target address in process with PID **0x
 
 The support for this function is added from **v0.19**.
 
+To use this function, the trace module should be loaded using the [load](https://docs.hyperdbg.org/commands/debugging-commands/load) command (`load trace`).
+
 This function requires LBR to be active. It will return **0** and perform no operation if LBR was never started with '[!lbr enable](https://docs.hyperdbg.org/commands/extension-commands/lbr)' or has already been stopped with '[!lbr disable](https://docs.hyperdbg.org/commands/extension-commands/lbr)'.
 
 ### Related

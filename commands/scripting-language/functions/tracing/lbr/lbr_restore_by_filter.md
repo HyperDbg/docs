@@ -18,17 +18,17 @@ description: Description of the 'lbr_restore_by_filter' function in HyperDbg Scr
 
 A bitmask that specifies which branch types are **not** captured. Passing `0` captures all branch types (default behavior). Each bit in the value controls a specific filter:
 
-| Bit | Hex Value | Description                                                                                    |
-| --- | --------- | ---------------------------------------------------------------------------------------------- |
-| 0   | 0x001     | Do not capture at ring 0 (kernel)                                                              |
-| 1   | 0x002     | Do not capture at ring > 0 (user)                                                              |
-| 2   | 0x004     | Do not capture conditional branches                                                            |
-| 3   | 0x008     | Do not capture relative calls                                                                  |
-| 4   | 0x010     | Do not capture indirect calls                                                                  |
-| 5   | 0x020     | Do not capture near returns                                                                    |
-| 6   | 0x040     | Do not capture indirect jumps                                                                  |
-| 7   | 0x080     | Do not capture relative jumps                                                                  |
-| 8   | 0x100     | Do not capture far branches (Legacy LBR) / other branches (ARCH LBR)                          |
+| Bit | Hex Value | Description                                                                                       |
+| --- | --------- | ------------------------------------------------------------------------------------------------- |
+| 0   | 0x001     | Do not capture at ring 0 (kernel)                                                                 |
+| 1   | 0x002     | Do not capture at ring > 0 (user)                                                                 |
+| 2   | 0x004     | Do not capture conditional branches                                                               |
+| 3   | 0x008     | Do not capture relative calls                                                                     |
+| 4   | 0x010     | Do not capture indirect calls                                                                     |
+| 5   | 0x020     | Do not capture near returns                                                                       |
+| 6   | 0x040     | Do not capture indirect jumps                                                                     |
+| 7   | 0x080     | Do not capture relative jumps                                                                     |
+| 8   | 0x100     | Do not capture far branches (Legacy LBR) / other branches (ARCH LBR)                              |
 | 9   | 0x200     | Enable call stack mode - LIFO filtering to capture call stack profile (not available on all CPUs) |
 
 {% hint style="info" %}
@@ -41,7 +41,7 @@ Re-enables the Last Branch Record (LBR) on the **current core** with the specifi
 
 This function is similar to '[lbr\_restore](https://docs.hyperdbg.org/commands/scripting-language/functions/tracing/lbr/lbr_restore)', but instead of reusing the filter previously set by '[!lbr filter](https://docs.hyperdbg.org/commands/extension-commands/lbr)', it accepts a custom filter bitmask directly. This is useful when you need fine-grained control over which branches are captured at restore time or if you want to have different filters for different cores.
 
-This function exists because certain debug events, such as trap flag exceptions (\#DB) or hardware debug register breakpoints (DR0–DR3) can disable LBR on the core where they fire. You can use '[lbr\_check](https://docs.hyperdbg.org/commands/scripting-language/functions/tracing/lbr/lbr_check)' to detect this condition before calling this function. After restoring, execution must resume and the event must trigger again before the LBR buffer contains valid data.
+This function exists because certain debug events, such as trap flag exceptions (#DB) or hardware debug register breakpoints (DR0–DR3) can disable LBR on the core where they fire. You can use '[lbr\_check](https://docs.hyperdbg.org/commands/scripting-language/functions/tracing/lbr/lbr_check)' to detect this condition before calling this function. After restoring, execution must resume and the event must trigger again before the LBR buffer contains valid data.
 
 ### Return value
 
@@ -85,9 +85,11 @@ The following example restores LBR in call stack profiling mode restricted to us
 
 The support for this function is added from **v0.19**.
 
+To use this function, the trace module should be loaded using the [load](https://docs.hyperdbg.org/commands/debugging-commands/load) command (`load trace`).
+
 This function requires LBR to have been previously initialized with '[!lbr enable](https://docs.hyperdbg.org/commands/extension-commands/lbr)'. It will return **0** and perform no operation if LBR was never started or has already been stopped with '[!lbr disable](https://docs.hyperdbg.org/commands/extension-commands/lbr)'.
 
-Debug Break (\#DB) exceptions raised by trap flags or hardware debug registers can disable LBR on the affected core. After calling this function, execution must resume and the target event must fire again to capture valid LBR data.
+Debug Break (#DB) exceptions raised by trap flags or hardware debug registers can disable LBR on the affected core. After calling this function, execution must resume and the target event must fire again to capture valid LBR data.
 
 ### Related
 

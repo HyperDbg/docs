@@ -20,7 +20,7 @@ None
 
 Re-enables the Last Branch Record (LBR) on the **current core** using the filter options that were previously configured via the '[!lbr filter](https://docs.hyperdbg.org/commands/extension-commands/lbr)' command.
 
-This function exists because certain debug events, such as trap flag exceptions (\#DB) or hardware debug register breakpoints (DR0–DR3) can disable LBR on the core where they fire. You can use '[lbr\_check](https://docs.hyperdbg.org/commands/scripting-language/functions/tracing/lbr/lbr_check)' to detect this condition before calling this function. After restoring, execution must resume and the event must trigger again before the LBR buffer contains valid data.
+This function exists because certain debug events, such as trap flag exceptions (#DB) or hardware debug register breakpoints (DR0–DR3) can disable LBR on the core where they fire. You can use '[lbr\_check](https://docs.hyperdbg.org/commands/scripting-language/functions/tracing/lbr/lbr_check)' to detect this condition before calling this function. After restoring, execution must resume and the event must trigger again before the LBR buffer contains valid data.
 
 ### Return value
 
@@ -28,7 +28,7 @@ Returns **1** if LBR was restored successfully, or **0** if the operation failed
 
 ### Examples
 
-The following example restores LBR with the previously configured filter if it has been disabled by a \#DB event.
+The following example restores LBR with the previously configured filter if it has been disabled by a #DB event.
 
 ```c
 !lbr enable
@@ -50,9 +50,11 @@ The support for this function is added from **v0.19**.
 
 This function restores LBR using the filter configuration from the most recent '[!lbr filter](https://docs.hyperdbg.org/commands/extension-commands/lbr)' command. If you need to restore with a specific filter bitmask instead, use '[lbr\_restore\_by\_filter](https://docs.hyperdbg.org/commands/scripting-language/functions/tracing/lbr/lbr_restore_by_filter)'.
 
+To use this function, the trace module should be loaded using the [load](https://docs.hyperdbg.org/commands/debugging-commands/load) command (`load trace`).
+
 This function requires LBR to have been previously initialized with '[!lbr enable](https://docs.hyperdbg.org/commands/extension-commands/lbr)'. It will return **0** and perform no operation if LBR was never started or has already been stopped with '[!lbr disable](https://docs.hyperdbg.org/commands/extension-commands/lbr)'.
 
-Debug Break (\#DB) exceptions raised by trap flags or hardware debug registers can disable LBR on the affected core. After calling this function, execution must resume and the target event must fire again to capture valid LBR data.
+Debug Break (#DB) exceptions raised by trap flags or hardware debug registers can disable LBR on the affected core. After calling this function, execution must resume and the target event must fire again to capture valid LBR data.
 
 ### Related
 
