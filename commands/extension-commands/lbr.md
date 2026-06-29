@@ -19,6 +19,10 @@ description: Description of '!lbr' command in HyperDbg.
 Performs operations for Last Branch Record (LBR), including enabling, disabling, flushing, and configuring filters.
 
 {% hint style="info" %}
+To use this command, the trace module should be loaded using the [load](https://docs.hyperdbg.org/commands/debugging-commands/load) command (`load trace`).
+{% endhint %}
+
+{% hint style="info" %}
 To dump the LBR entries after enabling them, use the '[!lbrdump](https://docs.hyperdbg.org/commands/extension-commands/lbrdump)' command.
 {% endhint %}
 

@@ -65,7 +65,7 @@ HyperDbg> unload kd
 
 To unload the HyperDbg driver on the local machine, you need to use the following functions in `libhyperdbg` (depending on the module you want to load):
 
-```clike
+```c
 //
 // All Modules
 //
@@ -93,7 +93,7 @@ hyperdbg_u_unload_hypertrace_module();
 
 Later you can stop and uninstall (remove) the driver using the following SDK function:
 
-```clike
+```c
 INT
 hyperdbg_u_stop_kd_driver();
 

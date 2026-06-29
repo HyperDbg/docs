@@ -17,6 +17,10 @@ description: Description of '!lbrdump' command in HyperDbg.
 Dumps the Last Branch Record (LBR) entries.
 
 {% hint style="info" %}
+To use this command, the trace module should be loaded using the [load](https://docs.hyperdbg.org/commands/debugging-commands/load) command (`load trace`).
+{% endhint %}
+
+{% hint style="info" %}
 Before using this command, you need to enable the LBR using the '[!lbr](https://docs.hyperdbg.org/commands/extension-commands/lbr)' command.
 {% endhint %}
 
