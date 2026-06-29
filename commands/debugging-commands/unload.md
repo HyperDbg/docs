@@ -49,6 +49,18 @@ The following example unloads `all` modules.
 HyperDbg> unload all
 ```
 
+The following example unloads `vmm` module and removes all drivers.
+
+```
+HyperDbg> unload remove vmm
+```
+
+The following example unloads `all` modules and removes all drivers.
+
+```
+HyperDbg> unload remove all
+```
+
 The following example unloads `trace` module.
 
 ```
