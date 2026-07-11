@@ -141,3 +141,7 @@ None
 ### Related
 
 [db, dc, dd, dq (read virtual memory)](https://docs.hyperdbg.org/commands/debugging-commands/d)
+
+[!dl (traverse through linked list using physical address)](https://docs.hyperdbg.org/commands/extension-commands/dl)
+
+[!dt (display and map physical memory to structures)](https://docs.hyperdbg.org/commands/extension-commands/dt)

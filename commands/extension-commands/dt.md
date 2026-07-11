@@ -74,11 +74,11 @@ Suffix for all symbols.
 
 Specifies expansion of nested structures/unions. (default: **unnamed**)
 
-&#x20;  **none**: only the top-most type is printed.
+**none**: only the top-most type is printed.
 
-&#x20;  **unnamed**: unnamed types are nested.
+**unnamed**: unnamed types are nested.
 
-&#x20;  **all**: all types are nested.
+**all**: all types are nested.
 
 **\[output FileName (string)] (optional)**
 
@@ -153,6 +153,10 @@ None
 ### Related
 
 [dt (display and map virtual memory to structures)](https://docs.hyperdbg.org/commands/debugging-commands/dt)
+
+[!db, !dc, !dd, !dq (read physical memory)](https://docs.hyperdbg.org/commands/extension-commands/d)
+
+[!dl (traverse through linked list using physical address)](https://docs.hyperdbg.org/commands/extension-commands/dl)
 
 [struct (make structures, enums, data types from symbols)](https://docs.hyperdbg.org/commands/debugging-commands/struct)
 
