@@ -137,6 +137,7 @@
   * [!monitor (monitor read/write/execute to a range of memory)](commands/extension-commands/monitor.md)
   * [!syscall, !syscall2 (hook system-calls)](commands/extension-commands/syscall.md)
   * [!sysret, !sysret2 (hook SYSRET instruction execution)](commands/extension-commands/sysret.md)
+  * [!pt (tracing code coverage and executed instructions)](commands/extension-commands/pt.md)
   * [!mode (detect kernel-to-user and user-to-kernel transitions)](commands/extension-commands/mode.md)
   * [!cpuid (hook CPUID instruction execution)](commands/extension-commands/cpuid.md)
   * [!msrread (hook RDMSR instruction execution)](commands/extension-commands/msrread.md)
