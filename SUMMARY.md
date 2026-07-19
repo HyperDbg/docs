@@ -171,6 +171,7 @@
   * [Casting & Inclusion](commands/scripting-language/casting-and-inclusion.md)
   * [Conditionals & Loops](commands/scripting-language/conditionals-and-loops.md)
   * [Constants & Functions](commands/scripting-language/constants-and-functions.md)
+  * [Structures & Arrays](commands/scripting-language/structures-and-arrays.md)
   * [Debugger Script (DS)](commands/scripting-language/debugger-script.md)
   * [Examples](commands/scripting-language/examples/README.md)
     * [view system state (registers, memory, variables)](commands/scripting-language/examples/view-system-state.md)
