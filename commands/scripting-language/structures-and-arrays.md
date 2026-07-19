@@ -101,7 +101,7 @@ HyperDbg also supports arrays within scripts.
 
 The following statements are used for initializing arrays.
 
-```clike
+```c
 int t1 [3] = {0};
 ```
 
@@ -109,13 +109,13 @@ int t1 [3] = {0};
 
 The following example shows how to assign constant values to an array.
 
-```clike
+```c
 int t1 [6] = {1,2,3,4,5,6};
 ```
 
 You can also assign variables to an array.
 
-```clike
+```c
 t44 = 55;
 int t1[6] = {1,2,3,t44,5,6};
 ```
@@ -126,7 +126,7 @@ There are two ways you can read each array item: first, by using its index, or b
 
 By using its index:
 
-```clike
+```c
 int t1[6] = {1,2,3,4,5,6};
 
 for (i = 0; i < 6 ; i++){
@@ -136,7 +136,7 @@ for (i = 0; i < 6 ; i++){
 
 By directly reading it from memory:
 
-```clike
+```c
 int t1[6] = {1,2,3,4,5,6};
 
 for( i = 0; i < 6 ; i++){
@@ -148,7 +148,7 @@ for( i = 0; i < 6 ; i++){
 
 Multidimensional arrays are defined as follows.
 
-```clike
+```c
 int t1 [3][3] = {{1,2,3},{4,5,6},{7,8,9}};
 
 printf("%d\n",t1[0][0]); // prints 1
@@ -166,8 +166,8 @@ printf("%d\n",t1[2][2]); // prints 9
 
 or another example with more dimensions:
 
-```clike
+```c
 int t1 [3][3][3] = {{1,2,3,4},{4,5,6,4},{7,8,9,4}};
 
-printf("%d\n",t1[0][0][3]); // prints 4
+printf("%d\n", t1[0][0][3]); // prints 4
 ```

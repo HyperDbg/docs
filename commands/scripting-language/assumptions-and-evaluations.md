@@ -50,7 +50,7 @@ The following operators are supported on the script engine.
 
 ### Operator Precedence/Priority (Boolean Expressions)
 
-<table><thead><tr><th width="213">Operator</th><th>Description</th></tr></thead><tbody><tr><td>( )</td><td>Parentheses</td></tr><tr><td>- + ~ * &#x26;</td><td>Unary Operators (Unary negative, Unary positive, Bitwise not, Reference, Address of)</td></tr><tr><td>/ % *</td><td>Arithmetic Operators (Division, Modulo, Multiplication)</td></tr><tr><td>+ -</td><td>Arithmetic Operators (Addition, Subtration)</td></tr><tr><td>&#x3C;&#x3C; >></td><td>Shift Operators (Right shift, Left shift)</td></tr><tr><td>>= &#x3C; > &#x3C;= ==  !=</td><td>Comparison operators</td></tr><tr><td>&#x26;</td><td>Bitwise AND Operator</td></tr><tr><td>^</td><td>Bitwise XOR Operator (exclusive OR)</td></tr><tr><td>|</td><td>Bitwise OR Operator</td></tr><tr><td>&#x26;&#x26;</td><td>Logical AND</td></tr><tr><td>||</td><td>Logical OR</td></tr></tbody></table>
+<table><thead><tr><th width="213">Operator</th><th>Description</th></tr></thead><tbody><tr><td>( )</td><td>Parentheses</td></tr><tr><td>- + ~ * &#x26;</td><td>Unary Operators (Unary negative, Unary positive, Bitwise not, Reference, Address of)</td></tr><tr><td>/ % *</td><td>Arithmetic Operators (Division, Modulo, Multiplication)</td></tr><tr><td>+ -</td><td>Arithmetic Operators (Addition, Subtration)</td></tr><tr><td>&#x3C;&#x3C; >></td><td>Shift Operators (Right shift, Left shift)</td></tr><tr><td>>= &#x3C; > &#x3C;= == !=</td><td>Comparison operators</td></tr><tr><td>&#x26;</td><td>Bitwise AND Operator</td></tr><tr><td>^</td><td>Bitwise XOR Operator (exclusive OR)</td></tr><tr><td>|</td><td>Bitwise OR Operator</td></tr><tr><td>&#x26;&#x26;</td><td>Logical AND</td></tr><tr><td>||</td><td>Logical OR</td></tr></tbody></table>
 
 ## Registers
 
@@ -138,13 +138,13 @@ HyperDbg's comments are like C comments.
 
 A comment starts with a slash asterisk `/*` and ends with an asterisk slash `*/` and can be anywhere in your program. Comments can span several lines within your C program.
 
-```
+```c
 /* comment goes here */
 ```
 
 OR
 
-```
+```c
 /*
  * comment goes here
  */
@@ -152,7 +152,7 @@ OR
 
 You can create a comment on a single line.
 
-```
+```c
 // comment goes here
 ```
 

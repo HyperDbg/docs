@@ -168,7 +168,7 @@ The following compound assignments are supported.
 
 Here is an example for the compound assignment.
 
-```clike
+```c
 t1 = 1;
 t1 +=5;
 	
@@ -184,7 +184,7 @@ Multiple assignments are described as follows.
 
 For local variables:
 
-```clike
+```c
 t1 = t2 = 85;
 
 printf("t1 equals to: 0x%x\n", t1); // prints 0x85
@@ -193,7 +193,7 @@ printf("t2 equals to: 0x%x\n", t2); // prints 0x85
 
 Similarly, for global variables:
 
-```clike
+```c
 .gv1 = .gv2 = .gv3 = 85;
 
 printf("global variable gv1 equals to: 0x%x\n", .gv1); // prints 0x85
