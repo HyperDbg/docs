@@ -164,6 +164,28 @@ There are C-like [functions](https://docs.hyperdbg.org/commands/scripting-langua
 
 Special characters such as `\n` and `\t`, are used to represent special characters like newline and tab within strings. Additionally, hexadecimal representations between strings, like `"\x41\x42\x43"`, enable the inclusion of specific byte values in a character sequence.
 
+## Memory Modification
+
+Modifying memory is possible using '[eb, ed, eq](https://docs.hyperdbg.org/commands/scripting-language/functions/eb-ed-eq)' functions.
+
+`eb` modifies a single `byte`.
+
+`ed` modifies a `dword`.
+
+`eq` modifies a `qword` value.
+
+The following code edits memory (**quad-word**) at `fffff8031d44fde0` and change it to `0x12345678deadbeef`.
+
+```c
+IsEditApplied = eq(fffff8031d44fde0, 0x12345678deadbeef);
+```
+
+The following code changes a **byte** to 0x90 at the location that the **@rcx** register is pointing to, then adds 0x8 to it.
+
+```c
+IsEditApplied = eb(poi(@rcx)+8, 0x90);
+```
+
 ## Functions
 
 **HyperDbg** supports multiple pre-defined [functions](https://docs.hyperdbg.org/commands/scripting-language/functions).

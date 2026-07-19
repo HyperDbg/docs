@@ -4,6 +4,89 @@ description: Description of structures and arrays
 
 # Structures & Arrays
 
+## Structures
+
+HyperDbg supports defining and using structures within scripts, similar to C structs.
+
+### Defining and Initializing a Struct
+
+Structures are defined using the `struct` keyword, and instances can be initialized with brace-enclosed values.
+
+```c
+? {
+  struct Point {
+      int x;
+      int y;
+  };
+
+  struct Point local = {0n31, 0n32};
+  printf("%d %d\n", local.x, local.y);
+}
+```
+
+### Accessing and Modifying Struct Members
+
+Struct members are accessed using the dot (`.`) operator. They can be read and modified like regular variables.
+
+```c
+? {
+  struct Point {
+      int x;
+      int y;
+  };
+
+  struct Point local = {0n31, 0n32};
+  printf("%d %d\n", local.x, local.y);
+
+  local.x += 5;
+  local.y = 1 + local.y;
+  printf("%d %d\n", local.x, local.y);
+}
+```
+
+The above example prints:
+
+```
+31 32
+36 33
+```
+
+### Pointers to Structs (Arrow Operator)
+
+You can take the address of a struct instance using `&` and access its members via a pointer using the arrow (`->`) operator.
+
+```c
+? {
+  struct ArrowNestedValue {
+      int value;
+  };
+
+  struct ArrowNestedContainer {
+      struct ArrowNestedValue nested;
+  };
+
+  struct ArrowNestedContainer arrow_nested;
+  struct ArrowNestedContainer *arrow_nested_pointer;
+  arrow_nested_pointer = &arrow_nested;
+  arrow_nested_pointer->nested.value = 0n50;
+
+  if (arrow_nested.nested.value == 0n50 &&
+      arrow_nested_pointer->nested.value == 0n50) {
+      printf("%d\n", arrow_nested_pointer->nested.value);
+  }
+}
+```
+
+The above example prints:
+
+```
+50
+```
+
+### Nested Structs
+
+As shown in the pointer example above, structs can be nested — a struct may contain another struct as a member field. Both dot (`.`) and arrow (`->`) operators can be chained to reach deeply nested members (e.g., `arrow_nested_pointer->nested.value`).
+
 ## Arrays
 
 HyperDbg also supports arrays within scripts.
@@ -81,26 +164,4 @@ or another example with more dimensions:
 int t1 [3][3][3] = {{1,2,3,4},{4,5,6,4},{7,8,9,4}};
 
 printf("%d\n",t1[0][0][3]); // prints 4
-```
-
-## Modify Memory
-
-Modifying memory is possible using '[eb, ed, eq](https://docs.hyperdbg.org/commands/scripting-language/functions/eb-ed-eq)' functions.
-
-`eb` modifies a single `byte`.
-
-`ed` modifies a `dword`.
-
-`eq` modifies a `qword` value.
-
-The following code edits memory (**quad-word**) at `fffff8031d44fde0` and change it to `0x12345678deadbeef`.
-
-```c
-IsEditApplied = eq(fffff8031d44fde0, 0x12345678deadbeef);
-```
-
-The following code changes a **byte** to 0x90 at the location that the **@rcx** register is pointing to, then adds 0x8 to it.
-
-```c
-IsEditApplied = eb(poi(@rcx)+8, 0x90);
 ```
