@@ -24,6 +24,12 @@ Structures are defined using the `struct` keyword, and instances can be initiali
 }
 ```
 
+The above example prints:
+
+```
+31 32
+```
+
 ### Accessing and Modifying Struct Members
 
 Struct members are accessed using the dot (`.`) operator. They can be read and modified like regular variables.
@@ -85,7 +91,7 @@ The above example prints:
 
 ### Nested Structs
 
-As shown in the pointer example above, structs can be nested — a struct may contain another struct as a member field. Both dot (`.`) and arrow (`->`) operators can be chained to reach deeply nested members (e.g., `arrow_nested_pointer->nested.value`).
+As shown in the pointer example above, structs can be nested (a struct may contain another struct as a member field). Both dot (`.`) and arrow (`->`) operators can be chained to reach deeply nested members (e.g., `arrow_nested_pointer->nested.value`).
 
 ## Arrays
 
