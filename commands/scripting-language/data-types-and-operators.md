@@ -2,7 +2,7 @@
 description: Description of data types and operators
 ---
 
-# Data type & Operators
+# Data types & Operators
 
 ## Data Types
 
@@ -28,23 +28,7 @@ Output:
 x = 42, y = 100
 ```
 
-**Example 2: Integer arithmetic**
-
-```c
-? {
-    int a = 0n10;
-    int b = 0n3;
-    printf("add=%d sub=%d mul=%d div=%d mod=%d\n", a + b, a - b, a * b, a / b, a % b);
-}
-```
-
-Output:
-
-```
-add=13 sub=7 mul=30 div=3 mod=1
-```
-
-**Example 3: Integer in a loop**
+**Example 2: Integer in a loop**
 
 ```c
 ? {
@@ -238,9 +222,9 @@ Output:
 char=1
 short=2
 int=4
-long=4
+long=8
 long long=8
-struct=6
+struct=8
 ```
 
 **Example 2: sizeof with an implicit variable**
@@ -269,6 +253,5 @@ implicit variable is unsigned
 ```
 
 {% hint style="info" %}
-`sizeof` evaluates at compile time for types and at parse time for variables. It does not execute any runtime expressions — it only measures the storage size of the given type or variable.
+`sizeof` evaluates at compile time for types and at parse time for variables. It does not execute any runtime expressions - it only measures the storage size of the given type or variable.
 {% endhint %}
-
