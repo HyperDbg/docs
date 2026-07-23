@@ -177,8 +177,44 @@ The following example shows the result of `CPUID` with `EAX=1` (version and feat
 
 The following example uses a sub-leaf. For example, `CPUID` leaf `4` with sub-leaf `2`.
 
-```diff
+```c
 1: kHyperDbg> ucpuid 4 2
+==== CPUID.(EAX=04H) Deterministic Cache Parameters ====
+
+  *******************************************************
+  *             Max NumberOfSubLeaves = 3               *
+  *******************************************************
+
+---- CPUID.(EAX=04H, ECX=2) ----
+
+-- EAX --
+
+  CacheTypeField                   = 3 (Unified Cache)
+  CacheLevel                       = 2
+  SelfInitializingCacheLevel       = TRUE
+  FullyAssociativeCache            = FALSE
+  MaxAddressableIds(LogicalProcs)  (raw) = 0 -> actual = 1 (raw + 1)
+  MaxAddressableIds(Cores)         (raw) = 7 -> actual = 8 (raw + 1)
+
+-- EBX --
+
+  SystemCoherencyLineSize          (raw) = 63 -> actual = 64 bytes (raw + 1)
+  PhysicalLinePartitions           (raw) = 0 -> actual = 1 (raw + 1)
+  WaysOfAssociativity              (raw) = 3 -> actual = 4 (raw + 1)
+
+-- ECX --
+
+  NumberOfSets                     (raw) = 1023 -> actual = 1024 (raw + 1)
+
+-- EDX --
+
+  WriteBackInvalidate              = FALSE
+  CacheInclusiveness               = FALSE
+  ComplexCacheIndexing             = FALSE (direct mapped)
+
+-- Cache Size --
+
+  Cache Size (per spec formula)    = 262144 bytes (256 KB, 0 MB)
 ```
 
 ### SDK
