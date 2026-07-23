@@ -88,6 +88,7 @@
   * [print (evaluate and print expression in debuggee)](commands/debugging-commands/print.md)
   * [lm (view loaded modules)](commands/debugging-commands/lm.md)
   * [cpu (check cpu supported technologies)](commands/debugging-commands/cpu.md)
+  * [ucpuid (execute CPUID instruction in debuggee)](commands/debugging-commands/ucpuid.md)
   * [rdmsr (read model-specific register)](commands/debugging-commands/rdmsr.md)
   * [wrmsr (write model-specific register)](commands/debugging-commands/wrmsr.md)
   * [flush (remove pending kernel buffers and messages)](commands/debugging-commands/flush.md)
