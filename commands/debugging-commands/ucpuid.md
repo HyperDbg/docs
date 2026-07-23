@@ -20,10 +20,6 @@ Executes the **CPUID** instruction on the target debuggee and displays the struc
 This command executes CPUID in the **target debuggee** (not the debugger). In local debugging mode, the debuggee and the debugger are the same machine, so the results reflect the local processor.
 {% endhint %}
 
-{% hint style="success" %}
-Starting from **HyperDbg v0.23**, this command is available.
-{% endhint %}
-
 ### Parameters
 
 **\[Function (hex)]**
@@ -44,7 +40,7 @@ Use `ucpuid 0x80000000` to see the maximum supported extended CPUID leaf.
 
 The following example shows the result of `CPUID` with `EAX=0` (vendor and maximum basic leaf).
 
-```diff
+```c
 1: kHyperDbg> ucpuid 0
   *******************************************************
   *               LEAF 0 HAS NO SUBLEAVES               *
@@ -58,7 +54,7 @@ The following example shows the result of `CPUID` with `EAX=0` (vendor and maxim
 
 The following example shows the result of `CPUID` with `EAX=0x80000000` (maximum supported extended leaf).
 
-```diff
+```c
 1: kHyperDbg> ucpuid 0x80000000
 ==== CPUID.(EAX=80000000H) Extended Function Information ====
 
@@ -87,7 +83,7 @@ The following example shows the result of `CPUID` with `EAX=0x80000000` (maximum
 
 The following example shows the result of `CPUID` with `EAX=1` (version and feature information).
 
-```diff
+```c
 1: kHyperDbg> ucpuid 0x1
 ==== CPUID.(EAX=01H) Version / Additional / Feature Information ====
 
@@ -196,6 +192,8 @@ hyperdbg_u_request_cpuid(UINT32 FunctionId, UINT32 SubFunctionId);
 
 ### Remarks
 
+Starting from HyperDbg **v0.23**, this command is available.
+
 This command is guaranteed to keep debuggee in a halt state (in Debugger Mode); thus, nothing will change during its execution.
 
 ### Requirements
@@ -207,4 +205,3 @@ None
 [cpu (check cpu supported technologies)](https://docs.hyperdbg.org/commands/debugging-commands/cpu)
 
 [!cpuid (hook CPUID instruction execution)](https://docs.hyperdbg.org/commands/extension-commands/cpuid)
-
