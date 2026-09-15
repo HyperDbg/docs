@@ -1,5 +1,7 @@
 ---
-description: Description of '!db, !dc, !dd, !dq, !dw, !da, !dds, !dps, !dqs' commands in HyperDbg.
+description: >-
+  Description of '!db, !dc, !dd, !dq, !dw, !da, !dds, !dps, !dqs' commands in
+  HyperDbg.
 ---
 
 # !db, !dc, !dd, !dq, !dw, !da, !dds, !dps, !dqs (read physical memory)
@@ -68,7 +70,7 @@ Process ID doesn't make sense in physical memory. If you specify **pid** for phy
 
 The following command is used when we want to read the content of memory at `1000` with length of `0x50` in a hex byte format.
 
-```diff
+```c
 HyperDbg> !db 1000 l 50
 #       00000000`00001000  0B 00 00 00 00 00 00 00 00 00 86 80 D3 10 02 00  ................
 #       00000000`00001010  00 06 01 01 00 00 00 00 03 01 00 00 00 00 00 00  ................
@@ -81,7 +83,7 @@ The following command is used when we want to read the content of memory after e
 
 Note that the result of `@rax+@rbx` is `0x1000` in this case.
 
-```diff
+```c
 HyperDbg> !db @rax+@rbx l 50
 #       00000000`00001000  0B 00 00 00 00 00 00 00 00 00 86 80 D3 10 02 00  ................
 #       00000000`00001010  00 06 01 01 00 00 00 00 03 01 00 00 00 00 00 00  ................
@@ -92,7 +94,7 @@ HyperDbg> !db @rax+@rbx l 50
 
 The following example shows the content of memory at `1000` in a double-word value (4 bytes) and ASCII characters format.
 
-```diff
+```c
 HyperDbg> !dc 1000
 #       00000000`00001000  0000000B 00000000 80860000 000210D3  ................
 #       00000000`00001010  01010600 00000000 00000103 00000000  ................
@@ -106,14 +108,14 @@ HyperDbg> !dc 1000
 
 The following example shows the content of memory at `1000` in a double-word value (4 bytes) format with the length of `0x10`.
 
-```diff
+```c
 0: kHyperDbg> !dd 1000 l 10
 #       00000000`00001000  0000000B 00000000 80860000 000210D3
 ```
 
 The following example shows the content of memory at `1000` in a quad-word value (8 bytes) format.
 
-```diff
+```c
 0: kHyperDbg> !dq 1000
 #       00000000`00001000  00000000`0000000B 000210D3`80860000
 #       00000000`00001010  00000000`01010600 00000000`00000103
@@ -127,31 +129,31 @@ The following example shows the content of memory at `1000` in a quad-word value
 
 The following example shows the content of physical memory at `1000` in a Word values (2 bytes) format.
 
-```diff
+```c
 0: kHyperDbg> !dw 1000
 ```
 
 The following example shows the content of physical memory at `100000` as a printable ASCII (null-terminated) string.
 
-```diff
+```c
 0: kHyperDbg> !da 100000
 ```
 
 The following example shows the content of physical memory at `1000` in a Double-word values (4 bytes) format, with each value resolved to a symbol name where possible.
 
-```diff
+```c
 0: kHyperDbg> !dds 1000
 ```
 
 The following example shows the content of physical memory at `1000` in pointer-sized values (8 bytes) format, with each value resolved to a symbol name where possible.
 
-```diff
+```c
 0: kHyperDbg> !dps 1000
 ```
 
 The following example shows the content of physical memory at `100000` in a Quad-word values (8 bytes) format, with each value resolved to a symbol name where possible.
 
-```diff
+```c
 0: kHyperDbg> !dqs 100000
 ```
 
@@ -163,7 +165,7 @@ The output format for '!dw', '!da', '!dds', '!dps', and '!dqs' is the same as th
 
 To read the memory in the target debuggee, you need to use the following function in `libhyperdbg`:
 
-```clike
+```c
 VOID
 hyperdbg_u_show_memory_or_disassemble(DEBUGGER_SHOW_MEMORY_STYLE   style,
                                       UINT64                       address,
@@ -178,7 +180,7 @@ hyperdbg_u_show_memory_or_disassemble(DEBUGGER_SHOW_MEMORY_STYLE   style,
 
 Starting from HyperDbg **v0.24**, the '!dw', '!da', '!dds', '!dps', and '!dqs' commands are available.
 
-* If you don't specify the length, the default length for HyperDbg is 0x80 Bytes.
+If you don't specify the length, the default length for HyperDbg is 0x80 Bytes.
 
 HyperDbg won't remove breakpoints previously set using the '[bp](https://docs.hyperdbg.org/commands/debugging-commands/bp)' command if you're disassembling or reading the memory of a special **physical** address. However, for the virtual addresses, HyperDbg ignores breakpoints and shows the target location's real value.
 

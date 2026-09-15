@@ -42,19 +42,19 @@ The value (hex or decimal) to write to the port.
 
 The following command writes the byte `0xed` to the keyboard controller port (`0x60`).
 
-```
+```c
 HyperDbg> uout al 0x60 0xed
 ```
 
 The following command writes the word `0x004d` to COM1 (`0x3f8`).
 
-```
+```c
 HyperDbg> uout ax 0x3f8 0x004d
 ```
 
 The following command writes the double-word (4 bytes) `0x80000000` to the PCI configuration address port (`0xcf8`).
 
-```
+```c
 HyperDbg> uout eax 0xcf8 0x80000000
 ```
 
@@ -64,7 +64,7 @@ A common use case for '**uout**' and '**uin**' is accessing the **PCI Configurat
 
 You first write a 32-bit configuration-address value to `0xcf8` using '**uout**' and then read the corresponding 32-bit configuration-data value from `0xcfc` using '[uin](https://docs.hyperdbg.org/commands/debugging-commands/uin)'. The `0xcf8` value is **not** just the PCI offset; it encodes the **bus**, **device**, **function**, and **offset**:
 
-```text
+```
 31          24 23    16 15     11 10      8 7      2 1 0
 +-------------+--------+---------+---------+--------+-+
 | Enable = 1  |  Bus   | Device  | Function| Offset |0|
@@ -73,7 +73,7 @@ You first write a 32-bit configuration-address value to `0xcf8` using '**uout**'
 
 The configuration-address formula is:
 
-```text
+```
 address = 0x80000000
         | (bus      << 16)
         | (device   << 11)
@@ -83,7 +83,7 @@ address = 0x80000000
 
 For example, to read the Vendor ID and Device ID (configuration offset `0x00`) of the device at **Bus 0**, **Device 0**, **Function 0**, the `0xcf8` value is `0x80000000`.
 
-```
+```c
 2: kHyperDbg> uout eax 0xcf8 0x80000000
   port:          0x0cf8 (3320)
   register:      EAX
@@ -123,4 +123,3 @@ None
 [uin (execute I/O IN instruction in debuggee)](https://docs.hyperdbg.org/commands/debugging-commands/uin)
 
 [ucpuid (execute CPUID instruction in debuggee)](https://docs.hyperdbg.org/commands/debugging-commands/ucpuid)
-
