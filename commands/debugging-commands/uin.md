@@ -54,9 +54,7 @@ The following command reads a double-word (4 bytes) from the PCI configuration d
 HyperDbg> uin eax 0xcf8
 ```
 
-#### Reading PCI configuration space (PCI Configuration Mechanism #1)
-
-A common use case for '**uin**' and '**uout**' is accessing the **PCI Configuration Mechanism #1**, which uses I/O ports `0xcf8` (configuration address) and `0xcfc` (configuration data).
+A common use case for '**uin**' and '**uout**' is accessing the **PCI Configuration Mechanism**, which uses I/O ports `0xcf8` (configuration address) and `0xcfc` (configuration data).
 
 You first write a 32-bit configuration-address value to `0xcf8` using '[uout](https://docs.hyperdbg.org/commands/debugging-commands/uout)' and then read the corresponding 32-bit configuration-data value from `0xcfc` using '**uin**'. The `0xcf8` value is **not** just the PCI offset; it encodes the **bus**, **device**, **function**, and **offset**:
 
