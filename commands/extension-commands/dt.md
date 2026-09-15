@@ -136,7 +136,7 @@ The following command is used to map the physical address at `ac09080` to the `n
 
 ### IOCTL
 
-The **IOCTL** for this command is implemented like [!db, !dc, !dd, !dq (read physical memory)](https://docs.hyperdbg.org/commands/extension-commands/d) commands to read data from memory.
+The **IOCTL** for this command is implemented like [!db, !dc, !dd, !dq, !dw, !da, !dds, !dps, !dqs (read physical memory)](https://docs.hyperdbg.org/commands/extension-commands/d) commands to read data from memory.
 
 ### Remarks
 
@@ -154,7 +154,7 @@ None
 
 [dt (display and map virtual memory to structures)](https://docs.hyperdbg.org/commands/debugging-commands/dt)
 
-[!db, !dc, !dd, !dq (read physical memory)](https://docs.hyperdbg.org/commands/extension-commands/d)
+[!db, !dc, !dd, !dq, !dw, !da, !dds, !dps, !dqs (read physical memory)](https://docs.hyperdbg.org/commands/extension-commands/d)
 
 [!dl (traverse through linked list using physical address)](https://docs.hyperdbg.org/commands/extension-commands/dl)
 

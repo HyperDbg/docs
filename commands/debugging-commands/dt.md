@@ -242,7 +242,7 @@ HyperDbg> dt nt!_SID inline all
 
 ### IOCTL
 
-The **IOCTL** for this command is implemented like [db, dc, dd, dq (read virtual memory)](https://docs.hyperdbg.org/commands/debugging-commands/d) commands to read data from memory.
+The **IOCTL** for this command is implemented like [db, dc, dd, dq, dw, da, dds, dps, dqs (read virtual memory)](https://docs.hyperdbg.org/commands/debugging-commands/d) commands to read data from memory.
 
 ### Remarks
 
@@ -260,7 +260,7 @@ None
 
 [!dt (display and map physical memory to structures)](https://docs.hyperdbg.org/commands/extension-commands/dt)
 
-[db, dc, dd, dq (read virtual memory)](https://docs.hyperdbg.org/commands/debugging-commands/d)
+[db, dc, dd, dq, dw, da, dds, dps, dqs (read virtual memory)](https://docs.hyperdbg.org/commands/debugging-commands/d)
 
 [dl (traverse through linked list using virtual address)](https://docs.hyperdbg.org/commands/debugging-commands/dl)
 

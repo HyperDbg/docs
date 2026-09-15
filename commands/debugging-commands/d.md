@@ -1,8 +1,8 @@
 ---
-description: Description of 'db, dc, dd, dq' commands in HyperDbg.
+description: Description of 'db, dc, dd, dq, dw, da, dds, dps, dqs' commands in HyperDbg.
 ---
 
-# db, dc, dd, dq (read virtual memory)
+# db, dc, dd, dq, dw, da, dds, dps, dqs (read virtual memory)
 
 ### Command
 
@@ -13,6 +13,16 @@ description: Description of 'db, dc, dd, dq' commands in HyperDbg.
 > dd : read memory as Double-word values (4 bytes)
 >
 > dq : read memory as Quad-word values (8 bytes)
+>
+> dw : read memory as Word values (2 bytes)
+>
+> da : read memory as printable ASCII characters (null-terminated string)
+>
+> dds : read memory as Double-word values (4 bytes), with each value resolved to a symbol name (module!symbol+offset) where possible
+>
+> dps : read memory as pointer-sized values (8 bytes), with each value resolved to a symbol name (module!symbol+offset) where possible
+>
+> dqs : read memory as Quad-word values (8 bytes), with each value resolved to a symbol name (module!symbol+offset) where possible
 
 ### Syntax
 
@@ -23,10 +33,22 @@ description: Description of 'db, dc, dd, dq' commands in HyperDbg.
 > dd \[Address (hex)] \[l Length (hex)] \[pid ProcessId (hex)]
 >
 > dq \[Address (hex)] \[l Length (hex)] \[pid ProcessId (hex)]
+>
+> dw \[Address (hex)] \[l Length (hex)] \[pid ProcessId (hex)]
+>
+> da \[Address (hex)] \[l Length (hex)] \[pid ProcessId (hex)]
+>
+> dds \[Address (hex)] \[l Length (hex)] \[pid ProcessId (hex)]
+>
+> dps \[Address (hex)] \[l Length (hex)] \[pid ProcessId (hex)]
+>
+> dqs \[Address (hex)] \[l Length (hex)] \[pid ProcessId (hex)]
 
 ### Description
 
 Shows the **virtual** address memory content in hex form.
+
+The 'dw' command shows **Word** (2 bytes) values. The 'da' command shows a **printable ASCII** (null-terminated) string. The 'dds', 'dps', and 'dqs' commands show **Double-word** (4 bytes), **pointer-sized** (8 bytes), and **Quad-word** (8 bytes) values respectively, and each value is additionally resolved to a symbol name (`module!symbol+offset`) where possible.
 
 ### Parameters
 
@@ -120,6 +142,82 @@ fffff800`3ad6f070  8B480000`0038840F 8B485824`6C8B48D8
 fffff800`3ad6f080  8B485024`5C8B48C3 4130C483`48602474
 ```
 
+The following example shows the content of memory at ``fffff805`c4305880`` in a Word values (2 bytes) format.
+
+```diff
+2: kHyperDbg> dw fffff805`c4305880
+fffff805`c4305880  4218 8E6A A88B FFFF 2258 9393 A88B FFFF
+fffff805`c4305890  0000 0000 0000 0000 0000 0000 0000 0000
+fffff805`c43058a0  0000 0000 0000 0000 0000 0000 0000 0000
+fffff805`c43058b0  D1C0 C368 F805 FFFF 0000 0000 0000 0000
+fffff805`c43058c0  1D50 8E67 A88B FFFF 0000 0000 0000 0000
+fffff805`c43058d0  0000 0000 0000 0000 0000 0000 0000 0000
+fffff805`c43058e0  0000 0000 0000 0000 0000 0000 0000 0000
+fffff805`c43058f0  0000 0000 0000 0000 0000 0000 0000 0000
+```
+
+The following example shows the content of memory at `nt!Kd_DEFAULT_Mask` in a Word values (2 bytes) format with the length of `0x4`.
+
+```diff
+2: kHyperDbg> dw nt!Kd_DEFAULT_Mask l 4
+fffff805`c42663c8  0000 0000 ???? ???? ???? ???? ???? ????
+```
+
+The following example shows the content of memory at ``fffff805`c4305880`` as a printable ASCII (null-terminated) string.
+
+```diff
+2: kHyperDbg> da fffff805`c4305880
+fffff805`c4305880  .Bj.....X"......
+```
+
+The following example shows the content of memory at ``fffff805`c34da250`` in a Double-word values (4 bytes) format, with each value resolved to a symbol name where possible.
+
+```diff
+2: kHyperDbg> dds fffff805`c34da250
+fffff805`c34da250  03684A04
+fffff805`c34da254  03936A00
+fffff805`c34da258  091BF802
+fffff805`c34da25c  071E6400
+fffff805`c34da260  076EFF00
+fffff805`c34da264  05D11800
+fffff805`c34da268  076E6105
+fffff805`c34da26c  07E5C106
+```
+
+The following example shows the content of memory at `nt!ExpFirmwareTableResource` in pointer-sized values (8 bytes) format, with each value resolved to a symbol name where possible.
+
+```diff
+2: kHyperDbg> dps nt!ExpFirmwareTableResource
+fffff805`c42feac0  fffff805`c42f5060  ntkrnlmp!PsLoadedModuleResource
+fffff805`c42feac8  fffff805`c42fa680  ntkrnlmp!ExpSystemResourcesList
+fffff805`c42fead0  00000000`00000000
+fffff805`c42fead8  00000000`00000000
+fffff805`c42feae0  00000000`00000000
+fffff805`c42feae8  00000000`00000000
+```
+
+The following example shows the content of memory at ``fffff805`c42f5060`` in a Quad-word values (8 bytes) format, with each value resolved to a symbol name where possible.
+
+```diff
+2: kHyperDbg> dqs fffff805`c42f5060
+fffff805`c42f5060  fffff805`c4267bc0  ntkrnlmp!SepRmDbLock
+fffff805`c42f5068  fffff805`c42feac0  ntkrnlmp!ExpFirmwareTableResource
+fffff805`c42f5070  ffffa88b`922eb410
+fffff805`c42f5078  00000000`00000000
+fffff805`c42f5080  00000000`00000000
+fffff805`c42f5088  00000000`00000000
+fffff805`c42f5090  00000000`00000000
+fffff805`c42f5098  00000000`00000000
+fffff805`c42f50a0  00000019`00000000
+fffff805`c42f50a8  00000000`00000000
+fffff805`c42f50b0  ffffffff`00000000
+fffff805`c42f50b8  00000000`00000000
+fffff805`c42f50c0  00000000`00000000
+fffff805`c42f50c8  fffff805`c3f72fff  ntkrnlmp!ExAllocatePool3+0x92f+0x68b
+fffff805`c42f50d0  fffff805`c3f70000  ntkrnlmp!CmpPlatformSpecificField1+0xb88
+fffff805`c42f50d8  00000000`00000e70
+```
+
 ### SDK
 
 To read the memory in the target debuggee, you need to use the following function in `libhyperdbg`:
@@ -137,6 +235,8 @@ hyperdbg_u_show_memory_or_disassemble(DEBUGGER_SHOW_MEMORY_STYLE   style,
 
 ### Remarks
 
+Starting from HyperDbg **v0.24**, the 'dw', 'da', 'dds', 'dps', and 'dqs' commands are available.
+
 * If you don't specify the length, the default length for HyperDbg is 0x80 Bytes.
 
 {% hint style="warning" %}
@@ -151,7 +251,7 @@ None
 
 ### Related
 
-[!db, !dc, !dd, !dq (read physical memory)](https://docs.hyperdbg.org/commands/extension-commands/d)
+[!db, !dc, !dd, !dq, !dw, !da, !dds, !dps, !dqs (read physical memory)](https://docs.hyperdbg.org/commands/extension-commands/d)
 
 [dl (traverse through linked list using virtual address)](https://docs.hyperdbg.org/commands/debugging-commands/dl)
 

@@ -1,8 +1,8 @@
 ---
-description: Description of '!db, !dc, !dd, !dq' commands in HyperDbg.
+description: Description of '!db, !dc, !dd, !dq, !dw, !da, !dds, !dps, !dqs' commands in HyperDbg.
 ---
 
-# !db, !dc, !dd, !dq (read physical memory)
+# !db, !dc, !dd, !dq, !dw, !da, !dds, !dps, !dqs (read physical memory)
 
 ### Command
 
@@ -13,6 +13,16 @@ description: Description of '!db, !dc, !dd, !dq' commands in HyperDbg.
 > !dd : read memory as Double-word values (4 bytes)
 >
 > !dq : read memory as Quad-word values (8 bytes)
+>
+> !dw : read memory as Word values (2 bytes)
+>
+> !da : read memory as printable ASCII characters (null-terminated string)
+>
+> !dds : read memory as Double-word values (4 bytes), with each value resolved to a symbol name (module!symbol+offset) where possible
+>
+> !dps : read memory as pointer-sized values (8 bytes), with each value resolved to a symbol name (module!symbol+offset) where possible
+>
+> !dqs : read memory as Quad-word values (8 bytes), with each value resolved to a symbol name (module!symbol+offset) where possible
 
 ### Syntax
 
@@ -23,10 +33,22 @@ description: Description of '!db, !dc, !dd, !dq' commands in HyperDbg.
 > !dd \[Address (hex)] \[l Length (hex)]
 >
 > !dq \[Address (hex)] \[l Length (hex)]
+>
+> !dw \[Address (hex)] \[l Length (hex)]
+>
+> !da \[Address (hex)] \[l Length (hex)]
+>
+> !dds \[Address (hex)] \[l Length (hex)]
+>
+> !dps \[Address (hex)] \[l Length (hex)]
+>
+> !dqs \[Address (hex)] \[l Length (hex)]
 
 ### Description
 
 Shows the **physical** address memory content in hex form.
+
+The '!dw' command shows **Word** (2 bytes) values. The '!da' command shows a **printable ASCII** (null-terminated) string. The '!dds', '!dps', and '!dqs' commands show **Double-word** (4 bytes), **pointer-sized** (8 bytes), and **Quad-word** (8 bytes) values respectively, and each value is additionally resolved to a symbol name (`module!symbol+offset`) where possible.
 
 ### Parameters
 
@@ -103,6 +125,40 @@ The following example shows the content of memory at `1000` in a quad-word value
 #       00000000`00001070  00000000`00004000 00000000`00000000
 ```
 
+The following example shows the content of physical memory at `1000` in a Word values (2 bytes) format.
+
+```diff
+0: kHyperDbg> !dw 1000
+```
+
+The following example shows the content of physical memory at `100000` as a printable ASCII (null-terminated) string.
+
+```diff
+0: kHyperDbg> !da 100000
+```
+
+The following example shows the content of physical memory at `1000` in a Double-word values (4 bytes) format, with each value resolved to a symbol name where possible.
+
+```diff
+0: kHyperDbg> !dds 1000
+```
+
+The following example shows the content of physical memory at `1000` in pointer-sized values (8 bytes) format, with each value resolved to a symbol name where possible.
+
+```diff
+0: kHyperDbg> !dps 1000
+```
+
+The following example shows the content of physical memory at `100000` in a Quad-word values (8 bytes) format, with each value resolved to a symbol name where possible.
+
+```diff
+0: kHyperDbg> !dqs 100000
+```
+
+{% hint style="info" %}
+The output format for '!dw', '!da', '!dds', '!dps', and '!dqs' is the same as their virtual-memory counterparts ('[dw, da, dds, dps, dqs](https://docs.hyperdbg.org/commands/debugging-commands/d)'), except that the target address and the resulting content are read from **physical** memory.
+{% endhint %}
+
 ### SDK
 
 To read the memory in the target debuggee, you need to use the following function in `libhyperdbg`:
@@ -119,6 +175,8 @@ hyperdbg_u_show_memory_or_disassemble(DEBUGGER_SHOW_MEMORY_STYLE   style,
 ```
 
 ### Remarks
+
+Starting from HyperDbg **v0.24**, the '!dw', '!da', '!dds', '!dps', and '!dqs' commands are available.
 
 * If you don't specify the length, the default length for HyperDbg is 0x80 Bytes.
 
@@ -140,7 +198,7 @@ None
 
 ### Related
 
-[db, dc, dd, dq (read virtual memory)](https://docs.hyperdbg.org/commands/debugging-commands/d)
+[db, dc, dd, dq, dw, da, dds, dps, dqs (read virtual memory)](https://docs.hyperdbg.org/commands/debugging-commands/d)
 
 [!dl (traverse through linked list using physical address)](https://docs.hyperdbg.org/commands/extension-commands/dl)
 

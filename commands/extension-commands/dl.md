@@ -116,7 +116,7 @@ None
 
 [dl (traverse through linked list using virtual address)](https://docs.hyperdbg.org/commands/debugging-commands/dl)
 
-[!db, !dc, !dd, !dq (read physical memory)](https://docs.hyperdbg.org/commands/extension-commands/d)
+[!db, !dc, !dd, !dq, !dw, !da, !dds, !dps, !dqs (read physical memory)](https://docs.hyperdbg.org/commands/extension-commands/d)
 
 [!dt (display and map physical memory to structures)](https://docs.hyperdbg.org/commands/extension-commands/dt)
 

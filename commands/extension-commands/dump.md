@@ -66,4 +66,4 @@ None
 
 [.dump (save the virtual memory into a file)](https://docs.hyperdbg.org/commands/meta-commands/.dump)
 
-[!db, !dc, !dd, !dq (read physical memory)](https://docs.hyperdbg.org/commands/extension-commands/d)
+[!db, !dc, !dd, !dq, !dw, !da, !dds, !dps, !dqs (read physical memory)](https://docs.hyperdbg.org/commands/extension-commands/d)
