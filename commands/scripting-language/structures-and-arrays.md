@@ -171,3 +171,15 @@ int t1 [3][3][3] = {{1,2,3,4},{4,5,6,4},{7,8,9,4}};
 
 printf("%d\n", t1[0][0][3]); // prints 4
 ```
+
+### Char and Wide-Char (wchar\_t) Arrays
+
+Starting from **v0.24**, HyperDbg supports `char` and `wchar_t` arrays, which can be initialized from string and wide-string literals.
+
+```c
+? {
+  char var1[] = "123456";
+  wchar_t var2[] = L"123456";
+  printf("%d, %d \n", strlen(var1), wcslen(var2));
+}
+```

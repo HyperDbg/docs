@@ -139,6 +139,60 @@ This function calculates the nth Fibonacci number iteratively using a loop.
 }
 ```
 
+## Arrays as Function Parameters
+
+Starting from **v0.24**, HyperDbg supports arrays (including multi-dimensional arrays) as parameters to functions.
+
+In the following example, `myCalculateSum` takes a one-dimensional array along with its element count and returns the sum of its elements. `myPrintMatrix` takes a two-dimensional array along with the number of rows and prints its contents.
+
+```c
+? {
+    int myCalculateSum(int values[], int count) {
+        int sum = 0;
+
+        for (int i = 0; i < count; i++) {
+            sum += values[i];
+        }
+
+        return sum;
+    }
+
+    void myPrintMatrix(int matrix[][3], int rows) {
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < 3; j++) {
+                printf("%d ", matrix[i][j]);
+            }
+
+            printf("\n");
+        }
+    }
+
+    //
+    // One-dimensional array example
+    //
+    int values[5] = {0n10, 0n20, 0n30, 0n40, 0n50};
+    int sum = myCalculateSum(values, 5);
+
+    printf("Sum: %d\n", sum);
+
+    //
+    // Two-dimensional array example
+    //
+    int matrix[2][3];
+
+    matrix[0][0] = 1;
+    matrix[0][1] = 2;
+    matrix[0][2] = 3;
+
+    matrix[1][0] = 4;
+    matrix[1][1] = 5;
+    matrix[1][2] = 6;
+
+    printf("Matrix:\n");
+    myPrintMatrix(matrix, 2);
+}
+```
+
 ## Constants
 
 At the moment, **dslang** does not support constants but the support for these items will be added to the script-engine in future versions!
