@@ -56,7 +56,7 @@ Starting with HyperDbg
 
 You can run HyperDbg on your physical machine in the [VMI Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#vmi-mode) (local debugging), but you can't pause or step through the instruction in this execution mode. If you want to thoroughly use HyperDbg as a debugger (not as a system-log generator), you should use it with a virtual machine in the [Debugger Mode](https://docs.hyperdbg.org/using-hyperdbg/prerequisites/operation-modes#vmi-mode).
 
-HyperDbg works best with VMware Workstation Pro/Player, or VMware ESXi. VMware Workstation Pro is free to download and use.
+HyperDbg works best with VMware Workstation Pro/Player, or VMware ESXi, and KVM. VMware Workstation Pro is free to download and use.
 
 You can download VMware Workstation at: \[[https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion](https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion)]
 
@@ -156,7 +156,7 @@ For more information, please visit the main [repo](https://github.com/Mattiwatti
 
 The last step before running HyperDbg is disabling **Virtualization Based Security (VBS)**.
 
-Please note that to utilize HyperDbg in a nested-virtualization setup like VMware Workstation, ensure that VBS, Hyper-V is disabled on **both** the **host** and the **guest** machine. Although VMware Workstation and Hyper-V have become compatible, as of the document's current version, VMware Workstation's nested-virtualization feature is not supported when Hyper-V is enabled. Therefore, even if you are running two virtual machines, the **primary host** and the target **guest** debuggee must have Hyper-V disabled.
+Please note that to utilize HyperDbg in a nested-virtualization setup like VMware Workstation, or KVM, ensure that VBS, Hyper-V is disabled on **both** the **host** and the **guest** machine. Although VMware Workstation and Hyper-V have become compatible, as of the document's current version, VMware Workstation's nested-virtualization feature is not supported when Hyper-V is enabled. Therefore, even if you are running two virtual machines, the **primary host** and the target **guest** debuggee must have Hyper-V disabled.
 
 **HyperDbg** and **VBS** are both hypervisors running on ring -1. These hypervisors are not compatible, and you should disable VBS (and its sub-components like HVCI, Device Guard, etc.).
 

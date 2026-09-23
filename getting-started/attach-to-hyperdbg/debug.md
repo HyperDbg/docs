@@ -16,7 +16,7 @@ If you've attempted all the provided instructions without success, we encourage 
 
 ## Downloading VMware
 
-HyperDbg works best with VMware Workstation Player/Pro.
+HyperDbg works best with VMware Workstation Player/Pro, VMWare ESXi, and KVM.
 
 You can download VMware Workstation Player (Free Non-commercial License) at: \[[https://www.vmware.com/products/workstation-player/workstation-player-evaluation.html](https://www.vmware.com/products/workstation-player/workstation-player-evaluation.html)]
 
@@ -102,13 +102,13 @@ Most of the time, if the serial port is the only serial device that you add to t
 If you see an error for driver signature enforcement, please visit [here](https://docs.hyperdbg.org/using-hyperdbg/kernel-mode-debugging/examples/beginning/connecting-to-hyperdbg#driver-signature-enforcement-error).
 {% endhint %}
 
-Please note that HyperDbg differs from WinDbg as it requires installation in both the target virtual machine and the host. Unlike WinDbg, which only needs to be installed on the host.&#x20;
+Please note that HyperDbg differs from WinDbg as it requires installation in both the target virtual machine and the host. Unlike WinDbg, which only needs to be installed on the host.
 
 To use HyperDbg, the debugger should be started and listening on the host before connecting to it from the guest. Therefore, it is important to execute the commands on the debugger (**host**) first, and then connect to it from the debuggee (**guest**).
 
-**Done!** You successfully connected to the HyperDbg.&#x20;
+**Done!** You successfully connected to the HyperDbg.
 
-The rest of this section is for special cases like if you want to connect HyperDbg from two VMs (without running HyperDbg on the Host), possible errors that you might encounter during the setup, and solutions.&#x20;
+The rest of this section is for special cases like if you want to connect HyperDbg from two VMs (without running HyperDbg on the Host), possible errors that you might encounter during the setup, and solutions.
 
 ### **VMware Workstation (Two VMs)**
 
